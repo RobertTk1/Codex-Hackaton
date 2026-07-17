@@ -5,7 +5,7 @@
 - Give a clear recommendation and explain why during ideation, then wait for Robert's decision before building.
 - Once a decision is made and execution begins, build without repeatedly reopening it.
 - Challenge Robert's thinking constructively and surface risks without waiting to be asked; Robert makes the final call.
-- Keep routine build communication concise. Expand only for consequential or hard-to-reverse decisions.
+- Keep routine communication concise and reduce reading overhead. Summarize new material changes and their rationale, but do not repeat test output, minor decisions, or process formalities. Expand only for consequential or hard-to-reverse decisions.
 
 ## Decision and Communication Preferences
 

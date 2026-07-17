@@ -73,6 +73,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-17: Encourage time-boxed experiments while protecting a functioning golden path as the primary deliverable.
 - 2026-07-17: Require every feature handoff and optional PR to document what changed, why, and the expected outcome.
 - 2026-07-17: After verification, commit and push completed feature-branch work without separate approval; keep its open PR description and progress comments current.
+- 2026-07-17: Keep agent communication concise; summarize material changes and rationale without repeating routine tests or formalities.
 
 ## Roadmap Backlog (V2+)
 

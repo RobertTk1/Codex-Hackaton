@@ -17,7 +17,7 @@
 - During execution, implement without re-litigating settled decisions. Challenge assumptions constructively, but the project owner makes the final call.
 - Surface materially better implementations and explain why they are better, including tradeoffs and barriers. Do not flood routine work with marginal alternatives; raise options that could change user outcome, risk, delivery time, or future cost.
 - Surface risks unprompted, especially render latency/UX and scope that quietly escapes the golden path.
-- Keep build updates concise. Use full detail only for consequential, hard-to-reverse choices such as the generation provider or user-photo retention policy.
+- Keep collaboration low-overhead. Briefly summarize material changes and why they were made; handle small, reversible decisions without lengthy discussion. Do not repeat test output, routine checks, or process formalities unless they reveal a failure or affect a decision. Use full detail only for consequential, hard-to-reverse choices such as the generation provider or user-photo retention policy.
 
 ## Planning & User Outcomes
 
