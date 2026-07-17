@@ -14,6 +14,7 @@
 - Tie recommendations and implementation work to a concrete user outcome.
 - Prefer a phased, step-by-step plan with explicit tasks and a clearly stated next action.
 - Favor very fast delivery during the hackathon while preserving room for time-boxed experiments and spontaneous collaborator ideas.
+- After completing and verifying requested work on an active feature branch, commit and push it without asking Robert for another approval; keep the open PR updated and comment with what, why, and expected outcome.
 
 ## Building Priorities
 

@@ -23,6 +23,10 @@
 
 Treat `plan.md` as the living source of truth for roadmap, phases, decisions, and next actions. Read it before planning or implementation and update it whenever scope, sequencing, status, or decisions change. Break PRD requirements into small, checkable tasks; every phase and feature must state the user outcome it enables. Keep one clearly marked “Next” section so another session can resume without reconstructing context. Do not mark work complete until its acceptance criteria are met.
 
+Every completed feature handoff—and every PR when one is used—must include three concise sections: **What** changed, **Why** it was needed, and **Expected outcome** for the user or system. Make these concrete enough that another contributor can evaluate whether the implementation achieved its purpose.
+
+When verified work is complete on an active feature branch, commit and push it without waiting for a separate approval. If that branch has an open PR, update its description when scope changes and leave a concise progress comment using the same **What / Why / Expected outcome** structure. Never auto-commit secrets, known-broken work, unrelated user changes, or changes whose destination branch is uncertain.
+
 This is a monorepo. Keep deployable applications under `apps/`, shared packages under `packages/`, Supabase resources under `supabase/`, and repository-wide documentation at the root unless the implemented toolchain establishes a stronger convention.
 
 ## Fast Experiments

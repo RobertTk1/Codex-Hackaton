@@ -71,6 +71,8 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-17: V1 remains limited to the single-photo, single-garment try-on golden path.
 - 2026-07-17: Use short-lived branches and dedicated worktrees for concurrent tasks; PRs and squash merges are optional, and merged work is pruned.
 - 2026-07-17: Encourage time-boxed experiments while protecting a functioning golden path as the primary deliverable.
+- 2026-07-17: Require every feature handoff and optional PR to document what changed, why, and the expected outcome.
+- 2026-07-17: After verification, commit and push completed feature-branch work without separate approval; keep its open PR description and progress comments current.
 
 ## Roadmap Backlog (V2+)
 
