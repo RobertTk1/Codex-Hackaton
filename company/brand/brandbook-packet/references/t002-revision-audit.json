@@ -163,8 +163,8 @@
     "mockups/browser-favicon-dark.png": true,
     "mockups/x-profile.png": true,
     "mockups/linkedin-profile.png": true,
-    "mockups/tshirt.png": false,
-    "mockups/compact-mirror.png": false
+    "mockups/tshirt.png": true,
+    "mockups/compact-mirror.png": true
   },
   "revision_reason": "Owner required every application mockup to use ImageGen and browser/favicon to have separate light and dark outputs; prior deterministic browser/social plan was rejected.",
   "qa_gate": "Complete ImageGen attempt, visual QA at roughly 95%, one targeted retry, exact compositing fallback only afterward."
