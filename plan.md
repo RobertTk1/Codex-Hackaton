@@ -22,6 +22,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 **User outcome:** The planned experience is feasible, measurable, and safe enough to build.
 
+- [x] Establish the base Magic Mirror company profile and operating workspace from the product strategy.
 - [ ] Add and decompose the full PRD.
 - [ ] Define the golden-path Given/When/Then scenario and acceptance criteria.
 - [ ] Evaluate generation providers using latency, output quality, reliability, integration effort, and cost.
@@ -60,7 +61,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 ## Next
 
-1. Receive and add the full PRD.
+1. Add the full product strategy and PRD to the repository in an agreed source format.
 2. Convert it into phased requirements with user outcomes and acceptance criteria.
 3. Resolve generation-provider and photo-retention decisions before implementation depends on them.
 
@@ -74,6 +75,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-17: Require every feature handoff and optional PR to document what changed, why, and the expected outcome.
 - 2026-07-17: After verification, commit and push completed feature-branch work without separate approval; keep its open PR description and progress comments current.
 - 2026-07-17: Keep agent communication concise; summarize material changes and rationale without repeating routine tests or formalities.
+- 2026-07-17: Use the base `magic-mirror/` company workspace as operating context; treat U.S.-first geography as a reversible assumption and keep monetization hypotheses uncommitted.
 
 ## Roadmap Backlog (V2+)
 
