@@ -1,0 +1,39 @@
+{
+  "method": "Derived colors use linear interpolation in OKLab between approved Acid Dispatch anchors; values are rounded to 8-bit sRGB hex.",
+  "anchors": {
+    "acid": "#D7FF3F",
+    "deep": "#263300",
+    "pale": "#F2FFD0",
+    "ink": "#17171A",
+    "white": "#FFFFFF",
+    "cloud": "#F4F3F1",
+    "black": "#000000"
+  },
+  "scales": {
+    "acid": {
+      "50": "#F2FFD0",
+      "100": "#ECFFBA",
+      "200": "#E7FFA2",
+      "300": "#E1FF88",
+      "400": "#DCFF69",
+      "500": "#D7FF3F",
+      "600": "#A6C72C",
+      "700": "#78921B",
+      "800": "#4D610A",
+      "900": "#263300"
+    },
+    "neutral": {
+      "50": "#F4F3F1",
+      "100": "#D6D5D4",
+      "200": "#B8B8B7",
+      "300": "#9C9B9C",
+      "400": "#808081",
+      "500": "#666567",
+      "600": "#515052",
+      "700": "#3C3C3F",
+      "800": "#29292C",
+      "900": "#17171A",
+      "0": "#FFFFFF"
+    }
+  }
+}

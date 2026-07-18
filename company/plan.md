@@ -22,6 +22,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 **User outcome:** The planned experience is feasible, measurable, and safe enough to build.
 
+- [x] Establish the base Magic Mirror company profile and operating workspace from the product strategy.
 - [ ] Add and decompose the full PRD.
 - [ ] Define the golden-path Given/When/Then scenario and acceptance criteria.
 - [ ] Evaluate generation providers using latency, output quality, reliability, integration effort, and cost.
@@ -58,9 +59,21 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - [ ] Deploy to Vercel and run a production smoke test.
 - [ ] Document known limitations and demo recovery steps.
 
+### Parallel Track — Demo Identity
+
+**User outcome:** Contributors can apply one consistent hackathon identity across the product, demo, and submission materials without recreating or recoloring assets.
+
+- [x] Select the Acid Dispatch palette.
+- [x] Select wordmark concept 01 and icon concept 03.
+- [x] Approve the combined lockup with icon 03 replacing the `o` in “Mirror.”
+- [x] Generate ImageGen masters for the wordmark, combined lockup, and standalone icon.
+- [x] Export exact-color PNG, SVG, PDF, favicon, and application-size variants under `company/brand/`.
+- [x] Document usage, minimum sizes, color treatments, and reproducible export instructions.
+- [x] Complete the reusable 19-page brandbook loop and audited PDF packet under `company/brand/`.
+
 ## Next
 
-1. Receive and add the full PRD.
+1. Add the full product strategy and PRD to the repository in an agreed source format.
 2. Convert it into phased requirements with user outcomes and acceptance criteria.
 3. Resolve generation-provider and photo-retention decisions before implementation depends on them.
 
@@ -74,6 +87,16 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-17: Require every feature handoff and optional PR to document what changed, why, and the expected outcome.
 - 2026-07-17: After verification, commit and push completed feature-branch work without separate approval; keep its open PR description and progress comments current.
 - 2026-07-17: Keep agent communication concise; summarize material changes and rationale without repeating routine tests or formalities.
+- 2026-07-17: Use `company/` as the canonical home for the plan, company profile, operating memory, workflows, automations, and artifacts; treat U.S.-first geography as a reversible assumption and keep monetization hypotheses uncommitted.
+- 2026-07-18: Use the Acid Dispatch palette, concept-01 editorial wordmark, and concept-03 lens/focus icon for the hackathon identity.
+- 2026-07-18: Maintain three approved identity forms: standalone wordmark, combined lockup with the icon replacing the `o`, and standalone icon.
+- 2026-07-18: Treat ImageGen outputs as approved visual masters, then create exact-color sizes and vector paths deterministically so production exports do not drift between variants.
+- 2026-07-18: Build the brandbook as a durable, task-backed loop with page, mockup, token, PDF-render, and final-audit evidence rather than as a one-off document.
+- 2026-07-18: Generate every brand application mockup with ImageGen as a raster asset; do not use HTML/CSS, SVG, canvas, or deterministic UI rendering for mockup imagery. Browser/favicon applications require separate light and dark generated images. HTML/CSS remains valid only for the brandbook page source and non-mockup token/UI specimens.
+- 2026-07-18: Treat the Mayven 19-page packet as the page-by-page composition authority for the Magic Mirror brandbook: US Letter landscape, restrained title blocks, matching hierarchy/whitespace/density, and compact application pages above dominant raster mockups. Mayven branding, copy, colors, and travel imagery remain reference-only and must not be copied.
+- 2026-07-18: Require standardized application mockups to be recognizable from structure alone. Twitter/X, LinkedIn, and browser/favicon use distinct platform-specific ImageGen compositions; LinkedIn cannot reuse the X phone/profile layout.
+- 2026-07-18: Twitter/X application examples always pair one light-mode profile/avatar treatment with one dark-mode treatment, reversing the icon for clear contrast rather than duplicating one color treatment across both phones.
+- 2026-07-18: Accepted the reusable 19-page Magic Mirror brandbook packet after PDF-derived visual QA, a Mayven-to-Magic composition audit, and complete task/evidence verification under `company/brand/brandbook-packet/`.
 
 ## Roadmap Backlog (V2+)
 

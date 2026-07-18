@@ -1,0 +1,73 @@
+{
+  "task_id": "T003",
+  "status": "passed",
+  "reviewed_at": "2026-07-18T12:14:35Z",
+  "method": {
+    "mode": "built-in ImageGen",
+    "use_case": "product-mockup",
+    "attempts": 1,
+    "targeted_retry_used": false,
+    "compositing_fallback_used": false,
+    "source_output": "/Users/talishawhite/.codex/generated_images/019f72a6-dc1e-7a73-847c-e132cc5421b8/exec-479d53ed-8e7b-4fc2-82ae-b18f936f6175.png"
+  },
+  "inputs": [
+    {
+      "role": "exact approved Ink combined lockup",
+      "path": "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-2048px.png"
+    },
+    {
+      "role": "exact approved Acid standalone icon",
+      "path": "company/brand/exports/icon/png/transparent/acid/magic-mirror-icon-acid-1024px.png"
+    }
+  ],
+  "output": {
+    "path": "company/brand/brandbook-packet/mockups/business-card.png",
+    "format": "PNG",
+    "width_px": 1536,
+    "height_px": 1024,
+    "bytes": 2346190,
+    "sha256": "3a90c4d6aa46b7d81d146e530edd37085b85414b2079dd56dd1b00818a5d0d16"
+  },
+  "prompt": "Use case: product-mockup\nAsset type: premium business-card brandbook mockup\nPrimary request: Create one complete, photorealistic Magic Mirror business-card scene using the supplied production marks exactly.\nInput images:\n- Image 1 is the exact approved Ink combined lockup. Preserve its lettering, spacing, proportions, and the custom lens/focus icon replacing the ‘o’ in ‘Mirror.’\n- Image 2 is the exact approved Acid standalone icon. Preserve its S-curve lens shape and two focus-corner brackets.\nScene/backdrop: Two overlapping premium uncoated business cards resting on a clean Cloud #F4F3F1 studio surface.\nSubject and card designs:\n- Top/front card: solid Acid #D7FF3F stock with the exact Image 1 combined lockup printed flat in Ink #17171A, large and centered with generous margins.\n- Lower/back card: solid Ink #17171A stock with the exact Image 2 icon printed flat in Acid #D7FF3F. Add only two small lines of copy: ‘AI VIRTUAL TRY-ON’ and ‘HACKATHON PROTOTYPE • 2026’.\nStyle/medium: premium photorealistic editorial product photography; restrained fashion-magazine art direction.\nComposition/framing: landscape 3:2 frame, slightly elevated three-quarter view, cards overlap diagonally but every required mark and line of copy remains readable; generous negative space and page-ready crop.\nLighting/mood: soft editorial studio light, controlled natural shadows, tactile but minimal.\nColor palette: Cloud #F4F3F1 surface, Acid #D7FF3F, Ink #17171A only for the designed cards and artwork.\nMaterials/textures: subtle uncoated paper grain; ink should follow the card surface and perspective naturally.\nText (verbatim): ‘AI VIRTUAL TRY-ON’ and ‘HACKATHON PROTOTYPE • 2026’. The supplied lockup already says Magic Mirror; do not typeset the brand name again.\nConstraints: preserve both supplied marks at very high fidelity; no redesign, no substituted letters, no warped logo, no extra copy; physically integrate print into paper perspective and texture.\nAvoid: extra logos, unrelated marks, gradients, foil, gloss, embossing, watermarks, hands, props, excessive depth of field, illegible text, distorted logo, shadows or highlights added inside the logo artwork.",
+  "visual_qa": {
+    "review_method": "original-resolution visual inspection",
+    "logo_fidelity": {
+      "score_percent": 97,
+      "passed": true,
+      "notes": "Magic Mirror is correctly spelled; the editorial letterforms and lens-shaped custom o are recognizable and materially undistorted."
+    },
+    "icon_fidelity": {
+      "score_percent": 98,
+      "passed": true,
+      "notes": "The standalone S-curve lens and both focus-corner brackets are present and recognizable."
+    },
+    "copy_accuracy": {
+      "score_percent": 100,
+      "passed": true,
+      "notes": "Both required lines are present and legible: AI VIRTUAL TRY-ON and HACKATHON PROTOTYPE • 2026."
+    },
+    "physical_integration": {
+      "score_percent": 98,
+      "passed": true,
+      "notes": "Artwork follows card perspective and paper grain without appearing pasted on."
+    },
+    "palette_compliance": {
+      "score_percent": 97,
+      "passed": true,
+      "notes": "Designed brand layers use the approved Acid and Ink pairing on a Cloud studio surface; tonal variation is attributable to scene lighting and paper texture."
+    },
+    "stray_branding_and_watermarks": {
+      "score_percent": 100,
+      "passed": true,
+      "notes": "No unrelated logos, marks, props, or watermarks are visible."
+    },
+    "page_ready_crop": {
+      "score_percent": 100,
+      "passed": true,
+      "notes": "The 3:2 composition leaves usable Cloud negative space and keeps both cards fully readable."
+    },
+    "overall_score_percent": 98,
+    "passed": true
+  },
+  "decision": "Accepted the first complete ImageGen pass. It cleared the approximately 95% mockup gate, so the permitted targeted retry and compositing fallback were not used."
+}

@@ -1,0 +1,324 @@
+{
+  "task_id": "T010",
+  "status": "passed",
+  "verified_at": "2026-07-18T14:43:35Z",
+  "pdf": {
+    "path": "Magic-Mirror-Brandbook.pdf",
+    "bytes": 13025888,
+    "sha256": "49d8737aff4b847e00c56cacecdedb436c9dd1fe848a6f060a1fe8364def4487",
+    "page_count": 19,
+    "page_size_points": {
+      "width": 792.0,
+      "height": 612.0
+    },
+    "page_size_inches": {
+      "width": 11.0,
+      "height": 8.5
+    },
+    "page_boxes": [
+      {
+        "page": 1,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 2,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 3,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 4,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 5,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 6,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 7,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 8,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 9,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 10,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 11,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 12,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 13,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 14,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 15,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 16,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 17,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 18,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      },
+      {
+        "page": 19,
+        "width_pt": 792.0,
+        "height_pt": 612.0
+      }
+    ],
+    "expected_text_checks": 19,
+    "missing_expected_text": 0,
+    "missing_folios": 0
+  },
+  "previews": {
+    "source_count": 19,
+    "pdf_rendered_count": 19,
+    "pdf_render_dpi": 192,
+    "pdf_render_dimensions": "2112x1632",
+    "files": [
+      {
+        "page": 1,
+        "path": "pages/pdf/page-01.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 75053,
+        "sha256": "929f1b804a5ae860efb78cbad276d61698c5e1d4f753242999927541806a4415"
+      },
+      {
+        "page": 2,
+        "path": "pages/pdf/page-02.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 61743,
+        "sha256": "648274b17eabbb7c72d69ba81a76709471bfd67ea5148c71b9338596492c8652"
+      },
+      {
+        "page": 3,
+        "path": "pages/pdf/page-03.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 96396,
+        "sha256": "dab7eb3c43668ccef7dd20df7eef459ed4fcf380275faa50af71337df99092c2"
+      },
+      {
+        "page": 4,
+        "path": "pages/pdf/page-04.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 142245,
+        "sha256": "72e42e80b2d5f8320b799d9586b22bf9fe54d8bcf517fc7fdbb2da38f692f3a1"
+      },
+      {
+        "page": 5,
+        "path": "pages/pdf/page-05.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 136330,
+        "sha256": "c02533dbf377a1cb783f0b2b44663a8a63a39cd0e9fe390b5c97a2963b51cc70"
+      },
+      {
+        "page": 6,
+        "path": "pages/pdf/page-06.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 89524,
+        "sha256": "46b248e20d714b2ab93608037b0a1ec3cc02d5b32c6d0cf5f0b9435bc80c208a"
+      },
+      {
+        "page": 7,
+        "path": "pages/pdf/page-07.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 98154,
+        "sha256": "13ba9fb800a4476e20e058126cd43d405fdaaccfa65718328bf290606cb23588"
+      },
+      {
+        "page": 8,
+        "path": "pages/pdf/page-08.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 97757,
+        "sha256": "894720e3f618b3d4e4fb94c3d6a19c0f9112c683285da4d73582780a637d53d3"
+      },
+      {
+        "page": 9,
+        "path": "pages/pdf/page-09.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 106567,
+        "sha256": "1a4faf35a0c218684daa8902313cd4e130f17abb20d2d821655c205873b57cd9"
+      },
+      {
+        "page": 10,
+        "path": "pages/pdf/page-10.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 126835,
+        "sha256": "925052c306fd68eee2fb97a20b4456e28aa3b41a1af2aeb2c12c528beff6ebe5"
+      },
+      {
+        "page": 11,
+        "path": "pages/pdf/page-11.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 1882526,
+        "sha256": "784878e2de657c71108cb263661a66c71170acd93b594e148c1e99a4e6e53918"
+      },
+      {
+        "page": 12,
+        "path": "pages/pdf/page-12.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 1649520,
+        "sha256": "b9d5dceffdf7d9cb4ae6bff072d8bb18c09d763c5c4605fec608a7ce8bd85a26"
+      },
+      {
+        "page": 13,
+        "path": "pages/pdf/page-13.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 711199,
+        "sha256": "3d15449764527405c93373a52aff71d438ec8fdc1c5c601db13e9d0da90b78f8"
+      },
+      {
+        "page": 14,
+        "path": "pages/pdf/page-14.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 1002428,
+        "sha256": "5420020c4962dd7740900dff77f32775dc4705e9c6ce9ad54e9e118707eeb4fb"
+      },
+      {
+        "page": 15,
+        "path": "pages/pdf/page-15.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 986721,
+        "sha256": "beb0537c1bb11e07065add29f063d77c981b1401ffc694af8f042376b551ff61"
+      },
+      {
+        "page": 16,
+        "path": "pages/pdf/page-16.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 1561244,
+        "sha256": "5b376db7a66d0cb0b28e079a8a3a24a4ff9e431ac92035bff2ed0c505ac2ab76"
+      },
+      {
+        "page": 17,
+        "path": "pages/pdf/page-17.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 1447177,
+        "sha256": "2215f0aacbdbff7cc9dc6c87dde6a1748e0b7910fbc2c8d1ed2a6cc82e29da02"
+      },
+      {
+        "page": 18,
+        "path": "pages/pdf/page-18.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 127414,
+        "sha256": "2ac275981bbe397148a95b763bbf9ceb7d7c226ab9b87d16ea3b83a6e01411b3"
+      },
+      {
+        "page": 19,
+        "path": "pages/pdf/page-19.png",
+        "width_px": 2112,
+        "height_px": 1632,
+        "bytes": 120572,
+        "sha256": "5b4bee19013435371721fadfffcef353ff2c242954c4058d0bce41b74d2ef837"
+      }
+    ],
+    "contact_sheet": {
+      "path": "pages/contact-sheet.png",
+      "width_px": 1320,
+      "height_px": 816,
+      "bytes": 455659,
+      "sha256": "7f1b707de35f6c9962b99723a6629ef771490a25031dfbe94e26a95ec51715ff"
+    }
+  },
+  "visual_review": {
+    "method": "Full PDF-derived contact-sheet review followed by original-resolution inspection of identity, dense system, all application, accessibility, and typography pages.",
+    "contact_sheet_reviewed": true,
+    "original_resolution_pages": [
+      1,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "results": {
+      "clipped_or_overlapping_text": 0,
+      "broken_or_missing_images": 0,
+      "black_square_or_glyph_failures": 0,
+      "unreadable_tables_or_labels": 0,
+      "mockup_crop_failures": 0,
+      "header_footer_or_folio_failures": 0,
+      "section_transition_failures": 0,
+      "passed": true
+    }
+  },
+  "resolved_defects": [
+    "Updated the paused renderer from the superseded 1600x1000 editorial canvas to the approved US Letter landscape canvas and 192-DPI PDF preview dimensions.",
+    "Replaced Unicode dash glyphs in PDF-visible source text with ASCII hyphens for predictable extraction and rendering.",
+    "Moved the browser mockup crop to the top edge so both light and dark examples visibly retain the favicon, tab title, navigation controls, and address bar."
+  ],
+  "decision": "Accepted the final 19-page PDF and its PDF-derived previews. The PDF opens, every page has the expected 792x612-point US Letter landscape media box, representative text and all folios extract correctly, exactly 19 2112x1632 PDF previews and 19 source previews exist, and direct visual review found no formatting or rendering defects."
+}

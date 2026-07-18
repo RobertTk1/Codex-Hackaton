@@ -1,0 +1,250 @@
+{
+  "project": "Magic Mirror Brandbook Packet",
+  "created_at": "2026-07-18T11:52:49Z",
+  "updated_at": "2026-07-18T14:41:52Z",
+  "current_session": 14,
+  "tasks": [
+    {
+      "id": "T001",
+      "name": "Audit source assets; lock palette and typography",
+      "description": "Confirm the approved Magic Mirror marks and Acid Dispatch palette, select real display and UI/body fonts, document disallowed colors and the shade-generation method, and create base tokens.",
+      "status": "complete",
+      "depends_on": [],
+      "order": 1,
+      "spec_ref": "spec/palette-and-tokens.md",
+      "acceptance_criteria": [
+        "Approved wordmark, combined lockup, icon, favicon, and palette sources are recorded with durable repository paths.",
+        "Approved palette hex values, disallowed colors, and a documented derived-shade method are recorded.",
+        "Real display and UI/body font families are selected, with sources, licenses, local files or durable references, and fallback stacks recorded.",
+        "Base color and typography token JSON/CSS files exist under company/brand/brandbook-packet/tokens/."
+      ],
+      "verification": "manual + command review: record source paths, confirmed hex values, font files/sources, shade method, token parse results, and any blockers in notes",
+      "subtasks": [],
+      "notes": "Passed T001 audit. Verified 5 durable sources (wordmark, combined lockup, icon, simplified favicon, palette), all 7 Acid Dispatch anchors, and documented OKLab-derived scales. Locked Instrument Serif Regular/Italic for display and Space Grotesk variable 300–700 for UI/body; 3 font files and both OFL 1.1 licenses are local. Generated deterministic tokens/brand-tokens.json, tokens/brand-tokens.css, and tokens/derived-palette.json with 30 CSS color variables, 4 radius tokens, focus/state tokens, and 21 derived scale entries. Evidence: company/brand/brandbook-packet/references/source-audit.md and references/t001-audit.json.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T12:03:01Z"
+    },
+    {
+      "id": "T002",
+      "name": "Create page-by-page asset and ImageGen plan",
+      "description": "Map every one of the 19 brandbook pages to existing assets, ImageGen-created application mockups, non-mockup brandbook-page renderings, output paths, prompts, and QA criteria before mockup generation.",
+      "status": "complete",
+      "depends_on": ["T001"],
+      "order": 2,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "company/brand/brandbook-packet/asset-plan.md exists.",
+        "The plan has one row for each of the 19 pages and maps every page to its required assets.",
+        "Every mockup family has a method, exact input paths, prompt or screenshot plan, output path, and verification checklist.",
+        "The plan requires built-in ImageGen raster creation for every application mockup and reserves HTML/CSS for brandbook-page layout and non-mockup UI/token specimens."
+      ],
+      "verification": "manual review: record page-row count, planned mockup list, generation order, resolved input paths, and method counts in notes",
+      "subtasks": [],
+      "notes": "Original T002 planning audit passed before generation, but its deterministic browser/social methods were rejected by the owner on 2026-07-18 and are superseded. The revised asset-plan.md retains exactly 19 page rows, verifies 14 durable inputs including three owner-provided visual references and the high-resolution production app/favicon tile, and plans 8 final raster mockups, all created with ImageGen: business card, billboard, light browser, dark browser, X, LinkedIn, T-shirt, and compact mirror. No application mockup is planned as HTML/CSS, SVG, canvas, or deterministic UI rendering. Evidence: original references/t002-audit.json plus superseding references/t002-revision-audit.json.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T12:40:52Z"
+    },
+    {
+      "id": "T003",
+      "name": "Create business card mockup",
+      "description": "Create and visually QA a raster business card mockup using the approved Magic Mirror logo system and Acid Dispatch palette.",
+      "status": "complete",
+      "depends_on": ["T002"],
+      "order": 3,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "A non-zero raster business card mockup is saved under company/brand/brandbook-packet/mockups/.",
+        "The approved logo is recognizable, correctly spelled, materially undistorted, and physically integrated.",
+        "The mockup uses approved palette colors and contains no unrelated logos or watermarks.",
+        "Visual QA evidence and the final ImageGen prompt/method are recorded."
+      ],
+      "verification": "visual review + file check: record dimensions, bytes, prompt/method, logo fidelity, palette compliance, and final path",
+      "subtasks": [],
+      "notes": "Passed T003 visual and file audit. Generated one complete built-in ImageGen scene from the exact approved Ink combined lockup and Acid standalone icon; the first pass cleared the approximately 95% gate, so no targeted retry or compositing fallback was used. Final PNG is 1536×1024, 2,346,190 bytes, SHA-256 3a90c4d6aa46b7d81d146e530edd37085b85414b2079dd56dd1b00818a5d0d16. Original-resolution review scored overall fidelity 98%: logo 97%, icon 98%, exact copy 100%, physical integration 98%, palette 97%, no stray branding/watermark 100%, page-ready crop 100%. Evidence: company/brand/brandbook-packet/references/t003-audit.json.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T12:14:35Z"
+    },
+    {
+      "id": "T004",
+      "name": "Create billboard mockup",
+      "description": "Create and visually QA a high-visibility raster billboard mockup using approved Magic Mirror assets.",
+      "status": "complete",
+      "depends_on": ["T003"],
+      "order": 4,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "A non-zero raster billboard mockup is saved under company/brand/brandbook-packet/mockups/.",
+        "Logo and any approved visible copy are legible at brandbook page scale.",
+        "The brand layer appears physically integrated and uses only approved colors.",
+        "Visual QA evidence and the final ImageGen prompt/method are recorded."
+      ],
+      "verification": "visual review + file check: record dimensions, bytes, prompt/method, text legibility, palette compliance, and final path",
+      "subtasks": [],
+      "notes": "Passed T004 visual and file audit. Generated one complete built-in ImageGen blue-hour fashion-district billboard scene from the exact approved Acid combined lockup; the first pass cleared the approximately 95% gate, so no targeted retry or compositing fallback was used. Final PNG is 1536×1024, 2,046,774 bytes, SHA-256 2987070b37e3b6cf509e938e09f7bcc255218989ce0e94f4a2dde3a72e4511ef. Original-resolution review scored overall fidelity 99%: logo 98%, page-scale legibility 100%, exact copy 100%, physical integration 98%, palette 98%, no stray branding/watermark 100%, tone 98%, page-ready crop 100%. Evidence: company/brand/brandbook-packet/references/t004-audit.json.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T12:18:29Z"
+    },
+    {
+      "id": "T005",
+      "name": "Create light and dark ImageGen favicon/browser mockups",
+      "description": "Create separate light and dark raster browser/favicon mockups with built-in ImageGen using approved Magic Mirror assets and owner-provided visual references.",
+      "status": "complete",
+      "depends_on": ["T004"],
+      "order": 5,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "Separate non-zero light and dark browser/favicon PNG mockups are saved under company/brand/brandbook-packet/mockups/.",
+        "Both application mockups are created with built-in ImageGen, not HTML/CSS, SVG, canvas, or deterministic UI rendering.",
+        "The approved Magic Mirror favicon and combined lockup are recognizable and materially undistorted in both treatments.",
+        "Required browser copy is legible, no Mayven/blue reference branding remains, and visual QA prompts/methods are recorded."
+      ],
+      "verification": "built-in ImageGen + visual review + file check: record separate light/dark dimensions, bytes, prompts/references, logo/favicon fidelity, required copy, rejected reference-brand scan, and final paths",
+      "subtasks": [],
+      "notes": "Passed corrected T005 visual and file audit. Removed the rejected deterministic browser HTML/PNG and replaced it with separate built-in ImageGen light and dark browser/favicon raster scenes following the owner-provided composition references while excluding Mayven, cruise copy, and blue reference branding. Light output required 2 ImageGen attempts plus the permitted exact raster finishing fallback for the production favicon; final 1852x850 PNG is 1,006,337 bytes with SHA-256 fb50b0ca0958ee02ed89dbe0d7f370f5a29f44ee4b1b8a8b97247691bf44a34e. Dark output passed on ImageGen attempt 1; final 1852x850 PNG is 1,055,173 bytes with SHA-256 0668cfbbd57c86af97b341d9a49af9dd9ebcd2c060ee9b562effa86544850057. Both scored 99% overall in original-resolution visual review. Global skill and project guidelines now require ImageGen raster creation for all application mockups and separate light/dark browser images. Evidence: references/t005-audit.json and references/t002-revision-audit.json.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T12:54:01Z"
+    },
+    {
+      "id": "T006",
+      "name": "Create social profile mockups",
+      "description": "Create raster Twitter/X and LinkedIn profile device scenes with built-in ImageGen using approved icon/lockup assets and explicitly labeled hackathon-profile copy.",
+      "status": "complete",
+      "depends_on": ["T005"],
+      "order": 6,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "ImageGen-created raster Twitter/X and LinkedIn mockups are saved under company/brand/brandbook-packet/mockups/.",
+        "No social application mockup is created with HTML/CSS, SVG, canvas, or deterministic UI rendering.",
+        "Brand name and any profile copy are correctly spelled and legible.",
+        "No real account availability is implied; mockup-only handles are labeled as concepts.",
+        "Visual QA evidence and creation methods are recorded."
+      ],
+      "verification": "visual review + file check: record dimensions, bytes, method, text accuracy, palette compliance, and final paths",
+      "subtasks": [],
+      "notes": "Passed final owner-correction audit. X is now a paired light/dark built-in ImageGen scene: left/light phone uses the exact Ink icon on a White avatar surface; right/dark phone uses the exact White icon on an Ink avatar surface with restrained Acid accents. Both retain recognizable X controls and tabs. Final X is 1536x1024, 1,408,296 bytes, SHA-256 1c9606e480bda2bac2169dad0adf1fa77142a7d131de8998cf45972af3ab15b7. LinkedIn remains the accepted structurally distinct light company/Experience scene at 1536x1024, 1,373,391 bytes, SHA-256 e88a9aa55a86932fb0cb15cfa2d90f29f523d68c284ea502caf181a19ebc495b. Both use exact Magic Mirror assets and concept/not-live labels with no invented metrics, copied reference branding, unrelated marks, or watermarks. Evidence: references/t006-correction-audit.json supersedes references/t006-audit.json.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T14:06:49Z"
+    },
+    {
+      "id": "T007",
+      "name": "Create apparel and merchandise mockups",
+      "description": "Create and visually QA separate raster T-shirt and merchandise mockups using approved Magic Mirror logo/icon usage.",
+      "status": "complete",
+      "depends_on": ["T006"],
+      "order": 7,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "Non-zero ImageGen-created raster T-shirt and merchandise mockups are saved under company/brand/brandbook-packet/mockups/.",
+        "No apparel or merchandise mockup is created with HTML/CSS, SVG, canvas, or deterministic rendering.",
+        "Logo and icon usage are recognizable, correct, and physically integrated.",
+        "Only approved palette colors appear in designed brand layers.",
+        "Visual QA evidence and final ImageGen prompts/methods are recorded."
+      ],
+      "verification": "visual review + file check: record dimensions, bytes, prompts/methods, logo fidelity, palette compliance, and final paths",
+      "subtasks": [],
+      "notes": "Passed T007 visual and file audit. Created separate T-shirt and compact-mirror product photographs with built-in ImageGen using the exact approved Acid standalone icon; both independent first-pass scenes cleared the approximately 95% fidelity gate, so no targeted retry or exact compositing fallback was used. T-shirt final is 1536x1024, 2,003,268 bytes, SHA-256 b08fc71fa2c753e58dca92e3809930c45c2809c291c4fae84e0c4f36c129faa2. Compact mirror final is 1536x1024, 1,859,554 bytes, SHA-256 abad40451b3abb38cf0a5a8f8e75337f8b43be70e08ec8a4c594ca658e0765fe. Both scored 99% overall with the complete icon and both focus corners, convincing screen-print/enamel integration, approved palette colors, and no extra text, unrelated branding, people, props, or watermarks. Evidence: references/t007-audit.json.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T13:08:33Z"
+    },
+    {
+      "id": "T008",
+      "name": "Create 19-page brandbook source",
+      "description": "Create print-ready HTML/CSS source for all 19 requested pages using local brand assets and raster mockups.",
+      "status": "complete",
+      "depends_on": ["T006", "T007"],
+      "order": 8,
+      "spec_ref": "spec/page-outline.md",
+      "acceptance_criteria": [
+        "The source contains exactly 19 ordered brandbook pages matching the requested outline.",
+        "Every page references only local assets and uses consistent margins, typography, page numbers, and footer treatment.",
+        "No copied reference-brand names, unapproved logo variants, or off-palette designed UI colors appear.",
+        "All image references resolve and a source preview exists for each page."
+      ],
+      "verification": "command + manual review: record page count, resolved local assets, forbidden-term scan, palette scan, and source-preview count",
+      "subtasks": [],
+      "notes": "Passed the corrected owner-review audit. Rebuilt all 19 pages on US Letter landscape and rendered one 2112x1632 source preview per page. Preserved and mapped 19 Mayven reference pages, generated a side-by-side Mayven-to-Magic comparison sheet, resolved all 18 local image references, and embedded all eight audited ImageGen mockups including the corrected paired light/dark X scene and structurally distinct LinkedIn scene. Original-resolution inspection of pages 4, 5, 7, 8, 9, 10, 13, 14, 15, 18, and 19 found no clipping, overflow, reference drift, platform-recognition, mockup-crop, dense-content, or font failures. Evidence: references/t008-audit.json, references/t008-source-contact-sheet.png, and references/t008-mayven-comparison-contact-sheet.png.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T14:17:16Z"
+    },
+    {
+      "id": "T009",
+      "name": "Compute and embed WCAG matrix",
+      "description": "Calculate contrast ratios for useful Acid Dispatch text/background combinations, save raw data, and embed a readable compliance matrix in the brandbook.",
+      "status": "complete",
+      "depends_on": ["T008"],
+      "order": 9,
+      "spec_ref": "spec/palette-and-tokens.md",
+      "acceptance_criteria": [
+        "WCAG contrast data exists as parseable JSON under company/brand/brandbook-packet/tokens/.",
+        "Every useful approved and derived text/background pairing has a calculated ratio and normal/large-text result.",
+        "The brandbook compliance page contains the matrix and recommended pairings.",
+        "AA thresholds of 4.5:1 normal and 3.0:1 large are documented."
+      ],
+      "verification": "command review: record matrix cell count, AA-normal count, AA-large count, calculation method, and source/token paths",
+      "subtasks": [],
+      "notes": "Passed the refreshed T009 calculation, embedding, render, visual, and independent formula audit against the final US Letter source. Canonicalized 22 unique approved/derived colors and calculated all 484 ordered foreground/background combinations, including self-pairs and failures, using WCAG 2.x relative luminance. Raw parseable JSON records each ratio, normal-AA result at 4.5:1, large-AA result at 3.0:1, and status: 178 normal-AA passes, 238 large-AA passes, 60 large-only pairs, and 246 all-text failures. Page 10 embeds all 49 anchor combinations plus 8 verified normal-AA recommendations and both thresholds. Independent recalculation found 0 ratio, normal-result, large-result, or status mismatches. The final 2112x1632 preview keeps the matrix, key, recommendations, and thresholds legible with 0 clipping/overflow. Evidence: tokens/wcag-matrix.json and references/t009-audit.json.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T14:33:23Z"
+    },
+    {
+      "id": "T010",
+      "name": "Render PDF and previews",
+      "description": "Render the 19-page brandbook PDF, source page previews, and PDF-rendered previews; inspect the important pages and fix any failures.",
+      "status": "complete",
+      "depends_on": ["T009"],
+      "order": 10,
+      "spec_ref": "spec/pdf-production.md",
+      "acceptance_criteria": [
+        "company/brand/brandbook-packet/Magic-Mirror-Brandbook.pdf exists, opens, and has exactly 19 pages.",
+        "Exactly 19 source previews and 19 PDF-rendered previews exist.",
+        "A contact sheet exists and pages with logos, mockups, dense tables, and typography are visually inspected.",
+        "Inspection evidence records the page list, PDF byte size, and any resolved defects."
+      ],
+      "verification": "PDF tooling + visual review: record PDF bytes, page count, preview counts, contact sheet path, inspected pages, and results",
+      "subtasks": [],
+      "notes": "Passed final PDF production and visual QA. Magic-Mirror-Brandbook.pdf is a 13,025,888-byte, 19-page US Letter landscape PDF with a 792x612-point media box on every page and SHA-256 49d8737aff4b847e00c56cacecdedb436c9dd1fe848a6f060a1fe8364def4487. Exactly 19 source previews and 19 PDF-derived 2112x1632 previews exist, plus a 1320x816 contact sheet. All 19 representative text checks and folios passed. The contact sheet and 16 original-resolution risk-sensitive pages were inspected with no clipping, overlap, broken images, glyph failures, unreadable content, crop failures, or footer/transition defects. The inspection caught and resolved the page-13 crop so both browser modes now show the favicon, tab title, navigation, and address bar. Evidence: references/t010-audit.json and pages/contact-sheet.png.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T14:27:01Z"
+    },
+    {
+      "id": "T011",
+      "name": "Write DESIGN.md",
+      "description": "Document the complete design system and production decisions represented in the final PDF.",
+      "status": "complete",
+      "depends_on": ["T010"],
+      "order": 11,
+      "spec_ref": "spec/design-md.md",
+      "acceptance_criteria": [
+        "company/brand/brandbook-packet/DESIGN.md exists.",
+        "It documents source assets, logo rules, palette, derived shades, typography, UI elements, WCAG pairings, mockups, production notes, and caveats.",
+        "Its tokens and usage guidance match the final PDF.",
+        "All local links resolve."
+      ],
+      "verification": "manual + command review: record required section count, token/PDF consistency check, resolved link count, and caveats in notes",
+      "subtasks": [],
+      "notes": "Passed the final design handoff audit. DESIGN.md contains all 14 required sections and matches the final PDF, seven Acid Dispatch anchors, documented OKLab derived scales, Instrument Serif and Space Grotesk sources, all eight recommended normal-AA pairings, UI states, logo rules, typography avoid rules, and all eight audited ImageGen application mockups. All 33 Markdown links are local and resolve; the document explicitly distinguishes the standard wordmark, combined lockup, complete icon at 32px and above, and simplified 16px favicon. It records the working-title, conceptual social-account, and contextual-photography caveats. Evidence: references/t011-audit.json.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T14:33:42Z"
+    },
+    {
+      "id": "T012",
+      "name": "Final packet verification and handoff",
+      "description": "Run the requirement-by-requirement packet audit, update durable loop/project records, and prepare the final handoff.",
+      "status": "complete",
+      "depends_on": ["T011"],
+      "order": 12,
+      "spec_ref": "spec/verification.md",
+      "acceptance_criteria": [
+        "All prior tasks are complete with authoritative evidence in their notes.",
+        "The packet contains the 19-page PDF, DESIGN.md, source, mockups, previews, asset plan, references, fonts, tokens, and WCAG data.",
+        "company/brand/brandbook-packet/audit.json exists and proves all final verification requirements.",
+        "Loop progress and applicable company/project logs are current, and the handoff lists final paths and caveats."
+      ],
+      "verification": "manual + command review: record audit path, complete file tree, task status scan, final PDF/previews evidence, log updates, and known caveats",
+      "subtasks": [],
+      "notes": "Passed the requirement-by-requirement final packet audit. All 12 loop tasks are complete with evidence notes and passed audit files. The packet contains the final 19-page US Letter landscape PDF, DESIGN.md, HTML/CSS source, 19 source previews, 19 PDF-derived previews, contact sheets, eight audited ImageGen mockups, asset plan, 19 preserved Mayven layout references, three font files with two OFL licenses, token JSON/CSS, the complete 484-pair WCAG dataset, and reproducible verification scripts. All final source references resolve inside company/brand, DESIGN.md has no missing local links, no copied reference identity or off-token page CSS remains, the complete icon is not recommended at 16px, and final PDF visual QA has zero remaining defects. The canonical company plan, activity log, run log, and loop progress are current. Evidence: company/brand/brandbook-packet/audit.json.",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T14:41:52Z"
+    }
+  ]
+}

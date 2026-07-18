@@ -21,7 +21,7 @@
 
 ## Planning & User Outcomes
 
-Treat `plan.md` as the living source of truth for roadmap, phases, decisions, and next actions. Read it before planning or implementation and update it whenever scope, sequencing, status, or decisions change. Break PRD requirements into small, checkable tasks; every phase and feature must state the user outcome it enables. Keep one clearly marked “Next” section so another session can resume without reconstructing context. Do not mark work complete until its acceptance criteria are met.
+Treat `company/plan.md` as the living source of truth for roadmap, phases, decisions, and next actions. Read it before planning or implementation and update it whenever scope, sequencing, status, or decisions change. Break PRD requirements into small, checkable tasks; every phase and feature must state the user outcome it enables. Keep one clearly marked “Next” section so another session can resume without reconstructing context. Do not mark work complete until its acceptance criteria are met.
 
 Every completed feature handoff—and every PR when one is used—must include three concise sections: **What** changed, **Why** it was needed, and **Expected outcome** for the user or system. Make these concrete enough that another contributor can evaluate whether the implementation achieved its purpose.
 
@@ -36,22 +36,22 @@ Experiments are encouraged, including spontaneous collaborator ideas, but must p
 1. State the hypothesis, user value, time box, and cheapest success signal before starting.
 2. Run uncertain work in its own branch and worktree. Prefer a thin vertical spike over production polish.
 3. Do not block golden-path work unless the experiment addresses a launch-critical risk.
-4. At the time-box boundary, adopt, extend, park, or discard it explicitly. Record durable conclusions in `plan.md`.
+4. At the time-box boundary, adopt, extend, park, or discard it explicitly. Record durable conclusions in `company/plan.md`.
 5. Integrate only the smallest proven portion; clean up disposable code when the experiment ends.
 
 ## Branches & Worktrees
 
 Never work directly on `main`. Give each active task or experiment one short-lived branch and one dedicated Git worktree so contributors and agents do not edit through the same checkout. Use `feature/<name>`, `fix/<scope>-<desc>`, or `experiment/<hypothesis>`.
 
-- Before starting, check `git status`, active worktrees, and `plan.md`; claim a narrowly scoped task and note shared-file risk.
-- Keep each worktree focused. Coordinate before editing hotspots such as migrations, lockfiles, root configuration, `AGENTS.md`, or `plan.md`.
+- Before starting, check `git status`, active worktrees, and `company/plan.md`; claim a narrowly scoped task and note shared-file risk.
+- Keep each worktree focused. Coordinate before editing hotspots such as migrations, lockfiles, root configuration, `AGENTS.md`, or `company/plan.md`.
 - Commit small, working checkpoints and integrate frequently. PRs and squash merges are optional; use the fastest review/integration path appropriate to the risk.
 - After integration, remove the worktree and delete the merged branch. Never delete a worktree or branch containing uncommitted or unmerged work.
 - Rebase or merge from the integration target before handoff when practical, and report unresolved conflicts clearly rather than guessing.
 
 ## Collaborator Voices
 
-Store one profile per contributor in `collaborators/<name>-voice.md`. Before substantial planning or implementation, identify the contributor and read their profile. Use the known login only as a clue; if identity is uncertain, ask what name they want used rather than merging profiles. Record demonstrated preferences: communication style, decision process, priorities, working rhythm, and how they want agents to challenge or execute. Do not infer sensitive traits or invent preferences. Update a profile when its contributor explicitly states a durable preference or corrects how the agent should collaborate; keep project requirements in `plan.md`, not voice files.
+Store one profile per contributor in `collaborators/<name>-voice.md`. Before substantial planning or implementation, identify the contributor and read their profile. Use the known login only as a clue; if identity is uncertain, ask what name they want used rather than merging profiles. Record demonstrated preferences: communication style, decision process, priorities, working rhythm, and how they want agents to challenge or execute. Do not infer sensitive traits or invent preferences. Update a profile when its contributor explicitly states a durable preference or corrects how the agent should collaborate; keep project requirements in `company/plan.md`, not voice files.
 
 ## Dev Commands
 
@@ -104,6 +104,11 @@ Every recurring bug, incident, or bad agent action becomes a permanent numbered 
 `N. **<No X / Always Y>.** <What it prevents>. Lesson: <what actually happened, YYYY-MM-DD>.`
 
 Continue numbering from the last entry. Never delete entries, even when obvious in hindsight. Whenever the owner corrects a mistake or an incident occurs, add the rule in the same session. This list starts empty and grows only from real incidents.
+
+1. **Keep all company operating context in `company/`.** Store `plan.md`, `company.md`, `activity.md`, `run-log.md`, `workflows/`, `automations/`, and `artifacts/` together so contributors and agents have one canonical workspace. Lesson: the initial setup split `plan.md` at the root and used `magic-mirror/` instead of the owner-requested `company/` folder, 2026-07-17.
+2. **Never create application mockups with HTML/CSS, SVG, canvas, or deterministic UI rendering.** Generate browser, favicon, social, device, physical, environmental, apparel, and merchandise mockups with ImageGen as raster assets; browser/favicon families require separate light and dark images. Lesson: deterministic HTML browser and social specimens violated the owner’s required mockup workflow, 2026-07-18.
+3. **Always map brandbook pages and standardized application assets to the Mayven reference packet before production.** Layout fidelity and platform recognition are acceptance criteria; a structurally valid packet or polished generic phone screen is not enough. Lesson: Magic Mirror pages drifted into a different editorial system, and the LinkedIn mockup reused the X composition instead of looking like LinkedIn, 2026-07-18.
+4. **Always show paired light and dark icon treatments in Twitter/X brand mockups.** One profile uses the approved dark/primary icon on a light avatar surface; the other reverses to a light/high-contrast icon on a dark brand surface. Lesson: the corrected X mockup still repeated the same Acid-on-Ink avatar treatment on both phones, 2026-07-18.
 
 ## Brand & Naming
 
