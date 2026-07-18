@@ -161,8 +161,8 @@
     "mockups/billboard.png": true,
     "mockups/browser-favicon-light.png": true,
     "mockups/browser-favicon-dark.png": true,
-    "mockups/x-profile.png": false,
-    "mockups/linkedin-profile.png": false,
+    "mockups/x-profile.png": true,
+    "mockups/linkedin-profile.png": true,
     "mockups/tshirt.png": false,
     "mockups/compact-mirror.png": false
   },

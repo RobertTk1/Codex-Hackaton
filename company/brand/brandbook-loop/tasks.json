@@ -1,8 +1,8 @@
 {
   "project": "Magic Mirror Brandbook Packet",
   "created_at": "2026-07-18T11:52:49Z",
-  "updated_at": "2026-07-18T12:54:01Z",
-  "current_session": 8,
+  "updated_at": "2026-07-18T13:02:07Z",
+  "current_session": 9,
   "tasks": [
     {
       "id": "T001",
@@ -108,7 +108,7 @@
       "id": "T006",
       "name": "Create social profile mockups",
       "description": "Create raster Twitter/X and LinkedIn profile device scenes with built-in ImageGen using approved icon/lockup assets and explicitly labeled hackathon-profile copy.",
-      "status": "pending",
+      "status": "complete",
       "depends_on": ["T005"],
       "order": 6,
       "spec_ref": "spec/imagegen-asset-plan.md",
@@ -121,9 +121,9 @@
       ],
       "verification": "visual review + file check: record dimensions, bytes, method, text accuracy, palette compliance, and final paths",
       "subtasks": [],
-      "notes": "Owner rejected the prior deterministic HTML X and LinkedIn specimens on 2026-07-18. Pending remediation after T005: remove the rejected HTML/PNG outputs and replace them with ImageGen-created smartphone/profile scenes using the supplied device-composition reference and approved Magic Mirror assets.",
+      "notes": "Passed corrected T006 visual and file audit. Created separate X and LinkedIn smartphone/profile scenes with built-in ImageGen using the supplied device composition only as reference and the approved Acid icon/combined lockup as brand inputs; both independent first-pass generations cleared the approximately 95% fidelity gate, so no targeted retry or exact compositing fallback was used. X final is 1536x1024, 1,676,169 bytes, SHA-256 0a2b655d545d3905694311275837aa01f268e8b0a345039d7dbe4c0422799917. LinkedIn final is 1536x1024, 1,683,651 bytes, SHA-256 fdf347b5f6b516ebf9ae472ced10c64d656f4aa12a88f8d05fe4942809cf513c. Both scored 99% overall with exact profile copy, explicit non-live labels, no invented metrics or verification claims, and no Mayven, cruise, blue reference branding, unrelated logos, or watermarks. Evidence: references/t006-audit.json.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T12:40:52Z"
+      "updated_at": "2026-07-18T13:02:07Z"
     },
     {
       "id": "T007",
