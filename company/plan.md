@@ -40,10 +40,12 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 
 **Completed flow:** [`First Try-On Tracer`](flows/first-try-on-tracer/plan.md) — one-page photo upload, hardcoded garment selection, typed mock request, and bottom-of-page result.
 
+**Configuration-pending flow:** [`Data Foundation`](flows/data-foundation/plan.md) — versioned sessions, asset references, private storage policies, and environment names with no live project values.
+
 - [x] Scaffold the Next.js application in `apps/web` with required development, lint, typecheck, unit-test, and end-to-end-test scripts.
 - [x] Configure Tailwind, strict TypeScript, Zod, Vitest, and Playwright.
-- [ ] Configure local Supabase and document environment variables.
-- [ ] Add the minimum schema, migrations, storage buckets, and row-level security.
+- [x] Document required Supabase and provider environment variables with placeholders; live values remain unconfigured.
+- [x] Add the minimum versioned schema, private bucket definition, and row-level policies; applying them remains blocked on project and auth configuration.
 
 ### Phase 2 — Golden Path
 
@@ -112,6 +114,7 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - 2026-07-18: Accepted the reusable 19-page Magic Mirror brandbook packet after PDF-derived visual QA, a Mayven-to-Magic composition audit, and complete task/evidence verification under `company/brand/brandbook-packet/`.
 - 2026-07-18: Extracted `Magic Mirror Product Strategy.docx` into `company/artifacts/product/magic-mirror-v1-prd.md`; narrowed the source document’s broad stylist MVP to the approved single-photo, single-garment, static try-on golden path and retained adjacent capabilities as V2+.
 - 2026-07-18: Store feature execution plans under `company/flows/<flow-name>/plan.md`; begin with the single-page `first-try-on-tracer` flow and reference it from the canonical roadmap.
+- 2026-07-18: Build the Supabase data foundation as a migration and environment template without applying it; real project values, authentication, retention, and provider configuration remain explicit gates.
 
 ## Roadmap Backlog (V2+)
 
