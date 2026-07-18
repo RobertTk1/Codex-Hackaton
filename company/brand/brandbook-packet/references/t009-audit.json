@@ -1,7 +1,7 @@
 {
   "task_id": "T009",
   "status": "passed",
-  "verified_at": "2026-07-18T13:33:46Z",
+  "verified_at": "2026-07-18T14:36:24Z",
   "method": {
     "standard": "WCAG 2.x relative luminance and contrast ratio",
     "formula": "(L1 + 0.05) / (L2 + 0.05), where L1 is the lighter relative luminance",
@@ -43,10 +43,10 @@
     "large_threshold_documented": true,
     "preview": {
       "path": "pages/source/page-10-wcag.png",
-      "width_px": 1600,
-      "height_px": 1000,
-      "bytes": 132034,
-      "sha256": "0c2f82960f6f4ddacae055e000db67fe693b7b6efe2c562a85d43c71f2ac134e"
+      "width_px": 2112,
+      "height_px": 1632,
+      "bytes": 177570,
+      "sha256": "85e8ead05e0ccd5d7daf841d11dbcf150c933364870ce9f9dcff0159b94588eb"
     }
   },
   "visual_review": {
@@ -58,5 +58,5 @@
     "clipping_or_overflow": 0,
     "passed": true
   },
-  "decision": "Accepted the independently verified WCAG dataset and embedded page. All 484 ordered combinations across 22 unique approved and derived colors have calculated ratios and normal/large-text results; the page presents all 49 anchor combinations, eight normal-AA recommendations, both thresholds, and the raw JSON path without clipping."
+  "decision": "Accepted the independently verified WCAG dataset and embedded page. All 484 ordered combinations across 22 unique approved and derived colors have calculated ratios and normal/large-text results; the page presents all 49 anchor combinations, eight normal-AA recommendations, and both thresholds without clipping."
 }

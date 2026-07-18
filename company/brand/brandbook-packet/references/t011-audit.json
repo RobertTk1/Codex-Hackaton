@@ -1,0 +1,78 @@
+{
+  "task_id": "T011",
+  "status": "passed",
+  "verified_at": "2026-07-18T14:37:07Z",
+  "design_md": {
+    "path": "DESIGN.md",
+    "bytes": 13338,
+    "sha256": "edce1f7791c9ecd8983613a1913607c6187a6674cb38d7b58e7cb22171d49e8e",
+    "required_section_count": 14,
+    "required_sections": [
+      "Brand summary",
+      "Source assets",
+      "Logo system",
+      "Logo usage rules",
+      "What to avoid",
+      "Primary palette",
+      "Secondary shades and tints",
+      "WCAG-approved pairings",
+      "Buttons and links",
+      "Badges, callouts, headers, and tooltips",
+      "Typography system",
+      "Typography to avoid",
+      "Application examples",
+      "Production notes and caveats"
+    ]
+  },
+  "links": {
+    "markdown_link_count": 33,
+    "local_link_count": 33,
+    "resolved_local_link_count": 33,
+    "missing_local_links": []
+  },
+  "consistency": {
+    "anchor_count": 7,
+    "anchors_matched": {
+      "acid": "#D7FF3F",
+      "deep": "#263300",
+      "pale": "#F2FFD0",
+      "ink": "#17171A",
+      "white": "#FFFFFF",
+      "cloud": "#F4F3F1",
+      "black": "#000000"
+    },
+    "font_families_matched": [
+      "Instrument Serif",
+      "Space Grotesk"
+    ],
+    "recommended_wcag_pair_count": 8,
+    "recommended_wcag_pairs_matched": [
+      "Ink on Acid",
+      "Acid on Ink",
+      "Ink on White",
+      "White on Ink",
+      "Ink on Cloud",
+      "Deep on Pale",
+      "Deep on Acid",
+      "Acid on Deep"
+    ],
+    "required_mockup_count": 8,
+    "required_mockups_matched": [
+      "mockups/business-card.png",
+      "mockups/billboard.png",
+      "mockups/browser-favicon-light.png",
+      "mockups/browser-favicon-dark.png",
+      "mockups/x-profile.png",
+      "mockups/linkedin-profile.png",
+      "mockups/tshirt.png",
+      "mockups/compact-mirror.png"
+    ],
+    "pdf_sha256": "49d8737aff4b847e00c56cacecdedb436c9dd1fe848a6f060a1fe8364def4487"
+  },
+  "caveats": [
+    "Magic Mirror remains a hackathon working title.",
+    "Social and company/profile examples are concepts and do not imply live accounts.",
+    "Natural colors in raster mockups are contextual photography, not reusable brand tokens."
+  ],
+  "decision": "Accepted DESIGN.md after verifying all 14 required sections, every local link, all approved anchors, both font families, all eight WCAG recommendations, all eight final mockups, production notes, and prototype caveats against the final packet."
+}

@@ -1,17 +1,17 @@
 {
   "task_id": "T008",
   "status": "passed",
-  "verified_at": "2026-07-18T14:15:03Z",
+  "verified_at": "2026-07-18T14:36:24Z",
   "source": {
     "html": "source/brandbook.html",
     "css": "source/brandbook.css",
     "renderer": "source/render_source.js",
     "wcag_page_data": "source/wcag-matrix.js",
-    "html_bytes": 21805,
-    "css_bytes": 22694,
+    "html_bytes": 21791,
+    "css_bytes": 22725,
     "wcag_js_bytes": 11396,
-    "html_sha256": "4d6740fe5c4bf66c879dcd95a922c7ba2ec623ab7198378f364f9ef28faab504",
-    "css_sha256": "01c29b5bf106555ddb34a6a868a4744d6538ad80f7f89251b49e2b0009726e22",
+    "html_sha256": "8b979d7dc0d2c8d98e4f3905cef1d6c79cff360f6a6e9735ae253cde780ca707",
+    "css_sha256": "f784d60c0eba517cf49ae4534fd0efa59fd301d7e0edac394c3ab7a3cb519869",
     "wcag_js_sha256": "2f820fca6ce97a97e4e4df50223bcdad9e7ce410655b52d874926b0e0875f6dc"
   },
   "pages": {
@@ -91,8 +91,8 @@
         "path": "pages/source/page-03-contents.png",
         "width_px": 2112,
         "height_px": 1632,
-        "bytes": 145507,
-        "sha256": "4ed0ee842a35669162b9bf367e4dd0fce03d48a548bc010979e99103a702c15b"
+        "bytes": 145504,
+        "sha256": "3cbcfac22c51a1ea0bf418028266e9f6a32322078b1d5500f48434c7fb937bc1"
       },
       {
         "path": "pages/source/page-04-logo-usage.png",
@@ -112,8 +112,8 @@
         "path": "pages/source/page-06-primary-colors.png",
         "width_px": 2112,
         "height_px": 1632,
-        "bytes": 123939,
-        "sha256": "686ae160092b09421ac7c834610e39af6c8562dc011be33735fe9c10e29f2869"
+        "bytes": 123909,
+        "sha256": "c5976e294075af98e3c30b2d0f02fe8ab1f86aa4e741e8d3a8b521b1982ab40e"
       },
       {
         "path": "pages/source/page-07-secondary-colors.png",
@@ -161,8 +161,8 @@
         "path": "pages/source/page-13-browser-favicon.png",
         "width_px": 2112,
         "height_px": 1632,
-        "bytes": 884201,
-        "sha256": "185c4a8b12ebeb63d555b0826f2d3cbfb74dfe12d2d4c77fa4781dc8fe734a1a"
+        "bytes": 844843,
+        "sha256": "87c2fee7011d7435f761b3e01493888378a057e862657dfb281acbfa5a975c97"
       },
       {
         "path": "pages/source/page-14-x.png",
@@ -175,8 +175,8 @@
         "path": "pages/source/page-15-linkedin.png",
         "width_px": 2112,
         "height_px": 1632,
-        "bytes": 941075,
-        "sha256": "6c0fcff2d9e12e56deac8269d0ed594cb35b91a7ce76b0f2e467b6376404a1f7"
+        "bytes": 941076,
+        "sha256": "58497e749b4b7a1facafdb838d187d6db034e11931f284bd6b45172aa84f4dad"
       },
       {
         "path": "pages/source/page-16-tshirt.png",
@@ -211,16 +211,16 @@
       "path": "references/t008-source-contact-sheet.png",
       "width_px": 1320,
       "height_px": 816,
-      "bytes": 460540,
-      "sha256": "9b8b6efdbea72e0db830cbe6f521e3845a4e8b3c4c05bd7c1c0ab47ec745f249"
+      "bytes": 458575,
+      "sha256": "3be1480a50a728e899038227f048a03c115f1c985a828edd8b4023e20c3db9f9"
     },
     "mayven_reference_pages": 19,
     "mayven_side_by_side_comparison": {
       "path": "references/t008-mayven-comparison-contact-sheet.png",
       "width_px": 2112,
       "height_px": 1020,
-      "bytes": 1079328,
-      "sha256": "e94536477c775cd6255d310cfb8664c71fb5c7dd13cfedd9dbd5d47eeabee698",
+      "bytes": 1077046,
+      "sha256": "5bb678005fcfb13006387b4440a531a3badfb16cf93a1440d6ec67bb8a72e732",
       "pair_order": "Mayven reference at left; Magic Mirror page at right"
     }
   },
@@ -236,8 +236,6 @@
       9,
       10,
       13,
-      14,
-      15,
       18,
       19
     ],

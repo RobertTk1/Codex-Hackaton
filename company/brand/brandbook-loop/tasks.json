@@ -1,7 +1,7 @@
 {
   "project": "Magic Mirror Brandbook Packet",
   "created_at": "2026-07-18T11:52:49Z",
-  "updated_at": "2026-07-18T14:17:16Z",
+  "updated_at": "2026-07-18T14:33:42Z",
   "current_session": 14,
   "tasks": [
     {
@@ -182,15 +182,15 @@
       ],
       "verification": "command review: record matrix cell count, AA-normal count, AA-large count, calculation method, and source/token paths",
       "subtasks": [],
-      "notes": "Passed T009 calculation, embedding, render, visual, and independent formula audit. Canonicalized 22 unique approved/derived colors and calculated all 484 ordered foreground/background combinations, including self-pairs and failures, using WCAG 2.x relative luminance. Raw parseable JSON records each ratio, normal-AA result at 4.5:1, large-AA result at 3.0:1, and status: 178 normal-AA passes, 238 large-AA passes, 60 large-only pairs, and 246 all-text failures. Page 10 now embeds all 49 anchor combinations plus 8 verified normal-AA recommendations and the raw-data path. Independent recalculation found 0 ratio, normal-result, large-result, or status mismatches. Original-resolution page review found the matrix, key, recommendations, and thresholds legible with 0 clipping/overflow. Evidence: tokens/wcag-matrix.json and references/t009-audit.json.",
+      "notes": "Passed the refreshed T009 calculation, embedding, render, visual, and independent formula audit against the final US Letter source. Canonicalized 22 unique approved/derived colors and calculated all 484 ordered foreground/background combinations, including self-pairs and failures, using WCAG 2.x relative luminance. Raw parseable JSON records each ratio, normal-AA result at 4.5:1, large-AA result at 3.0:1, and status: 178 normal-AA passes, 238 large-AA passes, 60 large-only pairs, and 246 all-text failures. Page 10 embeds all 49 anchor combinations plus 8 verified normal-AA recommendations and both thresholds. Independent recalculation found 0 ratio, normal-result, large-result, or status mismatches. The final 2112x1632 preview keeps the matrix, key, recommendations, and thresholds legible with 0 clipping/overflow. Evidence: tokens/wcag-matrix.json and references/t009-audit.json.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T13:33:46Z"
+      "updated_at": "2026-07-18T14:33:23Z"
     },
     {
       "id": "T010",
       "name": "Render PDF and previews",
       "description": "Render the 19-page brandbook PDF, source page previews, and PDF-rendered previews; inspect the important pages and fix any failures.",
-      "status": "pending",
+      "status": "complete",
       "depends_on": ["T009"],
       "order": 10,
       "spec_ref": "spec/pdf-production.md",
@@ -202,15 +202,15 @@
       ],
       "verification": "PDF tooling + visual review: record PDF bytes, page count, preview counts, contact sheet path, inspected pages, and results",
       "subtasks": [],
-      "notes": "Paused after owner review on 2026-07-18. Resume only after T006 platform-specific social assets and the T008 Mayven-aligned US Letter landscape source pass their corrected visual audits. Existing render/verification scripts remain staged for later use.",
+      "notes": "Passed final PDF production and visual QA. Magic-Mirror-Brandbook.pdf is a 13,025,888-byte, 19-page US Letter landscape PDF with a 792x612-point media box on every page and SHA-256 49d8737aff4b847e00c56cacecdedb436c9dd1fe848a6f060a1fe8364def4487. Exactly 19 source previews and 19 PDF-derived 2112x1632 previews exist, plus a 1320x816 contact sheet. All 19 representative text checks and folios passed. The contact sheet and 16 original-resolution risk-sensitive pages were inspected with no clipping, overlap, broken images, glyph failures, unreadable content, crop failures, or footer/transition defects. The inspection caught and resolved the page-13 crop so both browser modes now show the favicon, tab title, navigation, and address bar. Evidence: references/t010-audit.json and pages/contact-sheet.png.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T13:48:19Z"
+      "updated_at": "2026-07-18T14:27:01Z"
     },
     {
       "id": "T011",
       "name": "Write DESIGN.md",
       "description": "Document the complete design system and production decisions represented in the final PDF.",
-      "status": "pending",
+      "status": "complete",
       "depends_on": ["T010"],
       "order": 11,
       "spec_ref": "spec/design-md.md",
@@ -222,15 +222,15 @@
       ],
       "verification": "manual + command review: record required section count, token/PDF consistency check, resolved link count, and caveats in notes",
       "subtasks": [],
-      "notes": "",
+      "notes": "Passed the final design handoff audit. DESIGN.md contains all 14 required sections and matches the final PDF, seven Acid Dispatch anchors, documented OKLab derived scales, Instrument Serif and Space Grotesk sources, all eight recommended normal-AA pairings, UI states, logo rules, typography avoid rules, and all eight audited ImageGen application mockups. All 33 Markdown links are local and resolve; the document explicitly distinguishes the standard wordmark, combined lockup, complete icon at 32px and above, and simplified 16px favicon. It records the working-title, conceptual social-account, and contextual-photography caveats. Evidence: references/t011-audit.json.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T11:52:49Z"
+      "updated_at": "2026-07-18T14:33:42Z"
     },
     {
       "id": "T012",
       "name": "Final packet verification and handoff",
       "description": "Run the requirement-by-requirement packet audit, update durable loop/project records, and prepare the final handoff.",
-      "status": "pending",
+      "status": "in_progress",
       "depends_on": ["T011"],
       "order": 12,
       "spec_ref": "spec/verification.md",
@@ -244,7 +244,7 @@
       "subtasks": [],
       "notes": "",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T11:52:49Z"
+      "updated_at": "2026-07-18T14:33:42Z"
     }
   ]
 }
