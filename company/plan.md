@@ -16,6 +16,8 @@ Stylist recommendations, voice input, multi-garment outfits, deep stylist reason
 
 Move at hackathon speed while keeping the golden path runnable. Use a dedicated branch and worktree for each concurrent task or experiment, integrate small working changes frequently, and prune merged worktrees and branches. PRs and squash merges are optional. Time-box experiments, define their cheapest success signal, and keep them off the critical path unless they reduce a launch-critical risk.
 
+Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and are referenced from the relevant roadmap phase. The canonical plan owns sequencing and status; flow plans own implementation tasks and acceptance criteria.
+
 ## Roadmap
 
 ### Phase 0 — Define and De-risk
@@ -35,6 +37,8 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 ### Phase 1 — Project Foundation
 
 **User outcome:** A user can open a functioning application shell ready for the try-on flow.
+
+**Active flow:** [`First Try-On Tracer`](flows/first-try-on-tracer/plan.md) — one-page photo upload, hardcoded garment selection, typed mock request, and bottom-of-page result.
 
 - [ ] Scaffold the Next.js monorepo application and required scripts.
 - [ ] Configure Tailwind, strict TypeScript, Zod, Vitest, and Playwright.
@@ -107,6 +111,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-18: Twitter/X application examples always pair one light-mode profile/avatar treatment with one dark-mode treatment, reversing the icon for clear contrast rather than duplicating one color treatment across both phones.
 - 2026-07-18: Accepted the reusable 19-page Magic Mirror brandbook packet after PDF-derived visual QA, a Mayven-to-Magic composition audit, and complete task/evidence verification under `company/brand/brandbook-packet/`.
 - 2026-07-18: Extracted `Magic Mirror Product Strategy.docx` into `company/artifacts/product/magic-mirror-v1-prd.md`; narrowed the source document’s broad stylist MVP to the approved single-photo, single-garment, static try-on golden path and retained adjacent capabilities as V2+.
+- 2026-07-18: Store feature execution plans under `company/flows/<flow-name>/plan.md`; begin with the single-page `first-try-on-tracer` flow and reference it from the canonical roadmap.
 
 ## Roadmap Backlog (V2+)
 
