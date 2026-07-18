@@ -1,6 +1,6 @@
 # First Try-On Tracer — Feature Plan
 
-**Status:** Ready to build
+**Status:** Implemented; ready for review
 
 **User outcome:** A user can understand and complete the basic Magic Mirror interaction on one page: upload a photo, select one hardcoded garment, request a try-on, and see the result at the bottom of the page.
 
@@ -28,18 +28,18 @@ Build one simple responsive page that proves the complete interaction using loca
 
 ## Build Tasks
 
-- [ ] Scaffold the Next.js application in `apps/web` with strict TypeScript and Tailwind.
-- [ ] Add the approved brand tokens and only the minimum brand assets needed by this page.
-- [ ] Build the single-page layout with upload, garment selection, action, status, and result sections.
-- [ ] Add client-side photo type and size validation with an image preview.
-- [ ] Add two or three hardcoded garments with stable IDs and local images.
-- [ ] Require one photo and one garment before enabling **Try it on**.
-- [ ] Define the Zod request and response schemas.
-- [ ] Add one Next.js route handler calling a typed mock try-on adapter.
-- [ ] Simulate success, delay, timeout, and failure without clearing current selections.
-- [ ] Render ready, generating, slow, success, and failed states in the bottom result section.
-- [ ] Add one Playwright happy-path test and one focused unit test for input validation.
-- [ ] Run locally and confirm the flow at mobile and desktop widths.
+- [x] Scaffold the Next.js application in `apps/web` with strict TypeScript and Tailwind.
+- [x] Add approved brand tokens and only the minimum visual language needed by this page.
+- [x] Build the single-page layout with upload, garment selection, action, status, and result sections.
+- [x] Add client-side photo type and size validation with an image preview.
+- [x] Add three hardcoded garment cards with stable IDs and visual color tokens.
+- [x] Require one photo and one garment before enabling **Try it on**.
+- [x] Define the Zod request and response schemas.
+- [x] Add one Next.js route handler calling a typed mock try-on adapter.
+- [x] Simulate success, delay, timeout, and failure without clearing current selections.
+- [x] Render ready, generating, slow, success, and failed states in the bottom result section.
+- [x] Add one Playwright happy-path test and focused unit tests for input validation.
+- [x] Run locally and confirm the flow at mobile and desktop widths.
 
 ## Acceptance Criteria
 

@@ -38,10 +38,10 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 
 **User outcome:** A user can open a functioning application shell ready for the try-on flow.
 
-**Active flow:** [`First Try-On Tracer`](flows/first-try-on-tracer/plan.md) — one-page photo upload, hardcoded garment selection, typed mock request, and bottom-of-page result.
+**Completed flow:** [`First Try-On Tracer`](flows/first-try-on-tracer/plan.md) — one-page photo upload, hardcoded garment selection, typed mock request, and bottom-of-page result.
 
-- [ ] Scaffold the Next.js monorepo application and required scripts.
-- [ ] Configure Tailwind, strict TypeScript, Zod, Vitest, and Playwright.
+- [x] Scaffold the Next.js application in `apps/web` with required development, lint, typecheck, unit-test, and end-to-end-test scripts.
+- [x] Configure Tailwind, strict TypeScript, Zod, Vitest, and Playwright.
 - [ ] Configure local Supabase and document environment variables.
 - [ ] Add the minimum schema, migrations, storage buckets, and row-level security.
 
@@ -49,11 +49,11 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 
 **User outcome:** A user can submit one photo and one garment and receive a visible try-on result.
 
-- [ ] Implement photo upload/capture with validation and consent messaging.
-- [ ] Implement single-garment selection.
+- [x] Implement mock-tracer photo upload and validation; real consent and retention messaging remain blocked on policy.
+- [x] Implement mock-tracer single-garment selection from a hardcoded catalog.
 - [ ] Implement the typed generation-provider boundary with timeout and normalized errors.
 - [ ] Persist try-on session state and generated-asset references.
-- [ ] Show explicit loading, slow, success, and failure states.
+- [x] Show explicit mock-tracer loading, slow, success, and failure states.
 
 ### Phase 3 — Demo Readiness
 
