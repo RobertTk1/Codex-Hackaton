@@ -19,14 +19,14 @@ If provider testing fails the quality or latency gates, narrow the demo to the g
 
 ## Opportunity in One Paragraph
 
-U.S. consumers spend hundreds of billions of dollars on clothing, and digital shopping leaves a persistent gap between product imagery and confidence about how an item will look on an individual. Google’s own shopper research found representation and expectation mismatch at meaningful rates, while returns research shows costly apparel bracketing. The opportunity is not to invent virtual try-on—Google, Walmart, Amazon, and many apps already offer it—but to turn a cross-retailer render into a trusted purchase decision, then learn from the user’s choices over time. That long-term memory layer could become defensible; the V1 render alone is not.
+U.S. consumers spend hundreds of billions of dollars on clothing, and digital shopping leaves a persistent gap between product imagery and confidence about how an item will look on an individual. ([BEA/FRED](https://fred.stlouisfed.org/series/DCLTRC1A027NBEA)) Google’s own shopper research found representation and expectation mismatch at meaningful rates. ([Google/Ipsos](https://blog.google/products-and-platforms/products/shopping/ai-virtual-try-on-google-shopping/)) Returns research shows costly apparel bracketing. ([NRF/Happy Returns](https://nrf.com/media-center/press-releases/nrf-and-happy-returns-report-2024-retail-returns-total-890-billion)) The opportunity is not to invent virtual try-on—Google, Walmart, Amazon, and many apps already offer it—but to turn a cross-retailer render into a trusted purchase decision, then learn from the user’s choices over time. That long-term memory layer could become defensible; the V1 render alone is not.
 
 ## Key Findings
 
 1. **The pain is credible.** Forty-two percent of surveyed U.S. online clothing shoppers said model images did not represent them, and 59% had received something that looked different than expected. ([Google/Ipsos](https://blog.google/products-and-platforms/products/shopping/ai-virtual-try-on-google-shopping/))
 2. **The commercial surface is large.** U.S. clothing consumption reached $437.818 billion in 2024, while total retail e-commerce continued growing in 2026. ([BEA/FRED](https://fred.stlouisfed.org/series/DCLTRC1A027NBEA); [U.S. Census Bureau](https://www.census.gov/retail/ecommerce.html))
 3. **Raw virtual try-on is commoditizing.** Google offers own-image try-on across billions of listings; Walmart launched with more than 270,000 eligible items. ([Google](https://blog.google/products-and-platforms/products/shopping/studio-quality-digital-try-on/); [Walmart](https://corporate.walmart.com/news/2022/09/15/walmart-levels-up-virtual-try-on-for-apparel-with-be-your-own-model-experience))
-4. **Quality is the product.** Research supports personalized try-on as a decision aid, but other controlled evidence shows a weak AR experience can underperform good model imagery. ([ScienceDirect](https://www.sciencedirect.com/science/article/pii/S2040712224000136); [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0969698918311834))
+4. **Quality is the product.** Research supports personalized try-on as a decision aid, but other controlled evidence shows a weak AR experience can underperform good model imagery. ([Journal of Research in Interactive Marketing](https://doi.org/10.1108/JRIM-01-2024-0015); [Journal of Retailing and Consumer Services](https://www.sciencedirect.com/science/article/pii/S0969698918311834))
 5. **A full closet is the wrong V1.** Users report value from digital wardrobes but repeatedly describe setup and data portability as burdens. Those anecdotal signals reinforce the current one-photo, one-garment scope.
 6. **The best first job is episodic and high intent.** A shopper considering one item for an event or meaningful purchase has a clear decision, a natural sharing moment, and no need for extensive onboarding.
 
@@ -34,7 +34,7 @@ U.S. consumers spend hundreds of billions of dollars on clothing, and digital sh
 
 | Layer | Low | Base | High | Interpretation |
 |---|---:|---:|---:|---|
-| Broad TAM ceiling | $9.71B | $16.19B | $25.90B | All 269.76M U.S. adults × $36/$60/$96 annual ARPU; not a forecast |
+| Plausible consumer TAM | $2.43B | $6.47B | $14.24B | 269.76M U.S. adults × 25%/40%/55% assumed annual online-apparel-shopper share × $36/$60/$96 ARPU |
 | Qualified consumer SAM | $369M | $1.23B | $3.94B | Ages 18–64 × 5%/10%/20% qualified share × annual ARPU |
 | Year-three SOM | $81K | $960K | $6.50M | Activated-user, paid-conversion, and affiliate-influence model |
 

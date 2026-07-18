@@ -5,9 +5,22 @@
 **Geography:** United States first
 
 **Decision horizon:** Hackathon V1 through the first three commercial years (2026–2029)
+
 **Product definition tested:** A consumer uses one photo and one garment image or listing to see a near-real-time rendering of themselves wearing it. The immediate job is deciding, “Should I buy this?”
 
 ## Research Scope
+
+| Dimension | Research frame |
+|---|---|
+| Product | One-photo, one-garment, near-real-time virtual try-on followed by a purchase decision |
+| Problem | Online apparel shoppers cannot reliably translate retailer imagery into confidence about how an item will look on them |
+| Primary category | Consumer apparel purchase-decision software |
+| Adjacent categories | Virtual try-on, fashion e-commerce, AI styling, digital closets, social shopping, affiliate commerce, and retailer conversion tools |
+| User hypothesis | A U.S. online apparel shopper considering one garment for an event or meaningful purchase |
+| Buyer hypotheses | Consumer first; affiliate partners and retailers are later economic-buyer possibilities |
+| Geography | United States first; reversible after validation |
+| Time horizon | Hackathon V1 through the first three commercial years, 2026–2029 |
+| Known constraints | One photo and one garment in V1; sensitive-photo handling; near-real-time latency; no full closet or deep stylist reasoning |
 
 This research answers four decisions:
 
@@ -33,8 +46,8 @@ The evidence covers U.S. commerce and apparel spending, virtual try-on adoption,
 - **Fact:** In a 2023 Google/Ipsos survey of 1,614 U.S. online clothing shoppers, 42% said model images did not represent them and 59% had been dissatisfied because an item looked different than expected. ([Google](https://blog.google/products-and-platforms/products/shopping/ai-virtual-try-on-google-shopping/))
 - **Fact:** Google now lets U.S. shoppers upload a photo or create a full-body digital version from a selfie and try on apparel from billions of Shopping Graph listings. ([Google, May 2025](https://blog.google/products/shopping/google-shopping-ai-mode-virtual-try-on-update/); [Google, December 2025](https://blog.google/products-and-platforms/products/shopping/studio-quality-digital-try-on/))
 - **Fact:** Walmart launched own-photo apparel try-on with more than 270,000 eligible items in 2022. ([Walmart](https://corporate.walmart.com/news/2022/09/15/walmart-levels-up-virtual-try-on-for-apparel-with-be-your-own-model-experience))
-- **Fact:** The National Retail Federation projected $890 billion of total U.S. retail returns in 2024. Its retailer survey found bracketing especially common in apparel and footwear, with 51% of Gen Z respondents reporting the behavior. ([NRF and Happy Returns report](https://cdn.nrf.com/sites/default/files/2024-12/2024-Consumer-Returns-in%20the-Retail-Industry-Report_12.5.24.pdf))
-- **Fact:** Personalized virtual try-on research supports improved product imagination and decision comfort, but a separate controlled study found an augmented-reality try-on could be less enjoyable and less useful than imagery of physically similar models. Quality and representation determine value; the category label does not. ([Journal of Retailing and Consumer Services](https://www.sciencedirect.com/science/article/pii/S2040712224000136); [Journal of Retailing and Consumer Services](https://www.sciencedirect.com/science/article/pii/S0969698918311834))
+- **Fact:** The National Retail Federation estimated $849.9 billion of U.S. merchandise returns in 2025, equal to 15.8% of sales, with online returns estimated at 19.3%. Its prior 2024 consumer study found apparel/footwear bracketing especially common among Gen Z, with 51% reporting the behavior. ([NRF 2025](https://nrf.com/media-center/press-releases/consumers-expected-to-return-nearly-850-billion-in-merchandise-in-2025); [NRF and Happy Returns 2024](https://nrf.com/media-center/press-releases/nrf-and-happy-returns-report-2024-retail-returns-total-890-billion))
+- **Fact:** Personalized virtual try-on research supports improved product imagination and decision comfort, but a separate controlled study found an augmented-reality try-on could be less enjoyable and less useful than imagery of physically similar models. Quality and representation determine value; the category label does not. ([Journal of Research in Interactive Marketing](https://doi.org/10.1108/JRIM-01-2024-0015); [Journal of Retailing and Consumer Services](https://www.sciencedirect.com/science/article/pii/S0969698918311834))
 - **Inference:** The problem is real, but raw virtual try-on is already a feature, not a durable position. Magic Mirror has a reason to build the hackathon V1 only if it uses the render to own a cross-retailer purchase decision and learns the user’s taste over time.
 - **Recommendation:** **Proceed with conditions and narrow the position.** Build the single-photo, single-garment golden path as a fast “Should I buy this?” decision companion. Do not lead with a generic “AI stylist,” require a full digital-closet setup, or treat image generation alone as defensible.
 
@@ -65,7 +78,7 @@ Magic Mirror enters at evaluation. The strongest long-term position is an indepe
 
 ### Definitions
 
-- **TAM:** A broad annual consumer-software revenue ceiling if every U.S. adult paid for a product in this category. It is not a forecast.
+- **TAM:** Annual consumer-software demand if the modeled share of U.S. adults who buy apparel online at least once a year paid for a product in this category. It is not a forecast.
 - **SAM:** U.S. adults ages 18–64 assumed to have enough online-apparel purchase uncertainty to be qualified for the initial service, multiplied by observed-category annual pricing.
 - **SOM:** Annual revenue Magic Mirror could reach by year three from an explicit activated-user, conversion, and affiliate-influence model.
 
@@ -79,19 +92,23 @@ Magic Mirror enters at evaluation. The strongest long-term position is an indepe
 | Online fashion revenue | >$159B | 2025 | U.S. | **Estimate.** Apparel, footwear, and accessories; modeled commercial source. ([Statista](https://www.statista.com/topics/3481/fashion-e-commerce-in-the-united-states/)) |
 | Observed consumer price anchors | Free to about $25/month for common tiers | 2026 | Primarily U.S. app/web pricing | **Fact.** Acloset lists $3.99, $9.99, and $24.99 monthly tiers; AI Closet lists $7.99/month; Sty AI lists $4.99 and $9.99/month. ([Acloset App Store](https://apps.apple.com/us/app/acloset-ai-fashion-assistant/id1542311809); [AI Closet](https://www.aicloset.io/); [Sty AI](https://styai.app/)) |
 
-### TAM: broad ceiling
+### TAM
 
-Formula: `U.S. adults × assumed annual consumer ARPU`
+**Broad plausible consumer-software universe.** No authoritative public source measures the exact count of U.S. adults who buy apparel online at least once each year, so shopper prevalence is an explicit scenario assumption.
 
-| Scenario | Adults | Annual ARPU assumption | TAM ceiling |
-|---|---:|---:|---:|
-| Low | 269.76M | $36 | $9.71B |
-| Base | 269.76M | $60 | $16.19B |
-| High | 269.76M | $96 | $25.90B |
+Formula: `U.S. adults × assumed annual online-apparel-shopper share × assumed annual consumer ARPU`
 
-**Limitation:** This ceiling is intentionally broad and not decision-grade on its own. Many adults will never need or pay for the product, and free retailer/search alternatives constrain pricing.
+| Scenario | Adults | Online-apparel-shopper share assumption | Plausible users | Annual ARPU assumption | TAM |
+|---|---:|---:|---:|---:|---:|
+| Low | 269.76M | 25% | 67.44M | $36 | $2.43B |
+| Base | 269.76M | 40% | 107.91M | $60 | $6.47B |
+| High | 269.76M | 55% | 148.37M | $96 | $14.24B |
 
-### SAM: qualified initial consumer segment
+**Limitation:** The shopper shares are assumptions, not measured prevalence. Even qualifying shoppers may use free retailer/search alternatives rather than pay for Magic Mirror.
+
+### SAM
+
+**Qualified initial consumer segment.**
 
 Formula: `U.S. adults ages 18–64 × assumed qualified share × annual ARPU`
 
@@ -105,7 +122,9 @@ Formula: `U.S. adults ages 18–64 × assumed qualified share × annual ARPU`
 
 The base case does not mean 10% will pay. It estimates the audience with a plausible reason to consider the service; paid conversion is modeled separately in SOM.
 
-### SOM: year-three acquisition and capacity model
+### SOM
+
+**Year-three acquisition and capacity model.**
 
 Formula:
 
@@ -128,13 +147,22 @@ Formula:
 
 All SOM inputs are **assumptions**, not evidence of traction. The activated-user range represents what a small consumer team might reach through organic demonstrations, creator partnerships, and product-led sharing—not a percentage of TAM. The affiliate-rate range is a planning assumption across an unknown retailer mix and must be replaced with signed-program economics. The model excludes B2B revenue and generation costs.
 
+### Scenario Table
+
+| Layer | Formula | Low | Base | High | Base year | Geography | Sources and assumptions |
+|---|---|---:|---:|---:|---:|---|---|
+| TAM | U.S. adults × annual online-apparel-shopper share × annual ARPU | $2.43B | $6.47B | $14.24B | 2025 population | U.S. | Census adult population; assumed shopper share of 25%/40%/55%; assumed ARPU of $36/$60/$96 |
+| SAM | Ages 18–64 × qualified share × annual ARPU | $369M | $1.23B | $3.94B | 2025 population | U.S. | Census population; assumed qualified share of 5%/10%/20%; same ARPU range |
+| SOM | Paid revenue + affiliate revenue from activated users | $81K | $960K | $6.50M | Year three | U.S. | Assumed reach, paid conversion, ARPU, influenced purchase value, and blended affiliate rate shown above |
+
 ### Transaction-pool cross-check
 
 Using the directional $159 billion online-fashion estimate, a mature product influencing 1%–3% of transaction value at a 3%–8% blended commission would produce a theoretical $47.7 million–$381.6 million annual affiliate pool. This is a **market-scale cross-check**, not Magic Mirror’s obtainable revenue, because Google, retailers, creators, publishers, and other shopping tools compete for the same influence and attribution.
 
-### Method and limitations
+### Method and Limitations
 
 - Census and BEA sources are authoritative, but they measure populations and spending categories—not demand for this product.
+- The TAM online-apparel-shopper shares are explicit assumptions because no authoritative public count was found for the exact annual U.S. adult behavior.
 - The online-fashion estimate includes footwear and accessories while BEA clothing PCE does not map perfectly to it.
 - Competitor list prices show possible willingness-to-pay anchors, not realized revenue or retention.
 - The model does not include customer acquisition cost, model-inference cost, refunds, taxes, platform fees, or retailer contract economics.
@@ -143,11 +171,11 @@ Using the directional $159 billion online-fashion estimate, a mature product inf
 
 ## Market Dynamics
 
-### Tailwinds
+### Demand Drivers
 
 1. **A large and growing digital transaction surface.** U.S. e-commerce grew 9.8% year over year in Q1 2026. ([U.S. Census Bureau](https://www.census.gov/retail/ecommerce.html))
 2. **Persistent evaluation uncertainty.** Google’s shopper study found both representation gaps and dissatisfaction when delivered items looked different than expected. ([Google](https://blog.google/products-and-platforms/products/shopping/ai-virtual-try-on-google-shopping/))
-3. **Costly returns and bracketing.** NRF estimated total retail returns at $890 billion in 2024, while its apparel/footwear data show consumers deliberately buy multiple versions intending to return some. ([NRF/Happy Returns](https://cdn.nrf.com/sites/default/files/2024-12/2024-Consumer-Returns-in%20the-Retail-Industry-Report_12.5.24.pdf))
+3. **Costly returns and bracketing.** NRF estimated $849.9 billion of merchandise returns in 2025 and a 19.3% online return rate. Its 2024 apparel/footwear study also shows consumers deliberately buy multiple versions intending to return some. ([NRF 2025](https://nrf.com/media-center/press-releases/consumers-expected-to-return-nearly-850-billion-in-merchandise-in-2025); [NRF/Happy Returns 2024](https://nrf.com/media-center/press-releases/nrf-and-happy-returns-report-2024-retail-returns-total-890-billion))
 4. **Social shopping behavior.** Sixty-two percent of U.S. adult TikTok users said product reviews or recommendations were a reason they used the platform; among users ages 18–29, the figure was 74%. ([Pew Research Center](https://www.pewresearch.org/short-reads/2024/11/21/a-majority-of-us-tiktok-users-are-there-for-reviews-and-recommendations/))
 5. **Rapid generative-model progress.** Own-photo apparel rendering is now available at search and retailer scale, establishing user comprehension of the interaction.
 
@@ -158,26 +186,33 @@ Using the directional $159 billion online-fashion estimate, a mature product inf
 3. **Trust is fragile.** Research identifies identity loss, logo/text degradation, garment-detail errors, and temporal inconsistency as ongoing technical challenges. ([Google Research on identity preservation](https://research.google/pubs/mm-vto-multi-garment-virtual-try-on-and-editing/); [MagicTryOn](https://arxiv.org/abs/2505.21325); [DualFit](https://arxiv.org/abs/2508.12131))
 4. **Privacy and fairness exposure.** Photos may reveal sensitive characteristics. The FTC warns that biometric technologies can create privacy, bias, and discrimination harms, while California gives consumers rights around sensitive personal information and deletion. ([FTC](https://www.ftc.gov/news-events/news/press-releases/2023/05/ftc-warns-about-misuses-biometric-information-harm-consumers); [California Privacy Protection Agency](https://cppa.ca.gov/faq))
 5. **Closet setup creates friction.** Consumer discussions repeatedly describe photographing and cataloging a wardrobe as time-consuming or overwhelming and express concern about portability if an app closes. These are anecdotal signals, not representative research. ([Reddit discussion one](https://www.reddit.com/r/capsulewardrobe/comments/1onp0dk/do_yall_use_digital_closet_apps/); [discussion two](https://www.reddit.com/r/capsulewardrobe/comments/1lfvsre/recommendations_for_digital_closet_app_can_i_back/))
+6. **Buyer and distribution power sit downstream.** Retailers and shopping platforms own the catalog, checkout, attribution rules, and customer relationship; Magic Mirror would depend on links, feeds, or partner terms it does not control.
+7. **Demand may be seasonal and episodic.** Holidays, weddings, interviews, trips, and wardrobe transitions create strong triggers, but a single shopper may not face them often enough to sustain subscription retention.
+
+### Regulatory and Technology Factors
+
+- **Fact:** The FTC warns that biometric technologies can create privacy, security, bias, and discrimination harms and evaluates collection, consent, foreseeable harm, vendor practices, and ongoing monitoring. ([FTC](https://www.ftc.gov/news-events/news/press-releases/2023/05/ftc-warns-about-misuses-biometric-information-harm-consumers))
+- **Fact:** California treats biometric information used to identify a consumer as sensitive personal information and provides access, correction, deletion, and limitation rights under specified conditions. ([California Privacy Protection Agency](https://cppa.ca.gov/faq))
+- **Fact:** Illinois BIPA excludes photographs themselves from “biometric identifier” but includes scans of face geometry. Provider processing—not merely the input file type—therefore requires legal review. ([Illinois Public Act 103-0769](https://www.ilga.gov/Legislation/publicacts/view/103-0769))
+- **Fact:** Research continues to identify identity preservation, fine garment details, logos/text, and temporal consistency as difficult virtual try-on problems. ([Google Research](https://research.google/pubs/mm-vto-multi-garment-virtual-try-on-and-editing/); [MagicTryOn](https://arxiv.org/abs/2505.21325); [DualFit](https://arxiv.org/abs/2508.12131))
+- **Inference:** Magic Mirror should treat model/provider choice, deletion behavior, output disclaimers, and representation testing as launch gates rather than implementation details.
 
 ## Competitive Landscape
 
-### Direct and adjacent competitors
+### Direct Competitors
 
-| Competitor | Category and offer | Price/scale signal | Strategic implication |
-|---|---|---|---|
-| Google Shopping | Own-photo/selfie apparel try-on inside shopping discovery | Free to users; billions of listings | Largest direct threat; owns discovery and catalog breadth |
-| Walmart | “Be Your Own Model” for apparel in Walmart’s ecosystem | 270,000+ items at launch | Strong convenience but retailer-locked |
-| Amazon | Category-specific virtual try-on, including shoes, eyewear, and beauty | Bundled into Amazon shopping | Reinforces free, transaction-attached expectations |
-| Acloset | Digital wardrobe, AI stylist, and virtual try-on | Free up to 100 closet items; $3.99–$24.99 monthly tiers | Broad feature competitor; proves crowded subscription space |
-| AI Closet | Digital closet and AI try-on | Free limit; $7.99/month Pro | Low price anchor and simple substitute |
-| Sty AI | Virtual try-on and styling | Free tier; $4.99/$9.99 monthly tiers | Makes generation alone difficult to monetize |
-| Indyx | Digital wardrobe and human styling | Wardrobe free; styling starts at $15/month, lookbooks at $150 | Human expertise is a premium alternative; setup burden remains |
-| StyleDNA, Alta, Styln | AI styling, closet, shopping, and/or try-on combinations | Freemium to premium subscriptions | “AI stylist” positioning is already noisy |
-| Veesual and other B2B vendors | Retailer-integrated model switching, styling, and virtual try-on | Enterprise pricing | Retailers can buy the capability without Magic Mirror |
+- **Google Shopping:** Own-photo/selfie apparel try-on inside cross-retailer shopping discovery, free to users and supported across billions of listings. ([Google](https://blog.google/products-and-platforms/products/shopping/studio-quality-digital-try-on/))
+- **Walmart:** Own-photo apparel try-on attached to Walmart’s catalog and checkout; more than 270,000 eligible items at its 2022 launch. ([Walmart](https://corporate.walmart.com/news/2022/09/15/walmart-levels-up-virtual-try-on-for-apparel-with-be-your-own-model-experience))
+- **Amazon:** Category-specific virtual try-on bundled into Amazon shopping, including shoes, eyewear, and beauty. ([Amazon](https://www.aboutamazon.com/news/retail/amazon-shopping-app))
+- **AI Closet and Sty AI:** Low-priced consumer try-on and styling products that make standalone generation easy to substitute. ([AI Closet](https://www.aicloset.io/); [Sty AI](https://styai.app/))
 
-Sources: [Google](https://blog.google/products-and-platforms/products/shopping/studio-quality-digital-try-on/), [Walmart](https://corporate.walmart.com/news/2022/09/15/walmart-levels-up-virtual-try-on-for-apparel-with-be-your-own-model-experience), [Amazon](https://www.aboutamazon.com/news/retail/amazon-shopping-app), [Acloset](https://www.acloset.app/support/), [AI Closet](https://www.aicloset.io/), [Sty AI](https://styai.app/), [Indyx](https://www.myindyx.com/how-it-works), [Veesual](https://www.veesual.ai/vto/blog/virtual-try-on-styling-fitting).
+### Indirect Competitors
 
-### Indirect alternatives and substitutes
+- **Acloset, StyleDNA, Alta, and Styln:** Digital-wardrobe and AI-styling products that compete for the user’s ongoing fashion memory and subscription budget. ([Acloset](https://www.acloset.app/support/); [StyleDNA](https://get.styledna.ai/style-quiz/paywall); [Alta](https://altadaily.net/); [Styln](https://styln.ai/))
+- **Indyx:** A free digital wardrobe with paid human styling, demonstrating that expertise and completed looks can command more than raw generation. ([Indyx](https://www.myindyx.com/how-it-works))
+- **Veesual and other B2B vendors:** Retailer-integrated virtual try-on and model-selection software that lets brands buy the capability directly. ([Veesual](https://www.veesual.ai/vto/blog/virtual-try-on-styling-fitting))
+
+### Substitutes, Manual Workarounds, and Status Quo
 
 - Retailer model photos, customer-review photos, size charts, and fit notes.
 - Physical fitting rooms and at-home try-on.
@@ -187,21 +222,23 @@ Sources: [Google](https://blog.google/products-and-platforms/products/shopping/s
 - General-purpose image-generation tools.
 - Digital closets that optimize use of already-owned clothes instead of evaluating a new purchase.
 
-### Status quo
-
 The user mentally maps a garment onto their body using imperfect imagery, searches for a similar-looking reviewer or creator, asks someone they trust, visits a store, or buys with the option to return. The status quo is fragmented but usually free and familiar.
 
-### Comparison on the initial job
+### Comparison Matrix
 
-| Option | Cross-retailer | Uses the shopper’s image | Fast/no closet setup | Learns taste over time | Close to checkout |
-|---|---|---|---|---|---|
-| Google Shopping | Yes | Yes | Yes | Limited/unknown | Yes |
-| Retailer-native VTO | No | Often | Yes | Retailer-specific | Yes |
-| AI closet/stylist apps | Often | Varies | Usually no | Yes | Varies |
-| Friend/creator feedback | Yes | Yes | Sometimes | Yes, informally | No |
-| **Magic Mirror proposed wedge** | **Yes** | **Yes** | **Yes** | **Roadmap, not V1** | **Via link/affiliate** |
+| Company or alternative | Type and audience | Core promise and scope | Pricing and distribution | Strengths | Weaknesses and switching friction | Evidence |
+|---|---|---|---|---|---|---|
+| Google Shopping | Direct; broad online shoppers | Try on apparel on the user inside product discovery | Free; Google Search/Shopping | Cross-retailer reach, billions of listings, close to checkout | Limited independent decision memory; almost no adoption friction for existing Google users | [Google](https://blog.google/products-and-platforms/products/shopping/studio-quality-digital-try-on/) |
+| Walmart | Direct; Walmart apparel shoppers | Visualize an eligible Walmart item on the user | Free; Walmart app and catalog | Catalog, transaction, and fulfillment integration | Retailer-locked; user must already shop Walmart | [Walmart](https://corporate.walmart.com/news/2022/09/15/walmart-levels-up-virtual-try-on-for-apparel-with-be-your-own-model-experience) |
+| Amazon | Direct/adjacent; Amazon category shoppers | AR try-on for selected shoes, eyewear, and beauty | Free; Amazon app | Transaction proximity and trusted account relationship | Category-limited and retailer-locked | [Amazon](https://www.aboutamazon.com/news/retail/amazon-shopping-app) |
+| Acloset | Indirect/direct; wardrobe organizers and style seekers | Closet catalog, recommendations, styling, and try-on | Free limit; $3.99–$24.99/month; app stores | Persistent wardrobe data and broad feature set | Upfront closet work; switching means rebuilding wardrobe data | [Acloset](https://www.acloset.app/support/); [App Store](https://apps.apple.com/us/app/acloset-ai-fashion-assistant/id1542311809) |
+| AI Closet / Sty AI | Direct; AI-curious fashion shoppers | Low-cost virtual try-on and styling | Free tiers; roughly $5–$10/month; web/app | Low price and simple substitution | Limited evidence of fidelity, retention, or durable memory; low switching cost | [AI Closet](https://www.aicloset.io/); [Sty AI](https://styai.app/) |
+| Indyx | Indirect; wardrobe organizers seeking expertise | Catalog owned clothes and buy human-created outfits | Wardrobe free; styling from $15/month or $150/lookbook; app/site | Human judgment and premium service | Cataloging burden, slower service, migration cost for closet data | [Indyx](https://www.myindyx.com/how-it-works) |
+| Friend, creator, or stylist | Substitute; shoppers wanting reassurance | Trusted second opinion using context and taste | Usually free socially; paid for professional styling; social/direct | Human trust and nuanced occasion context | Availability, inconsistency, and no integrated visualization or checkout | Status quo synthesized from customer discussions and market workflow |
+| Physical fitting room / buy-and-return | Substitute; shoppers prioritizing physical evidence | Directly test look, feel, and sometimes fit | Free in store or requires purchase/return; retail channels | Strongest physical evidence | Travel, time, inventory limits, delayed refunds, and return hassle | [NRF/Happy Returns](https://nrf.com/media-center/press-releases/nrf-and-happy-returns-report-2024-retail-returns-total-890-billion) |
+| **Magic Mirror proposed wedge** | Proposed; event-driven cross-retailer shoppers | One-item visualization plus explicit buy/skip/save/share decision support | Pricing uncommitted; direct/creator acquisition and affiliate links hypothesized | Cross-retailer focus, no closet setup, privacy and uncertainty can be explicit | No traction, catalog, provider advantage, or decision memory yet; user must trust a new product | Internal product strategy and this research |
 
-### Positioning gaps
+### Positioning Gaps
 
 1. **Decision, not generation:** Return an explicit purchase recommendation with stated visual uncertainty, not just an image.
 2. **Cross-retailer memory:** Learn why the user kept, skipped, or returned items across stores. This is roadmap and cannot be claimed in V1.
@@ -212,13 +249,63 @@ No gap is yet proven. Google could add more decision support, and a startup must
 
 ## Customer and Demand Signals
 
-### Evidence of pain
+### Jobs to Be Done
+
+1. **When I find a garment online, help me imagine it on my body before I spend money.**
+2. **When the purchase matters, give me a fast second opinion so I can buy, skip, save, or share with more confidence.**
+3. **When retailer models do not resemble me, show a representation that is personally relevant without pretending to prove physical fit.**
+4. **When I shop across retailers, reduce repeated evaluation work without making me catalog my entire closet first.**
+
+These jobs are **inferences** from shopper surveys, returns behavior, social recommendation use, and community discussions; they require direct Magic Mirror interviews.
+
+### Pain Points and Triggers
 
 - **Representation:** 42% of surveyed online clothing shoppers said model images did not represent them. ([Google/Ipsos](https://blog.google/products-and-platforms/products/shopping/ai-virtual-try-on-google-shopping/))
 - **Expectation mismatch:** 59% in the same survey had been dissatisfied when an item looked different than expected.
-- **Return behavior:** NRF’s apparel/footwear findings show bracketing is common, especially among younger shoppers. ([NRF/Happy Returns](https://cdn.nrf.com/sites/default/files/2024-12/2024-Consumer-Returns-in%20the-Retail-Industry-Report_12.5.24.pdf))
+- **Return behavior:** NRF’s apparel/footwear findings show bracketing is common, especially among younger shoppers. ([NRF/Happy Returns](https://nrf.com/media-center/press-releases/nrf-and-happy-returns-report-2024-retail-returns-total-890-billion))
 - **Decision-support behavior:** TikTok users, especially young adults and women, already use social content for product recommendations. ([Pew](https://www.pewresearch.org/short-reads/2024/11/21/a-majority-of-us-tiktok-users-are-there-for-reviews-and-recommendations/))
 - **Closet-app friction:** Users value remembering what they own and reducing impulse purchases, but describe initial cataloging as a major commitment. ([Reddit discussion](https://www.reddit.com/r/capsulewardrobe/comments/1bvebhr/what_are_the_reasons_that_you_are_able_to_upload_all_your_clothes_into_a_virtual_closet_app/))
+
+High-intent triggers include dates, interviews, weddings, trips, wardrobe transitions, unfamiliar brands, high-consideration prices, and items shown only on models unlike the shopper. These triggers are hypotheses to rank in interviews.
+
+### Current Alternatives
+
+- Search for customer photos, creators, or models with a similar body or age.
+- Ask a trusted person or online community.
+- Visit a fitting room or order multiple options and return rejects.
+- Use Google Shopping or a retailer-native try-on tool.
+- Use a digital-closet or AI-styling app and accept the cataloging/setup cost.
+
+### Objections and Buying Friction
+
+- “Will the image preserve me and the garment, or invent an unrealistic version?”
+- “Does this predict fit, or only appearance?”
+- “What happens to my photo, and can I delete it?”
+- “Why should I pay when Google or the retailer offers try-on for free?”
+- “Will I use this often enough to justify setup or a subscription?”
+
+The first three reflect documented technical and privacy risks; the last two are **inferences** from free competitors, low pricing, and digital-closet discussions.
+
+### Customer Language
+
+- Digital-closet setup was described as “a lot of upfront work” and taking “soooo much time.” ([Reddit](https://www.reddit.com/r/capsulewardrobe/comments/1onp0dk/do_yall_use_digital_closet_apps/))
+- Another shopper called adopting a wardrobe app a “big commitment” and worried about exporting data if the app closed. ([Reddit](https://www.reddit.com/r/capsulewardrobe/comments/1lfvsre/recommendations_for_digital_closet_app_can_i_back/))
+- Users also describe desired outcomes such as remembering what they own, recreating outfits, reducing shopping urges, and understanding cost per wear. ([Reddit](https://www.reddit.com/r/capsulewardrobe/comments/1bvebhr/what_are_the_reasons_that_you_are_able_to_upload_all_your_clothes_into_a_virtual_closet_app/))
+
+These phrases are anecdotal and come from self-selected capsule-wardrobe communities. They expose onboarding and continuity anxieties but do not establish prevalence.
+
+### Candidate Segment Scoring
+
+Scores are 1–5, where 5 is most attractive. Weighted score = V1 trigger clarity 30%, evidence strength 20%, reachable distribution 15%, repeat-use potential 15%, monetization potential 10%, and technical/privacy feasibility 10%.
+
+| Candidate segment | Trigger clarity | Evidence | Distribution | Repeat use | Monetization | Feasibility | Weighted score / 5 | Interpretation |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| Event-driven online apparel shoppers, ages 18–44 | 5 | 4 | 4 | 2 | 3 | 4 | **3.90** | Best V1 wedge because the urgent one-item decision maps directly to the golden path |
+| Social-first frequent fashion shoppers | 3 | 3 | 5 | 4 | 3 | 4 | **3.55** | Strong distribution and frequency, but generic try-on and creator advice compete heavily |
+| Shoppers underrepresented by retailer models | 4 | 4 | 3 | 3 | 3 | 2 | **3.40** | Strong pain hypothesis; lower feasibility until representation quality is proven |
+| General digital-wardrobe optimizers | 2 | 3 | 3 | 5 | 3 | 4 | **3.10** | Repeat use is attractive, but closet setup conflicts with V1 and competition is crowded |
+
+The scores are **research-team judgments**, not measured market data. Downstream audience work should re-score after interviews and provider benchmarks.
 
 ### Candidate first wedge
 
@@ -236,7 +323,7 @@ Why this wedge ranks first:
 
 Shoppers who do not feel represented by retailer model imagery—including varied ages, body shapes, and skin tones—may experience stronger pain. A highly engaged anecdotal discussion from an older female shopper supports the hypothesis, but one community post cannot define the market. ([Reddit](https://www.reddit.com/r/fashionwomens35/comments/1q63zy6/im_f_tired_of_online_shopping_making_me_feel_bad/))
 
-### Unproven demand questions
+### Remaining Demand Questions
 
 - Will a shopper trust a generated image enough to change a purchase decision?
 - Is a one-time render valuable enough to pay for, or only useful as a free acquisition feature?
@@ -265,6 +352,7 @@ Shoppers who do not feel represented by retailer model imagery—including varie
 6. **Consumer subscription willingness may be low.** Free and inexpensive competitors anchor the category downward.
 7. **Return reduction is not established.** A prettier preview could increase purchases without reducing returns. Magic Mirror must not use return-reduction claims until it measures them.
 8. **The recommended wedge may be episodic.** Occasion-driven need is high-intent but may not create frequent retention.
+9. **Returns are large but did not rise in the latest estimate.** NRF’s estimate fell from $890 billion in 2024 to $849.9 billion in 2025. The opportunity case should not depend on a claim that total returns are continuously accelerating. ([NRF 2024](https://nrf.com/media-center/press-releases/nrf-and-happy-returns-report-2024-retail-returns-total-890-billion); [NRF 2025](https://nrf.com/media-center/press-releases/consumers-expected-to-return-nearly-850-billion-in-merchandise-in-2025))
 
 ## Open Questions
 
