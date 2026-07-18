@@ -1,0 +1,146 @@
+{
+  "task_id": "T006",
+  "status": "passed",
+  "reviewed_at": "2026-07-18T12:30:39Z",
+  "method": {
+    "type": "deterministic HTML/CSS screenshots",
+    "renderer": "Playwright 1.61.1 with headless Chromium",
+    "source_url_scheme": "file",
+    "viewport": {
+      "width_px": 1600,
+      "height_px": 1000,
+      "device_scale_factor": 1
+    },
+    "shared_stylesheet": "company/brand/brandbook-packet/source/specimens/social-specimens.css",
+    "font_wait": "document.fonts.ready",
+    "asset_check": "all document images complete with non-zero naturalWidth before screenshot"
+  },
+  "inputs": [
+    {
+      "role": "complete Acid profile icon",
+      "path": "company/brand/exports/icon/png/transparent/acid/magic-mirror-icon-acid-1024px.png"
+    },
+    {
+      "role": "Ink banner lockup",
+      "path": "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-2048px.png"
+    },
+    {
+      "role": "Acid supporting lockup",
+      "path": "company/brand/exports/combined/png/transparent/acid/magic-mirror-combined-acid-2048px.png"
+    },
+    {
+      "role": "local typography and color tokens",
+      "path": "company/brand/brandbook-packet/tokens/brand-tokens.css"
+    }
+  ],
+  "sources": [
+    {
+      "path": "company/brand/brandbook-packet/source/specimens/social-specimens.css",
+      "bytes": 6614,
+      "sha256": "f254b5dea663e6562ca210f43db29cd94f4443c43a0acaa48b3150ae187dcf1e"
+    },
+    {
+      "path": "company/brand/brandbook-packet/source/specimens/x-profile.html",
+      "bytes": 3446,
+      "sha256": "31db089305c0170d0677b4767c5a95fee8e36beccfa1c04982e17cc5dadba63c"
+    },
+    {
+      "path": "company/brand/brandbook-packet/source/specimens/linkedin-profile.html",
+      "bytes": 3602,
+      "sha256": "d96269b3cf013e432e76a3340bc05c4cd662dbfe5c57bd0580e8f667026de7a1"
+    }
+  ],
+  "outputs": [
+    {
+      "platform": "X",
+      "path": "company/brand/brandbook-packet/mockups/x-profile.png",
+      "format": "PNG",
+      "width_px": 1600,
+      "height_px": 1000,
+      "bytes": 144377,
+      "sha256": "1315aaddabeae327f42c4893aec0c95b4292993c1e1c1e80ef8be5ab4cf7c5b6"
+    },
+    {
+      "platform": "LinkedIn",
+      "path": "company/brand/brandbook-packet/mockups/linkedin-profile.png",
+      "format": "PNG",
+      "width_px": 1600,
+      "height_px": 1000,
+      "bytes": 150635,
+      "sha256": "887d46910e87fe839e05292f9674d5fb3fbae9d94a6567ad83f3bd43c25e395a"
+    }
+  ],
+  "iteration_history": [
+    {
+      "platform": "X",
+      "renders": 1,
+      "result": "Accepted first deterministic render."
+    },
+    {
+      "platform": "LinkedIn",
+      "renders": 2,
+      "result": "The first render placed the lower supporting lockup card beyond the 1000px canvas. Tightened only the LinkedIn supporting rail, re-rendered, and verified zero elements outside the viewport; required profile copy and brand assets were unchanged."
+    }
+  ],
+  "automated_qa": {
+    "shared": {
+      "viewport_px": [1600, 1000],
+      "device_pixel_ratio": 1,
+      "local_fonts_loaded": ["Instrument Serif", "Space Grotesk"],
+      "failed_images_per_page": 0,
+      "literal_hex_colors_across_sources": 0,
+      "elements_outside_viewport_per_page": 0,
+      "passed": true
+    },
+    "x_profile": {
+      "exact_copy": {
+        "display_name": "Magic Mirror",
+        "handle": "@magicmirror_demo",
+        "bio": "AI virtual try-on for more confident clothing decisions. Hackathon prototype.",
+        "status_label": "CONCEPT PROFILE • NOT A LIVE ACCOUNT"
+      },
+      "status_label_bounds_px": [860, 900],
+      "verification_badges": 0,
+      "numeric_follower_following_employee_customer_claims": 0,
+      "passed": true
+    },
+    "linkedin_profile": {
+      "exact_copy": {
+        "company_name": "Magic Mirror",
+        "descriptor": "AI-powered virtual try-on • Hackathon prototype",
+        "about": "Helping shoppers make faster, more confident clothing decisions.",
+        "status_label": "CONCEPT PROFILE • NOT A LIVE COMPANY PAGE"
+      },
+      "status_label_bounds_px": [860, 900],
+      "verification_badges": 0,
+      "numeric_follower_following_employee_customer_claims": 0,
+      "passed": true
+    }
+  },
+  "visual_qa": {
+    "review_method": "original-resolution visual inspection of both final PNGs",
+    "brand_asset_fidelity": {
+      "passed": true,
+      "notes": "Both pages use the exact combined lockup on the Acid banner and the complete Acid icon on Ink for the profile image; the S-curve lens and both focus corners remain intact."
+    },
+    "copy_legibility": {
+      "passed": true,
+      "notes": "Required names, handle or descriptor, bio or about line, and non-live status labels are fully legible."
+    },
+    "claim_safety": {
+      "passed": true,
+      "notes": "Neither profile presents verification, follower metrics, customers, employees, or a live-account claim."
+    },
+    "palette_and_tone": {
+      "passed": true,
+      "notes": "Acid, Ink, White, Cloud, and documented neutral tokens create consistent editorial profile treatments with no off-token designed colors."
+    },
+    "clipping": {
+      "passed": true,
+      "notes": "The final renders contain zero elements outside the 1600×1000 viewport; the LinkedIn supporting rail defect from its first render was corrected."
+    },
+    "overall_score_percent": 100,
+    "passed": true
+  },
+  "decision": "Accepted both final deterministic social-profile renders after one targeted LinkedIn layout correction. Exact-copy, claim-safety, asset, font, token, dimension, and clipping gates passed."
+}
