@@ -68,6 +68,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - [x] Generate ImageGen masters for the wordmark, combined lockup, and standalone icon.
 - [x] Export exact-color PNG, SVG, PDF, favicon, and application-size variants under `company/brand/`.
 - [x] Document usage, minimum sizes, color treatments, and reproducible export instructions.
+- [ ] Complete the reusable 19-page brandbook loop and audited PDF packet under `company/brand/`.
 
 ## Next
 
@@ -88,6 +89,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-18: Use the Acid Dispatch palette, concept-01 editorial wordmark, and concept-03 lens/focus icon for the hackathon identity.
 - 2026-07-18: Maintain three approved identity forms: standalone wordmark, combined lockup with the icon replacing the `o`, and standalone icon.
 - 2026-07-18: Treat ImageGen outputs as approved visual masters, then create exact-color sizes and vector paths deterministically so production exports do not drift between variants.
+- 2026-07-18: Build the brandbook as a durable, task-backed loop with page, mockup, token, PDF-render, and final-audit evidence rather than as a one-off document.
 
 ## Roadmap Backlog (V2+)
 

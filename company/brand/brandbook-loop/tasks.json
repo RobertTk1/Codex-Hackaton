@@ -1,0 +1,248 @@
+{
+  "project": "Magic Mirror Brandbook Packet",
+  "created_at": "2026-07-18T11:52:49Z",
+  "updated_at": "2026-07-18T11:52:49Z",
+  "current_session": 1,
+  "tasks": [
+    {
+      "id": "T001",
+      "name": "Audit source assets; lock palette and typography",
+      "description": "Confirm the approved Magic Mirror marks and Acid Dispatch palette, select real display and UI/body fonts, document disallowed colors and the shade-generation method, and create base tokens.",
+      "status": "pending",
+      "depends_on": [],
+      "order": 1,
+      "spec_ref": "spec/palette-and-tokens.md",
+      "acceptance_criteria": [
+        "Approved wordmark, combined lockup, icon, favicon, and palette sources are recorded with durable repository paths.",
+        "Approved palette hex values, disallowed colors, and a documented derived-shade method are recorded.",
+        "Real display and UI/body font families are selected, with sources, licenses, local files or durable references, and fallback stacks recorded.",
+        "Base color and typography token JSON/CSS files exist under company/brand/brandbook-packet/tokens/."
+      ],
+      "verification": "manual + command review: record source paths, confirmed hex values, font files/sources, shade method, token parse results, and any blockers in notes",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    },
+    {
+      "id": "T002",
+      "name": "Create page-by-page asset and ImageGen plan",
+      "description": "Map every one of the 19 brandbook pages to existing assets, generated mockups, deterministic screenshots, output paths, prompts, and QA criteria before mockup generation.",
+      "status": "pending",
+      "depends_on": ["T001"],
+      "order": 2,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "company/brand/brandbook-packet/asset-plan.md exists.",
+        "The plan has one row for each of the 19 pages and maps every page to its required assets.",
+        "Every mockup family has a method, exact input paths, prompt or screenshot plan, output path, and verification checklist.",
+        "The plan distinguishes ImageGen mockups from deterministic HTML/CSS raster screenshots."
+      ],
+      "verification": "manual review: record page-row count, planned mockup list, generation order, resolved input paths, and method counts in notes",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    },
+    {
+      "id": "T003",
+      "name": "Create business card mockup",
+      "description": "Create and visually QA a raster business card mockup using the approved Magic Mirror logo system and Acid Dispatch palette.",
+      "status": "pending",
+      "depends_on": ["T002"],
+      "order": 3,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "A non-zero raster business card mockup is saved under company/brand/brandbook-packet/mockups/.",
+        "The approved logo is recognizable, correctly spelled, materially undistorted, and physically integrated.",
+        "The mockup uses approved palette colors and contains no unrelated logos or watermarks.",
+        "Visual QA evidence and the final ImageGen prompt/method are recorded."
+      ],
+      "verification": "visual review + file check: record dimensions, bytes, prompt/method, logo fidelity, palette compliance, and final path",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    },
+    {
+      "id": "T004",
+      "name": "Create billboard mockup",
+      "description": "Create and visually QA a high-visibility raster billboard mockup using approved Magic Mirror assets.",
+      "status": "pending",
+      "depends_on": ["T003"],
+      "order": 4,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "A non-zero raster billboard mockup is saved under company/brand/brandbook-packet/mockups/.",
+        "Logo and any approved visible copy are legible at brandbook page scale.",
+        "The brand layer appears physically integrated and uses only approved colors.",
+        "Visual QA evidence and the final ImageGen prompt/method are recorded."
+      ],
+      "verification": "visual review + file check: record dimensions, bytes, prompt/method, text legibility, palette compliance, and final path",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    },
+    {
+      "id": "T005",
+      "name": "Create favicon and browser mockups",
+      "description": "Create deterministic raster favicon/browser specimens from the approved full and simplified icons.",
+      "status": "pending",
+      "depends_on": ["T004"],
+      "order": 5,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "Raster favicon and browser mockups are saved under company/brand/brandbook-packet/mockups/.",
+        "The simplified 16px favicon and complete 32px-plus icon are demonstrated accurately.",
+        "Visible browser copy is exact and local assets resolve.",
+        "Creation and visual verification methods are recorded."
+      ],
+      "verification": "visual review + file check: record dimensions, bytes, source/method, small-size legibility, and final paths",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    },
+    {
+      "id": "T006",
+      "name": "Create social profile mockups",
+      "description": "Create deterministic raster Twitter/X and LinkedIn profile specimens using the approved icon, combined lockup, and explicitly labeled hackathon-profile copy.",
+      "status": "pending",
+      "depends_on": ["T005"],
+      "order": 6,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "Raster Twitter/X and LinkedIn mockups are saved under company/brand/brandbook-packet/mockups/.",
+        "Brand name and any profile copy are correctly spelled and legible.",
+        "No real account availability is implied; mockup-only handles are labeled as concepts.",
+        "Visual QA evidence and creation methods are recorded."
+      ],
+      "verification": "visual review + file check: record dimensions, bytes, method, text accuracy, palette compliance, and final paths",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    },
+    {
+      "id": "T007",
+      "name": "Create apparel and merchandise mockups",
+      "description": "Create and visually QA separate raster T-shirt and merchandise mockups using approved Magic Mirror logo/icon usage.",
+      "status": "pending",
+      "depends_on": ["T006"],
+      "order": 7,
+      "spec_ref": "spec/imagegen-asset-plan.md",
+      "acceptance_criteria": [
+        "Non-zero raster T-shirt and merchandise mockups are saved under company/brand/brandbook-packet/mockups/.",
+        "Logo and icon usage are recognizable, correct, and physically integrated.",
+        "Only approved palette colors appear in designed brand layers.",
+        "Visual QA evidence and final ImageGen prompts/methods are recorded."
+      ],
+      "verification": "visual review + file check: record dimensions, bytes, prompts/methods, logo fidelity, palette compliance, and final paths",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    },
+    {
+      "id": "T008",
+      "name": "Create 19-page brandbook source",
+      "description": "Create print-ready HTML/CSS source for all 19 requested pages using local brand assets and raster mockups.",
+      "status": "pending",
+      "depends_on": ["T007"],
+      "order": 8,
+      "spec_ref": "spec/page-outline.md",
+      "acceptance_criteria": [
+        "The source contains exactly 19 ordered brandbook pages matching the requested outline.",
+        "Every page references only local assets and uses consistent margins, typography, page numbers, and footer treatment.",
+        "No copied reference-brand names, unapproved logo variants, or off-palette designed UI colors appear.",
+        "All image references resolve and a source preview exists for each page."
+      ],
+      "verification": "command + manual review: record page count, resolved local assets, forbidden-term scan, palette scan, and source-preview count",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    },
+    {
+      "id": "T009",
+      "name": "Compute and embed WCAG matrix",
+      "description": "Calculate contrast ratios for useful Acid Dispatch text/background combinations, save raw data, and embed a readable compliance matrix in the brandbook.",
+      "status": "pending",
+      "depends_on": ["T008"],
+      "order": 9,
+      "spec_ref": "spec/palette-and-tokens.md",
+      "acceptance_criteria": [
+        "WCAG contrast data exists as parseable JSON under company/brand/brandbook-packet/tokens/.",
+        "Every useful approved and derived text/background pairing has a calculated ratio and normal/large-text result.",
+        "The brandbook compliance page contains the matrix and recommended pairings.",
+        "AA thresholds of 4.5:1 normal and 3.0:1 large are documented."
+      ],
+      "verification": "command review: record matrix cell count, AA-normal count, AA-large count, calculation method, and source/token paths",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    },
+    {
+      "id": "T010",
+      "name": "Render PDF and previews",
+      "description": "Render the 19-page brandbook PDF, source page previews, and PDF-rendered previews; inspect the important pages and fix any failures.",
+      "status": "pending",
+      "depends_on": ["T009"],
+      "order": 10,
+      "spec_ref": "spec/pdf-production.md",
+      "acceptance_criteria": [
+        "company/brand/brandbook-packet/Magic-Mirror-Brandbook.pdf exists, opens, and has exactly 19 pages.",
+        "Exactly 19 source previews and 19 PDF-rendered previews exist.",
+        "A contact sheet exists and pages with logos, mockups, dense tables, and typography are visually inspected.",
+        "Inspection evidence records the page list, PDF byte size, and any resolved defects."
+      ],
+      "verification": "PDF tooling + visual review: record PDF bytes, page count, preview counts, contact sheet path, inspected pages, and results",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    },
+    {
+      "id": "T011",
+      "name": "Write DESIGN.md",
+      "description": "Document the complete design system and production decisions represented in the final PDF.",
+      "status": "pending",
+      "depends_on": ["T010"],
+      "order": 11,
+      "spec_ref": "spec/design-md.md",
+      "acceptance_criteria": [
+        "company/brand/brandbook-packet/DESIGN.md exists.",
+        "It documents source assets, logo rules, palette, derived shades, typography, UI elements, WCAG pairings, mockups, production notes, and caveats.",
+        "Its tokens and usage guidance match the final PDF.",
+        "All local links resolve."
+      ],
+      "verification": "manual + command review: record required section count, token/PDF consistency check, resolved link count, and caveats in notes",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    },
+    {
+      "id": "T012",
+      "name": "Final packet verification and handoff",
+      "description": "Run the requirement-by-requirement packet audit, update durable loop/project records, and prepare the final handoff.",
+      "status": "pending",
+      "depends_on": ["T011"],
+      "order": 12,
+      "spec_ref": "spec/verification.md",
+      "acceptance_criteria": [
+        "All prior tasks are complete with authoritative evidence in their notes.",
+        "The packet contains the 19-page PDF, DESIGN.md, source, mockups, previews, asset plan, references, fonts, tokens, and WCAG data.",
+        "company/brand/brandbook-packet/audit.json exists and proves all final verification requirements.",
+        "Loop progress and applicable company/project logs are current, and the handoff lists final paths and caveats."
+      ],
+      "verification": "manual + command review: record audit path, complete file tree, task status scan, final PDF/previews evidence, log updates, and known caveats",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:52:49Z",
+      "updated_at": "2026-07-18T11:52:49Z"
+    }
+  ]
+}
