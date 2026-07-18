@@ -12,3 +12,6 @@ Append-only operating log for agent actions and important system events.
 - 20:53:30 EDT :: Moved the living roadmap from root `plan.md` to `company/plan.md`.
 - 20:53:30 EDT :: Updated repository guidance so future work uses the consolidated company workspace.
 - 20:54:38 EDT :: Verified that `company/` contains the plan, company profile, activity log, run log, workflows, automations, and artifacts, with no duplicate root plan.
+- 21:01:11 EDT :: Added the full market evidence base and executive report under `company/artifacts/market_research/`.
+- 21:01:11 EDT :: Modeled TAM, SAM, and year-three SOM with explicit U.S. population, pricing, acquisition, conversion, and affiliate assumptions.
+- 21:01:11 EDT :: Recorded the conditional proceed recommendation, first validation wedge, competitive threat, and next validation experiments in the living plan.

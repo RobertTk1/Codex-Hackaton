@@ -23,6 +23,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 **User outcome:** The planned experience is feasible, measurable, and safe enough to build.
 
 - [x] Establish the base Magic Mirror company profile and operating workspace from the product strategy.
+- [x] Complete U.S.-first market research and competitor analysis for the V1 purchase-decision opportunity.
 - [ ] Add and decompose the full PRD.
 - [ ] Define the golden-path Given/When/Then scenario and acceptance criteria.
 - [ ] Evaluate generation providers using latency, output quality, reliability, integration effort, and cost.
@@ -61,9 +62,10 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 ## Next
 
-1. Add the full product strategy and PRD to the repository in an agreed source format.
-2. Convert it into phased requirements with user outcomes and acceptance criteria.
-3. Resolve generation-provider and photo-retention decisions before implementation depends on them.
+1. Add the full product strategy and PRD to the repository in an agreed source format, then convert it into phased requirements and acceptance criteria.
+2. Test the focused “Should I buy this?” concept with six to ten U.S. online apparel shoppers across varied ages and body representation.
+3. Benchmark two to three generation providers for identity and garment fidelity, p50/p95 latency, reliability, and cost on a constrained garment set.
+4. Resolve photo retention and deletion behavior before testing with real user photos.
 
 ## Decisions
 
@@ -76,6 +78,9 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-17: After verification, commit and push completed feature-branch work without separate approval; keep its open PR description and progress comments current.
 - 2026-07-17: Keep agent communication concise; summarize material changes and rationale without repeating routine tests or formalities.
 - 2026-07-17: Use `company/` as the canonical home for the plan, company profile, operating memory, workflows, automations, and artifacts; treat U.S.-first geography as a reversible assumption and keep monetization hypotheses uncommitted.
+- 2026-07-17: Proceed with the V1 under conditions and position it as a cross-retailer “Should I buy this?” decision companion; generic virtual try-on, full closet onboarding, and broad AI-stylist functionality are not differentiated V1 positions.
+- 2026-07-17: Treat event-driven U.S. online apparel shoppers ages 18–44 as the first validation wedge, not a committed target segment; test underrepresented ages, body shapes, and skin tones in research and provider benchmarks.
+- 2026-07-17: Keep consumer subscription and affiliate monetization as unvalidated hypotheses until real activation, repeat-use, willingness-to-pay, and attributed-purchase evidence exists.
 
 ## Roadmap Backlog (V2+)
 
