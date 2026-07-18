@@ -2,15 +2,15 @@
 
 ## How to Use This Plan
 
-This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The detailed PRD has not yet been added; create it through the founder walkthrough and approval workflow rather than guessing requirements.
+This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The detailed PRD package is in `company/artifacts/prd/` with Draft status and must receive explicit founder approval before UX design begins.
 
 ## Product Goal
 
-Deliver the V1 golden path: a user uploads or captures a photo, selects one garment, and receives a near-real-time rendered image or video of themselves wearing it.
+Deliver a style-report-led product that learns a customer's taste and body-style needs, explains how to dress better, recommends relevant products, enables live visual styling and voice refinement, and sends selected products to retailers for checkout.
 
 ## Scope Guardrail
 
-Stylist recommendations, voice input, multi-garment outfits, deep stylist reasoning, and brand polish are V2+. Do not pull them into V1 unless the plan records an explicit scope decision.
+The first functional build is the Style Intelligence Golden Path: profile and brand sizes, 8-12 favorite-look photos, visual taste calibration, email account conversion, real analysis, a report within a target of one to two minutes, and real curated recommendations. The complete frontend definition includes live styling, voice refinement, the Magic Mirror bag, and retailer handoff as real product behavior, while engineering releases may stage those capabilities behind verified provider quality and recovery criteria. Do not describe intended capabilities as pretend behavior or commit dead product stubs.
 
 ## Delivery Strategy
 
@@ -26,35 +26,49 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - [x] Complete U.S.-first market research and competitor analysis for the V1 purchase-decision opportunity.
 - [x] Define and score candidate audiences; select the behavioral V1 beachhead and validation cohort.
 - [x] Build and validate the reusable frontend-definition workflow and its four global skills.
-- [ ] Add and decompose the full PRD.
-- [ ] Define the golden-path Given/When/Then scenario and acceptance criteria.
+- [x] Create and decompose the full Draft PRD package.
+- [x] Define the golden-path Given/When/Then scenario and acceptance criteria.
+- [ ] Obtain explicit founder approval for the Draft PRD package.
 - [ ] Evaluate generation providers using latency, output quality, reliability, integration effort, and cost.
-- [ ] Decide photo retention and deletion behavior before storing real user photos.
+- [x] Decide source-photo retention: automatic deletion no later than 24 hours, with an earlier-delete control.
 - [ ] Confirm the minimum garment catalog and required source assets.
 - [ ] Define the submission deadline, demo cutoff, and experiment time budget.
 
 ### Phase 1 — Project Foundation
 
-**User outcome:** A user can open a functioning application shell ready for the try-on flow.
+**User outcome:** A customer can open a functioning application shell ready for the report-led journey.
 
 - [ ] Scaffold the Next.js monorepo application and required scripts.
 - [ ] Configure Tailwind, strict TypeScript, Zod, Vitest, and Playwright.
 - [ ] Configure local Supabase and document environment variables.
 - [ ] Add the minimum schema, migrations, storage buckets, and row-level security.
 
-### Phase 2 — Golden Path
+### Phase 2 — Style Intelligence Golden Path
 
-**User outcome:** A user can submit one photo and one garment and receive a visible try-on result.
+**User outcome:** A first-time customer can teach Magic Mirror their style and receive a real personalized report and curated recommendations.
 
-- [ ] Implement photo upload/capture with validation and consent messaging.
-- [ ] Implement single-garment selection.
-- [ ] Implement the typed generation-provider boundary with timeout and normalized errors.
-- [ ] Persist try-on session state and generated-asset references.
-- [ ] Show explicit loading, slow, success, and failure states.
+- [ ] Implement the report-led landing page and resumable guided onboarding.
+- [ ] Implement personal profile, favorite brands, and category-specific sizes.
+- [ ] Implement secure 8-12 favorite-look photo upload with validation, consent, and verified 24-hour deletion.
+- [ ] Implement accessible swipe-and-button taste calibration with undo.
+- [ ] Implement email account conversion without losing pre-account progress.
+- [ ] Implement the typed analysis-provider boundary with timeout and normalized errors.
+- [ ] Generate the complete structured style report and personalized catalog recommendations.
+- [ ] Meet the one-to-two-minute target with processing, slow, success, failure, and recovery behavior.
 
-### Phase 3 — Demo Readiness
+### Phase 3 — Live Styling and Retailer Action
 
-**User outcome:** The complete try-on journey works reliably in the hosted demo.
+**User outcome:** A report recipient can experience recommended items, refine the session naturally, and continue to a retailer with confident selections.
+
+- [ ] Benchmark and implement real live video try-on with camera permission and explicit fidelity limits.
+- [ ] Implement voice requests with visible interpretation, confirmation, and equivalent manual controls.
+- [ ] Implement a Magic Mirror bag grouped by retailer.
+- [ ] Refresh product availability and explain the external retailer boundary.
+- [ ] Send selected products to the correct retailer-owned checkout destination.
+
+### Phase 4 — Demo Readiness
+
+**User outcome:** The approved release journey works reliably in the hosted demo.
 
 - [ ] Pass the Playwright happy-path scenario.
 - [ ] Measure end-to-end render latency and address demo-breaking bottlenecks.
@@ -76,10 +90,10 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 ## Next
 
-1. Run `$product-prd-spec` with a founder walkthrough to create and approve the Magic Mirror PRD, user stories, screen/state inventory, and Given/When/Then scenarios.
-2. Interview ten U.S. adult online apparel shoppers who can show a recent uncertain item; compare “Should I buy this?” messaging with generic “virtual try-on” messaging.
-3. Resolve photo processing, retention, and deletion behavior before asking interview participants to upload real photos.
-4. Benchmark two to three generation providers for identity and garment fidelity, p50/p95 latency, reliability, and cost across a representation-diverse, consented or synthetic test set.
+1. Review and explicitly approve or revise the Draft PRD, user stories, screen/state inventory, and Given/When/Then scenarios under `company/artifacts/prd/`.
+2. After PRD approval, run `$product-ux-design` to create IA, flows, responsive grayscale HTML wireframes, and PNG captures for the approved inventory.
+3. Define the minimum catalog and benchmark analysis providers against usefulness, respectful language, representation quality, reliability, and the 120-second report target.
+4. Benchmark live try-on and voice providers before scheduling their engineering release.
 
 ## Decisions
 
@@ -111,11 +125,15 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-18: Build low-fidelity wireframes as responsive grayscale HTML/CSS and capture deterministic PNGs; create every high-fidelity screen mockup as a built-in ImageGen raster using the approved wireframe, copy, voice, and brand references.
 - 2026-07-18: Treat `company/voice.md` and `company/artifacts/copy/copy-manifest.json` as canonical for implementation copy because text rendered inside generated mockups may drift.
 - 2026-07-18: Record data, authentication, permissions, async status, storage, privacy, failure, and recovery implications during frontend definition, while leaving backend architecture and implementation to the engineering workflow.
+- 2026-07-18: Supersede the prior single-photo, single-garment V1 with a style-report-led product definition: profile and brand sizes, 8-12 favorite-look photos, taste calibration, email account creation, real analysis, a report within one to two minutes, and curated recommendations form the first functional golden path.
+- 2026-07-18: Define live styling, voice refinement, the Magic Mirror bag, and retailer handoff as real intended product behavior; engineering may stage releases, but frontend requirements and copy do not characterize these capabilities as pretend behavior.
+- 2026-07-18: Delete uploaded source photos automatically no later than 24 hours after upload and provide an earlier-delete control; distinguish source imagery from derived profile and report data.
+- 2026-07-18: Complete purchase through retailer-owned destinations rather than Magic Mirror payment and fulfillment.
 
-## Roadmap Backlog (V2+)
+## Roadmap Backlog
 
-- Stylist and shopping recommendations.
-- Voice input.
-- Multi-garment outfits.
-- Deep stylist reasoning.
-- Brand and visual-identity investment.
+- Persistent digital closet and wardrobe ingestion.
+- Multi-item outfit building across the customer's owned wardrobe and retailer catalogs.
+- Creator, human-stylist, and retailer collaboration surfaces.
+- In-store and physical-mirror experiences.
+- Retailer analytics and embedded distribution products.

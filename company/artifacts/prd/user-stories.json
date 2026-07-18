@@ -1,0 +1,410 @@
+{
+  "schema_version": "2.0",
+  "project": "Magic Mirror",
+  "source_prd": "company/artifacts/prd/prd.md",
+  "stories": [
+    {
+      "story_id": "US-001",
+      "title": "Understand the personal style report",
+      "epic": "Report-led acquisition",
+      "story": "As a prospective customer, I want to understand what the style report contains and how my data is used so that I can decide whether to begin.",
+      "user_type": "Prospective customer",
+      "priority": "must-have",
+      "requirement_source": ["founder", "company strategy", "policy"],
+      "acceptance_criteria": [
+        "The landing page explains the report outcome, required inputs, one-to-two-minute target, 24-hour photo deletion, and retailer relationship before account creation.",
+        "The primary action starts the style-report journey and a separate login action remains available.",
+        "The page does not use unsupported attractiveness, fit, or scientific-certainty claims."
+      ],
+      "edge_cases": ["Visitor is already authenticated", "Visitor uses a small screen or keyboard only"],
+      "dependencies": ["Approved report structure", "Approved privacy language"],
+      "analytics_or_success_events": ["landing_viewed", "style_report_started", "login_selected"],
+      "scenario_ids": ["SC-001"]
+    },
+    {
+      "story_id": "US-002",
+      "title": "Resume as a returning customer",
+      "epic": "Identity and continuity",
+      "story": "As a returning customer, I want to log in and resume my latest valid state so that I do not repeat onboarding.",
+      "user_type": "Returning customer",
+      "priority": "must-have",
+      "requirement_source": ["founder", "inference"],
+      "acceptance_criteria": [
+        "A valid returning customer is routed to an incomplete step, processing state, completed report, or style home according to account state.",
+        "An authentication failure explains the problem without exposing whether an unrelated account exists.",
+        "Successful login restores account-backed progress across devices."
+      ],
+      "edge_cases": ["Incomplete onboarding", "Analysis still processing", "Expired session"],
+      "dependencies": ["Email-based authentication", "Account state"],
+      "analytics_or_success_events": ["login_completed", "state_resumed"],
+      "scenario_ids": ["SC-002"]
+    },
+    {
+      "story_id": "US-003",
+      "title": "Provide a respectful personal profile",
+      "epic": "Guided style onboarding",
+      "story": "As a first-time customer, I want to understand why personal fields are requested so that I can provide useful information without feeling judged.",
+      "user_type": "First-time customer",
+      "priority": "must-have",
+      "requirement_source": ["founder", "policy", "inference"],
+      "acceptance_criteria": [
+        "The profile collects preferred name, adult confirmation, age, height, optional weight, and style-presentation context.",
+        "Each sensitive input states whether it is required and how it affects recommendations.",
+        "Invalid or missing required fields show field-specific correction and preserve valid entries."
+      ],
+      "edge_cases": ["Customer declines optional weight", "Customer needs non-binary style presentation", "Customer is not an adult"],
+      "dependencies": ["Field policy", "Pre-account session"],
+      "analytics_or_success_events": ["profile_step_completed", "optional_field_skipped"],
+      "scenario_ids": ["SC-003"]
+    },
+    {
+      "story_id": "US-004",
+      "title": "Record brand-specific sizes",
+      "epic": "Guided style onboarding",
+      "story": "As a first-time customer, I want to record the sizes I wear by brand and category so that recommendations reflect my real shopping history.",
+      "user_type": "First-time customer",
+      "priority": "must-have",
+      "requirement_source": ["founder"],
+      "acceptance_criteria": [
+        "The customer can choose favorite brands and add known sizes for relevant garment categories.",
+        "The customer can mark a category as unknown and continue.",
+        "Saved brand-size entries can be edited before and after report creation."
+      ],
+      "edge_cases": ["Brand not listed", "Different size by category", "Customer does not know a size"],
+      "dependencies": ["Brand directory", "Size-category taxonomy"],
+      "analytics_or_success_events": ["brand_added", "brand_size_saved"],
+      "scenario_ids": ["SC-001"]
+    },
+    {
+      "story_id": "US-005",
+      "title": "Upload favorite-look photos",
+      "epic": "Outfit-photo collection",
+      "story": "As a first-time customer, I want to upload and review 8-12 favorite full-body looks so that Magic Mirror can learn from how I actually dress.",
+      "user_type": "First-time customer",
+      "priority": "must-have",
+      "requirement_source": ["founder", "policy", "technical constraint"],
+      "acceptance_criteria": [
+        "The screen explains consent, accepted images, quality guidance, the 8-photo minimum, 12-photo maximum, and automatic deletion within 24 hours.",
+        "Each image has an independent upload and validation status and can be replaced or removed.",
+        "The customer cannot continue with fewer than eight qualifying images and receives actionable reasons for rejection.",
+        "A failed image does not remove successful uploads."
+      ],
+      "edge_cases": ["Unsupported format", "Duplicate image", "No full body visible", "Network interruption", "More than 12 images"],
+      "dependencies": ["Secure upload", "Image validation", "Deletion enforcement"],
+      "analytics_or_success_events": ["photo_upload_started", "photo_validated", "photo_rejected", "photo_set_completed"],
+      "scenario_ids": ["SC-001", "SC-004", "SC-013"]
+    },
+    {
+      "story_id": "US-006",
+      "title": "Calibrate visual taste",
+      "epic": "Taste calibration",
+      "story": "As a first-time customer, I want to react to looks and items so that I can refine what Magic Mirror inferred from my photos.",
+      "user_type": "First-time customer",
+      "priority": "must-have",
+      "requirement_source": ["founder", "inference"],
+      "acceptance_criteria": [
+        "Each card offers More like this, Not for me, and Save through controls that do not require a swipe gesture.",
+        "The customer can undo the latest response and see calibration progress.",
+        "A loading failure preserves completed responses and offers retry.",
+        "The system ends calibration when it has collected the defined minimum signal."
+      ],
+      "edge_cases": ["Customer dislikes every item", "Card fails to load", "Customer navigates backward"],
+      "dependencies": ["Candidate look set", "Preference capture"],
+      "analytics_or_success_events": ["taste_choice_recorded", "taste_choice_undone", "calibration_completed"],
+      "scenario_ids": ["SC-001", "SC-005"]
+    },
+    {
+      "story_id": "US-007",
+      "title": "Create an account without losing progress",
+      "epic": "Email account conversion",
+      "story": "As a first-time customer, I want to create an account after calibration so that I can receive and revisit my report without repeating work.",
+      "user_type": "First-time customer",
+      "priority": "must-have",
+      "requirement_source": ["founder", "policy"],
+      "acceptance_criteria": [
+        "The account step appears after taste calibration and before report generation.",
+        "A valid email account preserves all pre-account profile, photo, and taste inputs.",
+        "An existing email offers a secure login or recovery path without discarding progress.",
+        "Invalid email or consent state shows specific correction."
+      ],
+      "edge_cases": ["Email already exists", "Verification is delayed", "Session expires during account creation"],
+      "dependencies": ["Authentication", "Pre-account session transfer"],
+      "analytics_or_success_events": ["account_step_viewed", "account_created", "existing_account_recovered"],
+      "scenario_ids": ["SC-001", "SC-006"]
+    },
+    {
+      "story_id": "US-008",
+      "title": "Receive a report within the target window",
+      "epic": "Style analysis and report",
+      "story": "As a new customer, I want visible analysis progress and a report within one to two minutes so that I know my inputs are producing a result.",
+      "user_type": "First-time customer",
+      "priority": "must-have",
+      "requirement_source": ["founder", "technical constraint"],
+      "acceptance_criteria": [
+        "The processing screen shows meaningful stages and preserves the report session if the customer leaves.",
+        "A valid report is displayed within 120 seconds when the analysis completes inside the target.",
+        "At 120 seconds the screen changes to a slow state with email notification and safe-exit options while processing continues.",
+        "A failure identifies the recoverable action and never silently removes valid inputs."
+      ],
+      "edge_cases": ["Browser closes", "Processing exceeds 120 seconds", "Analysis provider fails", "Photo expires before retry"],
+      "dependencies": ["Style analysis", "Async status", "Notification capability"],
+      "analytics_or_success_events": ["analysis_started", "analysis_stage_changed", "report_completed", "analysis_slow", "analysis_failed"],
+      "scenario_ids": ["SC-001", "SC-007", "SC-008"]
+    },
+    {
+      "story_id": "US-009",
+      "title": "Understand the style identity overview",
+      "epic": "Style analysis and report",
+      "story": "As a report recipient, I want an affirming summary of my style patterns and priorities so that I know what to focus on first.",
+      "user_type": "Report recipient",
+      "priority": "must-have",
+      "requirement_source": ["founder", "policy"],
+      "acceptance_criteria": [
+        "The overview leads with strengths, names the style identity, and prioritizes a small set of actions.",
+        "The report distinguishes customer-provided facts from image-derived or model-derived inference.",
+        "The customer can provide disagreement or correction feedback."
+      ],
+      "edge_cases": ["Low-confidence inference", "Conflicting photo and swipe signals"],
+      "dependencies": ["Structured report output", "Feedback capture"],
+      "analytics_or_success_events": ["report_opened", "report_feedback_submitted"],
+      "scenario_ids": ["SC-009"]
+    },
+    {
+      "story_id": "US-010",
+      "title": "Use a personalized color report",
+      "epic": "Style analysis and report",
+      "story": "As a report recipient, I want colors and combinations explained in usable terms so that I can apply them while dressing and shopping.",
+      "user_type": "Report recipient",
+      "priority": "must-have",
+      "requirement_source": ["founder"],
+      "acceptance_criteria": [
+        "The report includes primary colors, supporting neutrals, accents, and example combinations.",
+        "Color guidance has text labels and does not depend on color perception alone.",
+        "The report explains intentional use instead of declaring colors universally forbidden."
+      ],
+      "edge_cases": ["Low photo color accuracy", "Customer disagrees with palette"],
+      "dependencies": ["Color analysis", "Accessible color content"],
+      "analytics_or_success_events": ["color_report_viewed", "palette_feedback_submitted"],
+      "scenario_ids": ["SC-009"]
+    },
+    {
+      "story_id": "US-011",
+      "title": "Understand a Kibbe-informed body-style profile",
+      "epic": "Style analysis and report",
+      "story": "As a report recipient, I want body-style guidance connected to silhouettes and proportions so that I can make practical clothing choices.",
+      "user_type": "Report recipient",
+      "priority": "must-have",
+      "requirement_source": ["founder", "policy", "inference"],
+      "acceptance_criteria": [
+        "The section names the suggested Kibbe-informed profile, visual rationale, confidence, and styling implications.",
+        "The language presents the framework as interpretive styling guidance rather than objective, medical, or value-based judgment.",
+        "The customer can disagree and request recalibration."
+      ],
+      "edge_cases": ["Insufficient body geometry", "Mixed profile signals", "Customer rejects the label"],
+      "dependencies": ["Body-style analysis", "Safety language", "Feedback capture"],
+      "analytics_or_success_events": ["body_style_viewed", "body_style_feedback_submitted"],
+      "scenario_ids": ["SC-009"]
+    },
+    {
+      "story_id": "US-012",
+      "title": "Apply personalized styling recommendations",
+      "epic": "Style analysis and report",
+      "story": "As a report recipient, I want specific recommendations with explanations so that I can improve outfits instead of receiving generic advice.",
+      "user_type": "Report recipient",
+      "priority": "must-have",
+      "requirement_source": ["founder", "company strategy"],
+      "acceptance_criteria": [
+        "Recommendations cover silhouettes, proportions, layers, fabrics, garments, and example outfits relevant to the report.",
+        "Each material recommendation explains which profile signal supports it.",
+        "A recommendation can open a personalized product set."
+      ],
+      "edge_cases": ["No matching catalog product", "Conflicting size or style signals"],
+      "dependencies": ["Structured report", "Catalog taxonomy"],
+      "analytics_or_success_events": ["recommendation_viewed", "recommendation_products_opened"],
+      "scenario_ids": ["SC-009"]
+    },
+    {
+      "story_id": "US-013",
+      "title": "Browse report-matched products",
+      "epic": "Personalized stylist home",
+      "story": "As a report recipient, I want products selected for my profile with a clear rationale so that I can confidently choose what to try.",
+      "user_type": "Report recipient",
+      "priority": "must-have",
+      "requirement_source": ["founder", "company strategy"],
+      "acceptance_criteria": [
+        "The stylist home shows personalized items and explains the report attributes behind each match.",
+        "The customer can filter or request a different category, color, brand, price range, or occasion.",
+        "Unavailable items are removed or clearly marked before selection."
+      ],
+      "edge_cases": ["Sparse catalog", "Product becomes unavailable", "No size context"],
+      "dependencies": ["Catalog", "Recommendation system", "Report"],
+      "analytics_or_success_events": ["stylist_home_viewed", "recommended_item_selected"],
+      "scenario_ids": ["SC-014"]
+    },
+    {
+      "story_id": "US-014",
+      "title": "Start a live styling session",
+      "epic": "Live styling",
+      "story": "As a styled customer, I want to grant camera access and see a recommended item in a live view so that I can evaluate it on myself.",
+      "user_type": "Styled customer",
+      "priority": "should-have",
+      "requirement_source": ["founder", "technical constraint", "policy"],
+      "acceptance_criteria": [
+        "Camera permission is requested only after the customer starts live styling and the purpose is explained.",
+        "The session displays connecting, ready, changing-item, slow, failed, and ended behavior without losing selected products.",
+        "The UI states that visualization is not a physical fit guarantee.",
+        "Permission denial preserves access to report recommendations and offers retry."
+      ],
+      "edge_cases": ["Camera denied", "Unsupported browser", "Low bandwidth", "Provider failure"],
+      "dependencies": ["Camera support", "Live visualization provider", "Recommendation set"],
+      "analytics_or_success_events": ["live_session_started", "camera_permission_result", "live_item_rendered"],
+      "scenario_ids": ["SC-010", "SC-011"]
+    },
+    {
+      "story_id": "US-015",
+      "title": "Refine styling by voice",
+      "epic": "Conversational refinement",
+      "story": "As a live styling customer, I want to ask for different items by voice so that I can refine the session naturally.",
+      "user_type": "Live styling customer",
+      "priority": "should-have",
+      "requirement_source": ["founder", "policy"],
+      "acceptance_criteria": [
+        "Microphone permission is requested separately and only when voice is activated.",
+        "The UI shows listening, interpreting, confirming, acting, and failure states.",
+        "The interpreted request is confirmed before a consequential action.",
+        "Equivalent manual controls exist for essential voice actions."
+      ],
+      "edge_cases": ["Microphone denied", "Ambiguous request", "No matching item", "Speech not recognized"],
+      "dependencies": ["Speech recognition", "Intent interpretation", "Catalog filtering"],
+      "analytics_or_success_events": ["voice_started", "voice_intent_confirmed", "voice_action_completed", "voice_action_failed"],
+      "scenario_ids": ["SC-011"]
+    },
+    {
+      "story_id": "US-016",
+      "title": "Inspect a recommended product",
+      "epic": "Personalized stylist home",
+      "story": "As a styled customer, I want product details without losing my styling context so that I can decide whether to save or shop the item.",
+      "user_type": "Styled customer",
+      "priority": "should-have",
+      "requirement_source": ["founder", "inference"],
+      "acceptance_criteria": [
+        "Product detail includes retailer, current known price, available attributes, recommendation rationale, and last availability check.",
+        "Closing product detail returns to the same report or live-session context.",
+        "The UI does not claim guaranteed fit or reservation."
+      ],
+      "edge_cases": ["Price changes", "Product unavailable", "Incomplete product metadata"],
+      "dependencies": ["Catalog metadata", "Retailer provenance"],
+      "analytics_or_success_events": ["product_detail_viewed", "product_availability_failed"],
+      "scenario_ids": ["SC-012"]
+    },
+    {
+      "story_id": "US-017",
+      "title": "Collect selections in a Magic Mirror bag",
+      "epic": "Retailer action",
+      "story": "As a styled customer, I want to collect selected products by retailer so that I can review my choices before leaving Magic Mirror.",
+      "user_type": "Styled customer",
+      "priority": "should-have",
+      "requirement_source": ["founder", "inference"],
+      "acceptance_criteria": [
+        "The customer can add and remove products without leaving the report or session.",
+        "The bag groups products by retailer and distinguishes Magic Mirror selection from retailer cart status.",
+        "Unavailable products show a recovery action or alternatives."
+      ],
+      "edge_cases": ["Multiple retailers", "Product becomes unavailable", "Duplicate item"],
+      "dependencies": ["Account bag", "Catalog availability"],
+      "analytics_or_success_events": ["item_added_to_bag", "item_removed_from_bag", "bag_viewed"],
+      "scenario_ids": ["SC-012"]
+    },
+    {
+      "story_id": "US-018",
+      "title": "Continue to the retailer",
+      "epic": "Retailer action",
+      "story": "As a styled customer, I want to continue to the correct retailer so that I can complete my purchase with the merchant.",
+      "user_type": "Styled customer",
+      "priority": "should-have",
+      "requirement_source": ["founder", "policy"],
+      "acceptance_criteria": [
+        "Before navigation, the product identifies the retailer as the owner of price, stock, checkout, shipping, returns, and payment.",
+        "Continue to retailer opens the correct current product or supported cart destination.",
+        "Returning to Magic Mirror preserves bag and report state."
+      ],
+      "edge_cases": ["Destination unavailable", "Price or stock changed", "Multiple retailer groups"],
+      "dependencies": ["Retailer URL", "Outbound attribution", "Bag"],
+      "analytics_or_success_events": ["retailer_handoff_confirmed", "outbound_retailer_click"],
+      "scenario_ids": ["SC-012"]
+    },
+    {
+      "story_id": "US-019",
+      "title": "Control personal data and photo deletion",
+      "epic": "Privacy and account controls",
+      "story": "As a customer, I want to see and control the lifecycle of my photos and style data so that I can trust Magic Mirror with sensitive information.",
+      "user_type": "Customer",
+      "priority": "must-have",
+      "requirement_source": ["founder", "policy", "technical constraint"],
+      "acceptance_criteria": [
+        "Source photos are automatically deleted no later than 24 hours after upload.",
+        "The account shows photo deletion timing or completed status and offers earlier deletion.",
+        "The interface distinguishes source-photo deletion from deletion of the derived profile, report, saved items, and account.",
+        "Deletion failure is visible to authorized operations and resolves without requiring the customer to re-upload."
+      ],
+      "edge_cases": ["Analysis still processing", "Deletion job fails", "Customer requests account deletion"],
+      "dependencies": ["Deletion enforcement", "Account authorization", "Audit status"],
+      "analytics_or_success_events": ["photo_delete_requested", "photo_delete_completed", "account_delete_requested"],
+      "scenario_ids": ["SC-013"]
+    },
+    {
+      "story_id": "US-020",
+      "title": "Recover without repeating valid work",
+      "epic": "Reliability and recovery",
+      "story": "As a customer encountering a failure, I want valid progress preserved and a clear next action so that I can finish without restarting.",
+      "user_type": "Customer",
+      "priority": "must-have",
+      "requirement_source": ["technical constraint", "company strategy"],
+      "acceptance_criteria": [
+        "Every awaited provider action shows loading or processing, slow when applicable, explicit failure, and recovery.",
+        "Retries reuse valid completed inputs unless the UI explains why an input must be replaced.",
+        "Errors surface an error, code, and human-readable details without revealing sensitive data."
+      ],
+      "edge_cases": ["Network loss", "Provider timeout", "Expired asset", "Repeated failure"],
+      "dependencies": ["Saved state", "Normalized error outcomes"],
+      "analytics_or_success_events": ["recovery_presented", "retry_started", "recovery_completed"],
+      "scenario_ids": ["SC-004", "SC-005", "SC-007", "SC-008", "SC-010"]
+    },
+    {
+      "story_id": "US-021",
+      "title": "Use the core journey accessibly",
+      "epic": "Inclusive experience",
+      "story": "As a customer who uses assistive technology or cannot use gestures, camera, or voice, I want equivalent controls and understandable content so that I can complete the relevant journey.",
+      "user_type": "Customer using an access need",
+      "priority": "must-have",
+      "requirement_source": ["policy", "technical constraint"],
+      "acceptance_criteria": [
+        "The onboarding and report meet keyboard, focus, label, contrast, error, and screen-reader requirements aligned to WCAG 2.2 AA.",
+        "Swipe choices have explicit button equivalents and color guidance has text equivalents.",
+        "Voice actions have manual equivalents and camera denial does not remove access to the report or recommendations."
+      ],
+      "edge_cases": ["Reduced motion", "Keyboard only", "Color vision difference", "Microphone unavailable"],
+      "dependencies": ["Accessible component behavior", "Content alternatives"],
+      "analytics_or_success_events": ["non_gesture_choice_used", "manual_voice_alternative_used"],
+      "scenario_ids": ["SC-003", "SC-010", "SC-011"]
+    },
+    {
+      "story_id": "US-022",
+      "title": "Return to a personal style home",
+      "epic": "Identity and continuity",
+      "story": "As a returning customer, I want one home for my report, recommendations, sessions, bag, and profile so that Magic Mirror becomes useful beyond the first report.",
+      "user_type": "Returning customer",
+      "priority": "must-have",
+      "requirement_source": ["founder", "inference"],
+      "acceptance_criteria": [
+        "A completed customer lands on style home after login.",
+        "Style home provides current report highlights, recommended next actions, saved selections, and access to data controls.",
+        "Incomplete or failed work is represented with a specific resume or recovery action."
+      ],
+      "edge_cases": ["Report needs recalibration", "Bag item unavailable", "No prior live session"],
+      "dependencies": ["Account state", "Report", "Recommendations"],
+      "analytics_or_success_events": ["style_home_viewed", "return_action_selected"],
+      "scenario_ids": ["SC-002", "SC-014"]
+    }
+  ]
+}
