@@ -1,0 +1,106 @@
+{
+  "task_id": "T005",
+  "status": "passed",
+  "reviewed_at": "2026-07-18T12:23:24Z",
+  "method": {
+    "type": "deterministic HTML/CSS screenshot",
+    "renderer": "Playwright 1.61.1 with headless Chromium",
+    "source_url_scheme": "file",
+    "viewport": {
+      "width_px": 1600,
+      "height_px": 1000,
+      "device_scale_factor": 1
+    },
+    "font_wait": "document.fonts.ready",
+    "asset_check": "all document images complete with non-zero naturalWidth before screenshot"
+  },
+  "inputs": [
+    {
+      "role": "true-size simplified lens-only favicon",
+      "path": "company/brand/exports/icon/favicon/favicon-16x16.png"
+    },
+    {
+      "role": "complete Acid icon for 32px and larger",
+      "path": "company/brand/exports/icon/png/transparent/acid/magic-mirror-icon-acid-1024px.png"
+    },
+    {
+      "role": "local typography and color tokens",
+      "path": "company/brand/brandbook-packet/tokens/brand-tokens.css"
+    }
+  ],
+  "source": {
+    "path": "company/brand/brandbook-packet/source/specimens/browser-favicon.html",
+    "bytes": 11576,
+    "sha256": "1851b18c92573c4da205e72730ee5f23c2590b10cc1d574cc81eedc762128fce"
+  },
+  "output": {
+    "path": "company/brand/brandbook-packet/mockups/browser-favicon.png",
+    "format": "PNG",
+    "width_px": 1600,
+    "height_px": 1000,
+    "bytes": 123593,
+    "sha256": "9816b6fb7a94726cc3e733c1db4cc9cbceac23111230a832b8139587cebbbf2e"
+  },
+  "automated_qa": {
+    "viewport_and_pixel_scale": {
+      "width": 1600,
+      "height": 1000,
+      "device_pixel_ratio": 1,
+      "passed": true
+    },
+    "exact_copy": {
+      "tab_title": "Magic Mirror — Virtual Try-On",
+      "address": "magicmirror.example/demo",
+      "passed": true
+    },
+    "true_size_assets": {
+      "tab_favicon_css_px": [16, 16],
+      "tab_favicon_natural_px": [16, 16],
+      "separate_favicon_css_px": [16, 16],
+      "complete_icon_32_css_px": [32, 32],
+      "complete_icon_64_css_px": [64, 64],
+      "passed": true
+    },
+    "local_assets": {
+      "failed_images": 0,
+      "passed": true
+    },
+    "local_fonts": {
+      "document_font_status": "loaded",
+      "instrument_serif_loaded": true,
+      "space_grotesk_loaded": true,
+      "passed": true
+    },
+    "palette_source": {
+      "literal_hex_colors_in_specimen_html": 0,
+      "uses_brand_token_variables": true,
+      "passed": true
+    },
+    "browser_branding": {
+      "trademark_browser_images": 0,
+      "passed": true
+    }
+  },
+  "visual_qa": {
+    "review_method": "original-resolution visual inspection",
+    "favicon_legibility_at_100_percent": {
+      "passed": true,
+      "notes": "The simplified Acid lens remains distinct inside the 16px Ink tab square at device scale 1."
+    },
+    "complete_icon_fidelity": {
+      "passed": true,
+      "notes": "The full S-curve lens and both focus corners are visible at 32px, 64px, and the larger product-context size."
+    },
+    "text_legibility_and_clipping": {
+      "passed": true,
+      "notes": "The exact title and .example address are fully visible, with no clipping in the browser chrome or specimen cards."
+    },
+    "brand_tone": {
+      "passed": true,
+      "notes": "The editorial serif, restrained generic browser chrome, Acid/Ink contrast, and Cloud canvas match Acid Dispatch."
+    },
+    "overall_score_percent": 100,
+    "passed": true
+  },
+  "decision": "Accepted the deterministic first render. It met the exact-copy, true-size, local-asset, local-font, palette-token, and visual-legibility gates without revision."
+}
