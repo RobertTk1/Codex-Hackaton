@@ -75,7 +75,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-17: Require every feature handoff and optional PR to document what changed, why, and the expected outcome.
 - 2026-07-17: After verification, commit and push completed feature-branch work without separate approval; keep its open PR description and progress comments current.
 - 2026-07-17: Keep agent communication concise; summarize material changes and rationale without repeating routine tests or formalities.
-- 2026-07-17: Use the base `magic-mirror/` company workspace as operating context; treat U.S.-first geography as a reversible assumption and keep monetization hypotheses uncommitted.
+- 2026-07-17: Use `company/` as the canonical home for the plan, company profile, operating memory, workflows, automations, and artifacts; treat U.S.-first geography as a reversible assumption and keep monetization hypotheses uncommitted.
 
 ## Roadmap Backlog (V2+)
 
