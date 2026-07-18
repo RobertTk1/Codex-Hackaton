@@ -1,0 +1,74 @@
+{
+  "task_id": "T004",
+  "status": "passed",
+  "reviewed_at": "2026-07-18T12:18:29Z",
+  "method": {
+    "mode": "built-in ImageGen",
+    "use_case": "product-mockup",
+    "attempts": 1,
+    "targeted_retry_used": false,
+    "compositing_fallback_used": false,
+    "source_output": "/Users/talishawhite/.codex/generated_images/019f72a6-dc1e-7a73-847c-e132cc5421b8/exec-411b53e5-70c7-4ea6-88f2-5987d430b9eb.png"
+  },
+  "inputs": [
+    {
+      "role": "exact approved Acid combined lockup",
+      "path": "company/brand/exports/combined/png/transparent/acid/magic-mirror-combined-acid-2048px.png"
+    }
+  ],
+  "output": {
+    "path": "company/brand/brandbook-packet/mockups/billboard.png",
+    "format": "PNG",
+    "width_px": 1536,
+    "height_px": 1024,
+    "bytes": 2046774,
+    "sha256": "2987070b37e3b6cf509e938e09f7bcc255218989ce0e94f4a2dde3a72e4511ef"
+  },
+  "prompt": "Use case: product-mockup\nAsset type: Magic Mirror billboard brandbook mockup\nPrimary request: Create one cinematic, realistic street-level photograph of a large Magic Mirror fashion billboard, using the supplied production lockup exactly.\nInput images: Image 1 is the exact approved Acid combined lockup. Preserve the full editorial lettering, spacing, proportions, and the custom S-curve lens icon replacing the ‘o’ in ‘Mirror.’\nScene/backdrop: contemporary fashion district at blue hour with restrained unbranded architecture, subtle city depth, and a few distant anonymous pedestrians; no visible store names, advertising, signs, or other brands.\nSubject: one large, clean Ink #17171A billboard carrying only the exact Image 1 combined lockup in Acid #D7FF3F, centered with generous clear space.\nStyle/medium: premium photorealistic environmental advertising photography with credible urban materials and construction.\nComposition/framing: landscape 3:2 frame; billboard dominant, nearly front-facing, and large enough that the complete Magic Mirror lockup remains crisp and legible at brandbook page scale; useful architectural context without visual competition.\nLighting/mood: moody editorial blue-hour city light with realistic billboard illumination; energetic, fashion-forward, and premium.\nColor palette: Acid #D7FF3F and Ink #17171A for the billboard design; natural restrained cool environmental colors outside it.\nText (verbatim): no additional text. The supplied lockup is the only visible copy in the entire image.\nMaterials/textures: convincing billboard surface and frame, subtle light falloff, realistic reflections and shadows; artwork physically integrated with the display surface.\nConstraints: preserve the complete supplied lockup at very high fidelity; keep its spelling and custom lens ‘o’ unchanged; show only one billboard and one copy of the lockup.\nAvoid: fake fashion brands, storefront lettering, street-sign text, extra logos, duplicated signage, altered spelling, added slogans, gradients or glow inside the lockup, watermark, extreme perspective, blocked lettering, excessive distance, visual clutter.",
+  "visual_qa": {
+    "review_method": "original-resolution visual inspection",
+    "logo_fidelity": {
+      "score_percent": 98,
+      "passed": true,
+      "notes": "Magic Mirror is correctly spelled; the editorial letterforms, custom lens o, and focus detail are recognizable and materially undistorted."
+    },
+    "page_scale_legibility": {
+      "score_percent": 100,
+      "passed": true,
+      "notes": "The billboard dominates the frame and remains crisp, nearly front-facing, and readable at page scale."
+    },
+    "copy_accuracy": {
+      "score_percent": 100,
+      "passed": true,
+      "notes": "The supplied lockup is the only visible copy; no slogan or environmental signage was introduced."
+    },
+    "physical_integration": {
+      "score_percent": 98,
+      "passed": true,
+      "notes": "The lockup follows the billboard surface and illumination with credible framing, light falloff, and ambient shadows."
+    },
+    "palette_compliance": {
+      "score_percent": 98,
+      "passed": true,
+      "notes": "The designed billboard uses the approved Acid-on-Ink pairing; restrained cool city colors appear only in the environment."
+    },
+    "stray_branding_and_watermarks": {
+      "score_percent": 100,
+      "passed": true,
+      "notes": "No store brands, fake fashion brands, extra logos, duplicated signage, or watermarks are visible."
+    },
+    "brand_tone": {
+      "score_percent": 98,
+      "passed": true,
+      "notes": "Blue-hour architecture and restrained street activity create a premium editorial fashion-district context."
+    },
+    "page_ready_crop": {
+      "score_percent": 100,
+      "passed": true,
+      "notes": "The 3:2 crop gives the billboard architectural context while preserving strong hierarchy and clean edges."
+    },
+    "overall_score_percent": 99,
+    "passed": true
+  },
+  "decision": "Accepted the first complete ImageGen pass. It cleared the approximately 95% mockup gate, so the permitted targeted retry and compositing fallback were not used."
+}

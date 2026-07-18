@@ -1,0 +1,113 @@
+{
+  "task_id": "T005",
+  "status": "passed",
+  "reviewed_at": "2026-07-18T12:54:01Z",
+  "policy_correction": {
+    "owner_instruction": "Every application mockup must be generated with built-in ImageGen as a raster asset, never HTML/CSS, SVG, canvas, or deterministic UI rendering. Browser/favicon mockups require separate light and dark images.",
+    "global_skill": "/Users/talishawhite/.codex/skills/brandbook-loop-builder/SKILL.md",
+    "global_reference": "/Users/talishawhite/.codex/skills/brandbook-loop-builder/references/brandbook-production.md",
+    "global_skill_validation": "Skill is valid!",
+    "project_plan": "company/brand/brandbook-packet/asset-plan.md",
+    "revised_plan_audit": "company/brand/brandbook-packet/references/t002-revision-audit.json"
+  },
+  "method": {
+    "type": "built-in ImageGen raster generation",
+    "mode": "two independent complete-scene generations: light browser and dark browser",
+    "reference_policy": "Owner-provided Mayven images were used only for composition, browser material, crop, and light/dark finish. Mayven naming, cruise messaging, blue identity, and all other reference branding were prohibited.",
+    "qa_policy": "Inspect each whole generated scene at original resolution; allow one targeted ImageGen retry; use exact raster compositing only as a finishing fallback after that retry.",
+    "final_prompt_source": "company/brand/brandbook-packet/asset-plan.md#ig-05--light-browser-and-favicon and #ig-06--dark-browser-and-favicon"
+  },
+  "inputs": [
+    {
+      "role": "light composition and material reference only",
+      "path": "company/brand/brandbook-packet/references/mockup-direction/browser-light-reference.png"
+    },
+    {
+      "role": "dark composition and material reference only",
+      "path": "company/brand/brandbook-packet/references/mockup-direction/browser-dark-reference.png"
+    },
+    {
+      "role": "exact approved Ink combined lockup for light treatment",
+      "path": "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-2048px.png"
+    },
+    {
+      "role": "exact approved Acid combined lockup for dark treatment",
+      "path": "company/brand/exports/combined/png/transparent/acid/magic-mirror-combined-acid-2048px.png"
+    },
+    {
+      "role": "exact production app/favicon tile",
+      "path": "company/brand/exports/icon/favicon/apple-touch-icon-180x180.png"
+    }
+  ],
+  "light": {
+    "final_prompt": "Create a polished, realistic close-crop desktop browser scene in light mode, matching the supplied light composition reference while replacing all reference branding with Magic Mirror. Use the exact approved Ink combined lockup and production app/favicon tile. Show a White and Cloud browser with dimensional translucent chrome, a rounded tab, generic controls, tab title 'Magic Mirror — Virtual Try-On', address 'magicmirror.example/demo', navigation 'How it works' and 'Try it on', and one Acid call-to-action. Preserve the supplied marks; prohibit Mayven, cruise copy, blue branding, unrelated brands, HTML/CSS screenshot appearance, flat wireframes, altered marks, watermarks, and illegible chrome.",
+    "attempts": 2,
+    "initial_imagegen_output": "/Users/talishawhite/.codex/generated_images/019f72a6-dc1e-7a73-847c-e132cc5421b8/exec-21dad989-38ca-4b91-8534-644ead977e4c.png",
+    "targeted_retry": {
+      "performed": true,
+      "instruction": "Change only the tab favicon to the supplied exact production favicon tile; preserve the generated browser scene, copy, lockup, lighting, and composition.",
+      "output": "/Users/talishawhite/.codex/generated_images/019f72a6-dc1e-7a73-847c-e132cc5421b8/exec-5d37e057-7902-4c06-86a1-7536e3fe642c.png",
+      "reason": "The first complete scene did not preserve the production favicon geometry."
+    },
+    "exact_raster_finishing": {
+      "performed": true,
+      "reason": "The permitted targeted retry still altered the favicon, so the exact production tile was composited into the generated tab and the finished ImageGen scene was normalized to the required output size.",
+      "source_asset": "company/brand/exports/icon/favicon/apple-touch-icon-180x180.png"
+    },
+    "output": {
+      "path": "company/brand/brandbook-packet/mockups/browser-favicon-light.png",
+      "format": "PNG",
+      "width_px": 1852,
+      "height_px": 850,
+      "bytes": 1006337,
+      "sha256": "fb50b0ca0958ee02ed89dbe0d7f370f5a29f44ee4b1b8a8b97247691bf44a34e"
+    },
+    "visual_qa": {
+      "review_method": "original-resolution direct visual inspection",
+      "browser_realism_percent": 99,
+      "lockup_fidelity_percent": 98,
+      "favicon_fidelity_after_finishing_percent": 100,
+      "required_copy_percent": 100,
+      "reference_debranding_percent": 100,
+      "palette_percent": 100,
+      "overall_score_percent": 99,
+      "passed": true
+    }
+  },
+  "dark": {
+    "final_prompt": "Create a polished, realistic close-crop desktop browser scene in dark mode, matching the supplied dark composition reference while replacing all reference branding with Magic Mirror. Use the exact approved Acid combined lockup and production app/favicon tile. Show deep Ink dimensional browser chrome, a rounded tab, generic controls, tab title 'Magic Mirror — Virtual Try-On', address 'magicmirror.example/demo', navigation 'How it works' and 'Try it on', and one Acid call-to-action. Preserve the supplied marks; prohibit Mayven, cruise copy, blue branding, unrelated brands, HTML/CSS screenshot appearance, flat wireframes, altered marks, watermarks, crushed black detail, and illegible chrome.",
+    "attempts": 1,
+    "imagegen_output": "/Users/talishawhite/.codex/generated_images/019f72a6-dc1e-7a73-847c-e132cc5421b8/exec-ed11ef88-f4d3-426f-bb10-7c8e4bb550fa.png",
+    "targeted_retry": {
+      "performed": false
+    },
+    "exact_raster_finishing": {
+      "performed": false,
+      "normalization_only": "ImageGen output resized to the required 1852x850 page-ready dimensions."
+    },
+    "output": {
+      "path": "company/brand/brandbook-packet/mockups/browser-favicon-dark.png",
+      "format": "PNG",
+      "width_px": 1852,
+      "height_px": 850,
+      "bytes": 1055173,
+      "sha256": "0668cfbbd57c86af97b341d9a49af9dd9ebcd2c060ee9b562effa86544850057"
+    },
+    "visual_qa": {
+      "review_method": "original-resolution direct visual inspection",
+      "browser_realism_percent": 99,
+      "lockup_fidelity_percent": 99,
+      "favicon_fidelity_percent": 98,
+      "required_copy_percent": 100,
+      "reference_debranding_percent": 100,
+      "palette_percent": 100,
+      "overall_score_percent": 99,
+      "passed": true
+    }
+  },
+  "rejected_artifacts_removed": [
+    "company/brand/brandbook-packet/mockups/browser-favicon.png",
+    "company/brand/brandbook-packet/source/specimens/browser-favicon.html"
+  ],
+  "decision": "Accepted separate light and dark ImageGen-created browser/favicon raster scenes. Both match the owner's dimensional browser-reference direction, use approved Magic Mirror assets and Acid Dispatch colors, preserve exact required copy, and contain no Mayven, cruise, blue reference branding, watermark, HTML mockup source, or SVG mockup asset."
+}

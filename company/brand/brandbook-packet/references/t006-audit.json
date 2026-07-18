@@ -1,0 +1,98 @@
+{
+  "task_id": "T006",
+  "status": "passed",
+  "reviewed_at": "2026-07-18T13:02:07Z",
+  "method": {
+    "type": "built-in ImageGen raster generation",
+    "mode": "two independent complete-scene generations: X profile concept and LinkedIn company-profile concept",
+    "reference_policy": "The owner-provided Mayven phone image was used only for two-phone composition, crop, materials, lighting, and photorealistic finish. Mayven naming, cruise messaging, blue identity, and all other reference branding were prohibited.",
+    "qa_policy": "Inspect each whole generated scene at original resolution; allow one targeted ImageGen retry only when the approximately 95% fidelity gate is missed; use exact raster compositing only after that retry.",
+    "final_prompt_source": "company/brand/brandbook-packet/asset-plan.md#ig-07--x-profile-concept and #ig-08--linkedin-company-profile-concept"
+  },
+  "inputs": [
+    {
+      "role": "device composition and finish reference only",
+      "path": "company/brand/brandbook-packet/references/mockup-direction/social-phone-reference.png"
+    },
+    {
+      "role": "exact approved complete Acid icon",
+      "path": "company/brand/exports/icon/png/transparent/acid/magic-mirror-icon-acid-1024px.png"
+    },
+    {
+      "role": "exact approved Acid combined lockup",
+      "path": "company/brand/exports/combined/png/transparent/acid/magic-mirror-combined-acid-2048px.png"
+    }
+  ],
+  "x_profile": {
+    "final_prompt": "Create a premium photorealistic close-up of two smartphones presenting a Magic Mirror X profile concept, using the supplied phone image only as device-composition and material-finish direction. Use the exact supplied Acid icon and combined lockup. Show dark Ink screens, Acid editorial banner shapes, one primary profile view and one complementary crop. Required text: 'Magic Mirror'; '@magicmirror_demo'; 'AI virtual try-on for more confident clothing decisions. Hackathon prototype.'; 'CONCEPT PROFILE • NOT A LIVE ACCOUNT'. Preserve both focus corners. Prohibit verification badges, follower/following metrics, live-account claims, Mayven, cruise copy, blue branding, HTML/CSS screenshot appearance, unrelated logos, invented metrics, watermarks, hands, faces, and unreadable copy.",
+    "attempts": 1,
+    "imagegen_output": "/Users/talishawhite/.codex/generated_images/019f72a6-dc1e-7a73-847c-e132cc5421b8/exec-07ae9ce9-f64a-4b0f-8542-4912bf3f7ab3.png",
+    "targeted_retry": {
+      "performed": false
+    },
+    "exact_raster_finishing": {
+      "performed": false,
+      "normalization_only": "Accepted ImageGen scene resized from 1539x1022 to the planned 1536x1024 dimensions."
+    },
+    "output": {
+      "path": "company/brand/brandbook-packet/mockups/x-profile.png",
+      "format": "PNG",
+      "width_px": 1536,
+      "height_px": 1024,
+      "bytes": 1676169,
+      "sha256": "0a2b655d545d3905694311275837aa01f268e8b0a345039d7dbe4c0422799917"
+    },
+    "visual_qa": {
+      "review_method": "original-resolution direct visual inspection before and after dimension normalization",
+      "phone_realism_percent": 99,
+      "icon_fidelity_percent": 97,
+      "brand_name_and_handle_percent": 100,
+      "profile_copy_percent": 100,
+      "non_live_disclosure_percent": 100,
+      "reference_debranding_percent": 100,
+      "no_invented_metrics_or_verification_percent": 100,
+      "palette_percent": 100,
+      "overall_score_percent": 99,
+      "passed": true
+    }
+  },
+  "linkedin_profile": {
+    "final_prompt": "Create a premium photorealistic close-up of two smartphones presenting a Magic Mirror LinkedIn company-profile concept, using the supplied phone image only as device-composition and material-finish direction. Use the exact supplied Acid icon and combined lockup. Show dark Ink screens, Acid editorial banner shapes, one primary company view and one complementary crop. Required text: 'Magic Mirror'; 'AI-powered virtual try-on • Hackathon prototype'; 'Helping shoppers make faster, more confident clothing decisions.'; 'CONCEPT PROFILE • NOT A LIVE COMPANY PAGE'. Preserve both focus corners. Prohibit follower, customer, employee, or engagement metrics; verification badges; live-company-page claims; Mayven; cruise copy; blue branding; HTML/CSS screenshot appearance; unrelated logos; watermarks; hands; faces; and unreadable copy.",
+    "attempts": 1,
+    "imagegen_output": "/Users/talishawhite/.codex/generated_images/019f72a6-dc1e-7a73-847c-e132cc5421b8/exec-1cd0d6b8-90dc-4b41-a4df-cb5f7e0d5d13.png",
+    "targeted_retry": {
+      "performed": false
+    },
+    "exact_raster_finishing": {
+      "performed": false,
+      "normalization_only": "Accepted ImageGen scene resized from 1539x1022 to the planned 1536x1024 dimensions."
+    },
+    "output": {
+      "path": "company/brand/brandbook-packet/mockups/linkedin-profile.png",
+      "format": "PNG",
+      "width_px": 1536,
+      "height_px": 1024,
+      "bytes": 1683651,
+      "sha256": "fdf347b5f6b516ebf9ae472ced10c64d656f4aa12a88f8d05fe4942809cf513c"
+    },
+    "visual_qa": {
+      "review_method": "original-resolution direct visual inspection before and after dimension normalization",
+      "phone_realism_percent": 99,
+      "icon_fidelity_percent": 98,
+      "brand_name_percent": 100,
+      "company_copy_percent": 100,
+      "non_live_disclosure_percent": 100,
+      "reference_debranding_percent": 100,
+      "no_invented_metrics_or_verification_percent": 100,
+      "palette_percent": 100,
+      "overall_score_percent": 99,
+      "passed": true
+    }
+  },
+  "prohibited_source_assets": {
+    "html": 0,
+    "svg_mockups": 0,
+    "canvas_or_deterministic_ui_renders": 0
+  },
+  "decision": "Accepted both independent first-pass ImageGen scenes. Each is a page-ready raster device mockup with exact concept copy, explicit non-live labeling, approved Magic Mirror branding and Acid Dispatch colors, no invented metrics or verification claims, and no Mayven, cruise, blue reference branding, unrelated logo, or watermark."
+}

@@ -1,0 +1,84 @@
+{
+  "task_id": "T007",
+  "status": "passed",
+  "reviewed_at": "2026-07-18T13:08:33Z",
+  "method": {
+    "type": "built-in ImageGen raster generation",
+    "mode": "two independent complete-scene generations: T-shirt product photograph and compact-mirror product photograph",
+    "qa_policy": "Inspect each whole generated scene at original resolution; allow one targeted ImageGen retry only when the approximately 95% fidelity gate is missed; use exact raster compositing only after that retry.",
+    "final_prompt_source": "company/brand/brandbook-packet/asset-plan.md#ig-03--t-shirt and #ig-04--compact-mirror-merchandise"
+  },
+  "input": {
+    "role": "exact approved complete Acid icon",
+    "path": "company/brand/exports/icon/png/transparent/acid/magic-mirror-icon-acid-1024px.png"
+  },
+  "tshirt": {
+    "final_prompt": "Create a premium photorealistic heavyweight Ink #17171A crewneck T-shirt carrying the exact supplied Acid #D7FF3F Magic Mirror icon as a medium screen print centered high on the chest. Use a quiet Cloud #F4F3F1 studio sweep, show the complete front-facing garment, preserve the central S-shaped lens and both focus-corner marks, and integrate the print naturally with cotton texture and gentle folds. No text, wordmark, slogans, extra graphics, model, mannequin, hanger, unrelated labels, altered geometry, missing corners, glow, foil, embroidery, watermark, props, or dramatic wrinkles across the mark.",
+    "attempts": 1,
+    "imagegen_output": "/Users/talishawhite/.codex/generated_images/019f72a6-dc1e-7a73-847c-e132cc5421b8/exec-213a31bd-d24b-4c03-8f4f-05a35226f444.png",
+    "targeted_retry": {
+      "performed": false
+    },
+    "exact_raster_finishing": {
+      "performed": false
+    },
+    "output": {
+      "path": "company/brand/brandbook-packet/mockups/tshirt.png",
+      "format": "PNG",
+      "width_px": 1536,
+      "height_px": 1024,
+      "bytes": 2003268,
+      "sha256": "b08fc71fa2c753e58dca92e3809930c45c2809c291c4fae84e0c4f36c129faa2"
+    },
+    "visual_qa": {
+      "review_method": "original-resolution direct visual inspection",
+      "icon_fidelity_percent": 99,
+      "both_focus_corners_percent": 100,
+      "print_and_fabric_integration_percent": 99,
+      "garment_realism_percent": 99,
+      "palette_percent": 100,
+      "no_extra_text_branding_or_watermark_percent": 100,
+      "page_ready_crop_percent": 100,
+      "overall_score_percent": 99,
+      "passed": true
+    }
+  },
+  "compact_mirror": {
+    "final_prompt": "Create a premium photorealistic round compact mirror in smooth Ink #17171A enamel, partially open on a Pale #F2FFD0 matte editorial surface, with the exact supplied Acid #D7FF3F Magic Mirror icon centered on the exterior lid. Preserve the central S-shaped lens and both focus-corner marks; physically integrate the icon as a crisp enamel or printed mark; show plausible hinge, edge, glass, and product construction; keep the mirror reflection neutral. No wordmark, text, cosmetics, hands, faces, unrelated logos, altered geometry, missing corners, chrome gradients inside the icon, watermark, busy props, or impossible reflection geometry.",
+    "attempts": 1,
+    "imagegen_output": "/Users/talishawhite/.codex/generated_images/019f72a6-dc1e-7a73-847c-e132cc5421b8/exec-8cbdc36a-734f-45f3-9d7e-717e8744abf9.png",
+    "targeted_retry": {
+      "performed": false
+    },
+    "exact_raster_finishing": {
+      "performed": false
+    },
+    "output": {
+      "path": "company/brand/brandbook-packet/mockups/compact-mirror.png",
+      "format": "PNG",
+      "width_px": 1536,
+      "height_px": 1024,
+      "bytes": 1859554,
+      "sha256": "abad40451b3abb38cf0a5a8f8e75337f8b43be70e08ec8a4c594ca658e0765fe"
+    },
+    "visual_qa": {
+      "review_method": "original-resolution direct visual inspection",
+      "icon_fidelity_percent": 99,
+      "both_focus_corners_percent": 100,
+      "enamel_integration_percent": 99,
+      "hinge_glass_and_product_realism_percent": 99,
+      "neutral_reflection_percent": 100,
+      "palette_percent": 100,
+      "no_extra_text_branding_or_watermark_percent": 100,
+      "page_ready_crop_percent": 100,
+      "overall_score_percent": 99,
+      "passed": true
+    }
+  },
+  "prohibited_source_assets": {
+    "html": 0,
+    "svg_mockups": 0,
+    "canvas_or_deterministic_renders": 0
+  },
+  "decision": "Accepted both independent first-pass ImageGen scenes. The T-shirt and compact mirror are page-ready raster product photographs with approximately exact icon geometry, both focus corners, convincing physical integration, approved Acid Dispatch colors, and no extra text, unrelated branding, people, props, or watermarks."
+}

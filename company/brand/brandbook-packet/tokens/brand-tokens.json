@@ -1,0 +1,177 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "meta": {
+    "brand": "Magic Mirror",
+    "direction": "Acid Dispatch / Editorial Edge",
+    "method": "Derived colors use linear interpolation in OKLab between approved Acid Dispatch anchors; values are rounded to 8-bit sRGB hex."
+  },
+  "color": {
+    "anchor": {
+      "acid": "#D7FF3F",
+      "deep": "#263300",
+      "pale": "#F2FFD0",
+      "ink": "#17171A",
+      "white": "#FFFFFF",
+      "cloud": "#F4F3F1",
+      "black": "#000000"
+    },
+    "scale": {
+      "acid": {
+        "50": "#F2FFD0",
+        "100": "#ECFFBA",
+        "200": "#E7FFA2",
+        "300": "#E1FF88",
+        "400": "#DCFF69",
+        "500": "#D7FF3F",
+        "600": "#A6C72C",
+        "700": "#78921B",
+        "800": "#4D610A",
+        "900": "#263300"
+      },
+      "neutral": {
+        "50": "#F4F3F1",
+        "100": "#D6D5D4",
+        "200": "#B8B8B7",
+        "300": "#9C9B9C",
+        "400": "#808081",
+        "500": "#666567",
+        "600": "#515052",
+        "700": "#3C3C3F",
+        "800": "#29292C",
+        "900": "#17171A",
+        "0": "#FFFFFF"
+      }
+    },
+    "semantic": {
+      "surface": {
+        "default": "#FFFFFF",
+        "subtle": "#F4F3F1",
+        "soft": "#F2FFD0",
+        "dark": "#17171A",
+        "primary": "#D7FF3F"
+      },
+      "text": {
+        "default": "#17171A",
+        "strong": "#000000",
+        "onPrimary": "#17171A",
+        "onDark": "#D7FF3F",
+        "soft": "#263300"
+      },
+      "border": {
+        "default": "#B8B8B7",
+        "strong": "#666567"
+      },
+      "focus": {
+        "ring": "#D7FF3F",
+        "offset": "#17171A"
+      }
+    }
+  },
+  "typography": {
+    "family": {
+      "display": "Instrument Serif",
+      "ui": "Space Grotesk",
+      "displayStack": "'Instrument Serif', 'Times New Roman', serif",
+      "uiStack": "'Space Grotesk', Inter, Arial, sans-serif"
+    },
+    "weight": {
+      "display": 400,
+      "body": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "style": {
+      "display": {
+        "size": "72px",
+        "lineHeight": 0.94,
+        "tracking": "-0.03em"
+      },
+      "h1": {
+        "size": "56px",
+        "lineHeight": 1.0,
+        "tracking": "-0.025em"
+      },
+      "h2": {
+        "size": "40px",
+        "lineHeight": 1.05,
+        "tracking": "-0.02em"
+      },
+      "h3": {
+        "size": "28px",
+        "lineHeight": 1.15,
+        "tracking": "-0.012em"
+      },
+      "lead": {
+        "size": "22px",
+        "lineHeight": 1.4,
+        "tracking": "-0.01em"
+      },
+      "body": {
+        "size": "16px",
+        "lineHeight": 1.55,
+        "tracking": "0em"
+      },
+      "caption": {
+        "size": "13px",
+        "lineHeight": 1.4,
+        "tracking": "0.01em"
+      },
+      "label": {
+        "size": "12px",
+        "lineHeight": 1.2,
+        "tracking": "0.12em"
+      },
+      "number": {
+        "size": "16px",
+        "lineHeight": 1.2,
+        "tracking": "-0.01em",
+        "featureSettings": "'tnum' 1"
+      }
+    },
+    "sources": {
+      "display": "assets/fonts/instrument-serif/InstrumentSerif-Regular.ttf",
+      "displayItalic": "assets/fonts/instrument-serif/InstrumentSerif-Italic.ttf",
+      "uiVariable": "assets/fonts/space-grotesk/SpaceGrotesk[wght].ttf"
+    }
+  },
+  "radius": {
+    "button": "999px",
+    "card": "24px",
+    "badge": "999px",
+    "tooltip": "12px"
+  },
+  "state": {
+    "primary": {
+      "default": {
+        "background": "#D7FF3F",
+        "foreground": "#17171A"
+      },
+      "hover": {
+        "background": "#A6C72C",
+        "foreground": "#17171A"
+      },
+      "focusRing": "#D7FF3F"
+    },
+    "secondary": {
+      "default": {
+        "background": "#F2FFD0",
+        "foreground": "#263300"
+      },
+      "hover": {
+        "background": "#ECFFBA",
+        "foreground": "#263300"
+      },
+      "focusRing": "#D7FF3F"
+    },
+    "link": {
+      "default": "#263300",
+      "hover": "#17171A",
+      "focusRing": "#D7FF3F"
+    },
+    "disabled": {
+      "background": "#D6D5D4",
+      "foreground": "#515052"
+    }
+  }
+}

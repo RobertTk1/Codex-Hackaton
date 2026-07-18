@@ -1,0 +1,171 @@
+{
+  "task": "T002-revision",
+  "status": "passed",
+  "plan": "company/brand/brandbook-packet/asset-plan.md",
+  "page_count": 19,
+  "pages": [
+    {
+      "number": "01",
+      "title": "Logo on dark background",
+      "method": "Existing asset + HTML/CSS",
+      "output": "`pages/source/page-01-logo-dark.png`"
+    },
+    {
+      "number": "02",
+      "title": "Logo on light background",
+      "method": "Existing asset + HTML/CSS",
+      "output": "`pages/source/page-02-logo-light.png`"
+    },
+    {
+      "number": "03",
+      "title": "Table of contents",
+      "method": "HTML/CSS",
+      "output": "`pages/source/page-03-contents.png`"
+    },
+    {
+      "number": "04",
+      "title": "Logo usage",
+      "method": "Existing assets + HTML/CSS",
+      "output": "`pages/source/page-04-logo-usage.png`"
+    },
+    {
+      "number": "05",
+      "title": "What to avoid",
+      "method": "Existing assets + HTML/CSS",
+      "output": "`pages/source/page-05-logo-avoid.png`"
+    },
+    {
+      "number": "06",
+      "title": "Primary colors",
+      "method": "Token data + HTML/CSS",
+      "output": "`pages/source/page-06-primary-colors.png`"
+    },
+    {
+      "number": "07",
+      "title": "Secondary colors",
+      "method": "Token data + HTML/CSS",
+      "output": "`pages/source/page-07-secondary-colors.png`"
+    },
+    {
+      "number": "08",
+      "title": "Buttons and links",
+      "method": "HTML/CSS screenshot",
+      "output": "`pages/source/page-08-buttons-links.png`"
+    },
+    {
+      "number": "09",
+      "title": "Brand elements and guidelines",
+      "method": "HTML/CSS screenshot",
+      "output": "`pages/source/page-09-elements.png`"
+    },
+    {
+      "number": "10",
+      "title": "WCAG color compliance",
+      "method": "Calculated data + HTML/CSS",
+      "output": "`pages/source/page-10-wcag.png`"
+    },
+    {
+      "number": "11",
+      "title": "Business card mockup",
+      "method": "ImageGen",
+      "output": "`mockups/business-card.png`"
+    },
+    {
+      "number": "12",
+      "title": "Billboard mockup",
+      "method": "ImageGen",
+      "output": "`mockups/billboard.png`"
+    },
+    {
+      "number": "13",
+      "title": "Favicon/browser mockups",
+      "method": "ImageGen",
+      "output": "`mockups/browser-favicon-light.png`, `mockups/browser-favicon-dark.png`"
+    },
+    {
+      "number": "14",
+      "title": "Twitter/X mockup",
+      "method": "ImageGen",
+      "output": "`mockups/x-profile.png`"
+    },
+    {
+      "number": "15",
+      "title": "LinkedIn mockup",
+      "method": "ImageGen",
+      "output": "`mockups/linkedin-profile.png`"
+    },
+    {
+      "number": "16",
+      "title": "T-shirt mockup",
+      "method": "ImageGen",
+      "output": "`mockups/tshirt.png`"
+    },
+    {
+      "number": "17",
+      "title": "Merchandise mockup",
+      "method": "ImageGen",
+      "output": "`mockups/compact-mirror.png`"
+    },
+    {
+      "number": "18",
+      "title": "Typography",
+      "method": "Local fonts + HTML/CSS",
+      "output": "`pages/source/page-18-typography.png`"
+    },
+    {
+      "number": "19",
+      "title": "Typography what to avoid",
+      "method": "Local fonts + HTML/CSS",
+      "output": "`pages/source/page-19-type-avoid.png`"
+    }
+  ],
+  "method_counts": {
+    "imagegen_page_rows": 7,
+    "non_imagegen_mockup_page_rows": 0,
+    "other_page_rows": 12
+  },
+  "required_input_count": 14,
+  "required_inputs_verified": [
+    "company/brand/exports/wordmark/png/transparent/acid/magic-mirror-wordmark-acid-2048px.png",
+    "company/brand/exports/wordmark/png/transparent/ink/magic-mirror-wordmark-ink-2048px.png",
+    "company/brand/exports/combined/png/transparent/acid/magic-mirror-combined-acid-2048px.png",
+    "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-2048px.png",
+    "company/brand/exports/icon/png/transparent/acid/magic-mirror-icon-acid-1024px.png",
+    "company/brand/exports/icon/png/transparent/ink/magic-mirror-icon-ink-1024px.png",
+    "company/brand/exports/icon/favicon/favicon-16x16.png",
+    "company/brand/exports/icon/favicon/apple-touch-icon-180x180.png",
+    "company/brand/brand-colors.json",
+    "company/brand/brandbook-packet/tokens/brand-tokens.json",
+    "company/brand/brandbook-packet/tokens/brand-tokens.css",
+    "company/brand/brandbook-packet/references/mockup-direction/browser-light-reference.png",
+    "company/brand/brandbook-packet/references/mockup-direction/browser-dark-reference.png",
+    "company/brand/brandbook-packet/references/mockup-direction/social-phone-reference.png"
+  ],
+  "planned_mockup_count": 8,
+  "planned_mockups": [
+    "mockups/billboard.png",
+    "mockups/browser-favicon-dark.png",
+    "mockups/browser-favicon-light.png",
+    "mockups/business-card.png",
+    "mockups/compact-mirror.png",
+    "mockups/linkedin-profile.png",
+    "mockups/tshirt.png",
+    "mockups/x-profile.png"
+  ],
+  "imagegen_plan_count": 8,
+  "non_imagegen_mockup_plan_count": 0,
+  "browser_light_dark_output_count": 2,
+  "all_mockup_outputs_raster_png": true,
+  "planned_output_existence_at_revision": {
+    "mockups/business-card.png": true,
+    "mockups/billboard.png": true,
+    "mockups/browser-favicon-light.png": true,
+    "mockups/browser-favicon-dark.png": true,
+    "mockups/x-profile.png": true,
+    "mockups/linkedin-profile.png": true,
+    "mockups/tshirt.png": true,
+    "mockups/compact-mirror.png": true
+  },
+  "revision_reason": "Owner required every application mockup to use ImageGen and browser/favicon to have separate light and dark outputs; prior deterministic browser/social plan was rejected.",
+  "qa_gate": "Complete ImageGen attempt, visual QA at roughly 95%, one targeted retry, exact compositing fallback only afterward."
+}

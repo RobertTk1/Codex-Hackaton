@@ -1,0 +1,62 @@
+{
+  "task_id": "T009",
+  "status": "passed",
+  "verified_at": "2026-07-18T14:43:34Z",
+  "method": {
+    "standard": "WCAG 2.x relative luminance and contrast ratio",
+    "formula": "(L1 + 0.05) / (L2 + 0.05), where L1 is the lighter relative luminance",
+    "scope": "Every ordered foreground/background combination across 22 unique approved anchor and documented derived colors, including self-pairs and failures.",
+    "thresholds": {
+      "aa_normal": 4.5,
+      "aa_large": 3.0
+    },
+    "source": "tokens/derived-palette.json"
+  },
+  "data": {
+    "path": "tokens/wcag-matrix.json",
+    "bytes": 120309,
+    "sha256": "9d1ae180e6284f7def7d59591951a6f89d074887fcb74161107ef84dee9ebbac",
+    "color_count": 22,
+    "unique_hex_count": 22,
+    "ordered_pairing_count": 484,
+    "anchor_matrix_pairing_count": 49,
+    "recommended_pairing_count": 8,
+    "normal_aa_pass_count": 178,
+    "large_aa_pass_count": 238,
+    "normal_only_failure_count": 60,
+    "all_text_failure_count": 246
+  },
+  "formula_verification": {
+    "independently_recalculated_pairings": 484,
+    "ratio_mismatches": 0,
+    "normal_result_mismatches": 0,
+    "large_result_mismatches": 0,
+    "status_mismatches": 0
+  },
+  "embedding": {
+    "page_data": "source/wcag-matrix.js",
+    "page_data_bytes": 11396,
+    "page_data_sha256": "2f820fca6ce97a97e4e4df50223bcdad9e7ce410655b52d874926b0e0875f6dc",
+    "anchor_matrix_embedded": true,
+    "recommendations_embedded": true,
+    "normal_threshold_documented": true,
+    "large_threshold_documented": true,
+    "preview": {
+      "path": "pages/source/page-10-wcag.png",
+      "width_px": 2112,
+      "height_px": 1632,
+      "bytes": 177570,
+      "sha256": "85e8ead05e0ccd5d7daf841d11dbcf150c933364870ce9f9dcff0159b94588eb"
+    }
+  },
+  "visual_review": {
+    "method": "Original-resolution inspection of the rerendered WCAG page.",
+    "matrix_labels_and_ratios_legible": true,
+    "status_key_legible": true,
+    "recommended_pairings_legible": true,
+    "thresholds_legible": true,
+    "clipping_or_overflow": 0,
+    "passed": true
+  },
+  "decision": "Accepted the independently verified WCAG dataset and embedded page. All 484 ordered combinations across 22 unique approved and derived colors have calculated ratios and normal/large-text results; the page presents all 49 anchor combinations, eight normal-AA recommendations, and both thresholds without clipping."
+}
