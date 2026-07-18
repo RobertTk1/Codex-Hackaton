@@ -42,12 +42,17 @@ Default pages:
 
 ## Page design requirements
 
-- Use a clean editorial brandbook layout inspired by references, not copied from them.
+- Inspect `company/brand/brandbook-packet/references/layout-direction/mayven/pages/contact-sheet.png` and the corresponding full-resolution Mayven page before designing each Magic Mirror page.
+- Use Mayven as the composition authority for hierarchy, geometry, whitespace, density, and page rhythm, translated into Magic Mirror's identity. Never copy Mayven branding, copy, colors, or travel/cruise imagery.
+- Use US Letter landscape (`11in × 8.5in`; reference raster `2112 × 1632`).
 - Use the user's brand only.
 - Keep page numbers and subtle footer.
 - Use local raster mockup assets.
 - Keep margins, typography, line rules, card radius, and captions consistent.
+- Pages 11–17 use a compact title block above one dominant raster mockup, matching the corresponding Mayven page.
+- Pages 13–15 use platform-recognizable assets: separate light/dark browser chrome, a paired light/dark X profile with reversed avatar treatments, and a structurally distinct LinkedIn company/profile or experience view.
+- Do not introduce oversized numerals, decorative orbits, dramatic dark fields, or split copy/image application pages where the mapped Mayven page is restrained.
 
 ## Verification
 
-Source is complete only when every requested page exists, every image reference resolves locally, copied reference-brand names are absent, and UI colors match approved tokens.
+Source is complete only when every requested page exists, every image reference resolves locally, copied reference-brand names are absent, UI colors match approved tokens, and a side-by-side 19-page comparison confirms aligned hierarchy, geometry, whitespace, density, and application recognition.

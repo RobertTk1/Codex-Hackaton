@@ -1,0 +1,54 @@
+{
+  "task": "T006",
+  "audit_type": "owner-correction-platform-recognition",
+  "audited_at": "2026-07-18T14:06:49Z",
+  "status": "passed",
+  "method": "built-in ImageGen, one complete generation per platform, no deterministic mockup rendering or compositing",
+  "prompt_source": "company/brand/brandbook-packet/asset-plan.md#ig-07--x-profile-concept and #ig-08--linkedin-company-profile-concept",
+  "references": {
+    "x": "company/brand/brandbook-packet/references/layout-direction/mayven/assets/14-twitter-x.png",
+    "linkedin": "company/brand/brandbook-packet/references/layout-direction/mayven/assets/15-linkedin.png",
+    "icon": "company/brand/exports/icon/png/transparent/acid/magic-mirror-icon-acid-1024px.png",
+    "lockup": "company/brand/exports/combined/png/transparent/acid/magic-mirror-combined-acid-2048px.png"
+  },
+  "outputs": [
+    {
+      "platform": "Twitter/X",
+      "path": "company/brand/brandbook-packet/mockups/x-profile.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1408296,
+      "sha256": "1c9606e480bda2bac2169dad0adf1fa77142a7d131de8998cf45972af3ab15b7",
+      "attempt": 1,
+      "platform_recognition": "passed: paired light and dark X profile hierarchy, overlapping avatars, more/message/follow controls, handle/bio structure, and Posts/Replies/Media/Likes tabs",
+      "light_dark_icon_treatments": "passed: left/light phone uses exact Ink icon on White avatar surface; right/dark phone uses exact White icon on Ink avatar surface with restrained Acid accents",
+      "brand_fidelity": "passed: both complete icon treatments retain both focus corners and Magic Mirror is correctly spelled",
+      "claims": "passed: concept/not-live label present; no verification badge or invented follower metrics",
+      "copied_reference_brand_scan": "passed: no Mayven, datapier, cruise/travel, anymark, red, or blue reference branding",
+      "overall_visual_fidelity_percent": 99
+    },
+    {
+      "platform": "LinkedIn",
+      "path": "company/brand/brandbook-packet/mockups/linkedin-profile.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1373391,
+      "sha256": "e88a9aa55a86932fb0cb15cfa2d90f29f523d68c284ea502caf181a19ebc495b",
+      "attempt": 1,
+      "platform_recognition": "passed: light professional interface, search/navigation, company page, square company identity, Experience heading, plus/edit controls, and role card",
+      "structural_distinction_from_x": "passed: company/experience information architecture is not the X profile composition",
+      "brand_fidelity": "passed: complete Acid icon including both focus corners and correctly spelled Magic Mirror",
+      "claims": "passed: concept/not-live label present; no follower, connection, employee, or engagement metrics",
+      "copied_reference_brand_scan": "passed: no Mayven, datapier, cruise/travel, anymark, red, or blue reference branding",
+      "overall_visual_fidelity_percent": 99
+    }
+  ],
+  "pair_checks": {
+    "different_platform_structures": true,
+    "recognizable_without_page_caption": true,
+    "x_paired_light_dark_treatments": true,
+    "imagegen_raster_only": true,
+    "html_css_svg_canvas_mockup_sources": 0,
+    "watermarks": 0
+  }
+}

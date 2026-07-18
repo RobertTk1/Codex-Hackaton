@@ -12,6 +12,9 @@ Page count: 19
 - Use built-in ImageGen for every application mockup: browser/favicon, social, device, print, environmental, apparel, and merchandise.
 - Do not use HTML/CSS, SVG, canvas, or deterministic UI rendering for application mockup imagery. HTML/CSS is reserved for the brandbook page source and non-mockup token/UI specimens.
 - Generate browser/favicon as separate light and dark raster images, using the owner-provided reference pair for composition and finish while replacing all reference branding with approved Magic Mirror assets.
+- Inspect the matching Mayven application example before every standardized UI mockup. Twitter/X, LinkedIn, and browser/favicon must each be recognizable from composition alone.
+- Never reuse the same generic phone/profile composition for Twitter/X and LinkedIn. LinkedIn must show a LinkedIn-specific company/profile or experience hierarchy.
+- Twitter/X always shows a paired light/dark presentation: one light-mode profile with the Ink icon on a White avatar surface and one dark-mode profile with the White icon on an Ink avatar surface, supported by Acid accents.
 - Every finished mockup is an ImageGen-created raster PNG under `company/brand/brandbook-packet/mockups/`. No SVG mockup outputs.
 - ImageGen gets one complete-scene attempt, visual inspection, and one targeted retry if the brand layer is below roughly 95% fidelity. Exact compositing is the finishing fallback only after that retry.
 - Environmental photography may contain natural colors; designed brand layers and UI elements use only approved anchors or documented derived tokens.
@@ -27,6 +30,7 @@ Page count: 19
 | `LOCKUP_INK` | `company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-2048px.png` | Combined lockup on Acid/light surfaces |
 | `ICON_ACID` | `company/brand/exports/icon/png/transparent/acid/magic-mirror-icon-acid-1024px.png` | Complete icon on Ink/dark surfaces |
 | `ICON_INK` | `company/brand/exports/icon/png/transparent/ink/magic-mirror-icon-ink-1024px.png` | Complete icon on Acid/light surfaces |
+| `ICON_WHITE` | `company/brand/exports/icon/png/transparent/white/magic-mirror-icon-white-1024px.png` | Reversed complete icon on Ink/dark avatar surfaces |
 | `FAVICON_16` | `company/brand/exports/icon/favicon/favicon-16x16.png` | Simplified browser favicon at 16px |
 | `TOUCH_ICON` | `company/brand/exports/icon/favicon/apple-touch-icon-180x180.png` | High-resolution exact app/favicon tile for generated browser and device scenes |
 | `PALETTE` | `company/brand/brand-colors.json` | Exact Acid Dispatch anchors and treatments |
@@ -34,7 +38,9 @@ Page count: 19
 | `TYPE_CSS` | `company/brand/brandbook-packet/tokens/brand-tokens.css` | Local font faces and CSS variables |
 | `BROWSER_LIGHT_REF` | `company/brand/brandbook-packet/references/mockup-direction/browser-light-reference.png` | Composition and finish reference only; do not copy Mayven branding or blue palette |
 | `BROWSER_DARK_REF` | `company/brand/brandbook-packet/references/mockup-direction/browser-dark-reference.png` | Composition and finish reference only; do not copy Mayven branding or blue palette |
-| `SOCIAL_PHONE_REF` | `company/brand/brandbook-packet/references/mockup-direction/social-phone-reference.png` | Device/profile composition reference only; do not copy Mayven branding or blue palette |
+| `X_REF` | `company/brand/brandbook-packet/references/layout-direction/mayven/assets/14-twitter-x.png` | Twitter/X profile composition reference only; do not copy Mayven branding or blue palette |
+| `LINKEDIN_REF` | `company/brand/brandbook-packet/references/layout-direction/mayven/assets/15-linkedin.png` | LinkedIn-specific company/profile and experience composition reference only; do not copy Mayven branding or blue palette |
+| `MAYVEN_LAYOUT` | `company/brand/brandbook-packet/references/layout-direction/mayven/pages/contact-sheet.png` | Page geometry, hierarchy, whitespace, and density authority only |
 
 ## Page-by-page matrix
 
@@ -53,8 +59,8 @@ Page count: 19
 | 11 | Business card mockup | ImageGen | `LOCKUP_INK`, `ICON_ACID`, `PALETTE` | `mockups/business-card.png` | Generate two physically realistic editorial cards using Prompt IG-01 below. | ≥95% mark fidelity; exact visible copy; convincing paper/print integration; no watermark. |
 | 12 | Billboard mockup | ImageGen | `LOCKUP_ACID`, `PALETTE` | `mockups/billboard.png` | Generate one fashion-district billboard with the lockup as the only visible brand copy using Prompt IG-02. | Lockup legible at page scale; no fake brands; Acid-on-Ink brand layer integrated into billboard. |
 | 13 | Favicon/browser mockups | ImageGen | `BROWSER_LIGHT_REF`, `BROWSER_DARK_REF`, `TOUCH_ICON`, `LOCKUP_INK`, `LOCKUP_ACID`, `PALETTE` | `mockups/browser-favicon-light.png`, `mockups/browser-favicon-dark.png` | Generate separate light and dark close-crop browser scenes using Prompts IG-05 and IG-06. | Both outputs page-ready; Magic Mirror favicon and lockup recognizable; title/address legible; no Mayven/blue reference branding; convincing browser materials. |
-| 14 | Twitter/X mockup | ImageGen | `SOCIAL_PHONE_REF`, `ICON_ACID`, `LOCKUP_ACID`, `PALETTE` | `mockups/x-profile.png` | Generate a premium smartphone X profile scene using Prompt IG-07. | Profile asset recognizable; required copy/non-live label legible; no Mayven/blue reference branding, invented metrics, or watermark. |
-| 15 | LinkedIn mockup | ImageGen | `SOCIAL_PHONE_REF`, `ICON_ACID`, `LOCKUP_ACID`, `PALETTE` | `mockups/linkedin-profile.png` | Generate a premium smartphone LinkedIn company-profile scene using Prompt IG-08. | Profile asset recognizable; required copy/non-live label legible; no Mayven/blue reference branding, invented metrics, or watermark. |
+| 14 | Twitter/X mockup | ImageGen | `X_REF`, `ICON_INK`, `ICON_WHITE`, `LOCKUP_ACID`, `PALETTE` | `mockups/x-profile.png` | Generate a recognizable paired light/dark smartphone X profile scene using Prompt IG-07. | Identifiable as X; left/light profile uses Ink icon on White avatar, right/dark profile uses White icon on Ink avatar; required copy/non-live label legible; no invented metrics, copied reference branding, or watermark. |
+| 15 | LinkedIn mockup | ImageGen | `LINKEDIN_REF`, `ICON_ACID`, `LOCKUP_ACID`, `PALETTE` | `mockups/linkedin-profile.png` | Generate a recognizable LinkedIn company/profile and experience scene using Prompt IG-08. | Identifiable as LinkedIn from professional navigation, company identity, and experience hierarchy; structurally distinct from X; no invented metrics, copied reference branding, or watermark. |
 | 16 | T-shirt mockup | ImageGen | `ICON_ACID`, `PALETTE` | `mockups/tshirt.png` | Generate an Ink heavyweight crewneck with an Acid icon screen print using Prompt IG-03. | Icon shape ≥95% accurate; print follows fabric; no text, extra graphics, or unrelated logos. |
 | 17 | Merchandise mockup | ImageGen | `ICON_ACID`, `PALETTE` | `mockups/compact-mirror.png` | Generate a premium Ink compact mirror with the Acid icon using Prompt IG-04. | Icon ≥95% accurate; enamel/print physically integrated; mirror/reflection plausible; no extra branding. |
 | 18 | Typography | Local fonts + HTML/CSS | Instrument Serif files, Space Grotesk variable font, `TOKENS`, `TYPE_CSS` | `pages/source/page-18-typography.png` | Show real font specimens, hierarchy, weights, scale, tracking, and usage roles. | Font files load; display and UI roles distinct; specimens match token values. |
@@ -200,19 +206,19 @@ QA: inspect browser realism, dark treatment, lockup/favicon fidelity, exact requ
 Use case: product-mockup
 Asset type: Magic Mirror X profile smartphone mockup
 Primary request: Create a premium photorealistic close-up of two smartphones presenting a Magic Mirror X profile concept, using the supplied phone composition as direction only.
-Input images: Image 1: SOCIAL_PHONE_REF, device composition reference only; Image 2: ICON_ACID, the exact approved complete profile icon; Image 3: LOCKUP_ACID, the exact approved combined lockup for supporting brand context.
+Input images: Image 1: X_REF, Twitter/X profile composition reference only; Image 2: ICON_INK, the exact approved complete icon for the light avatar; Image 3: ICON_WHITE, the exact approved complete reversed icon for the dark avatar; Image 4: LOCKUP_ACID, the exact approved combined lockup for supporting brand context.
 Scene/backdrop: minimal Cloud #F4F3F1 studio environment; two edge-to-edge premium smartphones with realistic metal/glass construction.
-Subject: dark Ink profile screens with Acid editorial banner shapes, the complete Magic Mirror icon as the profile image, and exact concept copy. Show one primary profile view and one complementary cropped view.
+Subject: two recognizable X profile interfaces with matching profile hierarchy but different approved modes. Left phone is light mode with a White avatar surface carrying the exact Ink icon. Right phone is dark mode with an Ink avatar surface carrying the exact White icon and restrained Acid accents. Both include a header/banner, circular avatar overlapping the banner, display name, @handle, bio, location/link row, recognizable X controls, and profile tabs.
 Style/medium: premium photorealistic device/product visualization, dimensional glass, crisp screen content, restrained reflections.
 Composition/framing: landscape 3:2 close crop inspired by the reference, both phones dominant and partially cropped at frame edges.
 Lighting/mood: clean editorial product light, fashion-tech tone.
-Color palette: Ink #17171A, Acid #D7FF3F, Cloud #F4F3F1, White #FFFFFF; do not copy the reference blue palette.
+Color palette: light phone uses White #FFFFFF and Cloud #F4F3F1 surfaces with Ink #17171A text/avatar icon; dark phone uses Ink #17171A surfaces with White #FFFFFF text/avatar icon; Acid #D7FF3F is a restrained brand accent. Do not copy the reference blue palette.
 Text (verbatim): "Magic Mirror"; "@magicmirror_demo"; "AI virtual try-on for more confident clothing decisions. Hackathon prototype."; "CONCEPT PROFILE • NOT A LIVE ACCOUNT".
-Constraints: preserve the complete icon including both focus corners; no verification badge, follower/following metrics, live-account claim, Mayven name, cruise copy, or copied blue reference branding.
-Avoid: HTML/CSS screenshot appearance, unrelated logos, invented metrics, altered icon, extra social copy, blue brand palette, watermark, hands, faces, or unreadable screen text.
+Constraints: the screens must be identifiable as X from layout alone; the two phones must visibly demonstrate different light and dark icon treatments; preserve the complete icon including both focus corners; no verification badge, follower/following metrics, live-account claim, Mayven name, cruise copy, or copied blue reference branding.
+Avoid: two dark phones, duplicated avatar treatment, Acid icon on both phones, generic profile page, LinkedIn-style experience cards, HTML/CSS screenshot appearance, unrelated logos, invented metrics, altered icon, extra social copy, blue brand palette, watermark, hands, faces, or unreadable screen text.
 ```
 
-Target: `1536×1024` PNG. Inputs: `SOCIAL_PHONE_REF`, `ICON_ACID`, `LOCKUP_ACID`. Final: `mockups/x-profile.png`.
+Target: `1536×1024` PNG. Inputs: `X_REF`, `ICON_INK`, `ICON_WHITE`, `LOCKUP_ACID`. Final: `mockups/x-profile.png`.
 
 QA: inspect phone realism, complete icon fidelity, exact concept copy, visible non-live label, no invented metrics or Mayven/blue reference branding, restrained reflections, crop, and watermark. Retry once before any exact raster finishing pass.
 
@@ -222,19 +228,19 @@ QA: inspect phone realism, complete icon fidelity, exact concept copy, visible n
 Use case: product-mockup
 Asset type: Magic Mirror LinkedIn company profile smartphone mockup
 Primary request: Create a premium photorealistic close-up of two smartphones presenting a Magic Mirror LinkedIn company profile concept, using the supplied phone composition as direction only.
-Input images: Image 1: SOCIAL_PHONE_REF, device composition reference only; Image 2: ICON_ACID, the exact approved complete company icon; Image 3: LOCKUP_ACID, the exact approved combined lockup for supporting brand context.
-Scene/backdrop: minimal Cloud #F4F3F1 studio environment; two edge-to-edge premium smartphones with realistic metal/glass construction.
-Subject: dark Ink company-profile screens with Acid editorial banner shapes, the complete Magic Mirror icon as the company image, and exact concept copy. Show one primary company view and one complementary cropped view.
+Input images: Image 1: LINKEDIN_REF, LinkedIn-specific company/profile and experience composition reference only; Image 2: ICON_ACID, the exact approved complete company icon; Image 3: LOCKUP_ACID, the exact approved combined lockup for supporting brand context.
+Scene/backdrop: clean white-to-Cloud #F4F3F1 studio environment; two overlapping edge-to-edge premium smartphones with realistic metal/glass construction.
+Subject: a recognizable LinkedIn mobile interface in light mode. The rear phone shows a Magic Mirror company page with search/navigation, an editorial fashion banner, the square company icon, company name, category, and concise about copy. The front phone shows an Experience section with a Magic Mirror role card, company icon, dates marked as a hackathon concept, and a concise professional description.
 Style/medium: premium photorealistic device/product visualization, dimensional glass, crisp screen content, restrained reflections.
 Composition/framing: landscape 3:2 close crop inspired by the reference, both phones dominant and partially cropped at frame edges.
 Lighting/mood: clean editorial product light, fashion-tech tone.
-Color palette: Ink #17171A, Acid #D7FF3F, Cloud #F4F3F1, White #FFFFFF; do not copy the reference blue palette.
-Text (verbatim): "Magic Mirror"; "AI-powered virtual try-on • Hackathon prototype"; "Helping shoppers make faster, more confident clothing decisions."; "CONCEPT PROFILE • NOT A LIVE COMPANY PAGE".
-Constraints: preserve the complete icon including both focus corners; no follower, customer, or employee metrics; no live-company-page claim; no Mayven name, cruise copy, or copied blue reference branding.
-Avoid: HTML/CSS screenshot appearance, unrelated logos, invented metrics, altered icon, extra social copy, blue brand palette, watermark, hands, faces, or unreadable screen text.
+Color palette: White #FFFFFF and Cloud #F4F3F1 for the platform surface; Ink #17171A and Acid #D7FF3F for Magic Mirror brand elements; neutral gray UI lines; do not copy the reference blue brand palette.
+Text (verbatim): "Magic Mirror"; "AI-powered virtual try-on"; "Hackathon prototype"; "Helping shoppers make faster, more confident clothing decisions."; "CONCEPT • NOT A LIVE COMPANY PAGE".
+Constraints: the screen must be identifiable as LinkedIn from layout alone and structurally different from the X mockup; preserve the complete icon including both focus corners; no follower, customer, or employee metrics; no live-company-page claim; no Mayven name, cruise copy, or copied blue reference branding.
+Avoid: dark generic social profile, X-style handle/bio layout, duplicated screens, HTML/CSS screenshot appearance, unrelated logos, invented metrics, altered icon, extra social copy, blue brand palette, watermark, hands, faces, or unreadable screen text.
 ```
 
-Target: `1536×1024` PNG. Inputs: `SOCIAL_PHONE_REF`, `ICON_ACID`, `LOCKUP_ACID`. Final: `mockups/linkedin-profile.png`.
+Target: `1536×1024` PNG. Inputs: `LINKEDIN_REF`, `ICON_ACID`, `LOCKUP_ACID`. Final: `mockups/linkedin-profile.png`.
 
 QA: inspect phone realism, complete icon fidelity, exact concept copy, visible non-live label, no invented metrics or Mayven/blue reference branding, restrained reflections, crop, and watermark. Retry once before any exact raster finishing pass.
 
@@ -256,5 +262,7 @@ Each task records final prompt/method, attempt history, output dimensions/bytes,
 - All required existing inputs use exact durable repository paths and currently exist.
 - Every mockup family has an ImageGen prompt, final PNG path, target dimensions, and verification criteria.
 - Browser/favicon has separate light and dark ImageGen outputs.
+- Twitter/X and LinkedIn use different platform-specific examples and are recognizable from layout alone.
+- Twitter/X shows one approved light icon/profile treatment and one approved dark/reversed treatment.
 - No application mockup is planned as HTML/CSS, SVG, canvas, or deterministic UI rendering.
 - No mockup generation begins until this plan passes automated and manual review.

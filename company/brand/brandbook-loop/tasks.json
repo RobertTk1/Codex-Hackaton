@@ -1,8 +1,8 @@
 {
   "project": "Magic Mirror Brandbook Packet",
   "created_at": "2026-07-18T11:52:49Z",
-  "updated_at": "2026-07-18T13:33:46Z",
-  "current_session": 12,
+  "updated_at": "2026-07-18T14:17:16Z",
+  "current_session": 14,
   "tasks": [
     {
       "id": "T001",
@@ -121,9 +121,9 @@
       ],
       "verification": "visual review + file check: record dimensions, bytes, method, text accuracy, palette compliance, and final paths",
       "subtasks": [],
-      "notes": "Passed corrected T006 visual and file audit. Created separate X and LinkedIn smartphone/profile scenes with built-in ImageGen using the supplied device composition only as reference and the approved Acid icon/combined lockup as brand inputs; both independent first-pass generations cleared the approximately 95% fidelity gate, so no targeted retry or exact compositing fallback was used. X final is 1536x1024, 1,676,169 bytes, SHA-256 0a2b655d545d3905694311275837aa01f268e8b0a345039d7dbe4c0422799917. LinkedIn final is 1536x1024, 1,683,651 bytes, SHA-256 fdf347b5f6b516ebf9ae472ced10c64d656f4aa12a88f8d05fe4942809cf513c. Both scored 99% overall with exact profile copy, explicit non-live labels, no invented metrics or verification claims, and no Mayven, cruise, blue reference branding, unrelated logos, or watermarks. Evidence: references/t006-audit.json.",
+      "notes": "Passed final owner-correction audit. X is now a paired light/dark built-in ImageGen scene: left/light phone uses the exact Ink icon on a White avatar surface; right/dark phone uses the exact White icon on an Ink avatar surface with restrained Acid accents. Both retain recognizable X controls and tabs. Final X is 1536x1024, 1,408,296 bytes, SHA-256 1c9606e480bda2bac2169dad0adf1fa77142a7d131de8998cf45972af3ab15b7. LinkedIn remains the accepted structurally distinct light company/Experience scene at 1536x1024, 1,373,391 bytes, SHA-256 e88a9aa55a86932fb0cb15cfa2d90f29f523d68c284ea502caf181a19ebc495b. Both use exact Magic Mirror assets and concept/not-live labels with no invented metrics, copied reference branding, unrelated marks, or watermarks. Evidence: references/t006-correction-audit.json supersedes references/t006-audit.json.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T13:02:07Z"
+      "updated_at": "2026-07-18T14:06:49Z"
     },
     {
       "id": "T007",
@@ -151,7 +151,7 @@
       "name": "Create 19-page brandbook source",
       "description": "Create print-ready HTML/CSS source for all 19 requested pages using local brand assets and raster mockups.",
       "status": "complete",
-      "depends_on": ["T007"],
+      "depends_on": ["T006", "T007"],
       "order": 8,
       "spec_ref": "spec/page-outline.md",
       "acceptance_criteria": [
@@ -162,9 +162,9 @@
       ],
       "verification": "command + manual review: record page count, resolved local assets, forbidden-term scan, palette scan, and source-preview count",
       "subtasks": [],
-      "notes": "Passed T008 source, render, file, and visual audit. Built exactly 19 ordered print-ready landscape HTML/CSS pages using the local Instrument Serif and Space Grotesk fonts, tokenized Acid Dispatch styling, approved identity assets, and all 8 audited ImageGen mockups. Rendered exactly 19 source previews at 1600x1000 plus a 1600x800 contact sheet. Verified 22 local image references with 0 missing/external images, 19 footers, 19 folios, 0 copied reference-brand terms, 0 external URLs, and 0 literal hex colors bypassing page CSS tokens. Contact-sheet review plus original-resolution review of pages 4, 5, 7, 8, 9, 10, 13, 18, and 19 found 0 clipping, overflow, hierarchy, dense-content, mockup-crop, or font-loading failures. Evidence: references/t008-audit.json and references/t008-source-contact-sheet.png.",
+      "notes": "Passed the corrected owner-review audit. Rebuilt all 19 pages on US Letter landscape and rendered one 2112x1632 source preview per page. Preserved and mapped 19 Mayven reference pages, generated a side-by-side Mayven-to-Magic comparison sheet, resolved all 18 local image references, and embedded all eight audited ImageGen mockups including the corrected paired light/dark X scene and structurally distinct LinkedIn scene. Original-resolution inspection of pages 4, 5, 7, 8, 9, 10, 13, 14, 15, 18, and 19 found no clipping, overflow, reference drift, platform-recognition, mockup-crop, dense-content, or font failures. Evidence: references/t008-audit.json, references/t008-source-contact-sheet.png, and references/t008-mayven-comparison-contact-sheet.png.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T13:24:01Z"
+      "updated_at": "2026-07-18T14:17:16Z"
     },
     {
       "id": "T009",
@@ -202,9 +202,9 @@
       ],
       "verification": "PDF tooling + visual review: record PDF bytes, page count, preview counts, contact sheet path, inspected pages, and results",
       "subtasks": [],
-      "notes": "",
+      "notes": "Paused after owner review on 2026-07-18. Resume only after T006 platform-specific social assets and the T008 Mayven-aligned US Letter landscape source pass their corrected visual audits. Existing render/verification scripts remain staged for later use.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T11:52:49Z"
+      "updated_at": "2026-07-18T13:48:19Z"
     },
     {
       "id": "T011",

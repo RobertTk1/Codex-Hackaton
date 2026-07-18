@@ -9,6 +9,8 @@ const packetDir = path.resolve(sourceDir, '..');
 const htmlPath = path.join(sourceDir, 'brandbook.html');
 const outputDir = path.join(packetDir, 'pages', 'source');
 const contactSheetPath = path.join(packetDir, 'references', 't008-source-contact-sheet.png');
+const comparisonSheetPath = path.join(packetDir, 'references', 't008-mayven-comparison-contact-sheet.png');
+const mayvenPageDir = path.join(packetDir, 'references', 'layout-direction', 'mayven', 'pages');
 
 const outputNames = [
   'page-01-logo-dark.png',
@@ -42,8 +44,8 @@ async function render() {
 
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({
-    viewport: { width: 1600, height: 1000 },
-    deviceScaleFactor: 1,
+    viewport: { width: 1056, height: 816 },
+    deviceScaleFactor: 2,
   });
 
   try {
@@ -73,8 +75,8 @@ async function render() {
     await browser.close();
   }
 
-  const thumbWidth = 320;
-  const thumbHeight = 200;
+  const thumbWidth = 264;
+  const thumbHeight = 204;
   const columns = 5;
   const rows = 4;
   const composites = [];
@@ -100,7 +102,48 @@ async function render() {
     },
   }).composite(composites).png().toFile(contactSheetPath);
 
-  process.stdout.write(`Rendered ${outputNames.length} source previews and ${contactSheetPath}\n`);
+  const pairWidth = thumbWidth * 2;
+  const comparisonColumns = 4;
+  const comparisonRows = 5;
+  const comparisonComposites = [];
+
+  for (let index = 0; index < outputNames.length; index += 1) {
+    const referencePath = path.join(mayvenPageDir, `page-${String(index + 1).padStart(2, '0')}.png`);
+    if (!fs.existsSync(referencePath)) {
+      throw new Error(`Missing Mayven comparison page: ${referencePath}`);
+    }
+    const [reference, current] = await Promise.all([
+      sharp(referencePath).resize(thumbWidth, thumbHeight, { fit: 'cover' }).png().toBuffer(),
+      sharp(path.join(outputDir, outputNames[index])).resize(thumbWidth, thumbHeight, { fit: 'cover' }).png().toBuffer(),
+    ]);
+    const pair = await sharp({
+      create: {
+        width: pairWidth,
+        height: thumbHeight,
+        channels: 3,
+        background: '#F4F3F1',
+      },
+    }).composite([
+      { input: reference, left: 0, top: 0 },
+      { input: current, left: thumbWidth, top: 0 },
+    ]).png().toBuffer();
+    comparisonComposites.push({
+      input: pair,
+      left: (index % comparisonColumns) * pairWidth,
+      top: Math.floor(index / comparisonColumns) * thumbHeight,
+    });
+  }
+
+  await sharp({
+    create: {
+      width: comparisonColumns * pairWidth,
+      height: comparisonRows * thumbHeight,
+      channels: 3,
+      background: '#F4F3F1',
+    },
+  }).composite(comparisonComposites).png().toFile(comparisonSheetPath);
+
+  process.stdout.write(`Rendered ${outputNames.length} source previews, ${contactSheetPath}, and ${comparisonSheetPath}\n`);
 }
 
 render().catch((error) => {

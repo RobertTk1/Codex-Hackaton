@@ -16,6 +16,8 @@ WCAG_JS_PATH = SOURCE_DIR / "wcag-matrix.js"
 PREVIEW_DIR = PACKET_DIR / "pages" / "source"
 AUDIT_PATH = PACKET_DIR / "references" / "t008-audit.json"
 CONTACT_SHEET_PATH = PACKET_DIR / "references" / "t008-source-contact-sheet.png"
+COMPARISON_SHEET_PATH = PACKET_DIR / "references" / "t008-mayven-comparison-contact-sheet.png"
+MAYVEN_PAGE_DIR = PACKET_DIR / "references" / "layout-direction" / "mayven" / "pages"
 
 EXPECTED_IDS = [
     "page-01-logo-dark",
@@ -148,7 +150,8 @@ def main():
     assert "Instrument Serif" in token_css and "Space Grotesk" in token_css
     assert "wcag-matrix.js" in html and "wcag-matrix" in html and "wcag-recommendations" in html
     assert "15.56:1" in wcag_js and "17.89:1" in wcag_js and "12.85:1" in wcag_js
-    assert "@page" in css and "size: 12.8in 8in" in css
+    assert "@page" in css and "size: 11in 8.5in" in css
+    assert "width: 1056px" in css and "height: 816px" in css
     css_literal_hex_colors = sorted(set(re.findall(r"#[0-9A-Fa-f]{6}", css)))
     assert not css_literal_hex_colors, f"Literal CSS colors bypass tokens: {css_literal_hex_colors}"
 
@@ -159,7 +162,7 @@ def main():
     for name in EXPECTED_PREVIEWS:
         path = PREVIEW_DIR / name
         width, height = png_dimensions(path)
-        assert (width, height) == (1600, 1000), f"Unexpected preview dimensions for {name}: {(width, height)}"
+        assert (width, height) == (2112, 1632), f"Unexpected preview dimensions for {name}: {(width, height)}"
         previews.append({
             "path": str(path.relative_to(PACKET_DIR)),
             "width_px": width,
@@ -170,7 +173,13 @@ def main():
 
     assert CONTACT_SHEET_PATH.is_file() and CONTACT_SHEET_PATH.stat().st_size > 0
     contact_width, contact_height = png_dimensions(CONTACT_SHEET_PATH)
-    assert (contact_width, contact_height) == (1600, 800)
+    assert (contact_width, contact_height) == (1320, 816)
+
+    mayven_pages = sorted(MAYVEN_PAGE_DIR.glob("page-*.png"))
+    assert len(mayven_pages) == 19, f"Expected 19 Mayven page references, found {len(mayven_pages)}"
+    assert COMPARISON_SHEET_PATH.is_file() and COMPARISON_SHEET_PATH.stat().st_size > 0
+    comparison_width, comparison_height = png_dimensions(COMPARISON_SHEET_PATH)
+    assert (comparison_width, comparison_height) == (2112, 1020)
 
     audit = {
         "task_id": "T008",
@@ -212,7 +221,7 @@ def main():
         },
         "previews": {
             "count": len(previews),
-            "dimensions": "1600x1000",
+            "dimensions": "2112x1632",
             "files": previews,
             "contact_sheet": {
                 "path": str(CONTACT_SHEET_PATH.relative_to(PACKET_DIR)),
@@ -221,10 +230,20 @@ def main():
                 "bytes": CONTACT_SHEET_PATH.stat().st_size,
                 "sha256": sha256(CONTACT_SHEET_PATH),
             },
+            "mayven_reference_pages": len(mayven_pages),
+            "mayven_side_by_side_comparison": {
+                "path": str(COMPARISON_SHEET_PATH.relative_to(PACKET_DIR)),
+                "width_px": comparison_width,
+                "height_px": comparison_height,
+                "bytes": COMPARISON_SHEET_PATH.stat().st_size,
+                "sha256": sha256(COMPARISON_SHEET_PATH),
+                "pair_order": "Mayven reference at left; Magic Mirror page at right",
+            },
         },
         "visual_review": {
-            "method": "Full contact-sheet review followed by original-resolution inspection of dense and risk-sensitive pages.",
+            "method": "Full Magic Mirror contact-sheet review, 19-page Mayven-to-Magic side-by-side comparison, then original-resolution inspection of dense and risk-sensitive pages.",
             "contact_sheet_reviewed": True,
+            "mayven_comparison_reviewed": True,
             "original_resolution_pages": [4, 5, 7, 8, 9, 10, 13, 18, 19],
             "results": {
                 "clipping_or_overflow": 0,
@@ -235,7 +254,7 @@ def main():
                 "passed": True,
             },
         },
-        "decision": "Accepted the ordered 19-page local HTML/CSS source and one 1600x1000 preview per page. Every image resolves locally, all eight audited ImageGen mockups are referenced, local fonts are declared, page folios and footers are complete, and copied reference-brand terms and external URLs are absent.",
+        "decision": "Accepted the ordered 19-page US Letter landscape HTML/CSS source and one 2112x1632 preview per page after a Mayven-to-Magic side-by-side composition audit. Every image resolves locally, all eight audited ImageGen mockups are referenced, local fonts are declared, page folios and footers are complete, and copied reference-brand terms and external URLs are absent.",
     }
     AUDIT_PATH.write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
     print(f"T008 passed: {len(parser.page_ids)} pages, {len(parser.image_sources)} local images, {len(previews)} source previews")

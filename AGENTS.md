@@ -106,6 +106,8 @@ Every recurring bug, incident, or bad agent action becomes a permanent numbered 
 Continue numbering from the last entry. Never delete entries, even when obvious in hindsight. Whenever the owner corrects a mistake or an incident occurs, add the rule in the same session. This list starts empty and grows only from real incidents.
 
 1. **Never create application mockups with HTML/CSS, SVG, canvas, or deterministic UI rendering.** Generate browser, favicon, social, device, physical, environmental, apparel, and merchandise mockups with ImageGen as raster assets; browser/favicon families require separate light and dark images. Lesson: deterministic HTML browser and social specimens violated the owner’s required mockup workflow, 2026-07-18.
+2. **Always map brandbook pages and standardized application assets to the Mayven reference packet before production.** Layout fidelity and platform recognition are acceptance criteria; a structurally valid packet or polished generic phone screen is not enough. Lesson: Magic Mirror pages drifted into a different editorial system, and the LinkedIn mockup reused the X composition instead of looking like LinkedIn, 2026-07-18.
+3. **Always show paired light and dark icon treatments in Twitter/X brand mockups.** One profile uses the approved dark/primary icon on a light avatar surface; the other reverses to a light/high-contrast icon on a dark brand surface. Lesson: the corrected X mockup still repeated the same Acid-on-Ink avatar treatment on both phones, 2026-07-18.
 
 ## Brand & Naming
 
