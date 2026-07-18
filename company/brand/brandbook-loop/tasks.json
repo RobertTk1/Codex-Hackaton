@@ -1,8 +1,8 @@
 {
   "project": "Magic Mirror Brandbook Packet",
   "created_at": "2026-07-18T11:52:49Z",
-  "updated_at": "2026-07-18T12:03:01Z",
-  "current_session": 2,
+  "updated_at": "2026-07-18T12:09:46Z",
+  "current_session": 3,
   "tasks": [
     {
       "id": "T001",
@@ -28,7 +28,7 @@
       "id": "T002",
       "name": "Create page-by-page asset and ImageGen plan",
       "description": "Map every one of the 19 brandbook pages to existing assets, generated mockups, deterministic screenshots, output paths, prompts, and QA criteria before mockup generation.",
-      "status": "pending",
+      "status": "complete",
       "depends_on": ["T001"],
       "order": 2,
       "spec_ref": "spec/imagegen-asset-plan.md",
@@ -40,9 +40,9 @@
       ],
       "verification": "manual review: record page-row count, planned mockup list, generation order, resolved input paths, and method counts in notes",
       "subtasks": [],
-      "notes": "",
+      "notes": "Passed T002 audit. asset-plan.md contains exactly 19 numbered page rows, verifies 10 durable inputs, and plans 7 final raster mockups: 4 ImageGen physical mockups (business card, billboard, T-shirt, compact mirror) plus 3 deterministic HTML/CSS screenshots (browser/favicon, X, LinkedIn). Every family has exact inputs via source aliases, a complete prompt/screenshot plan, PNG output path, target dimensions, and QA criteria. All mockup outputs were confirmed absent before generation. Evidence: company/brand/brandbook-packet/references/t002-audit.json.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T11:52:49Z"
+      "updated_at": "2026-07-18T12:09:46Z"
     },
     {
       "id": "T003",
