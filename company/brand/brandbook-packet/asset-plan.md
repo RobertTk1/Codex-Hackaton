@@ -1,6 +1,6 @@
 # Magic Mirror Brandbook Asset Plan
 
-Status: approved production plan; mockup generation has not started
+Status: revised production plan after owner correction; rejected deterministic browser/social assets are being replaced with ImageGen outputs
 
 Brand direction: Acid Dispatch / Editorial Edge
 
@@ -9,9 +9,10 @@ Page count: 19
 ## Production rules
 
 - Approved identity geometry comes only from `company/brand/exports/`; never regenerate the wordmark, lockup, icon, or favicon from memory.
-- Use ImageGen for realistic physical mockups where material, perspective, and lighting integration matter.
-- Use deterministic HTML/CSS screenshots for browser and social interfaces where exact text and spacing matter more than photorealism.
-- Every finished mockup is a raster PNG under `company/brand/brandbook-packet/mockups/`. No SVG mockup outputs.
+- Use built-in ImageGen for every application mockup: browser/favicon, social, device, print, environmental, apparel, and merchandise.
+- Do not use HTML/CSS, SVG, canvas, or deterministic UI rendering for application mockup imagery. HTML/CSS is reserved for the brandbook page source and non-mockup token/UI specimens.
+- Generate browser/favicon as separate light and dark raster images, using the owner-provided reference pair for composition and finish while replacing all reference branding with approved Magic Mirror assets.
+- Every finished mockup is an ImageGen-created raster PNG under `company/brand/brandbook-packet/mockups/`. No SVG mockup outputs.
 - ImageGen gets one complete-scene attempt, visual inspection, and one targeted retry if the brand layer is below roughly 95% fidelity. Exact compositing is the finishing fallback only after that retry.
 - Environmental photography may contain natural colors; designed brand layers and UI elements use only approved anchors or documented derived tokens.
 - The complete icon is used at 32px and above. The simplified lens-only favicon is used at 16px.
@@ -27,9 +28,13 @@ Page count: 19
 | `ICON_ACID` | `company/brand/exports/icon/png/transparent/acid/magic-mirror-icon-acid-1024px.png` | Complete icon on Ink/dark surfaces |
 | `ICON_INK` | `company/brand/exports/icon/png/transparent/ink/magic-mirror-icon-ink-1024px.png` | Complete icon on Acid/light surfaces |
 | `FAVICON_16` | `company/brand/exports/icon/favicon/favicon-16x16.png` | Simplified browser favicon at 16px |
+| `TOUCH_ICON` | `company/brand/exports/icon/favicon/apple-touch-icon-180x180.png` | High-resolution exact app/favicon tile for generated browser and device scenes |
 | `PALETTE` | `company/brand/brand-colors.json` | Exact Acid Dispatch anchors and treatments |
 | `TOKENS` | `company/brand/brandbook-packet/tokens/brand-tokens.json` | Derived colors, typography, radii, states, and focus rules |
 | `TYPE_CSS` | `company/brand/brandbook-packet/tokens/brand-tokens.css` | Local font faces and CSS variables |
+| `BROWSER_LIGHT_REF` | `company/brand/brandbook-packet/references/mockup-direction/browser-light-reference.png` | Composition and finish reference only; do not copy Mayven branding or blue palette |
+| `BROWSER_DARK_REF` | `company/brand/brandbook-packet/references/mockup-direction/browser-dark-reference.png` | Composition and finish reference only; do not copy Mayven branding or blue palette |
+| `SOCIAL_PHONE_REF` | `company/brand/brandbook-packet/references/mockup-direction/social-phone-reference.png` | Device/profile composition reference only; do not copy Mayven branding or blue palette |
 
 ## Page-by-page matrix
 
@@ -47,9 +52,9 @@ Page count: 19
 | 10 | WCAG color compliance | Calculated data + HTML/CSS | future `tokens/wcag-matrix.json`, `TYPE_CSS` | `pages/source/page-10-wcag.png` | Render calculated contrast matrix with ratios and AA normal/large status. | Values come from JSON; thresholds 4.5:1 and 3.0:1 are stated. |
 | 11 | Business card mockup | ImageGen | `LOCKUP_INK`, `ICON_ACID`, `PALETTE` | `mockups/business-card.png` | Generate two physically realistic editorial cards using Prompt IG-01 below. | ≥95% mark fidelity; exact visible copy; convincing paper/print integration; no watermark. |
 | 12 | Billboard mockup | ImageGen | `LOCKUP_ACID`, `PALETTE` | `mockups/billboard.png` | Generate one fashion-district billboard with the lockup as the only visible brand copy using Prompt IG-02. | Lockup legible at page scale; no fake brands; Acid-on-Ink brand layer integrated into billboard. |
-| 13 | Favicon/browser mockups | HTML/CSS screenshot | `FAVICON_16`, `ICON_ACID`, `TYPE_CSS`, `TOKENS` | `mockups/browser-favicon.png` | Render a deterministic browser tab/address-bar specimen using Screenshot DS-01. | Exact title/address; 16px lens-only favicon clear; full icon shown separately at 32px+. |
-| 14 | Twitter/X mockup | HTML/CSS screenshot | `ICON_ACID`, `LOCKUP_INK`, `TYPE_CSS`, `TOKENS` | `mockups/x-profile.png` | Render a deterministic concept profile using Screenshot DS-02. | Exact profile copy; concept/non-live label present; no text clipping; correct icon. |
-| 15 | LinkedIn mockup | HTML/CSS screenshot | `ICON_ACID`, `LOCKUP_INK`, `TYPE_CSS`, `TOKENS` | `mockups/linkedin-profile.png` | Render a deterministic company-profile concept using Screenshot DS-03. | Exact profile copy; concept/non-live label present; no false follower/customer claims. |
+| 13 | Favicon/browser mockups | ImageGen | `BROWSER_LIGHT_REF`, `BROWSER_DARK_REF`, `TOUCH_ICON`, `LOCKUP_INK`, `LOCKUP_ACID`, `PALETTE` | `mockups/browser-favicon-light.png`, `mockups/browser-favicon-dark.png` | Generate separate light and dark close-crop browser scenes using Prompts IG-05 and IG-06. | Both outputs page-ready; Magic Mirror favicon and lockup recognizable; title/address legible; no Mayven/blue reference branding; convincing browser materials. |
+| 14 | Twitter/X mockup | ImageGen | `SOCIAL_PHONE_REF`, `ICON_ACID`, `LOCKUP_ACID`, `PALETTE` | `mockups/x-profile.png` | Generate a premium smartphone X profile scene using Prompt IG-07. | Profile asset recognizable; required copy/non-live label legible; no Mayven/blue reference branding, invented metrics, or watermark. |
+| 15 | LinkedIn mockup | ImageGen | `SOCIAL_PHONE_REF`, `ICON_ACID`, `LOCKUP_ACID`, `PALETTE` | `mockups/linkedin-profile.png` | Generate a premium smartphone LinkedIn company-profile scene using Prompt IG-08. | Profile asset recognizable; required copy/non-live label legible; no Mayven/blue reference branding, invented metrics, or watermark. |
 | 16 | T-shirt mockup | ImageGen | `ICON_ACID`, `PALETTE` | `mockups/tshirt.png` | Generate an Ink heavyweight crewneck with an Acid icon screen print using Prompt IG-03. | Icon shape ≥95% accurate; print follows fabric; no text, extra graphics, or unrelated logos. |
 | 17 | Merchandise mockup | ImageGen | `ICON_ACID`, `PALETTE` | `mockups/compact-mirror.png` | Generate a premium Ink compact mirror with the Acid icon using Prompt IG-04. | Icon ≥95% accurate; enamel/print physically integrated; mirror/reflection plausible; no extra branding. |
 | 18 | Typography | Local fonts + HTML/CSS | Instrument Serif files, Space Grotesk variable font, `TOKENS`, `TYPE_CSS` | `pages/source/page-18-typography.png` | Show real font specimens, hierarchy, weights, scale, tracking, and usage roles. | Font files load; display and UI roles distinct; specimens match token values. |
@@ -145,43 +150,100 @@ Target: `1536×1024` PNG. Input: `ICON_ACID`. Final: `mockups/compact-mirror.png
 
 QA: inspect complete icon fidelity, focus corners, enamel integration, plausible hinge/glass, approved brand colors, no person reflection, no extra branding/watermark, and page-ready crop. Retry once before exact finishing.
 
-## Deterministic screenshot plans
+### IG-05 — Light browser and favicon
 
-### DS-01 — Browser and favicon
+```text
+Use case: product-mockup
+Asset type: Magic Mirror light browser and favicon brandbook mockup
+Primary request: Create a polished, realistic close-crop desktop browser scene in light mode, matching the supplied composition reference while replacing all reference branding with Magic Mirror.
+Input images: Image 1: BROWSER_LIGHT_REF, composition and material reference only; Image 2: LOCKUP_INK, the exact approved combined lockup; Image 3: TOUCH_ICON, the exact approved high-resolution app/favicon tile.
+Scene/backdrop: airy White #FFFFFF and Cloud #F4F3F1 desktop browser window with subtle translucent chrome, rounded tab, generic navigation controls, and generous negative space.
+Subject: one close-crop light browser window. The tab shows the Magic Mirror favicon and exact title. The page header shows the Ink Magic Mirror lockup, minimal navigation, and one Acid call-to-action.
+Style/medium: premium photorealistic product/UI visualization with soft studio depth, polished glass/aluminum browser materials, and the dimensional finish of the supplied reference.
+Composition/framing: landscape 3:2, browser fills most of the frame, cropped at the right and lower edges like the reference, with tab, address bar, and page header all visible.
+Lighting/mood: bright, clean, editorial product light.
+Color palette: White #FFFFFF, Cloud #F4F3F1, Ink #17171A, and Acid #D7FF3F for designed surfaces; do not copy the reference blue palette.
+Text (verbatim): tab title "Magic Mirror — Virtual Try-On"; address "magicmirror.example/demo"; navigation "How it works" and "Try it on".
+Constraints: preserve the supplied Magic Mirror lockup and favicon; use the reference only for composition/material finish; no Mayven name, cruise copy, blue logo, or copied reference branding.
+Avoid: HTML/CSS screenshot appearance, flat wireframe styling, unrelated brands, extra text, distorted lockup, altered favicon, blue brand palette, watermark, extreme blur, or illegible browser chrome.
+```
 
-- Source: `source/specimens/browser-favicon.html` using `TYPE_CSS` and local assets.
-- Canvas: `1600×1000`; final `mockups/browser-favicon.png`.
-- Exact browser tab title: `Magic Mirror — Virtual Try-On`.
-- Exact address: `magicmirror.example/demo` (`.example` intentionally signals a non-live concept).
-- Show `FAVICON_16` at true 16px in the tab; show `ICON_ACID` separately at 32px and 64px with captions.
-- QA: pixel dimensions, exact title/address, no browser trademark logo, favicon legibility at 100% scale, complete icon only at 32px+, local font/asset resolution.
+Target: `1852×850` PNG. Inputs: `BROWSER_LIGHT_REF`, `LOCKUP_INK`, `TOUCH_ICON`. Final: `mockups/browser-favicon-light.png`.
 
-### DS-02 — X profile concept
+QA: inspect browser realism, light treatment, lockup/favicon fidelity, exact required copy, absence of Mayven/blue reference branding, page-ready crop, and watermark. Retry once before any exact raster finishing pass.
 
-- Source: `source/specimens/x-profile.html` using `TYPE_CSS`, `ICON_ACID`, and `LOCKUP_INK`.
-- Canvas: `1600×1000`; final `mockups/x-profile.png`.
-- Exact display name: `Magic Mirror`.
-- Exact handle: `@magicmirror_demo`.
-- Exact bio: `AI virtual try-on for more confident clothing decisions. Hackathon prototype.`
-- Exact status label: `CONCEPT PROFILE • NOT A LIVE ACCOUNT`.
-- QA: all text verbatim, no invented verification badge/follower metrics, concept label visible, profile icon and Acid banner correct, no clipping or off-token UI color.
+### IG-06 — Dark browser and favicon
 
-### DS-03 — LinkedIn company profile concept
+```text
+Use case: product-mockup
+Asset type: Magic Mirror dark browser and favicon brandbook mockup
+Primary request: Create a polished, realistic close-crop desktop browser scene in dark mode, matching the supplied composition reference while replacing all reference branding with Magic Mirror.
+Input images: Image 1: BROWSER_DARK_REF, composition and material reference only; Image 2: LOCKUP_ACID, the exact approved combined lockup; Image 3: TOUCH_ICON, the exact approved high-resolution app/favicon tile.
+Scene/backdrop: deep Ink #17171A desktop browser window with dimensional dark chrome, rounded tab, generic navigation controls, and subtle premium reflections.
+Subject: one close-crop dark browser window. The tab shows the Magic Mirror favicon and exact title. The page header shows the Acid Magic Mirror lockup, minimal White navigation, and one Acid call-to-action.
+Style/medium: premium photorealistic product/UI visualization with the dimensional dark finish of the supplied reference.
+Composition/framing: landscape 3:2, browser fills most of the frame, cropped at the right and lower edges like the reference, with tab, address bar, and page header all visible.
+Lighting/mood: moody editorial product light with restrained highlights and strong legibility.
+Color palette: Ink #17171A, technical Black #000000, Acid #D7FF3F, and White #FFFFFF for designed surfaces; do not copy the reference blue palette.
+Text (verbatim): tab title "Magic Mirror — Virtual Try-On"; address "magicmirror.example/demo"; navigation "How it works" and "Try it on".
+Constraints: preserve the supplied Magic Mirror lockup and favicon; use the reference only for composition/material finish; no Mayven name, cruise copy, blue logo, or copied reference branding.
+Avoid: HTML/CSS screenshot appearance, flat wireframe styling, unrelated brands, extra text, distorted lockup, altered favicon, blue brand palette, watermark, crushed black detail, or illegible browser chrome.
+```
 
-- Source: `source/specimens/linkedin-profile.html` using `TYPE_CSS`, `ICON_ACID`, and `LOCKUP_INK`.
-- Canvas: `1600×1000`; final `mockups/linkedin-profile.png`.
-- Exact company name: `Magic Mirror`.
-- Exact descriptor: `AI-powered virtual try-on • Hackathon prototype`.
-- Exact about line: `Helping shoppers make faster, more confident clothing decisions.`
-- Exact status label: `CONCEPT PROFILE • NOT A LIVE COMPANY PAGE`.
-- QA: all text verbatim, no invented followers/customers/employee count, concept label visible, logo/icon fidelity, no clipping, and only token colors in designed UI.
+Target: `1852×850` PNG. Inputs: `BROWSER_DARK_REF`, `LOCKUP_ACID`, `TOUCH_ICON`. Final: `mockups/browser-favicon-dark.png`.
+
+QA: inspect browser realism, dark treatment, lockup/favicon fidelity, exact required copy, absence of Mayven/blue reference branding, page-ready crop, and watermark. Retry once before any exact raster finishing pass.
+
+### IG-07 — X profile concept
+
+```text
+Use case: product-mockup
+Asset type: Magic Mirror X profile smartphone mockup
+Primary request: Create a premium photorealistic close-up of two smartphones presenting a Magic Mirror X profile concept, using the supplied phone composition as direction only.
+Input images: Image 1: SOCIAL_PHONE_REF, device composition reference only; Image 2: ICON_ACID, the exact approved complete profile icon; Image 3: LOCKUP_ACID, the exact approved combined lockup for supporting brand context.
+Scene/backdrop: minimal Cloud #F4F3F1 studio environment; two edge-to-edge premium smartphones with realistic metal/glass construction.
+Subject: dark Ink profile screens with Acid editorial banner shapes, the complete Magic Mirror icon as the profile image, and exact concept copy. Show one primary profile view and one complementary cropped view.
+Style/medium: premium photorealistic device/product visualization, dimensional glass, crisp screen content, restrained reflections.
+Composition/framing: landscape 3:2 close crop inspired by the reference, both phones dominant and partially cropped at frame edges.
+Lighting/mood: clean editorial product light, fashion-tech tone.
+Color palette: Ink #17171A, Acid #D7FF3F, Cloud #F4F3F1, White #FFFFFF; do not copy the reference blue palette.
+Text (verbatim): "Magic Mirror"; "@magicmirror_demo"; "AI virtual try-on for more confident clothing decisions. Hackathon prototype."; "CONCEPT PROFILE • NOT A LIVE ACCOUNT".
+Constraints: preserve the complete icon including both focus corners; no verification badge, follower/following metrics, live-account claim, Mayven name, cruise copy, or copied blue reference branding.
+Avoid: HTML/CSS screenshot appearance, unrelated logos, invented metrics, altered icon, extra social copy, blue brand palette, watermark, hands, faces, or unreadable screen text.
+```
+
+Target: `1536×1024` PNG. Inputs: `SOCIAL_PHONE_REF`, `ICON_ACID`, `LOCKUP_ACID`. Final: `mockups/x-profile.png`.
+
+QA: inspect phone realism, complete icon fidelity, exact concept copy, visible non-live label, no invented metrics or Mayven/blue reference branding, restrained reflections, crop, and watermark. Retry once before any exact raster finishing pass.
+
+### IG-08 — LinkedIn company profile concept
+
+```text
+Use case: product-mockup
+Asset type: Magic Mirror LinkedIn company profile smartphone mockup
+Primary request: Create a premium photorealistic close-up of two smartphones presenting a Magic Mirror LinkedIn company profile concept, using the supplied phone composition as direction only.
+Input images: Image 1: SOCIAL_PHONE_REF, device composition reference only; Image 2: ICON_ACID, the exact approved complete company icon; Image 3: LOCKUP_ACID, the exact approved combined lockup for supporting brand context.
+Scene/backdrop: minimal Cloud #F4F3F1 studio environment; two edge-to-edge premium smartphones with realistic metal/glass construction.
+Subject: dark Ink company-profile screens with Acid editorial banner shapes, the complete Magic Mirror icon as the company image, and exact concept copy. Show one primary company view and one complementary cropped view.
+Style/medium: premium photorealistic device/product visualization, dimensional glass, crisp screen content, restrained reflections.
+Composition/framing: landscape 3:2 close crop inspired by the reference, both phones dominant and partially cropped at frame edges.
+Lighting/mood: clean editorial product light, fashion-tech tone.
+Color palette: Ink #17171A, Acid #D7FF3F, Cloud #F4F3F1, White #FFFFFF; do not copy the reference blue palette.
+Text (verbatim): "Magic Mirror"; "AI-powered virtual try-on • Hackathon prototype"; "Helping shoppers make faster, more confident clothing decisions."; "CONCEPT PROFILE • NOT A LIVE COMPANY PAGE".
+Constraints: preserve the complete icon including both focus corners; no follower, customer, or employee metrics; no live-company-page claim; no Mayven name, cruise copy, or copied blue reference branding.
+Avoid: HTML/CSS screenshot appearance, unrelated logos, invented metrics, altered icon, extra social copy, blue brand palette, watermark, hands, faces, or unreadable screen text.
+```
+
+Target: `1536×1024` PNG. Inputs: `SOCIAL_PHONE_REF`, `ICON_ACID`, `LOCKUP_ACID`. Final: `mockups/linkedin-profile.png`.
+
+QA: inspect phone realism, complete icon fidelity, exact concept copy, visible non-live label, no invented metrics or Mayven/blue reference branding, restrained reflections, crop, and watermark. Retry once before any exact raster finishing pass.
 
 ## Generation order and ownership
 
 1. T003: IG-01 business card.
 2. T004: IG-02 billboard.
-3. T005: DS-01 browser/favicon.
-4. T006: DS-02 X and DS-03 LinkedIn.
+3. T005: IG-05 light browser and IG-06 dark browser.
+4. T006: IG-07 X and IG-08 LinkedIn.
 5. T007: IG-03 T-shirt and IG-04 compact mirror.
 6. T008: build the 19 source pages using only accepted raster mockups.
 
@@ -190,8 +252,9 @@ Each task records final prompt/method, attempt history, output dimensions/bytes,
 ## Acceptance checklist for this plan
 
 - Exactly 19 numbered page rows exist.
-- Seven final raster mockup outputs are planned: four ImageGen and three deterministic screenshots.
+- Eight final raster mockup outputs are planned, all created with ImageGen.
 - All required existing inputs use exact durable repository paths and currently exist.
-- Every mockup family has a prompt or screenshot plan, final PNG path, target dimensions, and verification criteria.
-- ImageGen and HTML/CSS methods are explicitly distinguished.
+- Every mockup family has an ImageGen prompt, final PNG path, target dimensions, and verification criteria.
+- Browser/favicon has separate light and dark ImageGen outputs.
+- No application mockup is planned as HTML/CSS, SVG, canvas, or deterministic UI rendering.
 - No mockup generation begins until this plan passes automated and manual review.

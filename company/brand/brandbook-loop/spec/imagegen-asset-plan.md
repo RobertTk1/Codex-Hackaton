@@ -12,8 +12,9 @@ The plan must identify:
 - every image asset needed by that page;
 - which assets are existing PNG/JPG files;
 - which assets are generated with imagegen;
-- which assets are deterministic HTML/CSS screenshots;
 - output path, prompt, references, and verification method for each mockup.
+
+Every application mockup must use built-in ImageGen, including browser/favicon, social profile, device, product, environment, apparel, and merchandise scenes. HTML/CSS is allowed only for brandbook page source and non-mockup token/UI specimens. Browser/favicon mockups require separate light and dark generated images.
 
 Approved identity inputs:
 
@@ -27,7 +28,7 @@ Prefer transparent exact-color PNGs as ImageGen references. Do not use presentat
 
 ## Mockup QA gate
 
-For photorealistic mockups, prefer a complete imagegen-generated mockup first: environment, object, brand layer, logo, and any required visible copy in one pass.
+For every application mockup, prefer a complete ImageGen-generated mockup first: environment or interface context, object/device, brand layer, logo, and any required visible copy in one pass.
 
 Accept only if it is roughly 95% accurate on logo/icon fidelity, spelling, physical integration, palette compliance, and absence of unrelated marks or watermarks.
 
@@ -35,7 +36,7 @@ If the complete imagegen pass fails, try one targeted imagegen iteration before 
 
 ## Raster-only mockups
 
-All finished mockups must be raster images. Do not create SVG mockups.
+All finished mockups must be ImageGen-created raster images. Do not create HTML/CSS, SVG, canvas, or deterministic UI mockups.
 
 ## Prompt scaffold
 
@@ -58,3 +59,5 @@ Avoid: distorted logo, illegible text, gradients inside the logo, shadows added 
 ## Visual verification
 
 A mockup passes only if logo/icon is recognizable, palette is compliant, text is legible, no watermarks or unrelated logos appear, and the image fits the brand tone.
+
+Browser/favicon QA requires both light and dark outputs, visible approved favicon/lockup assets, no copied reference-brand names, and no unrelated branding. Social QA requires an ImageGen-created profile/device scene, recognizable production assets, exact required copy or a corrected raster finishing pass after the permitted retry, and no live-account or invented-metric implication.

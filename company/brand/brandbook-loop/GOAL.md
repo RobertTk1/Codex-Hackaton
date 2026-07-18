@@ -54,8 +54,10 @@ Default rule: complete exactly one task or subtask per turn. Do not generate the
 - Do not proceed without existing logo, icon/mark, and palette sources.
 - Do not invent new brand colors. Secondary colors must be derived from the approved palette and documented.
 - Use existing logo/icon assets as the source of truth; do not redesign them unless explicitly asked.
-- Do not create SVG mockups. Final mockups must be raster images.
-- For photorealistic mockups, try a complete imagegen mockup first and visually review it. If the logo/text/brand layer is less than about 95% accurate, iterate once with imagegen before exact compositing fallback.
+- Generate every application mockup with built-in ImageGen; do not use HTML/CSS, SVG, canvas, or deterministic UI rendering for mockup imagery. Final mockups must be raster images.
+- Generate browser/favicon mockups as separate light and dark images using supplied visual references and approved Magic Mirror assets.
+- Apply the ImageGen-only mockup rule to browser, favicon, social, device, physical, environmental, apparel, and merchandise applications.
+- For every application mockup, try a complete ImageGen scene first and visually review it. If the logo/text/brand layer is less than about 95% accurate, iterate once with ImageGen before exact raster compositing fallback.
 - Before generating mockups, create and verify the asset plan.
 - Save all final project-bound generated images inside `company/brand/brandbook-packet/`.
 - Do not mark work complete without verification evidence.

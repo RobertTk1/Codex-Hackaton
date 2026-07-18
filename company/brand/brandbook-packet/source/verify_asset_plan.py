@@ -21,15 +21,20 @@ REQUIRED_INPUTS = (
     "company/brand/exports/icon/png/transparent/acid/magic-mirror-icon-acid-1024px.png",
     "company/brand/exports/icon/png/transparent/ink/magic-mirror-icon-ink-1024px.png",
     "company/brand/exports/icon/favicon/favicon-16x16.png",
+    "company/brand/exports/icon/favicon/apple-touch-icon-180x180.png",
     "company/brand/brand-colors.json",
     "company/brand/brandbook-packet/tokens/brand-tokens.json",
     "company/brand/brandbook-packet/tokens/brand-tokens.css",
+    "company/brand/brandbook-packet/references/mockup-direction/browser-light-reference.png",
+    "company/brand/brandbook-packet/references/mockup-direction/browser-dark-reference.png",
+    "company/brand/brandbook-packet/references/mockup-direction/social-phone-reference.png",
 )
 
 FINAL_MOCKUPS = (
     "mockups/business-card.png",
     "mockups/billboard.png",
-    "mockups/browser-favicon.png",
+    "mockups/browser-favicon-light.png",
+    "mockups/browser-favicon-dark.png",
     "mockups/x-profile.png",
     "mockups/linkedin-profile.png",
     "mockups/tshirt.png",
@@ -60,11 +65,12 @@ def main() -> None:
     assert planned_mockups == sorted(FINAL_MOCKUPS)
     assert all(not output.endswith(".svg") for output in planned_mockups)
 
-    for prompt in ("IG-01", "IG-02", "IG-03", "IG-04", "DS-01", "DS-02", "DS-03"):
-        assert f"### {prompt}" in text, f"Missing prompt/screenshot plan {prompt}"
-    assert text.count("Target: `1536×1024` PNG") == 4
-    assert text.count("Canvas: `1600×1000`") == 3
-    assert "ImageGen" in text and "HTML/CSS screenshot" in text
+    for prompt in ("IG-01", "IG-02", "IG-03", "IG-04", "IG-05", "IG-06", "IG-07", "IG-08"):
+        assert f"### {prompt}" in text, f"Missing ImageGen plan {prompt}"
+    assert "### DS-" not in text
+    assert text.count("Target: `1536×1024` PNG") == 6
+    assert text.count("Target: `1852×850` PNG") == 2
+    assert "all created with ImageGen" in text
     assert "roughly 95% fidelity" in text
     assert "Retry once" in text or "retry once" in text
     assert "No SVG mockup outputs" in text
@@ -74,15 +80,15 @@ def main() -> None:
             row["method"] == "ImageGen" and "mockups/" in row["output"]
             for row in rows
         ),
-        "deterministic_mockup_page_rows": sum(
+        "non_imagegen_mockup_page_rows": sum(
             row["method"] == "HTML/CSS screenshot" and "mockups/" in row["output"]
             for row in rows
         ),
         "other_page_rows": sum("mockups/" not in row["output"] for row in rows),
     }
     assert methods == {
-        "imagegen_page_rows": 4,
-        "deterministic_mockup_page_rows": 3,
+        "imagegen_page_rows": 7,
+        "non_imagegen_mockup_page_rows": 0,
         "other_page_rows": 12,
     }
 
@@ -90,10 +96,8 @@ def main() -> None:
         output: (PACKET_ROOT / output).exists()
         for output in FINAL_MOCKUPS
     }
-    assert not any(mockup_existence.values()), "Mockup generation started before T002 plan acceptance"
-
     evidence = {
-        "task": "T002",
+        "task": "T002-revision",
         "status": "passed",
         "plan": str(PLAN.relative_to(REPO_ROOT)),
         "page_count": len(rows),
@@ -103,18 +107,20 @@ def main() -> None:
         "required_inputs_verified": list(REQUIRED_INPUTS),
         "planned_mockup_count": len(planned_mockups),
         "planned_mockups": planned_mockups,
-        "imagegen_plan_count": 4,
-        "deterministic_screenshot_plan_count": 3,
+        "imagegen_plan_count": 8,
+        "non_imagegen_mockup_plan_count": 0,
+        "browser_light_dark_output_count": 2,
         "all_mockup_outputs_raster_png": True,
-        "mockups_absent_before_generation": mockup_existence,
+        "planned_output_existence_at_revision": mockup_existence,
+        "revision_reason": "Owner required every application mockup to use ImageGen and browser/favicon to have separate light and dark outputs; prior deterministic browser/social plan was rejected.",
         "qa_gate": "Complete ImageGen attempt, visual QA at roughly 95%, one targeted retry, exact compositing fallback only afterward.",
     }
-    output = PACKET_ROOT / "references/t002-audit.json"
+    output = PACKET_ROOT / "references/t002-revision-audit.json"
     output.write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
     print(
-        f"T002 passed: {len(rows)} pages, {len(REQUIRED_INPUTS)} inputs, "
-        f"{methods['imagegen_page_rows']} ImageGen mockups, "
-        f"{methods['deterministic_mockup_page_rows']} deterministic mockups"
+        f"T002 revision passed: {len(rows)} pages, {len(REQUIRED_INPUTS)} inputs, "
+        f"{methods['imagegen_page_rows']} ImageGen mockup page rows, "
+        f"{methods['non_imagegen_mockup_page_rows']} non-ImageGen mockup page rows"
     )
 
 

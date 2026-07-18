@@ -105,6 +105,8 @@ Every recurring bug, incident, or bad agent action becomes a permanent numbered 
 
 Continue numbering from the last entry. Never delete entries, even when obvious in hindsight. Whenever the owner corrects a mistake or an incident occurs, add the rule in the same session. This list starts empty and grows only from real incidents.
 
+1. **Never create application mockups with HTML/CSS, SVG, canvas, or deterministic UI rendering.** Generate browser, favicon, social, device, physical, environmental, apparel, and merchandise mockups with ImageGen as raster assets; browser/favicon families require separate light and dark images. Lesson: deterministic HTML browser and social specimens violated the owner’s required mockup workflow, 2026-07-18.
+
 ## Brand & Naming
 
 “Magic Mirror” is a working title. Do not invest in brand polish or visual identity until the golden path works.

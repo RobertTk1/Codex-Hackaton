@@ -1,8 +1,8 @@
 {
   "project": "Magic Mirror Brandbook Packet",
   "created_at": "2026-07-18T11:52:49Z",
-  "updated_at": "2026-07-18T12:30:39Z",
-  "current_session": 7,
+  "updated_at": "2026-07-18T12:54:01Z",
+  "current_session": 8,
   "tasks": [
     {
       "id": "T001",
@@ -27,7 +27,7 @@
     {
       "id": "T002",
       "name": "Create page-by-page asset and ImageGen plan",
-      "description": "Map every one of the 19 brandbook pages to existing assets, generated mockups, deterministic screenshots, output paths, prompts, and QA criteria before mockup generation.",
+      "description": "Map every one of the 19 brandbook pages to existing assets, ImageGen-created application mockups, non-mockup brandbook-page renderings, output paths, prompts, and QA criteria before mockup generation.",
       "status": "complete",
       "depends_on": ["T001"],
       "order": 2,
@@ -36,13 +36,13 @@
         "company/brand/brandbook-packet/asset-plan.md exists.",
         "The plan has one row for each of the 19 pages and maps every page to its required assets.",
         "Every mockup family has a method, exact input paths, prompt or screenshot plan, output path, and verification checklist.",
-        "The plan distinguishes ImageGen mockups from deterministic HTML/CSS raster screenshots."
+        "The plan requires built-in ImageGen raster creation for every application mockup and reserves HTML/CSS for brandbook-page layout and non-mockup UI/token specimens."
       ],
       "verification": "manual review: record page-row count, planned mockup list, generation order, resolved input paths, and method counts in notes",
       "subtasks": [],
-      "notes": "Passed T002 audit. asset-plan.md contains exactly 19 numbered page rows, verifies 10 durable inputs, and plans 7 final raster mockups: 4 ImageGen physical mockups (business card, billboard, T-shirt, compact mirror) plus 3 deterministic HTML/CSS screenshots (browser/favicon, X, LinkedIn). Every family has exact inputs via source aliases, a complete prompt/screenshot plan, PNG output path, target dimensions, and QA criteria. All mockup outputs were confirmed absent before generation. Evidence: company/brand/brandbook-packet/references/t002-audit.json.",
+      "notes": "Original T002 planning audit passed before generation, but its deterministic browser/social methods were rejected by the owner on 2026-07-18 and are superseded. The revised asset-plan.md retains exactly 19 page rows, verifies 14 durable inputs including three owner-provided visual references and the high-resolution production app/favicon tile, and plans 8 final raster mockups, all created with ImageGen: business card, billboard, light browser, dark browser, X, LinkedIn, T-shirt, and compact mirror. No application mockup is planned as HTML/CSS, SVG, canvas, or deterministic UI rendering. Evidence: original references/t002-audit.json plus superseding references/t002-revision-audit.json.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T12:09:46Z"
+      "updated_at": "2026-07-18T12:40:52Z"
     },
     {
       "id": "T003",
@@ -86,43 +86,44 @@
     },
     {
       "id": "T005",
-      "name": "Create favicon and browser mockups",
-      "description": "Create deterministic raster favicon/browser specimens from the approved full and simplified icons.",
+      "name": "Create light and dark ImageGen favicon/browser mockups",
+      "description": "Create separate light and dark raster browser/favicon mockups with built-in ImageGen using approved Magic Mirror assets and owner-provided visual references.",
       "status": "complete",
       "depends_on": ["T004"],
       "order": 5,
       "spec_ref": "spec/imagegen-asset-plan.md",
       "acceptance_criteria": [
-        "Raster favicon and browser mockups are saved under company/brand/brandbook-packet/mockups/.",
-        "The simplified 16px favicon and complete 32px-plus icon are demonstrated accurately.",
-        "Visible browser copy is exact and local assets resolve.",
-        "Creation and visual verification methods are recorded."
+        "Separate non-zero light and dark browser/favicon PNG mockups are saved under company/brand/brandbook-packet/mockups/.",
+        "Both application mockups are created with built-in ImageGen, not HTML/CSS, SVG, canvas, or deterministic UI rendering.",
+        "The approved Magic Mirror favicon and combined lockup are recognizable and materially undistorted in both treatments.",
+        "Required browser copy is legible, no Mayven/blue reference branding remains, and visual QA prompts/methods are recorded."
       ],
-      "verification": "visual review + file check: record dimensions, bytes, source/method, small-size legibility, and final paths",
+      "verification": "built-in ImageGen + visual review + file check: record separate light/dark dimensions, bytes, prompts/references, logo/favicon fidelity, required copy, rejected reference-brand scan, and final paths",
       "subtasks": [],
-      "notes": "Passed T005 deterministic render, DOM, file, and visual audits. Created source/specimens/browser-favicon.html and rendered mockups/browser-favicon.png with Playwright 1.61.1/Chromium at 1600×1000 and device scale 1. Exact title and .example address matched; the simplified favicon measured true 16×16px in both the tab and specimen, while the complete icon measured 32×32px and 64×64px. All local images and both local font families loaded, the HTML contains zero literal hex colors, no browser trademark artwork appears, and the original-resolution screenshot had no clipping. Final PNG is 123,593 bytes, SHA-256 9816b6fb7a94726cc3e733c1db4cc9cbceac23111230a832b8139587cebbbf2e. Evidence: company/brand/brandbook-packet/references/t005-audit.json.",
+      "notes": "Passed corrected T005 visual and file audit. Removed the rejected deterministic browser HTML/PNG and replaced it with separate built-in ImageGen light and dark browser/favicon raster scenes following the owner-provided composition references while excluding Mayven, cruise copy, and blue reference branding. Light output required 2 ImageGen attempts plus the permitted exact raster finishing fallback for the production favicon; final 1852x850 PNG is 1,006,337 bytes with SHA-256 fb50b0ca0958ee02ed89dbe0d7f370f5a29f44ee4b1b8a8b97247691bf44a34e. Dark output passed on ImageGen attempt 1; final 1852x850 PNG is 1,055,173 bytes with SHA-256 0668cfbbd57c86af97b341d9a49af9dd9ebcd2c060ee9b562effa86544850057. Both scored 99% overall in original-resolution visual review. Global skill and project guidelines now require ImageGen raster creation for all application mockups and separate light/dark browser images. Evidence: references/t005-audit.json and references/t002-revision-audit.json.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T12:23:24Z"
+      "updated_at": "2026-07-18T12:54:01Z"
     },
     {
       "id": "T006",
       "name": "Create social profile mockups",
-      "description": "Create deterministic raster Twitter/X and LinkedIn profile specimens using the approved icon, combined lockup, and explicitly labeled hackathon-profile copy.",
-      "status": "complete",
+      "description": "Create raster Twitter/X and LinkedIn profile device scenes with built-in ImageGen using approved icon/lockup assets and explicitly labeled hackathon-profile copy.",
+      "status": "pending",
       "depends_on": ["T005"],
       "order": 6,
       "spec_ref": "spec/imagegen-asset-plan.md",
       "acceptance_criteria": [
-        "Raster Twitter/X and LinkedIn mockups are saved under company/brand/brandbook-packet/mockups/.",
+        "ImageGen-created raster Twitter/X and LinkedIn mockups are saved under company/brand/brandbook-packet/mockups/.",
+        "No social application mockup is created with HTML/CSS, SVG, canvas, or deterministic UI rendering.",
         "Brand name and any profile copy are correctly spelled and legible.",
         "No real account availability is implied; mockup-only handles are labeled as concepts.",
         "Visual QA evidence and creation methods are recorded."
       ],
       "verification": "visual review + file check: record dimensions, bytes, method, text accuracy, palette compliance, and final paths",
       "subtasks": [],
-      "notes": "Passed T006 deterministic render, DOM, file, and visual audits for both social concepts. Created shared social-specimens.css plus x-profile.html and linkedin-profile.html, then rendered 1600×1000 PNGs with Playwright 1.61.1/Chromium at DPR 1. All required X and LinkedIn copy matched verbatim, both non-live labels were visible at y=860–900px, all 6 local images and both font families loaded, sources contain zero literal hex colors, no numeric follower/following/employee/customer claims or verification badges appear, and final pages have zero elements outside the viewport. X passed its first render; LinkedIn required one targeted supporting-rail correction before passing. Final X PNG is 144,377 bytes (SHA-256 1315aaddabeae327f42c4893aec0c95b4292993c1e1c1e80ef8be5ab4cf7c5b6); LinkedIn PNG is 150,635 bytes (SHA-256 887d46910e87fe839e05292f9674d5fb3fbae9d94a6567ad83f3bd43c25e395a). Evidence: company/brand/brandbook-packet/references/t006-audit.json.",
+      "notes": "Owner rejected the prior deterministic HTML X and LinkedIn specimens on 2026-07-18. Pending remediation after T005: remove the rejected HTML/PNG outputs and replace them with ImageGen-created smartphone/profile scenes using the supplied device-composition reference and approved Magic Mirror assets.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T12:30:39Z"
+      "updated_at": "2026-07-18T12:40:52Z"
     },
     {
       "id": "T007",
@@ -133,16 +134,17 @@
       "order": 7,
       "spec_ref": "spec/imagegen-asset-plan.md",
       "acceptance_criteria": [
-        "Non-zero raster T-shirt and merchandise mockups are saved under company/brand/brandbook-packet/mockups/.",
+        "Non-zero ImageGen-created raster T-shirt and merchandise mockups are saved under company/brand/brandbook-packet/mockups/.",
+        "No apparel or merchandise mockup is created with HTML/CSS, SVG, canvas, or deterministic rendering.",
         "Logo and icon usage are recognizable, correct, and physically integrated.",
         "Only approved palette colors appear in designed brand layers.",
         "Visual QA evidence and final ImageGen prompts/methods are recorded."
       ],
       "verification": "visual review + file check: record dimensions, bytes, prompts/methods, logo fidelity, palette compliance, and final paths",
       "subtasks": [],
-      "notes": "",
+      "notes": "Paused before generation when the owner corrected the mockup workflow. Resume only after the ImageGen browser and social remediations are complete.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T11:52:49Z"
+      "updated_at": "2026-07-18T12:40:52Z"
     },
     {
       "id": "T008",
