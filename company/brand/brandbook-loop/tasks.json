@@ -1,8 +1,8 @@
 {
   "project": "Magic Mirror Brandbook Packet",
   "created_at": "2026-07-18T11:52:49Z",
-  "updated_at": "2026-07-18T12:14:35Z",
-  "current_session": 4,
+  "updated_at": "2026-07-18T12:18:29Z",
+  "current_session": 5,
   "tasks": [
     {
       "id": "T001",
@@ -68,7 +68,7 @@
       "id": "T004",
       "name": "Create billboard mockup",
       "description": "Create and visually QA a high-visibility raster billboard mockup using approved Magic Mirror assets.",
-      "status": "pending",
+      "status": "complete",
       "depends_on": ["T003"],
       "order": 4,
       "spec_ref": "spec/imagegen-asset-plan.md",
@@ -80,9 +80,9 @@
       ],
       "verification": "visual review + file check: record dimensions, bytes, prompt/method, text legibility, palette compliance, and final path",
       "subtasks": [],
-      "notes": "",
+      "notes": "Passed T004 visual and file audit. Generated one complete built-in ImageGen blue-hour fashion-district billboard scene from the exact approved Acid combined lockup; the first pass cleared the approximately 95% gate, so no targeted retry or compositing fallback was used. Final PNG is 1536×1024, 2,046,774 bytes, SHA-256 2987070b37e3b6cf509e938e09f7bcc255218989ce0e94f4a2dde3a72e4511ef. Original-resolution review scored overall fidelity 99%: logo 98%, page-scale legibility 100%, exact copy 100%, physical integration 98%, palette 98%, no stray branding/watermark 100%, tone 98%, page-ready crop 100%. Evidence: company/brand/brandbook-packet/references/t004-audit.json.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T11:52:49Z"
+      "updated_at": "2026-07-18T12:18:29Z"
     },
     {
       "id": "T005",
