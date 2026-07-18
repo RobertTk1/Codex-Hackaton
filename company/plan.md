@@ -23,6 +23,8 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 **User outcome:** The planned experience is feasible, measurable, and safe enough to build.
 
 - [x] Establish the base Magic Mirror company profile and operating workspace from the product strategy.
+- [x] Complete U.S.-first market research and competitor analysis for the V1 purchase-decision opportunity.
+- [x] Define and score candidate audiences; select the behavioral V1 beachhead and validation cohort.
 - [ ] Add and decompose the full PRD.
 - [ ] Define the golden-path Given/When/Then scenario and acceptance criteria.
 - [ ] Evaluate generation providers using latency, output quality, reliability, integration effort, and cost.
@@ -73,9 +75,10 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 ## Next
 
-1. Add the full product strategy and PRD to the repository in an agreed source format.
-2. Convert it into phased requirements with user outcomes and acceptance criteria.
-3. Resolve generation-provider and photo-retention decisions before implementation depends on them.
+1. Add the full product strategy and PRD to the repository in an agreed source format, then convert it into phased requirements and acceptance criteria.
+2. Interview ten U.S. adult online apparel shoppers who can show a recent uncertain item; compare “Should I buy this?” messaging with generic “virtual try-on” messaging.
+3. Resolve photo processing, retention, and deletion behavior before asking interview participants to upload real photos.
+4. Benchmark two to three generation providers for identity and garment fidelity, p50/p95 latency, reliability, and cost across a representation-diverse, consented or synthetic test set.
 
 ## Decisions
 
@@ -88,6 +91,12 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-17: After verification, commit and push completed feature-branch work without separate approval; keep its open PR description and progress comments current.
 - 2026-07-17: Keep agent communication concise; summarize material changes and rationale without repeating routine tests or formalities.
 - 2026-07-17: Use `company/` as the canonical home for the plan, company profile, operating memory, workflows, automations, and artifacts; treat U.S.-first geography as a reversible assumption and keep monetization hypotheses uncommitted.
+- 2026-07-17: Proceed with the V1 under conditions and position it as a cross-retailer “Should I buy this?” decision companion; generic virtual try-on, full closet onboarding, and broad AI-stylist functionality are not differentiated V1 positions.
+- 2026-07-17: Treat event-driven U.S. online apparel shoppers ages 18–44 as the first validation wedge, not a committed target segment; test underrepresented ages, body shapes, and skin tones in research and provider benchmarks.
+- 2026-07-17: Keep consumer subscription and affiliate monetization as unvalidated hypotheses until real activation, repeat-use, willingness-to-pay, and attributed-purchase evidence exists.
+- 2026-07-17: Supersede the age-based audience shorthand with a behavioral V1 beachhead: U.S. adult online apparel shoppers deciding on one garment for a near-term, personally important occasion; the initial decision window is seven days and remains a validation assumption.
+- 2026-07-17: Treat age, body shape, skin tone, gender presentation, and fashion confidence as representation and quality-testing dimensions rather than targeting requirements; do not market to an underrepresented group until provider performance supports the claim.
+- 2026-07-17: Use social-first frequent fashion evaluators as the first expansion segment and creators/stylists as a later influence and distribution layer, not as V1 paying users.
 - 2026-07-18: Use the Acid Dispatch palette, concept-01 editorial wordmark, and concept-03 lens/focus icon for the hackathon identity.
 - 2026-07-18: Maintain three approved identity forms: standalone wordmark, combined lockup with the icon replacing the `o`, and standalone icon.
 - 2026-07-18: Treat ImageGen outputs as approved visual masters, then create exact-color sizes and vector paths deterministically so production exports do not drift between variants.

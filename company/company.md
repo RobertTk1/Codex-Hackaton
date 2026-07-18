@@ -20,6 +20,8 @@ Magic Mirror helps online clothing shoppers and people who want to dress better 
 
 Niche:
 - Consumer AI personal styling and virtual try-on.
+- V1 validation beachhead: U.S. adult online apparel shoppers deciding on one garment for a near-term, personally important occasion.
+- V1 research cohort: representation-diverse participants across ages, skin tones, body shapes, gender presentations, and fashion confidence; these are quality-testing dimensions, not targeting requirements.
 - Engaged fashion shoppers who want to evaluate more looks with less effort.
 - Style improvers who want practical guidance without needing fashion expertise.
 - Hackathon V1: one user photo, one garment, and one rendered try-on result.
