@@ -109,6 +109,7 @@ Continue numbering from the last entry. Never delete entries, even when obvious 
 2. **Never create application mockups with HTML/CSS, SVG, canvas, or deterministic UI rendering.** Generate browser, favicon, social, device, physical, environmental, apparel, and merchandise mockups with ImageGen as raster assets; browser/favicon families require separate light and dark images. Lesson: deterministic HTML browser and social specimens violated the owner’s required mockup workflow, 2026-07-18.
 3. **Always map brandbook pages and standardized application assets to the Mayven reference packet before production.** Layout fidelity and platform recognition are acceptance criteria; a structurally valid packet or polished generic phone screen is not enough. Lesson: Magic Mirror pages drifted into a different editorial system, and the LinkedIn mockup reused the X composition instead of looking like LinkedIn, 2026-07-18.
 4. **Always show paired light and dark icon treatments in Twitter/X brand mockups.** One profile uses the approved dark/primary icon on a light avatar surface; the other reverses to a light/high-contrast icon on a dark brand surface. Lesson: the corrected X mockup still repeated the same Acid-on-Ink avatar treatment on both phones, 2026-07-18.
+5. **Never use zsh's special `path` variable for task loops.** Use a task-specific name such as `artifact_path` so command lookup remains intact. Lesson: a validation loop assigned to `path` and made `git` unavailable in that shell process, 2026-07-18.
 
 ## Brand & Naming
 

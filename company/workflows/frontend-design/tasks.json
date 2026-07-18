@@ -1,0 +1,186 @@
+{
+  "project": "Frontend Design Global Skills and Workflow",
+  "created_at": "2026-07-18T11:37:31-04:00",
+  "updated_at": "2026-07-18T12:09:02-04:00",
+  "current_session": 1,
+  "tasks": [
+    {
+      "id": "T001",
+      "name": "Initialize the loop package",
+      "description": "Create the durable loop files, task queue, progressive-disclosure specs, and initial progress evidence.",
+      "status": "complete",
+      "depends_on": [],
+      "order": 1,
+      "spec_ref": "FIRST_START.md",
+      "acceptance_criteria": [
+        "GOAL.md contains the mission, goal, verification, loop contract, hard rules, and file map.",
+        "tasks.json parses as valid JSON and includes the full build queue.",
+        "progress.txt is initialized as append-only memory.",
+        "FIRST_START.md, SUBTASKS.md, and every mapped spec file exist."
+      ],
+      "verification": "parse tasks.json and inspect all paths named in the GOAL.md file map",
+      "subtasks": [],
+      "notes": "Created the minimum loop package plus workflow-, skills-, and copy-specific specs.",
+      "created_at": "2026-07-18T11:37:31-04:00",
+      "updated_at": "2026-07-18T11:37:31-04:00"
+    },
+    {
+      "id": "T002",
+      "name": "Upgrade product-prd-spec",
+      "description": "Expand the global PRD skill to discover the full vision, frontend behavior, backend implications, scenarios, and founder approval while remaining product-general.",
+      "status": "complete",
+      "depends_on": ["T001"],
+      "order": 2,
+      "spec_ref": "spec/skills.md",
+      "acceptance_criteria": [
+        "The skill distinguishes full vision, first coherent frontend experience, and non-goals.",
+        "The discovery workflow covers actors, frontend walkthroughs, backend implications, data, permissions, async work, privacy, and failure recovery.",
+        "The package creates a PRD, PDF when document tooling is available, user stories, screens, and Given/When/Then scenarios.",
+        "The skill defines an explicit founder approval gate and passes validation."
+      ],
+      "verification": "run quick_validate.py and inspect the PRD and JSON contracts for required fields",
+      "subtasks": [],
+      "notes": "Expanded the global skill with founder walkthrough discovery, full-vision versus first-experience scope, frontend behavior, backend implications, PRD/PDF/story/screen/scenario outputs, a v2 shared screen contract, and an explicit approval gate. quick_validate.py: Skill is valid; placeholder scan passed.",
+      "created_at": "2026-07-18T11:37:31-04:00",
+      "updated_at": "2026-07-18T11:46:08-04:00"
+    },
+    {
+      "id": "T003",
+      "name": "Install and adapt copywriting",
+      "description": "Install the Corey Haines copywriting skill globally and extend it for company context, screen copy, a copy manifest, and company/voice.md.",
+      "status": "complete",
+      "depends_on": ["T001"],
+      "order": 3,
+      "spec_ref": "spec/copywriting.md",
+      "acceptance_criteria": [
+        "The upstream copywriting skill is installed globally with its references intact.",
+        "The customized skill reads company context, PRD artifacts, screen definitions, and wireframes when present.",
+        "The skill creates company/voice.md and exact screen/page copy artifacts without inventing proof.",
+        "The skill passes validation and its upstream provenance is documented in SKILL.md."
+      ],
+      "verification": "run quick_validate.py and inspect voice/copy contract fields and upstream source metadata",
+      "subtasks": [],
+      "notes": "Installed coreyhaines31/marketingskills copywriting globally with copy-frameworks, natural-transitions, and evals intact. Customized SKILL.md records upstream 2.0.1/MIT provenance and adds company context, product UI copy, company/voice.md, copy-manifest.json, approval, and exact-copy rules. quick_validate.py and eval JSON parse passed.",
+      "created_at": "2026-07-18T11:37:31-04:00",
+      "updated_at": "2026-07-18T11:49:01-04:00"
+    },
+    {
+      "id": "T004",
+      "name": "Create product-ux-design",
+      "description": "Create a global skill for IA, navigation, flows, deterministic grayscale HTML wireframes, responsive screenshots, and screens.json updates.",
+      "status": "complete",
+      "depends_on": ["T002"],
+      "order": 4,
+      "spec_ref": "spec/skills.md",
+      "acceptance_criteria": [
+        "The skill supports marketing pages and application UI without changing approved product scope.",
+        "Wireframes are semantic, responsive grayscale HTML and CSS with deterministic PNG screenshots.",
+        "Relume MCP is an optional component source, not a required dependency.",
+        "The skill updates every screen wireframe path and passes validation."
+      ],
+      "verification": "run quick_validate.py and use the bundled validator against a fixture HTML wireframe and screens.json",
+      "subtasks": [],
+      "notes": "Created the global product-ux-design skill with IA, navigation, flow, HTML wireframe, optional Relume, and screens handoff references; reusable grayscale HTML/CSS assets; deterministic Playwright renderer; and a Python validator. quick_validate.py passed. Renderer produced 1440px desktop and 390px mobile PNGs; validator accepted the complete fixture and rejected the incomplete fixture; visual inspection confirmed neutral low-fidelity structure.",
+      "created_at": "2026-07-18T11:37:31-04:00",
+      "updated_at": "2026-07-18T11:58:53-04:00"
+    },
+    {
+      "id": "T005",
+      "name": "Create product-screen-mockups",
+      "description": "Create a global skill that turns approved wireframe PNGs, copy, and brand context into consistent ImageGen raster mockups and interaction handoffs.",
+      "status": "complete",
+      "depends_on": ["T003", "T004"],
+      "order": 5,
+      "spec_ref": "spec/skills.md",
+      "acceptance_criteria": [
+        "The skill requires approved wireframe screenshots and copy artifacts before generation.",
+        "The skill uses imagegen-frontend-web direction plus built-in ImageGen for every final mockup.",
+        "The skill preserves structure, handles application UI and marketing pages, and treats copy manifests as canonical.",
+        "The skill updates screens.json, documents interactions, and passes validation."
+      ],
+      "verification": "run quick_validate.py and inspect the generation, QA, state, and artifact contracts",
+      "subtasks": [],
+      "notes": "Created the global product-screen-mockups skill with approved-input gates, marketing versus application UI direction, ImageGen reference/prompt rules, raster QA, mockup and interaction contracts, and a deterministic manifest validator. quick_validate.py and Python compilation passed. The validator accepted a complete fixture and rejected an invalid fixture that used HTML screenshot provenance, mismatched state, missing references, and incomplete QA.",
+      "created_at": "2026-07-18T11:37:31-04:00",
+      "updated_at": "2026-07-18T12:03:58-04:00"
+    },
+    {
+      "id": "T006",
+      "name": "Write the reusable frontend workflow",
+      "description": "Document the four skill stages, approval gates, artifacts, backend boundary, resume behavior, and completion criteria for company projects.",
+      "status": "complete",
+      "depends_on": ["T002", "T003", "T004", "T005"],
+      "order": 6,
+      "spec_ref": "spec/workflow.md",
+      "acceptance_criteria": [
+        "WORKFLOW.md defines PRD, UX, copywriting, and mockup stages in order.",
+        "Each stage names inputs, outputs, approval gates, verification, and resume behavior.",
+        "The workflow clearly separates frontend definition from downstream backend architecture and implementation.",
+        "The workflow is runnable by a fresh agent without this chat history."
+      ],
+      "verification": "manual contract review plus link and path checks",
+      "subtasks": [],
+      "notes": "Created WORKFLOW.md as a fresh-agent-runnable contract with global dependencies, canonical artifact paths, four ordered stages, exact inputs/actions/outputs/validation, founder approval gates, resume behavior, engineering handoff criteria, and a clear boundary between frontend implications and backend architecture.",
+      "created_at": "2026-07-18T11:37:31-04:00",
+      "updated_at": "2026-07-18T12:05:50-04:00"
+    },
+    {
+      "id": "T007",
+      "name": "Run integrated validation",
+      "description": "Validate all global skills, JSON contracts, loop files, workflow paths, and handoffs as one system.",
+      "status": "complete",
+      "depends_on": ["T006"],
+      "order": 7,
+      "spec_ref": "spec/verification.md",
+      "acceptance_criteria": [
+        "All four skills pass quick_validate.py.",
+        "All loop and workflow JSON files parse successfully.",
+        "Cross-skill artifact names and paths agree.",
+        "No placeholders, conflict markers, accidental local skill copies, or broken workflow links remain."
+      ],
+      "verification": "execute every command in spec/verification.md and record the combined result",
+      "subtasks": [],
+      "notes": "All four global skills passed quick_validate.py and contain SKILL.md plus agents/openai.yaml. Referenced resources resolved; workflow JSON parsed; no placeholders, conflict markers, .DS_Store files, or local skill copies were found; git diff --check passed. Shared screen/copy/mockup contract terms agree. UX and mockup validators each accepted complete fixtures and rejected incomplete or invalid provenance/state/reference fixtures. Manual workflow review answered stage inputs/outputs, gates, wireframe method, canonical copy, ImageGen method, and engineering boundary.",
+      "created_at": "2026-07-18T11:37:31-04:00",
+      "updated_at": "2026-07-18T12:07:24-04:00"
+    },
+    {
+      "id": "T008",
+      "name": "Update project operating memory",
+      "description": "Update the living plan, activity log, run log, and Talisha collaboration profile with the durable frontend workflow decision and completed work.",
+      "status": "complete",
+      "depends_on": ["T007"],
+      "order": 8,
+      "spec_ref": "spec/workflow.md",
+      "acceptance_criteria": [
+        "company/plan.md reflects the new frontend-definition workflow and its next action.",
+        "company/activity.md and company/run-log.md contain correctly sequenced entries.",
+        "Talisha's profile records only explicitly demonstrated durable collaboration preferences."
+      ],
+      "verification": "inspect note numbering, timestamps, plan checkboxes, and collaborator profile scope",
+      "subtasks": [],
+      "notes": "Updated company/plan.md with the completed reusable workflow, next PRD action, and four durable workflow decisions. Appended note-0006 and three chronologically ordered run-log entries. Added collaborators/talisha-voice.md with explicitly demonstrated preferences only. Added AGENTS.md lesson 5 after the zsh path-variable incident. Format, numbering, decision, profile-scope, and diff checks passed.",
+      "created_at": "2026-07-18T11:37:31-04:00",
+      "updated_at": "2026-07-18T12:09:02-04:00"
+    },
+    {
+      "id": "T009",
+      "name": "Commit and push the feature branch",
+      "description": "Run final repository checks, create a conventional commit, and push the verified feature branch.",
+      "status": "in_progress",
+      "depends_on": ["T008"],
+      "order": 9,
+      "spec_ref": "spec/verification.md",
+      "acceptance_criteria": [
+        "The repository worktree is free of unrelated or generated junk files.",
+        "All repository changes are committed with a Conventional Commit subject.",
+        "The feature branch is pushed to origin and the working tree is clean."
+      ],
+      "verification": "git diff --check, git status, commit inspection, and upstream branch status",
+      "subtasks": [],
+      "notes": "",
+      "created_at": "2026-07-18T11:37:31-04:00",
+      "updated_at": "2026-07-18T12:09:02-04:00"
+    }
+  ]
+}

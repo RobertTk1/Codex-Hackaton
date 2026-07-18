@@ -2,7 +2,7 @@
 
 ## How to Use This Plan
 
-This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The detailed PRD has not yet been added; refine this plan after Robert provides it rather than guessing requirements.
+This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The detailed PRD has not yet been added; create it through the founder walkthrough and approval workflow rather than guessing requirements.
 
 ## Product Goal
 
@@ -25,6 +25,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - [x] Establish the base Magic Mirror company profile and operating workspace from the product strategy.
 - [x] Complete U.S.-first market research and competitor analysis for the V1 purchase-decision opportunity.
 - [x] Define and score candidate audiences; select the behavioral V1 beachhead and validation cohort.
+- [x] Build and validate the reusable frontend-definition workflow and its four global skills.
 - [ ] Add and decompose the full PRD.
 - [ ] Define the golden-path Given/When/Then scenario and acceptance criteria.
 - [ ] Evaluate generation providers using latency, output quality, reliability, integration effort, and cost.
@@ -75,7 +76,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 ## Next
 
-1. Add the full product strategy and PRD to the repository in an agreed source format, then convert it into phased requirements and acceptance criteria.
+1. Run `$product-prd-spec` with a founder walkthrough to create and approve the Magic Mirror PRD, user stories, screen/state inventory, and Given/When/Then scenarios.
 2. Interview ten U.S. adult online apparel shoppers who can show a recent uncertain item; compare “Should I buy this?” messaging with generic “virtual try-on” messaging.
 3. Resolve photo processing, retention, and deletion behavior before asking interview participants to upload real photos.
 4. Benchmark two to three generation providers for identity and garment fidelity, p50/p95 latency, reliability, and cost across a representation-diverse, consented or synthetic test set.
@@ -106,6 +107,10 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-18: Require standardized application mockups to be recognizable from structure alone. Twitter/X, LinkedIn, and browser/favicon use distinct platform-specific ImageGen compositions; LinkedIn cannot reuse the X phone/profile layout.
 - 2026-07-18: Twitter/X application examples always pair one light-mode profile/avatar treatment with one dark-mode treatment, reversing the icon for clear contrast rather than duplicating one color treatment across both phones.
 - 2026-07-18: Accepted the reusable 19-page Magic Mirror brandbook packet after PDF-derived visual QA, a Mayven-to-Magic composition audit, and complete task/evidence verification under `company/brand/brandbook-packet/`.
+- 2026-07-18: Use the approval-gated frontend-definition sequence `product-prd-spec → product-ux-design → copywriting → product-screen-mockups → engineering handoff`.
+- 2026-07-18: Build low-fidelity wireframes as responsive grayscale HTML/CSS and capture deterministic PNGs; create every high-fidelity screen mockup as a built-in ImageGen raster using the approved wireframe, copy, voice, and brand references.
+- 2026-07-18: Treat `company/voice.md` and `company/artifacts/copy/copy-manifest.json` as canonical for implementation copy because text rendered inside generated mockups may drift.
+- 2026-07-18: Record data, authentication, permissions, async status, storage, privacy, failure, and recovery implications during frontend definition, while leaving backend architecture and implementation to the engineering workflow.
 
 ## Roadmap Backlog (V2+)
 
