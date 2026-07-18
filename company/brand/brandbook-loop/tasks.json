@@ -1,14 +1,14 @@
 {
   "project": "Magic Mirror Brandbook Packet",
   "created_at": "2026-07-18T11:52:49Z",
-  "updated_at": "2026-07-18T11:52:49Z",
-  "current_session": 1,
+  "updated_at": "2026-07-18T12:03:01Z",
+  "current_session": 2,
   "tasks": [
     {
       "id": "T001",
       "name": "Audit source assets; lock palette and typography",
       "description": "Confirm the approved Magic Mirror marks and Acid Dispatch palette, select real display and UI/body fonts, document disallowed colors and the shade-generation method, and create base tokens.",
-      "status": "pending",
+      "status": "complete",
       "depends_on": [],
       "order": 1,
       "spec_ref": "spec/palette-and-tokens.md",
@@ -20,9 +20,9 @@
       ],
       "verification": "manual + command review: record source paths, confirmed hex values, font files/sources, shade method, token parse results, and any blockers in notes",
       "subtasks": [],
-      "notes": "",
+      "notes": "Passed T001 audit. Verified 5 durable sources (wordmark, combined lockup, icon, simplified favicon, palette), all 7 Acid Dispatch anchors, and documented OKLab-derived scales. Locked Instrument Serif Regular/Italic for display and Space Grotesk variable 300–700 for UI/body; 3 font files and both OFL 1.1 licenses are local. Generated deterministic tokens/brand-tokens.json, tokens/brand-tokens.css, and tokens/derived-palette.json with 30 CSS color variables, 4 radius tokens, focus/state tokens, and 21 derived scale entries. Evidence: company/brand/brandbook-packet/references/source-audit.md and references/t001-audit.json.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T11:52:49Z"
+      "updated_at": "2026-07-18T12:03:01Z"
     },
     {
       "id": "T002",

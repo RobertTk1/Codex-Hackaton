@@ -1,0 +1,75 @@
+{
+  "task": "T001",
+  "status": "passed",
+  "assets": {
+    "wordmark": {
+      "path": "company/brand/exports/wordmark/svg/magic-mirror-wordmark-acid.svg",
+      "bytes": 5821,
+      "sha256": "56d67c46bf04a1b9b03948c977218237895686205dc02881ddc23dbe2b718730"
+    },
+    "combined": {
+      "path": "company/brand/exports/combined/svg/magic-mirror-combined-acid.svg",
+      "bytes": 5772,
+      "sha256": "0033150fffac9e13f6d9381a7f61ea896066242125f55bcf15a6b0f3fa45ac2f"
+    },
+    "icon": {
+      "path": "company/brand/exports/icon/svg/magic-mirror-icon-acid.svg",
+      "bytes": 1263,
+      "sha256": "66d4090cfdebd5c9404ecdf46da18e204b144e8fee1ebb7e1f53613c70e17cc1"
+    },
+    "favicon": {
+      "path": "company/brand/exports/icon/favicon/favicon-16x16.png",
+      "bytes": 651,
+      "sha256": "1af25fead5f336b82ca96b362c24ea1209a2d9f3019c6d22a77bbc71bfe2ac7d"
+    },
+    "palette": {
+      "path": "company/brand/brand-colors.json",
+      "bytes": 743,
+      "sha256": "3c30cc983e15eca1ad98661de890369419e1847bfe7be310f6230e37fa0a73dc"
+    }
+  },
+  "fonts": {
+    "instrument-serif-regular": {
+      "path": "company/brand/brandbook-packet/assets/fonts/instrument-serif/InstrumentSerif-Regular.ttf",
+      "bytes": 70012,
+      "sha256": "498efd461f6ddfcb7a111bf9a565709d2085d48201d501ead960d93e84ffbb88",
+      "fc_scan": "Instrument Serif|Regular|80|65536"
+    },
+    "instrument-serif-italic": {
+      "path": "company/brand/brandbook-packet/assets/fonts/instrument-serif/InstrumentSerif-Italic.ttf",
+      "bytes": 71592,
+      "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385",
+      "fc_scan": "Instrument Serif|Italic|80|65536"
+    },
+    "space-grotesk-variable": {
+      "path": "company/brand/brandbook-packet/assets/fonts/space-grotesk/SpaceGrotesk[wght].ttf",
+      "bytes": 136676,
+      "sha256": "acad6de1fc93436f5c0f1f4137751ef04f1aea3063e7036535970ffcfbd79f72",
+      "fc_scan": "Space Grotesk,Space Grotesk Light|Light,Regular|50|131072Space Grotesk,Space Grotesk Light|Regular|80|131072Space Grotesk,Space Grotesk Light|Medium|100|131072Space Grotesk,Space Grotesk Light|Bold|200|131072Space Grotesk,Space Grotesk Light||[50 200]|131072"
+    }
+  },
+  "tokens": {
+    "json": "company/brand/brandbook-packet/tokens/brand-tokens.json",
+    "css": "company/brand/brandbook-packet/tokens/brand-tokens.css",
+    "derived_palette": "company/brand/brandbook-packet/tokens/derived-palette.json",
+    "anchor_count": 7,
+    "acid_scale_count": 10,
+    "neutral_scale_count": 11,
+    "css_color_variable_count": 30,
+    "deterministic_sha256": {
+      "brand-tokens.json": "3cb1398eec5ccc20b3d6cd21fb0ce90568212961f44fcc8b779c3595d18ee861",
+      "brand-tokens.css": "725771f0ad5157d55d7c707322893cf98f16a6ddf00f2722a0802c96db47a79a",
+      "derived-palette.json": "901685daf29c85e38e158f61046c7e72cb9f0076f2ff6e4c6235d56c22053274"
+    }
+  },
+  "checks": [
+    "Approved palette source matches all seven Acid Dispatch anchors.",
+    "Instrument Serif and Space Grotesk include valid local OFL 1.1 license files.",
+    "Token JSON and derived-palette JSON parse successfully.",
+    "Derived scale endpoints resolve to approved anchors.",
+    "CSS includes both local font families, color variables, radii, and focus tokens.",
+    "Token generation is byte-for-byte deterministic.",
+    "Source audit records every required asset path, disallowed-color rule, OKLab method, font source/license, and fallback stack."
+  ],
+  "source_audit": "company/brand/brandbook-packet/references/source-audit.md"
+}
