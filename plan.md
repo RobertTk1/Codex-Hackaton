@@ -58,6 +58,17 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - [ ] Deploy to Vercel and run a production smoke test.
 - [ ] Document known limitations and demo recovery steps.
 
+### Parallel Track — Demo Identity
+
+**User outcome:** Contributors can apply one consistent hackathon identity across the product, demo, and submission materials without recreating or recoloring assets.
+
+- [x] Select the Acid Dispatch palette.
+- [x] Select wordmark concept 01 and icon concept 03.
+- [x] Approve the combined lockup with icon 03 replacing the `o` in “Mirror.”
+- [x] Generate ImageGen masters for the wordmark, combined lockup, and standalone icon.
+- [x] Export exact-color PNG, SVG, PDF, favicon, and application-size variants under `company/brand/`.
+- [x] Document usage, minimum sizes, color treatments, and reproducible export instructions.
+
 ## Next
 
 1. Receive and add the full PRD.
@@ -74,6 +85,9 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-17: Require every feature handoff and optional PR to document what changed, why, and the expected outcome.
 - 2026-07-17: After verification, commit and push completed feature-branch work without separate approval; keep its open PR description and progress comments current.
 - 2026-07-17: Keep agent communication concise; summarize material changes and rationale without repeating routine tests or formalities.
+- 2026-07-18: Use the Acid Dispatch palette, concept-01 editorial wordmark, and concept-03 lens/focus icon for the hackathon identity.
+- 2026-07-18: Maintain three approved identity forms: standalone wordmark, combined lockup with the icon replacing the `o`, and standalone icon.
+- 2026-07-18: Treat ImageGen outputs as approved visual masters, then create exact-color sizes and vector paths deterministically so production exports do not drift between variants.
 
 ## Roadmap Backlog (V2+)
 

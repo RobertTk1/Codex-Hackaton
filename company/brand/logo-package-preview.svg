@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1800" height="1200" viewBox="0 0 1800 1200">
+  <title>Magic Mirror logo package preview</title>
+  <rect width="1800" height="1200" fill="#F4F3F1"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#17171A">
+    <text x="110" y="95" font-size="20" font-weight="700" letter-spacing="4">MAGIC MIRROR • BRAND ASSETS • 2026</text>
+    <text x="110" y="158" font-size="48" font-weight="700">Acid Dispatch logo system</text>
+    <text x="110" y="202" font-size="22">Wordmark, combined lockup, and standalone icon</text>
+  </g>
+
+  <g transform="translate(110 250)">
+    <rect width="1580" height="275" rx="28" fill="#17171A"/>
+    <text x="48" y="55" fill="#D7FF3F" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="3">01 • WORDMARK • DARK</text>
+    <image x="48" y="78" width="1484" height="180" preserveAspectRatio="xMidYMid meet"
+           xlink:href="exports/wordmark/svg/magic-mirror-wordmark-acid.svg"/>
+  </g>
+
+  <g transform="translate(110 555)">
+    <rect width="1580" height="275" rx="28" fill="#D7FF3F"/>
+    <text x="48" y="55" fill="#17171A" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="3">02 • COMBINED LOCKUP • PRIMARY</text>
+    <image x="48" y="78" width="1484" height="180" preserveAspectRatio="xMidYMid meet"
+           xlink:href="exports/combined/svg/magic-mirror-combined-ink.svg"/>
+  </g>
+
+  <g transform="translate(110 860)">
+    <rect width="500" height="260" rx="28" fill="#F2FFD0"/>
+    <text x="34" y="49" fill="#263300" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" letter-spacing="3">03 • ICON • SOFT</text>
+    <image x="145" y="54" width="210" height="190" preserveAspectRatio="xMidYMid meet"
+           xlink:href="exports/icon/svg/magic-mirror-icon-deep.svg"/>
+  </g>
+
+  <g transform="translate(660 860)" font-family="Arial, Helvetica, sans-serif">
+    <text x="0" y="28" fill="#17171A" font-size="17" font-weight="700" letter-spacing="3">ACID DISPATCH</text>
+    <g transform="translate(0 55)">
+      <rect width="180" height="118" rx="18" fill="#D7FF3F"/>
+      <text x="18" y="150" fill="#17171A" font-size="16" font-weight="700">ACID</text>
+      <text x="18" y="173" fill="#17171A" font-size="15">#D7FF3F</text>
+    </g>
+    <g transform="translate(205 55)">
+      <rect width="180" height="118" rx="18" fill="#17171A"/>
+      <text x="18" y="150" fill="#17171A" font-size="16" font-weight="700">INK</text>
+      <text x="18" y="173" fill="#17171A" font-size="15">#17171A</text>
+    </g>
+    <g transform="translate(410 55)">
+      <rect width="180" height="118" rx="18" fill="#263300"/>
+      <text x="18" y="150" fill="#17171A" font-size="16" font-weight="700">DEEP</text>
+      <text x="18" y="173" fill="#17171A" font-size="15">#263300</text>
+    </g>
+    <g transform="translate(615 55)">
+      <rect width="180" height="118" rx="18" fill="#F2FFD0" stroke="#D5D5D5"/>
+      <text x="18" y="150" fill="#17171A" font-size="16" font-weight="700">PALE</text>
+      <text x="18" y="173" fill="#17171A" font-size="15">#F2FFD0</text>
+    </g>
+    <g transform="translate(820 55)">
+      <rect width="180" height="118" rx="18" fill="#FFFFFF" stroke="#D5D5D5"/>
+      <text x="18" y="150" fill="#17171A" font-size="16" font-weight="700">WHITE</text>
+      <text x="18" y="173" fill="#17171A" font-size="15">#FFFFFF</text>
+    </g>
+  </g>
+</svg>

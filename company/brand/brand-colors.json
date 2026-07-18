@@ -1,0 +1,39 @@
+{
+  "brand": "Magic Mirror",
+  "direction": "Acid Dispatch",
+  "colors": {
+    "acid": "#D7FF3F",
+    "deep": "#263300",
+    "pale": "#F2FFD0",
+    "ink": "#17171A",
+    "white": "#FFFFFF",
+    "cloud": "#F4F3F1",
+    "black": "#000000"
+  },
+  "treatments": {
+    "primary": {
+      "mark": "#17171A",
+      "background": "#D7FF3F"
+    },
+    "dark": {
+      "mark": "#D7FF3F",
+      "background": "#17171A"
+    },
+    "soft": {
+      "mark": "#263300",
+      "background": "#F2FFD0"
+    },
+    "light": {
+      "mark": "#17171A",
+      "background": "#FFFFFF"
+    },
+    "mono_positive": {
+      "mark": "#000000",
+      "background": "#FFFFFF"
+    },
+    "mono_reversed": {
+      "mark": "#FFFFFF",
+      "background": "#000000"
+    }
+  }
+}
