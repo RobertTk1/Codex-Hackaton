@@ -6,6 +6,7 @@
   <title>Magic Mirror — Brand Standards</title>
   <link rel="stylesheet" href="../tokens/brand-tokens.css">
   <link rel="stylesheet" href="brandbook.css">
+  <script defer src="wcag-matrix.js"></script>
 </head>
 <body>
   <main class="brandbook" aria-label="Magic Mirror brand standards">
@@ -126,17 +127,20 @@
 
     <section class="page page-cloud" id="page-10-wcag" data-page="10">
       <header class="page-header"><span class="eyebrow">Accessibility / Contrast</span><span class="section-code">10</span></header>
-      <div class="title-row compact-title"><div><h1>Contrast<br><em>with confidence.</em></h1></div><p>Core operational pairings exceed WCAG AA for normal text. Ratios use relative luminance under WCAG 2.x.</p></div>
+      <div class="title-row wcag-title"><div><h1>Contrast<br><em>with confidence.</em></h1></div><p>Every approved anchor pairing is shown below. The raw packet covers all unique derived colors and every ordered foreground/background combination.</p></div>
       <div class="threshold-strip"><span><b>AA NORMAL</b> 4.5:1 minimum</span><span><b>AA LARGE</b> 3.0:1 minimum</span><span class="status-pass">CORE SET / PASS</span></div>
-      <div class="contrast-grid">
-        <article class="contrast-card combo-ink-acid"><span>INK ON ACID</span><strong>15.56:1</strong><em>AA / Normal + Large</em></article>
-        <article class="contrast-card combo-acid-ink"><span>ACID ON INK</span><strong>15.56:1</strong><em>AA / Normal + Large</em></article>
-        <article class="contrast-card combo-ink-white"><span>INK ON WHITE</span><strong>17.89:1</strong><em>AA / Normal + Large</em></article>
-        <article class="contrast-card combo-white-ink"><span>WHITE ON INK</span><strong>17.89:1</strong><em>AA / Normal + Large</em></article>
-        <article class="contrast-card combo-deep-pale"><span>DEEP ON PALE</span><strong>12.85:1</strong><em>AA / Normal + Large</em></article>
-        <article class="contrast-card combo-deep-acid"><span>DEEP ON ACID</span><strong>11.74:1</strong><em>AA / Normal + Large</em></article>
+      <div class="wcag-layout">
+        <div class="matrix-panel">
+          <div class="matrix-panel-head"><h2>Anchor matrix</h2><div class="matrix-key"><span class="key-normal">AA normal</span><span class="key-large">Large only</span><span class="key-fail">Fail</span></div></div>
+          <div class="wcag-matrix" id="wcag-matrix" aria-label="Seven by seven anchor contrast matrix"></div>
+        </div>
+        <aside class="recommendations-panel">
+          <div class="recommendations-head"><span>RECOMMENDED</span><b>Operational pairs</b></div>
+          <div id="wcag-recommendations"></div>
+          <p id="wcag-summary"></p>
+        </aside>
       </div>
-      <p class="matrix-note">The complete calculated pairing matrix and raw JSON are maintained with the production packet; decorative marks are not a substitute for readable text contrast.</p>
+      <p class="matrix-note">Cell values are contrast ratios. AA passes normal and large text; L passes large text only; × fails. Full data: <b>tokens/wcag-matrix.json</b>.</p>
       <footer class="page-footer"><span>MAGIC MIRROR / WCAG COMPLIANCE</span><span class="folio">10</span></footer>
     </section>
 

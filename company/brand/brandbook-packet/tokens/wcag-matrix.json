@@ -1,0 +1,5072 @@
+{
+  "meta": {
+    "brand": "Magic Mirror",
+    "standard": "WCAG 2.x relative luminance and contrast ratio",
+    "formula": "(L1 + 0.05) / (L2 + 0.05), where L1 is the lighter relative luminance",
+    "scope": "Every ordered foreground/background combination across 22 unique approved anchor and documented derived colors, including self-pairs and failures.",
+    "source": "tokens/derived-palette.json",
+    "source_sha256": "901685daf29c85e38e158f61046c7e72cb9f0076f2ff6e4c6235d56c22053274",
+    "thresholds": {
+      "aa_normal": 4.5,
+      "aa_large": 3.0
+    }
+  },
+  "colors": [
+    {
+      "id": "acid",
+      "name": "Acid",
+      "hex": "#D7FF3F",
+      "group": "anchor",
+      "relative_luminance": 0.86326
+    },
+    {
+      "id": "deep",
+      "name": "Deep",
+      "hex": "#263300",
+      "group": "anchor",
+      "relative_luminance": 0.027797
+    },
+    {
+      "id": "pale",
+      "name": "Pale",
+      "hex": "#F2FFD0",
+      "group": "anchor",
+      "relative_luminance": 0.949513
+    },
+    {
+      "id": "ink",
+      "name": "Ink",
+      "hex": "#17171A",
+      "group": "anchor",
+      "relative_luminance": 0.008695
+    },
+    {
+      "id": "white",
+      "name": "White",
+      "hex": "#FFFFFF",
+      "group": "anchor",
+      "relative_luminance": 1.0
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud",
+      "hex": "#F4F3F1",
+      "group": "anchor",
+      "relative_luminance": 0.896852
+    },
+    {
+      "id": "black",
+      "name": "Technical Black",
+      "hex": "#000000",
+      "group": "anchor",
+      "relative_luminance": 0.0
+    },
+    {
+      "id": "acid-100",
+      "name": "Acid 100",
+      "hex": "#ECFFBA",
+      "group": "acid-derived",
+      "relative_luminance": 0.92898
+    },
+    {
+      "id": "acid-200",
+      "name": "Acid 200",
+      "hex": "#E7FFA2",
+      "group": "acid-derived",
+      "relative_luminance": 0.911176
+    },
+    {
+      "id": "acid-300",
+      "name": "Acid 300",
+      "hex": "#E1FF88",
+      "group": "acid-derived",
+      "relative_luminance": 0.893051
+    },
+    {
+      "id": "acid-400",
+      "name": "Acid 400",
+      "hex": "#DCFF69",
+      "group": "acid-derived",
+      "relative_luminance": 0.877556
+    },
+    {
+      "id": "acid-600",
+      "name": "Acid 600",
+      "hex": "#A6C72C",
+      "group": "acid-derived",
+      "relative_luminance": 0.491357
+    },
+    {
+      "id": "acid-700",
+      "name": "Acid 700",
+      "hex": "#78921B",
+      "group": "acid-derived",
+      "relative_luminance": 0.2463
+    },
+    {
+      "id": "acid-800",
+      "name": "Acid 800",
+      "hex": "#4D610A",
+      "group": "acid-derived",
+      "relative_luminance": 0.101491
+    },
+    {
+      "id": "neutral-100",
+      "name": "Neutral 100",
+      "hex": "#D6D5D4",
+      "group": "neutral-derived",
+      "relative_luminance": 0.666381
+    },
+    {
+      "id": "neutral-200",
+      "name": "Neutral 200",
+      "hex": "#B8B8B7",
+      "group": "neutral-derived",
+      "relative_luminance": 0.478902
+    },
+    {
+      "id": "neutral-300",
+      "name": "Neutral 300",
+      "hex": "#9C9B9C",
+      "group": "neutral-derived",
+      "relative_luminance": 0.329109
+    },
+    {
+      "id": "neutral-400",
+      "name": "Neutral 400",
+      "hex": "#808081",
+      "group": "neutral-derived",
+      "relative_luminance": 0.216125
+    },
+    {
+      "id": "neutral-500",
+      "name": "Neutral 500",
+      "hex": "#666567",
+      "group": "neutral-derived",
+      "relative_luminance": 0.131114
+    },
+    {
+      "id": "neutral-600",
+      "name": "Neutral 600",
+      "hex": "#515052",
+      "group": "neutral-derived",
+      "relative_luminance": 0.080958
+    },
+    {
+      "id": "neutral-700",
+      "name": "Neutral 700",
+      "hex": "#3C3C3F",
+      "group": "neutral-derived",
+      "relative_luminance": 0.045513
+    },
+    {
+      "id": "neutral-800",
+      "name": "Neutral 800",
+      "hex": "#29292C",
+      "group": "neutral-derived",
+      "relative_luminance": 0.022391
+    }
+  ],
+  "summary": {
+    "color_count": 22,
+    "ordered_pairing_count": 484,
+    "normal_aa_pass_count": 178,
+    "large_aa_pass_count": 238,
+    "normal_only_failure_count": 60,
+    "all_text_failure_count": 246
+  },
+  "pairings": [
+    {
+      "foreground_id": "acid",
+      "background_id": "acid",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "deep",
+      "ratio": 11.739,
+      "ratio_display": "11.74:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "pale",
+      "ratio": 1.0944,
+      "ratio_display": "1.09:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "ink",
+      "ratio": 15.5593,
+      "ratio_display": "15.56:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "white",
+      "ratio": 1.1497,
+      "ratio_display": "1.15:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "cloud",
+      "ratio": 1.0368,
+      "ratio_display": "1.04:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "black",
+      "ratio": 18.2652,
+      "ratio_display": "18.27:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "acid-100",
+      "ratio": 1.072,
+      "ratio_display": "1.07:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "acid-200",
+      "ratio": 1.0525,
+      "ratio_display": "1.05:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "acid-300",
+      "ratio": 1.0326,
+      "ratio_display": "1.03:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "acid-400",
+      "ratio": 1.0157,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "acid-600",
+      "ratio": 1.687,
+      "ratio_display": "1.69:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "acid-700",
+      "ratio": 3.0822,
+      "ratio_display": "3.08:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "acid-800",
+      "ratio": 6.0285,
+      "ratio_display": "6.03:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "neutral-100",
+      "ratio": 1.2748,
+      "ratio_display": "1.27:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "neutral-200",
+      "ratio": 1.7267,
+      "ratio_display": "1.73:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "neutral-300",
+      "ratio": 2.409,
+      "ratio_display": "2.41:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "neutral-400",
+      "ratio": 3.4317,
+      "ratio_display": "3.43:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "neutral-500",
+      "ratio": 5.0425,
+      "ratio_display": "5.04:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "neutral-600",
+      "ratio": 6.9737,
+      "ratio_display": "6.97:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "neutral-700",
+      "ratio": 9.5617,
+      "ratio_display": "9.56:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "neutral-800",
+      "ratio": 12.6156,
+      "ratio_display": "12.62:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "acid",
+      "ratio": 11.739,
+      "ratio_display": "11.74:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "deep",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "pale",
+      "ratio": 12.8477,
+      "ratio_display": "12.85:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "ink",
+      "ratio": 1.3254,
+      "ratio_display": "1.33:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "white",
+      "ratio": 13.4966,
+      "ratio_display": "13.50:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "cloud",
+      "ratio": 12.1708,
+      "ratio_display": "12.17:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "black",
+      "ratio": 1.5559,
+      "ratio_display": "1.56:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "acid-100",
+      "ratio": 12.5837,
+      "ratio_display": "12.58:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "acid-200",
+      "ratio": 12.3549,
+      "ratio_display": "12.35:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "acid-300",
+      "ratio": 12.1219,
+      "ratio_display": "12.12:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "acid-400",
+      "ratio": 11.9227,
+      "ratio_display": "11.92:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "acid-600",
+      "ratio": 6.9586,
+      "ratio_display": "6.96:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "acid-700",
+      "ratio": 3.8086,
+      "ratio_display": "3.81:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "acid-800",
+      "ratio": 1.9473,
+      "ratio_display": "1.95:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "neutral-100",
+      "ratio": 9.2083,
+      "ratio_display": "9.21:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "neutral-200",
+      "ratio": 6.7985,
+      "ratio_display": "6.80:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "neutral-300",
+      "ratio": 4.873,
+      "ratio_display": "4.87:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "neutral-400",
+      "ratio": 3.4208,
+      "ratio_display": "3.42:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "neutral-500",
+      "ratio": 2.328,
+      "ratio_display": "2.33:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "neutral-600",
+      "ratio": 1.6833,
+      "ratio_display": "1.68:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "neutral-700",
+      "ratio": 1.2277,
+      "ratio_display": "1.23:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "neutral-800",
+      "ratio": 1.0747,
+      "ratio_display": "1.07:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "acid",
+      "ratio": 1.0944,
+      "ratio_display": "1.09:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "deep",
+      "ratio": 12.8477,
+      "ratio_display": "12.85:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "pale",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "ink",
+      "ratio": 17.0288,
+      "ratio_display": "17.03:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "white",
+      "ratio": 1.0505,
+      "ratio_display": "1.05:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "cloud",
+      "ratio": 1.0556,
+      "ratio_display": "1.06:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "black",
+      "ratio": 19.9903,
+      "ratio_display": "19.99:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "acid-100",
+      "ratio": 1.021,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "acid-200",
+      "ratio": 1.0399,
+      "ratio_display": "1.04:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "acid-300",
+      "ratio": 1.0599,
+      "ratio_display": "1.06:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "acid-400",
+      "ratio": 1.0776,
+      "ratio_display": "1.08:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "acid-600",
+      "ratio": 1.8463,
+      "ratio_display": "1.85:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "acid-700",
+      "ratio": 3.3733,
+      "ratio_display": "3.37:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "acid-800",
+      "ratio": 6.5978,
+      "ratio_display": "6.60:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "neutral-100",
+      "ratio": 1.3952,
+      "ratio_display": "1.40:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "neutral-200",
+      "ratio": 1.8898,
+      "ratio_display": "1.89:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "neutral-300",
+      "ratio": 2.6365,
+      "ratio_display": "2.64:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "neutral-400",
+      "ratio": 3.7558,
+      "ratio_display": "3.76:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "neutral-500",
+      "ratio": 5.5187,
+      "ratio_display": "5.52:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "neutral-600",
+      "ratio": 7.6323,
+      "ratio_display": "7.63:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "neutral-700",
+      "ratio": 10.4647,
+      "ratio_display": "10.46:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "pale",
+      "background_id": "neutral-800",
+      "ratio": 13.8071,
+      "ratio_display": "13.81:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "acid",
+      "ratio": 15.5593,
+      "ratio_display": "15.56:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "deep",
+      "ratio": 1.3254,
+      "ratio_display": "1.33:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "pale",
+      "ratio": 17.0288,
+      "ratio_display": "17.03:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "ink",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "white",
+      "ratio": 17.889,
+      "ratio_display": "17.89:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "cloud",
+      "ratio": 16.1316,
+      "ratio_display": "16.13:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "black",
+      "ratio": 1.1739,
+      "ratio_display": "1.17:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "acid-100",
+      "ratio": 16.679,
+      "ratio_display": "16.68:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "acid-200",
+      "ratio": 16.3757,
+      "ratio_display": "16.38:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "acid-300",
+      "ratio": 16.0669,
+      "ratio_display": "16.07:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "acid-400",
+      "ratio": 15.8029,
+      "ratio_display": "15.80:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "acid-600",
+      "ratio": 9.2232,
+      "ratio_display": "9.22:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "acid-700",
+      "ratio": 5.0481,
+      "ratio_display": "5.05:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "acid-800",
+      "ratio": 2.581,
+      "ratio_display": "2.58:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "neutral-100",
+      "ratio": 12.2051,
+      "ratio_display": "12.21:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "neutral-200",
+      "ratio": 9.011,
+      "ratio_display": "9.01:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "neutral-300",
+      "ratio": 6.4589,
+      "ratio_display": "6.46:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "neutral-400",
+      "ratio": 4.534,
+      "ratio_display": "4.53:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "neutral-500",
+      "ratio": 3.0857,
+      "ratio_display": "3.09:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "neutral-600",
+      "ratio": 2.2312,
+      "ratio_display": "2.23:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "neutral-700",
+      "ratio": 1.6273,
+      "ratio_display": "1.63:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "neutral-800",
+      "ratio": 1.2333,
+      "ratio_display": "1.23:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "acid",
+      "ratio": 1.1497,
+      "ratio_display": "1.15:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "deep",
+      "ratio": 13.4966,
+      "ratio_display": "13.50:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "pale",
+      "ratio": 1.0505,
+      "ratio_display": "1.05:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "ink",
+      "ratio": 17.889,
+      "ratio_display": "17.89:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "white",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "cloud",
+      "ratio": 1.1089,
+      "ratio_display": "1.11:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "black",
+      "ratio": 21.0,
+      "ratio_display": "21.00:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "acid-100",
+      "ratio": 1.0725,
+      "ratio_display": "1.07:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "acid-200",
+      "ratio": 1.0924,
+      "ratio_display": "1.09:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "acid-300",
+      "ratio": 1.1134,
+      "ratio_display": "1.11:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "acid-400",
+      "ratio": 1.132,
+      "ratio_display": "1.13:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "acid-600",
+      "ratio": 1.9396,
+      "ratio_display": "1.94:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "acid-700",
+      "ratio": 3.5437,
+      "ratio_display": "3.54:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "acid-800",
+      "ratio": 6.9311,
+      "ratio_display": "6.93:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "neutral-100",
+      "ratio": 1.4657,
+      "ratio_display": "1.47:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "neutral-200",
+      "ratio": 1.9852,
+      "ratio_display": "1.99:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "neutral-300",
+      "ratio": 2.7697,
+      "ratio_display": "2.77:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "neutral-400",
+      "ratio": 3.9455,
+      "ratio_display": "3.95:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "neutral-500",
+      "ratio": 5.7974,
+      "ratio_display": "5.80:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "neutral-600",
+      "ratio": 8.0178,
+      "ratio_display": "8.02:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "neutral-700",
+      "ratio": 10.9933,
+      "ratio_display": "10.99:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "neutral-800",
+      "ratio": 14.5045,
+      "ratio_display": "14.50:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "acid",
+      "ratio": 1.0368,
+      "ratio_display": "1.04:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "deep",
+      "ratio": 12.1708,
+      "ratio_display": "12.17:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "pale",
+      "ratio": 1.0556,
+      "ratio_display": "1.06:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "ink",
+      "ratio": 16.1316,
+      "ratio_display": "16.13:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "white",
+      "ratio": 1.1089,
+      "ratio_display": "1.11:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "cloud",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "black",
+      "ratio": 18.937,
+      "ratio_display": "18.94:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "acid-100",
+      "ratio": 1.0339,
+      "ratio_display": "1.03:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "acid-200",
+      "ratio": 1.0151,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "acid-300",
+      "ratio": 1.004,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "acid-400",
+      "ratio": 1.0208,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "acid-600",
+      "ratio": 1.749,
+      "ratio_display": "1.75:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "acid-700",
+      "ratio": 3.1956,
+      "ratio_display": "3.20:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "acid-800",
+      "ratio": 6.2502,
+      "ratio_display": "6.25:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "neutral-100",
+      "ratio": 1.3217,
+      "ratio_display": "1.32:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "neutral-200",
+      "ratio": 1.7902,
+      "ratio_display": "1.79:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "neutral-300",
+      "ratio": 2.4976,
+      "ratio_display": "2.50:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "neutral-400",
+      "ratio": 3.5579,
+      "ratio_display": "3.56:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "neutral-500",
+      "ratio": 5.2279,
+      "ratio_display": "5.23:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "neutral-600",
+      "ratio": 7.2302,
+      "ratio_display": "7.23:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "neutral-700",
+      "ratio": 9.9134,
+      "ratio_display": "9.91:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "cloud",
+      "background_id": "neutral-800",
+      "ratio": 13.0796,
+      "ratio_display": "13.08:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "acid",
+      "ratio": 18.2652,
+      "ratio_display": "18.27:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "deep",
+      "ratio": 1.5559,
+      "ratio_display": "1.56:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "pale",
+      "ratio": 19.9903,
+      "ratio_display": "19.99:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "ink",
+      "ratio": 1.1739,
+      "ratio_display": "1.17:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "white",
+      "ratio": 21.0,
+      "ratio_display": "21.00:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "cloud",
+      "ratio": 18.937,
+      "ratio_display": "18.94:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "black",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "acid-100",
+      "ratio": 19.5796,
+      "ratio_display": "19.58:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "acid-200",
+      "ratio": 19.2235,
+      "ratio_display": "19.22:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "acid-300",
+      "ratio": 18.861,
+      "ratio_display": "18.86:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "acid-400",
+      "ratio": 18.5511,
+      "ratio_display": "18.55:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "acid-600",
+      "ratio": 10.8271,
+      "ratio_display": "10.83:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "acid-700",
+      "ratio": 5.926,
+      "ratio_display": "5.93:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "acid-800",
+      "ratio": 3.0298,
+      "ratio_display": "3.03:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "neutral-100",
+      "ratio": 14.3276,
+      "ratio_display": "14.33:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "neutral-200",
+      "ratio": 10.578,
+      "ratio_display": "10.58:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "neutral-300",
+      "ratio": 7.5822,
+      "ratio_display": "7.58:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "neutral-400",
+      "ratio": 5.3225,
+      "ratio_display": "5.32:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "neutral-500",
+      "ratio": 3.6223,
+      "ratio_display": "3.62:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "neutral-600",
+      "ratio": 2.6192,
+      "ratio_display": "2.62:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "neutral-700",
+      "ratio": 1.9103,
+      "ratio_display": "1.91:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "black",
+      "background_id": "neutral-800",
+      "ratio": 1.4478,
+      "ratio_display": "1.45:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "acid",
+      "ratio": 1.072,
+      "ratio_display": "1.07:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "deep",
+      "ratio": 12.5837,
+      "ratio_display": "12.58:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "pale",
+      "ratio": 1.021,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "ink",
+      "ratio": 16.679,
+      "ratio_display": "16.68:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "white",
+      "ratio": 1.0725,
+      "ratio_display": "1.07:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "cloud",
+      "ratio": 1.0339,
+      "ratio_display": "1.03:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "black",
+      "ratio": 19.5796,
+      "ratio_display": "19.58:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "acid-100",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "acid-200",
+      "ratio": 1.0185,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "acid-300",
+      "ratio": 1.0381,
+      "ratio_display": "1.04:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "acid-400",
+      "ratio": 1.0554,
+      "ratio_display": "1.06:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "acid-600",
+      "ratio": 1.8084,
+      "ratio_display": "1.81:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "acid-700",
+      "ratio": 3.304,
+      "ratio_display": "3.30:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "acid-800",
+      "ratio": 6.4623,
+      "ratio_display": "6.46:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "neutral-100",
+      "ratio": 1.3666,
+      "ratio_display": "1.37:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "neutral-200",
+      "ratio": 1.851,
+      "ratio_display": "1.85:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "neutral-300",
+      "ratio": 2.5823,
+      "ratio_display": "2.58:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "neutral-400",
+      "ratio": 3.6786,
+      "ratio_display": "3.68:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "neutral-500",
+      "ratio": 5.4053,
+      "ratio_display": "5.41:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "neutral-600",
+      "ratio": 7.4755,
+      "ratio_display": "7.48:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "neutral-700",
+      "ratio": 10.2498,
+      "ratio_display": "10.25:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-100",
+      "background_id": "neutral-800",
+      "ratio": 13.5234,
+      "ratio_display": "13.52:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "acid",
+      "ratio": 1.0525,
+      "ratio_display": "1.05:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "deep",
+      "ratio": 12.3549,
+      "ratio_display": "12.35:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "pale",
+      "ratio": 1.0399,
+      "ratio_display": "1.04:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "ink",
+      "ratio": 16.3757,
+      "ratio_display": "16.38:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "white",
+      "ratio": 1.0924,
+      "ratio_display": "1.09:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "cloud",
+      "ratio": 1.0151,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "black",
+      "ratio": 19.2235,
+      "ratio_display": "19.22:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "acid-100",
+      "ratio": 1.0185,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "acid-200",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "acid-300",
+      "ratio": 1.0192,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "acid-400",
+      "ratio": 1.0362,
+      "ratio_display": "1.04:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "acid-600",
+      "ratio": 1.7755,
+      "ratio_display": "1.78:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "acid-700",
+      "ratio": 3.2439,
+      "ratio_display": "3.24:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "acid-800",
+      "ratio": 6.3448,
+      "ratio_display": "6.34:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "neutral-100",
+      "ratio": 1.3417,
+      "ratio_display": "1.34:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "neutral-200",
+      "ratio": 1.8173,
+      "ratio_display": "1.82:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "neutral-300",
+      "ratio": 2.5354,
+      "ratio_display": "2.54:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "neutral-400",
+      "ratio": 3.6117,
+      "ratio_display": "3.61:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "neutral-500",
+      "ratio": 5.307,
+      "ratio_display": "5.31:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "neutral-600",
+      "ratio": 7.3395,
+      "ratio_display": "7.34:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "neutral-700",
+      "ratio": 10.0633,
+      "ratio_display": "10.06:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-200",
+      "background_id": "neutral-800",
+      "ratio": 13.2775,
+      "ratio_display": "13.28:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "acid",
+      "ratio": 1.0326,
+      "ratio_display": "1.03:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "deep",
+      "ratio": 12.1219,
+      "ratio_display": "12.12:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "pale",
+      "ratio": 1.0599,
+      "ratio_display": "1.06:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "ink",
+      "ratio": 16.0669,
+      "ratio_display": "16.07:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "white",
+      "ratio": 1.1134,
+      "ratio_display": "1.11:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "cloud",
+      "ratio": 1.004,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "black",
+      "ratio": 18.861,
+      "ratio_display": "18.86:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "acid-100",
+      "ratio": 1.0381,
+      "ratio_display": "1.04:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "acid-200",
+      "ratio": 1.0192,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "acid-300",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "acid-400",
+      "ratio": 1.0167,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "acid-600",
+      "ratio": 1.742,
+      "ratio_display": "1.74:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "acid-700",
+      "ratio": 3.1828,
+      "ratio_display": "3.18:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "acid-800",
+      "ratio": 6.2251,
+      "ratio_display": "6.23:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "neutral-100",
+      "ratio": 1.3164,
+      "ratio_display": "1.32:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "neutral-200",
+      "ratio": 1.783,
+      "ratio_display": "1.78:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "neutral-300",
+      "ratio": 2.4875,
+      "ratio_display": "2.49:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "neutral-400",
+      "ratio": 3.5436,
+      "ratio_display": "3.54:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "neutral-500",
+      "ratio": 5.2069,
+      "ratio_display": "5.21:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "neutral-600",
+      "ratio": 7.2011,
+      "ratio_display": "7.20:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "neutral-700",
+      "ratio": 9.8736,
+      "ratio_display": "9.87:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-300",
+      "background_id": "neutral-800",
+      "ratio": 13.0271,
+      "ratio_display": "13.03:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "acid",
+      "ratio": 1.0157,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "deep",
+      "ratio": 11.9227,
+      "ratio_display": "11.92:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "pale",
+      "ratio": 1.0776,
+      "ratio_display": "1.08:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "ink",
+      "ratio": 15.8029,
+      "ratio_display": "15.80:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "white",
+      "ratio": 1.132,
+      "ratio_display": "1.13:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "cloud",
+      "ratio": 1.0208,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "black",
+      "ratio": 18.5511,
+      "ratio_display": "18.55:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "acid-100",
+      "ratio": 1.0554,
+      "ratio_display": "1.06:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "acid-200",
+      "ratio": 1.0362,
+      "ratio_display": "1.04:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "acid-300",
+      "ratio": 1.0167,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "acid-400",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "acid-600",
+      "ratio": 1.7134,
+      "ratio_display": "1.71:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "acid-700",
+      "ratio": 3.1305,
+      "ratio_display": "3.13:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "acid-800",
+      "ratio": 6.1228,
+      "ratio_display": "6.12:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "neutral-100",
+      "ratio": 1.2948,
+      "ratio_display": "1.29:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "neutral-200",
+      "ratio": 1.7537,
+      "ratio_display": "1.75:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "neutral-300",
+      "ratio": 2.4467,
+      "ratio_display": "2.45:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "neutral-400",
+      "ratio": 3.4854,
+      "ratio_display": "3.49:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "neutral-500",
+      "ratio": 5.1214,
+      "ratio_display": "5.12:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "neutral-600",
+      "ratio": 7.0828,
+      "ratio_display": "7.08:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "neutral-700",
+      "ratio": 9.7113,
+      "ratio_display": "9.71:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-400",
+      "background_id": "neutral-800",
+      "ratio": 12.8131,
+      "ratio_display": "12.81:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "acid",
+      "ratio": 1.687,
+      "ratio_display": "1.69:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "deep",
+      "ratio": 6.9586,
+      "ratio_display": "6.96:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "pale",
+      "ratio": 1.8463,
+      "ratio_display": "1.85:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "ink",
+      "ratio": 9.2232,
+      "ratio_display": "9.22:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "white",
+      "ratio": 1.9396,
+      "ratio_display": "1.94:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "cloud",
+      "ratio": 1.749,
+      "ratio_display": "1.75:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "black",
+      "ratio": 10.8271,
+      "ratio_display": "10.83:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "acid-100",
+      "ratio": 1.8084,
+      "ratio_display": "1.81:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "acid-200",
+      "ratio": 1.7755,
+      "ratio_display": "1.78:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "acid-300",
+      "ratio": 1.742,
+      "ratio_display": "1.74:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "acid-400",
+      "ratio": 1.7134,
+      "ratio_display": "1.71:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "acid-600",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "acid-700",
+      "ratio": 1.8271,
+      "ratio_display": "1.83:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "acid-800",
+      "ratio": 3.5735,
+      "ratio_display": "3.57:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "neutral-100",
+      "ratio": 1.3233,
+      "ratio_display": "1.32:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "neutral-200",
+      "ratio": 1.0235,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "neutral-300",
+      "ratio": 1.428,
+      "ratio_display": "1.43:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "neutral-400",
+      "ratio": 2.0342,
+      "ratio_display": "2.03:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "neutral-500",
+      "ratio": 2.989,
+      "ratio_display": "2.99:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "neutral-600",
+      "ratio": 4.1338,
+      "ratio_display": "4.13:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "neutral-700",
+      "ratio": 5.6679,
+      "ratio_display": "5.67:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-600",
+      "background_id": "neutral-800",
+      "ratio": 7.4782,
+      "ratio_display": "7.48:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "acid",
+      "ratio": 3.0822,
+      "ratio_display": "3.08:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "deep",
+      "ratio": 3.8086,
+      "ratio_display": "3.81:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "pale",
+      "ratio": 3.3733,
+      "ratio_display": "3.37:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "ink",
+      "ratio": 5.0481,
+      "ratio_display": "5.05:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "white",
+      "ratio": 3.5437,
+      "ratio_display": "3.54:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "cloud",
+      "ratio": 3.1956,
+      "ratio_display": "3.20:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "black",
+      "ratio": 5.926,
+      "ratio_display": "5.93:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "acid-100",
+      "ratio": 3.304,
+      "ratio_display": "3.30:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "acid-200",
+      "ratio": 3.2439,
+      "ratio_display": "3.24:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "acid-300",
+      "ratio": 3.1828,
+      "ratio_display": "3.18:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "acid-400",
+      "ratio": 3.1305,
+      "ratio_display": "3.13:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "acid-600",
+      "ratio": 1.8271,
+      "ratio_display": "1.83:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "acid-700",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "acid-800",
+      "ratio": 1.9559,
+      "ratio_display": "1.96:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "neutral-100",
+      "ratio": 2.4178,
+      "ratio_display": "2.42:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "neutral-200",
+      "ratio": 1.785,
+      "ratio_display": "1.79:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "neutral-300",
+      "ratio": 1.2795,
+      "ratio_display": "1.28:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "neutral-400",
+      "ratio": 1.1134,
+      "ratio_display": "1.11:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "neutral-500",
+      "ratio": 1.636,
+      "ratio_display": "1.64:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "neutral-600",
+      "ratio": 2.2625,
+      "ratio_display": "2.26:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "neutral-700",
+      "ratio": 3.1022,
+      "ratio_display": "3.10:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-700",
+      "background_id": "neutral-800",
+      "ratio": 4.093,
+      "ratio_display": "4.09:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "acid",
+      "ratio": 6.0285,
+      "ratio_display": "6.03:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "deep",
+      "ratio": 1.9473,
+      "ratio_display": "1.95:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "pale",
+      "ratio": 6.5978,
+      "ratio_display": "6.60:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "ink",
+      "ratio": 2.581,
+      "ratio_display": "2.58:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "white",
+      "ratio": 6.9311,
+      "ratio_display": "6.93:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "cloud",
+      "ratio": 6.2502,
+      "ratio_display": "6.25:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "black",
+      "ratio": 3.0298,
+      "ratio_display": "3.03:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "acid-100",
+      "ratio": 6.4623,
+      "ratio_display": "6.46:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "acid-200",
+      "ratio": 6.3448,
+      "ratio_display": "6.34:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "acid-300",
+      "ratio": 6.2251,
+      "ratio_display": "6.23:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "acid-400",
+      "ratio": 6.1228,
+      "ratio_display": "6.12:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "acid-600",
+      "ratio": 3.5735,
+      "ratio_display": "3.57:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "acid-700",
+      "ratio": 1.9559,
+      "ratio_display": "1.96:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "acid-800",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "neutral-100",
+      "ratio": 4.7289,
+      "ratio_display": "4.73:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "neutral-200",
+      "ratio": 3.4913,
+      "ratio_display": "3.49:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "neutral-300",
+      "ratio": 2.5025,
+      "ratio_display": "2.50:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "neutral-400",
+      "ratio": 1.7567,
+      "ratio_display": "1.76:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "neutral-500",
+      "ratio": 1.1955,
+      "ratio_display": "1.20:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "neutral-600",
+      "ratio": 1.1568,
+      "ratio_display": "1.16:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "neutral-700",
+      "ratio": 1.5861,
+      "ratio_display": "1.59:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "acid-800",
+      "background_id": "neutral-800",
+      "ratio": 2.0927,
+      "ratio_display": "2.09:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "acid",
+      "ratio": 1.2748,
+      "ratio_display": "1.27:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "deep",
+      "ratio": 9.2083,
+      "ratio_display": "9.21:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "pale",
+      "ratio": 1.3952,
+      "ratio_display": "1.40:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "ink",
+      "ratio": 12.2051,
+      "ratio_display": "12.21:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "white",
+      "ratio": 1.4657,
+      "ratio_display": "1.47:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "cloud",
+      "ratio": 1.3217,
+      "ratio_display": "1.32:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "black",
+      "ratio": 14.3276,
+      "ratio_display": "14.33:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "acid-100",
+      "ratio": 1.3666,
+      "ratio_display": "1.37:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "acid-200",
+      "ratio": 1.3417,
+      "ratio_display": "1.34:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "acid-300",
+      "ratio": 1.3164,
+      "ratio_display": "1.32:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "acid-400",
+      "ratio": 1.2948,
+      "ratio_display": "1.29:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "acid-600",
+      "ratio": 1.3233,
+      "ratio_display": "1.32:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "acid-700",
+      "ratio": 2.4178,
+      "ratio_display": "2.42:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "acid-800",
+      "ratio": 4.7289,
+      "ratio_display": "4.73:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "neutral-100",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "neutral-200",
+      "ratio": 1.3545,
+      "ratio_display": "1.35:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "neutral-300",
+      "ratio": 1.8896,
+      "ratio_display": "1.89:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "neutral-400",
+      "ratio": 2.6919,
+      "ratio_display": "2.69:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "neutral-500",
+      "ratio": 3.9554,
+      "ratio_display": "3.96:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "neutral-600",
+      "ratio": 5.4703,
+      "ratio_display": "5.47:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "neutral-700",
+      "ratio": 7.5004,
+      "ratio_display": "7.50:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-100",
+      "background_id": "neutral-800",
+      "ratio": 9.8959,
+      "ratio_display": "9.90:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "acid",
+      "ratio": 1.7267,
+      "ratio_display": "1.73:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "deep",
+      "ratio": 6.7985,
+      "ratio_display": "6.80:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "pale",
+      "ratio": 1.8898,
+      "ratio_display": "1.89:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "ink",
+      "ratio": 9.011,
+      "ratio_display": "9.01:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "white",
+      "ratio": 1.9852,
+      "ratio_display": "1.99:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "cloud",
+      "ratio": 1.7902,
+      "ratio_display": "1.79:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "black",
+      "ratio": 10.578,
+      "ratio_display": "10.58:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "acid-100",
+      "ratio": 1.851,
+      "ratio_display": "1.85:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "acid-200",
+      "ratio": 1.8173,
+      "ratio_display": "1.82:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "acid-300",
+      "ratio": 1.783,
+      "ratio_display": "1.78:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "acid-400",
+      "ratio": 1.7537,
+      "ratio_display": "1.75:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "acid-600",
+      "ratio": 1.0235,
+      "ratio_display": "1.02:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "acid-700",
+      "ratio": 1.785,
+      "ratio_display": "1.79:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "acid-800",
+      "ratio": 3.4913,
+      "ratio_display": "3.49:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "neutral-100",
+      "ratio": 1.3545,
+      "ratio_display": "1.35:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "neutral-200",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "neutral-300",
+      "ratio": 1.3951,
+      "ratio_display": "1.40:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "neutral-400",
+      "ratio": 1.9874,
+      "ratio_display": "1.99:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "neutral-500",
+      "ratio": 2.9203,
+      "ratio_display": "2.92:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "neutral-600",
+      "ratio": 4.0387,
+      "ratio_display": "4.04:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "neutral-700",
+      "ratio": 5.5375,
+      "ratio_display": "5.54:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-200",
+      "background_id": "neutral-800",
+      "ratio": 7.3061,
+      "ratio_display": "7.31:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "acid",
+      "ratio": 2.409,
+      "ratio_display": "2.41:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "deep",
+      "ratio": 4.873,
+      "ratio_display": "4.87:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "pale",
+      "ratio": 2.6365,
+      "ratio_display": "2.64:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "ink",
+      "ratio": 6.4589,
+      "ratio_display": "6.46:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "white",
+      "ratio": 2.7697,
+      "ratio_display": "2.77:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "cloud",
+      "ratio": 2.4976,
+      "ratio_display": "2.50:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "black",
+      "ratio": 7.5822,
+      "ratio_display": "7.58:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "acid-100",
+      "ratio": 2.5823,
+      "ratio_display": "2.58:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "acid-200",
+      "ratio": 2.5354,
+      "ratio_display": "2.54:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "acid-300",
+      "ratio": 2.4875,
+      "ratio_display": "2.49:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "acid-400",
+      "ratio": 2.4467,
+      "ratio_display": "2.45:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "acid-600",
+      "ratio": 1.428,
+      "ratio_display": "1.43:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "acid-700",
+      "ratio": 1.2795,
+      "ratio_display": "1.28:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "acid-800",
+      "ratio": 2.5025,
+      "ratio_display": "2.50:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "neutral-100",
+      "ratio": 1.8896,
+      "ratio_display": "1.89:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "neutral-200",
+      "ratio": 1.3951,
+      "ratio_display": "1.40:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "neutral-300",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "neutral-400",
+      "ratio": 1.4246,
+      "ratio_display": "1.42:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "neutral-500",
+      "ratio": 2.0932,
+      "ratio_display": "2.09:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "neutral-600",
+      "ratio": 2.8949,
+      "ratio_display": "2.89:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "neutral-700",
+      "ratio": 3.9692,
+      "ratio_display": "3.97:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-300",
+      "background_id": "neutral-800",
+      "ratio": 5.2369,
+      "ratio_display": "5.24:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "acid",
+      "ratio": 3.4317,
+      "ratio_display": "3.43:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "deep",
+      "ratio": 3.4208,
+      "ratio_display": "3.42:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "pale",
+      "ratio": 3.7558,
+      "ratio_display": "3.76:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "ink",
+      "ratio": 4.534,
+      "ratio_display": "4.53:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "white",
+      "ratio": 3.9455,
+      "ratio_display": "3.95:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "cloud",
+      "ratio": 3.5579,
+      "ratio_display": "3.56:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "black",
+      "ratio": 5.3225,
+      "ratio_display": "5.32:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "acid-100",
+      "ratio": 3.6786,
+      "ratio_display": "3.68:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "acid-200",
+      "ratio": 3.6117,
+      "ratio_display": "3.61:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "acid-300",
+      "ratio": 3.5436,
+      "ratio_display": "3.54:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "acid-400",
+      "ratio": 3.4854,
+      "ratio_display": "3.49:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "acid-600",
+      "ratio": 2.0342,
+      "ratio_display": "2.03:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "acid-700",
+      "ratio": 1.1134,
+      "ratio_display": "1.11:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "acid-800",
+      "ratio": 1.7567,
+      "ratio_display": "1.76:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "neutral-100",
+      "ratio": 2.6919,
+      "ratio_display": "2.69:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "neutral-200",
+      "ratio": 1.9874,
+      "ratio_display": "1.99:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "neutral-300",
+      "ratio": 1.4246,
+      "ratio_display": "1.42:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "neutral-400",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "neutral-500",
+      "ratio": 1.4694,
+      "ratio_display": "1.47:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "neutral-600",
+      "ratio": 2.0321,
+      "ratio_display": "2.03:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "neutral-700",
+      "ratio": 2.7863,
+      "ratio_display": "2.79:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-400",
+      "background_id": "neutral-800",
+      "ratio": 3.6762,
+      "ratio_display": "3.68:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "acid",
+      "ratio": 5.0425,
+      "ratio_display": "5.04:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "deep",
+      "ratio": 2.328,
+      "ratio_display": "2.33:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "pale",
+      "ratio": 5.5187,
+      "ratio_display": "5.52:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "ink",
+      "ratio": 3.0857,
+      "ratio_display": "3.09:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "white",
+      "ratio": 5.7974,
+      "ratio_display": "5.80:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "cloud",
+      "ratio": 5.2279,
+      "ratio_display": "5.23:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "black",
+      "ratio": 3.6223,
+      "ratio_display": "3.62:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "acid-100",
+      "ratio": 5.4053,
+      "ratio_display": "5.41:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "acid-200",
+      "ratio": 5.307,
+      "ratio_display": "5.31:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "acid-300",
+      "ratio": 5.2069,
+      "ratio_display": "5.21:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "acid-400",
+      "ratio": 5.1214,
+      "ratio_display": "5.12:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "acid-600",
+      "ratio": 2.989,
+      "ratio_display": "2.99:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "acid-700",
+      "ratio": 1.636,
+      "ratio_display": "1.64:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "acid-800",
+      "ratio": 1.1955,
+      "ratio_display": "1.20:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "neutral-100",
+      "ratio": 3.9554,
+      "ratio_display": "3.96:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "neutral-200",
+      "ratio": 2.9203,
+      "ratio_display": "2.92:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "neutral-300",
+      "ratio": 2.0932,
+      "ratio_display": "2.09:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "neutral-400",
+      "ratio": 1.4694,
+      "ratio_display": "1.47:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "neutral-500",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "neutral-600",
+      "ratio": 1.383,
+      "ratio_display": "1.38:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "neutral-700",
+      "ratio": 1.8962,
+      "ratio_display": "1.90:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-500",
+      "background_id": "neutral-800",
+      "ratio": 2.5019,
+      "ratio_display": "2.50:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "acid",
+      "ratio": 6.9737,
+      "ratio_display": "6.97:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "deep",
+      "ratio": 1.6833,
+      "ratio_display": "1.68:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "pale",
+      "ratio": 7.6323,
+      "ratio_display": "7.63:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "ink",
+      "ratio": 2.2312,
+      "ratio_display": "2.23:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "white",
+      "ratio": 8.0178,
+      "ratio_display": "8.02:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "cloud",
+      "ratio": 7.2302,
+      "ratio_display": "7.23:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "black",
+      "ratio": 2.6192,
+      "ratio_display": "2.62:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "acid-100",
+      "ratio": 7.4755,
+      "ratio_display": "7.48:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "acid-200",
+      "ratio": 7.3395,
+      "ratio_display": "7.34:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "acid-300",
+      "ratio": 7.2011,
+      "ratio_display": "7.20:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "acid-400",
+      "ratio": 7.0828,
+      "ratio_display": "7.08:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "acid-600",
+      "ratio": 4.1338,
+      "ratio_display": "4.13:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "acid-700",
+      "ratio": 2.2625,
+      "ratio_display": "2.26:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "acid-800",
+      "ratio": 1.1568,
+      "ratio_display": "1.16:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "neutral-100",
+      "ratio": 5.4703,
+      "ratio_display": "5.47:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "neutral-200",
+      "ratio": 4.0387,
+      "ratio_display": "4.04:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "neutral-300",
+      "ratio": 2.8949,
+      "ratio_display": "2.89:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "neutral-400",
+      "ratio": 2.0321,
+      "ratio_display": "2.03:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "neutral-500",
+      "ratio": 1.383,
+      "ratio_display": "1.38:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "neutral-600",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "neutral-700",
+      "ratio": 1.3711,
+      "ratio_display": "1.37:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-600",
+      "background_id": "neutral-800",
+      "ratio": 1.809,
+      "ratio_display": "1.81:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "acid",
+      "ratio": 9.5617,
+      "ratio_display": "9.56:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "deep",
+      "ratio": 1.2277,
+      "ratio_display": "1.23:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "pale",
+      "ratio": 10.4647,
+      "ratio_display": "10.46:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "ink",
+      "ratio": 1.6273,
+      "ratio_display": "1.63:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "white",
+      "ratio": 10.9933,
+      "ratio_display": "10.99:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "cloud",
+      "ratio": 9.9134,
+      "ratio_display": "9.91:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "black",
+      "ratio": 1.9103,
+      "ratio_display": "1.91:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "acid-100",
+      "ratio": 10.2498,
+      "ratio_display": "10.25:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "acid-200",
+      "ratio": 10.0633,
+      "ratio_display": "10.06:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "acid-300",
+      "ratio": 9.8736,
+      "ratio_display": "9.87:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "acid-400",
+      "ratio": 9.7113,
+      "ratio_display": "9.71:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "acid-600",
+      "ratio": 5.6679,
+      "ratio_display": "5.67:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "acid-700",
+      "ratio": 3.1022,
+      "ratio_display": "3.10:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "acid-800",
+      "ratio": 1.5861,
+      "ratio_display": "1.59:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "neutral-100",
+      "ratio": 7.5004,
+      "ratio_display": "7.50:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "neutral-200",
+      "ratio": 5.5375,
+      "ratio_display": "5.54:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "neutral-300",
+      "ratio": 3.9692,
+      "ratio_display": "3.97:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "neutral-400",
+      "ratio": 2.7863,
+      "ratio_display": "2.79:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "neutral-500",
+      "ratio": 1.8962,
+      "ratio_display": "1.90:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "neutral-600",
+      "ratio": 1.3711,
+      "ratio_display": "1.37:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "neutral-700",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-700",
+      "background_id": "neutral-800",
+      "ratio": 1.3194,
+      "ratio_display": "1.32:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "acid",
+      "ratio": 12.6156,
+      "ratio_display": "12.62:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "deep",
+      "ratio": 1.0747,
+      "ratio_display": "1.07:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "pale",
+      "ratio": 13.8071,
+      "ratio_display": "13.81:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "ink",
+      "ratio": 1.2333,
+      "ratio_display": "1.23:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "white",
+      "ratio": 14.5045,
+      "ratio_display": "14.50:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "cloud",
+      "ratio": 13.0796,
+      "ratio_display": "13.08:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "black",
+      "ratio": 1.4478,
+      "ratio_display": "1.45:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "acid-100",
+      "ratio": 13.5234,
+      "ratio_display": "13.52:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "acid-200",
+      "ratio": 13.2775,
+      "ratio_display": "13.28:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "acid-300",
+      "ratio": 13.0271,
+      "ratio_display": "13.03:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "acid-400",
+      "ratio": 12.8131,
+      "ratio_display": "12.81:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "acid-600",
+      "ratio": 7.4782,
+      "ratio_display": "7.48:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "acid-700",
+      "ratio": 4.093,
+      "ratio_display": "4.09:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "acid-800",
+      "ratio": 2.0927,
+      "ratio_display": "2.09:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "neutral-100",
+      "ratio": 9.8959,
+      "ratio_display": "9.90:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "neutral-200",
+      "ratio": 7.3061,
+      "ratio_display": "7.31:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "neutral-300",
+      "ratio": 5.2369,
+      "ratio_display": "5.24:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "neutral-400",
+      "ratio": 3.6762,
+      "ratio_display": "3.68:1",
+      "aa_normal": false,
+      "aa_large": true,
+      "status": "large"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "neutral-500",
+      "ratio": 2.5019,
+      "ratio_display": "2.50:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "neutral-600",
+      "ratio": 1.809,
+      "ratio_display": "1.81:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "neutral-700",
+      "ratio": 1.3194,
+      "ratio_display": "1.32:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    },
+    {
+      "foreground_id": "neutral-800",
+      "background_id": "neutral-800",
+      "ratio": 1.0,
+      "ratio_display": "1.00:1",
+      "aa_normal": false,
+      "aa_large": false,
+      "status": "fail"
+    }
+  ],
+  "anchor_matrix": {
+    "color_ids": [
+      "acid",
+      "deep",
+      "pale",
+      "ink",
+      "white",
+      "cloud",
+      "black"
+    ],
+    "pairings": [
+      {
+        "foreground_id": "acid",
+        "background_id": "acid",
+        "ratio": 1.0,
+        "ratio_display": "1.00:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "acid",
+        "background_id": "deep",
+        "ratio": 11.739,
+        "ratio_display": "11.74:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "acid",
+        "background_id": "pale",
+        "ratio": 1.0944,
+        "ratio_display": "1.09:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "acid",
+        "background_id": "ink",
+        "ratio": 15.5593,
+        "ratio_display": "15.56:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "acid",
+        "background_id": "white",
+        "ratio": 1.1497,
+        "ratio_display": "1.15:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "acid",
+        "background_id": "cloud",
+        "ratio": 1.0368,
+        "ratio_display": "1.04:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "acid",
+        "background_id": "black",
+        "ratio": 18.2652,
+        "ratio_display": "18.27:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "deep",
+        "background_id": "acid",
+        "ratio": 11.739,
+        "ratio_display": "11.74:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "deep",
+        "background_id": "deep",
+        "ratio": 1.0,
+        "ratio_display": "1.00:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "deep",
+        "background_id": "pale",
+        "ratio": 12.8477,
+        "ratio_display": "12.85:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "deep",
+        "background_id": "ink",
+        "ratio": 1.3254,
+        "ratio_display": "1.33:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "deep",
+        "background_id": "white",
+        "ratio": 13.4966,
+        "ratio_display": "13.50:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "deep",
+        "background_id": "cloud",
+        "ratio": 12.1708,
+        "ratio_display": "12.17:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "deep",
+        "background_id": "black",
+        "ratio": 1.5559,
+        "ratio_display": "1.56:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "pale",
+        "background_id": "acid",
+        "ratio": 1.0944,
+        "ratio_display": "1.09:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "pale",
+        "background_id": "deep",
+        "ratio": 12.8477,
+        "ratio_display": "12.85:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "pale",
+        "background_id": "pale",
+        "ratio": 1.0,
+        "ratio_display": "1.00:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "pale",
+        "background_id": "ink",
+        "ratio": 17.0288,
+        "ratio_display": "17.03:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "pale",
+        "background_id": "white",
+        "ratio": 1.0505,
+        "ratio_display": "1.05:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "pale",
+        "background_id": "cloud",
+        "ratio": 1.0556,
+        "ratio_display": "1.06:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "pale",
+        "background_id": "black",
+        "ratio": 19.9903,
+        "ratio_display": "19.99:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "ink",
+        "background_id": "acid",
+        "ratio": 15.5593,
+        "ratio_display": "15.56:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "ink",
+        "background_id": "deep",
+        "ratio": 1.3254,
+        "ratio_display": "1.33:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "ink",
+        "background_id": "pale",
+        "ratio": 17.0288,
+        "ratio_display": "17.03:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "ink",
+        "background_id": "ink",
+        "ratio": 1.0,
+        "ratio_display": "1.00:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "ink",
+        "background_id": "white",
+        "ratio": 17.889,
+        "ratio_display": "17.89:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "ink",
+        "background_id": "cloud",
+        "ratio": 16.1316,
+        "ratio_display": "16.13:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "ink",
+        "background_id": "black",
+        "ratio": 1.1739,
+        "ratio_display": "1.17:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "white",
+        "background_id": "acid",
+        "ratio": 1.1497,
+        "ratio_display": "1.15:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "white",
+        "background_id": "deep",
+        "ratio": 13.4966,
+        "ratio_display": "13.50:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "white",
+        "background_id": "pale",
+        "ratio": 1.0505,
+        "ratio_display": "1.05:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "white",
+        "background_id": "ink",
+        "ratio": 17.889,
+        "ratio_display": "17.89:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "white",
+        "background_id": "white",
+        "ratio": 1.0,
+        "ratio_display": "1.00:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "white",
+        "background_id": "cloud",
+        "ratio": 1.1089,
+        "ratio_display": "1.11:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "white",
+        "background_id": "black",
+        "ratio": 21.0,
+        "ratio_display": "21.00:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "cloud",
+        "background_id": "acid",
+        "ratio": 1.0368,
+        "ratio_display": "1.04:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "cloud",
+        "background_id": "deep",
+        "ratio": 12.1708,
+        "ratio_display": "12.17:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "cloud",
+        "background_id": "pale",
+        "ratio": 1.0556,
+        "ratio_display": "1.06:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "cloud",
+        "background_id": "ink",
+        "ratio": 16.1316,
+        "ratio_display": "16.13:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "cloud",
+        "background_id": "white",
+        "ratio": 1.1089,
+        "ratio_display": "1.11:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "cloud",
+        "background_id": "cloud",
+        "ratio": 1.0,
+        "ratio_display": "1.00:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "cloud",
+        "background_id": "black",
+        "ratio": 18.937,
+        "ratio_display": "18.94:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "black",
+        "background_id": "acid",
+        "ratio": 18.2652,
+        "ratio_display": "18.27:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "black",
+        "background_id": "deep",
+        "ratio": 1.5559,
+        "ratio_display": "1.56:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "black",
+        "background_id": "pale",
+        "ratio": 19.9903,
+        "ratio_display": "19.99:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "black",
+        "background_id": "ink",
+        "ratio": 1.1739,
+        "ratio_display": "1.17:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      },
+      {
+        "foreground_id": "black",
+        "background_id": "white",
+        "ratio": 21.0,
+        "ratio_display": "21.00:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "black",
+        "background_id": "cloud",
+        "ratio": 18.937,
+        "ratio_display": "18.94:1",
+        "aa_normal": true,
+        "aa_large": true,
+        "status": "normal"
+      },
+      {
+        "foreground_id": "black",
+        "background_id": "black",
+        "ratio": 1.0,
+        "ratio_display": "1.00:1",
+        "aa_normal": false,
+        "aa_large": false,
+        "status": "fail"
+      }
+    ]
+  },
+  "recommended_pairings": [
+    {
+      "foreground_id": "ink",
+      "background_id": "acid",
+      "ratio": 15.5593,
+      "ratio_display": "15.56:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal",
+      "label": "Ink on Acid"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "ink",
+      "ratio": 15.5593,
+      "ratio_display": "15.56:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal",
+      "label": "Acid on Ink"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "white",
+      "ratio": 17.889,
+      "ratio_display": "17.89:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal",
+      "label": "Ink on White"
+    },
+    {
+      "foreground_id": "white",
+      "background_id": "ink",
+      "ratio": 17.889,
+      "ratio_display": "17.89:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal",
+      "label": "White on Ink"
+    },
+    {
+      "foreground_id": "ink",
+      "background_id": "cloud",
+      "ratio": 16.1316,
+      "ratio_display": "16.13:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal",
+      "label": "Ink on Cloud"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "pale",
+      "ratio": 12.8477,
+      "ratio_display": "12.85:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal",
+      "label": "Deep on Pale"
+    },
+    {
+      "foreground_id": "deep",
+      "background_id": "acid",
+      "ratio": 11.739,
+      "ratio_display": "11.74:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal",
+      "label": "Deep on Acid"
+    },
+    {
+      "foreground_id": "acid",
+      "background_id": "deep",
+      "ratio": 11.739,
+      "ratio_display": "11.74:1",
+      "aa_normal": true,
+      "aa_large": true,
+      "status": "normal",
+      "label": "Acid on Deep"
+    }
+  ]
+}

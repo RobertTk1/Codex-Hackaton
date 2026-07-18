@@ -12,6 +12,7 @@ PACKET_DIR = SOURCE_DIR.parent
 HTML_PATH = SOURCE_DIR / "brandbook.html"
 CSS_PATH = SOURCE_DIR / "brandbook.css"
 TOKEN_CSS_PATH = PACKET_DIR / "tokens" / "brand-tokens.css"
+WCAG_JS_PATH = SOURCE_DIR / "wcag-matrix.js"
 PREVIEW_DIR = PACKET_DIR / "pages" / "source"
 AUDIT_PATH = PACKET_DIR / "references" / "t008-audit.json"
 CONTACT_SHEET_PATH = PACKET_DIR / "references" / "t008-source-contact-sheet.png"
@@ -115,6 +116,7 @@ def main():
     html = HTML_PATH.read_text(encoding="utf-8")
     css = CSS_PATH.read_text(encoding="utf-8")
     token_css = TOKEN_CSS_PATH.read_text(encoding="utf-8")
+    wcag_js = WCAG_JS_PATH.read_text(encoding="utf-8")
 
     parser = BrandbookParser()
     parser.feed(html)
@@ -138,13 +140,14 @@ def main():
     for mockup in REQUIRED_MOCKUPS:
         assert mockup in parser.image_sources, f"Mockup not referenced: {mockup}"
 
-    combined_source = "\n".join([html, css])
+    combined_source = "\n".join([html, css, wcag_js])
     for forbidden in ["mayven", "cruise", "@mayven"]:
         assert not re.search(forbidden, combined_source, re.IGNORECASE), f"Forbidden copied reference term: {forbidden}"
     assert not re.search(r"https?://", combined_source, re.IGNORECASE), "External URL found in source"
     assert "@font-face" in token_css
     assert "Instrument Serif" in token_css and "Space Grotesk" in token_css
-    assert "15.56:1" in html and "17.89:1" in html and "12.85:1" in html
+    assert "wcag-matrix.js" in html and "wcag-matrix" in html and "wcag-recommendations" in html
+    assert "15.56:1" in wcag_js and "17.89:1" in wcag_js and "12.85:1" in wcag_js
     assert "@page" in css and "size: 12.8in 8in" in css
     css_literal_hex_colors = sorted(set(re.findall(r"#[0-9A-Fa-f]{6}", css)))
     assert not css_literal_hex_colors, f"Literal CSS colors bypass tokens: {css_literal_hex_colors}"
@@ -177,10 +180,13 @@ def main():
             "html": str(HTML_PATH.relative_to(PACKET_DIR)),
             "css": str(CSS_PATH.relative_to(PACKET_DIR)),
             "renderer": "source/render_source.js",
+            "wcag_page_data": str(WCAG_JS_PATH.relative_to(PACKET_DIR)),
             "html_bytes": HTML_PATH.stat().st_size,
             "css_bytes": CSS_PATH.stat().st_size,
+            "wcag_js_bytes": WCAG_JS_PATH.stat().st_size,
             "html_sha256": sha256(HTML_PATH),
             "css_sha256": sha256(CSS_PATH),
+            "wcag_js_sha256": sha256(WCAG_JS_PATH),
         },
         "pages": {
             "count": len(parser.page_ids),

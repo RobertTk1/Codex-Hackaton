@@ -1,8 +1,8 @@
 {
   "project": "Magic Mirror Brandbook Packet",
   "created_at": "2026-07-18T11:52:49Z",
-  "updated_at": "2026-07-18T13:24:01Z",
-  "current_session": 11,
+  "updated_at": "2026-07-18T13:33:46Z",
+  "current_session": 12,
   "tasks": [
     {
       "id": "T001",
@@ -170,7 +170,7 @@
       "id": "T009",
       "name": "Compute and embed WCAG matrix",
       "description": "Calculate contrast ratios for useful Acid Dispatch text/background combinations, save raw data, and embed a readable compliance matrix in the brandbook.",
-      "status": "pending",
+      "status": "complete",
       "depends_on": ["T008"],
       "order": 9,
       "spec_ref": "spec/palette-and-tokens.md",
@@ -182,9 +182,9 @@
       ],
       "verification": "command review: record matrix cell count, AA-normal count, AA-large count, calculation method, and source/token paths",
       "subtasks": [],
-      "notes": "",
+      "notes": "Passed T009 calculation, embedding, render, visual, and independent formula audit. Canonicalized 22 unique approved/derived colors and calculated all 484 ordered foreground/background combinations, including self-pairs and failures, using WCAG 2.x relative luminance. Raw parseable JSON records each ratio, normal-AA result at 4.5:1, large-AA result at 3.0:1, and status: 178 normal-AA passes, 238 large-AA passes, 60 large-only pairs, and 246 all-text failures. Page 10 now embeds all 49 anchor combinations plus 8 verified normal-AA recommendations and the raw-data path. Independent recalculation found 0 ratio, normal-result, large-result, or status mismatches. Original-resolution page review found the matrix, key, recommendations, and thresholds legible with 0 clipping/overflow. Evidence: tokens/wcag-matrix.json and references/t009-audit.json.",
       "created_at": "2026-07-18T11:52:49Z",
-      "updated_at": "2026-07-18T11:52:49Z"
+      "updated_at": "2026-07-18T13:33:46Z"
     },
     {
       "id": "T010",

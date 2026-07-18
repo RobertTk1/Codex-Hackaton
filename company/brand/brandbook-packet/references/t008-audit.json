@@ -1,15 +1,18 @@
 {
   "task_id": "T008",
   "status": "passed",
-  "verified_at": "2026-07-18T13:25:06Z",
+  "verified_at": "2026-07-18T13:33:46Z",
   "source": {
     "html": "source/brandbook.html",
     "css": "source/brandbook.css",
     "renderer": "source/render_source.js",
-    "html_bytes": 24944,
-    "css_bytes": 27766,
-    "html_sha256": "dcc5eb357f25d9175b3274ba8c11aa5fb371891ac6311fa1908a75f24af86e40",
-    "css_sha256": "139c527bafce3760ec345b5d173ea39ddb759694b214756272d5d7ab79458f83"
+    "wcag_page_data": "source/wcag-matrix.js",
+    "html_bytes": 24781,
+    "css_bytes": 30878,
+    "wcag_js_bytes": 11396,
+    "html_sha256": "8cf0ecb4063158612696f904579f88610d2ed6b638f7a7fc79ae0a9a9a0a4391",
+    "css_sha256": "d55d03e404c11e9a24807f6fc9bdb8ccb6c648249c25a8e5d823858a7fde240b",
+    "wcag_js_sha256": "2f820fca6ce97a97e4e4df50223bcdad9e7ce410655b52d874926b0e0875f6dc"
   },
   "pages": {
     "count": 19,
@@ -137,8 +140,8 @@
         "path": "pages/source/page-10-wcag.png",
         "width_px": 1600,
         "height_px": 1000,
-        "bytes": 90340,
-        "sha256": "4f5c9fea296dcdac2022ca2cf3cc01bbc47cf6a21f27e5be7e56da44638785eb"
+        "bytes": 132034,
+        "sha256": "0c2f82960f6f4ddacae055e000db67fe693b7b6efe2c562a85d43c71f2ac134e"
       },
       {
         "path": "pages/source/page-11-business-card.png",
@@ -208,8 +211,8 @@
       "path": "references/t008-source-contact-sheet.png",
       "width_px": 1600,
       "height_px": 800,
-      "bytes": 631309,
-      "sha256": "5b2ce04d3801e9760ffa427f75e554c0a8eb2f09310bc372460d89e153918132"
+      "bytes": 646464,
+      "sha256": "33c3276d941d4c0ff6589396b517894e2f01471d1a785c76a30332bb59711262"
     }
   },
   "visual_review": {
