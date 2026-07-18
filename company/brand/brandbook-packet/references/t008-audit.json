@@ -1,0 +1,239 @@
+{
+  "task_id": "T008",
+  "status": "passed",
+  "verified_at": "2026-07-18T13:25:06Z",
+  "source": {
+    "html": "source/brandbook.html",
+    "css": "source/brandbook.css",
+    "renderer": "source/render_source.js",
+    "html_bytes": 24944,
+    "css_bytes": 27766,
+    "html_sha256": "dcc5eb357f25d9175b3274ba8c11aa5fb371891ac6311fa1908a75f24af86e40",
+    "css_sha256": "139c527bafce3760ec345b5d173ea39ddb759694b214756272d5d7ab79458f83"
+  },
+  "pages": {
+    "count": 19,
+    "ordered_ids": [
+      "page-01-logo-dark",
+      "page-02-logo-light",
+      "page-03-contents",
+      "page-04-logo-usage",
+      "page-05-logo-avoid",
+      "page-06-primary-colors",
+      "page-07-secondary-colors",
+      "page-08-buttons-links",
+      "page-09-elements",
+      "page-10-wcag",
+      "page-11-business-card",
+      "page-12-billboard",
+      "page-13-browser-favicon",
+      "page-14-x-profile",
+      "page-15-linkedin-profile",
+      "page-16-tshirt",
+      "page-17-merchandise",
+      "page-18-typography",
+      "page-19-type-avoid"
+    ],
+    "footer_count": 19,
+    "folio_count": 19
+  },
+  "assets": {
+    "local_image_reference_count": 22,
+    "missing_or_external_images": [],
+    "required_mockups_referenced": [
+      "../mockups/business-card.png",
+      "../mockups/billboard.png",
+      "../mockups/browser-favicon-light.png",
+      "../mockups/browser-favicon-dark.png",
+      "../mockups/x-profile.png",
+      "../mockups/linkedin-profile.png",
+      "../mockups/tshirt.png",
+      "../mockups/compact-mirror.png"
+    ],
+    "local_fonts": [
+      "assets/fonts/instrument-serif/InstrumentSerif-Regular.ttf",
+      "assets/fonts/instrument-serif/InstrumentSerif-Italic.ttf",
+      "assets/fonts/space-grotesk/SpaceGrotesk[wght].ttf"
+    ]
+  },
+  "content_scans": {
+    "forbidden_reference_terms": 0,
+    "external_urls": 0,
+    "literal_hex_colors_in_page_css": [],
+    "wcag_preview_ratios_present": [
+      "15.56:1",
+      "17.89:1",
+      "12.85:1"
+    ]
+  },
+  "previews": {
+    "count": 19,
+    "dimensions": "1600x1000",
+    "files": [
+      {
+        "path": "pages/source/page-01-logo-dark.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 194630,
+        "sha256": "8ab674e1e6a55393a7636a143725fa4fc6c8e45a1ec03ef7ddd717e81ac67bbb"
+      },
+      {
+        "path": "pages/source/page-02-logo-light.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 87578,
+        "sha256": "910aaa1429b2d74ae329eb31393d54818afac4ca5b1876da62363e4dc4c0a243"
+      },
+      {
+        "path": "pages/source/page-03-contents.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 95784,
+        "sha256": "f527c4d882d58e85acbc53e27c459466d90422bd47ab4c0b87bb0e936ba0b0c4"
+      },
+      {
+        "path": "pages/source/page-04-logo-usage.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 112429,
+        "sha256": "ff43e2103db673d576fa0bad0e6e5642afe009fc8106486542c06ae3342a6b26"
+      },
+      {
+        "path": "pages/source/page-05-logo-avoid.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 160361,
+        "sha256": "1d51952b71bf676a79a5f01006b26532af9bf1ea27fac044a8a79939a8cc4dca"
+      },
+      {
+        "path": "pages/source/page-06-primary-colors.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 76411,
+        "sha256": "3e8b11c504d48b9ff850281b93b3cd41335cef114144fc7fec0fd3b8a7f15a8c"
+      },
+      {
+        "path": "pages/source/page-07-secondary-colors.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 78475,
+        "sha256": "0fdb520540b304443559eb18d067771f3cf88de7cc31a7bf25ad9a3ff0645afb"
+      },
+      {
+        "path": "pages/source/page-08-buttons-links.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 90456,
+        "sha256": "d360f90d32715c9e8090d605b762db530eb4e7d8a04f6df86bbcd84ca1d6ff35"
+      },
+      {
+        "path": "pages/source/page-09-elements.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 109873,
+        "sha256": "4d00396d1d140152ee5a032ad2e13681deda983e5053771845371c4c57165619"
+      },
+      {
+        "path": "pages/source/page-10-wcag.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 90340,
+        "sha256": "4f5c9fea296dcdac2022ca2cf3cc01bbc47cf6a21f27e5be7e56da44638785eb"
+      },
+      {
+        "path": "pages/source/page-11-business-card.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 1079284,
+        "sha256": "3090e32eb83470b0a78379bae85f3266c533935fe314b5647ff52a94ef259f7b"
+      },
+      {
+        "path": "pages/source/page-12-billboard.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 891570,
+        "sha256": "76bc960896158f655c563c89fc536dc393aac9347c0183eda46a062b5c12150a"
+      },
+      {
+        "path": "pages/source/page-13-browser-favicon.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 570266,
+        "sha256": "9489f8ea83b6fcdc7a387dd9231cc6064a8c7adbbd80ee6644d17b245f97d259"
+      },
+      {
+        "path": "pages/source/page-14-x.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 730629,
+        "sha256": "4666af5b904e00afc3b00c41a2cab6be88f12de71c572c7763ea595138df6a57"
+      },
+      {
+        "path": "pages/source/page-15-linkedin.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 736912,
+        "sha256": "1f39acee39554f69ceeb627f8e311d276444900b8d01f84c01293cab484a0873"
+      },
+      {
+        "path": "pages/source/page-16-tshirt.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 865459,
+        "sha256": "7985e80b48e833c9c203e720499250445afcc0bc745c39ba6784abb7451284a8"
+      },
+      {
+        "path": "pages/source/page-17-merchandise.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 801649,
+        "sha256": "1ee7153a909880c7c3a9e895c5a2823155184210c4f1d2f2faf5bff002d34417"
+      },
+      {
+        "path": "pages/source/page-18-typography.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 95388,
+        "sha256": "acdca001ec48523ecebe8c572fc62a8bed4d86c884af011513e574b2e129499a"
+      },
+      {
+        "path": "pages/source/page-19-type-avoid.png",
+        "width_px": 1600,
+        "height_px": 1000,
+        "bytes": 106203,
+        "sha256": "6f676619a9e74ac08ce82ce5f5379332de00ba7d4ecbda5f911b95826d79c278"
+      }
+    ],
+    "contact_sheet": {
+      "path": "references/t008-source-contact-sheet.png",
+      "width_px": 1600,
+      "height_px": 800,
+      "bytes": 631309,
+      "sha256": "5b2ce04d3801e9760ffa427f75e554c0a8eb2f09310bc372460d89e153918132"
+    }
+  },
+  "visual_review": {
+    "method": "Full contact-sheet review followed by original-resolution inspection of dense and risk-sensitive pages.",
+    "contact_sheet_reviewed": true,
+    "original_resolution_pages": [
+      4,
+      5,
+      7,
+      8,
+      9,
+      10,
+      13,
+      18,
+      19
+    ],
+    "results": {
+      "clipping_or_overflow": 0,
+      "weak_or_missing_hierarchy": 0,
+      "unreadable_dense_content": 0,
+      "mockup_crop_failures": 0,
+      "font_loading_failures": 0,
+      "passed": true
+    }
+  },
+  "decision": "Accepted the ordered 19-page local HTML/CSS source and one 1600x1000 preview per page. Every image resolves locally, all eight audited ImageGen mockups are referenced, local fonts are declared, page folios and footers are complete, and copied reference-brand terms and external URLs are absent."
+}
