@@ -1,0 +1,259 @@
+{
+  "task_id": "T012",
+  "status": "passed",
+  "verified_at": "2026-07-18T14:43:35Z",
+  "tasks": {
+    "count": 12,
+    "complete_count": 12,
+    "tasks_with_notes": 12,
+    "evidence": {
+      "T001": [
+        {
+          "path": "references/t001-audit.json",
+          "bytes": 3544,
+          "sha256": "ea81da40bb619d2333ef5b3df5befa85bcdda02e1501c8e4ce5b4026eda728c7"
+        }
+      ],
+      "T002": [
+        {
+          "path": "references/t002-audit.json",
+          "bytes": 5030,
+          "sha256": "76c00520acaab80bb483b9edf75f9d6789795db22ea4ea7dc9d373ee82170972"
+        },
+        {
+          "path": "references/t002-revision-audit.json",
+          "bytes": 5723,
+          "sha256": "83491c1f0519c994caa90a12799b8dda6cb46ac29fddb0151313c32c5e555511"
+        }
+      ],
+      "T003": [
+        {
+          "path": "references/t003-audit.json",
+          "bytes": 4979,
+          "sha256": "06740e1ca94fcd3264f82b37a6a1532bca0d2c111c194e9f08d8629879765b16"
+        }
+      ],
+      "T004": [
+        {
+          "path": "references/t004-audit.json",
+          "bytes": 5047,
+          "sha256": "052d84cebb639ddd9016a6e7be5758db6c166c23f46765b53844164e18ab9c0f"
+        }
+      ],
+      "T005": [
+        {
+          "path": "references/t005-audit.json",
+          "bytes": 7171,
+          "sha256": "48d3f8284dfe616037e36942ae1687c6d0fa383f9ee20555bc19508354c32503"
+        }
+      ],
+      "T006": [
+        {
+          "path": "references/t006-correction-audit.json",
+          "bytes": 3198,
+          "sha256": "02abcb30dca636631c04125e0afacc8c5872993d7f70cef5a7b730f978dd0409"
+        }
+      ],
+      "T007": [
+        {
+          "path": "references/t007-audit.json",
+          "bytes": 4641,
+          "sha256": "b0c0a6eb0dc8e919aa9008a2201c82112ce4f43efe7f75a80a559cd17050a3a6"
+        }
+      ],
+      "T008": [
+        {
+          "path": "references/t008-audit.json",
+          "bytes": 8324,
+          "sha256": "e83f308705ff5d0a4554ab1e3de2601e65e596cd3547e943e2e4b303e9d18bca"
+        }
+      ],
+      "T009": [
+        {
+          "path": "references/t009-audit.json",
+          "bytes": 2400,
+          "sha256": "906b6b72d83bd5e08b3d4a79444a4be55c851c04b7afd685290af10df4f2c0cb"
+        }
+      ],
+      "T010": [
+        {
+          "path": "references/t010-audit.json",
+          "bytes": 8798,
+          "sha256": "75f4f7833bdcefa8bd01750a4e7b6200007b6949babda49892a15afa49fa09c0"
+        }
+      ],
+      "T011": [
+        {
+          "path": "references/t011-audit.json",
+          "bytes": 2413,
+          "sha256": "1db109fd1779e194c6c0402b064a6b5117396a96c097405efea73deb902c2f72"
+        }
+      ]
+    }
+  },
+  "packet": {
+    "pdf": {
+      "path": "brandbook-packet/Magic-Mirror-Brandbook.pdf",
+      "bytes": 13025888,
+      "sha256": "49d8737aff4b847e00c56cacecdedb436c9dd1fe848a6f060a1fe8364def4487",
+      "page_count": 19,
+      "page_size": "11x8.5in US Letter landscape"
+    },
+    "design_md": {
+      "path": "brandbook-packet/DESIGN.md",
+      "bytes": 13338,
+      "sha256": "edce1f7791c9ecd8983613a1913607c6187a6674cb38d7b58e7cb22171d49e8e"
+    },
+    "source_preview_count": 19,
+    "pdf_preview_count": 19,
+    "preview_dimensions": "2112x1632",
+    "mockups": [
+      {
+        "path": "mockups/business-card.png",
+        "width_px": 1536,
+        "height_px": 1024,
+        "bytes": 2346190,
+        "sha256": "3a90c4d6aa46b7d81d146e530edd37085b85414b2079dd56dd1b00818a5d0d16"
+      },
+      {
+        "path": "mockups/billboard.png",
+        "width_px": 1536,
+        "height_px": 1024,
+        "bytes": 2046774,
+        "sha256": "2987070b37e3b6cf509e938e09f7bcc255218989ce0e94f4a2dde3a72e4511ef"
+      },
+      {
+        "path": "mockups/browser-favicon-light.png",
+        "width_px": 1852,
+        "height_px": 850,
+        "bytes": 1006337,
+        "sha256": "fb50b0ca0958ee02ed89dbe0d7f370f5a29f44ee4b1b8a8b97247691bf44a34e"
+      },
+      {
+        "path": "mockups/browser-favicon-dark.png",
+        "width_px": 1852,
+        "height_px": 850,
+        "bytes": 1055173,
+        "sha256": "0668cfbbd57c86af97b341d9a49af9dd9ebcd2c060ee9b562effa86544850057"
+      },
+      {
+        "path": "mockups/x-profile.png",
+        "width_px": 1536,
+        "height_px": 1024,
+        "bytes": 1408296,
+        "sha256": "1c9606e480bda2bac2169dad0adf1fa77142a7d131de8998cf45972af3ab15b7"
+      },
+      {
+        "path": "mockups/linkedin-profile.png",
+        "width_px": 1536,
+        "height_px": 1024,
+        "bytes": 1373391,
+        "sha256": "e88a9aa55a86932fb0cb15cfa2d90f29f523d68c284ea502caf181a19ebc495b"
+      },
+      {
+        "path": "mockups/tshirt.png",
+        "width_px": 1536,
+        "height_px": 1024,
+        "bytes": 2003268,
+        "sha256": "b08fc71fa2c753e58dca92e3809930c45c2809c291c4fae84e0c4f36c129faa2"
+      },
+      {
+        "path": "mockups/compact-mirror.png",
+        "width_px": 1536,
+        "height_px": 1024,
+        "bytes": 1859554,
+        "sha256": "abad40451b3abb38cf0a5a8f8e75337f8b43be70e08ec8a4c594ca658e0765fe"
+      }
+    ],
+    "font_file_count": 3,
+    "font_license_count": 2,
+    "token_files": [
+      {
+        "path": "tokens/brand-tokens.json",
+        "bytes": 4087,
+        "sha256": "3cb1398eec5ccc20b3d6cd21fb0ce90568212961f44fcc8b779c3595d18ee861"
+      },
+      {
+        "path": "tokens/derived-palette.json",
+        "bytes": 888,
+        "sha256": "901685daf29c85e38e158f61046c7e72cb9f0076f2ff6e4c6235d56c22053274"
+      },
+      {
+        "path": "tokens/wcag-matrix.json",
+        "bytes": 120309,
+        "sha256": "9d1ae180e6284f7def7d59591951a6f89d074887fcb74161107ef84dee9ebbac"
+      }
+    ],
+    "css_token_path": "tokens/brand-tokens.css",
+    "mayven_reference_page_count": 19
+  },
+  "source_integrity": {
+    "local_reference_count": 21,
+    "resolved_inside_company_brand": [
+      "brandbook-packet/tokens/brand-tokens.css",
+      "brandbook-packet/source/brandbook.css",
+      "brandbook-packet/source/wcag-matrix.js",
+      "exports/combined/png/transparent/acid/magic-mirror-combined-acid-2048px.png",
+      "exports/wordmark/png/transparent/ink/magic-mirror-wordmark-ink-2048px.png",
+      "exports/wordmark/png/transparent/ink/magic-mirror-wordmark-ink-2048px.png",
+      "exports/combined/png/transparent/acid/magic-mirror-combined-acid-2048px.png",
+      "exports/icon/png/transparent/ink/magic-mirror-icon-ink-1024px.png",
+      "exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png",
+      "exports/combined/png/transparent/white/magic-mirror-combined-white-1024px.png",
+      "exports/combined/png/transparent/white/magic-mirror-combined-white-1024px.png",
+      "exports/icon/png/transparent/acid/magic-mirror-icon-acid-32px.png",
+      "exports/icon/png/transparent/ink/magic-mirror-icon-ink-512px.png",
+      "brandbook-packet/mockups/business-card.png",
+      "brandbook-packet/mockups/billboard.png",
+      "brandbook-packet/mockups/browser-favicon-light.png",
+      "brandbook-packet/mockups/browser-favicon-dark.png",
+      "brandbook-packet/mockups/x-profile.png",
+      "brandbook-packet/mockups/linkedin-profile.png",
+      "brandbook-packet/mockups/tshirt.png",
+      "brandbook-packet/mockups/compact-mirror.png"
+    ],
+    "missing_references": [],
+    "external_references": [],
+    "copied_reference_terms_in_final_html": 0,
+    "literal_off-token_page_css_colors": 0,
+    "complete_icon_recommended_at_16px": false
+  },
+  "visual_verification": {
+    "source_contact_sheet": "brandbook-packet/references/t008-source-contact-sheet.png",
+    "mayven_comparison": "brandbook-packet/references/t008-mayven-comparison-contact-sheet.png",
+    "pdf_contact_sheet": "brandbook-packet/pages/contact-sheet.png",
+    "pdf_original_resolution_pages_inspected": [
+      1,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "remaining_visual_defects": 0
+  },
+  "operating_memory": {
+    "plan": "company/plan.md",
+    "activity": "company/activity.md",
+    "run_log": "company/run-log.md",
+    "progress": "company/brand/brandbook-loop/progress.txt",
+    "current": true
+  },
+  "caveats": [
+    "Magic Mirror is a hackathon working title.",
+    "Social and company/profile mockups are concepts and do not imply live accounts.",
+    "Natural environmental colors in raster mockups are contextual photography, not reusable brand tokens.",
+    "Mayven is composition authority only; its identity, copy, colors, and travel imagery are not Magic Mirror assets."
+  ],
+  "decision": "Accepted the complete Magic Mirror brandbook packet after verifying all 12 tasks and evidence notes, the 19-page PDF, 38 source/PDF previews, eight ImageGen mockups, source and reference boundaries, fonts and licenses, tokens and WCAG data, DESIGN.md links, Mayven composition audit, final visual review, and company operating-memory updates."
+}

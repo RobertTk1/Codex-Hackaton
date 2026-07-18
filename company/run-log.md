@@ -1,0 +1,20 @@
+# Run Log
+
+Append-only operating log for agent actions and important system events.
+
+## 2026-07-17
+
+- 20:40:37 EDT :: Created the `magic-mirror/` company operations folder.
+- 20:40:37 EDT :: Added `company.md`, `activity.md`, and `run-log.md` from the Magic Mirror product strategy and repository scope.
+- 20:40:37 EDT :: Created `workflows/`, `automations/`, and `artifacts/` operating directories.
+- 20:40:37 EDT :: Recorded U.S.-first consumer validation as a reversible geography assumption and kept all pricing as TBD.
+- 20:53:30 EDT :: Renamed the company operations folder from `magic-mirror/` to `company/`.
+- 20:53:30 EDT :: Moved the living roadmap from root `plan.md` to `company/plan.md`.
+- 20:53:30 EDT :: Updated repository guidance so future work uses the consolidated company workspace.
+- 20:54:38 EDT :: Verified that `company/` contains the plan, company profile, activity log, run log, workflows, automations, and artifacts, with no duplicate root plan.
+
+## 2026-07-18
+
+- 10:41:52 EDT :: Integrated the complete company operating workspace into the brandbook branch and resolved the canonical roadmap at `company/plan.md`.
+- 10:41:52 EDT :: Completed the reusable 12-task brandbook loop, 19-page US Letter PDF, DESIGN.md, 38 source/PDF previews, eight ImageGen application mockups, token and WCAG data, Mayven comparison evidence, and final packet audit.
+- 10:41:52 EDT :: Updated the global brandbook-loop-builder guidance with the Mayven layout references, ImageGen-only application mockup rule, platform-specific LinkedIn/X/browser requirements, and paired light/dark X icon treatment.
