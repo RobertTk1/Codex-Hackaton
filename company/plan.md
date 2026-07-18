@@ -2,7 +2,7 @@
 
 ## How to Use This Plan
 
-This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The detailed PRD has not yet been added; refine this plan after Robert provides it rather than guessing requirements.
+This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The extracted V1 requirements live in `company/artifacts/product/magic-mirror-v1-prd.md`.
 
 ## Product Goal
 
@@ -25,8 +25,8 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - [x] Establish the base Magic Mirror company profile and operating workspace from the product strategy.
 - [x] Complete U.S.-first market research and competitor analysis for the V1 purchase-decision opportunity.
 - [x] Define and score candidate audiences; select the behavioral V1 beachhead and validation cohort.
-- [ ] Add and decompose the full PRD.
-- [ ] Define the golden-path Given/When/Then scenario and acceptance criteria.
+- [x] Extract the product strategy into a focused V1 PRD and separate roadmap scope.
+- [x] Define the golden-path Given/When/Then scenario and acceptance criteria.
 - [ ] Evaluate generation providers using latency, output quality, reliability, integration effort, and cost.
 - [ ] Decide photo retention and deletion behavior before storing real user photos.
 - [ ] Confirm the minimum garment catalog and required source assets.
@@ -75,10 +75,10 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 ## Next
 
-1. Add the full product strategy and PRD to the repository in an agreed source format, then convert it into phased requirements and acceptance criteria.
-2. Interview ten U.S. adult online apparel shoppers who can show a recent uncertain item; compare “Should I buy this?” messaging with generic “virtual try-on” messaging.
-3. Resolve photo processing, retention, and deletion behavior before asking interview participants to upload real photos.
-4. Benchmark two to three generation providers for identity and garment fidelity, p50/p95 latency, reliability, and cost across a representation-diverse, consented or synthetic test set.
+1. Benchmark two to three generation providers for identity and garment fidelity, p50/p95 latency, reliability, cost, commercial rights, and provider-side retention across a representation-diverse, consented or synthetic test set.
+2. Resolve photo processing, retention, deletion, and consent behavior before asking participants to upload real photos.
+3. Lock one garment category, minimum demo catalog, provider-compatible photo guidance, submission deadline, and fallback demo path.
+4. Interview ten U.S. adult online apparel shoppers who can show a recent uncertain item; compare “Should I buy this?” messaging with generic “virtual try-on” messaging.
 
 ## Decisions
 
@@ -106,6 +106,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-18: Require standardized application mockups to be recognizable from structure alone. Twitter/X, LinkedIn, and browser/favicon use distinct platform-specific ImageGen compositions; LinkedIn cannot reuse the X phone/profile layout.
 - 2026-07-18: Twitter/X application examples always pair one light-mode profile/avatar treatment with one dark-mode treatment, reversing the icon for clear contrast rather than duplicating one color treatment across both phones.
 - 2026-07-18: Accepted the reusable 19-page Magic Mirror brandbook packet after PDF-derived visual QA, a Mayven-to-Magic composition audit, and complete task/evidence verification under `company/brand/brandbook-packet/`.
+- 2026-07-18: Extracted `Magic Mirror Product Strategy.docx` into `company/artifacts/product/magic-mirror-v1-prd.md`; narrowed the source document’s broad stylist MVP to the approved single-photo, single-garment, static try-on golden path and retained adjacent capabilities as V2+.
 
 ## Roadmap Backlog (V2+)
 
