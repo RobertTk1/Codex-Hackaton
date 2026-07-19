@@ -1,6 +1,6 @@
 # Magic Mirror — Repository Guidelines
 
-**Status:** Hackathon prototype; working title. Magic Mirror is a virtual try-on web platform. The V1 golden path is: a user uploads or captures one photo, selects one garment, and receives a near-real-time rendered image or video of themselves wearing it. Everything else—including stylist recommendations, voice input, multi-garment outfits, and deep reasoning—is roadmap, not V1.
+**Status:** Hackathon prototype; working title. Magic Mirror is an AI personal stylist whose entry product is a comprehensive style report. The first functional golden path is: an adult begins in an anonymous authenticated session, completes a profile and brand-size history, uploads 8-12 full-body photos of favorite looks, calibrates taste with right/Love, left/Hate, and down/Maybe swipes, connects a permanent account with Google or an email magic link, and receives a real personalized style report plus curated recommendations within a target of one to two minutes. The complete defined journey continues into real live styling controlled by voice or camera-recognized hand gestures, a Magic Mirror bag, and retailer-owned checkout.
 
 ## Zero-to-One Discipline
 
@@ -71,13 +71,15 @@ Each environment needs `.env.local` containing the Supabase URL and anon key, a 
 
 ## Data Layer
 
-Use Supabase Postgres, not NoSQL. Users, preferences, garments, try-on sessions, and generated assets are naturally relational and require per-user row-level isolation.
+Use Supabase Postgres, not NoSQL. Users, style profiles, brand sizes, taste signals, reports, garments, styling sessions, and generated assets are naturally relational and require per-user row-level isolation.
 
 Start minimally:
 
-- `public.preferences`: `user_id` (1:1), sizes, style preferences, color preferences.
+- `public.preferences`: `user_id` (1:1), profile fields and explicit style preferences.
+- `public.brand_sizes`: `user_id`, brand, garment category, and known size.
+- `public.style_reports`: report ownership, version, generation status, and structured result reference.
 - `public.garments`: product metadata and garment asset references.
-- `public.tryon_sessions`: `user_id`, `garment_id`, `source_photo_ref`, `status`, `latency_ms`.
+- `public.styling_sessions`: `user_id`, active garment, status, and latency measurements.
 - `public.generated_assets`: session ownership and storage-bucket references.
 
 Store binaries in private storage buckets, never inline in Postgres. Add a table only when a real feature needs it, with a migration, row-level security policy, and matching Zod schema.
@@ -109,7 +111,9 @@ Continue numbering from the last entry. Never delete entries, even when obvious 
 2. **Never create application mockups with HTML/CSS, SVG, canvas, or deterministic UI rendering.** Generate browser, favicon, social, device, physical, environmental, apparel, and merchandise mockups with ImageGen as raster assets; browser/favicon families require separate light and dark images. Lesson: deterministic HTML browser and social specimens violated the owner’s required mockup workflow, 2026-07-18.
 3. **Always map brandbook pages and standardized application assets to the Mayven reference packet before production.** Layout fidelity and platform recognition are acceptance criteria; a structurally valid packet or polished generic phone screen is not enough. Lesson: Magic Mirror pages drifted into a different editorial system, and the LinkedIn mockup reused the X composition instead of looking like LinkedIn, 2026-07-18.
 4. **Always show paired light and dark icon treatments in Twitter/X brand mockups.** One profile uses the approved dark/primary icon on a light avatar surface; the other reverses to a light/high-contrast icon on a dark brand surface. Lesson: the corrected X mockup still repeated the same Acid-on-Ink avatar treatment on both phones, 2026-07-18.
+5. **Never use zsh's special `path` variable for task loops.** Use a task-specific name such as `artifact_path` so command lookup remains intact. Lesson: a validation loop assigned to `path` and made `git` unavailable in that shell process, 2026-07-18.
+6. **Never confuse building a reusable workflow with executing that workflow for the product.** When the owner asks to create supporting skills and then complete the workflow, the required outcome is the product-specific PRD, wireframes, copy, and mockups; orchestration files are not a substitute. Lesson: the frontend task produced a completed workflow-build loop but none of the required Magic Mirror frontend artifacts, 2026-07-18.
 
 ## Brand & Naming
 
-“Magic Mirror” is a working title. Do not invest in brand polish or visual identity until the golden path works.
+“Magic Mirror” is a working title. Preserve the approved hackathon identity, but prioritize the functioning style-intelligence golden path over additional brand expansion.

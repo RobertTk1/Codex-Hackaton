@@ -8,36 +8,37 @@ license: MIT
 authors:
   - name: Magic Mirror Team
 goals:
-  - Deliver a reliable hackathon golden path from one user photo and one selected garment to a near-real-time try-on result.
-  - Prove that virtual try-on can preserve the user's identity and the selected garment well enough to support a real clothing decision.
-  - Validate demand for personalized styling and purchase decision support before expanding into deeper recommendations, closets, voice, or retailer products.
+  - Deliver a reliable Style Intelligence Golden Path from guided profile and favorite-look photos to a real personal style report and curated recommendations within one to two minutes.
+  - Prove that visual taste learning and body-style guidance can produce a report customers find accurate, respectful, and actionable.
+  - Connect the report to real live styling controlled by voice or camera-recognized hand gestures, a Magic Mirror bag, and retailer-owned checkout as the complete product journey.
 ---
 
-Magic Mirror is a mobile-first AI wardrobe experience that begins with a focused virtual try-on prototype and can grow into persistent, personalized styling across screens.
+Magic Mirror is a mobile-first AI personal stylist that learns from a customer's profile, brand sizes, favorite outfits, and visual taste choices; explains a complete personal style; and turns that understanding into recommendations, live styling, and shopping action.
 
 Positioning statement:
 Magic Mirror helps online clothing shoppers and people who want to dress better make faster, more confident clothing decisions through personalized outfit guidance and privacy-conscious virtual try-on.
 
 Niche:
 - Consumer AI personal styling and virtual try-on.
-- V1 validation beachhead: U.S. adult online apparel shoppers deciding on one garment for a near-term, personally important occasion.
+- Initial validation beachhead: U.S. adult online apparel shoppers who want clearer personal style guidance and more confident purchase decisions.
 - V1 research cohort: representation-diverse participants across ages, skin tones, body shapes, gender presentations, and fashion confidence; these are quality-testing dimensions, not targeting requirements.
 - Engaged fashion shoppers who want to evaluate more looks with less effort.
 - Style improvers who want practical guidance without needing fashion expertise.
-- Hackathon V1: one user photo, one garment, and one rendered try-on result.
+- First functional build: anonymous onboarding, guided profile, brand sizes, 8-12 favorite-look photos, Love/Hate/Maybe taste calibration, Google or email magic-link account connection, real style analysis, a comprehensive report, and curated recommendations.
 
 Geography:
 - United States: initial hackathon demonstration and consumer-validation market (working assumption).
 - English-speaking North America: potential expansion after usefulness, privacy, and identity-preservation are validated.
 
 Services:
-- `Magic Mirror Try-On Demo`: A user uploads or captures one photo, selects one garment, and receives a near-real-time rendered image or video of themselves wearing it. `Hackathon prototype; no charge`
-- `Personalized Styling Session`: Visual taste learning, complete-outfit guidance, refinement, and static try-on. `Planned after the golden path; consumer pricing TBD`
+- `Magic Mirror Style Report`: A customer completes a guided profile, shares 8-12 favorite-look photos, calibrates taste, and receives a comprehensive personal style report plus curated recommendations. `Initial product; consumer pricing TBD`
+- `Magic Mirror Live Styling`: A report recipient tries recommended items in live video, refines selections by voice, collects choices, and continues to retailer checkout. `Planned engineering phase; consumer pricing TBD`
 - `Retailer Styling Platform`: Embedded styling, catalog integration, in-store experiences, and conversion analytics. `Future offer; custom pricing TBD`
 
 Operating constraints:
 - "Magic Mirror" is a working title; defer brand investment until the golden path works.
 - Treat try-on output as visualization, not a guarantee of physical fit.
 - Preserve facial identity, skin tone, approximate body proportions, and garment fidelity.
-- Obtain explicit consent for user imagery, store only what is required, and define retention and deletion behavior before launch.
-- Voice, multi-garment outfits, deep stylist reasoning, persistent closets, retailer integrations, and physical mirrors are roadmap items, not hackathon V1.
+- Obtain explicit consent for user imagery, store only what is required, and isolate every sensitive asset to its anonymous or permanent account owner; do not promise automatic image expiration in the current product.
+- Do not score attractiveness, shame body characteristics, or present a Kibbe-informed styling profile as medical or objective fact.
+- Complete checkout on retailer-owned destinations; Magic Mirror does not own payment, fulfillment, shipping, or returns.
