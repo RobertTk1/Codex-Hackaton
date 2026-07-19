@@ -2,7 +2,7 @@
 
 ## How to Use This Plan
 
-This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The detailed PRD package in `company/artifacts/prd/` was approved by Talisha White on 2026-07-19 as the foundation for UX design.
+This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The detailed PRD package in `company/artifacts/prd/` was approved by Talisha White on 2026-07-19 as the foundation for UX design. Configuration gates and their exact blockers live in [Configuration To-Do](configuration-todo.md).
 
 ## Product Goal
 
@@ -48,6 +48,8 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 
 **Completed flow:** [`Style Onboarding Tracer`](flows/style-onboarding-tracer/plan.md) — report-led landing page, validated profile, one brand-size entry, and browser-session-only continuity.
 
+**Completed flow:** [`Demo Catalog`](flows/demo-catalog/plan.md) — three local, image-backed garments for the preserved mock try-on selector.
+
 - [x] Scaffold the Next.js application in `apps/web` with required development, lint, typecheck, unit-test, and end-to-end-test scripts.
 - [x] Configure Tailwind, strict TypeScript, Zod, Vitest, and Playwright.
 - [x] Document required Supabase and provider environment variables with placeholders; live values remain unconfigured.
@@ -59,6 +61,7 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 **User outcome:** A first-time customer can teach Magic Mirror their style and receive a real personalized report and curated recommendations.
 
 - [x] Preserve the runnable mock tracer with local photo preview, hardcoded garment selection, typed validation, and explicit request states as an implementation baseline.
+- [x] Replace the mock tracer's garment color swatches with three local, image-backed demo catalog items.
 - [ ] Implement the report-led landing page and resumable guided onboarding.
 - [ ] Implement personal profile, favorite brands, and category-specific sizes.
 - [ ] Implement secure 8-12 favorite-look photo upload with validation, consent, and per-account isolation.
@@ -113,6 +116,15 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - [x] Verify the five-viewport desktop hero, simplified mobile hero, masonry layout, before/after control, idle screensaver, dismissal controls, and reduced-motion fallback.
 - [ ] Complete owner visual review and explicitly adopt, continue, park, or discard the direction before changing product copy or integrating any portion into `apps/web`.
 
+### Parallel Track — API & MCP Access (Post-Golden Path)
+
+**User outcome:** A trusted external agent, web client, or mobile client can submit an authorized image and garment selection, then observe a request through a stable API contract.
+
+- [ ] Define caller identity, user-image ownership, allowed actions, quotas, and audit requirements.
+- [ ] Define a versioned request plus typed asynchronous status and error responses.
+- [ ] Build a small authenticated API surface after the web golden path proves the same provider boundary.
+- [ ] Expose an MCP server only after the API contract and user-image permission model are proven.
+
 ## Next
 
 1. Review the landing, profile, and brand-size tracer against the approved wireframes, then decide whether to continue into favorite-look upload or revise this first slice.
@@ -149,6 +161,8 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - 2026-07-18: Extracted `Magic Mirror Product Strategy.docx` into `company/artifacts/product/magic-mirror-v1-prd.md`; narrowed the source document's broad stylist MVP to a single-photo, single-garment, static try-on baseline. This was later superseded as the active golden path by the approved style-report-led definition.
 - 2026-07-18: Store feature execution plans under `company/flows/<flow-name>/plan.md`; begin with the single-page `first-try-on-tracer` flow and reference it from the canonical roadmap.
 - 2026-07-18: Build the Supabase data foundation as a migration and environment template without applying it; real project values, authentication, retention, and provider configuration remain explicit gates.
+- 2026-07-18: Add a configuration checklist that names each missing integration decision and its blocker; generated local catalog imagery is valid for the demo but does not satisfy live product sourcing or a generation-provider decision.
+- 2026-07-18: Plan a post-golden-path API and MCP surface for authorized external image submissions. First prove the web flow and define caller identity, image ownership, and typed async status before exposing it.
 - 2026-07-19: Build the first report-led UI tracer as a truthful local browser-session flow: landing, profile validation, and brand-size entry. Preserve the earlier try-on tracer at `/tracer`; do not represent browser-session storage as anonymous authentication or persistent account data.
 - 2026-07-18: Use the approval-gated frontend-definition sequence `product-prd-spec → product-ux-design → copywriting → product-screen-mockups → engineering handoff`.
 - 2026-07-18: Build low-fidelity wireframes as responsive grayscale HTML/CSS and capture deterministic PNGs; create every high-fidelity screen mockup as a built-in ImageGen raster using the approved wireframe, copy, voice, and brand references.
