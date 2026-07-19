@@ -2,7 +2,7 @@
 
 ## How to Use This Plan
 
-This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The detailed PRD package is in `company/artifacts/prd/` with Draft status and must receive explicit founder approval before UX design begins.
+This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The detailed PRD package in `company/artifacts/prd/` was approved by Talisha White on 2026-07-19 as the foundation for UX design.
 
 ## Product Goal
 
@@ -26,9 +26,10 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - [x] Complete U.S.-first market research and competitor analysis for the V1 purchase-decision opportunity.
 - [x] Define and score candidate audiences; select the behavioral V1 beachhead and validation cohort.
 - [x] Build and validate the reusable frontend-definition workflow and its four global skills.
-- [x] Create and decompose the full Draft PRD package.
+- [x] Create, decompose, and approve the full PRD package.
 - [x] Define the golden-path Given/When/Then scenario and acceptance criteria.
-- [ ] Obtain explicit founder approval for the Draft PRD package.
+- [x] Obtain explicit founder approval for the PRD package.
+- [x] Create the complete UX package with IA, navigation, five critical flows, UX notes, and responsive grayscale wireframes for all 27 approved screens.
 - [ ] Evaluate generation providers using latency, output quality, reliability, integration effort, and cost.
 - [ ] Define a production storage and lifecycle policy for source photos; the current product makes no automatic-expiration promise.
 - [ ] Confirm the minimum garment catalog and required source assets.
@@ -93,10 +94,10 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 ## Next
 
-1. Review and explicitly approve or revise the Draft PRD, user stories, screen/state inventory, and Given/When/Then scenarios under `company/artifacts/prd/`.
-2. After PRD approval, run `$product-ux-design` to create IA, flows, responsive grayscale HTML wireframes, and PNG captures for the approved inventory.
+1. Review and explicitly approve or revise the UX package under `company/artifacts/ui-ux-design/` before copywriting begins.
+2. After UX approval, run `$copywriting` to create canonical screen copy, `company/voice.md`, and the copy manifest.
 3. Define the minimum catalog and benchmark analysis providers against usefulness, respectful language, representation quality, reliability, and the 120-second report target.
-4. Benchmark live try-on and voice providers before scheduling their engineering release.
+4. Benchmark live try-on, voice, and gesture-recognition providers before scheduling their engineering release.
 
 ## Decisions
 
@@ -134,6 +135,8 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-19: Onboarding begins under an anonymous authenticated identity; one Google and email magic-link step signs up or logs in and connects all anonymous progress.
 - 2026-07-19: Live styling supports both voice and camera-recognized hand gestures for distance control, with direct controls and confirmation for consequential actions.
 - 2026-07-19: Remove the automatic source-photo expiration promise and related timing/status UI from the active product scope; define storage lifecycle before production.
+- 2026-07-19: Talisha White approved PRD v1.0.0, its 23 user stories, 15 Given/When/Then scenarios, and 27-screen responsive inventory as the foundation for UX design.
+- 2026-07-19: Completed the full `product-ux-design` package for founder review; all 27 approved screen/state records have semantic grayscale HTML and visually verified desktop/mobile captures, and copywriting remains gated on explicit UX approval.
 - 2026-07-18: Complete purchase through retailer-owned destinations rather than Magic Mirror payment and fulfillment.
 
 ## Roadmap Backlog

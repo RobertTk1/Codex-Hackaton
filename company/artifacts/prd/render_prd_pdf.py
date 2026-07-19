@@ -218,9 +218,9 @@ def cover_story() -> list:
             subtitle,
         ),
         Spacer(1, 1.3 * inch),
-        Paragraph("DRAFT  /  VERSION 0.2.0  /  19 JULY 2026", meta),
+        Paragraph("APPROVED  /  VERSION 1.0.0  /  19 JULY 2026", meta),
         Spacer(1, 0.16 * inch),
-        Paragraph("Awaiting founder approval before UX design", status),
+        Paragraph("Approved by Talisha White for UX design", status),
         PageBreak(),
     ]
 
@@ -245,7 +245,7 @@ def draw_body_chrome(canvas, doc) -> None:
     canvas.drawString(
         0.68 * inch,
         0.3 * inch,
-        "MAGIC MIRROR  /  PRODUCT REQUIREMENTS DOCUMENT  /  DRAFT",
+        "MAGIC MIRROR  /  PRODUCT REQUIREMENTS DOCUMENT  /  APPROVED",
     )
     canvas.drawRightString(width - 0.68 * inch, 0.3 * inch, str(doc.page))
     canvas.setFillColor(ACID)

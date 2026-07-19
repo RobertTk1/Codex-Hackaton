@@ -100,7 +100,7 @@ Feature: Magic Mirror style intelligence and shopping journey
     Then Magic Mirror shows the interpreted request
     And confirms or safely resolves ambiguity
     And updates the recommended item set using the request and style report
-    And keeps an equivalent manual refinement control available
+    And keeps an equivalent direct refinement control available
 
   @SC-012 @US-016 @US-017 @US-018
   Scenario: A customer selects an item and continues to its retailer

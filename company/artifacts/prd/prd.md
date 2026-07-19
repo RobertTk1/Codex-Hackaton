@@ -1,11 +1,11 @@
 ---
 product: Magic Mirror
 company: Magic Mirror
-version: 0.2.0
+version: 1.0.0
 date: 2026-07-19
-status: Draft
+status: Approved
 owner: Talisha White
-approval_record: Pending founder review
+approval_record: Approved by Talisha White on 2026-07-19 for UX design
 source_artifacts:
   - company/company.md
   - company/plan.md
@@ -154,7 +154,7 @@ An adult completing the style-profile journey. Their job is to provide enough ac
 
 ### Returning customer
 
-An authenticated customer revisiting the report, recommendations, styling sessions, bag, or privacy controls. Their job is to continue without repeating completed onboarding.
+An authenticated customer revisiting the report, recommendations, styling sessions, bag, or account settings. Their job is to continue without repeating completed onboarding.
 
 ### AI stylist
 
@@ -162,7 +162,7 @@ The product capability that analyzes inputs, explains findings, selects catalog 
 
 ### Product operator or reviewer
 
-An authorized internal actor who can inspect processing failures, catalog eligibility, deletion status, and safety issues without gaining unrestricted access to customer photos. Human review is an exception path, not a hidden requirement for normal report completion.
+An authorized internal actor who can inspect processing failures, catalog eligibility, consent records, access controls, and safety issues without gaining unrestricted access to customer photos. Human review is an exception path, not a hidden requirement for normal report completion.
 
 ### Retailer
 
@@ -588,11 +588,11 @@ Outcome: a customer can collect chosen products and reach the correct retailer t
 
 ## 16. Approval and decisions log
 
-### Pending approval
+### Approved scope decisions
 
-- Approve this Draft PRD as the product and scope foundation for UX design.
-- Confirm the inclusive interpretation of the founder's requested male/female input: collect style-presentation and shopping context, and request sex-related data only if a disclosed analysis dependency makes it necessary.
-- Confirm that weight remains optional.
+- 2026-07-19 - Founder - Approved the PRD, user stories, scenarios, and screen inventory as the product and scope foundation for UX design.
+- 2026-07-19 - Founder - Approved the inclusive profile approach: collect style-presentation and shopping context, and request sex-related data only if a disclosed analysis dependency makes it necessary.
+- 2026-07-19 - Founder - Approved weight as an optional profile input.
 
 ### Decisions
 
@@ -610,4 +610,4 @@ Outcome: a customer can collect chosen products and reach the correct retailer t
 
 ### Approval record
 
-Status: **Draft - awaiting explicit founder approval before UX design.**
+Status: **Approved by Talisha White on 2026-07-19 for UX design.**

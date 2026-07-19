@@ -402,7 +402,7 @@
       "requirement_source": ["founder", "inference"],
       "acceptance_criteria": [
         "A completed customer lands on style home after login.",
-        "Style home provides current report highlights, recommended next actions, saved selections, and access to data controls.",
+        "Style home provides current report highlights, recommended next actions, saved selections, and access to account settings.",
         "Incomplete or failed work is represented with a specific resume or recovery action."
       ],
       "edge_cases": ["Report needs recalibration", "Bag item unavailable", "No prior live session"],
