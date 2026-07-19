@@ -1,0 +1,601 @@
+{
+  "schema_version": "1.0",
+  "source_screens": "company/artifacts/prd/screens.json",
+  "status": "draft",
+  "screens": [
+    {
+      "screen_id": "76a5f0c7-aa78-4eaf-ae0f-4b577024f5c6",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/landing-page-base.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/landing-page-base.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/landing-page-base.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "ee82967b-e205-401b-a90b-6a94d36470f7",
+      "state": "unauthenticated",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/account-access-unauthenticated.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/account-access-unauthenticated.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/account-access-unauthenticated.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "61df36bb-6d7c-41a3-bf06-9c2c99824e51",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/personal-profile-base.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/personal-profile-base.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/personal-profile-base.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "9ad25480-da71-430f-816a-6f394bed7f15",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/brand-and-size-profile-base.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/brand-and-size-profile-base.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/brand-and-size-profile-base.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "bfc87225-7f0e-45c1-90f7-6623d96e9dad",
+      "state": "empty",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/outfit-photo-upload-empty.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/outfit-photo-upload-empty.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/outfit-photo-upload-empty.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "7628f30f-b601-49ab-93eb-2cc367ab1b2e",
+      "state": "partial",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/outfit-photo-upload-partial.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/outfit-photo-upload-partial.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/outfit-photo-upload-partial.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "acea6cc0-08ca-4691-806e-2faae3ce2b0f",
+      "state": "error",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/outfit-photo-upload-validation-error.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/outfit-photo-upload-validation-error.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/outfit-photo-upload-validation-error.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "e6f13ec8-a8d0-405c-932b-3befeb7de4f6",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/taste-calibration-base.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/taste-calibration-base.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/taste-calibration-base.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "37d792e1-4d6c-494f-b53d-1dc4a498c294",
+      "state": "recovery",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/taste-calibration-recovery.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/taste-calibration-recovery.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/taste-calibration-recovery.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "782fdff8-e9b9-4828-aaa2-33b089ffd011",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/account-connection-base.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/account-connection-base.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/account-connection-base.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "e74afd3b-7709-40af-bedc-15cc9d2a6f1e",
+      "state": "recovery",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/account-connection-magic-link-sent.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/account-connection-magic-link-sent.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/account-connection-magic-link-sent.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "ecb422c1-0285-4592-9407-97a1f82bf96e",
+      "state": "processing",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-analysis-processing.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-analysis-processing.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-analysis-processing.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "762423ae-d732-4325-bed9-b91b42370ca9",
+      "state": "slow",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-analysis-slow.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-analysis-slow.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-analysis-slow.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "6c9017a7-ec72-46df-bba8-79dcc691a817",
+      "state": "recovery",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-analysis-error-recovery.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-analysis-error-recovery.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-analysis-error-recovery.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "1c2d940e-9782-4d23-866a-9e676af44138",
+      "state": "success",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-overview.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-overview.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-overview.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "b16feadb-5618-46fc-b03f-be77d1de7b4f",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-color.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-color.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-color.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "3acb5ce5-518b-4cf3-beba-ce38439031e2",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-body-style.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-body-style.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-body-style.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "ec0e2f41-d712-48b1-83fe-c535b1438a12",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-recommendations.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-recommendations.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-recommendations.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "d677a738-5703-4b02-b7ca-667c31ac7555",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/style-home-base.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-home-base.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-home-base.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "5e8e9f80-901b-4fb1-932c-f1bec76da0c9",
+      "state": "permission",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-camera-permission.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/live-styling-camera-permission.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/live-styling-camera-permission.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "5b6baf59-f2d4-4c52-aaa7-b4910435c892",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-ready.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/live-styling-ready.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/live-styling-ready.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "e72fcc42-581c-44fa-b466-c3ac642e54df",
+      "state": "permission",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-microphone-permission.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/live-styling-microphone-permission.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/live-styling-microphone-permission.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "87b489bf-c543-4911-a09d-48b57be4a80a",
+      "state": "processing",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-voice-active.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/live-styling-voice-active.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/live-styling-voice-active.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "83f2ff2a-7951-42b5-b715-5fbe97ffb568",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-hand-gesture-guide.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/live-styling-hand-gesture-guide.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/live-styling-hand-gesture-guide.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "a7d262bf-0e4a-423f-9d51-fed5b2594b14",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/recommended-product-detail-drawer.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/recommended-product-detail-drawer.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/recommended-product-detail-drawer.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "1eb0f961-b299-4ab3-b90d-12692f254494",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/magic-mirror-bag-base.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/magic-mirror-bag-base.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/magic-mirror-bag-base.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    },
+    {
+      "screen_id": "49c5dc8e-da7f-433d-bba0-5011bb755948",
+      "state": "base",
+      "html": "company/artifacts/ui-ux-design/wireframes/html/retailer-handoff-confirmation.html",
+      "captures": {
+        "desktop": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/desktop/retailer-handoff-confirmation.png",
+          "width": 1440,
+          "height": 1024,
+          "full_page": true
+        },
+        "mobile": {
+          "png": "company/artifacts/ui-ux-design/wireframes/png/mobile/retailer-handoff-confirmation.png",
+          "width": 390,
+          "height": 844,
+          "full_page": true
+        }
+      },
+      "status": "ready-for-review",
+      "verified_at": "2026-07-19T09:32:52-04:00",
+      "approved_at": null
+    }
+  ]
+}

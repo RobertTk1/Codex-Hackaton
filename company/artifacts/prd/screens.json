@@ -1,0 +1,1234 @@
+{
+  "schema_version": "2.0",
+  "project": "Magic Mirror",
+  "source_prd": "company/artifacts/prd/prd.md",
+  "screens": [
+    {
+      "screen_id": "76a5f0c7-aa78-4eaf-ae0f-4b577024f5c6",
+      "name": "Landing Page \u2014 Base",
+      "surface": "marketing",
+      "type": "app-specific",
+      "route_or_context": "/",
+      "description": "Education-led landing page that previews the style report, process, trust terms, and primary conversion action.",
+      "primary_actions": [
+        "Get your style report",
+        "Log in"
+      ],
+      "related_user_stories": [
+        "US-001"
+      ],
+      "related_scenarios": [
+        "SC-001"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/landing-page-base.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/landing-page-base.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/landing-page-base.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "ee82967b-e205-401b-a90b-6a94d36470f7",
+      "name": "Account Access \u2014 Unauthenticated",
+      "surface": "product",
+      "type": "universal",
+      "route_or_context": "/login",
+      "description": "Unified Google and email magic-link access that signs up or logs in and provides a route back to anonymous report onboarding.",
+      "primary_actions": [
+        "Continue with Google",
+        "Email me a magic link",
+        "Start a new style report"
+      ],
+      "related_user_stories": [
+        "US-002"
+      ],
+      "related_scenarios": [
+        "SC-002"
+      ],
+      "required_states": [
+        "unauthenticated"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/account-access-unauthenticated.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/account-access-unauthenticated.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/account-access-unauthenticated.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "61df36bb-6d7c-41a3-bf06-9c2c99824e51",
+      "name": "Personal Profile \u2014 Base",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style-report/profile",
+      "description": "First onboarding step for preferred name, adult confirmation, age, height, optional weight, and style-presentation context.",
+      "primary_actions": [
+        "Continue"
+      ],
+      "related_user_stories": [
+        "US-003"
+      ],
+      "related_scenarios": [
+        "SC-001",
+        "SC-003"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/personal-profile-base.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/personal-profile-base.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/personal-profile-base.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "9ad25480-da71-430f-816a-6f394bed7f15",
+      "name": "Brand and Size Profile \u2014 Base",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style-report/brands-and-sizes",
+      "description": "Favorite-brand selection and category-specific known-size entry.",
+      "primary_actions": [
+        "Add a brand",
+        "Continue"
+      ],
+      "related_user_stories": [
+        "US-004"
+      ],
+      "related_scenarios": [
+        "SC-001"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/brand-and-size-profile-base.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/brand-and-size-profile-base.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/brand-and-size-profile-base.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "bfc87225-7f0e-45c1-90f7-6623d96e9dad",
+      "name": "Outfit Photo Upload \u2014 Empty",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style-report/photos",
+      "description": "Photo guidance, analysis consent, upload entry, count rules, and image-use explanation before any image is selected.",
+      "primary_actions": [
+        "Choose photos"
+      ],
+      "related_user_stories": [
+        "US-005",
+        "US-019"
+      ],
+      "related_scenarios": [
+        "SC-001",
+        "SC-013"
+      ],
+      "required_states": [
+        "empty"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/outfit-photo-upload-empty.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/outfit-photo-upload-empty.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/outfit-photo-upload-empty.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "7628f30f-b601-49ab-93eb-2cc367ab1b2e",
+      "name": "Outfit Photo Upload \u2014 Partial",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style-report/photos",
+      "description": "Grid of uploaded and validating images with count progress, replacement, removal, and continue behavior.",
+      "primary_actions": [
+        "Add more photos",
+        "Continue to taste calibration"
+      ],
+      "related_user_stories": [
+        "US-005"
+      ],
+      "related_scenarios": [
+        "SC-001",
+        "SC-004"
+      ],
+      "required_states": [
+        "partial"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/outfit-photo-upload-partial.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/outfit-photo-upload-partial.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/outfit-photo-upload-partial.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "acea6cc0-08ca-4691-806e-2faae3ce2b0f",
+      "name": "Outfit Photo Upload \u2014 Validation Error",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style-report/photos",
+      "description": "Local image rejection state that preserves successful uploads and explains replacement.",
+      "primary_actions": [
+        "Replace rejected photo",
+        "Remove photo"
+      ],
+      "related_user_stories": [
+        "US-005",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-004"
+      ],
+      "required_states": [
+        "error"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/outfit-photo-upload-validation-error.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/outfit-photo-upload-validation-error.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/outfit-photo-upload-validation-error.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "e6f13ec8-a8d0-405c-932b-3befeb7de4f6",
+      "name": "Taste Calibration \u2014 Base",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style-report/taste",
+      "description": "Tinder-like look or garment card: right/Love, left/Hate, and down/Maybe, with matching buttons, keyboard controls, undo, and progress.",
+      "primary_actions": [
+        "Love",
+        "Hate",
+        "Maybe",
+        "Undo"
+      ],
+      "related_user_stories": [
+        "US-006",
+        "US-021"
+      ],
+      "related_scenarios": [
+        "SC-001"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/taste-calibration-base.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/taste-calibration-base.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/taste-calibration-base.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "37d792e1-4d6c-494f-b53d-1dc4a498c294",
+      "name": "Taste Calibration \u2014 Recovery",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style-report/taste",
+      "description": "Failed-card recovery state that preserves earlier taste choices.",
+      "primary_actions": [
+        "Try again"
+      ],
+      "related_user_stories": [
+        "US-006",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-005"
+      ],
+      "required_states": [
+        "recovery"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/taste-calibration-recovery.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/taste-calibration-recovery.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/taste-calibration-recovery.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "782fdff8-e9b9-4828-aaa2-33b089ffd011",
+      "name": "Account Connection \u2014 Base",
+      "surface": "product",
+      "type": "universal",
+      "route_or_context": "/style-report/account",
+      "description": "Unified Google and email magic-link step that creates or logs into a permanent account and connects anonymous progress before report generation.",
+      "primary_actions": [
+        "Continue with Google",
+        "Email me a magic link"
+      ],
+      "related_user_stories": [
+        "US-007"
+      ],
+      "related_scenarios": [
+        "SC-001",
+        "SC-006"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/account-connection-base.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/account-connection-base.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/account-connection-base.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "e74afd3b-7709-40af-bedc-15cc9d2a6f1e",
+      "name": "Account Connection \u2014 Magic Link Sent",
+      "surface": "product",
+      "type": "universal",
+      "route_or_context": "/style-report/account",
+      "description": "Magic-link waiting and recovery state; the link signs up or logs in and connects preserved anonymous progress after authentication.",
+      "primary_actions": [
+        "Open email app",
+        "Resend magic link",
+        "Continue with Google"
+      ],
+      "related_user_stories": [
+        "US-007"
+      ],
+      "related_scenarios": [
+        "SC-006"
+      ],
+      "required_states": [
+        "recovery"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/account-connection-magic-link-sent.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/account-connection-magic-link-sent.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/account-connection-magic-link-sent.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "ecb422c1-0285-4592-9407-97a1f82bf96e",
+      "name": "Style Report Analysis \u2014 Processing",
+      "surface": "system",
+      "type": "app-specific",
+      "route_or_context": "/style-report/processing",
+      "description": "Meaningful real-analysis stages, time expectation, safe-exit behavior, and current photo-lifecycle reminder.",
+      "primary_actions": [
+        "Notify me when it is ready"
+      ],
+      "related_user_stories": [
+        "US-008"
+      ],
+      "related_scenarios": [
+        "SC-001"
+      ],
+      "required_states": [
+        "processing"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-analysis-processing.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-analysis-processing.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-analysis-processing.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "762423ae-d732-4325-bed9-b91b42370ca9",
+      "name": "Style Report Analysis \u2014 Slow",
+      "surface": "system",
+      "type": "app-specific",
+      "route_or_context": "/style-report/processing",
+      "description": "Post-120-second state confirming continued processing, preserved inputs, email notification, and safe exit.",
+      "primary_actions": [
+        "Email me when ready",
+        "Leave safely"
+      ],
+      "related_user_stories": [
+        "US-008",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-007"
+      ],
+      "required_states": [
+        "slow"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-analysis-slow.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-analysis-slow.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-analysis-slow.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "6c9017a7-ec72-46df-bba8-79dcc691a817",
+      "name": "Style Report Analysis \u2014 Error Recovery",
+      "surface": "system",
+      "type": "app-specific",
+      "route_or_context": "/style-report/processing",
+      "description": "Normalized analysis failure with preserved-input summary, retry, support, and replacement guidance when required.",
+      "primary_actions": [
+        "Try analysis again",
+        "Get help"
+      ],
+      "related_user_stories": [
+        "US-008",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-008"
+      ],
+      "required_states": [
+        "recovery"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-analysis-error-recovery.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-analysis-error-recovery.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-analysis-error-recovery.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "1c2d940e-9782-4d23-866a-9e676af44138",
+      "name": "Style Report \u2014 Overview",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/report",
+      "description": "Affirming style identity, strongest patterns, prioritized opportunities, report navigation, and next styling action.",
+      "primary_actions": [
+        "Explore my report",
+        "See my selected items"
+      ],
+      "related_user_stories": [
+        "US-009",
+        "US-022"
+      ],
+      "related_scenarios": [
+        "SC-009",
+        "SC-014"
+      ],
+      "required_states": [
+        "success"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-overview.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-overview.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-overview.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "b16feadb-5618-46fc-b03f-be77d1de7b4f",
+      "name": "Style Report \u2014 Color",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/report/colors",
+      "description": "Personal palette, neutrals, accents, combinations, text equivalents, explanations, and feedback.",
+      "primary_actions": [
+        "Save palette",
+        "Give feedback",
+        "See matching items"
+      ],
+      "related_user_stories": [
+        "US-010"
+      ],
+      "related_scenarios": [
+        "SC-009"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-color.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-color.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-color.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "3acb5ce5-518b-4cf3-beba-ce38439031e2",
+      "name": "Style Report \u2014 Body Style",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/report/body-style",
+      "description": "Kibbe-informed profile, visual rationale, confidence, practical implications, and recalibration path.",
+      "primary_actions": [
+        "See what to wear",
+        "This does not feel right"
+      ],
+      "related_user_stories": [
+        "US-011"
+      ],
+      "related_scenarios": [
+        "SC-009"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-body-style.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-body-style.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-body-style.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "ec0e2f41-d712-48b1-83fe-c535b1438a12",
+      "name": "Style Report \u2014 Recommendations",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/report/recommendations",
+      "description": "Prioritized silhouettes, proportions, layers, fabrics, garments, and outfit guidance tied to report evidence.",
+      "primary_actions": [
+        "Shop this recommendation",
+        "Save guidance"
+      ],
+      "related_user_stories": [
+        "US-012",
+        "US-013"
+      ],
+      "related_scenarios": [
+        "SC-009",
+        "SC-014"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-recommendations.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-report-recommendations.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-report-recommendations.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "d677a738-5703-4b02-b7ca-667c31ac7555",
+      "name": "Style Home \u2014 Base",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style",
+      "description": "Returning-customer home with report highlights, selected recommendations, live styling entry, bag, and account access.",
+      "primary_actions": [
+        "Start live styling",
+        "View my report",
+        "Browse my picks"
+      ],
+      "related_user_stories": [
+        "US-013",
+        "US-022"
+      ],
+      "related_scenarios": [
+        "SC-002",
+        "SC-014"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-home-base.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/style-home-base.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/style-home-base.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "5e8e9f80-901b-4fb1-932c-f1bec76da0c9",
+      "name": "Live Styling \u2014 Camera Permission",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style/live",
+      "description": "Purpose-specific camera request for live visualization and hand-gesture controls, with environment guidance, visualization limitation, and denial recovery.",
+      "primary_actions": [
+        "Allow camera",
+        "Not now"
+      ],
+      "related_user_stories": [
+        "US-014",
+        "US-021",
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-010",
+        "SC-015"
+      ],
+      "required_states": [
+        "permission"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-camera-permission.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/live-styling-camera-permission.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/live-styling-camera-permission.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "5b6baf59-f2d4-4c52-aaa7-b4910435c892",
+      "name": "Live Styling \u2014 Ready",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style/live/session/:session-id",
+      "description": "Live camera view with active garment visualization, product identity, voice status, hand-gesture status, direct alternatives, and bag controls.",
+      "primary_actions": [
+        "Use voice",
+        "Use hand gestures",
+        "Choose another item",
+        "Add to bag"
+      ],
+      "related_user_stories": [
+        "US-014",
+        "US-016",
+        "US-017",
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-011",
+        "SC-012",
+        "SC-015"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-ready.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/live-styling-ready.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/live-styling-ready.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "e72fcc42-581c-44fa-b466-c3ac642e54df",
+      "name": "Live Styling \u2014 Microphone Permission",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style/live/session/:session-id",
+      "description": "Separate microphone permission explanation with direct-control alternative.",
+      "primary_actions": [
+        "Allow microphone",
+        "Use direct controls"
+      ],
+      "related_user_stories": [
+        "US-015",
+        "US-021"
+      ],
+      "related_scenarios": [
+        "SC-011"
+      ],
+      "required_states": [
+        "permission"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-microphone-permission.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/live-styling-microphone-permission.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/live-styling-microphone-permission.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "87b489bf-c543-4911-a09d-48b57be4a80a",
+      "name": "Live Styling \u2014 Voice Active",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style/live/session/:session-id",
+      "description": "Listening and interpreted-request confirmation layered over the live session with cancel and direct-control alternatives.",
+      "primary_actions": [
+        "Confirm request",
+        "Edit request",
+        "Cancel"
+      ],
+      "related_user_stories": [
+        "US-015"
+      ],
+      "related_scenarios": [
+        "SC-011"
+      ],
+      "required_states": [
+        "processing"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-voice-active.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/live-styling-voice-active.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/live-styling-voice-active.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "83f2ff2a-7951-42b5-b715-5fbe97ffb568",
+      "name": "Live Styling \u2014 Hand Gesture Guide",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/style/live/session/:session-id",
+      "description": "Distance-control guide and active interpretation overlay showing supported hand gestures, camera framing, recognition state, intended action, and consequential-action confirmation.",
+      "primary_actions": [
+        "Start gesture control",
+        "Practice gestures",
+        "Use voice instead",
+        "Use direct controls"
+      ],
+      "related_user_stories": [
+        "US-014",
+        "US-021",
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-015"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-hand-gesture-guide.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/live-styling-hand-gesture-guide.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/live-styling-hand-gesture-guide.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "a7d262bf-0e4a-423f-9d51-fed5b2594b14",
+      "name": "Recommended Product \u2014 Detail Drawer",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "product-detail-drawer",
+      "description": "Product detail, report rationale, size context, retailer provenance, known price and availability, and session-preserving actions.",
+      "primary_actions": [
+        "Add to bag",
+        "Try this item",
+        "Continue to retailer"
+      ],
+      "related_user_stories": [
+        "US-016",
+        "US-017",
+        "US-018"
+      ],
+      "related_scenarios": [
+        "SC-012"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/recommended-product-detail-drawer.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/recommended-product-detail-drawer.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/recommended-product-detail-drawer.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "1eb0f961-b299-4ab3-b90d-12692f254494",
+      "name": "Magic Mirror Bag \u2014 Base",
+      "surface": "product",
+      "type": "app-specific",
+      "route_or_context": "/bag",
+      "description": "Selected products grouped by retailer with availability, external-checkout boundaries, and removal controls.",
+      "primary_actions": [
+        "Continue to retailer",
+        "Remove item",
+        "Keep styling"
+      ],
+      "related_user_stories": [
+        "US-017",
+        "US-018"
+      ],
+      "related_scenarios": [
+        "SC-012"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/magic-mirror-bag-base.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/magic-mirror-bag-base.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/magic-mirror-bag-base.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    },
+    {
+      "screen_id": "49c5dc8e-da7f-433d-bba0-5011bb755948",
+      "name": "Retailer Handoff \u2014 Confirmation",
+      "surface": "external-handoff",
+      "type": "app-specific",
+      "route_or_context": "retailer-handoff-dialog",
+      "description": "Final confirmation that identifies retailer ownership of checkout, stock, price, fulfillment, and returns before navigation.",
+      "primary_actions": [
+        "Continue to retailer",
+        "Stay in Magic Mirror"
+      ],
+      "related_user_stories": [
+        "US-018"
+      ],
+      "related_scenarios": [
+        "SC-012"
+      ],
+      "required_states": [
+        "base"
+      ],
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "wireframe": {
+        "status": "ready-for-review",
+        "html": "company/artifacts/ui-ux-design/wireframes/html/retailer-handoff-confirmation.html",
+        "screenshots": {
+          "desktop": "company/artifacts/ui-ux-design/wireframes/png/desktop/retailer-handoff-confirmation.png",
+          "mobile": "company/artifacts/ui-ux-design/wireframes/png/mobile/retailer-handoff-confirmation.png"
+        }
+      },
+      "copy": {
+        "status": "not-started",
+        "manifest_entry": null
+      },
+      "mockup": {
+        "status": "not-started",
+        "images": {
+          "desktop": null,
+          "mobile": null
+        }
+      }
+    }
+  ]
+}

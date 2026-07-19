@@ -2,15 +2,15 @@
 
 ## How to Use This Plan
 
-This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The extracted V1 requirements live in `company/artifacts/product/magic-mirror-v1-prd.md`. Configuration gates and their exact blockers live in [Configuration To-Do](configuration-todo.md).
+This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The detailed PRD package in `company/artifacts/prd/` was approved by Talisha White on 2026-07-19 as the foundation for UX design. Configuration gates and their exact blockers live in [Configuration To-Do](configuration-todo.md).
 
 ## Product Goal
 
-Deliver the V1 golden path: a user uploads or captures a photo, selects one garment, and receives a near-real-time rendered image or video of themselves wearing it.
+Deliver a style-report-led product that learns a customer's taste and body-style needs, explains how to dress better, recommends relevant products, enables live visual styling controlled from a distance by voice or hand gestures, and sends selected products to retailers for checkout.
 
 ## Scope Guardrail
 
-Stylist recommendations, voice input, multi-garment outfits, deep stylist reasoning, and brand polish are V2+. Do not pull them into V1 unless the plan records an explicit scope decision.
+The first functional build is the Style Intelligence Golden Path: anonymous onboarding, profile and brand sizes, 8-12 favorite-look photos, Love/Hate/Maybe taste calibration, Google or email magic-link permanent account connection, real analysis, a report within a target of one to two minutes, and real curated recommendations. The complete frontend definition includes live styling controlled by voice or camera-recognized hand gestures, the Magic Mirror bag, and retailer handoff as real product behavior, while engineering releases may stage those capabilities behind verified provider quality and recovery criteria. Do not describe intended capabilities as pretend behavior or commit dead product stubs.
 
 ## Delivery Strategy
 
@@ -27,46 +27,70 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - [x] Establish the base Magic Mirror company profile and operating workspace from the product strategy.
 - [x] Complete U.S.-first market research and competitor analysis for the V1 purchase-decision opportunity.
 - [x] Define and score candidate audiences; select the behavioral V1 beachhead and validation cohort.
-- [x] Extract the product strategy into a focused V1 PRD and separate roadmap scope.
+- [x] Extract the original product strategy into a focused single-photo V1 PRD and preserve that implementation baseline.
+- [x] Build and validate the reusable frontend-definition workflow and its four global skills.
+- [x] Create, decompose, and approve the full PRD package.
 - [x] Define the golden-path Given/When/Then scenario and acceptance criteria.
+- [x] Obtain explicit founder approval for the PRD package.
+- [x] Create the complete UX package with IA, navigation, five critical flows, UX notes, and responsive grayscale wireframes for all 27 approved screens.
 - [ ] Evaluate generation providers using latency, output quality, reliability, integration effort, and cost.
-- [ ] Decide photo retention and deletion behavior before storing real user photos.
+- [ ] Define a production storage and lifecycle policy for source photos; the current product makes no automatic-expiration promise.
 - [ ] Confirm the minimum garment catalog and required source assets.
 - [ ] Define the submission deadline, demo cutoff, and experiment time budget.
 
 ### Phase 1 — Project Foundation
 
-**User outcome:** A user can open a functioning application shell ready for the try-on flow.
+**User outcome:** A customer can open a functioning application shell ready for the report-led journey.
 
-**Completed flow:** [`First Try-On Tracer`](flows/first-try-on-tracer/plan.md) — one-page photo upload, hardcoded garment selection, typed mock request, and bottom-of-page result.
+**Completed flow:** [`First Try-On Tracer`](flows/first-try-on-tracer/plan.md) — one-page photo upload, hardcoded garment selection, typed mock request, and bottom-of-page result. This remains a runnable proof-of-flow while the product target advances to Style Intelligence.
 
 **Configuration-pending flow:** [`Data Foundation`](flows/data-foundation/plan.md) — versioned sessions, asset references, private storage policies, and environment names with no live project values.
 
-**Completed flow:** [`Demo Catalog`](flows/demo-catalog/plan.md) — three local, image-backed garments for the existing mock try-on selector.
+**Completed flow:** [`Style Onboarding Tracer`](flows/style-onboarding-tracer/plan.md) — report-led landing page, validated profile, one brand-size entry, and browser-session-only continuity.
+
+**Completed flow:** [`Demo Catalog`](flows/demo-catalog/plan.md) — three local, image-backed garments for the preserved mock try-on selector.
 
 - [x] Scaffold the Next.js application in `apps/web` with required development, lint, typecheck, unit-test, and end-to-end-test scripts.
 - [x] Configure Tailwind, strict TypeScript, Zod, Vitest, and Playwright.
 - [x] Document required Supabase and provider environment variables with placeholders; live values remain unconfigured.
 - [x] Add the minimum versioned schema, private bucket definition, and row-level policies; applying them remains blocked on project and auth configuration.
+- [x] Build the report-led landing and first two onboarding steps as a local browser-session tracer; anonymous authentication and persistent storage remain configuration-gated.
 
-### Phase 2 — Golden Path
+### Phase 2 — Style Intelligence Golden Path
 
-**User outcome:** A user can submit one photo and one garment and receive a visible try-on result.
+**User outcome:** A first-time customer can teach Magic Mirror their style and receive a real personalized report and curated recommendations.
 
-- [x] Implement mock-tracer photo upload and validation; real consent and retention messaging remain blocked on policy.
-- [x] Implement mock-tracer single-garment selection from a hardcoded catalog.
-- [x] Replace garment color swatches with three local, image-backed demo catalog items.
-- [ ] Implement the typed generation-provider boundary with timeout and normalized errors.
-- [ ] Persist try-on session state and generated-asset references.
-- [x] Show explicit mock-tracer loading, slow, success, and failure states.
+- [x] Preserve the runnable mock tracer with local photo preview, hardcoded garment selection, typed validation, and explicit request states as an implementation baseline.
+- [x] Replace the mock tracer's garment color swatches with three local, image-backed demo catalog items.
+- [ ] Implement the report-led landing page and resumable guided onboarding.
+- [ ] Implement personal profile, favorite brands, and category-specific sizes.
+- [ ] Implement secure 8-12 favorite-look photo upload with validation, consent, and per-account isolation.
+- [ ] Implement right/Love, left/Hate, and down/Maybe swipes with matching buttons, keyboard controls, and undo.
+- [ ] Create an anonymous authenticated identity when onboarding begins and preserve every input under it.
+- [ ] Implement one Google and email magic-link account step that signs up or logs in and connects anonymous progress.
+- [ ] Implement the typed analysis-provider boundary with timeout and normalized errors.
+- [ ] Generate the complete structured style report and personalized catalog recommendations.
+- [ ] Meet the one-to-two-minute target with processing, slow, success, failure, and recovery behavior.
 
-### Phase 3 — Demo Readiness
+### Phase 3 — Live Styling and Retailer Action
 
-**User outcome:** The complete try-on journey works reliably in the hosted demo.
+**User outcome:** A report recipient can experience recommended items, refine the session naturally, and continue to a retailer with confident selections.
+
+- [ ] Benchmark and implement real live video try-on with camera permission and explicit fidelity limits.
+- [ ] Implement voice requests with visible interpretation, confirmation, and equivalent direct controls.
+- [ ] Implement camera-recognized hand gestures for next outfit, previous outfit, and visible-control selection from a practical standing distance.
+- [ ] Confirm consequential gesture actions and benchmark recognition accuracy and accidental actions across the representation test set.
+- [ ] Implement a Magic Mirror bag grouped by retailer.
+- [ ] Refresh product availability and explain the external retailer boundary.
+- [ ] Send selected products to the correct retailer-owned checkout destination.
+
+### Phase 4 — Demo Readiness
+
+**User outcome:** The approved release journey works reliably in the hosted demo.
 
 - [ ] Pass the Playwright happy-path scenario.
 - [ ] Measure end-to-end render latency and address demo-breaking bottlenecks.
-- [ ] Verify cross-user isolation and photo deletion behavior.
+- [ ] Verify anonymous/permanent account continuity and cross-user isolation.
 - [ ] Deploy to Vercel and run a production smoke test.
 - [ ] Document known limitations and demo recovery steps.
 
@@ -82,22 +106,31 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - [x] Document usage, minimum sizes, color treatments, and reproducible export instructions.
 - [x] Complete the reusable 19-page brandbook loop and audited PDF packet under `company/brand/`.
 
+### Parallel Experiment — Tinker Vibe Study
+
+**User outcome:** The owner can evaluate a Tinker-like landing-page feel, including its scroll pacing and idle screensaver, before product copy, story, or the integrated Magic Mirror application changes.
+
+- [x] Time-box the reference study to three hours and keep it off the golden-path critical path.
+- [x] Store downloaded public reference bundles, media, notes, and evidence only under the locally Git-ignored `temp/tinker-vibe-study/` workspace.
+- [x] Build an original-code, dependency-free fidelity prototype with the reference copy retained temporarily for spacing and pacing comparison.
+- [x] Verify the five-viewport desktop hero, simplified mobile hero, masonry layout, before/after control, idle screensaver, dismissal controls, and reduced-motion fallback.
+- [ ] Complete owner visual review and explicitly adopt, continue, park, or discard the direction before changing product copy or integrating any portion into `apps/web`.
+
 ### Parallel Track — API & MCP Access (Post-Golden Path)
 
-**User outcome:** A trusted external agent, web client, or mobile client can submit an authorized image and garment selection, then observe a try-on request through a stable API contract.
+**User outcome:** A trusted external agent, web client, or mobile client can submit an authorized image and garment selection, then observe a request through a stable API contract.
 
-- [ ] Define API/MCP caller identity, user-image ownership, allowed actions, quotas, and audit requirements.
-- [ ] Define a versioned create-render request plus typed asynchronous status and error responses.
-- [ ] Build a small authenticated API surface after the web golden path uses the same provider boundary successfully.
+- [ ] Define caller identity, user-image ownership, allowed actions, quotas, and audit requirements.
+- [ ] Define a versioned request plus typed asynchronous status and error responses.
+- [ ] Build a small authenticated API surface after the web golden path proves the same provider boundary.
 - [ ] Expose an MCP server only after the API contract and user-image permission model are proven.
 
 ## Next
 
-1. Benchmark two to three generation providers for identity and garment fidelity, p50/p95 latency, reliability, cost, commercial rights, and provider-side retention across a representation-diverse, consented or synthetic test set.
-2. Resolve photo processing, retention, deletion, and consent behavior before asking participants to upload real photos.
-3. Lock one garment category, minimum demo catalog, provider-compatible photo guidance, submission deadline, and fallback demo path.
-4. Decide API/MCP identity, user-image ownership, and asynchronous status contract before exposing any external integration.
-5. Interview ten U.S. adult online apparel shoppers who can show a recent uncertain item; compare “Should I buy this?” messaging with generic “virtual try-on” messaging.
+1. Review the landing, profile, and brand-size tracer against the approved wireframes, then decide whether to continue into favorite-look upload or revise this first slice.
+2. Create canonical screen copy, `company/voice.md`, and the copy manifest before final visual implementation.
+3. Define the minimum catalog and benchmark analysis providers against usefulness, respectful language, representation quality, reliability, and the 120-second report target.
+4. Benchmark live try-on, voice, and gesture-recognition providers before scheduling their engineering release.
 
 ## Decisions
 
@@ -125,16 +158,31 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - 2026-07-18: Require standardized application mockups to be recognizable from structure alone. Twitter/X, LinkedIn, and browser/favicon use distinct platform-specific ImageGen compositions; LinkedIn cannot reuse the X phone/profile layout.
 - 2026-07-18: Twitter/X application examples always pair one light-mode profile/avatar treatment with one dark-mode treatment, reversing the icon for clear contrast rather than duplicating one color treatment across both phones.
 - 2026-07-18: Accepted the reusable 19-page Magic Mirror brandbook packet after PDF-derived visual QA, a Mayven-to-Magic composition audit, and complete task/evidence verification under `company/brand/brandbook-packet/`.
-- 2026-07-18: Extracted `Magic Mirror Product Strategy.docx` into `company/artifacts/product/magic-mirror-v1-prd.md`; narrowed the source document’s broad stylist MVP to the approved single-photo, single-garment, static try-on golden path and retained adjacent capabilities as V2+.
+- 2026-07-18: Extracted `Magic Mirror Product Strategy.docx` into `company/artifacts/product/magic-mirror-v1-prd.md`; narrowed the source document's broad stylist MVP to a single-photo, single-garment, static try-on baseline. This was later superseded as the active golden path by the approved style-report-led definition.
 - 2026-07-18: Store feature execution plans under `company/flows/<flow-name>/plan.md`; begin with the single-page `first-try-on-tracer` flow and reference it from the canonical roadmap.
 - 2026-07-18: Build the Supabase data foundation as a migration and environment template without applying it; real project values, authentication, retention, and provider configuration remain explicit gates.
 - 2026-07-18: Add a configuration checklist that names each missing integration decision and its blocker; generated local catalog imagery is valid for the demo but does not satisfy live product sourcing or a generation-provider decision.
-- 2026-07-18: Plan a post-golden-path API and MCP surface for authorized external image submissions. First prove the web flow and define caller identity, image ownership, and typed async render status before exposing it.
+- 2026-07-18: Plan a post-golden-path API and MCP surface for authorized external image submissions. First prove the web flow and define caller identity, image ownership, and typed async status before exposing it.
+- 2026-07-19: Build the first report-led UI tracer as a truthful local browser-session flow: landing, profile validation, and brand-size entry. Preserve the earlier try-on tracer at `/tracer`; do not represent browser-session storage as anonymous authentication or persistent account data.
+- 2026-07-18: Use the approval-gated frontend-definition sequence `product-prd-spec → product-ux-design → copywriting → product-screen-mockups → engineering handoff`.
+- 2026-07-18: Build low-fidelity wireframes as responsive grayscale HTML/CSS and capture deterministic PNGs; create every high-fidelity screen mockup as a built-in ImageGen raster using the approved wireframe, copy, voice, and brand references.
+- 2026-07-18: Treat `company/voice.md` and `company/artifacts/copy/copy-manifest.json` as canonical for implementation copy because text rendered inside generated mockups may drift.
+- 2026-07-18: Record data, authentication, permissions, async status, storage, privacy, failure, and recovery implications during frontend definition, while leaving backend architecture and implementation to the engineering workflow.
+- 2026-07-18: Supersede the prior single-photo, single-garment V1 with a style-report-led product definition: profile and brand sizes, 8-12 favorite-look photos, taste calibration, permanent account connection, real analysis, a report within one to two minutes, and curated recommendations form the first functional golden path.
+- 2026-07-18: Define live styling, distance controls, the Magic Mirror bag, and retailer handoff as real intended product behavior; engineering may stage releases, but frontend requirements and copy do not characterize these capabilities as pretend behavior.
+- 2026-07-19: Taste calibration uses Love, Hate, and Maybe with right, left, and down swipes plus equivalent button and keyboard controls.
+- 2026-07-19: Onboarding begins under an anonymous authenticated identity; one Google and email magic-link step signs up or logs in and connects all anonymous progress.
+- 2026-07-19: Live styling supports both voice and camera-recognized hand gestures for distance control, with direct controls and confirmation for consequential actions.
+- 2026-07-19: Remove the automatic source-photo expiration promise and related timing/status UI from the active product scope; define storage lifecycle before production.
+- 2026-07-19: Talisha White approved PRD v1.0.0, its 23 user stories, 15 Given/When/Then scenarios, and 27-screen responsive inventory as the foundation for UX design.
+- 2026-07-19: Completed the full `product-ux-design` package for founder review; all 27 approved screen/state records have semantic grayscale HTML and visually verified desktop/mobile captures, and copywriting remains gated on explicit UX approval.
+- 2026-07-18: Complete purchase through retailer-owned destinations rather than Magic Mirror payment and fulfillment.
+- 2026-07-19: Extend the isolated Tinker vibe experiment pending owner visual review. Keep its downloaded source, reference media, evidence, and prototype under locally ignored `temp/`; do not copy reference code into the product or change Magic Mirror's copy/story until the interaction feel is approved. The first time box validated an original-code desktop/mobile prototype, including the scroll-linked hero and reduced-motion-aware idle screensaver, without modifying `apps/web`.
 
-## Roadmap Backlog (V2+)
+## Roadmap Backlog
 
-- Stylist and shopping recommendations.
-- Voice input.
-- Multi-garment outfits.
-- Deep stylist reasoning.
-- Brand and visual-identity investment.
+- Persistent digital closet and wardrobe ingestion.
+- Multi-item outfit building across the customer's owned wardrobe and retailer catalogs.
+- Creator, human-stylist, and retailer collaboration surfaces.
+- In-store and physical-mirror experiences.
+- Retailer analytics and embedded distribution products.

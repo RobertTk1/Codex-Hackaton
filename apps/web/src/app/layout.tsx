@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Magic Mirror | First look",
-  description: "A first virtual try-on prototype.",
+  title: "Magic Mirror | Style report",
+  description: "A personal style-report onboarding tracer.",
 };
 
 export default function RootLayout({

@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 test("a user can upload a photo, select a garment, and receive a mock result", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/tracer");
   await page.locator("#photo-upload").setInputFiles({
     name: "person.png",
     mimeType: "image/png",
