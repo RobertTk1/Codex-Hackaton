@@ -100,6 +100,16 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - [x] Document usage, minimum sizes, color treatments, and reproducible export instructions.
 - [x] Complete the reusable 19-page brandbook loop and audited PDF packet under `company/brand/`.
 
+### Parallel Experiment — Tinker Vibe Study
+
+**User outcome:** The owner can evaluate a Tinker-like landing-page feel, including its scroll pacing and idle screensaver, before product copy, story, or the integrated Magic Mirror application changes.
+
+- [x] Time-box the reference study to three hours and keep it off the golden-path critical path.
+- [x] Store downloaded public reference bundles, media, notes, and evidence only under the locally Git-ignored `temp/tinker-vibe-study/` workspace.
+- [x] Build an original-code, dependency-free fidelity prototype with the reference copy retained temporarily for spacing and pacing comparison.
+- [x] Verify the five-viewport desktop hero, simplified mobile hero, masonry layout, before/after control, idle screensaver, dismissal controls, and reduced-motion fallback.
+- [ ] Complete owner visual review and explicitly adopt, continue, park, or discard the direction before changing product copy or integrating any portion into `apps/web`.
+
 ## Next
 
 1. Review and explicitly approve or revise the UX package under `company/artifacts/ui-ux-design/` before copywriting begins.
@@ -149,6 +159,7 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - 2026-07-19: Talisha White approved PRD v1.0.0, its 23 user stories, 15 Given/When/Then scenarios, and 27-screen responsive inventory as the foundation for UX design.
 - 2026-07-19: Completed the full `product-ux-design` package for founder review; all 27 approved screen/state records have semantic grayscale HTML and visually verified desktop/mobile captures, and copywriting remains gated on explicit UX approval.
 - 2026-07-18: Complete purchase through retailer-owned destinations rather than Magic Mirror payment and fulfillment.
+- 2026-07-19: Extend the isolated Tinker vibe experiment pending owner visual review. Keep its downloaded source, reference media, evidence, and prototype under locally ignored `temp/`; do not copy reference code into the product or change Magic Mirror's copy/story until the interaction feel is approved. The first time box validated an original-code desktop/mobile prototype, including the scroll-linked hero and reduced-motion-aware idle screensaver, without modifying `apps/web`.
 
 ## Roadmap Backlog
 
