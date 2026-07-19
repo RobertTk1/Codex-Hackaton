@@ -79,6 +79,16 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - [x] Document usage, minimum sizes, color treatments, and reproducible export instructions.
 - [x] Complete the reusable 19-page brandbook loop and audited PDF packet under `company/brand/`.
 
+### Parallel Experiment — Tinker Vibe Study
+
+**User outcome:** The owner can evaluate a Tinker-like landing-page feel, including its scroll pacing and idle screensaver, before product copy, story, or the integrated Magic Mirror application changes.
+
+- [x] Time-box the reference study to three hours and keep it off the golden-path critical path.
+- [x] Store downloaded public reference bundles, media, notes, and evidence only under the locally Git-ignored `temp/tinker-vibe-study/` workspace.
+- [x] Build an original-code, dependency-free fidelity prototype with the reference copy retained temporarily for spacing and pacing comparison.
+- [x] Verify the five-viewport desktop hero, simplified mobile hero, masonry layout, before/after control, idle screensaver, dismissal controls, and reduced-motion fallback.
+- [ ] Complete owner visual review and explicitly adopt, continue, park, or discard the direction before changing product copy or integrating any portion into `apps/web`.
+
 ## Next
 
 1. Benchmark two to three generation providers for identity and garment fidelity, p50/p95 latency, reliability, cost, commercial rights, and provider-side retention across a representation-diverse, consented or synthetic test set.
@@ -115,6 +125,7 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - 2026-07-18: Extracted `Magic Mirror Product Strategy.docx` into `company/artifacts/product/magic-mirror-v1-prd.md`; narrowed the source document’s broad stylist MVP to the approved single-photo, single-garment, static try-on golden path and retained adjacent capabilities as V2+.
 - 2026-07-18: Store feature execution plans under `company/flows/<flow-name>/plan.md`; begin with the single-page `first-try-on-tracer` flow and reference it from the canonical roadmap.
 - 2026-07-18: Build the Supabase data foundation as a migration and environment template without applying it; real project values, authentication, retention, and provider configuration remain explicit gates.
+- 2026-07-19: Extend the isolated Tinker vibe experiment pending owner visual review. Keep its downloaded source, reference media, evidence, and prototype under locally ignored `temp/`; do not copy reference code into the product or change Magic Mirror’s copy/story until the interaction feel is approved. The first time box validated an original-code desktop/mobile prototype, including the scroll-linked hero and reduced-motion-aware idle screensaver, without modifying `apps/web`.
 
 ## Roadmap Backlog (V2+)
 
