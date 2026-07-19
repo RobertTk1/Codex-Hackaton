@@ -1,6 +1,7 @@
 "use client";
 
 import { ChangeEvent, useState } from "react";
+import Image from "next/image";
 
 import { GARMENTS, type Garment } from "@/lib/garments";
 import {
@@ -143,7 +144,9 @@ export default function Home() {
                 <button className={`garment-card ${isSelected ? "is-selected" : ""}`} key={garment.id} onClick={() => {
                   setSelectedGarment(garment); setResult(null); setRequestError(null); setViewState("ready");
                 }} role="radio" aria-checked={isSelected} type="button">
-                  <span className={`garment-swatch ${garment.tone}`} aria-hidden="true" />
+                  <span className="garment-image-wrap">
+                    <Image alt={garment.imageAlt} className="garment-image" height={96} sizes="64px" src={garment.imagePath} width={77} />
+                  </span>
                   <span className="garment-details"><strong>{garment.name}</strong><small>{garment.category}</small></span>
                   <span className="selection-mark" aria-hidden="true">{isSelected ? "✓" : ""}</span>
                 </button>

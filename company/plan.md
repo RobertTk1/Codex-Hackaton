@@ -2,7 +2,7 @@
 
 ## How to Use This Plan
 
-This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The extracted V1 requirements live in `company/artifacts/product/magic-mirror-v1-prd.md`.
+This file is the source of truth for roadmap, sequencing, status, and next actions. Update it in the same change whenever scope, decisions, or task status changes. Each phase must produce a clear user outcome, and each task must be checkable. The extracted V1 requirements live in `company/artifacts/product/magic-mirror-v1-prd.md`. Configuration gates and their exact blockers live in [Configuration To-Do](configuration-todo.md).
 
 ## Product Goal
 
@@ -42,6 +42,8 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 
 **Configuration-pending flow:** [`Data Foundation`](flows/data-foundation/plan.md) — versioned sessions, asset references, private storage policies, and environment names with no live project values.
 
+**Completed flow:** [`Demo Catalog`](flows/demo-catalog/plan.md) — three local, image-backed garments for the existing mock try-on selector.
+
 - [x] Scaffold the Next.js application in `apps/web` with required development, lint, typecheck, unit-test, and end-to-end-test scripts.
 - [x] Configure Tailwind, strict TypeScript, Zod, Vitest, and Playwright.
 - [x] Document required Supabase and provider environment variables with placeholders; live values remain unconfigured.
@@ -53,6 +55,7 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 
 - [x] Implement mock-tracer photo upload and validation; real consent and retention messaging remain blocked on policy.
 - [x] Implement mock-tracer single-garment selection from a hardcoded catalog.
+- [x] Replace garment color swatches with three local, image-backed demo catalog items.
 - [ ] Implement the typed generation-provider boundary with timeout and normalized errors.
 - [ ] Persist try-on session state and generated-asset references.
 - [x] Show explicit mock-tracer loading, slow, success, and failure states.
@@ -79,12 +82,22 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - [x] Document usage, minimum sizes, color treatments, and reproducible export instructions.
 - [x] Complete the reusable 19-page brandbook loop and audited PDF packet under `company/brand/`.
 
+### Parallel Track — API & MCP Access (Post-Golden Path)
+
+**User outcome:** A trusted external agent, web client, or mobile client can submit an authorized image and garment selection, then observe a try-on request through a stable API contract.
+
+- [ ] Define API/MCP caller identity, user-image ownership, allowed actions, quotas, and audit requirements.
+- [ ] Define a versioned create-render request plus typed asynchronous status and error responses.
+- [ ] Build a small authenticated API surface after the web golden path uses the same provider boundary successfully.
+- [ ] Expose an MCP server only after the API contract and user-image permission model are proven.
+
 ## Next
 
 1. Benchmark two to three generation providers for identity and garment fidelity, p50/p95 latency, reliability, cost, commercial rights, and provider-side retention across a representation-diverse, consented or synthetic test set.
 2. Resolve photo processing, retention, deletion, and consent behavior before asking participants to upload real photos.
 3. Lock one garment category, minimum demo catalog, provider-compatible photo guidance, submission deadline, and fallback demo path.
-4. Interview ten U.S. adult online apparel shoppers who can show a recent uncertain item; compare “Should I buy this?” messaging with generic “virtual try-on” messaging.
+4. Decide API/MCP identity, user-image ownership, and asynchronous status contract before exposing any external integration.
+5. Interview ten U.S. adult online apparel shoppers who can show a recent uncertain item; compare “Should I buy this?” messaging with generic “virtual try-on” messaging.
 
 ## Decisions
 
@@ -115,6 +128,8 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - 2026-07-18: Extracted `Magic Mirror Product Strategy.docx` into `company/artifacts/product/magic-mirror-v1-prd.md`; narrowed the source document’s broad stylist MVP to the approved single-photo, single-garment, static try-on golden path and retained adjacent capabilities as V2+.
 - 2026-07-18: Store feature execution plans under `company/flows/<flow-name>/plan.md`; begin with the single-page `first-try-on-tracer` flow and reference it from the canonical roadmap.
 - 2026-07-18: Build the Supabase data foundation as a migration and environment template without applying it; real project values, authentication, retention, and provider configuration remain explicit gates.
+- 2026-07-18: Add a configuration checklist that names each missing integration decision and its blocker; generated local catalog imagery is valid for the demo but does not satisfy live product sourcing or a generation-provider decision.
+- 2026-07-18: Plan a post-golden-path API and MCP surface for authorized external image submissions. First prove the web flow and define caller identity, image ownership, and typed async render status before exposing it.
 
 ## Roadmap Backlog (V2+)
 
