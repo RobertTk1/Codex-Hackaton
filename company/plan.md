@@ -16,6 +16,8 @@ The first functional build is the Style Intelligence Golden Path: anonymous onbo
 
 Move at hackathon speed while keeping the golden path runnable. Use a dedicated branch and worktree for each concurrent task or experiment, integrate small working changes frequently, and prune merged worktrees and branches. PRs and squash merges are optional. Time-box experiments, define their cheapest success signal, and keep them off the critical path unless they reduce a launch-critical risk.
 
+Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and are referenced from the relevant roadmap phase. The canonical plan owns sequencing and status; flow plans own implementation tasks and acceptance criteria.
+
 ## Roadmap
 
 ### Phase 0 — Define and De-risk
@@ -25,6 +27,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - [x] Establish the base Magic Mirror company profile and operating workspace from the product strategy.
 - [x] Complete U.S.-first market research and competitor analysis for the V1 purchase-decision opportunity.
 - [x] Define and score candidate audiences; select the behavioral V1 beachhead and validation cohort.
+- [x] Extract the original product strategy into a focused single-photo V1 PRD and preserve that implementation baseline.
 - [x] Build and validate the reusable frontend-definition workflow and its four global skills.
 - [x] Create, decompose, and approve the full PRD package.
 - [x] Define the golden-path Given/When/Then scenario and acceptance criteria.
@@ -39,15 +42,20 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 **User outcome:** A customer can open a functioning application shell ready for the report-led journey.
 
-- [ ] Scaffold the Next.js monorepo application and required scripts.
-- [ ] Configure Tailwind, strict TypeScript, Zod, Vitest, and Playwright.
-- [ ] Configure local Supabase and document environment variables.
-- [ ] Add the minimum schema, migrations, storage buckets, and row-level security.
+**Completed flow:** [`First Try-On Tracer`](flows/first-try-on-tracer/plan.md) — one-page photo upload, hardcoded garment selection, typed mock request, and bottom-of-page result. This remains a runnable proof-of-flow while the product target advances to Style Intelligence.
+
+**Configuration-pending flow:** [`Data Foundation`](flows/data-foundation/plan.md) — versioned sessions, asset references, private storage policies, and environment names with no live project values.
+
+- [x] Scaffold the Next.js application in `apps/web` with required development, lint, typecheck, unit-test, and end-to-end-test scripts.
+- [x] Configure Tailwind, strict TypeScript, Zod, Vitest, and Playwright.
+- [x] Document required Supabase and provider environment variables with placeholders; live values remain unconfigured.
+- [x] Add the minimum versioned schema, private bucket definition, and row-level policies; applying them remains blocked on project and auth configuration.
 
 ### Phase 2 — Style Intelligence Golden Path
 
 **User outcome:** A first-time customer can teach Magic Mirror their style and receive a real personalized report and curated recommendations.
 
+- [x] Preserve the runnable mock tracer with local photo preview, hardcoded garment selection, typed validation, and explicit request states as an implementation baseline.
 - [ ] Implement the report-led landing page and resumable guided onboarding.
 - [ ] Implement personal profile, favorite brands, and category-specific sizes.
 - [ ] Implement secure 8-12 favorite-look photo upload with validation, consent, and per-account isolation.
@@ -125,6 +133,9 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-18: Require standardized application mockups to be recognizable from structure alone. Twitter/X, LinkedIn, and browser/favicon use distinct platform-specific ImageGen compositions; LinkedIn cannot reuse the X phone/profile layout.
 - 2026-07-18: Twitter/X application examples always pair one light-mode profile/avatar treatment with one dark-mode treatment, reversing the icon for clear contrast rather than duplicating one color treatment across both phones.
 - 2026-07-18: Accepted the reusable 19-page Magic Mirror brandbook packet after PDF-derived visual QA, a Mayven-to-Magic composition audit, and complete task/evidence verification under `company/brand/brandbook-packet/`.
+- 2026-07-18: Extracted `Magic Mirror Product Strategy.docx` into `company/artifacts/product/magic-mirror-v1-prd.md`; narrowed the source document's broad stylist MVP to a single-photo, single-garment, static try-on baseline. This was later superseded as the active golden path by the approved style-report-led definition.
+- 2026-07-18: Store feature execution plans under `company/flows/<flow-name>/plan.md`; begin with the single-page `first-try-on-tracer` flow and reference it from the canonical roadmap.
+- 2026-07-18: Build the Supabase data foundation as a migration and environment template without applying it; real project values, authentication, retention, and provider configuration remain explicit gates.
 - 2026-07-18: Use the approval-gated frontend-definition sequence `product-prd-spec → product-ux-design → copywriting → product-screen-mockups → engineering handoff`.
 - 2026-07-18: Build low-fidelity wireframes as responsive grayscale HTML/CSS and capture deterministic PNGs; create every high-fidelity screen mockup as a built-in ImageGen raster using the approved wireframe, copy, voice, and brand references.
 - 2026-07-18: Treat `company/voice.md` and `company/artifacts/copy/copy-manifest.json` as canonical for implementation copy because text rendered inside generated mockups may drift.
