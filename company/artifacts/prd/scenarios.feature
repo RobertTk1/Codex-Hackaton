@@ -8,17 +8,17 @@ Feature: Magic Mirror style intelligence and shopping journey
     And completes the personal and brand-size profile
     And uploads between 8 and 12 qualifying full-body favorite-look photos
     And completes the required taste calibration choices
-    And creates an account with a valid email and required consent
+    And connects the anonymous onboarding session to a permanent account with Google or a valid email magic link and required consent
     Then Magic Mirror starts real style analysis using the submitted inputs
     And shows meaningful processing stages
     And displays the completed style report when analysis finishes within 120 seconds
     And preserves the report in the new account
 
   @SC-002 @US-002 @US-022
-  Scenario: A returning customer resumes the correct account state
+  Scenario: A returning customer uses Google or a magic link to resume the correct account state
     Given a customer has a valid Magic Mirror account
     And the account has an incomplete onboarding step, active analysis, completed report, or style home
-    When the customer logs in successfully
+    When the customer authenticates with Google or a valid email magic link
     Then Magic Mirror routes the customer to the latest valid state
     And does not require completed onboarding work to be repeated
 
@@ -49,12 +49,13 @@ Feature: Magic Mirror style intelligence and shopping journey
     And continues from the next incomplete calibration choice after recovery
 
   @SC-006 @US-007
-  Scenario: A new customer enters an email that already belongs to an account
-    Given a customer has completed pre-account onboarding and calibration
-    When the customer submits an email connected to an existing Magic Mirror account
-    Then Magic Mirror offers a secure login or recovery path
-    And preserves the current pre-account progress until connection succeeds or the customer exits
-    And does not reveal unrelated account data
+  Scenario: Anonymous progress connects to an existing permanent account
+    Given a customer has completed onboarding and calibration under an anonymous authenticated identity
+    When the customer authenticates with Google or a magic link for an existing Magic Mirror account
+    Then Magic Mirror logs the customer into that existing account
+    And connects the authorized anonymous profile, photos, and taste choices to it
+    And preserves the progress if account connection is interrupted
+    And does not require a separate signup flow
 
   @SC-007 @US-008 @US-020
   Scenario: Style analysis exceeds the two-minute target
@@ -110,14 +111,14 @@ Feature: Magic Mirror style intelligence and shopping journey
     And opens the correct current retailer destination
     And preserves the Magic Mirror report and bag state for return
 
-  @SC-013 @US-005 @US-019
-  Scenario: Source outfit photos are deleted within 24 hours
-    Given a customer uploaded source outfit photos with consent
-    When 24 hours have elapsed since upload or the customer requests earlier deletion
-    Then Magic Mirror deletes the source photo assets
-    And records a deletion completion status without retaining raw photo content in logs
-    And shows the customer whether source-photo deletion is complete
-    And distinguishes retained derived profile and report data from deleted source imagery
+  @SC-013 @US-005 @US-007 @US-019
+  Scenario: Sensitive onboarding inputs remain isolated through account connection
+    Given a customer has started onboarding under an anonymous authenticated identity
+    And has consented to photo analysis
+    When the customer uploads outfit photos and later connects a permanent account
+    Then only that anonymous identity can access the inputs before connection
+    And only the authorized connected account can access them after connection
+    And Magic Mirror does not expose raw photos or sensitive profile values in logs
 
   @SC-014 @US-013 @US-022
   Scenario: A report recipient opens personalized recommendations
@@ -127,3 +128,13 @@ Feature: Magic Mirror style intelligence and shopping journey
     And explains the report attributes behind each match
     And allows refinement by category, color, brand, price range, or occasion
     And clearly marks or replaces an item that is no longer available
+
+  @SC-015 @US-014 @US-021 @US-023
+  Scenario: A customer changes outfits with hand gestures from a distance
+    Given a customer is in a ready live styling session with camera permission
+    And gesture control is active
+    When the customer performs a documented gesture for the next outfit, previous outfit, or a visible control
+    Then Magic Mirror shows the recognized gesture and intended action
+    And changes or selects the outfit control when recognition is accepted
+    And requests explicit confirmation before adding to the bag, leaving for a retailer, or ending the session
+    And keeps equivalent voice and direct controls available

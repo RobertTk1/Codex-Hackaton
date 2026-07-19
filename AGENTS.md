@@ -1,6 +1,6 @@
 # Magic Mirror — Repository Guidelines
 
-**Status:** Hackathon prototype; working title. Magic Mirror is an AI personal stylist whose entry product is a comprehensive style report. The first functional golden path is: an adult completes a profile and brand-size history, uploads 8-12 full-body photos of favorite looks, calibrates taste through visual choices, creates an email account, and receives a real personalized style report plus curated recommendations within a target of one to two minutes. The complete defined journey continues into real live styling, voice refinement, a Magic Mirror bag, and retailer-owned checkout.
+**Status:** Hackathon prototype; working title. Magic Mirror is an AI personal stylist whose entry product is a comprehensive style report. The first functional golden path is: an adult begins in an anonymous authenticated session, completes a profile and brand-size history, uploads 8-12 full-body photos of favorite looks, calibrates taste with right/Love, left/Hate, and down/Maybe swipes, connects a permanent account with Google or an email magic link, and receives a real personalized style report plus curated recommendations within a target of one to two minutes. The complete defined journey continues into real live styling controlled by voice or camera-recognized hand gestures, a Magic Mirror bag, and retailer-owned checkout.
 
 ## Zero-to-One Discipline
 

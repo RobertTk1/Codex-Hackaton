@@ -1,8 +1,8 @@
 ---
 product: Magic Mirror
 company: Magic Mirror
-version: 0.1.0
-date: 2026-07-18
+version: 0.2.0
+date: 2026-07-19
 status: Draft
 owner: Talisha White
 approval_record: Pending founder review
@@ -22,18 +22,20 @@ source_artifacts:
 
 Magic Mirror is an AI personal stylist that learns how a person dresses, explains how to improve their styling, and turns that understanding into personalized shopping and live virtual try-on. The primary audience is an adult who wants to dress better but lacks a clear, personalized system for choosing colors, silhouettes, brands, sizes, and complete looks.
 
-The customer enters through an editorial, education-led landing page centered on a comprehensive personal style report. A new customer completes a guided profile, records brand-specific sizing, uploads 8-12 full-body photos of favorite looks, and refines the initial taste model by swiping through looks and garments. Before results are generated, the customer supplies an email address and creates an account. Magic Mirror then delivers the style report within a target of one to two minutes.
+The customer enters through an editorial, education-led landing page centered on a comprehensive personal style report. When onboarding begins, Magic Mirror creates an anonymous authenticated session so every answer and upload can be preserved before the customer has a permanent account. The customer completes a guided profile, records brand-specific sizing, uploads 8-12 full-body photos of favorite looks, and refines the initial taste model through Tinder-like cards: swipe right for **Love**, left for **Hate**, and down for **Maybe**. Before results are generated, the customer connects the anonymous session to a permanent account using Google or an email magic link. Magic Mirror then delivers the style report within a target of one to two minutes.
 
-The report explains the customer's style identity, existing strengths, highest-value opportunities, color palette, Kibbe-informed body-style profile, recommended silhouettes and proportions, and specific outfit and garment recommendations. From the report, the customer enters a live styling session containing items selected for them, grants camera and microphone access, tries products on through live video, asks for alternatives by voice, collects preferred products in a Magic Mirror bag, and continues to the appropriate retailer to complete checkout.
+The report explains the customer's style identity, existing strengths, highest-value opportunities, color palette, Kibbe-informed body-style profile, recommended silhouettes and proportions, and specific outfit and garment recommendations. From the report, the customer enters a live styling session containing items selected for them, grants camera and microphone access, tries products on through live video, and controls the session from a distance using either voice or camera-recognized hand gestures. The customer collects preferred products in a Magic Mirror bag and continues to the appropriate retailer to complete checkout.
 
 The current delivery phase is frontend definition. Every screen, requirement, and user-facing message describes the intended real product behavior of analysis, live try-on, voice actions, catalog results, and retailer handoffs.
 
 Key founder decisions:
 
-- Existing customers can log in; first-time customers are directed toward the style-report journey.
-- New-account email collection happens after profile inputs and taste calibration but before report generation.
+- Onboarding begins in an anonymous authenticated session that preserves progress until permanent account connection.
+- Google and email magic link are the only permanent account methods; the same account step signs up new customers or logs in existing customers.
+- The permanent account step happens after profile inputs and taste calibration but before report generation.
 - Report generation should complete within one to two minutes.
-- Uploaded source photos are deleted automatically within 24 hours.
+- Taste calibration uses **Love**, **Hate**, and **Maybe**: right, left, and down respectively, with matching accessible controls.
+- Live styling supports both voice and camera-recognized hand gestures for distance control.
 - Product purchases are completed on retailer sites, not through Magic Mirror checkout.
 - The first functional build centers on real onboarding, real style analysis, a real report, and real curated recommendations; downstream capabilities remain specified as real target behavior.
 
@@ -67,7 +69,7 @@ Magic Mirror sits at the intersection of personal styling, visual taste learning
 - Company research identifies purchase confidence and personalized decision support as stronger differentiation than generic virtual try-on alone.
 - The selected validation audience is behaviorally defined rather than restricted to a demographic group.
 - QOVES is a structural landing-page reference for an education-heavy, report-led conversion journey; its branding, appearance claims, and scoring language are not Magic Mirror inputs.
-- User photos and body-related data are sensitive. Consent, data minimization, transparent use, deletion, and respectful language are product requirements.
+- User photos and body-related data are sensitive. Consent, data minimization, access isolation, transparent use, and respectful language are product requirements. The product makes no automatic image-expiration promise in this version.
 
 ## 3. Full product vision
 
@@ -79,7 +81,7 @@ The complete loop is:
 2. Explain the person's style through a useful, editable report rather than an opaque score.
 3. Translate the report into specific looks and purchasable items.
 4. Let the person experience those items in a live visual styling session.
-5. Refine the session through natural voice requests.
+5. Refine the session from a distance through natural voice requests or camera-recognized hand gestures.
 6. Send selected items to retailers for purchase.
 7. Learn from explicit feedback, saved choices, retailer visits, and future sessions.
 
@@ -89,7 +91,7 @@ The product must help the customer feel more capable and understood. It must not
 
 ### Experience being defined
 
-The frontend package covers the primary journey from public landing page through retailer handoff, including authentication, onboarding, report generation, report exploration, personalized recommendations, live styling, voice interaction, bag review, privacy controls, and material recovery states.
+The frontend package covers the primary journey from public landing page through retailer handoff, including anonymous onboarding, permanent account connection, report generation, report exploration, personalized recommendations, live styling, voice and hand-gesture interaction, bag review, and material recovery states.
 
 ### First functional build outcome
 
@@ -99,7 +101,7 @@ The first functional build proves the style-intelligence promise:
 2. The customer completes the personal and brand-size profile.
 3. The customer uploads 8-12 qualifying outfit photos.
 4. The customer completes visual taste calibration.
-5. The customer creates an account with email.
+5. The customer connects the anonymous session to a permanent account with Google or an email magic link.
 6. Magic Mirror performs real analysis and returns the report within the one-to-two-minute target.
 7. The customer receives real personalized recommendations selected from an available catalog.
 
@@ -112,7 +114,7 @@ The frontend still defines live styling, voice refinement, bag behavior, and ret
 - Receive a specific, comprehensible description of personal style.
 - Understand colors, proportions, silhouettes, and styling changes that are likely to help.
 - See recommendations tied directly to the analysis rather than generic trends.
-- Try recommended items visually and request alternatives without restarting the session.
+- Try recommended items visually and request alternatives by voice, hand gesture, or direct controls without restarting the session.
 - Reach the retailer with clear intent and confidence.
 - Understand and control how personal images and profile data are used.
 
@@ -177,7 +179,7 @@ Testing must cover varied ages within the adult population, skin tones, body sha
 1. The visitor lands on a public page that leads with the benefit of understanding personal style.
 2. The page previews report sections, shows how inputs become recommendations, explains timing and privacy, and names the limits of visualization.
 3. The visitor selects **Get your style report**.
-4. If already authenticated and onboarded, the system routes them to their style home. If authenticated but incomplete, it resumes the next incomplete step. Otherwise, onboarding begins without requiring an account upfront.
+4. If already authenticated and onboarded, the system routes them to their style home. If authenticated but incomplete, it resumes the next incomplete step. Otherwise, Magic Mirror creates an anonymous authenticated session and begins onboarding without requiring a permanent account upfront.
 
 ### Journey B: Build the initial style profile
 
@@ -185,11 +187,11 @@ Testing must cover varied ages within the adult population, skin tones, body sha
 2. The customer supplies age, height, optional weight, and style-presentation information. Each sensitive field explains why it is requested, whether it is required, and how it affects recommendations.
 3. The customer selects favorite brands.
 4. For each selected brand, the customer may record sizes by relevant category, such as tops, bottoms, dresses, jackets, or shoes.
-5. Progress is saved locally or to a recoverable pre-account session so accidental navigation does not erase completed work.
+5. Progress is saved to the anonymous authenticated session so accidental navigation does not erase completed work before permanent account connection.
 
 ### Journey C: Upload outfit evidence
 
-1. The customer sees photo guidance, consent, the 8-photo minimum, 12-photo maximum, accepted formats, quality requirements, and the 24-hour deletion commitment.
+1. The customer sees photo guidance, consent, the 8-photo minimum, 12-photo maximum, accepted formats, quality requirements, and how the photos will be used for analysis.
 2. The customer uploads full-body photos of themselves wearing favorite looks.
 3. Each photo shows upload and validation status independently.
 4. The customer can replace, reorder, or remove a photo before continuing.
@@ -198,21 +200,23 @@ Testing must cover varied ages within the adult population, skin tones, body sha
 ### Journey D: Refine taste through swiping
 
 1. Magic Mirror uses the initial profile and uploaded looks to prepare a sequence of relevant look and garment cards.
-2. The customer swipes or uses accessible buttons to choose **More like this**, **Not for me**, or **Save**.
-3. A short progress indicator communicates the remaining calibration effort.
-4. The system includes a balanced range of silhouettes, colors, styling intensity, and categories rather than repeatedly testing one dimension.
-5. The customer can undo the most recent choice.
-6. When sufficient signal has been collected, the system explains that the profile is ready for analysis.
+2. The primary interaction follows a Tinder-like model: swipe right for **Love**, swipe left for **Hate**, and swipe down for **Maybe**.
+3. Visible **Love**, **Hate**, and **Maybe** buttons and keyboard controls perform the same actions for accessibility and non-touch devices.
+4. A short progress indicator communicates the remaining calibration effort.
+5. The system includes a balanced range of silhouettes, colors, styling intensity, and categories rather than repeatedly testing one dimension.
+6. The customer can undo the most recent choice.
+7. When sufficient signal has been collected, the system explains that the profile is ready for analysis.
 
-### Journey E: Create the account and generate the report
+### Journey E: Connect the account and generate the report
 
-1. The customer supplies an email address and agrees to the account and privacy terms.
-2. The system creates or connects the email-based account while preserving all pre-account progress.
-3. The analysis screen explains the work being performed and displays meaningful stages without exposing internal implementation.
-4. The target is to complete and display the report within 120 seconds.
-5. The customer may safely leave; processing continues, and the account can resume the result.
-6. If processing exceeds 120 seconds, the product shows a slow state, confirms that inputs are safe, and offers email notification plus a return link.
-7. If analysis fails, the product preserves valid inputs, identifies the recoverable step, and offers retry or support. It does not silently discard the session.
+1. The customer chooses **Continue with Google** or enters an email address to receive a magic link, and agrees to the account and privacy terms.
+2. The same step creates a new permanent account or logs into an existing account; there is no separate signup versus login mode.
+3. The system links the anonymous session to the permanent account and preserves its profile, uploads, taste choices, and progress.
+4. The analysis screen explains the work being performed and displays meaningful stages without exposing internal implementation.
+5. The target is to complete and display the report within 120 seconds.
+6. The customer may safely leave; processing continues, and the account can resume the result.
+7. If processing exceeds 120 seconds, the product shows a slow state, confirms that inputs are safe, and offers email notification plus a return link.
+8. If analysis fails, the product preserves valid inputs, identifies the recoverable step, and offers retry or support. It does not silently discard the session.
 
 ### Journey F: Understand the style report
 
@@ -229,9 +233,12 @@ Testing must cover varied ages within the adult population, skin tones, body sha
 1. The customer opens the personalized stylist home and sees products selected from the style report.
 2. The customer starts a live styling session and receives clear camera requirements.
 3. After camera permission, the live view shows the customer and the active recommended item, along with product identity and controls.
-4. The customer can select another item manually or ask by voice for a meaningful change, such as a different color, silhouette, price range, brand, or occasion.
-5. The AI stylist confirms the interpreted request, updates the recommendation set, and explains the most relevant change.
-6. If camera, microphone, network, catalog, or generation capability fails, the session preserves selections and provides a recovery path.
+4. The customer can control the live session directly, by voice, or through camera-recognized hand gestures designed for use when the phone or laptop is several feet away.
+5. Hand gestures support moving to the next or previous outfit and selecting visible controls; the interface shows the recognized gesture before acting.
+6. Voice supports meaningful requests such as a different color, silhouette, price range, brand, or occasion.
+7. The AI stylist confirms interpreted voice or gesture input, updates the recommendation set, and explains the most relevant change.
+8. Consequential actions such as adding to the bag or leaving for a retailer require explicit confirmation so an accidental movement cannot trigger them.
+9. If camera, microphone, gesture recognition, network, catalog, or generation capability fails, the session preserves selections and provides a recovery path.
 
 ### Journey H: Select and shop
 
@@ -242,13 +249,10 @@ Testing must cover varied ages within the adult population, skin tones, body sha
 5. Magic Mirror records the outbound selection event and opens the retailer product or cart destination.
 6. Returning to Magic Mirror preserves the report and bag state subject to account and catalog availability.
 
-### Journey I: Return, manage, and delete
+### Journey I: Return and continue
 
 1. A returning customer logs in and lands on style home, not onboarding.
-2. The customer can revisit the report, continue a session, update sizes, recalibrate taste, or manage data.
-3. Uploaded source photos are automatically deleted no later than 24 hours after upload.
-4. The customer can request earlier photo deletion and can delete the broader account/profile separately.
-5. The data-controls screen distinguishes deleted source imagery from retained derived preferences, report content, saved items, and account data.
+2. The customer can revisit the report, continue a session, update sizes, recalibrate taste, review saved items, or manage the account.
 
 ## 8. Frontend surfaces and behavior
 
@@ -258,10 +262,10 @@ The landing page uses an editorial, evidence-oriented report narrative inspired 
 
 ### Product shell and navigation
 
-- Pre-account onboarding uses a focused stepper with back, progress, save/recovery behavior, and one primary action.
-- Authenticated product navigation provides Style Home, My Report, Live Styling, Saved Items/Bag, and Account & Data.
+- Anonymous onboarding uses a focused stepper with back, progress, save/recovery behavior, and one primary action.
+- Authenticated product navigation provides Style Home, My Report, Live Styling, Saved Items/Bag, and Account.
 - Report navigation remains legible on desktop and collapses into a mobile section menu or sticky section control.
-- Live styling prioritizes the camera view, active garment, voice state, alternative controls, and add-to-bag action.
+- Live styling prioritizes the camera view, active garment, voice state, hand-gesture state, direct controls, and add-to-bag action.
 
 ### Required state behavior
 
@@ -271,8 +275,9 @@ Every material action must define base, validation, loading or processing, slow,
 
 - Landing page and report support desktop and mobile.
 - Onboarding is mobile-first and remains usable on desktop.
-- Swipe calibration supports touch, mouse, keyboard, and explicit buttons.
+- Taste calibration makes swiping the primary touch interaction while preserving matching Love, Hate, and Maybe buttons plus keyboard controls.
 - Live styling supports mobile portrait first, with a desktop composition that preserves equivalent controls.
+- Live styling keeps gesture recognition status, supported gesture guidance, and the interpreted action visible at a distance.
 - No critical action depends only on hover, drag, gesture, color, or voice.
 
 ### Accessibility and respectful presentation
@@ -290,19 +295,19 @@ User value: understand what the report delivers and why the process is trustwort
 
 ### Epic B: Guided style onboarding - must-have
 
-User value: provide meaningful context once without guessing how. Business value: collect the minimum inputs for personalization. Dependencies: field definitions, validation, pre-account recovery. Acceptance: valid progress survives navigation and invalid or missing inputs produce specific remediation.
+User value: provide meaningful context once without guessing how. Business value: collect the minimum inputs for personalization. Dependencies: field definitions, validation, and anonymous-session recovery. Acceptance: valid progress survives navigation and invalid or missing inputs produce specific remediation.
 
 ### Epic C: Outfit-photo collection - must-have
 
-User value: teach Magic Mirror from real personal style evidence. Business value: improve personalization beyond a quiz. Dependencies: upload validation, consent, secure storage, deletion enforcement. Acceptance: 8-12 validated images can be reviewed and edited; each failure is local and recoverable.
+User value: teach Magic Mirror from real personal style evidence. Business value: improve personalization beyond a quiz. Dependencies: upload validation, consent, secure storage, and access isolation. Acceptance: 8-12 validated images can be reviewed and edited; each failure is local and recoverable.
 
 ### Epic D: Taste calibration - must-have
 
-User value: correct or deepen the inferred taste before analysis. Business value: create explicit preference signals. Dependencies: candidate looks/items and feedback capture. Acceptance: every choice is attributable, undoable, accessible without a swipe, and reflected in analysis inputs.
+User value: correct or deepen the inferred taste before analysis. Business value: create explicit preference signals. Dependencies: candidate looks/items and feedback capture. Acceptance: right/Love, left/Hate, and down/Maybe choices are attributable, undoable, available through matching non-gesture controls, and reflected in analysis inputs.
 
-### Epic E: Email account conversion - must-have
+### Epic E: Anonymous-to-permanent account connection - must-have
 
-User value: safely receive and revisit results. Business value: create a persistent customer relationship at the moment of demonstrated intent. Dependencies: authentication and pre-account session transfer. Acceptance: account creation preserves completed inputs and handles existing-email recovery.
+User value: safely receive and revisit results. Business value: create a persistent customer relationship at the moment of demonstrated intent. Dependencies: anonymous authentication plus Google and email magic-link account connection. Acceptance: one account step signs up or logs in and preserves all anonymous-session inputs.
 
 ### Epic F: Style analysis and report - must-have
 
@@ -312,17 +317,17 @@ User value: receive a useful personal explanation and action plan. Business valu
 
 User value: turn report findings into concrete next actions and products. Business value: bridge activation to repeated engagement and commerce. Dependencies: report outputs and eligible catalog. Acceptance: recommendations state why they match the report and never claim unavailable stock or guaranteed fit.
 
-### Epic H: Live styling and voice refinement - should-have for the first engineering release; required in the complete product definition
+### Epic H: Distance-controlled live styling - should-have for the first engineering release; required in the complete product definition
 
-User value: experience and refine recommendations naturally. Business value: differentiate Magic Mirror from static reports and feeds. Dependencies: camera, live visualization, voice interpretation, catalog filtering, latency controls. Acceptance: the active request, garment, state, and recovery path remain visible; manual controls duplicate voice-critical actions.
+User value: experience and refine recommendations without standing next to the device. Business value: differentiate Magic Mirror from static reports and feeds. Dependencies: camera, live visualization, voice interpretation, hand-gesture recognition, catalog filtering, and latency controls. Acceptance: the active request, recognized gesture, garment, state, and recovery path remain visible; direct controls duplicate every essential voice and hand action.
 
 ### Epic I: Magic Mirror bag and retailer handoff - should-have for the first engineering release; required in the complete product definition
 
 User value: act on confident selections. Business value: create attributable retailer intent. Dependencies: product URLs, retailer grouping, availability refresh. Acceptance: the customer understands the external boundary and can reach the correct retailer destination without losing Magic Mirror state.
 
-### Epic J: Privacy and account controls - must-have
+### Epic J: Trust, consent, and access isolation - must-have
 
-User value: understand and control sensitive data. Business value: establish trust and reduce privacy risk. Dependencies: deletion enforcement and account permissions. Acceptance: raw images are automatically deleted within 24 hours; earlier deletion and account deletion have visible status and confirmation.
+User value: understand how sensitive inputs are used and know that another customer cannot access them. Business value: establish trust and reduce privacy risk. Dependencies: purpose-specific consent and account/session permissions. Acceptance: photo, camera, microphone, and account consent are explicit; every sensitive asset and session is isolated to its anonymous or permanent account owner.
 
 ## 10. Backend and system implications
 
@@ -330,10 +335,12 @@ These are user-visible capability requirements, not architecture choices.
 
 ### Identity and authentication
 
-- Support recoverable pre-account sessions and transfer them to an email-based account.
+- Create an anonymous authenticated user when onboarding begins and associate every onboarding answer, upload, and taste choice with that identity.
+- Support only Google and email magic link for permanent account access; the same entry point creates a new account or logs into an existing one.
+- Link or upgrade the anonymous identity to the permanent account without duplicating or losing data.
 - Prevent one customer from accessing another customer's images, profile, report, sessions, or bag.
 - Route returning customers based on onboarding and analysis status.
-- Support existing-email recovery without discarding current progress.
+- When the Google identity or email already exists, authenticate that account and connect the current anonymous progress after authorization succeeds.
 
 ### Profile and preference data
 
@@ -345,8 +352,8 @@ These are user-visible capability requirements, not architecture choices.
 
 - Validate count, type, size, resolution, full-body visibility, duplicate status, and corrupted inputs.
 - Encrypt imagery in transit and at rest and restrict access by customer and authorized processing purpose.
-- Record upload and deletion timestamps without placing raw image content in logs.
-- Delete source photos automatically no later than 24 hours after upload and surface deletion status to the customer.
+- Record upload and processing status without placing raw image content in logs.
+- Keep storage duration and lifecycle behavior as an implementation and policy decision; do not make a user-facing automatic-expiration promise in this version.
 
 ### AI analysis and report generation
 
@@ -354,7 +361,7 @@ These are user-visible capability requirements, not architecture choices.
 - Return structured report sections, confidence or uncertainty where relevant, evidence references, and actionable recommendations.
 - Normalize provider or model errors into customer-visible error, code, and recovery detail.
 - Enforce a 120-second user-facing target with processing, slow, completion, and failure states.
-- Preserve completed inputs so a retry does not force re-upload unless source imagery is invalid or already deleted.
+- Preserve completed inputs so a retry does not force re-upload unless source imagery is invalid or unavailable.
 
 ### Catalog and recommendations
 
@@ -374,7 +381,15 @@ These are user-visible capability requirements, not architecture choices.
 - Request microphone permission separately from camera permission.
 - Show listening, interpreting, confirming, acting, and failed states.
 - Require visual confirmation for consequential actions such as adding an item or leaving for a retailer.
-- Provide equivalent manual controls for every essential voice action.
+- Provide equivalent direct controls for every essential voice action.
+
+### Hand-gesture interaction
+
+- Use the already-permitted camera stream to recognize the documented live-session gestures without storing gesture video as a separate product asset.
+- Show when gesture control is available, actively observing, interpreting, accepted, ignored, or unavailable.
+- Support next outfit, previous outfit, and visible-control selection from a practical standing distance.
+- Require confirmation for add-to-bag, retailer handoff, ending the session, or any other consequential gesture action.
+- Provide equivalent direct and voice controls for every essential hand-gesture action.
 
 ### Retailer handoff
 
@@ -384,8 +399,8 @@ These are user-visible capability requirements, not architecture choices.
 
 ### Operations and observability
 
-- Record processing duration, stage outcome, normalized failure class, deletion completion, recommendation engagement, and retailer handoff without logging raw images or unnecessarily sensitive profile fields.
-- Provide authorized exception review for failed analysis and deletion jobs with least-privilege access and an audit trail.
+- Record processing duration, stage outcome, normalized failure class, recommendation engagement, gesture-recognition outcome, and retailer handoff without logging raw images or unnecessarily sensitive profile fields.
+- Provide authorized exception review for failed analysis and account-linking jobs with least-privilege access and an audit trail.
 
 ## 11. Data and content requirements
 
@@ -396,8 +411,9 @@ These are user-visible capability requirements, not architecture choices.
 - Favorite brands and known sizes by garment category.
 - Eight to twelve consented full-body images of the customer wearing favorite looks.
 - Explicit taste choices from look and garment cards.
-- Email address and account/privacy consent.
+- Google account identity or email address for a magic link, plus account/privacy consent.
 - Camera and microphone streams only after separate permission.
+- Camera-recognized hand-gesture actions during an active live session.
 - Report feedback, saved items, bag changes, and retailer handoff actions.
 
 ### Product outputs
@@ -408,20 +424,19 @@ These are user-visible capability requirements, not architecture choices.
 - Kibbe-informed body-style profile, explanation, uncertainty, and recommended styling implications.
 - Silhouette, proportion, layering, fabric, garment, and outfit guidance.
 - Personalized product recommendations with rationale and retailer provenance.
-- Live visualization state and voice-request confirmations.
+- Live visualization state plus voice-request and hand-gesture confirmations.
 - Bag contents grouped by retailer and external handoff destinations.
 
 ### Lifecycle and ownership
 
-- The customer owns account access and controls deletion requests.
-- Source outfit photos expire automatically within 24 hours and may be deleted earlier.
-- Derived style profile, report, explicit preferences, and saved products persist with the account until the customer deletes or resets them, subject to the published policy.
+- Anonymous onboarding data belongs to the current anonymous identity until it is securely connected to a permanent Google or magic-link account.
+- The style profile, report, explicit preferences, saved products, and associated source inputs follow the published storage and account policy; this version makes no automatic-expiration promise.
 - Camera and microphone data must not be retained beyond what is explicitly disclosed and necessary for the active session.
 - Report copy must identify inference versus customer-provided fact and provide a correction path.
 
 ### Exact-copy needs
 
-Copywriting must provide canonical strings for consent, field rationale, upload guidance, processing stages, two-minute expectations, slow and failure recovery, report uncertainty, Kibbe-informed framing, visualization limitations, camera/microphone permissions, retailer boundaries, and deletion confirmation.
+Copywriting must provide canonical strings for consent, field rationale, upload guidance, Love/Hate/Maybe calibration, anonymous progress, Google and magic-link account connection, processing stages, two-minute expectations, slow and failure recovery, report uncertainty, Kibbe-informed framing, visualization limitations, camera/microphone permissions, hand-gesture guidance, and retailer boundaries.
 
 ## 12. Non-functional requirements
 
@@ -435,7 +450,7 @@ Copywriting must provide canonical strings for consent, field rationale, upload 
 
 ### Reliability and recovery
 
-- Save onboarding progress after every completed step.
+- Save onboarding progress after every completed step to the active anonymous or permanent account identity.
 - A single photo failure must not invalidate successful uploads.
 - Analysis, recommendation, live visualization, voice, and retailer failures must show normalized error details and the next recoverable action.
 - Re-entry from another device must restore the latest account-backed completed state.
@@ -444,14 +459,13 @@ Copywriting must provide canonical strings for consent, field rationale, upload 
 
 - Target WCAG 2.2 AA.
 - Support keyboard navigation, visible focus, screen-reader labels, reduced motion, and text alternatives for visual report information.
-- Provide buttons as alternatives to swipe gestures and manual controls as alternatives to voice.
+- Provide Love, Hate, and Maybe buttons plus keyboard controls as alternatives to swipe gestures, and direct controls as alternatives to voice and camera-recognized hand gestures.
 
 ### Privacy and security
 
 - Restrict the product to adults for the initial release.
 - Use explicit, purpose-specific consent for photo analysis, camera, microphone, and account data.
 - Never log raw photos, video, audio, body measurements, or generated sensitive descriptions.
-- Delete source photos automatically within 24 hours and expose deletion status.
 - Prevent cross-account access and require authorization for every sensitive asset and session.
 
 ### Safety and trust
@@ -468,7 +482,7 @@ Copywriting must provide canonical strings for consent, field rationale, upload 
 
 ### Analytics
 
-- Capture step completion, upload validation outcomes, calibration completion, account conversion, report completion time, report-section engagement, feedback, recommendation selection, live-session starts, voice actions, bag additions, outbound retailer clicks, and deletion outcomes.
+- Capture step completion, upload validation outcomes, calibration choice and completion, anonymous-to-permanent account connection, report completion time, report-section engagement, feedback, recommendation selection, live-session starts, voice actions, hand-gesture actions, bag additions, and outbound retailer clicks.
 - Do not place sensitive profile values or image-derived labels in analytics payloads.
 
 ## 13. Success metrics
@@ -493,16 +507,16 @@ All numeric targets below are initial hypotheses until validated.
 
 - Report-to-stylist-home progression.
 - Live styling start and completion rate.
-- Voice refinement success rate.
+- Voice and hand-gesture refinement success rates.
 - Recommendation-to-bag rate and outbound retailer click rate.
 
 ### Trust and reliability
 
-- Consent comprehension and privacy-control discovery.
-- Automatic photo-deletion completion rate, target 100% within 24 hours.
+- Consent comprehension and account-connection success.
 - Analysis failure and recovery rates.
 - Camera/microphone denial recovery rate.
-- Support contacts related to unexpected data retention or harmful report language.
+- Gesture-recognition accuracy, ignored-action rate, and accidental-action rate.
+- Support contacts related to account continuity, data use, or harmful report language.
 
 ## 14. Outcome-based release phases
 
@@ -512,15 +526,15 @@ Outcome: the intended journey can be evaluated and handed to engineering without
 
 ### Phase B: Style Intelligence Golden Path
 
-Outcome: a new customer receives a real personalized style report and curated recommendations. Includes landing, guided profile, 8-12 photos, swipe calibration, email account conversion, real analysis, report, privacy controls, and initial recommendations. Excludes live video, voice control, and retailer commerce until their providers and recovery behavior meet release criteria. Validation: report completion, two-minute performance, usefulness, recommendation relevance, and photo deletion.
+Outcome: a new customer receives a real personalized style report and curated recommendations. Includes landing, anonymous onboarding, guided profile, 8-12 photos, Love/Hate/Maybe swipe calibration, Google or magic-link account connection, real analysis, report, and initial recommendations. Excludes live video, distance controls, and retailer commerce until their providers and recovery behavior meet release criteria. Validation: report completion, account continuity, two-minute performance, usefulness, and recommendation relevance.
 
 ### Phase C: Live Styling
 
-Outcome: a report recipient can try recommended products in a real live session. Includes camera permission, live visualization, garment switching, session recovery, and quality measurement. Readiness: representation-diverse fidelity benchmark, disclosed latency, clear failure handling, and no silent provider errors.
+Outcome: a report recipient can try recommended products in a real live session and control it from a practical standing distance. Includes camera permission, live visualization, garment switching, voice control, camera-recognized hand gestures, direct controls, session recovery, and quality measurement. Readiness: representation-diverse fidelity benchmark, disclosed latency, gesture accuracy and accidental-action safeguards, clear failure handling, and no silent provider errors.
 
-### Phase D: Conversational Refinement
+### Phase D: Intelligent Refinement
 
-Outcome: a customer can refine recommendations by voice without losing visual context. Includes microphone permission, request interpretation, confirmation, equivalent manual controls, and catalog updates. Readiness: action accuracy, safe confirmation, accessible alternatives, and recoverable failures.
+Outcome: a customer can refine recommendations by voice or hand gesture without losing visual context. Includes microphone permission, voice interpretation, gesture interpretation, confirmation, equivalent direct controls, and catalog updates. Readiness: action accuracy, safe confirmation, accessible alternatives, distance usability, and recoverable failures.
 
 ### Phase E: Retailer Action
 
@@ -538,6 +552,8 @@ Outcome: a customer can collect chosen products and reach the correct retailer t
 - Catalog data may be incomplete, stale, or insufficiently structured for explainable recommendations.
 - Live video try-on may not yet meet identity, garment, latency, or device-support expectations.
 - Voice intent may be ambiguous during high-latency visual updates.
+- Hand-gesture recognition may misread ordinary movement, vary by lighting or skin tone, or fail at practical standing distances.
+- Anonymous-to-permanent account linking may create duplicate records or lose progress if identity connection is not atomic and recoverable.
 - Cross-retailer bag language may imply a universal cart that retailers do not support.
 
 ### Working assumptions
@@ -547,6 +563,7 @@ Outcome: a customer can collect chosen products and reach the correct retailer t
 - Weight is optional unless evidence shows it materially improves a disclosed recommendation.
 - Style-presentation choices should guide shopping and recommendation context without forcing a binary identity label.
 - The normal report path is automated; human review is an exception.
+- Onboarding begins with an anonymous authenticated identity and only Google or email magic link can create or access a permanent account.
 - Retailer handoff opens a retailer-owned product or cart destination and does not promise reservation.
 
 ### Open questions
@@ -554,7 +571,8 @@ Outcome: a customer can collect chosen products and reach the correct retailer t
 - Which analysis, recommendation, catalog, live-try-on, and voice providers meet the required quality and latency?
 - Which specific photo poses or image-quality rules are needed in addition to favorite-look evidence?
 - What minimum swipe count produces useful calibration without unnecessary fatigue?
-- What account verification method best preserves the two-minute report flow?
+- What exact live-session hand gestures are most reliable and least likely to trigger accidentally across devices and bodies?
+- What storage duration and lifecycle policy is appropriate after the hackathon?
 - Which report sections require expert or legal review before public claims?
 - How are affiliate disclosure and retailer attribution handled?
 - Which items and retailers form the minimum viable catalog?
@@ -564,9 +582,9 @@ Outcome: a customer can collect chosen products and reach the correct retailer t
 - Fewer than half of qualified test users complete the photo and swipe flow after two major onboarding iterations.
 - The system cannot produce a useful, respectful report within the two-minute target at an acceptable reliability rate.
 - Representation testing reveals persistent harmful or materially lower-quality analysis for a group and mitigation is not available.
-- Automatic source-photo deletion cannot be verified.
 - Recommendations do not outperform a simple generic merchandising baseline in blinded user preference testing.
 - Live styling cannot preserve identity and garment fidelity well enough to support a clothing decision.
+- Live-session gestures cannot be made reliable across the representation test set without unacceptable accidental actions.
 
 ## 16. Approval and decisions log
 
@@ -575,18 +593,20 @@ Outcome: a customer can collect chosen products and reach the correct retailer t
 - Approve this Draft PRD as the product and scope foundation for UX design.
 - Confirm the inclusive interpretation of the founder's requested male/female input: collect style-presentation and shopping context, and request sex-related data only if a disclosed analysis dependency makes it necessary.
 - Confirm that weight remains optional.
-- Confirm that source photos expire within 24 hours while derived style-profile and report data persist until account deletion or reset.
 
 ### Decisions
 
 - 2026-07-18 - Founder - The entry product is a comprehensive style report followed by personalized live styling and retailer shopping.
 - 2026-07-18 - Founder - New customers provide profile data, brand sizes, 8-12 favorite-look photos, and swipe-based taste feedback.
-- 2026-07-18 - Founder - Email account creation occurs after taste inputs and before report delivery.
+- 2026-07-18 - Founder - Permanent account connection occurs after taste inputs and before report delivery.
 - 2026-07-18 - Founder - Product capabilities are specified as real target behavior throughout the frontend definition.
 - 2026-07-18 - Founder - Report generation should take no more than approximately one to two minutes.
-- 2026-07-18 - Founder - Uploaded source photos may be deleted automatically after 24 hours.
 - 2026-07-18 - Founder - Checkout is completed on retailer sites.
 - 2026-07-18 - Resolution - The previous single-photo, single-garment V1 is superseded as the primary product definition by the Style Intelligence Golden Path.
+- 2026-07-19 - Founder - Taste calibration uses Love, Hate, and Maybe with right, left, and down swipes plus equivalent controls.
+- 2026-07-19 - Founder - Onboarding uses an anonymous authenticated session; the unified permanent-account step supports Google and email magic link only and signs up or logs in without losing progress.
+- 2026-07-19 - Founder - Live styling supports both voice and camera-recognized hand gestures for distance control, with direct controls retained.
+- 2026-07-19 - Founder - Removed the earlier source-photo lifecycle promise and related status interface from the active product scope.
 
 ### Approval record
 

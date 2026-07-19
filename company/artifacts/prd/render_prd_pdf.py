@@ -218,7 +218,7 @@ def cover_story() -> list:
             subtitle,
         ),
         Spacer(1, 1.3 * inch),
-        Paragraph("DRAFT  /  VERSION 0.1.0  /  18 JULY 2026", meta),
+        Paragraph("DRAFT  /  VERSION 0.2.0  /  19 JULY 2026", meta),
         Spacer(1, 0.16 * inch),
         Paragraph("Awaiting founder approval before UX design", status),
         PageBreak(),

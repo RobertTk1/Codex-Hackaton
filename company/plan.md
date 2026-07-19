@@ -6,11 +6,11 @@ This file is the source of truth for roadmap, sequencing, status, and next actio
 
 ## Product Goal
 
-Deliver a style-report-led product that learns a customer's taste and body-style needs, explains how to dress better, recommends relevant products, enables live visual styling and voice refinement, and sends selected products to retailers for checkout.
+Deliver a style-report-led product that learns a customer's taste and body-style needs, explains how to dress better, recommends relevant products, enables live visual styling controlled from a distance by voice or hand gestures, and sends selected products to retailers for checkout.
 
 ## Scope Guardrail
 
-The first functional build is the Style Intelligence Golden Path: profile and brand sizes, 8-12 favorite-look photos, visual taste calibration, email account conversion, real analysis, a report within a target of one to two minutes, and real curated recommendations. The complete frontend definition includes live styling, voice refinement, the Magic Mirror bag, and retailer handoff as real product behavior, while engineering releases may stage those capabilities behind verified provider quality and recovery criteria. Do not describe intended capabilities as pretend behavior or commit dead product stubs.
+The first functional build is the Style Intelligence Golden Path: anonymous onboarding, profile and brand sizes, 8-12 favorite-look photos, Love/Hate/Maybe taste calibration, Google or email magic-link permanent account connection, real analysis, a report within a target of one to two minutes, and real curated recommendations. The complete frontend definition includes live styling controlled by voice or camera-recognized hand gestures, the Magic Mirror bag, and retailer handoff as real product behavior, while engineering releases may stage those capabilities behind verified provider quality and recovery criteria. Do not describe intended capabilities as pretend behavior or commit dead product stubs.
 
 ## Delivery Strategy
 
@@ -30,7 +30,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - [x] Define the golden-path Given/When/Then scenario and acceptance criteria.
 - [ ] Obtain explicit founder approval for the Draft PRD package.
 - [ ] Evaluate generation providers using latency, output quality, reliability, integration effort, and cost.
-- [x] Decide source-photo retention: automatic deletion no later than 24 hours, with an earlier-delete control.
+- [ ] Define a production storage and lifecycle policy for source photos; the current product makes no automatic-expiration promise.
 - [ ] Confirm the minimum garment catalog and required source assets.
 - [ ] Define the submission deadline, demo cutoff, and experiment time budget.
 
@@ -49,9 +49,10 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 - [ ] Implement the report-led landing page and resumable guided onboarding.
 - [ ] Implement personal profile, favorite brands, and category-specific sizes.
-- [ ] Implement secure 8-12 favorite-look photo upload with validation, consent, and verified 24-hour deletion.
-- [ ] Implement accessible swipe-and-button taste calibration with undo.
-- [ ] Implement email account conversion without losing pre-account progress.
+- [ ] Implement secure 8-12 favorite-look photo upload with validation, consent, and per-account isolation.
+- [ ] Implement right/Love, left/Hate, and down/Maybe swipes with matching buttons, keyboard controls, and undo.
+- [ ] Create an anonymous authenticated identity when onboarding begins and preserve every input under it.
+- [ ] Implement one Google and email magic-link account step that signs up or logs in and connects anonymous progress.
 - [ ] Implement the typed analysis-provider boundary with timeout and normalized errors.
 - [ ] Generate the complete structured style report and personalized catalog recommendations.
 - [ ] Meet the one-to-two-minute target with processing, slow, success, failure, and recovery behavior.
@@ -61,7 +62,9 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 **User outcome:** A report recipient can experience recommended items, refine the session naturally, and continue to a retailer with confident selections.
 
 - [ ] Benchmark and implement real live video try-on with camera permission and explicit fidelity limits.
-- [ ] Implement voice requests with visible interpretation, confirmation, and equivalent manual controls.
+- [ ] Implement voice requests with visible interpretation, confirmation, and equivalent direct controls.
+- [ ] Implement camera-recognized hand gestures for next outfit, previous outfit, and visible-control selection from a practical standing distance.
+- [ ] Confirm consequential gesture actions and benchmark recognition accuracy and accidental actions across the representation test set.
 - [ ] Implement a Magic Mirror bag grouped by retailer.
 - [ ] Refresh product availability and explain the external retailer boundary.
 - [ ] Send selected products to the correct retailer-owned checkout destination.
@@ -72,7 +75,7 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 
 - [ ] Pass the Playwright happy-path scenario.
 - [ ] Measure end-to-end render latency and address demo-breaking bottlenecks.
-- [ ] Verify cross-user isolation and photo deletion behavior.
+- [ ] Verify anonymous/permanent account continuity and cross-user isolation.
 - [ ] Deploy to Vercel and run a production smoke test.
 - [ ] Document known limitations and demo recovery steps.
 
@@ -125,9 +128,12 @@ Move at hackathon speed while keeping the golden path runnable. Use a dedicated 
 - 2026-07-18: Build low-fidelity wireframes as responsive grayscale HTML/CSS and capture deterministic PNGs; create every high-fidelity screen mockup as a built-in ImageGen raster using the approved wireframe, copy, voice, and brand references.
 - 2026-07-18: Treat `company/voice.md` and `company/artifacts/copy/copy-manifest.json` as canonical for implementation copy because text rendered inside generated mockups may drift.
 - 2026-07-18: Record data, authentication, permissions, async status, storage, privacy, failure, and recovery implications during frontend definition, while leaving backend architecture and implementation to the engineering workflow.
-- 2026-07-18: Supersede the prior single-photo, single-garment V1 with a style-report-led product definition: profile and brand sizes, 8-12 favorite-look photos, taste calibration, email account creation, real analysis, a report within one to two minutes, and curated recommendations form the first functional golden path.
-- 2026-07-18: Define live styling, voice refinement, the Magic Mirror bag, and retailer handoff as real intended product behavior; engineering may stage releases, but frontend requirements and copy do not characterize these capabilities as pretend behavior.
-- 2026-07-18: Delete uploaded source photos automatically no later than 24 hours after upload and provide an earlier-delete control; distinguish source imagery from derived profile and report data.
+- 2026-07-18: Supersede the prior single-photo, single-garment V1 with a style-report-led product definition: profile and brand sizes, 8-12 favorite-look photos, taste calibration, permanent account connection, real analysis, a report within one to two minutes, and curated recommendations form the first functional golden path.
+- 2026-07-18: Define live styling, distance controls, the Magic Mirror bag, and retailer handoff as real intended product behavior; engineering may stage releases, but frontend requirements and copy do not characterize these capabilities as pretend behavior.
+- 2026-07-19: Taste calibration uses Love, Hate, and Maybe with right, left, and down swipes plus equivalent button and keyboard controls.
+- 2026-07-19: Onboarding begins under an anonymous authenticated identity; one Google and email magic-link step signs up or logs in and connects all anonymous progress.
+- 2026-07-19: Live styling supports both voice and camera-recognized hand gestures for distance control, with direct controls and confirmation for consequential actions.
+- 2026-07-19: Remove the automatic source-photo expiration promise and related timing/status UI from the active product scope; define storage lifecycle before production.
 - 2026-07-18: Complete purchase through retailer-owned destinations rather than Magic Mirror payment and fulfillment.
 
 ## Roadmap Backlog

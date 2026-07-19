@@ -31,5 +31,11 @@ Append-only operating log for agent actions and important system events.
 - 12:36:53 EDT :: Removed the unintended frontend loop queue/spec scaffolding while retaining the reusable `company/workflows/frontend-design/WORKFLOW.md` process document.
 - 12:36:53 EDT :: Recorded that the frontend workflow remains unexecuted for Magic Mirror and must now produce the PRD, HTML wireframes, copy/voice, and ImageGen screen mockups through their approval gates.
 - 13:36:47 EDT :: Created the Draft Magic Mirror PRD package with canonical Markdown, a visually verified 19-page PDF, 22 user stories, 14 Given/When/Then scenarios, and 28 stable screen/state records.
-- 13:36:47 EDT :: Updated `AGENTS.md`, `company/company.md`, and `company/plan.md` to reflect the report-led product direction, one-to-two-minute analysis target, 24-hour source-photo deletion, real live/voice behavior, and retailer checkout handoff.
+- 13:36:47 EDT :: Updated `AGENTS.md`, `company/company.md`, and `company/plan.md` to reflect the report-led product direction, one-to-two-minute analysis target, real live/voice behavior, and retailer checkout handoff.
 - 13:36:47 EDT :: Validated PRD JSON, UUIDs, story/scenario/screen cross-references, PDF text, PDF page rendering, and repository whitespace; left the package at Draft for founder approval before UX.
+
+## 2026-07-19
+
+- 09:14:13 EDT :: Updated the Draft PRD, user stories, scenarios, and screen inventory for Love/Hate/Maybe swipes, anonymous onboarding, unified Google/magic-link account access, and distance-based live hand controls.
+- 09:14:13 EDT :: Removed the automatic source-photo expiration promise and both deletion-status screens; reframed US-019 around consent and cross-account isolation.
+- 09:14:13 EDT :: Regenerated and visually verified the 20-page PRD report and validated 23 stories, 15 scenarios, 27 screens, UUIDs, and cross-references.

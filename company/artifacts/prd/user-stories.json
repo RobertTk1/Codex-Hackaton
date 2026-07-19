@@ -12,7 +12,7 @@
       "priority": "must-have",
       "requirement_source": ["founder", "company strategy", "policy"],
       "acceptance_criteria": [
-        "The landing page explains the report outcome, required inputs, one-to-two-minute target, 24-hour photo deletion, and retailer relationship before account creation.",
+        "The landing page explains the report outcome, required inputs, quick turnaround, and that Magic Mirror helps select products while each retailer controls price, inventory, payment, shipping, and returns.",
         "The primary action starts the style-report journey and a separate login action remains available.",
         "The page does not use unsupported attractiveness, fit, or scientific-certainty claims."
       ],
@@ -30,12 +30,13 @@
       "priority": "must-have",
       "requirement_source": ["founder", "inference"],
       "acceptance_criteria": [
+        "Google and email magic link are the only permanent login methods, and signup and login use the same account entry point.",
         "A valid returning customer is routed to an incomplete step, processing state, completed report, or style home according to account state.",
         "An authentication failure explains the problem without exposing whether an unrelated account exists.",
         "Successful login restores account-backed progress across devices."
       ],
       "edge_cases": ["Incomplete onboarding", "Analysis still processing", "Expired session"],
-      "dependencies": ["Email-based authentication", "Account state"],
+      "dependencies": ["Google authentication", "Email magic-link authentication", "Account state"],
       "analytics_or_success_events": ["login_completed", "state_resumed"],
       "scenario_ids": ["SC-002"]
     },
@@ -53,7 +54,7 @@
         "Invalid or missing required fields show field-specific correction and preserve valid entries."
       ],
       "edge_cases": ["Customer declines optional weight", "Customer needs non-binary style presentation", "Customer is not an adult"],
-      "dependencies": ["Field policy", "Pre-account session"],
+      "dependencies": ["Field policy", "Anonymous authenticated session"],
       "analytics_or_success_events": ["profile_step_completed", "optional_field_skipped"],
       "scenario_ids": ["SC-003"]
     },
@@ -84,13 +85,13 @@
       "priority": "must-have",
       "requirement_source": ["founder", "policy", "technical constraint"],
       "acceptance_criteria": [
-        "The screen explains consent, accepted images, quality guidance, the 8-photo minimum, 12-photo maximum, and automatic deletion within 24 hours.",
+        "The screen explains consent, accepted images, quality guidance, the 8-photo minimum, 12-photo maximum, and how images are used for analysis.",
         "Each image has an independent upload and validation status and can be replaced or removed.",
         "The customer cannot continue with fewer than eight qualifying images and receives actionable reasons for rejection.",
         "A failed image does not remove successful uploads."
       ],
       "edge_cases": ["Unsupported format", "Duplicate image", "No full body visible", "Network interruption", "More than 12 images"],
-      "dependencies": ["Secure upload", "Image validation", "Deletion enforcement"],
+      "dependencies": ["Secure upload", "Image validation", "Account/session access isolation"],
       "analytics_or_success_events": ["photo_upload_started", "photo_validated", "photo_rejected", "photo_set_completed"],
       "scenario_ids": ["SC-001", "SC-004", "SC-013"]
     },
@@ -103,33 +104,35 @@
       "priority": "must-have",
       "requirement_source": ["founder", "inference"],
       "acceptance_criteria": [
-        "Each card offers More like this, Not for me, and Save through controls that do not require a swipe gesture.",
+        "Each card supports swipe right for Love, swipe left for Hate, and swipe down for Maybe.",
+        "Visible Love, Hate, and Maybe buttons and keyboard controls perform the same choices for accessibility and non-touch devices.",
         "The customer can undo the latest response and see calibration progress.",
         "A loading failure preserves completed responses and offers retry.",
         "The system ends calibration when it has collected the defined minimum signal."
       ],
-      "edge_cases": ["Customer dislikes every item", "Card fails to load", "Customer navigates backward"],
+      "edge_cases": ["Customer chooses Hate for every item", "Customer chooses Maybe repeatedly", "Card fails to load", "Customer navigates backward"],
       "dependencies": ["Candidate look set", "Preference capture"],
       "analytics_or_success_events": ["taste_choice_recorded", "taste_choice_undone", "calibration_completed"],
       "scenario_ids": ["SC-001", "SC-005"]
     },
     {
       "story_id": "US-007",
-      "title": "Create an account without losing progress",
-      "epic": "Email account conversion",
-      "story": "As a first-time customer, I want to create an account after calibration so that I can receive and revisit my report without repeating work.",
+      "title": "Connect an account without losing anonymous progress",
+      "epic": "Anonymous-to-permanent account connection",
+      "story": "As a customer who began anonymously, I want one Google or magic-link account step that signs me up or logs me in so that I can receive my report without repeating work.",
       "user_type": "First-time customer",
       "priority": "must-have",
       "requirement_source": ["founder", "policy"],
       "acceptance_criteria": [
-        "The account step appears after taste calibration and before report generation.",
-        "A valid email account preserves all pre-account profile, photo, and taste inputs.",
-        "An existing email offers a secure login or recovery path without discarding progress.",
-        "Invalid email or consent state shows specific correction."
+        "An anonymous authenticated identity is created when onboarding begins and owns all profile, photo, and taste progress until permanent account connection.",
+        "The account step appears after taste calibration and before report generation and offers Continue with Google or an email magic link only.",
+        "The same step creates a permanent account or logs into an existing one and connects all authorized anonymous progress.",
+        "If the Google identity or email already exists, successful authentication logs into that account and connects the current progress without a separate signup flow.",
+        "Invalid email, expired magic link, failed Google authentication, or missing consent shows specific recovery without discarding anonymous progress."
       ],
-      "edge_cases": ["Email already exists", "Verification is delayed", "Session expires during account creation"],
-      "dependencies": ["Authentication", "Pre-account session transfer"],
-      "analytics_or_success_events": ["account_step_viewed", "account_created", "existing_account_recovered"],
+      "edge_cases": ["Email already exists", "Google identity already exists", "Magic link expires", "Account connection is interrupted"],
+      "dependencies": ["Anonymous authentication", "Google authentication", "Email magic-link authentication", "Atomic account linking"],
+      "analytics_or_success_events": ["anonymous_session_created", "account_step_viewed", "account_connected", "existing_account_logged_in", "account_connection_failed"],
       "scenario_ids": ["SC-001", "SC-006"]
     },
     {
@@ -146,7 +149,7 @@
         "At 120 seconds the screen changes to a slow state with email notification and safe-exit options while processing continues.",
         "A failure identifies the recoverable action and never silently removes valid inputs."
       ],
-      "edge_cases": ["Browser closes", "Processing exceeds 120 seconds", "Analysis provider fails", "Photo expires before retry"],
+      "edge_cases": ["Browser closes", "Processing exceeds 120 seconds", "Analysis provider fails", "Account connection is interrupted"],
       "dependencies": ["Style analysis", "Async status", "Notification capability"],
       "analytics_or_success_events": ["analysis_started", "analysis_stage_changed", "report_completed", "analysis_slow", "analysis_failed"],
       "scenario_ids": ["SC-001", "SC-007", "SC-008"]
@@ -252,6 +255,7 @@
       "acceptance_criteria": [
         "Camera permission is requested only after the customer starts live styling and the purpose is explained.",
         "The session displays connecting, ready, changing-item, slow, failed, and ended behavior without losing selected products.",
+        "The ready session provides voice, camera-recognized hand gestures, and direct controls for changing and selecting outfits from a distance.",
         "The UI states that visualization is not a physical fit guarantee.",
         "Permission denial preserves access to report recommendations and offers retry."
       ],
@@ -272,7 +276,7 @@
         "Microphone permission is requested separately and only when voice is activated.",
         "The UI shows listening, interpreting, confirming, acting, and failure states.",
         "The interpreted request is confirmed before a consequential action.",
-        "Equivalent manual controls exist for essential voice actions."
+        "Equivalent direct controls exist for essential voice actions."
       ],
       "edge_cases": ["Microphone denied", "Ambiguous request", "No matching item", "Speech not recognized"],
       "dependencies": ["Speech recognition", "Intent interpretation", "Catalog filtering"],
@@ -335,21 +339,21 @@
     },
     {
       "story_id": "US-019",
-      "title": "Control personal data and photo deletion",
-      "epic": "Privacy and account controls",
-      "story": "As a customer, I want to see and control the lifecycle of my photos and style data so that I can trust Magic Mirror with sensitive information.",
+      "title": "Understand consent and sensitive-data access",
+      "epic": "Trust, consent, and access isolation",
+      "story": "As a customer, I want clear consent and private access to my photos and style data so that I understand their use and can trust the experience.",
       "user_type": "Customer",
       "priority": "must-have",
       "requirement_source": ["founder", "policy", "technical constraint"],
       "acceptance_criteria": [
-        "Source photos are automatically deleted no later than 24 hours after upload.",
-        "The account shows photo deletion timing or completed status and offers earlier deletion.",
-        "The interface distinguishes source-photo deletion from deletion of the derived profile, report, saved items, and account.",
-        "Deletion failure is visible to authorized operations and resolves without requiring the customer to re-upload."
+        "Photo-analysis consent appears before upload and explains the purpose of the images.",
+        "Camera and microphone permissions are requested separately when their live-session capabilities are activated.",
+        "Only the active anonymous identity or connected permanent account can access its photos, profile, report, styling sessions, and bag.",
+        "The interface makes no automatic image-expiration promise."
       ],
-      "edge_cases": ["Analysis still processing", "Deletion job fails", "Customer requests account deletion"],
-      "dependencies": ["Deletion enforcement", "Account authorization", "Audit status"],
-      "analytics_or_success_events": ["photo_delete_requested", "photo_delete_completed", "account_delete_requested"],
+      "edge_cases": ["Consent is declined", "Anonymous session is lost", "Account connection is interrupted", "Permission is denied"],
+      "dependencies": ["Purpose-specific consent", "Anonymous authentication", "Account authorization", "Asset access isolation"],
+      "analytics_or_success_events": ["photo_consent_result", "camera_permission_result", "microphone_permission_result", "unauthorized_access_blocked"],
       "scenario_ids": ["SC-013"]
     },
     {
@@ -374,19 +378,19 @@
       "story_id": "US-021",
       "title": "Use the core journey accessibly",
       "epic": "Inclusive experience",
-      "story": "As a customer who uses assistive technology or cannot use gestures, camera, or voice, I want equivalent controls and understandable content so that I can complete the relevant journey.",
+      "story": "As a customer who uses assistive technology or cannot use swipes, hand gestures, camera, or voice, I want equivalent controls and understandable content so that I can complete the relevant journey.",
       "user_type": "Customer using an access need",
       "priority": "must-have",
       "requirement_source": ["policy", "technical constraint"],
       "acceptance_criteria": [
         "The onboarding and report meet keyboard, focus, label, contrast, error, and screen-reader requirements aligned to WCAG 2.2 AA.",
-        "Swipe choices have explicit button equivalents and color guidance has text equivalents.",
-        "Voice actions have manual equivalents and camera denial does not remove access to the report or recommendations."
+        "Love, Hate, and Maybe swipe choices have explicit button and keyboard equivalents, and color guidance has text equivalents.",
+        "Voice and camera-recognized hand actions have direct-control equivalents, and camera denial does not remove access to the report or recommendations."
       ],
       "edge_cases": ["Reduced motion", "Keyboard only", "Color vision difference", "Microphone unavailable"],
       "dependencies": ["Accessible component behavior", "Content alternatives"],
-      "analytics_or_success_events": ["non_gesture_choice_used", "manual_voice_alternative_used"],
-      "scenario_ids": ["SC-003", "SC-010", "SC-011"]
+      "analytics_or_success_events": ["non_swipe_choice_used", "direct_distance_control_used"],
+      "scenario_ids": ["SC-003", "SC-010", "SC-011", "SC-015"]
     },
     {
       "story_id": "US-022",
@@ -405,6 +409,26 @@
       "dependencies": ["Account state", "Report", "Recommendations"],
       "analytics_or_success_events": ["style_home_viewed", "return_action_selected"],
       "scenario_ids": ["SC-002", "SC-014"]
+    },
+    {
+      "story_id": "US-023",
+      "title": "Control live styling with hand gestures",
+      "epic": "Distance-controlled live styling",
+      "story": "As a live styling customer standing away from my device, I want to use visible hand gestures to change and select outfits so that I can control the session without touching the screen.",
+      "user_type": "Live styling customer",
+      "priority": "should-have",
+      "requirement_source": ["founder", "policy", "technical constraint"],
+      "acceptance_criteria": [
+        "The live session explains supported gestures and shows when gesture recognition is observing, interpreting, accepted, ignored, or unavailable.",
+        "Documented gestures can move to the next outfit, return to the previous outfit, and select a visible control from a practical standing distance.",
+        "The interface shows the recognized gesture and intended action before acting.",
+        "Adding to the bag, leaving for a retailer, or ending the session requires explicit confirmation.",
+        "Every essential gesture action has equivalent voice and direct controls."
+      ],
+      "edge_cases": ["Gesture resembles ordinary movement", "Customer is too far from camera", "Low light", "Hands leave the frame", "Gesture is not recognized"],
+      "dependencies": ["Camera permission", "Hand-gesture recognition", "Live styling state", "Action confirmation"],
+      "analytics_or_success_events": ["gesture_control_started", "gesture_interpreted", "gesture_action_confirmed", "gesture_ignored", "gesture_action_failed"],
+      "scenario_ids": ["SC-015"]
     }
   ]
 }
