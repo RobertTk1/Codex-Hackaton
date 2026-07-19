@@ -46,10 +46,13 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 
 **Configuration-pending flow:** [`Data Foundation`](flows/data-foundation/plan.md) — versioned sessions, asset references, private storage policies, and environment names with no live project values.
 
+**Completed flow:** [`Style Onboarding Tracer`](flows/style-onboarding-tracer/plan.md) — report-led landing page, validated profile, one brand-size entry, and browser-session-only continuity.
+
 - [x] Scaffold the Next.js application in `apps/web` with required development, lint, typecheck, unit-test, and end-to-end-test scripts.
 - [x] Configure Tailwind, strict TypeScript, Zod, Vitest, and Playwright.
 - [x] Document required Supabase and provider environment variables with placeholders; live values remain unconfigured.
 - [x] Add the minimum versioned schema, private bucket definition, and row-level policies; applying them remains blocked on project and auth configuration.
+- [x] Build the report-led landing and first two onboarding steps as a local browser-session tracer; anonymous authentication and persistent storage remain configuration-gated.
 
 ### Phase 2 — Style Intelligence Golden Path
 
@@ -112,8 +115,8 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 
 ## Next
 
-1. Review and explicitly approve or revise the UX package under `company/artifacts/ui-ux-design/` before copywriting begins.
-2. After UX approval, run `$copywriting` to create canonical screen copy, `company/voice.md`, and the copy manifest.
+1. Review the landing, profile, and brand-size tracer against the approved wireframes, then decide whether to continue into favorite-look upload or revise this first slice.
+2. Create canonical screen copy, `company/voice.md`, and the copy manifest before final visual implementation.
 3. Define the minimum catalog and benchmark analysis providers against usefulness, respectful language, representation quality, reliability, and the 120-second report target.
 4. Benchmark live try-on, voice, and gesture-recognition providers before scheduling their engineering release.
 
@@ -146,6 +149,7 @@ Feature-level execution plans live under `company/flows/<flow-name>/plan.md` and
 - 2026-07-18: Extracted `Magic Mirror Product Strategy.docx` into `company/artifacts/product/magic-mirror-v1-prd.md`; narrowed the source document's broad stylist MVP to a single-photo, single-garment, static try-on baseline. This was later superseded as the active golden path by the approved style-report-led definition.
 - 2026-07-18: Store feature execution plans under `company/flows/<flow-name>/plan.md`; begin with the single-page `first-try-on-tracer` flow and reference it from the canonical roadmap.
 - 2026-07-18: Build the Supabase data foundation as a migration and environment template without applying it; real project values, authentication, retention, and provider configuration remain explicit gates.
+- 2026-07-19: Build the first report-led UI tracer as a truthful local browser-session flow: landing, profile validation, and brand-size entry. Preserve the earlier try-on tracer at `/tracer`; do not represent browser-session storage as anonymous authentication or persistent account data.
 - 2026-07-18: Use the approval-gated frontend-definition sequence `product-prd-spec → product-ux-design → copywriting → product-screen-mockups → engineering handoff`.
 - 2026-07-18: Build low-fidelity wireframes as responsive grayscale HTML/CSS and capture deterministic PNGs; create every high-fidelity screen mockup as a built-in ImageGen raster using the approved wireframe, copy, voice, and brand references.
 - 2026-07-18: Treat `company/voice.md` and `company/artifacts/copy/copy-manifest.json` as canonical for implementation copy because text rendered inside generated mockups may drift.
