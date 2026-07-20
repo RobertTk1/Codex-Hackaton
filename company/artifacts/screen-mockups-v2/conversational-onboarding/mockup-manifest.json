@@ -1,0 +1,447 @@
+{
+  "schema_version": "1.0",
+  "project": "Magic Mirror",
+  "experiment": "chat-first-conversational-onboarding-v2",
+  "run_mode": "approved-pre-report-direction",
+  "status": "approved-for-pre-report",
+  "direction_gate": "founder-approved-chat-first-v2",
+  "approved_at": "2026-07-19",
+  "approved_by": "Talisha White",
+  "updated_at": "2026-07-20T02:23:48.818Z",
+  "experiment_brief": "company/artifacts/screen-mockups-v2/conversational-onboarding/experiment-brief.md",
+  "design_direction": "company/artifacts/screen-mockups-v2/conversational-onboarding/design-direction.md",
+  "research": "company/artifacts/screen-mockups-v2/conversational-onboarding/research.md",
+  "visual_audit": "company/artifacts/screen-mockups-v2/conversational-onboarding/visual-audit.md",
+  "shared_interaction_contract": "company/artifacts/screen-mockups-v2/conversational-onboarding/interaction-specs/shared-contract.md",
+  "v1_package_preserved": "company/artifacts/screen-mockups/",
+  "v1_pre_report_status": "archived-reference",
+  "approval_scope": "All eight chat-first states are the implementation direction for the pre-report journey; form-based v1 pre-report comps remain reference-only.",
+  "screen_count": 8,
+  "raster_count": 16,
+  "screens": [
+    {
+      "screen_id": "29c00d17-3c1d-4231-8b85-4f359a82b5f7",
+      "screen_slug": "conversation-welcome",
+      "screen_name": "Chat Onboarding — Welcome",
+      "state": "welcome",
+      "step": 0,
+      "response_mode": "text-or-suggestion",
+      "user_job": "Begin a natural conversation or sign in as a returning customer.",
+      "source_contract": "company/artifacts/screen-mockups-v2/conversational-onboarding/experiment-screen-registry.json",
+      "copy_manifest_entry": "company/artifacts/screen-mockups-v2/conversational-onboarding/copy-manifest.json#conversation-welcome/welcome",
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups-v2/conversational-onboarding/prompts/conversation-welcome.md",
+        "continuity_references": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding/design-direction.md",
+          "company/artifacts/screen-mockups/design-direction.md",
+          "company/brand/exports/"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-welcome/welcome/conversation-welcome-desktop.png",
+        "mobile": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-welcome/welcome/conversation-welcome-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 862,
+          "height": 1824
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups-v2/conversational-onboarding/interaction-specs/conversation-welcome.md",
+      "qa": {
+        "structure_matches_experiment": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_v2_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true,
+        "v1_preserved": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen as the founder-approved chat-first pre-report direction using the approved Acid Dispatch system and existing v1 visual continuity references.",
+        "Ordinary profile facts are collected as text turns; contextual UI is reserved for visual or secure tasks.",
+        "Generated lettering is approximate; the v2 copy manifest is the implementation source of truth.",
+        "Founder approved this state for pre-report implementation on 2026-07-19; form-based v1 pre-report comps remain archived reference."
+      ],
+      "status": "approved-for-pre-report",
+      "approved_at": "2026-07-19"
+    },
+    {
+      "screen_id": "6d5f5ef1-a4a2-41d3-aa89-dc3722ae8df0",
+      "screen_slug": "conversation-personal-details",
+      "screen_name": "Chat Onboarding — Text Question",
+      "state": "collecting",
+      "step": 1,
+      "response_mode": "natural-language",
+      "user_job": "Answer one simple name, adult-confirmation, gender, age, height, optional-weight, or styling question in natural language.",
+      "source_contract": "company/artifacts/screen-mockups-v2/conversational-onboarding/experiment-screen-registry.json",
+      "copy_manifest_entry": "company/artifacts/screen-mockups-v2/conversational-onboarding/copy-manifest.json#conversation-personal-details/collecting",
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups-v2/conversational-onboarding/prompts/conversation-personal-details.md",
+        "continuity_references": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding/design-direction.md",
+          "company/artifacts/screen-mockups/design-direction.md",
+          "company/brand/exports/"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-personal-details/collecting/conversation-personal-details-desktop.png",
+        "mobile": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-personal-details/collecting/conversation-personal-details-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 852,
+          "height": 1846
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups-v2/conversational-onboarding/interaction-specs/conversation-personal-details.md",
+      "qa": {
+        "structure_matches_experiment": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_v2_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true,
+        "v1_preserved": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen as the founder-approved chat-first pre-report direction using the approved Acid Dispatch system and existing v1 visual continuity references.",
+        "Ordinary profile facts are collected as text turns; contextual UI is reserved for visual or secure tasks.",
+        "Generated lettering is approximate; the v2 copy manifest is the implementation source of truth.",
+        "Founder approved this state for pre-report implementation on 2026-07-19; form-based v1 pre-report comps remain archived reference."
+      ],
+      "status": "approved-for-pre-report",
+      "approved_at": "2026-07-19"
+    },
+    {
+      "screen_id": "66d528db-21de-4e52-9ecd-3c388cede1e3",
+      "screen_slug": "conversation-brand-sizing",
+      "screen_name": "Chat Onboarding — Brand and Size Dialogue",
+      "state": "collecting",
+      "step": 2,
+      "response_mode": "natural-language-with-clarification",
+      "user_job": "Describe a familiar brand and usual sizes through a short adaptive exchange.",
+      "source_contract": "company/artifacts/screen-mockups-v2/conversational-onboarding/experiment-screen-registry.json",
+      "copy_manifest_entry": "company/artifacts/screen-mockups-v2/conversational-onboarding/copy-manifest.json#conversation-brand-sizing/collecting",
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups-v2/conversational-onboarding/prompts/conversation-brand-sizing.md",
+        "continuity_references": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding/design-direction.md",
+          "company/artifacts/screen-mockups/design-direction.md",
+          "company/brand/exports/"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-brand-sizing/collecting/conversation-brand-sizing-desktop.png",
+        "mobile": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-brand-sizing/collecting/conversation-brand-sizing-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 851,
+          "height": 1847
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups-v2/conversational-onboarding/interaction-specs/conversation-brand-sizing.md",
+      "qa": {
+        "structure_matches_experiment": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_v2_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true,
+        "v1_preserved": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen as the founder-approved chat-first pre-report direction using the approved Acid Dispatch system and existing v1 visual continuity references.",
+        "Ordinary profile facts are collected as text turns; contextual UI is reserved for visual or secure tasks.",
+        "Generated lettering is approximate; the v2 copy manifest is the implementation source of truth.",
+        "Founder approved this state for pre-report implementation on 2026-07-19; form-based v1 pre-report comps remain archived reference."
+      ],
+      "status": "approved-for-pre-report",
+      "approved_at": "2026-07-19"
+    },
+    {
+      "screen_id": "0dfa9f00-c27f-489e-bc14-53eb49f55b8f",
+      "screen_slug": "conversation-photo-collection",
+      "screen_name": "Chat Onboarding — Photo Request",
+      "state": "uploading",
+      "step": 3,
+      "response_mode": "contextual-upload-ui",
+      "user_job": "Add favorite-look photos when the conversation reaches the visual evidence step.",
+      "source_contract": "company/artifacts/screen-mockups-v2/conversational-onboarding/experiment-screen-registry.json",
+      "copy_manifest_entry": "company/artifacts/screen-mockups-v2/conversational-onboarding/copy-manifest.json#conversation-photo-collection/uploading",
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups-v2/conversational-onboarding/prompts/conversation-photo-collection.md",
+        "continuity_references": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding/design-direction.md",
+          "company/artifacts/screen-mockups/design-direction.md",
+          "company/brand/exports/"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-photo-collection/uploading/conversation-photo-collection-desktop.png",
+        "mobile": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-photo-collection/uploading/conversation-photo-collection-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 862,
+          "height": 1824
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups-v2/conversational-onboarding/interaction-specs/conversation-photo-collection.md",
+      "qa": {
+        "structure_matches_experiment": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_v2_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true,
+        "v1_preserved": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen as the founder-approved chat-first pre-report direction using the approved Acid Dispatch system and existing v1 visual continuity references.",
+        "Ordinary profile facts are collected as text turns; contextual UI is reserved for visual or secure tasks.",
+        "Generated lettering is approximate; the v2 copy manifest is the implementation source of truth.",
+        "Founder approved this state for pre-report implementation on 2026-07-19; form-based v1 pre-report comps remain archived reference."
+      ],
+      "status": "approved-for-pre-report",
+      "approved_at": "2026-07-19"
+    },
+    {
+      "screen_id": "0903cde1-37cb-49c1-8146-ecd07dd54c70",
+      "screen_slug": "conversation-photo-review",
+      "screen_name": "Chat Onboarding — Photo Recovery",
+      "state": "reviewing",
+      "step": 3,
+      "response_mode": "contextual-gallery-ui",
+      "user_job": "See what is ready and fix only the photo that needs attention.",
+      "source_contract": "company/artifacts/screen-mockups-v2/conversational-onboarding/experiment-screen-registry.json",
+      "copy_manifest_entry": "company/artifacts/screen-mockups-v2/conversational-onboarding/copy-manifest.json#conversation-photo-review/reviewing",
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups-v2/conversational-onboarding/prompts/conversation-photo-review.md",
+        "continuity_references": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding/design-direction.md",
+          "company/artifacts/screen-mockups/design-direction.md",
+          "company/brand/exports/"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-photo-review/reviewing/conversation-photo-review-desktop.png",
+        "mobile": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-photo-review/reviewing/conversation-photo-review-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 852,
+          "height": 1846
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups-v2/conversational-onboarding/interaction-specs/conversation-photo-review.md",
+      "qa": {
+        "structure_matches_experiment": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_v2_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true,
+        "v1_preserved": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen as the founder-approved chat-first pre-report direction using the approved Acid Dispatch system and existing v1 visual continuity references.",
+        "Ordinary profile facts are collected as text turns; contextual UI is reserved for visual or secure tasks.",
+        "Generated lettering is approximate; the v2 copy manifest is the implementation source of truth.",
+        "Founder approved this state for pre-report implementation on 2026-07-19; form-based v1 pre-report comps remain archived reference."
+      ],
+      "status": "approved-for-pre-report",
+      "approved_at": "2026-07-19"
+    },
+    {
+      "screen_id": "fd161337-14fc-4476-9cec-9d004248c1c7",
+      "screen_slug": "conversation-taste-calibration",
+      "screen_name": "Chat Onboarding — Visual Taste Turn",
+      "state": "calibrating",
+      "step": 4,
+      "response_mode": "contextual-visual-choice-ui",
+      "user_job": "React to one visual look using Love, Hate, or Maybe.",
+      "source_contract": "company/artifacts/screen-mockups-v2/conversational-onboarding/experiment-screen-registry.json",
+      "copy_manifest_entry": "company/artifacts/screen-mockups-v2/conversational-onboarding/copy-manifest.json#conversation-taste-calibration/calibrating",
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups-v2/conversational-onboarding/prompts/conversation-taste-calibration.md",
+        "continuity_references": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding/design-direction.md",
+          "company/artifacts/screen-mockups/design-direction.md",
+          "company/brand/exports/"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-taste-calibration/calibrating/conversation-taste-calibration-desktop.png",
+        "mobile": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-taste-calibration/calibrating/conversation-taste-calibration-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 862,
+          "height": 1824
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups-v2/conversational-onboarding/interaction-specs/conversation-taste-calibration.md",
+      "qa": {
+        "structure_matches_experiment": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_v2_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true,
+        "v1_preserved": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen as the founder-approved chat-first pre-report direction using the approved Acid Dispatch system and existing v1 visual continuity references.",
+        "Ordinary profile facts are collected as text turns; contextual UI is reserved for visual or secure tasks.",
+        "Generated lettering is approximate; the v2 copy manifest is the implementation source of truth.",
+        "Founder approved this state for pre-report implementation on 2026-07-19; form-based v1 pre-report comps remain archived reference."
+      ],
+      "status": "approved-for-pre-report",
+      "approved_at": "2026-07-19"
+    },
+    {
+      "screen_id": "27d64888-57dc-4ecd-a4b2-7bbaecc5ef0f",
+      "screen_slug": "conversation-account-access",
+      "screen_name": "Chat Onboarding — Account Turn",
+      "state": "account",
+      "step": 5,
+      "response_mode": "contextual-auth-ui",
+      "user_job": "Connect the conversation to an account using Google or an email magic link.",
+      "source_contract": "company/artifacts/screen-mockups-v2/conversational-onboarding/experiment-screen-registry.json",
+      "copy_manifest_entry": "company/artifacts/screen-mockups-v2/conversational-onboarding/copy-manifest.json#conversation-account-access/account",
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups-v2/conversational-onboarding/prompts/conversation-account-access.md",
+        "continuity_references": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding/design-direction.md",
+          "company/artifacts/screen-mockups/design-direction.md",
+          "company/brand/exports/"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-account-access/account/conversation-account-access-desktop.png",
+        "mobile": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-account-access/account/conversation-account-access-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1586,
+          "height": 992
+        },
+        "mobile": {
+          "width": 853,
+          "height": 1844
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups-v2/conversational-onboarding/interaction-specs/conversation-account-access.md",
+      "qa": {
+        "structure_matches_experiment": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_v2_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true,
+        "v1_preserved": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen as the founder-approved chat-first pre-report direction using the approved Acid Dispatch system and existing v1 visual continuity references.",
+        "Ordinary profile facts are collected as text turns; contextual UI is reserved for visual or secure tasks.",
+        "Generated lettering is approximate; the v2 copy manifest is the implementation source of truth.",
+        "Founder approved this state for pre-report implementation on 2026-07-19; form-based v1 pre-report comps remain archived reference."
+      ],
+      "status": "approved-for-pre-report",
+      "approved_at": "2026-07-19"
+    },
+    {
+      "screen_id": "a97cdab0-56b4-4922-8244-a9b95c1d7381",
+      "screen_slug": "conversation-profile-review",
+      "screen_name": "Chat Onboarding — Final Confirmation",
+      "state": "review",
+      "step": 6,
+      "response_mode": "conversational-confirmation",
+      "user_job": "Confirm the factual conversation summary and start the style report.",
+      "source_contract": "company/artifacts/screen-mockups-v2/conversational-onboarding/experiment-screen-registry.json",
+      "copy_manifest_entry": "company/artifacts/screen-mockups-v2/conversational-onboarding/copy-manifest.json#conversation-profile-review/review",
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups-v2/conversational-onboarding/prompts/conversation-profile-review.md",
+        "continuity_references": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding/design-direction.md",
+          "company/artifacts/screen-mockups/design-direction.md",
+          "company/brand/exports/"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-profile-review/review/conversation-profile-review-desktop.png",
+        "mobile": "company/artifacts/screen-mockups-v2/conversational-onboarding/screens/conversation-profile-review/review/conversation-profile-review-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 853,
+          "height": 1844
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups-v2/conversational-onboarding/interaction-specs/conversation-profile-review.md",
+      "qa": {
+        "structure_matches_experiment": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_v2_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true,
+        "v1_preserved": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen as the founder-approved chat-first pre-report direction using the approved Acid Dispatch system and existing v1 visual continuity references.",
+        "Ordinary profile facts are collected as text turns; contextual UI is reserved for visual or secure tasks.",
+        "Generated lettering is approximate; the v2 copy manifest is the implementation source of truth.",
+        "Founder approved this state for pre-report implementation on 2026-07-19; form-based v1 pre-report comps remain archived reference."
+      ],
+      "status": "approved-for-pre-report",
+      "approved_at": "2026-07-19"
+    }
+  ]
+}

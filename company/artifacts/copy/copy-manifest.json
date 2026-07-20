@@ -1,0 +1,4754 @@
+{
+  "schema_version": "1.0",
+  "project": "Magic Mirror",
+  "voice_source": "company/voice.md",
+  "source_screens": "company/artifacts/prd/screens.json",
+  "source_wireframe_manifest": "company/artifacts/ui-ux-design/wireframe-manifest.json",
+  "status": "approved",
+  "generated_at": "2026-07-19T16:06:15.209Z",
+  "approved_at": "2026-07-19T16:13:43Z",
+  "founder_amended_at": "2026-07-19",
+  "founder_amendment": "Use gender consistently with disclosed styling/shopping purpose; use Start live styling as the direct Style Home entry.",
+  "screens": [
+    {
+      "screen_id": "76a5f0c7-aa78-4eaf-ae0f-4b577024f5c6",
+      "screen_slug": "landing-page-base",
+      "screen_name": "Landing Page — Base",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/landing-page-base/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/landing-page-base/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/landing-page-base/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/landing-page-base.md",
+      "related_stories": [
+        "US-001"
+      ],
+      "related_scenarios": [
+        "SC-001"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "PERSONAL STYLE, MADE PRACTICAL",
+        "headline": "Your style already has a point of view.",
+        "supporting_copy": "Turn the looks you love into a personal guide to colors, silhouettes, and what to wear next.",
+        "primary_cta": "Get my style report",
+        "secondary_cta": "Log in",
+        "tertiary_cta": null,
+        "navigation": {
+          "how_it_works": "How it works",
+          "report": "What’s inside",
+          "trust": "Your privacy",
+          "login": "Log in"
+        },
+        "labels": {
+          "report_preview": "YOUR REPORT",
+          "colors": "Your color direction",
+          "body_style": "Your proportions and silhouettes",
+          "recommendations": "What to wear next"
+        },
+        "helper_text": {
+          "timing": "Your report is usually ready in 1–2 minutes.",
+          "inputs": "Start with a few details and 8–12 photos of looks you love."
+        },
+        "validation": {},
+        "status_messages": {},
+        "consent": {
+          "photos": "Your photos are used only to create and improve your personal style report."
+        },
+        "metadata": {
+          "retailer_boundary": "Found something you love? You’ll shop and check out directly with the retailer."
+        },
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Navigation",
+            "copy": {
+              "navigation": {
+                "how_it_works": "How it works",
+                "report": "What’s inside",
+                "trust": "Your privacy",
+                "login": "Log in"
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Hero",
+            "copy": {
+              "headline": "Your style already has a point of view.",
+              "body": "Turn the looks you love into a personal guide to colors, silhouettes, and what to wear next.",
+              "primary_cta": "Get my style report",
+              "secondary_cta": "Log in"
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Report preview",
+            "copy": {
+              "eyebrow": "YOUR REPORT",
+              "headline": "See what makes your style yours.",
+              "body": "Discover the colors, shapes, and details you return to—and where to take them next."
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "How it works",
+            "copy": {
+              "headline": "From favorite looks to your style report.",
+              "steps": [
+                "Show us what you love",
+                "Follow your first instinct",
+                "Meet your style"
+              ]
+            }
+          },
+          {
+            "section_id": "SEC-005",
+            "section_name": "Report contents",
+            "copy": {
+              "headline": "A guide you can actually wear.",
+              "cards": [
+                "Your color direction",
+                "Your proportions and silhouettes",
+                "What to wear next"
+              ]
+            }
+          },
+          {
+            "section_id": "SEC-006",
+            "section_name": "Trust and retailer roles",
+            "copy": {
+              "headline": "Your style. Your photos. Your choice.",
+              "body": "Your photos create your private report. When you find something you love, you’ll shop directly with the retailer."
+            }
+          },
+          {
+            "section_id": "SEC-007",
+            "section_name": "Frequently asked questions",
+            "copy": {
+              "headline": "Good questions, answered.",
+              "questions": [
+                "What do I need to get started?",
+                "How long does the report take?",
+                "Does Magic Mirror guarantee fit?",
+                "How are my photos used?"
+              ]
+            }
+          },
+          {
+            "section_id": "SEC-008",
+            "section_name": "Closing action",
+            "copy": {
+              "headline": "Meet the style that’s already yours.",
+              "primary_cta": "Get my style report",
+              "secondary_cta": "Log in"
+            }
+          },
+          {
+            "section_id": "SEC-009",
+            "section_name": "Footer",
+            "copy": {
+              "eyebrow": "PERSONAL STYLE, MADE PRACTICAL",
+              "headline": "Your style already has a point of view.",
+              "supporting_copy": "Turn the looks you love into a personal guide to colors, silhouettes, and what to wear next.",
+              "labels": {
+                "report_preview": "YOUR REPORT",
+                "colors": "Your color direction",
+                "body_style": "Your proportions and silhouettes",
+                "recommendations": "What to wear next"
+              },
+              "helper_text": {
+                "timing": "Your report is usually ready in 1–2 minutes.",
+                "inputs": "Start with a few details and 8–12 photos of looks you love."
+              }
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "ee82967b-e205-401b-a90b-6a94d36470f7",
+      "screen_slug": "account-access-unauthenticated",
+      "screen_name": "Account Access — Unauthenticated",
+      "state": "unauthenticated",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/account-access-unauthenticated/unauthenticated/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/account-access-unauthenticated/unauthenticated/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/account-access-unauthenticated/unauthenticated/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/account-access-unauthenticated.md",
+      "related_stories": [
+        "US-002"
+      ],
+      "related_scenarios": [
+        "SC-002"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Sign in to Magic Mirror",
+        "supporting_copy": null,
+        "primary_cta": "Continue with Google",
+        "secondary_cta": "Send me a sign-in link",
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "email": "Email address"
+        },
+        "helper_text": {
+          "email": "No password needed."
+        },
+        "validation": {
+          "email": "Enter your email address."
+        },
+        "status_messages": {},
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Unified account access",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Sign in to Magic Mirror",
+              "supporting_copy": null,
+              "labels": {
+                "email": "Email address"
+              },
+              "helper_text": {
+                "email": "No password needed."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Support and privacy",
+            "copy": {
+              "helper_text": {
+                "email": "No password needed."
+              },
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "61df36bb-6d7c-41a3-bf06-9c2c99824e51",
+      "screen_slug": "personal-profile-base",
+      "screen_name": "Personal Profile — Base",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/personal-profile-base/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/personal-profile-base/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/personal-profile-base/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/personal-profile-base.md",
+      "related_stories": [
+        "US-003"
+      ],
+      "related_scenarios": [
+        "SC-001",
+        "SC-003"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "STEP 1 OF 4",
+        "headline": "A little about you.",
+        "supporting_copy": "This helps us make your style report more personal.",
+        "primary_cta": "Choose my brands",
+        "secondary_cta": "Save and exit",
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "name": "Name",
+          "adult": "I confirm I’m 18 or older",
+          "age": "Age",
+          "height": "Height",
+          "weight": "Weight (optional)",
+          "gender": "Gender"
+        },
+        "helper_text": {
+          "name": "The name you’d like us to use.",
+          "weight": "Skip this if you’d rather not say.",
+          "gender": "We use your gender only to shape styling and shopping recommendations. You can self-describe."
+        },
+        "validation": {
+          "adult": "Confirm that you’re 18 or older to continue.",
+          "age": "Enter your age.",
+          "height": "Enter your height."
+        },
+        "status_messages": {},
+        "consent": {
+          "gender": "Your gender is used only to personalize styling and shopping recommendations."
+        },
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Onboarding progress",
+            "copy": {
+              "eyebrow": "STEP 1 OF 4",
+              "headline": "A little about you.",
+              "supporting_copy": "This helps us make your style report more personal.",
+              "labels": {
+                "name": "Name",
+                "adult": "I confirm I’m 18 or older",
+                "age": "Age",
+                "height": "Height",
+                "weight": "Weight (optional)",
+                "gender": "Gender"
+              },
+              "helper_text": {
+                "name": "The name you’d like us to use.",
+                "weight": "Skip this if you’d rather not say.",
+                "gender": "We use your gender only to shape styling and shopping recommendations. You can self-describe."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Personal profile form",
+            "copy": {
+              "eyebrow": "STEP 1 OF 4",
+              "headline": "A little about you.",
+              "supporting_copy": "This helps us make your style report more personal.",
+              "labels": {
+                "name": "Name",
+                "adult": "I confirm I’m 18 or older",
+                "age": "Age",
+                "height": "Height",
+                "weight": "Weight (optional)",
+                "gender": "Gender"
+              },
+              "helper_text": {
+                "name": "The name you’d like us to use.",
+                "weight": "Skip this if you’d rather not say.",
+                "gender": "We use your gender only to shape styling and shopping recommendations. You can self-describe."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Step support",
+            "copy": {
+              "helper_text": {
+                "name": "The name you’d like us to use.",
+                "weight": "Skip this if you’d rather not say.",
+                "gender": "We use your gender only to shape styling and shopping recommendations. You can self-describe."
+              },
+              "consent": {
+                "gender": "Your gender is used only to personalize styling and shopping recommendations."
+              },
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "9ad25480-da71-430f-816a-6f394bed7f15",
+      "screen_slug": "brand-and-size-profile-base",
+      "screen_name": "Brand and Size Profile — Base",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/brand-and-size-profile-base/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/brand-and-size-profile-base/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/brand-and-size-profile-base/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/brand-and-size-profile-base.md",
+      "related_stories": [
+        "US-004"
+      ],
+      "related_scenarios": [
+        "SC-001"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "STEP 2 OF 4",
+        "headline": "What fits you best?",
+        "supporting_copy": "Choose a few favorite brands and the sizes you reach for.",
+        "primary_cta": "Add my photos",
+        "secondary_cta": "Back",
+        "tertiary_cta": "Save and exit",
+        "navigation": {},
+        "labels": {
+          "brands": "Favorite brands",
+          "brand_search": "Search or add a brand",
+          "category": "Garment category",
+          "size": "Usual size",
+          "unknown": "I’m not sure"
+        },
+        "helper_text": {
+          "sizing": "Add another entry when your size changes by brand or item."
+        },
+        "validation": {
+          "brand": "Choose or add a brand.",
+          "size": "Choose a size or select “I’m not sure.”"
+        },
+        "status_messages": {},
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Onboarding progress",
+            "copy": {
+              "eyebrow": "STEP 2 OF 4",
+              "headline": "What fits you best?",
+              "supporting_copy": "Choose a few favorite brands and the sizes you reach for.",
+              "labels": {
+                "brands": "Favorite brands",
+                "brand_search": "Search or add a brand",
+                "category": "Garment category",
+                "size": "Usual size",
+                "unknown": "I’m not sure"
+              },
+              "helper_text": {
+                "sizing": "Add another entry when your size changes by brand or item."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Brand selection",
+            "copy": {
+              "eyebrow": "STEP 2 OF 4",
+              "headline": "What fits you best?",
+              "supporting_copy": "Choose a few favorite brands and the sizes you reach for.",
+              "labels": {
+                "brands": "Favorite brands",
+                "brand_search": "Search or add a brand",
+                "category": "Garment category",
+                "size": "Usual size",
+                "unknown": "I’m not sure"
+              },
+              "helper_text": {
+                "sizing": "Add another entry when your size changes by brand or item."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Category sizes",
+            "copy": {
+              "eyebrow": "STEP 2 OF 4",
+              "headline": "What fits you best?",
+              "supporting_copy": "Choose a few favorite brands and the sizes you reach for.",
+              "labels": {
+                "brands": "Favorite brands",
+                "brand_search": "Search or add a brand",
+                "category": "Garment category",
+                "size": "Usual size",
+                "unknown": "I’m not sure"
+              },
+              "helper_text": {
+                "sizing": "Add another entry when your size changes by brand or item."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Step actions",
+            "copy": {
+              "primary_cta": "Add my photos",
+              "secondary_cta": "Back",
+              "tertiary_cta": "Save and exit"
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "bfc87225-7f0e-45c1-90f7-6623d96e9dad",
+      "screen_slug": "outfit-photo-upload-empty",
+      "screen_name": "Outfit Photo Upload — Empty",
+      "state": "empty",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/outfit-photo-upload-empty/empty/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-empty/empty/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-empty/empty/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/outfit-photo-upload-empty.md",
+      "related_stories": [
+        "US-005",
+        "US-019"
+      ],
+      "related_scenarios": [
+        "SC-001",
+        "SC-013"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "STEP 3 OF 4",
+        "headline": "Show us your favorite looks.",
+        "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
+        "primary_cta": "Choose photos",
+        "secondary_cta": "Back",
+        "tertiary_cta": "Save and exit",
+        "navigation": {},
+        "labels": {
+          "count": "0 of 8 required photos",
+          "accepted": "JPG, PNG, or HEIC"
+        },
+        "helper_text": {
+          "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
+          "range": "8 photos minimum. 12 maximum."
+        },
+        "validation": {
+          "consent": "Agree to photo use before continuing."
+        },
+        "status_messages": {},
+        "consent": {
+          "photos": "I agree to let Magic Mirror use these photos to create my style report.",
+          "isolation": "Only you can access the photos you add."
+        },
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Onboarding progress",
+            "copy": {
+              "eyebrow": "STEP 3 OF 4",
+              "headline": "Show us your favorite looks.",
+              "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
+              "labels": {
+                "count": "0 of 8 required photos",
+                "accepted": "JPG, PNG, or HEIC"
+              },
+              "helper_text": {
+                "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
+                "range": "8 photos minimum. 12 maximum."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Photo guidance",
+            "copy": {
+              "eyebrow": "STEP 3 OF 4",
+              "headline": "Show us your favorite looks.",
+              "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
+              "labels": {
+                "count": "0 of 8 required photos",
+                "accepted": "JPG, PNG, or HEIC"
+              },
+              "helper_text": {
+                "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
+                "range": "8 photos minimum. 12 maximum."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Upload workspace",
+            "copy": {
+              "eyebrow": "STEP 3 OF 4",
+              "headline": "Show us your favorite looks.",
+              "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
+              "labels": {
+                "count": "0 of 8 required photos",
+                "accepted": "JPG, PNG, or HEIC"
+              },
+              "helper_text": {
+                "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
+                "range": "8 photos minimum. 12 maximum."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Step actions",
+            "copy": {
+              "primary_cta": "Choose photos",
+              "secondary_cta": "Back",
+              "tertiary_cta": "Save and exit"
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "7628f30f-b601-49ab-93eb-2cc367ab1b2e",
+      "screen_slug": "outfit-photo-upload-partial",
+      "screen_name": "Outfit Photo Upload — Partial",
+      "state": "partial",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/outfit-photo-upload-partial/partial/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-partial/partial/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-partial/partial/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/outfit-photo-upload-partial.md",
+      "related_stories": [
+        "US-005"
+      ],
+      "related_scenarios": [
+        "SC-001",
+        "SC-004"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "STEP 3 OF 4",
+        "headline": "Your style is taking shape.",
+        "supporting_copy": "Add at least 8 photos, then follow your first instinct through a few more looks.",
+        "primary_cta": "Refine my taste",
+        "secondary_cta": "Add more photos",
+        "tertiary_cta": "Save and exit",
+        "navigation": {},
+        "labels": {
+          "ready": "Ready",
+          "checking": "Checking",
+          "replace": "Replace",
+          "remove": "Remove"
+        },
+        "helper_text": {
+          "minimum": "You can continue once 8 photos are ready."
+        },
+        "validation": {},
+        "status_messages": {
+          "uploading": "Uploading…",
+          "validating": "Checking photo…",
+          "ready": "Ready"
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Onboarding progress",
+            "copy": {
+              "eyebrow": "STEP 3 OF 4",
+              "headline": "Your style is taking shape.",
+              "supporting_copy": "Add at least 8 photos, then follow your first instinct through a few more looks.",
+              "labels": {
+                "ready": "Ready",
+                "checking": "Checking",
+                "replace": "Replace",
+                "remove": "Remove"
+              },
+              "helper_text": {
+                "minimum": "You can continue once 8 photos are ready."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Photo guidance",
+            "copy": {
+              "eyebrow": "STEP 3 OF 4",
+              "headline": "Your style is taking shape.",
+              "supporting_copy": "Add at least 8 photos, then follow your first instinct through a few more looks.",
+              "labels": {
+                "ready": "Ready",
+                "checking": "Checking",
+                "replace": "Replace",
+                "remove": "Remove"
+              },
+              "helper_text": {
+                "minimum": "You can continue once 8 photos are ready."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Upload workspace",
+            "copy": {
+              "eyebrow": "STEP 3 OF 4",
+              "headline": "Your style is taking shape.",
+              "supporting_copy": "Add at least 8 photos, then follow your first instinct through a few more looks.",
+              "labels": {
+                "ready": "Ready",
+                "checking": "Checking",
+                "replace": "Replace",
+                "remove": "Remove"
+              },
+              "helper_text": {
+                "minimum": "You can continue once 8 photos are ready."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Step actions",
+            "copy": {
+              "primary_cta": "Refine my taste",
+              "secondary_cta": "Add more photos",
+              "tertiary_cta": "Save and exit"
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "acea6cc0-08ca-4691-806e-2faae3ce2b0f",
+      "screen_slug": "outfit-photo-upload-validation-error",
+      "screen_name": "Outfit Photo Upload — Validation Error",
+      "state": "error",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/outfit-photo-upload-validation-error/error/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-validation-error/error/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-validation-error/error/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/outfit-photo-upload-validation-error.md",
+      "related_stories": [
+        "US-005",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-004"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Let’s swap this one.",
+        "supporting_copy": "Choose a different photo to keep going. Your other photos are ready.",
+        "primary_cta": "Replace photo",
+        "secondary_cta": "Remove",
+        "tertiary_cta": "Add another",
+        "navigation": {},
+        "labels": {
+          "rejected": "Try another photo",
+          "preserved": "Other photos ready"
+        },
+        "helper_text": {},
+        "validation": {
+          "format": "Choose a JPG, PNG, or HEIC image.",
+          "duplicate": "You already added this photo.",
+          "full_body": "Choose a photo that shows your full outfit.",
+          "unreadable": "We couldn’t open this image. Try another one."
+        },
+        "status_messages": {
+          "preserved": "Your other photos are ready."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Onboarding progress",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Let’s swap this one.",
+              "supporting_copy": "Choose a different photo to keep going. Your other photos are ready.",
+              "labels": {
+                "rejected": "Try another photo",
+                "preserved": "Other photos ready"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Photo guidance",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Let’s swap this one.",
+              "supporting_copy": "Choose a different photo to keep going. Your other photos are ready.",
+              "labels": {
+                "rejected": "Try another photo",
+                "preserved": "Other photos ready"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Upload workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Let’s swap this one.",
+              "supporting_copy": "Choose a different photo to keep going. Your other photos are ready.",
+              "labels": {
+                "rejected": "Try another photo",
+                "preserved": "Other photos ready"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Step actions",
+            "copy": {
+              "primary_cta": "Replace photo",
+              "secondary_cta": "Remove",
+              "tertiary_cta": "Add another"
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "e6f13ec8-a8d0-405c-932b-3befeb7de4f6",
+      "screen_slug": "taste-calibration-base",
+      "screen_name": "Taste Calibration — Base",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/taste-calibration-base/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-base/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-base/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/taste-calibration-base.md",
+      "related_stories": [
+        "US-006",
+        "US-021"
+      ],
+      "related_scenarios": [
+        "SC-001"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "STEP 4 OF 4",
+        "headline": "Trust your first reaction.",
+        "supporting_copy": "Swipe right for Love, left for Hate, or down for Maybe.",
+        "primary_cta": "Love",
+        "secondary_cta": "Hate",
+        "tertiary_cta": "Maybe",
+        "navigation": {},
+        "labels": {
+          "progress": "Your picks",
+          "undo": "Undo"
+        },
+        "helper_text": {
+          "gestures": "Right for Love. Left for Hate. Down for Maybe.",
+          "keyboard": "Use the right, left, or down arrow keys."
+        },
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {},
+        "accessibility": {
+          "card": "Style look",
+          "announcement": "Choice saved. Next look."
+        },
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Onboarding progress",
+            "copy": {
+              "eyebrow": "STEP 4 OF 4",
+              "headline": "Trust your first reaction.",
+              "supporting_copy": "Swipe right for Love, left for Hate, or down for Maybe.",
+              "labels": {
+                "progress": "Your picks",
+                "undo": "Undo"
+              },
+              "helper_text": {
+                "gestures": "Right for Love. Left for Hate. Down for Maybe.",
+                "keyboard": "Use the right, left, or down arrow keys."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Taste decision workspace",
+            "copy": {
+              "eyebrow": "STEP 4 OF 4",
+              "headline": "Trust your first reaction.",
+              "supporting_copy": "Swipe right for Love, left for Hate, or down for Maybe.",
+              "labels": {
+                "progress": "Your picks",
+                "undo": "Undo"
+              },
+              "helper_text": {
+                "gestures": "Right for Love. Left for Hate. Down for Maybe.",
+                "keyboard": "Use the right, left, or down arrow keys."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Interaction guidance",
+            "copy": {
+              "primary_cta": "Love",
+              "secondary_cta": "Hate",
+              "tertiary_cta": "Maybe"
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Step actions",
+            "copy": {
+              "primary_cta": "Love",
+              "secondary_cta": "Hate",
+              "tertiary_cta": "Maybe"
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "37d792e1-4d6c-494f-b53d-1dc4a498c294",
+      "screen_slug": "taste-calibration-recovery",
+      "screen_name": "Taste Calibration — Recovery",
+      "state": "recovery",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/taste-calibration-recovery/recovery/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-recovery/recovery/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-recovery/recovery/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/taste-calibration-recovery.md",
+      "related_stories": [
+        "US-006",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-005"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Let’s try that again.",
+        "supporting_copy": "Your choices are saved.",
+        "primary_cta": "Load the next look",
+        "secondary_cta": "Save and exit",
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "progress": "Your picks"
+        },
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "error": "The next look didn’t load.",
+          "preserved": "Your choices are saved."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Onboarding progress",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Let’s try that again.",
+              "supporting_copy": "Your choices are saved.",
+              "labels": {
+                "progress": "Your picks"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Taste decision workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Let’s try that again.",
+              "supporting_copy": "Your choices are saved.",
+              "labels": {
+                "progress": "Your picks"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Interaction guidance",
+            "copy": {
+              "primary_cta": "Load the next look",
+              "secondary_cta": "Save and exit",
+              "tertiary_cta": null
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Step actions",
+            "copy": {
+              "primary_cta": "Load the next look",
+              "secondary_cta": "Save and exit",
+              "tertiary_cta": null
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "782fdff8-e9b9-4828-aaa2-33b089ffd011",
+      "screen_slug": "account-connection-base",
+      "screen_name": "Account Connection — Base",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/account-connection-base/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/account-connection-base/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/account-connection-base/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/account-connection-base.md",
+      "related_stories": [
+        "US-007"
+      ],
+      "related_scenarios": [
+        "SC-001",
+        "SC-006"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "ONE LAST STEP",
+        "headline": "Your report is almost ready.",
+        "supporting_copy": "Save your progress to see your results and come back anytime.",
+        "primary_cta": "Continue with Google",
+        "secondary_cta": "Send me a sign-in link",
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "email": "Email address"
+        },
+        "helper_text": {
+          "account": "Already have an account? Use the same email to sign in.",
+          "progress": "Everything you’ve added is saved when you continue."
+        },
+        "validation": {
+          "email": "Enter your email address."
+        },
+        "status_messages": {},
+        "consent": {
+          "account": "By continuing, you agree to create or sign in to your Magic Mirror account."
+        },
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Onboarding progress",
+            "copy": {
+              "eyebrow": "ONE LAST STEP",
+              "headline": "Your report is almost ready.",
+              "supporting_copy": "Save your progress to see your results and come back anytime.",
+              "labels": {
+                "email": "Email address"
+              },
+              "helper_text": {
+                "account": "Already have an account? Use the same email to sign in.",
+                "progress": "Everything you’ve added is saved when you continue."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Unified account connection",
+            "copy": {
+              "eyebrow": "ONE LAST STEP",
+              "headline": "Your report is almost ready.",
+              "supporting_copy": "Save your progress to see your results and come back anytime.",
+              "labels": {
+                "email": "Email address"
+              },
+              "helper_text": {
+                "account": "Already have an account? Use the same email to sign in.",
+                "progress": "Everything you’ve added is saved when you continue."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Progress preservation",
+            "copy": {
+              "helper_text": {
+                "account": "Already have an account? Use the same email to sign in.",
+                "progress": "Everything you’ve added is saved when you continue."
+              },
+              "consent": {
+                "account": "By continuing, you agree to create or sign in to your Magic Mirror account."
+              },
+              "metadata": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Support",
+            "copy": {
+              "helper_text": {
+                "account": "Already have an account? Use the same email to sign in.",
+                "progress": "Everything you’ve added is saved when you continue."
+              },
+              "consent": {
+                "account": "By continuing, you agree to create or sign in to your Magic Mirror account."
+              },
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "e74afd3b-7709-40af-bedc-15cc9d2a6f1e",
+      "screen_slug": "account-connection-magic-link-sent",
+      "screen_name": "Account Connection — Magic Link Sent",
+      "state": "recovery",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/account-connection-magic-link-sent/recovery/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/account-connection-magic-link-sent/recovery/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/account-connection-magic-link-sent/recovery/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/account-connection-magic-link-sent.md",
+      "related_stories": [
+        "US-007"
+      ],
+      "related_scenarios": [
+        "SC-006"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Check your inbox.",
+        "supporting_copy": "We sent a sign-in link to {{email_address}}.",
+        "primary_cta": "Open email",
+        "secondary_cta": "Send another link",
+        "tertiary_cta": "Use Google instead",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "sent": "Link sent to {{email_address}}.",
+          "expired": "That link expired. Send a new one to continue."
+        },
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "email_address"
+          ]
+        },
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Onboarding progress",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Check your inbox.",
+              "supporting_copy": "We sent a sign-in link to {{email_address}}.",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Unified account connection",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Check your inbox.",
+              "supporting_copy": "We sent a sign-in link to {{email_address}}.",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Progress preservation",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {
+                "dynamic_tokens": [
+                  "email_address"
+                ]
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Support",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {
+                "dynamic_tokens": [
+                  "email_address"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "ecb422c1-0285-4592-9407-97a1f82bf96e",
+      "screen_slug": "style-report-analysis-processing",
+      "screen_name": "Style Report Analysis — Processing",
+      "state": "processing",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-analysis-processing/processing/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-processing/processing/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-processing/processing/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/style-report-analysis-processing.md",
+      "related_stories": [
+        "US-008"
+      ],
+      "related_scenarios": [
+        "SC-001"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Your style report is coming together.",
+        "supporting_copy": "We’re turning your favorite looks and preferences into guidance made for you.",
+        "primary_cta": "Email me when it’s ready",
+        "secondary_cta": "Come back later",
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "stage_profile": "Getting to know you",
+          "stage_photos": "Finding your patterns",
+          "stage_taste": "Following your taste",
+          "stage_report": "Creating your guide"
+        },
+        "helper_text": {
+          "timing": "This usually takes 1–2 minutes."
+        },
+        "validation": {},
+        "status_messages": {
+          "active": "Building your report…",
+          "saved": "You can come back anytime."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Analysis status header",
+            "copy": {
+              "headline": "Your style report is coming together.",
+              "supporting_copy": "We’re turning your favorite looks and preferences into guidance made for you.",
+              "status_messages": {
+                "active": "Building your report…",
+                "saved": "You can come back anytime."
+              },
+              "validation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Analysis state",
+            "copy": {
+              "headline": "Your style report is coming together.",
+              "supporting_copy": "We’re turning your favorite looks and preferences into guidance made for you.",
+              "status_messages": {
+                "active": "Building your report…",
+                "saved": "You can come back anytime."
+              },
+              "validation": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Preservation and notification",
+            "copy": {
+              "helper_text": {
+                "timing": "This usually takes 1–2 minutes."
+              },
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "762423ae-d732-4325-bed9-b91b42370ca9",
+      "screen_slug": "style-report-analysis-slow",
+      "screen_name": "Style Report Analysis — Slow",
+      "state": "slow",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-analysis-slow/slow/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-slow/slow/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-slow/slow/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/style-report-analysis-slow.md",
+      "related_stories": [
+        "US-008",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-007"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Still putting the finishing touches on your report.",
+        "supporting_copy": "It’s taking a little longer, but you don’t need to stay on this page.",
+        "primary_cta": "Email me when it’s ready",
+        "secondary_cta": "Come back later",
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {},
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "slow": "Still building your report…",
+          "saved": "Everything you added is saved."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Analysis status header",
+            "copy": {
+              "headline": "Still putting the finishing touches on your report.",
+              "supporting_copy": "It’s taking a little longer, but you don’t need to stay on this page.",
+              "status_messages": {
+                "slow": "Still building your report…",
+                "saved": "Everything you added is saved."
+              },
+              "validation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Analysis state",
+            "copy": {
+              "headline": "Still putting the finishing touches on your report.",
+              "supporting_copy": "It’s taking a little longer, but you don’t need to stay on this page.",
+              "status_messages": {
+                "slow": "Still building your report…",
+                "saved": "Everything you added is saved."
+              },
+              "validation": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Preservation and notification",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "6c9017a7-ec72-46df-bba8-79dcc691a817",
+      "screen_slug": "style-report-analysis-error-recovery",
+      "screen_name": "Style Report Analysis — Error Recovery",
+      "state": "recovery",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-analysis-error-recovery/recovery/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-error-recovery/recovery/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-error-recovery/recovery/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/style-report-analysis-error-recovery.md",
+      "related_stories": [
+        "US-008",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-008"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "We hit a snag.",
+        "supporting_copy": "Your answers and photos are safe. Try again when you’re ready.",
+        "primary_cta": "Try again",
+        "secondary_cta": "Get help",
+        "tertiary_cta": "Come back later",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "error": "Your report couldn’t be finished.",
+          "preserved": "Everything you added is saved."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Analysis status header",
+            "copy": {
+              "headline": "We hit a snag.",
+              "supporting_copy": "Your answers and photos are safe. Try again when you’re ready.",
+              "status_messages": {
+                "error": "Your report couldn’t be finished.",
+                "preserved": "Everything you added is saved."
+              },
+              "validation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Analysis state",
+            "copy": {
+              "headline": "We hit a snag.",
+              "supporting_copy": "Your answers and photos are safe. Try again when you’re ready.",
+              "status_messages": {
+                "error": "Your report couldn’t be finished.",
+                "preserved": "Everything you added is saved."
+              },
+              "validation": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Preservation and notification",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "1c2d940e-9782-4d23-866a-9e676af44138",
+      "screen_slug": "style-report-overview",
+      "screen_name": "Style Report — Overview",
+      "state": "success",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-overview/success/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-overview/success/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-overview/success/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/style-report-overview.md",
+      "related_stories": [
+        "US-009",
+        "US-022"
+      ],
+      "related_scenarios": [
+        "SC-009",
+        "SC-014"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "YOUR STYLE REPORT",
+        "headline": "See what makes your style yours.",
+        "supporting_copy": "Meet the patterns behind your strongest looks—and where to take them next.",
+        "primary_cta": "Explore my report",
+        "secondary_cta": "See my picks",
+        "tertiary_cta": null,
+        "navigation": {
+          "overview": "Overview",
+          "colors": "Colors",
+          "body_style": "Body style",
+          "recommendations": "Recommendations"
+        },
+        "labels": {
+          "identity": "Your style identity",
+          "strengths": "What’s already working",
+          "priorities": "Try these first",
+          "source": "Based on"
+        },
+        "helper_text": {
+          "inference": "Something feel off? You can change it."
+        },
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "style_identity_name",
+            "strength_one",
+            "priority_one"
+          ]
+        },
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Report navigation",
+            "copy": {
+              "navigation": {
+                "overview": "Overview",
+                "colors": "Colors",
+                "body_style": "Body style",
+                "recommendations": "Recommendations"
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Style identity summary",
+            "copy": {
+              "headline": "{{style_identity_name}}",
+              "body": "The colors, shapes, and details you return to create a style that feels distinctly yours."
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Key findings",
+            "copy": {
+              "eyebrow": "YOUR STYLE REPORT",
+              "headline": "See what makes your style yours.",
+              "supporting_copy": "Meet the patterns behind your strongest looks—and where to take them next.",
+              "labels": {
+                "identity": "Your style identity",
+                "strengths": "What’s already working",
+                "priorities": "Try these first",
+                "source": "Based on"
+              },
+              "helper_text": {
+                "inference": "Something feel off? You can change it."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "What to do next",
+            "copy": {
+              "eyebrow": "YOUR STYLE REPORT",
+              "headline": "See what makes your style yours.",
+              "supporting_copy": "Meet the patterns behind your strongest looks—and where to take them next.",
+              "labels": {
+                "identity": "Your style identity",
+                "strengths": "What’s already working",
+                "priorities": "Try these first",
+                "source": "Based on"
+              },
+              "helper_text": {
+                "inference": "Something feel off? You can change it."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-005",
+            "section_name": "Feedback and next action",
+            "copy": {
+              "primary_cta": "Explore my report",
+              "secondary_cta": "Change a result"
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "b16feadb-5618-46fc-b03f-be77d1de7b4f",
+      "screen_slug": "style-report-color",
+      "screen_name": "Style Report — Color",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-color/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-color/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-color/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/style-report-color.md",
+      "related_stories": [
+        "US-010"
+      ],
+      "related_scenarios": [
+        "SC-009"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "YOUR COLORS",
+        "headline": "Meet your colors.",
+        "supporting_copy": "A personal palette for getting dressed, shopping smarter, and trying something new.",
+        "primary_cta": "Find pieces in my colors",
+        "secondary_cta": "Save my palette",
+        "tertiary_cta": "Update my colors",
+        "navigation": {
+          "overview": "Overview",
+          "colors": "Colors",
+          "body_style": "Body style",
+          "recommendations": "Recommendations"
+        },
+        "labels": {
+          "primary": "Core colors",
+          "neutrals": "Everyday neutrals",
+          "accents": "Accent colors",
+          "combinations": "Try these together"
+        },
+        "helper_text": {
+          "accessibility": "Each color includes a name and a way to wear it.",
+          "intent": "Think of this as a guide, not a rulebook."
+        },
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Report navigation",
+            "copy": {
+              "navigation": {
+                "overview": "Overview",
+                "colors": "Colors",
+                "body_style": "Body style",
+                "recommendations": "Recommendations"
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Color summary",
+            "copy": {
+              "eyebrow": "YOUR COLORS",
+              "headline": "Meet your colors.",
+              "supporting_copy": "A personal palette for getting dressed, shopping smarter, and trying something new.",
+              "labels": {
+                "primary": "Core colors",
+                "neutrals": "Everyday neutrals",
+                "accents": "Accent colors",
+                "combinations": "Try these together"
+              },
+              "helper_text": {
+                "accessibility": "Each color includes a name and a way to wear it.",
+                "intent": "Think of this as a guide, not a rulebook."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Labeled palette",
+            "copy": {
+              "eyebrow": "YOUR COLORS",
+              "headline": "Meet your colors.",
+              "supporting_copy": "A personal palette for getting dressed, shopping smarter, and trying something new.",
+              "labels": {
+                "primary": "Core colors",
+                "neutrals": "Everyday neutrals",
+                "accents": "Accent colors",
+                "combinations": "Try these together"
+              },
+              "helper_text": {
+                "accessibility": "Each color includes a name and a way to wear it.",
+                "intent": "Think of this as a guide, not a rulebook."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Combination examples",
+            "copy": {
+              "eyebrow": "YOUR COLORS",
+              "headline": "Meet your colors.",
+              "supporting_copy": "A personal palette for getting dressed, shopping smarter, and trying something new.",
+              "labels": {
+                "primary": "Core colors",
+                "neutrals": "Everyday neutrals",
+                "accents": "Accent colors",
+                "combinations": "Try these together"
+              },
+              "helper_text": {
+                "accessibility": "Each color includes a name and a way to wear it.",
+                "intent": "Think of this as a guide, not a rulebook."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-005",
+            "section_name": "Feedback and products",
+            "copy": {
+              "eyebrow": "YOUR COLORS",
+              "headline": "Meet your colors.",
+              "supporting_copy": "A personal palette for getting dressed, shopping smarter, and trying something new.",
+              "labels": {
+                "primary": "Core colors",
+                "neutrals": "Everyday neutrals",
+                "accents": "Accent colors",
+                "combinations": "Try these together"
+              },
+              "helper_text": {
+                "accessibility": "Each color includes a name and a way to wear it.",
+                "intent": "Think of this as a guide, not a rulebook."
+              }
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "3acb5ce5-518b-4cf3-beba-ce38439031e2",
+      "screen_slug": "style-report-body-style",
+      "screen_name": "Style Report — Body Style",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-body-style/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-body-style/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-body-style/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/style-report-body-style.md",
+      "related_stories": [
+        "US-011"
+      ],
+      "related_scenarios": [
+        "SC-009"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "YOUR STYLE LINES",
+        "headline": "Shapes that work with you.",
+        "supporting_copy": "Discover the silhouettes, proportions, and details that bring your style into balance.",
+        "primary_cta": "See my silhouettes",
+        "secondary_cta": "Update my result",
+        "tertiary_cta": null,
+        "navigation": {
+          "overview": "Overview",
+          "colors": "Colors",
+          "body_style": "Body style",
+          "recommendations": "Recommendations"
+        },
+        "labels": {
+          "profile": "Your Kibbe-inspired type",
+          "confidence": "Match",
+          "rationale": "Why it fits",
+          "implications": "Try this"
+        },
+        "helper_text": {
+          "framework": "This is a starting point. Keep what feels right."
+        },
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "body_style_profile",
+            "confidence_label"
+          ]
+        },
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Report navigation",
+            "copy": {
+              "navigation": {
+                "overview": "Overview",
+                "colors": "Colors",
+                "body_style": "Body style",
+                "recommendations": "Recommendations"
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Body-style summary",
+            "copy": {
+              "eyebrow": "YOUR STYLE LINES",
+              "headline": "Shapes that work with you.",
+              "supporting_copy": "Discover the silhouettes, proportions, and details that bring your style into balance.",
+              "labels": {
+                "profile": "Your Kibbe-inspired type",
+                "confidence": "Match",
+                "rationale": "Why it fits",
+                "implications": "Try this"
+              },
+              "helper_text": {
+                "framework": "This is a starting point. Keep what feels right."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Proportion guidance",
+            "copy": {
+              "eyebrow": "YOUR STYLE LINES",
+              "headline": "Shapes that work with you.",
+              "supporting_copy": "Discover the silhouettes, proportions, and details that bring your style into balance.",
+              "labels": {
+                "profile": "Your Kibbe-inspired type",
+                "confidence": "Match",
+                "rationale": "Why it fits",
+                "implications": "Try this"
+              },
+              "helper_text": {
+                "framework": "This is a starting point. Keep what feels right."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "What to wear",
+            "copy": {
+              "eyebrow": "YOUR STYLE LINES",
+              "headline": "Shapes that work with you.",
+              "supporting_copy": "Discover the silhouettes, proportions, and details that bring your style into balance.",
+              "labels": {
+                "profile": "Your Kibbe-inspired type",
+                "confidence": "Match",
+                "rationale": "Why it fits",
+                "implications": "Try this"
+              },
+              "helper_text": {
+                "framework": "This is a starting point. Keep what feels right."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-005",
+            "section_name": "Feedback",
+            "copy": {
+              "eyebrow": "YOUR STYLE LINES",
+              "headline": "Shapes that work with you.",
+              "supporting_copy": "Discover the silhouettes, proportions, and details that bring your style into balance.",
+              "labels": {
+                "profile": "Your Kibbe-inspired type",
+                "confidence": "Match",
+                "rationale": "Why it fits",
+                "implications": "Try this"
+              },
+              "helper_text": {
+                "framework": "This is a starting point. Keep what feels right."
+              }
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "ec0e2f41-d712-48b1-83fe-c535b1438a12",
+      "screen_slug": "style-report-recommendations",
+      "screen_name": "Style Report — Recommendations",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-recommendations/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-recommendations/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-recommendations/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/style-report-recommendations.md",
+      "related_stories": [
+        "US-012",
+        "US-013"
+      ],
+      "related_scenarios": [
+        "SC-009",
+        "SC-014"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "WHAT TO WEAR NEXT",
+        "headline": "Your next looks, already styled.",
+        "supporting_copy": "Explore pieces and outfit ideas chosen to work with your colors, proportions, and taste.",
+        "primary_cta": "See my picks",
+        "secondary_cta": "Save this guide",
+        "tertiary_cta": null,
+        "navigation": {
+          "overview": "Overview",
+          "colors": "Colors",
+          "body_style": "Body style",
+          "recommendations": "Recommendations"
+        },
+        "labels": {
+          "silhouettes": "Silhouettes",
+          "proportions": "Proportions",
+          "layers": "Layers",
+          "fabrics": "Fabrics",
+          "outfits": "Example outfits",
+          "reason": "Why this works for you",
+          "preview": "Generated wardrobe preview"
+        },
+        "helper_text": {
+          "preview": "A styling visualization, not a fit guarantee. Shop the linked real product at the retailer."
+        },
+        "validation": {},
+        "status_messages": {
+          "preview_unavailable": "Your recommendation and product link are ready without a generated preview."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Report navigation",
+            "copy": {
+              "navigation": {
+                "overview": "Overview",
+                "colors": "Colors",
+                "body_style": "Body style",
+                "recommendations": "Recommendations"
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Recommendation summary",
+            "copy": {
+              "eyebrow": "WHAT TO WEAR NEXT",
+              "headline": "Your next looks, already styled.",
+              "supporting_copy": "Explore pieces and outfit ideas chosen to work with your colors, proportions, and taste.",
+              "labels": {
+                "silhouettes": "Silhouettes",
+                "proportions": "Proportions",
+                "layers": "Layers",
+                "fabrics": "Fabrics",
+                "outfits": "Example outfits",
+                "reason": "Why this works for you"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommendation categories",
+            "copy": {
+              "eyebrow": "WHAT TO WEAR NEXT",
+              "headline": "Your next looks, already styled.",
+              "supporting_copy": "Explore pieces and outfit ideas chosen to work with your colors, proportions, and taste.",
+              "labels": {
+                "silhouettes": "Silhouettes",
+                "proportions": "Proportions",
+                "layers": "Layers",
+                "fabrics": "Fabrics",
+                "outfits": "Example outfits",
+                "reason": "Why this works for you"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Example outfits",
+            "copy": {
+              "eyebrow": "WHAT TO WEAR NEXT",
+              "headline": "Your next looks, already styled.",
+              "supporting_copy": "Explore pieces and outfit ideas chosen to work with your colors, proportions, and taste.",
+              "labels": {
+                "silhouettes": "Silhouettes",
+                "proportions": "Proportions",
+                "layers": "Layers",
+                "fabrics": "Fabrics",
+                "outfits": "Example outfits",
+                "reason": "Why this works for you"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-005",
+            "section_name": "Matched products",
+            "copy": {
+              "eyebrow": "WHAT TO WEAR NEXT",
+              "headline": "Your next looks, already styled.",
+              "supporting_copy": "Explore pieces and outfit ideas chosen to work with your colors, proportions, and taste.",
+              "labels": {
+                "silhouettes": "Silhouettes",
+                "proportions": "Proportions",
+                "layers": "Layers",
+                "fabrics": "Fabrics",
+                "outfits": "Example outfits",
+                "reason": "Why this works for you"
+              },
+              "helper_text": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "d677a738-5703-4b02-b7ca-667c31ac7555",
+      "screen_slug": "style-home-base",
+      "screen_name": "Style Home — Base",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-home-base/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/style-home-base/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/style-home-base/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/style-home-base.md",
+      "related_stories": [
+        "US-013",
+        "US-022"
+      ],
+      "related_scenarios": [
+        "SC-002",
+        "SC-014"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "What are you in the mood to wear, {{preferred_name}}?",
+        "supporting_copy": null,
+        "primary_cta": "Start live styling",
+        "secondary_cta": "View my report",
+        "tertiary_cta": "Browse my picks",
+        "navigation": {
+          "home": "Style home",
+          "report": "My report",
+          "picks": "My picks",
+          "bag": "Bag",
+          "profile": "Profile"
+        },
+        "labels": {
+          "report": "Report highlights",
+          "next": "Recommended next step",
+          "picks": "Selected for you",
+          "recent": "Recent activity"
+        },
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "preferred_name"
+          ]
+        },
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "App navigation",
+            "copy": {
+              "navigation": {
+                "home": "Style home",
+                "report": "My report",
+                "picks": "My picks",
+                "bag": "Bag",
+                "profile": "Profile"
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Current status",
+            "copy": {
+              "headline": "What are you in the mood to wear, {{preferred_name}}?",
+              "supporting_copy": null,
+              "status_messages": {},
+              "validation": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Report highlights",
+            "copy": {
+              "eyebrow": null,
+              "headline": "What are you in the mood to wear, {{preferred_name}}?",
+              "supporting_copy": null,
+              "labels": {
+                "report": "Report highlights",
+                "next": "Recommended next step",
+                "picks": "Selected for you",
+                "recent": "Recent activity"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Recommended items",
+            "copy": {
+              "eyebrow": null,
+              "headline": "What are you in the mood to wear, {{preferred_name}}?",
+              "supporting_copy": null,
+              "labels": {
+                "report": "Report highlights",
+                "next": "Recommended next step",
+                "picks": "Selected for you",
+                "recent": "Recent activity"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-005",
+            "section_name": "Saved and recent activity",
+            "copy": {
+              "eyebrow": null,
+              "headline": "What are you in the mood to wear, {{preferred_name}}?",
+              "supporting_copy": null,
+              "labels": {
+                "report": "Report highlights",
+                "next": "Recommended next step",
+                "picks": "Selected for you",
+                "recent": "Recent activity"
+              },
+              "helper_text": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "5e8e9f80-901b-4fb1-932c-f1bec76da0c9",
+      "screen_slug": "live-styling-camera-permission",
+      "screen_name": "Live Styling — Camera Permission",
+      "state": "permission",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-camera-permission/permission/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-permission/permission/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-permission/permission/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-camera-permission.md",
+      "related_stories": [
+        "US-014",
+        "US-021",
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-010",
+        "SC-015"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Step into the mirror.",
+        "supporting_copy": "Turn on your camera to try on your picks and use hands-free controls.",
+        "primary_cta": "Turn on camera",
+        "secondary_cta": "Not now",
+        "tertiary_cta": "Back to my picks",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {
+          "limitation": "The live view is a styling preview. Fit may vary.",
+          "fallback": "You can still browse your picks without the camera."
+        },
+        "validation": {},
+        "status_messages": {},
+        "consent": {
+          "camera": "Allow camera access for live styling and hand controls."
+        },
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Step into the mirror.",
+              "supporting_copy": "Turn on your camera to try on your picks and use hands-free controls.",
+              "labels": {},
+              "helper_text": {
+                "limitation": "The live view is a styling preview. Fit may vary.",
+                "fallback": "You can still browse your picks without the camera."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Step into the mirror.",
+              "supporting_copy": "Turn on your camera to try on your picks and use hands-free controls.",
+              "labels": {},
+              "helper_text": {
+                "limitation": "The live view is a styling preview. Fit may vary.",
+                "fallback": "You can still browse your picks without the camera."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {
+                "limitation": "The live view is a styling preview. Fit may vary.",
+                "fallback": "You can still browse your picks without the camera."
+              },
+              "consent": {
+                "camera": "Allow camera access for live styling and hand controls."
+              },
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "5b6baf59-f2d4-4c52-aaa7-b4910435c892",
+      "screen_slug": "live-styling-ready",
+      "screen_name": "Live Styling — Ready",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-ready/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-ready/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-ready/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-ready.md",
+      "related_stories": [
+        "US-014",
+        "US-016",
+        "US-017",
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-011",
+        "SC-012",
+        "SC-015"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Try it on.",
+        "supporting_copy": null,
+        "primary_cta": "Add to bag",
+        "secondary_cta": "Next look",
+        "tertiary_cta": "End session",
+        "navigation": {
+          "report": "Report",
+          "bag": "Bag",
+          "exit": "End session"
+        },
+        "labels": {
+          "current": "Trying now",
+          "voice": "Voice",
+          "gestures": "Hand controls",
+          "direct": "Controls"
+        },
+        "helper_text": {
+          "limitation": "Styling preview only. Fit may vary."
+        },
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {},
+        "accessibility": {
+          "camera": "Live styling view",
+          "current_item": "Current item"
+        },
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {
+                "report": "Report",
+                "bag": "Bag",
+                "exit": "End session"
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Try it on.",
+              "supporting_copy": null,
+              "labels": {
+                "current": "Trying now",
+                "voice": "Voice",
+                "gestures": "Hand controls",
+                "direct": "Controls"
+              },
+              "helper_text": {
+                "limitation": "Styling preview only. Fit may vary."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Try it on.",
+              "supporting_copy": null,
+              "labels": {
+                "current": "Trying now",
+                "voice": "Voice",
+                "gestures": "Hand controls",
+                "direct": "Controls"
+              },
+              "helper_text": {
+                "limitation": "Styling preview only. Fit may vary."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {
+                "limitation": "Styling preview only. Fit may vary."
+              },
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "e72fcc42-581c-44fa-b466-c3ac642e54df",
+      "screen_slug": "live-styling-microphone-permission",
+      "screen_name": "Live Styling — Microphone Permission",
+      "state": "permission",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-microphone-permission/permission/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-microphone-permission/permission/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-microphone-permission/permission/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-microphone-permission.md",
+      "related_stories": [
+        "US-015",
+        "US-021"
+      ],
+      "related_scenarios": [
+        "SC-011"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Style it out loud.",
+        "supporting_copy": "Ask for another color, a different shape, or something for the occasion.",
+        "primary_cta": "Turn on microphone",
+        "secondary_cta": "Use buttons instead",
+        "tertiary_cta": "Cancel",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {},
+        "consent": {
+          "microphone": "Allow microphone access while voice control is on."
+        },
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Style it out loud.",
+              "supporting_copy": "Ask for another color, a different shape, or something for the occasion.",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Style it out loud.",
+              "supporting_copy": "Ask for another color, a different shape, or something for the occasion.",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {
+                "microphone": "Allow microphone access while voice control is on."
+              },
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "87b489bf-c543-4911-a09d-48b57be4a80a",
+      "screen_slug": "live-styling-voice-listening",
+      "screen_name": "Live Styling — Voice Listening",
+      "state": "listening",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-voice-listening/listening/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-listening/listening/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-listening/listening/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-voice-listening.md",
+      "related_stories": [
+        "US-015"
+      ],
+      "related_scenarios": [
+        "SC-011"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "LISTENING",
+        "headline": "What’s next?",
+        "supporting_copy": "Try “a darker color,” “something for a wedding,” or “under $100.”",
+        "primary_cta": "Stop listening",
+        "secondary_cta": "Use buttons",
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {},
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "listening": "Listening…"
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {
+          "live_region": "Listening for your request."
+        },
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": "LISTENING",
+              "headline": "What’s next?",
+              "supporting_copy": "Try “a darker color,” “something for a wedding,” or “under $100.”",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": "LISTENING",
+              "headline": "What’s next?",
+              "supporting_copy": "Try “a darker color,” “something for a wedding,” or “under $100.”",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "83f2ff2a-7951-42b5-b715-5fbe97ffb568",
+      "screen_slug": "live-styling-hand-gesture-guide",
+      "screen_name": "Live Styling — Hand Gesture Guide",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-hand-gesture-guide/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-hand-gesture-guide/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-hand-gesture-guide/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-hand-gesture-guide.md",
+      "related_stories": [
+        "US-014",
+        "US-021",
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-015"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Hands-free styling.",
+        "supporting_copy": "Swipe through looks and choose items without walking back to your screen.",
+        "primary_cta": "Turn on hand controls",
+        "secondary_cta": "Practice",
+        "tertiary_cta": "Use voice",
+        "navigation": {},
+        "labels": {
+          "next": "Next look",
+          "previous": "Previous look",
+          "select": "Choose"
+        },
+        "helper_text": {
+          "confirmation": "We’ll always ask before adding an item, opening a retailer, or ending your session.",
+          "alternatives": "You can use voice or the buttons anytime."
+        },
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {},
+        "accessibility": {
+          "guide": "Hand gestures and matching actions"
+        },
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Hands-free styling.",
+              "supporting_copy": "Swipe through looks and choose items without walking back to your screen.",
+              "labels": {
+                "next": "Next look",
+                "previous": "Previous look",
+                "select": "Choose"
+              },
+              "helper_text": {
+                "confirmation": "We’ll always ask before adding an item, opening a retailer, or ending your session.",
+                "alternatives": "You can use voice or the buttons anytime."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Hands-free styling.",
+              "supporting_copy": "Swipe through looks and choose items without walking back to your screen.",
+              "labels": {
+                "next": "Next look",
+                "previous": "Previous look",
+                "select": "Choose"
+              },
+              "helper_text": {
+                "confirmation": "We’ll always ask before adding an item, opening a retailer, or ending your session.",
+                "alternatives": "You can use voice or the buttons anytime."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {
+                "confirmation": "We’ll always ask before adding an item, opening a retailer, or ending your session.",
+                "alternatives": "You can use voice or the buttons anytime."
+              },
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "a7d262bf-0e4a-423f-9d51-fed5b2594b14",
+      "screen_slug": "recommended-product-detail-drawer",
+      "screen_name": "Recommended Product — Detail Drawer",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/recommended-product-detail-drawer/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/recommended-product-detail-drawer/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/recommended-product-detail-drawer/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/recommended-product-detail-drawer.md",
+      "related_stories": [
+        "US-016",
+        "US-017",
+        "US-018"
+      ],
+      "related_scenarios": [
+        "SC-012"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": "PICKED FOR YOU",
+        "headline": "{{product_name}}",
+        "supporting_copy": "See why it works with your style, then try it on or save it for later.",
+        "primary_cta": "Add to bag",
+        "secondary_cta": "Try it on",
+        "tertiary_cta": "Shop at retailer",
+        "navigation": {},
+        "labels": {
+          "retailer": "Retailer",
+          "price": "Price",
+          "availability": "Availability",
+          "size": "Your usual size",
+          "rationale": "Why it works",
+          "checked": "Last checked"
+        },
+        "helper_text": {
+          "limitation": "Check the retailer for current price, availability, and fit."
+        },
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "product_name",
+            "retailer_name",
+            "current_price",
+            "availability_status",
+            "availability_checked_at"
+          ]
+        },
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Context navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Preserved styling context",
+            "copy": {
+              "eyebrow": "PICKED FOR YOU",
+              "headline": "{{product_name}}",
+              "supporting_copy": "See why it works with your style, then try it on or save it for later.",
+              "labels": {
+                "retailer": "Retailer",
+                "price": "Price",
+                "availability": "Availability",
+                "size": "Your usual size",
+                "rationale": "Why it works",
+                "checked": "Last checked"
+              },
+              "helper_text": {
+                "limitation": "Check the retailer for current price, availability, and fit."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Product detail drawer",
+            "copy": {
+              "eyebrow": "PICKED FOR YOU",
+              "headline": "{{product_name}}",
+              "supporting_copy": "See why it works with your style, then try it on or save it for later.",
+              "labels": {
+                "retailer": "Retailer",
+                "price": "Price",
+                "availability": "Availability",
+                "size": "Your usual size",
+                "rationale": "Why it works",
+                "checked": "Last checked"
+              },
+              "helper_text": {
+                "limitation": "Check the retailer for current price, availability, and fit."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Selection actions",
+            "copy": {
+              "primary_cta": "Add to bag",
+              "secondary_cta": "Try it on",
+              "tertiary_cta": "Shop at retailer"
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "1eb0f961-b299-4ab3-b90d-12692f254494",
+      "screen_slug": "magic-mirror-bag-base",
+      "screen_name": "Magic Mirror Bag — Base",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/magic-mirror-bag-base/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/magic-mirror-bag-base/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/magic-mirror-bag-base/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/magic-mirror-bag-base.md",
+      "related_stories": [
+        "US-017",
+        "US-018"
+      ],
+      "related_scenarios": [
+        "SC-012"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Your picks.",
+        "supporting_copy": "One more look before you shop.",
+        "primary_cta": "Shop at retailer",
+        "secondary_cta": "Keep styling",
+        "tertiary_cta": null,
+        "navigation": {
+          "report": "Report",
+          "style": "Live styling",
+          "bag": "Bag"
+        },
+        "labels": {
+          "retailer_group": "From {{retailer_name}}",
+          "availability": "Availability",
+          "remove": "Remove",
+          "subtotal": "Subtotal"
+        },
+        "helper_text": {
+          "boundary": "You’ll check out with each retailer."
+        },
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "retailer_name"
+          ]
+        },
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "App navigation",
+            "copy": {
+              "navigation": {
+                "report": "Report",
+                "style": "Live styling",
+                "bag": "Bag"
+              }
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Retailer-grouped selections",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Your picks.",
+              "supporting_copy": "One more look before you shop.",
+              "labels": {
+                "retailer_group": "From {{retailer_name}}",
+                "availability": "Availability",
+                "remove": "Remove",
+                "subtotal": "Subtotal"
+              },
+              "helper_text": {
+                "boundary": "You’ll check out with each retailer."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Checkout boundary",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Your picks.",
+              "supporting_copy": "One more look before you shop.",
+              "labels": {
+                "retailer_group": "From {{retailer_name}}",
+                "availability": "Availability",
+                "remove": "Remove",
+                "subtotal": "Subtotal"
+              },
+              "helper_text": {
+                "boundary": "You’ll check out with each retailer."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Bag actions",
+            "copy": {
+              "primary_cta": "Shop at retailer",
+              "secondary_cta": "Keep styling",
+              "tertiary_cta": null
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "49c5dc8e-da7f-433d-bba0-5011bb755948",
+      "screen_slug": "retailer-handoff-confirmation",
+      "screen_name": "Retailer Handoff — Confirmation",
+      "state": "base",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/retailer-handoff-confirmation/base/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/retailer-handoff-confirmation/base/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/retailer-handoff-confirmation/base/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/retailer-handoff-confirmation.md",
+      "related_stories": [
+        "US-018"
+      ],
+      "related_scenarios": [
+        "SC-012"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Ready to shop at {{retailer_name}}?",
+        "supporting_copy": "You’ll finish your purchase on their site. Your picks will be here when you come back.",
+        "primary_cta": "Shop at {{retailer_name}}",
+        "secondary_cta": "Not yet",
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {},
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "retailer_name"
+          ]
+        },
+        "accessibility": {
+          "external": "Opens {{retailer_name}} in a new tab"
+        },
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Preserved bag context",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Ready to shop at {{retailer_name}}?",
+              "supporting_copy": "You’ll finish your purchase on their site. Your picks will be here when you come back.",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Retailer confirmation",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Ready to shop at {{retailer_name}}?",
+              "supporting_copy": "You’ll finish your purchase on their site. Your picks will be here when you come back.",
+              "labels": {},
+              "helper_text": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "4df9db19-8f5b-53dd-a000-18e33ad9a6e3",
+      "screen_slug": "personal-profile-validation-error",
+      "screen_name": "Personal Profile — Validation Error",
+      "state": "error",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/personal-profile-validation-error/error/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/personal-profile-validation-error/error/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/personal-profile-validation-error/error/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/personal-profile-validation-error.md",
+      "related_stories": [
+        "US-003",
+        "US-021"
+      ],
+      "related_scenarios": [
+        "SC-003"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Check a few details.",
+        "supporting_copy": null,
+        "primary_cta": "Continue",
+        "secondary_cta": "Save and exit",
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "saved": "Saved",
+          "error": "Check this",
+          "optional": "Weight (optional)"
+        },
+        "helper_text": {},
+        "validation": {
+          "adult": "Confirm that you’re 18 or older.",
+          "age": "Enter your age.",
+          "height": "Enter your height.",
+          "gender": "Tell us your gender or self-describe so we can shape styling and shopping recommendations."
+        },
+        "status_messages": {
+          "preserved": "Your other answers are saved."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Onboarding progress",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Check a few details.",
+              "supporting_copy": null,
+              "labels": {
+                "saved": "Saved",
+                "error": "Check this",
+                "optional": "Weight (optional)"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Personal profile form",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Check a few details.",
+              "supporting_copy": null,
+              "labels": {
+                "saved": "Saved",
+                "error": "Check this",
+                "optional": "Weight (optional)"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Step support",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "eef632ce-8d4a-5035-aa15-b5efdd09b2a2",
+      "screen_slug": "account-connection-error-recovery",
+      "screen_name": "Account Connection — Error Recovery",
+      "state": "recovery",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/account-connection-error-recovery/recovery/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/account-connection-error-recovery/recovery/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/account-connection-error-recovery/recovery/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/account-connection-error-recovery.md",
+      "related_stories": [
+        "US-007",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-006"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Let’s try that again.",
+        "supporting_copy": "Your progress is safe.",
+        "primary_cta": "Try again",
+        "secondary_cta": "Use another way",
+        "tertiary_cta": "Get help",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {},
+        "validation": {
+          "email": "Check your email address and send a new link.",
+          "google": "Google sign-in didn’t finish. Try again or use email."
+        },
+        "status_messages": {
+          "interrupted": "Sign-in didn’t finish.",
+          "preserved": "Your progress is saved."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Onboarding progress",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Let’s try that again.",
+              "supporting_copy": "Your progress is safe.",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Unified account connection",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Let’s try that again.",
+              "supporting_copy": "Your progress is safe.",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Progress preservation",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Support",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "4d345373-f991-5f0d-8ac7-5885e4a456f8",
+      "screen_slug": "style-report-feedback-and-recalibration",
+      "screen_name": "Style Report — Feedback and Recalibration",
+      "state": "feedback",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-report-feedback-and-recalibration/feedback/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-feedback-and-recalibration/feedback/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/style-report-feedback-and-recalibration/feedback/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/style-report-feedback-and-recalibration.md",
+      "related_stories": [
+        "US-009",
+        "US-010",
+        "US-011"
+      ],
+      "related_scenarios": [
+        "SC-009"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Make this feel more like you.",
+        "supporting_copy": "Tell us what missed the mark, and we’ll adjust your report.",
+        "primary_cta": "Update my report",
+        "secondary_cta": null,
+        "tertiary_cta": "Cancel",
+        "navigation": {},
+        "labels": {
+          "finding": "Your result",
+          "feedback_type": "What feels off?",
+          "correction": "What would you change?",
+          "context": "Anything else? (optional)"
+        },
+        "helper_text": {
+          "effect": "We’ll use your feedback to improve your report and picks."
+        },
+        "validation": {
+          "required": "Choose what feels off and tell us what you’d change."
+        },
+        "status_messages": {},
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Report navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Feedback form",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Make this feel more like you.",
+              "supporting_copy": "Tell us what missed the mark, and we’ll adjust your report.",
+              "labels": {
+                "finding": "Your result",
+                "feedback_type": "What feels off?",
+                "correction": "What would you change?",
+                "context": "Anything else? (optional)"
+              },
+              "helper_text": {
+                "effect": "We’ll use your feedback to improve your report and picks."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Confirmation and next step",
+            "copy": {
+              "primary_cta": "Update my report",
+              "secondary_cta": null,
+              "tertiary_cta": "Cancel"
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "dd9e7858-c66f-5351-a51c-dd63a8b11d7a",
+      "screen_slug": "style-home-resume-or-recover",
+      "screen_name": "Style Home — Resume or Recover",
+      "state": "recovery",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/style-home-resume-or-recover/recovery/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/style-home-resume-or-recover/recovery/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/style-home-resume-or-recover/recovery/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/style-home-resume-or-recover.md",
+      "related_stories": [
+        "US-002",
+        "US-022"
+      ],
+      "related_scenarios": [
+        "SC-002",
+        "SC-014"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Right where you left it.",
+        "supporting_copy": "Your style report is waiting.",
+        "primary_cta": "Keep going",
+        "secondary_cta": "Try again",
+        "tertiary_cta": "View my report",
+        "navigation": {},
+        "labels": {
+          "incomplete": "Continue",
+          "paused": "Try again",
+          "ready": "Ready"
+        },
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "saved": "Your progress is saved."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "App navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Current status",
+            "copy": {
+              "headline": "Right where you left it.",
+              "supporting_copy": "Your style report is waiting.",
+              "status_messages": {
+                "saved": "Your progress is saved."
+              },
+              "validation": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Report highlights",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Right where you left it.",
+              "supporting_copy": "Your style report is waiting.",
+              "labels": {
+                "incomplete": "Continue",
+                "paused": "Try again",
+                "ready": "Ready"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Recommended items",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Right where you left it.",
+              "supporting_copy": "Your style report is waiting.",
+              "labels": {
+                "incomplete": "Continue",
+                "paused": "Try again",
+                "ready": "Ready"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-005",
+            "section_name": "Saved and recent activity",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Right where you left it.",
+              "supporting_copy": "Your style report is waiting.",
+              "labels": {
+                "incomplete": "Continue",
+                "paused": "Try again",
+                "ready": "Ready"
+              },
+              "helper_text": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "40fd9de9-e880-5bfc-9b65-6cd20fb67ec6",
+      "screen_slug": "live-styling-camera-denied",
+      "screen_name": "Live Styling — Camera Denied",
+      "state": "denied",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-camera-denied/denied/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-denied/denied/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-denied/denied/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-camera-denied.md",
+      "related_stories": [
+        "US-014",
+        "US-020",
+        "US-021"
+      ],
+      "related_scenarios": [
+        "SC-010"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Your camera is off.",
+        "supporting_copy": "Turn it on in your browser settings to use the live mirror.",
+        "primary_cta": "Try again",
+        "secondary_cta": "How to turn it on",
+        "tertiary_cta": "Back to my picks",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {
+          "fallback": "You can still browse your picks."
+        },
+        "validation": {},
+        "status_messages": {
+          "denied": "Camera access is off.",
+          "preserved": "Your picks are saved."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Your camera is off.",
+              "supporting_copy": "Turn it on in your browser settings to use the live mirror.",
+              "labels": {},
+              "helper_text": {
+                "fallback": "You can still browse your picks."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Your camera is off.",
+              "supporting_copy": "Turn it on in your browser settings to use the live mirror.",
+              "labels": {},
+              "helper_text": {
+                "fallback": "You can still browse your picks."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {
+                "fallback": "You can still browse your picks."
+              },
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "54dc6ff8-3d1b-5989-b8d2-0ad2a89aeaa5",
+      "screen_slug": "live-styling-connecting",
+      "screen_name": "Live Styling — Connecting",
+      "state": "connecting",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-connecting/connecting/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-connecting/connecting/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-connecting/connecting/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-connecting.md",
+      "related_stories": [
+        "US-014",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-010",
+        "SC-011"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Opening your mirror…",
+        "supporting_copy": "Your first look is almost ready.",
+        "primary_cta": "Go back",
+        "secondary_cta": null,
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "camera": "Camera",
+          "item": "Your first look"
+        },
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "connecting": "Getting ready…"
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {
+          "live_region": "Opening the live mirror."
+        },
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Opening your mirror…",
+              "supporting_copy": "Your first look is almost ready.",
+              "labels": {
+                "camera": "Camera",
+                "item": "Your first look"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Opening your mirror…",
+              "supporting_copy": "Your first look is almost ready.",
+              "labels": {
+                "camera": "Camera",
+                "item": "Your first look"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "dded5401-afec-5473-908c-600462fb42ec",
+      "screen_slug": "live-styling-changing-item",
+      "screen_name": "Live Styling — Changing Item",
+      "state": "changing",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-changing-item/changing/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-changing-item/changing/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-changing-item/changing/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-changing-item.md",
+      "related_stories": [
+        "US-014",
+        "US-015",
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-011",
+        "SC-015"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Bringing up your next look…",
+        "supporting_copy": "Hold your position for a moment.",
+        "primary_cta": "Cancel",
+        "secondary_cta": null,
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "current": "Current look",
+          "next": "Up next"
+        },
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "changing": "Changing your look…"
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {
+          "live_region": "Bringing up the next look."
+        },
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Bringing up your next look…",
+              "supporting_copy": "Hold your position for a moment.",
+              "labels": {
+                "current": "Current look",
+                "next": "Up next"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Bringing up your next look…",
+              "supporting_copy": "Hold your position for a moment.",
+              "labels": {
+                "current": "Current look",
+                "next": "Up next"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "ae357eac-806d-5768-be5f-89d98443000e",
+      "screen_slug": "live-styling-slow",
+      "screen_name": "Live Styling — Slow",
+      "state": "slow",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-slow/slow/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-slow/slow/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-slow/slow/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-slow.md",
+      "related_stories": [
+        "US-014",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-010"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "This look needs another moment.",
+        "supporting_copy": "Keep waiting or choose something else.",
+        "primary_cta": "Keep waiting",
+        "secondary_cta": "Choose another look",
+        "tertiary_cta": "Back to my picks",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "slow": "Still working on this look…",
+          "preserved": "Your picks are saved."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "This look needs another moment.",
+              "supporting_copy": "Keep waiting or choose something else.",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "This look needs another moment.",
+              "supporting_copy": "Keep waiting or choose something else.",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "1716ecc3-8b94-5ef0-9b0c-2ead1ab289ca",
+      "screen_slug": "live-styling-error-recovery",
+      "screen_name": "Live Styling — Error Recovery",
+      "state": "recovery",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-error-recovery/recovery/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-error-recovery/recovery/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-error-recovery/recovery/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-error-recovery.md",
+      "related_stories": [
+        "US-014",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-010"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "That look didn’t load.",
+        "supporting_copy": "Try it again or choose another piece.",
+        "primary_cta": "Try again",
+        "secondary_cta": "Choose another look",
+        "tertiary_cta": "End session",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "error": "This look couldn’t be loaded.",
+          "preserved": "Your picks are saved."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "That look didn’t load.",
+              "supporting_copy": "Try it again or choose another piece.",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "That look didn’t load.",
+              "supporting_copy": "Try it again or choose another piece.",
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "6904e26b-6abb-5437-9ca5-dad6b2f8de4a",
+      "screen_slug": "live-styling-ended",
+      "screen_name": "Live Styling — Ended",
+      "state": "ended",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-ended/ended/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-ended/ended/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-ended/ended/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-ended.md",
+      "related_stories": [
+        "US-014",
+        "US-017"
+      ],
+      "related_scenarios": [
+        "SC-012"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Great session.",
+        "supporting_copy": "Take another look at everything you saved.",
+        "primary_cta": "See my picks",
+        "secondary_cta": "Style another look",
+        "tertiary_cta": "Go home",
+        "navigation": {},
+        "labels": {
+          "tried": "Looks tried",
+          "saved": "Saved to bag"
+        },
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Great session.",
+              "supporting_copy": "Take another look at everything you saved.",
+              "labels": {
+                "tried": "Looks tried",
+                "saved": "Saved to bag"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Great session.",
+              "supporting_copy": "Take another look at everything you saved.",
+              "labels": {
+                "tried": "Looks tried",
+                "saved": "Saved to bag"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "b6b1be00-af2d-5976-9648-61bfbd14a836",
+      "screen_slug": "live-styling-voice-interpreting",
+      "screen_name": "Live Styling — Voice Interpreting",
+      "state": "interpreting",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-voice-interpreting/interpreting/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-interpreting/interpreting/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-interpreting/interpreting/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-voice-interpreting.md",
+      "related_stories": [
+        "US-015"
+      ],
+      "related_scenarios": [
+        "SC-011"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Got it—one second.",
+        "supporting_copy": null,
+        "primary_cta": "Cancel",
+        "secondary_cta": null,
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "heard": "You said",
+          "request": "Looking for"
+        },
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "interpreting": "Finding new options…"
+        },
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "voice_transcript"
+          ]
+        },
+        "accessibility": {
+          "live_region": "Looking for options based on your request."
+        },
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Got it—one second.",
+              "supporting_copy": null,
+              "labels": {
+                "heard": "You said",
+                "request": "Looking for"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Got it—one second.",
+              "supporting_copy": null,
+              "labels": {
+                "heard": "You said",
+                "request": "Looking for"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {
+                "dynamic_tokens": [
+                  "voice_transcript"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "8183dd09-dfd2-5ba9-ba70-c8034de399cf",
+      "screen_slug": "live-styling-voice-confirmation",
+      "screen_name": "Live Styling — Voice Confirmation",
+      "state": "confirming",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-voice-confirmation/confirming/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-confirmation/confirming/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-confirmation/confirming/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-voice-confirmation.md",
+      "related_stories": [
+        "US-015"
+      ],
+      "related_scenarios": [
+        "SC-011"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "How does this sound?",
+        "supporting_copy": "“{{interpreted_request}}”",
+        "primary_cta": "Yes, show me",
+        "secondary_cta": "Change it",
+        "tertiary_cta": "Cancel",
+        "navigation": {},
+        "labels": {
+          "transcript": "You said",
+          "interpretation": "We’ll show"
+        },
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "voice_transcript",
+            "interpreted_request"
+          ]
+        },
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "How does this sound?",
+              "supporting_copy": "“{{interpreted_request}}”",
+              "labels": {
+                "transcript": "You said",
+                "interpretation": "We’ll show"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "How does this sound?",
+              "supporting_copy": "“{{interpreted_request}}”",
+              "labels": {
+                "transcript": "You said",
+                "interpretation": "We’ll show"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {
+                "dynamic_tokens": [
+                  "voice_transcript",
+                  "interpreted_request"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "fb5d25f2-f5c4-5d26-a3e6-0335bbd9df72",
+      "screen_slug": "live-styling-voice-acting",
+      "screen_name": "Live Styling — Voice Acting",
+      "state": "acting",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-voice-acting/acting/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-acting/acting/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-acting/acting/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-voice-acting.md",
+      "related_stories": [
+        "US-015"
+      ],
+      "related_scenarios": [
+        "SC-011"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Coming right up.",
+        "supporting_copy": null,
+        "primary_cta": "Cancel",
+        "secondary_cta": null,
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {},
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "acting": "Finding your next look…"
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {
+          "live_region": "Finding your next look."
+        },
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Coming right up.",
+              "supporting_copy": null,
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Coming right up.",
+              "supporting_copy": null,
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "c8945f7b-bc1b-5d12-ba8b-39dc97cba22a",
+      "screen_slug": "live-styling-voice-failure",
+      "screen_name": "Live Styling — Voice Failure",
+      "state": "recovery",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-voice-failure/recovery/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-failure/recovery/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-failure/recovery/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-voice-failure.md",
+      "related_stories": [
+        "US-015",
+        "US-020",
+        "US-021"
+      ],
+      "related_scenarios": [
+        "SC-011"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Could you say that again?",
+        "supporting_copy": "Try a color, shape, brand, budget, or occasion.",
+        "primary_cta": "Try again",
+        "secondary_cta": "Use buttons",
+        "tertiary_cta": "Cancel",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {
+          "examples": "Try “blue,” “more fitted,” or “under $100.”"
+        },
+        "validation": {},
+        "status_messages": {
+          "unrecognized": "We didn’t catch that.",
+          "no_match": "We couldn’t find a matching item."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Could you say that again?",
+              "supporting_copy": "Try a color, shape, brand, budget, or occasion.",
+              "labels": {},
+              "helper_text": {
+                "examples": "Try “blue,” “more fitted,” or “under $100.”"
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Could you say that again?",
+              "supporting_copy": "Try a color, shape, brand, budget, or occasion.",
+              "labels": {},
+              "helper_text": {
+                "examples": "Try “blue,” “more fitted,” or “under $100.”"
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {
+                "examples": "Try “blue,” “more fitted,” or “under $100.”"
+              },
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "a66498d1-8567-5492-b8da-9e2b12d376e9",
+      "screen_slug": "live-styling-gesture-observing",
+      "screen_name": "Live Styling — Gesture Observing",
+      "state": "observing",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-gesture-observing/observing/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-observing/observing/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-observing/observing/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-gesture-observing.md",
+      "related_stories": [
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-015"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Hand controls are on.",
+        "supporting_copy": "Keep your hands in frame.",
+        "primary_cta": "Pause",
+        "secondary_cta": "Use buttons",
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "camera": "Hands in frame",
+          "status": "Ready"
+        },
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "observing": "Ready for your gesture…"
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {
+          "live_region": "Hand controls are ready."
+        },
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Hand controls are on.",
+              "supporting_copy": "Keep your hands in frame.",
+              "labels": {
+                "camera": "Hands in frame",
+                "status": "Ready"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Hand controls are on.",
+              "supporting_copy": "Keep your hands in frame.",
+              "labels": {
+                "camera": "Hands in frame",
+                "status": "Ready"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "96d21855-d455-5843-a97e-a0fb78bec909",
+      "screen_slug": "live-styling-gesture-interpreting",
+      "screen_name": "Live Styling — Gesture Interpreting",
+      "state": "interpreting",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-gesture-interpreting/interpreting/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-interpreting/interpreting/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-interpreting/interpreting/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-gesture-interpreting.md",
+      "related_stories": [
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-015"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Got it—one second.",
+        "supporting_copy": "{{gesture_action}}",
+        "primary_cta": "Cancel",
+        "secondary_cta": null,
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "gesture": "Your gesture",
+          "action": "Up next"
+        },
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "interpreting": "Reading your gesture…"
+        },
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "gesture_name",
+            "gesture_action"
+          ]
+        },
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Got it—one second.",
+              "supporting_copy": "{{gesture_action}}",
+              "labels": {
+                "gesture": "Your gesture",
+                "action": "Up next"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Got it—one second.",
+              "supporting_copy": "{{gesture_action}}",
+              "labels": {
+                "gesture": "Your gesture",
+                "action": "Up next"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {
+                "dynamic_tokens": [
+                  "gesture_name",
+                  "gesture_action"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "a861bac2-1c68-51c8-af40-7ea3cad52809",
+      "screen_slug": "live-styling-gesture-accepted",
+      "screen_name": "Live Styling — Gesture Accepted",
+      "state": "accepted",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-gesture-accepted/accepted/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-accepted/accepted/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-accepted/accepted/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-gesture-accepted.md",
+      "related_stories": [
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-015"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Done.",
+        "supporting_copy": null,
+        "primary_cta": "Keep styling",
+        "secondary_cta": "Undo",
+        "tertiary_cta": "Use buttons",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "accepted": "{{gesture_action}}"
+        },
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "gesture_action"
+          ]
+        },
+        "accessibility": {
+          "live_region": "{{gesture_action}} completed."
+        },
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Done.",
+              "supporting_copy": null,
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Done.",
+              "supporting_copy": null,
+              "labels": {},
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {},
+              "consent": {},
+              "metadata": {
+                "dynamic_tokens": [
+                  "gesture_action"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "096e3398-1e3a-5c6e-b473-e714ca54ff43",
+      "screen_slug": "live-styling-gesture-ignored-or-unavailable",
+      "screen_name": "Live Styling — Gesture Ignored or Unavailable",
+      "state": "recovery",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-gesture-ignored-or-unavailable/recovery/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-ignored-or-unavailable/recovery/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-ignored-or-unavailable/recovery/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-gesture-ignored-or-unavailable.md",
+      "related_stories": [
+        "US-020",
+        "US-021",
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-015"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Let’s try that again.",
+        "supporting_copy": "Keep your hands in frame and make one clear gesture.",
+        "primary_cta": "Try again",
+        "secondary_cta": "Use voice",
+        "tertiary_cta": "Use buttons",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {
+          "safety": "Nothing changed."
+        },
+        "validation": {},
+        "status_messages": {
+          "ignored": "No gesture detected.",
+          "unavailable": "Hand controls can’t see you clearly."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Let’s try that again.",
+              "supporting_copy": "Keep your hands in frame and make one clear gesture.",
+              "labels": {},
+              "helper_text": {
+                "safety": "Nothing changed."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Let’s try that again.",
+              "supporting_copy": "Keep your hands in frame and make one clear gesture.",
+              "labels": {},
+              "helper_text": {
+                "safety": "Nothing changed."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {
+                "safety": "Nothing changed."
+              },
+              "consent": {},
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "d40738f4-6d72-51fe-8c9b-8308a5e7f97d",
+      "screen_slug": "live-styling-gesture-confirmation",
+      "screen_name": "Live Styling — Gesture Confirmation",
+      "state": "confirming",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/live-styling-gesture-confirmation/confirming/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-confirmation/confirming/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-confirmation/confirming/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/live-styling-gesture-confirmation.md",
+      "related_stories": [
+        "US-023"
+      ],
+      "related_scenarios": [
+        "SC-015"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "Do you want to {{gesture_action}}?",
+        "supporting_copy": null,
+        "primary_cta": "{{gesture_action}}",
+        "secondary_cta": "Cancel",
+        "tertiary_cta": null,
+        "navigation": {},
+        "labels": {
+          "recognized": "Your gesture",
+          "action": "Next action"
+        },
+        "helper_text": {
+          "safety": "We always confirm before adding items, opening a retailer, or ending your session."
+        },
+        "validation": {},
+        "status_messages": {},
+        "consent": {},
+        "metadata": {
+          "dynamic_tokens": [
+            "gesture_name",
+            "gesture_action"
+          ]
+        },
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Session navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Live session workspace",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Do you want to {{gesture_action}}?",
+              "supporting_copy": null,
+              "labels": {
+                "recognized": "Your gesture",
+                "action": "Next action"
+              },
+              "helper_text": {
+                "safety": "We always confirm before adding items, opening a retailer, or ending your session."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Recommended item rail",
+            "copy": {
+              "eyebrow": null,
+              "headline": "Do you want to {{gesture_action}}?",
+              "supporting_copy": null,
+              "labels": {
+                "recognized": "Your gesture",
+                "action": "Next action"
+              },
+              "helper_text": {
+                "safety": "We always confirm before adding items, opening a retailer, or ending your session."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Safety and alternatives",
+            "copy": {
+              "helper_text": {
+                "safety": "We always confirm before adding items, opening a retailer, or ending your session."
+              },
+              "consent": {},
+              "metadata": {
+                "dynamic_tokens": [
+                  "gesture_name",
+                  "gesture_action"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "7dc86399-4d75-56ec-a7a7-975b78b7992f",
+      "screen_slug": "recommended-product-unavailable",
+      "screen_name": "Recommended Product — Unavailable",
+      "state": "unavailable",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/recommended-product-unavailable/unavailable/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/recommended-product-unavailable/unavailable/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/recommended-product-unavailable/unavailable/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/recommended-product-unavailable.md",
+      "related_stories": [
+        "US-013",
+        "US-016",
+        "US-020"
+      ],
+      "related_scenarios": [
+        "SC-014"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "This one sold out.",
+        "supporting_copy": "We found similar pieces that work for the same reason.",
+        "primary_cta": "See similar",
+        "secondary_cta": "Close",
+        "tertiary_cta": "Back to my picks",
+        "navigation": {},
+        "labels": {},
+        "helper_text": {
+          "freshness": "Availability can change."
+        },
+        "validation": {},
+        "status_messages": {
+          "unavailable": "Sold out"
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "Context navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Preserved styling context",
+            "copy": {
+              "eyebrow": null,
+              "headline": "This one sold out.",
+              "supporting_copy": "We found similar pieces that work for the same reason.",
+              "labels": {},
+              "helper_text": {
+                "freshness": "Availability can change."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Product detail drawer",
+            "copy": {
+              "eyebrow": null,
+              "headline": "This one sold out.",
+              "supporting_copy": "We found similar pieces that work for the same reason.",
+              "labels": {},
+              "helper_text": {
+                "freshness": "Availability can change."
+              }
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Selection actions",
+            "copy": {
+              "primary_cta": "See similar",
+              "secondary_cta": "Close",
+              "tertiary_cta": "Back to my picks"
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    },
+    {
+      "screen_id": "d894b82b-ac4b-564a-9d74-bce7184b05be",
+      "screen_slug": "bag-item-unavailable",
+      "screen_name": "Bag — Item Unavailable",
+      "state": "unavailable",
+      "source_wireframe": {
+        "html": "company/artifacts/ui-ux-design/wireframes/html/bag-item-unavailable/unavailable/screen.html",
+        "desktop_png": "company/artifacts/ui-ux-design/wireframes/png/bag-item-unavailable/unavailable/desktop-screen.png",
+        "mobile_png": "company/artifacts/ui-ux-design/wireframes/png/bag-item-unavailable/unavailable/mobile-screen.png"
+      },
+      "copy_file": "company/artifacts/copy/screens/bag-item-unavailable.md",
+      "related_stories": [
+        "US-017",
+        "US-020",
+        "US-022"
+      ],
+      "related_scenarios": [
+        "SC-012",
+        "SC-014"
+      ],
+      "status": "approved",
+      "exact_copy": {
+        "eyebrow": null,
+        "headline": "One of your picks sold out.",
+        "supporting_copy": "Your other picks are still here.",
+        "primary_cta": "Find something similar",
+        "secondary_cta": "Remove it",
+        "tertiary_cta": "Keep styling",
+        "navigation": {},
+        "labels": {
+          "unavailable": "Sold out",
+          "available": "Available",
+          "preserved": "Other picks saved"
+        },
+        "helper_text": {},
+        "validation": {},
+        "status_messages": {
+          "preserved": "Your other picks are saved."
+        },
+        "consent": {},
+        "metadata": {},
+        "accessibility": {},
+        "sections": [
+          {
+            "section_id": "SEC-001",
+            "section_name": "App navigation",
+            "copy": {
+              "navigation": {}
+            }
+          },
+          {
+            "section_id": "SEC-002",
+            "section_name": "Retailer-grouped selections",
+            "copy": {
+              "eyebrow": null,
+              "headline": "One of your picks sold out.",
+              "supporting_copy": "Your other picks are still here.",
+              "labels": {
+                "unavailable": "Sold out",
+                "available": "Available",
+                "preserved": "Other picks saved"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-003",
+            "section_name": "Checkout boundary",
+            "copy": {
+              "eyebrow": null,
+              "headline": "One of your picks sold out.",
+              "supporting_copy": "Your other picks are still here.",
+              "labels": {
+                "unavailable": "Sold out",
+                "available": "Available",
+                "preserved": "Other picks saved"
+              },
+              "helper_text": {}
+            }
+          },
+          {
+            "section_id": "SEC-004",
+            "section_name": "Bag actions",
+            "copy": {
+              "primary_cta": "Find something similar",
+              "secondary_cta": "Remove it",
+              "tertiary_cta": "Keep styling"
+            }
+          }
+        ]
+      },
+      "approved_at": "2026-07-19T16:13:43Z"
+    }
+  ]
+}

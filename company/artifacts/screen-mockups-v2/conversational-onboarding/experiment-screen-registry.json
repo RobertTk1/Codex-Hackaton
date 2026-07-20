@@ -1,0 +1,85 @@
+{
+  "schema_version": "2.0",
+  "project": "Magic Mirror",
+  "experiment": "chat-first-conversational-onboarding-v2",
+  "status": "approved-for-pre-report",
+  "interaction_model": "one-question-per-turn",
+  "approved_at": "2026-07-19",
+  "approved_by": "Talisha White",
+  "structured_contract": "Same validated profile and completion contract as FEAT-004: name, adult confirmation, gender, age, height, optional weight, favorite brands, and brand-plus-category sizes.",
+  "handoff_target": "company/artifacts/screen-mockups/screens/style-report-analysis-processing/processing",
+  "screens": [
+    {
+      "screen_id": "29c00d17-3c1d-4231-8b85-4f359a82b5f7",
+      "screen_slug": "conversation-welcome",
+      "screen_name": "Chat Onboarding — Welcome",
+      "state": "welcome",
+      "step": 0,
+      "response_mode": "text-or-suggestion",
+      "user_job": "Begin a natural conversation or sign in as a returning customer."
+    },
+    {
+      "screen_id": "6d5f5ef1-a4a2-41d3-aa89-dc3722ae8df0",
+      "screen_slug": "conversation-personal-details",
+      "screen_name": "Chat Onboarding — Text Question",
+      "state": "collecting",
+      "step": 1,
+      "response_mode": "natural-language",
+      "user_job": "Answer one simple name, adult-confirmation, gender, age, height, optional-weight, or styling question in natural language."
+    },
+    {
+      "screen_id": "66d528db-21de-4e52-9ecd-3c388cede1e3",
+      "screen_slug": "conversation-brand-sizing",
+      "screen_name": "Chat Onboarding — Brand and Size Dialogue",
+      "state": "collecting",
+      "step": 2,
+      "response_mode": "natural-language-with-clarification",
+      "user_job": "Describe a familiar brand and usual sizes through a short adaptive exchange."
+    },
+    {
+      "screen_id": "0dfa9f00-c27f-489e-bc14-53eb49f55b8f",
+      "screen_slug": "conversation-photo-collection",
+      "screen_name": "Chat Onboarding — Photo Request",
+      "state": "uploading",
+      "step": 3,
+      "response_mode": "contextual-upload-ui",
+      "user_job": "Add favorite-look photos when the conversation reaches the visual evidence step."
+    },
+    {
+      "screen_id": "0903cde1-37cb-49c1-8146-ecd07dd54c70",
+      "screen_slug": "conversation-photo-review",
+      "screen_name": "Chat Onboarding — Photo Recovery",
+      "state": "reviewing",
+      "step": 3,
+      "response_mode": "contextual-gallery-ui",
+      "user_job": "See what is ready and fix only the photo that needs attention."
+    },
+    {
+      "screen_id": "fd161337-14fc-4476-9cec-9d004248c1c7",
+      "screen_slug": "conversation-taste-calibration",
+      "screen_name": "Chat Onboarding — Visual Taste Turn",
+      "state": "calibrating",
+      "step": 4,
+      "response_mode": "contextual-visual-choice-ui",
+      "user_job": "React to one visual look using Love, Hate, or Maybe."
+    },
+    {
+      "screen_id": "27d64888-57dc-4ecd-a4b2-7bbaecc5ef0f",
+      "screen_slug": "conversation-account-access",
+      "screen_name": "Chat Onboarding — Account Turn",
+      "state": "account",
+      "step": 5,
+      "response_mode": "contextual-auth-ui",
+      "user_job": "Connect the conversation to an account using Google or an email magic link."
+    },
+    {
+      "screen_id": "a97cdab0-56b4-4922-8244-a9b95c1d7381",
+      "screen_slug": "conversation-profile-review",
+      "screen_name": "Chat Onboarding — Final Confirmation",
+      "state": "review",
+      "step": 6,
+      "response_mode": "conversational-confirmation",
+      "user_job": "Confirm the factual conversation summary and start the style report."
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": "2.0",
+  "project": "Magic Mirror",
+  "experiment": "chat-first-conversational-onboarding-v2",
+  "status": "approved-for-pre-report",
+  "approved_at": "2026-07-19",
+  "approved_by": "Talisha White",
+  "source_voice": "company/voice.md",
+  "shared": {
+    "title": "Your style conversation",
+    "save_action": "Save and exit",
+    "edit_action": "Edit answer",
+    "composer_label": "Message Magic Mirror",
+    "send_label": "Send"
+  },
+  "screens": [
+    {
+      "screen_id": "29c00d17-3c1d-4231-8b85-4f359a82b5f7",
+      "screen_slug": "conversation-welcome",
+      "state": "welcome",
+      "progress": "A quick introduction",
+      "transcript": [
+        {"speaker": "assistant", "text": "Let’s find the point of view in your wardrobe."},
+        {"speaker": "assistant", "text": "I’ll ask one question at a time. Your answers and favorite looks will become your personal style report."},
+        {"speaker": "assistant", "text": "Ready to begin?"}
+      ],
+      "suggestions": ["Yes, let’s start", "I already have an account"],
+      "composer_placeholder": "Type your answer…"
+    },
+    {
+      "screen_id": "6d5f5ef1-a4a2-41d3-aa89-dc3722ae8df0",
+      "screen_slug": "conversation-personal-details",
+      "state": "collecting",
+      "progress": "1 of 6",
+      "transcript": [
+        {"speaker": "assistant", "text": "What should I call you?"},
+        {"speaker": "customer", "text": "Alex"},
+        {"speaker": "assistant", "text": "Nice to meet you, Alex. What would you most like help styling?"},
+        {"speaker": "customer", "text": "Complete outfits for work and weekends."},
+        {"speaker": "assistant", "text": "How old are you?"}
+      ],
+      "composer_placeholder": "For example, 28",
+      "support_action": "Why we ask",
+      "next_questions": [
+        "Are you 18 or older?",
+        "What gender should I use when shaping your styling and shopping recommendations? You can self-describe.",
+        "How tall are you?",
+        "Would you like to share your weight? You can skip this."
+      ],
+      "consent": "Your gender is used only to shape styling and shopping recommendations."
+    },
+    {
+      "screen_id": "66d528db-21de-4e52-9ecd-3c388cede1e3",
+      "screen_slug": "conversation-brand-sizing",
+      "state": "collecting",
+      "progress": "2 of 6",
+      "transcript": [
+        {"speaker": "assistant", "text": "Which brand fits you the way you like?"},
+        {"speaker": "customer", "text": "COS"},
+        {"speaker": "assistant", "text": "And what sizes usually work there?"},
+        {"speaker": "customer", "text": "Usually M in tops and 30 in trousers."},
+        {"speaker": "assistant", "text": "Got it—COS, M in tops and 30 in trousers. Any other brand you know well?"}
+      ],
+      "suggestions": ["Add another brand", "That’s enough for now"],
+      "composer_placeholder": "Tell me the brand and sizes…"
+    },
+    {
+      "screen_id": "0dfa9f00-c27f-489e-bc14-53eb49f55b8f",
+      "screen_slug": "conversation-photo-collection",
+      "state": "uploading",
+      "progress": "3 of 6",
+      "transcript": [
+        {"speaker": "assistant", "text": "Now show me the outfits that feel most like you."},
+        {"speaker": "assistant", "text": "Add 8–12 full-body photos with the complete outfit visible. A mix of looks helps me understand your range."}
+      ],
+      "component": {
+        "label": "Add favorite looks",
+        "primary_action": "Choose photos",
+        "secondary_action": "Take a photo",
+        "status": "0 of 8 photos"
+      },
+      "helper_text": "JPG, PNG, or HEIC. You can replace or remove any photo."
+    },
+    {
+      "screen_id": "0903cde1-37cb-49c1-8146-ecd07dd54c70",
+      "screen_slug": "conversation-photo-review",
+      "state": "reviewing",
+      "progress": "3 of 6",
+      "transcript": [
+        {"speaker": "customer", "text": "I added ten looks."},
+        {"speaker": "assistant", "text": "Eight are ready. I’m checking one, and one needs another try. Everything else is saved."}
+      ],
+      "component": {
+        "ready": "8 ready",
+        "checking": "1 checking",
+        "failed": "Needs another try",
+        "retry": "Try again",
+        "remove": "Remove"
+      },
+      "primary_action": "Keep going",
+      "secondary_action": "Add more photos"
+    },
+    {
+      "screen_id": "fd161337-14fc-4476-9cec-9d004248c1c7",
+      "screen_slug": "conversation-taste-calibration",
+      "state": "calibrating",
+      "progress": "4 of 6",
+      "transcript": [
+        {"speaker": "assistant", "text": "I’m starting to see your style. Let’s sharpen it with a few quick reactions."},
+        {"speaker": "assistant", "text": "How do you feel about this look?"}
+      ],
+      "component": {
+        "progress": "7 of 12",
+        "love": "Love",
+        "hate": "Hate",
+        "maybe": "Maybe",
+        "undo": "Undo"
+      },
+      "helper_text": "Swipe right for Love, left for Hate, or down for Maybe. Buttons and arrow keys work too."
+    },
+    {
+      "screen_id": "27d64888-57dc-4ecd-a4b2-7bbaecc5ef0f",
+      "screen_slug": "conversation-account-access",
+      "state": "account",
+      "progress": "5 of 6",
+      "transcript": [
+        {"speaker": "assistant", "text": "That gives me a clear picture."},
+        {"speaker": "assistant", "text": "Where should I send your style report?"}
+      ],
+      "component": {
+        "google_action": "Continue with Google",
+        "email_label": "Email address",
+        "email_action": "Send me a sign-in link"
+      },
+      "helper_text": "If you’ve been here before, use the same Google account or email to sign in.",
+      "consent": "By continuing, you agree to create or sign in to your Magic Mirror account."
+    },
+    {
+      "screen_id": "a97cdab0-56b4-4922-8244-a9b95c1d7381",
+      "screen_slug": "conversation-profile-review",
+      "state": "review",
+      "progress": "6 of 6",
+      "transcript": [
+        {"speaker": "assistant", "text": "I have what I need to build your report."},
+        {"speaker": "assistant", "text": "You’re looking for complete work and weekend outfits. You wear COS in M tops and 30 trousers. I have 10 favorite looks and 12 taste reactions."},
+        {"speaker": "assistant", "text": "Want me to create your style report?"}
+      ],
+      "primary_action": "Create my style report",
+      "secondary_action": "Change an answer",
+      "helper_text": "Your report usually takes one to two minutes."
+    }
+  ]
+}

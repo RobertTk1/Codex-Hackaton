@@ -1,0 +1,2702 @@
+{
+  "schema_version": "1.0",
+  "project": "Magic Mirror",
+  "run_mode": "full-package",
+  "status": "ready-for-review",
+  "pre_report_status": "archived-reference",
+  "pre_report_replaced_by": "company/artifacts/screen-mockups-v2/conversational-onboarding/mockup-manifest.json",
+  "post_report_status": "ready-for-review",
+  "direction_gate": "founder-approved-representative-direction",
+  "design_direction": "company/artifacts/screen-mockups/design-direction.md",
+  "updated_at": "2026-07-19T19:15:12.006Z",
+  "screens": [
+    {
+      "screen_id": "76a5f0c7-aa78-4eaf-ae0f-4b577024f5c6",
+      "screen_slug": "landing-page-base",
+      "screen_name": "Landing Page — Base",
+      "state": "base",
+      "surface": "marketing",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/landing-page-base/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/landing-page-base/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#landing-page-base/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/landing-page-base.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/landing-page-base/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/landing-page-base/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/landing-page-base/base/landing-page-base-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/landing-page-base/base/landing-page-base-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 725,
+          "height": 2170
+        },
+        "mobile": {
+          "width": 748,
+          "height": 2103
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/landing-page-base.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "ee82967b-e205-401b-a90b-6a94d36470f7",
+      "screen_slug": "account-access-unauthenticated",
+      "screen_name": "Account Access — Unauthenticated",
+      "state": "unauthenticated",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/account-access-unauthenticated/unauthenticated/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/account-access-unauthenticated/unauthenticated/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#account-access-unauthenticated/unauthenticated",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/account-access-unauthenticated.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/account-access-unauthenticated/unauthenticated/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/account-access-unauthenticated/unauthenticated/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/account-access-unauthenticated/unauthenticated/account-access-unauthenticated-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/account-access-unauthenticated/unauthenticated/account-access-unauthenticated-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1488,
+          "height": 1057
+        },
+        "mobile": {
+          "width": 865,
+          "height": 1819
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/account-access-unauthenticated.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "61df36bb-6d7c-41a3-bf06-9c2c99824e51",
+      "screen_slug": "personal-profile-base",
+      "screen_name": "Personal Profile — Base",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/personal-profile-base/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/personal-profile-base/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#personal-profile-base/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/personal-profile-base.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/personal-profile-base/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/personal-profile-base/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/personal-profile-base/base/personal-profile-base-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/personal-profile-base/base/personal-profile-base-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1604,
+          "height": 980
+        },
+        "mobile": {
+          "width": 864,
+          "height": 1821
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/personal-profile-base.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "9ad25480-da71-430f-816a-6f394bed7f15",
+      "screen_slug": "brand-and-size-profile-base",
+      "screen_name": "Brand and Size Profile — Base",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/brand-and-size-profile-base/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/brand-and-size-profile-base/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#brand-and-size-profile-base/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/brand-and-size-profile-base.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/brand-and-size-profile-base/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/brand-and-size-profile-base/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/brand-and-size-profile-base/base/brand-and-size-profile-base-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/brand-and-size-profile-base/base/brand-and-size-profile-base-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 941,
+          "height": 1672
+        },
+        "mobile": {
+          "width": 823,
+          "height": 1910
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/brand-and-size-profile-base.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "bfc87225-7f0e-45c1-90f7-6623d96e9dad",
+      "screen_slug": "outfit-photo-upload-empty",
+      "screen_name": "Outfit Photo Upload — Empty",
+      "state": "empty",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-empty/empty/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-empty/empty/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#outfit-photo-upload-empty/empty",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/outfit-photo-upload-empty.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-empty/empty/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-empty/empty/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/outfit-photo-upload-empty/empty/outfit-photo-upload-empty-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/outfit-photo-upload-empty/empty/outfit-photo-upload-empty-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 956,
+          "height": 1646
+        },
+        "mobile": {
+          "width": 724,
+          "height": 2172
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/outfit-photo-upload-empty.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "7628f30f-b601-49ab-93eb-2cc367ab1b2e",
+      "screen_slug": "outfit-photo-upload-partial",
+      "screen_name": "Outfit Photo Upload — Partial",
+      "state": "partial",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-partial/partial/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-partial/partial/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#outfit-photo-upload-partial/partial",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/outfit-photo-upload-partial.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-partial/partial/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-partial/partial/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/outfit-photo-upload-partial/partial/outfit-photo-upload-partial-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/outfit-photo-upload-partial/partial/outfit-photo-upload-partial-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 956,
+          "height": 1645
+        },
+        "mobile": {
+          "width": 775,
+          "height": 2030
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/outfit-photo-upload-partial.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "acea6cc0-08ca-4691-806e-2faae3ce2b0f",
+      "screen_slug": "outfit-photo-upload-validation-error",
+      "screen_name": "Outfit Photo Upload — Validation Error",
+      "state": "error",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-validation-error/error/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-validation-error/error/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#outfit-photo-upload-validation-error/error",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/outfit-photo-upload-validation-error.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-validation-error/error/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/outfit-photo-upload-validation-error/error/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/outfit-photo-upload-validation-error/error/outfit-photo-upload-validation-error-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/outfit-photo-upload-validation-error/error/outfit-photo-upload-validation-error-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 727,
+          "height": 2164
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/outfit-photo-upload-validation-error.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "e6f13ec8-a8d0-405c-932b-3befeb7de4f6",
+      "screen_slug": "taste-calibration-base",
+      "screen_name": "Taste Calibration — Base",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-base/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-base/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#taste-calibration-base/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/taste-calibration-base.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-base/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-base/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/taste-calibration-base/base/taste-calibration-base-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/taste-calibration-base/base/taste-calibration-base-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 853,
+          "height": 1844
+        },
+        "mobile": {
+          "width": 728,
+          "height": 2161
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/taste-calibration-base.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "37d792e1-4d6c-494f-b53d-1dc4a498c294",
+      "screen_slug": "taste-calibration-recovery",
+      "screen_name": "Taste Calibration — Recovery",
+      "state": "recovery",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-recovery/recovery/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-recovery/recovery/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#taste-calibration-recovery/recovery",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/taste-calibration-recovery.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-recovery/recovery/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/taste-calibration-recovery/recovery/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/taste-calibration-recovery/recovery/taste-calibration-recovery-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/taste-calibration-recovery/recovery/taste-calibration-recovery-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1607,
+          "height": 979
+        },
+        "mobile": {
+          "width": 840,
+          "height": 1872
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/taste-calibration-recovery.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "782fdff8-e9b9-4828-aaa2-33b089ffd011",
+      "screen_slug": "account-connection-base",
+      "screen_name": "Account Connection — Base",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/account-connection-base/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/account-connection-base/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#account-connection-base/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/account-connection-base.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/account-connection-base/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/account-connection-base/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/account-connection-base/base/account-connection-base-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/account-connection-base/base/account-connection-base-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1524,
+          "height": 1032
+        },
+        "mobile": {
+          "width": 816,
+          "height": 1928
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/account-connection-base.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "e74afd3b-7709-40af-bedc-15cc9d2a6f1e",
+      "screen_slug": "account-connection-magic-link-sent",
+      "screen_name": "Account Connection — Magic Link Sent",
+      "state": "recovery",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/account-connection-magic-link-sent/recovery/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/account-connection-magic-link-sent/recovery/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#account-connection-magic-link-sent/recovery",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/account-connection-magic-link-sent.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/account-connection-magic-link-sent/recovery/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/account-connection-magic-link-sent/recovery/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/account-connection-magic-link-sent/recovery/account-connection-magic-link-sent-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/account-connection-magic-link-sent/recovery/account-connection-magic-link-sent-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1001,
+          "height": 1570
+        },
+        "mobile": {
+          "width": 864,
+          "height": 1821
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/account-connection-magic-link-sent.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "ecb422c1-0285-4592-9407-97a1f82bf96e",
+      "screen_slug": "style-report-analysis-processing",
+      "screen_name": "Style Report Analysis — Processing",
+      "state": "processing",
+      "surface": "system",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-processing/processing/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-processing/processing/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#style-report-analysis-processing/processing",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/style-report-analysis-processing.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-processing/processing/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-processing/processing/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/style-report-analysis-processing/processing/style-report-analysis-processing-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/style-report-analysis-processing/processing/style-report-analysis-processing-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1568,
+          "height": 1003
+        },
+        "mobile": {
+          "width": 864,
+          "height": 1821
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/style-report-analysis-processing.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "762423ae-d732-4325-bed9-b91b42370ca9",
+      "screen_slug": "style-report-analysis-slow",
+      "screen_name": "Style Report Analysis — Slow",
+      "state": "slow",
+      "surface": "system",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-slow/slow/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-slow/slow/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#style-report-analysis-slow/slow",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/style-report-analysis-slow.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-slow/slow/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-slow/slow/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/style-report-analysis-slow/slow/style-report-analysis-slow-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/style-report-analysis-slow/slow/style-report-analysis-slow-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1528,
+          "height": 1029
+        },
+        "mobile": {
+          "width": 862,
+          "height": 1825
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/style-report-analysis-slow.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "6c9017a7-ec72-46df-bba8-79dcc691a817",
+      "screen_slug": "style-report-analysis-error-recovery",
+      "screen_name": "Style Report Analysis — Error Recovery",
+      "state": "recovery",
+      "surface": "system",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-error-recovery/recovery/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-error-recovery/recovery/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#style-report-analysis-error-recovery/recovery",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/style-report-analysis-error-recovery.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-error-recovery/recovery/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-analysis-error-recovery/recovery/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/style-report-analysis-error-recovery/recovery/style-report-analysis-error-recovery-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/style-report-analysis-error-recovery/recovery/style-report-analysis-error-recovery-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1568,
+          "height": 1003
+        },
+        "mobile": {
+          "width": 864,
+          "height": 1821
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/style-report-analysis-error-recovery.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "1c2d940e-9782-4d23-866a-9e676af44138",
+      "screen_slug": "style-report-overview",
+      "screen_name": "Style Report — Overview",
+      "state": "success",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/style-report-overview/success/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/style-report-overview/success/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#style-report-overview/success",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/style-report-overview.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-overview/success/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-overview/success/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/style-report-overview/success/style-report-overview-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/style-report-overview/success/style-report-overview-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 864,
+          "height": 1821
+        },
+        "mobile": {
+          "width": 743,
+          "height": 2117
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/style-report-overview.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "b16feadb-5618-46fc-b03f-be77d1de7b4f",
+      "screen_slug": "style-report-color",
+      "screen_name": "Style Report — Color",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/style-report-color/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/style-report-color/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#style-report-color/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/style-report-color.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-color/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-color/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/style-report-color/base/style-report-color-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/style-report-color/base/style-report-color-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 845,
+          "height": 1862
+        },
+        "mobile": {
+          "width": 793,
+          "height": 1983
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/style-report-color.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "3acb5ce5-518b-4cf3-beba-ce38439031e2",
+      "screen_slug": "style-report-body-style",
+      "screen_name": "Style Report — Body Style",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/style-report-body-style/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/style-report-body-style/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#style-report-body-style/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/style-report-body-style.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-body-style/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-body-style/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/style-report-body-style/base/style-report-body-style-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/style-report-body-style/base/style-report-body-style-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 849,
+          "height": 1853
+        },
+        "mobile": {
+          "width": 828,
+          "height": 1900
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/style-report-body-style.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "ec0e2f41-d712-48b1-83fe-c535b1438a12",
+      "screen_slug": "style-report-recommendations",
+      "screen_name": "Style Report — Recommendations",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/style-report-recommendations/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/style-report-recommendations/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#style-report-recommendations/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/style-report-recommendations.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-recommendations/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-recommendations/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/style-report-recommendations/base/style-report-recommendations-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/style-report-recommendations/base/style-report-recommendations-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 788,
+          "height": 1996
+        },
+        "mobile": {
+          "width": 744,
+          "height": 2112
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/style-report-recommendations.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "d677a738-5703-4b02-b7ca-667c31ac7555",
+      "screen_slug": "style-home-base",
+      "screen_name": "Style Home — Base",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/style-home-base/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/style-home-base/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#style-home-base/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/style-home-base.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/style-home-base/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/style-home-base/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/style-home-base/base/style-home-base-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/style-home-base/base/style-home-base-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 864,
+          "height": 1821
+        },
+        "mobile": {
+          "width": 806,
+          "height": 1951
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/style-home-base.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "5e8e9f80-901b-4fb1-932c-f1bec76da0c9",
+      "screen_slug": "live-styling-camera-permission",
+      "screen_name": "Live Styling — Camera Permission",
+      "state": "permission",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-permission/permission/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-permission/permission/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-camera-permission/permission",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-camera-permission.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-permission/permission/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-permission/permission/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-camera-permission/permission/live-styling-camera-permission-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-camera-permission/permission/live-styling-camera-permission-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1650,
+          "height": 953
+        },
+        "mobile": {
+          "width": 773,
+          "height": 2035
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-camera-permission.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "5b6baf59-f2d4-4c52-aaa7-b4910435c892",
+      "screen_slug": "live-styling-ready",
+      "screen_name": "Live Styling — Ready",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-ready/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-ready/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-ready/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-ready.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-ready/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-ready/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-ready/base/live-styling-ready-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-ready/base/live-styling-ready-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1651,
+          "height": 953
+        },
+        "mobile": {
+          "width": 864,
+          "height": 1821
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-ready.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "e72fcc42-581c-44fa-b466-c3ac642e54df",
+      "screen_slug": "live-styling-microphone-permission",
+      "screen_name": "Live Styling — Microphone Permission",
+      "state": "permission",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-microphone-permission/permission/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-microphone-permission/permission/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-microphone-permission/permission",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-microphone-permission.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-microphone-permission/permission/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-microphone-permission/permission/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-microphone-permission/permission/live-styling-microphone-permission-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-microphone-permission/permission/live-styling-microphone-permission-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1650,
+          "height": 953
+        },
+        "mobile": {
+          "width": 862,
+          "height": 1825
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-microphone-permission.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "87b489bf-c543-4911-a09d-48b57be4a80a",
+      "screen_slug": "live-styling-voice-listening",
+      "screen_name": "Live Styling — Voice Listening",
+      "state": "listening",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-listening/listening/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-listening/listening/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-voice-listening/listening",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-voice-listening.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-listening/listening/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-listening/listening/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-voice-listening/listening/live-styling-voice-listening-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-voice-listening/listening/live-styling-voice-listening-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1649,
+          "height": 954
+        },
+        "mobile": {
+          "width": 798,
+          "height": 1972
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-voice-listening.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "83f2ff2a-7951-42b5-b715-5fbe97ffb568",
+      "screen_slug": "live-styling-hand-gesture-guide",
+      "screen_name": "Live Styling — Hand Gesture Guide",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-hand-gesture-guide/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-hand-gesture-guide/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-hand-gesture-guide/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-hand-gesture-guide.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-hand-gesture-guide/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-hand-gesture-guide/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-hand-gesture-guide/base/live-styling-hand-gesture-guide-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-hand-gesture-guide/base/live-styling-hand-gesture-guide-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1651,
+          "height": 953
+        },
+        "mobile": {
+          "width": 829,
+          "height": 1897
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-hand-gesture-guide.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "a7d262bf-0e4a-423f-9d51-fed5b2594b14",
+      "screen_slug": "recommended-product-detail-drawer",
+      "screen_name": "Recommended Product — Detail Drawer",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/recommended-product-detail-drawer/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/recommended-product-detail-drawer/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#recommended-product-detail-drawer/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/recommended-product-detail-drawer.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/recommended-product-detail-drawer/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/recommended-product-detail-drawer/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/recommended-product-detail-drawer/base/recommended-product-detail-drawer-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/recommended-product-detail-drawer/base/recommended-product-detail-drawer-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 836,
+          "height": 1881
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/recommended-product-detail-drawer.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "1eb0f961-b299-4ab3-b90d-12692f254494",
+      "screen_slug": "magic-mirror-bag-base",
+      "screen_name": "Magic Mirror Bag — Base",
+      "state": "base",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/magic-mirror-bag-base/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/magic-mirror-bag-base/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#magic-mirror-bag-base/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/magic-mirror-bag-base.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/magic-mirror-bag-base/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/magic-mirror-bag-base/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/magic-mirror-bag-base/base/magic-mirror-bag-base-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/magic-mirror-bag-base/base/magic-mirror-bag-base-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1692,
+          "height": 929
+        },
+        "mobile": {
+          "width": 826,
+          "height": 1905
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/magic-mirror-bag-base.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "49c5dc8e-da7f-433d-bba0-5011bb755948",
+      "screen_slug": "retailer-handoff-confirmation",
+      "screen_name": "Retailer Handoff — Confirmation",
+      "state": "base",
+      "surface": "external-handoff",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/retailer-handoff-confirmation/base/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/retailer-handoff-confirmation/base/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#retailer-handoff-confirmation/base",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/retailer-handoff-confirmation.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/retailer-handoff-confirmation/base/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/retailer-handoff-confirmation/base/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/retailer-handoff-confirmation/base/retailer-handoff-confirmation-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/retailer-handoff-confirmation/base/retailer-handoff-confirmation-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 846,
+          "height": 1859
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/retailer-handoff-confirmation.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "4df9db19-8f5b-53dd-a000-18e33ad9a6e3",
+      "screen_slug": "personal-profile-validation-error",
+      "screen_name": "Personal Profile — Validation Error",
+      "state": "error",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/personal-profile-validation-error/error/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/personal-profile-validation-error/error/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#personal-profile-validation-error/error",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/personal-profile-validation-error.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/personal-profile-validation-error/error/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/personal-profile-validation-error/error/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/personal-profile-validation-error/error/personal-profile-validation-error-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/personal-profile-validation-error/error/personal-profile-validation-error-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1604,
+          "height": 980
+        },
+        "mobile": {
+          "width": 863,
+          "height": 1822
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/personal-profile-validation-error.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "eef632ce-8d4a-5035-aa15-b5efdd09b2a2",
+      "screen_slug": "account-connection-error-recovery",
+      "screen_name": "Account Connection — Error Recovery",
+      "state": "recovery",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/account-connection-error-recovery/recovery/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/account-connection-error-recovery/recovery/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#account-connection-error-recovery/recovery",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/account-connection-error-recovery.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/account-connection-error-recovery/recovery/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/account-connection-error-recovery/recovery/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/account-connection-error-recovery/recovery/account-connection-error-recovery-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/account-connection-error-recovery/recovery/account-connection-error-recovery-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1523,
+          "height": 1033
+        },
+        "mobile": {
+          "width": 821,
+          "height": 1916
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/account-connection-error-recovery.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "4d345373-f991-5f0d-8ac7-5885e4a456f8",
+      "screen_slug": "style-report-feedback-and-recalibration",
+      "screen_name": "Style Report — Feedback and Recalibration",
+      "state": "feedback",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/style-report-feedback-and-recalibration/feedback/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/style-report-feedback-and-recalibration/feedback/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#style-report-feedback-and-recalibration/feedback",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/style-report-feedback-and-recalibration.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-feedback-and-recalibration/feedback/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/style-report-feedback-and-recalibration/feedback/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/style-report-feedback-and-recalibration/feedback/style-report-feedback-and-recalibration-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/style-report-feedback-and-recalibration/feedback/style-report-feedback-and-recalibration-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1586,
+          "height": 992
+        },
+        "mobile": {
+          "width": 817,
+          "height": 1925
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/style-report-feedback-and-recalibration.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "dd9e7858-c66f-5351-a51c-dd63a8b11d7a",
+      "screen_slug": "style-home-resume-or-recover",
+      "screen_name": "Style Home — Resume or Recover",
+      "state": "recovery",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/style-home-resume-or-recover/recovery/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/style-home-resume-or-recover/recovery/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#style-home-resume-or-recover/recovery",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/style-home-resume-or-recover.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/style-home-resume-or-recover/recovery/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/style-home-resume-or-recover/recovery/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/style-home-resume-or-recover/recovery/style-home-resume-or-recover-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/style-home-resume-or-recover/recovery/style-home-resume-or-recover-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 851,
+          "height": 1849
+        },
+        "mobile": {
+          "width": 818,
+          "height": 1922
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/style-home-resume-or-recover.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "40fd9de9-e880-5bfc-9b65-6cd20fb67ec6",
+      "screen_slug": "live-styling-camera-denied",
+      "screen_name": "Live Styling — Camera Denied",
+      "state": "denied",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-denied/denied/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-denied/denied/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-camera-denied/denied",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-camera-denied.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-denied/denied/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-camera-denied/denied/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-camera-denied/denied/live-styling-camera-denied-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-camera-denied/denied/live-styling-camera-denied-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1650,
+          "height": 953
+        },
+        "mobile": {
+          "width": 863,
+          "height": 1823
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-camera-denied.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "54dc6ff8-3d1b-5989-b8d2-0ad2a89aeaa5",
+      "screen_slug": "live-styling-connecting",
+      "screen_name": "Live Styling — Connecting",
+      "state": "connecting",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-connecting/connecting/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-connecting/connecting/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-connecting/connecting",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-connecting.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-connecting/connecting/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-connecting/connecting/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-connecting/connecting/live-styling-connecting-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-connecting/connecting/live-styling-connecting-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1650,
+          "height": 953
+        },
+        "mobile": {
+          "width": 822,
+          "height": 1914
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-connecting.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "dded5401-afec-5473-908c-600462fb42ec",
+      "screen_slug": "live-styling-changing-item",
+      "screen_name": "Live Styling — Changing Item",
+      "state": "changing",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-changing-item/changing/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-changing-item/changing/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-changing-item/changing",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-changing-item.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-changing-item/changing/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-changing-item/changing/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-changing-item/changing/live-styling-changing-item-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-changing-item/changing/live-styling-changing-item-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1650,
+          "height": 953
+        },
+        "mobile": {
+          "width": 818,
+          "height": 1923
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-changing-item.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "ae357eac-806d-5768-be5f-89d98443000e",
+      "screen_slug": "live-styling-slow",
+      "screen_name": "Live Styling — Slow",
+      "state": "slow",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-slow/slow/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-slow/slow/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-slow/slow",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-slow.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-slow/slow/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-slow/slow/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-slow/slow/live-styling-slow-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-slow/slow/live-styling-slow-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1650,
+          "height": 953
+        },
+        "mobile": {
+          "width": 817,
+          "height": 1926
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-slow.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "1716ecc3-8b94-5ef0-9b0c-2ead1ab289ca",
+      "screen_slug": "live-styling-error-recovery",
+      "screen_name": "Live Styling — Error Recovery",
+      "state": "recovery",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-error-recovery/recovery/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-error-recovery/recovery/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-error-recovery/recovery",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-error-recovery.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-error-recovery/recovery/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-error-recovery/recovery/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-error-recovery/recovery/live-styling-error-recovery-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-error-recovery/recovery/live-styling-error-recovery-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1651,
+          "height": 953
+        },
+        "mobile": {
+          "width": 873,
+          "height": 1801
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-error-recovery.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "6904e26b-6abb-5437-9ca5-dad6b2f8de4a",
+      "screen_slug": "live-styling-ended",
+      "screen_name": "Live Styling — Ended",
+      "state": "ended",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-ended/ended/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-ended/ended/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-ended/ended",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-ended.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-ended/ended/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-ended/ended/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-ended/ended/live-styling-ended-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-ended/ended/live-styling-ended-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1650,
+          "height": 953
+        },
+        "mobile": {
+          "width": 811,
+          "height": 1940
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-ended.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "b6b1be00-af2d-5976-9648-61bfbd14a836",
+      "screen_slug": "live-styling-voice-interpreting",
+      "screen_name": "Live Styling — Voice Interpreting",
+      "state": "interpreting",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-interpreting/interpreting/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-interpreting/interpreting/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-voice-interpreting/interpreting",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-voice-interpreting.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-interpreting/interpreting/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-interpreting/interpreting/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-voice-interpreting/interpreting/live-styling-voice-interpreting-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-voice-interpreting/interpreting/live-styling-voice-interpreting-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1651,
+          "height": 953
+        },
+        "mobile": {
+          "width": 853,
+          "height": 1844
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-voice-interpreting.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "8183dd09-dfd2-5ba9-ba70-c8034de399cf",
+      "screen_slug": "live-styling-voice-confirmation",
+      "screen_name": "Live Styling — Voice Confirmation",
+      "state": "confirming",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-confirmation/confirming/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-confirmation/confirming/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-voice-confirmation/confirming",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-voice-confirmation.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-confirmation/confirming/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-confirmation/confirming/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-voice-confirmation/confirming/live-styling-voice-confirmation-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-voice-confirmation/confirming/live-styling-voice-confirmation-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1651,
+          "height": 953
+        },
+        "mobile": {
+          "width": 820,
+          "height": 1918
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-voice-confirmation.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "fb5d25f2-f5c4-5d26-a3e6-0335bbd9df72",
+      "screen_slug": "live-styling-voice-acting",
+      "screen_name": "Live Styling — Voice Acting",
+      "state": "acting",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-acting/acting/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-acting/acting/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-voice-acting/acting",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-voice-acting.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-acting/acting/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-acting/acting/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-voice-acting/acting/live-styling-voice-acting-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-voice-acting/acting/live-styling-voice-acting-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1651,
+          "height": 953
+        },
+        "mobile": {
+          "width": 793,
+          "height": 1983
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-voice-acting.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "c8945f7b-bc1b-5d12-ba8b-39dc97cba22a",
+      "screen_slug": "live-styling-voice-failure",
+      "screen_name": "Live Styling — Voice Failure",
+      "state": "recovery",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-failure/recovery/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-failure/recovery/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-voice-failure/recovery",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-voice-failure.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-failure/recovery/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-voice-failure/recovery/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-voice-failure/recovery/live-styling-voice-failure-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-voice-failure/recovery/live-styling-voice-failure-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1651,
+          "height": 953
+        },
+        "mobile": {
+          "width": 778,
+          "height": 2022
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-voice-failure.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "a66498d1-8567-5492-b8da-9e2b12d376e9",
+      "screen_slug": "live-styling-gesture-observing",
+      "screen_name": "Live Styling — Gesture Observing",
+      "state": "observing",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-observing/observing/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-observing/observing/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-gesture-observing/observing",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-gesture-observing.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-observing/observing/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-observing/observing/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-gesture-observing/observing/live-styling-gesture-observing-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-gesture-observing/observing/live-styling-gesture-observing-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1651,
+          "height": 953
+        },
+        "mobile": {
+          "width": 836,
+          "height": 1881
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-gesture-observing.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "96d21855-d455-5843-a97e-a0fb78bec909",
+      "screen_slug": "live-styling-gesture-interpreting",
+      "screen_name": "Live Styling — Gesture Interpreting",
+      "state": "interpreting",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-interpreting/interpreting/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-interpreting/interpreting/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-gesture-interpreting/interpreting",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-gesture-interpreting.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-interpreting/interpreting/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-interpreting/interpreting/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-gesture-interpreting/interpreting/live-styling-gesture-interpreting-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-gesture-interpreting/interpreting/live-styling-gesture-interpreting-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1650,
+          "height": 953
+        },
+        "mobile": {
+          "width": 826,
+          "height": 1903
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-gesture-interpreting.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "a861bac2-1c68-51c8-af40-7ea3cad52809",
+      "screen_slug": "live-styling-gesture-accepted",
+      "screen_name": "Live Styling — Gesture Accepted",
+      "state": "accepted",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-accepted/accepted/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-accepted/accepted/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-gesture-accepted/accepted",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-gesture-accepted.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-accepted/accepted/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-accepted/accepted/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-gesture-accepted/accepted/live-styling-gesture-accepted-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-gesture-accepted/accepted/live-styling-gesture-accepted-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1651,
+          "height": 953
+        },
+        "mobile": {
+          "width": 864,
+          "height": 1821
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-gesture-accepted.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "096e3398-1e3a-5c6e-b473-e714ca54ff43",
+      "screen_slug": "live-styling-gesture-ignored-or-unavailable",
+      "screen_name": "Live Styling — Gesture Ignored or Unavailable",
+      "state": "recovery",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-ignored-or-unavailable/recovery/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-ignored-or-unavailable/recovery/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-gesture-ignored-or-unavailable/recovery",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-gesture-ignored-or-unavailable.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-ignored-or-unavailable/recovery/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-ignored-or-unavailable/recovery/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-gesture-ignored-or-unavailable/recovery/live-styling-gesture-ignored-or-unavailable-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-gesture-ignored-or-unavailable/recovery/live-styling-gesture-ignored-or-unavailable-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1651,
+          "height": 953
+        },
+        "mobile": {
+          "width": 825,
+          "height": 1906
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-gesture-ignored-or-unavailable.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "d40738f4-6d72-51fe-8c9b-8308a5e7f97d",
+      "screen_slug": "live-styling-gesture-confirmation",
+      "screen_name": "Live Styling — Gesture Confirmation",
+      "state": "confirming",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-confirmation/confirming/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-confirmation/confirming/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#live-styling-gesture-confirmation/confirming",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/live-styling-gesture-confirmation.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-confirmation/confirming/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/live-styling-gesture-confirmation/confirming/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/live-styling-gesture-confirmation/confirming/live-styling-gesture-confirmation-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/live-styling-gesture-confirmation/confirming/live-styling-gesture-confirmation-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1649,
+          "height": 954
+        },
+        "mobile": {
+          "width": 793,
+          "height": 1983
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/live-styling-gesture-confirmation.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "7dc86399-4d75-56ec-a7a7-975b78b7992f",
+      "screen_slug": "recommended-product-unavailable",
+      "screen_name": "Recommended Product — Unavailable",
+      "state": "unavailable",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/recommended-product-unavailable/unavailable/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/recommended-product-unavailable/unavailable/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#recommended-product-unavailable/unavailable",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/recommended-product-unavailable.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/recommended-product-unavailable/unavailable/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/recommended-product-unavailable/unavailable/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/recommended-product-unavailable/unavailable/recommended-product-unavailable-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/recommended-product-unavailable/unavailable/recommended-product-unavailable-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 819,
+          "height": 1921
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/recommended-product-unavailable.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    },
+    {
+      "screen_id": "d894b82b-ac4b-564a-9d74-bce7184b05be",
+      "screen_slug": "bag-item-unavailable",
+      "screen_name": "Bag — Item Unavailable",
+      "state": "unavailable",
+      "surface": "product",
+      "source_wireframes": {
+        "desktop": "company/artifacts/ui-ux-design/wireframes/png/bag-item-unavailable/unavailable/desktop-screen.png",
+        "mobile": "company/artifacts/ui-ux-design/wireframes/png/bag-item-unavailable/unavailable/mobile-screen.png"
+      },
+      "copy_manifest_entry": "company/artifacts/copy/copy-manifest.json#bag-item-unavailable/unavailable",
+      "brand_references": [
+        "company/brand/brandbook-packet/DESIGN.md",
+        "company/brand/brandbook-packet/tokens/brand-tokens.json",
+        "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+      ],
+      "generation": {
+        "tool": "built-in-imagegen",
+        "direction_skill": "imagegen-frontend-web",
+        "prompt_record": "company/artifacts/screen-mockups/prompts/bag-item-unavailable.md",
+        "reference_images": [
+          "company/artifacts/ui-ux-design/wireframes/png/bag-item-unavailable/unavailable/desktop-screen.png",
+          "company/artifacts/ui-ux-design/wireframes/png/bag-item-unavailable/unavailable/mobile-screen.png",
+          "company/brand/exports/combined/png/transparent/ink/magic-mirror-combined-ink-1024px.png"
+        ]
+      },
+      "images": {
+        "desktop": "company/artifacts/screen-mockups/screens/bag-item-unavailable/unavailable/bag-item-unavailable-desktop.png",
+        "mobile": "company/artifacts/screen-mockups/screens/bag-item-unavailable/unavailable/bag-item-unavailable-mobile.png"
+      },
+      "image_dimensions": {
+        "desktop": {
+          "width": 1536,
+          "height": 1024
+        },
+        "mobile": {
+          "width": 906,
+          "height": 1736
+        }
+      },
+      "interaction_spec": "company/artifacts/screen-mockups/interaction-specs/bag-item-unavailable.md",
+      "qa": {
+        "structure_matches": true,
+        "state_matches": true,
+        "brand_matches": true,
+        "copy_checked_against_manifest": true,
+        "responsive_intent_checked": true,
+        "visually_inspected": true
+      },
+      "qa_notes": [
+        "Generated with built-in ImageGen from the approved viewport wireframe, approved copy manifest, production logo, and Acid Dispatch design direction.",
+        "Generated lettering is approximate; implementation must use the approved copy manifest as the source of truth."
+      ],
+      "status": "ready-for-review",
+      "approved_at": null
+    }
+  ]
+}
