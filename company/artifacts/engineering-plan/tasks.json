@@ -1,7 +1,7 @@
 {
   "workflow": "engineering-plan",
   "status": "in-progress",
-  "currentStep": "data-review",
+  "currentStep": "data-contract",
   "steps": [
     {
       "id": "context-readiness",
@@ -58,7 +58,7 @@
     },
     {
       "id": "data-contract",
-      "status": "completed",
+      "status": "not-started",
       "reviewPassed": null,
       "evidence": [
         "company/artifacts/engineering-plan/contracts/index.md",
@@ -68,14 +68,18 @@
         "Data-contract validation: 17 public customer-owned records, 4 private operational records, 3 private buckets, exact required sections, balanced fences, resolved local links, planning JSON, secret scan, and whitespace passed 2026-07-20",
         "Focused repair validation: DR-001 through DR-009 each mapped to exact repaired contract text; stale contradictions absent; code fences, local links, JSON, secrets, and whitespace passed 2026-07-20"
       ],
-      "notes": "Repair completed and resubmitted for fresh data review. DR-001 through DR-009 now resolve evidence/output freeze scope, report retry/versioning, derived-evidence retention, likeness consent lineage, job errors, cleanup indexes, state invariants, and executable owner transfer. No SQL migration or live database mutation was performed."
+      "notes": "DR-001 through DR-009 passed repeat review. Returned for a narrow DR-010 through DR-013 repair covering transfer-safe metadata-authorized Storage reads, fail-closed logical expiry, mandatory photo deadlines, and database-enforceable account-deletion access blocking. No SQL migration or live database mutation was performed."
     },
     {
       "id": "data-review",
-      "status": "not-started",
-      "reviewPassed": null,
-      "evidence": [],
-      "notes": "Reset for an independent repeat review after the DR-001 through DR-009 repair. The prior failed review remains recorded in company/artifacts/engineering-plan/data-review.md and operating logs."
+      "status": "completed",
+      "reviewPassed": false,
+      "evidence": [
+        "company/artifacts/engineering-plan/data-review-2.md",
+        "DR-001 through DR-009 repair verification passed",
+        "Repeat lifecycle review exercised anonymous-to-existing-account transfer, all three Storage buckets, logical expiry, delayed purge, signed delivery, and account deletion"
+      ],
+      "notes": "Repeat review accepted DR-001 through DR-009 and found four new Storage-lifecycle defects: immutable owner-prefixed objects do not follow relational ownership transfer; expiry does not fail closed while purge retries; photo expiry is nullable; and account deletion lacks a database-enforceable immediate access block. Workflow returned to data-contract for focused repair."
     },
     {
       "id": "application-contracts",
