@@ -1,6 +1,6 @@
 # Data Contract
 
-- **Status:** Complete; awaiting data review
+- **Status:** Complete; awaiting repeat data review
 - **Date:** 2026-07-20
 - **Database:** Supabase Postgres
 - **Binary storage:** Supabase private Storage
@@ -21,6 +21,10 @@ This contract is exact enough to produce migrations and shared Zod schemas. It d
 | DR-007 | Global cleanup indexes now lead with each due timestamp and terminal predicate. |
 | DR-008 | A complete row-state invariant/transition matrix assigns database versus transaction enforcement. |
 | DR-009 | Same-owner FKs are deferrable, and the transfer function has exact locks, preconditions, cascade behavior, and a populated migration test. |
+| DR-010 | Storage reads now authorize against current relational ownership, so immutable objects survive account transfer without a copy/rename saga. |
+| DR-011 | Expiring rows, authenticated object reads, and signed URLs fail closed at the logical deadline even when physical purge retries. |
+| DR-012 | Every photo has a non-null deadline at creation; bounded activity/report extensions cannot revive expired evidence. |
+| DR-013 | A minimal private deletion request plus a caller-derived policy function blocks every customer operation before asynchronous purge. |
 
 ## Contract decisions
 
@@ -31,8 +35,10 @@ This contract is exact enough to produce migrations and shared Zod schemas. It d
 5. Provider bodies, transcripts, prompts, copied Shopify payloads/images, and raw media bytes are never stored in Postgres. JSONB is used only for the bounded shapes specified below.
 6. Media objects are immutable. Replacing a photo creates a new object/row; browser Storage upsert is not enabled.
 7. Public schema exposure is explicit. Each migration grants only named operations in addition to enabling RLS; current Supabase projects do not automatically expose new tables through the Data API.
-8. Worker, transfer-token, notification, and outbound-event records live in non-exposed `private`; `anon` and `authenticated` receive no schema usage.
-9. No soft deletion column exists. Purge work remains a durable private job; customer access is revoked first, objects are deleted, and rows are then physically removed.
+8. Worker, transfer-token, account-deletion, notification, and outbound-event records live in non-exposed `private`; customer roles receive no table access. `authenticated` receives narrowly scoped schema usage and execute only for the no-argument access-check function used by RLS.
+9. No customer-data soft deletion column exists. A minimal private account-deletion request is an authorization block and purge-control record, not retained product data; customer access is revoked first, objects are deleted, and rows are then physically removed.
+10. A Storage path records the creation owner for immutable naming only. Current authorization always comes from the unexpired matching Postgres metadata row, so anonymous-to-existing-account transfer never copies or renames object bytes.
+11. Logical expiry is the customer-access boundary. Physical deletion is idempotent cleanup and may retry without extending access.
 
 ## Entity relationship diagram
 
@@ -60,11 +66,12 @@ erDiagram
   PROFILE ||--o{ BAG_ITEM : saves
   PROFILE ||--o{ PROCESSING_JOB : schedules
   PROFILE ||--o{ ANONYMOUS_TRANSFER : transfers
+  AUTH_USER ||--o| ACCOUNT_DELETION_REQUEST : blocks
   STYLE_REPORT ||--o{ NOTIFICATION_DELIVERY : notifies
   PROFILE ||--o{ OUTBOUND_EVENT : records
 ```
 
-`AUTH_USER` is `auth.users`. `PROCESSING_JOB`, `ANONYMOUS_TRANSFER`, `NOTIFICATION_DELIVERY`, and `OUTBOUND_EVENT` are private operational tables.
+`AUTH_USER` is `auth.users`. `PROCESSING_JOB`, `ANONYMOUS_TRANSFER`, `ACCOUNT_DELETION_REQUEST`, `NOTIFICATION_DELIVERY`, and `OUTBOUND_EVENT` are private operational tables. The deletion request intentionally has no foreign key to `auth.users` so its access block and non-sensitive completion evidence survive Auth-user deletion for the bounded operational window.
 
 ## Shared conventions
 
@@ -78,7 +85,7 @@ erDiagram
 - Other foreign keys use `on delete restrict` unless physical parent deletion must remove the child. Stable external references use text, not foreign keys.
 - `created_at`: `timestamptz not null default now()`.
 - Mutable records also have `updated_at timestamptz not null default now()` maintained by one reused `private.set_updated_at()` trigger function.
-- Completion/expiry/lease timestamps are nullable until their named transition occurs.
+- Completion and lease timestamps are nullable until their named transition occurs. Expiry nullability follows the exact record contract; sensitive photos and generated assets always have non-null deadlines.
 - All text is UTF-8. Use `text`; enforce product limits with checks or Zod rather than `varchar(n)`.
 
 ### Bounded text limits
@@ -123,6 +130,7 @@ These are `text` columns with named check constraints, not Postgres enum types, 
 | `job_kind` | `photo_extraction`, `taste_candidates`, `report_generation`, `wardrobe_preview`, `report_notification`, `retention_purge` |
 | `job_status` | `queued`, `leased`, `retry_wait`, `succeeded`, `failed`, `cancelled` |
 | `transfer_status` | `prepared`, `consumed`, `expired`, `cancelled` |
+| `account_deletion_status` | `requested`, `purging`, `failed`, `completed` |
 | `delivery_status` | `queued`, `sent`, `failed` |
 | `outbound_event_type` | `retailer_handoff` |
 
@@ -201,7 +209,7 @@ Consent is append-only: authenticated users may select and insert owned rows; no
 | Column | Type / default | Null | Rules |
 |---|---|---|---|
 | `id`, `owner_id`, `profile_id` | uuid | no | Composite owner/profile FK |
-| `storage_path` | text | no | Unique; exact owned private-object path |
+| `storage_path` | text | no | Unique immutable private-object path; creation-owner segment is not authorization authority |
 | `status` | text / `uploaded` | no | `photo_status` |
 | `position` | smallint | no | 1–12; unique per profile |
 | `media_type` | text | no | `image/jpeg`, `image/png`, or `image/webp` |
@@ -210,10 +218,12 @@ Consent is append-only: authenticated users may select and insert owned rows; no
 | `sha256` | bytea | no | Exactly 32 bytes; duplicate detection |
 | `rejection_code` | text | yes | Stable bounded machine code only when rejected |
 | `accepted_at` | timestamptz | yes | Set after server verification |
-| `expires_at` | timestamptz | yes | Seven-day anonymous or 30-day post-report deadline |
+| `expires_at` | timestamptz | no | Initial draft deadline; bounded server-only activity/report extension below |
 | `created_at`, `updated_at` | timestamptz | no | Standard timestamps |
 
-Unique `(profile_id, position)` and `(profile_id, sha256)`. Completion requires 8–12 accepted photos in one server transaction. A rejected photo does not affect accepted siblings. Photo rows are server-written after Storage verification; customers can select owned metadata and request deletion through the API.
+Unique `(profile_id, position)` and `(profile_id, sha256)`. Completion requires 8–12 accepted photos in one server transaction. A rejected photo does not affect accepted siblings. Photo rows are server-written after Storage verification; customers can select owned, unexpired metadata and request deletion through the API.
+
+Every uploaded/rejected/accepted photo receives `expires_at = now() + interval '7 days'` in its server metadata-creation transaction. While the anonymous profile remains an unexpired draft, a validated accepted customer activity may move every still-unexpired photo and derived child deadline to no later than `activity_at + interval '7 days'`; direct customer writes cannot change a deadline. Report publication may move each still-unexpired source-photo deadline once to `report.created_at + interval '30 days'`. Neither path may update a row whose existing deadline is at or before transaction time, and consent revocation or deletion may only shorten it. Derived deadlines remain less than or equal to their source-photo deadline; a shorter derived deadline need not be extended.
 
 ### `public.photo_style_signals`
 
@@ -490,7 +500,7 @@ Unique tuple `(profile_id, catalog_shop_ref, catalog_product_ref, coalesce(catal
 
 ## Private operational records
 
-`private` is not an exposed Data API schema. Revoke all from `PUBLIC`, `anon`, and `authenticated`. Only the server/worker credential and named functions may access these tables.
+`private` is not an exposed Data API schema. Revoke all table access from `PUBLIC`, `anon`, and `authenticated`. Only the server/worker credential accesses tables; `authenticated` later receives schema usage plus execute on the one caller-derived boolean access-check function and nothing else.
 
 ### `private.processing_jobs`
 
@@ -562,6 +572,25 @@ The API verifies the target customer's JWT and passes that immutable Auth subjec
 
 No bag merge occurs during anonymous transfer because the anonymous pre-report journey has no bag. Any later explicit merge uses stable catalog tuples through its own application operation. The function is service-role-only, idempotently returns the consumed result for the same target, and rejects replay by another target.
 
+Storage objects do not move during transfer. Their first path segment remains the source anonymous UUID as immutable creation provenance, while the cascaded `photos.owner_id` and `generated_assets.owner_id` rows become the new authorization authority. The migration fixture must prove the target can read each unchanged current object and the source identity cannot read or list it after the transfer commits.
+
+### `private.account_deletion_requests`
+
+| Column | Type / default | Null | Rules |
+|---|---|---|---|
+| `subject_owner_id` | uuid | no | Primary key; intentionally no Auth FK so the block survives Auth deletion |
+| `status` | text / `requested` | no | `account_deletion_status` |
+| `attempt_count` | smallint / 0 | no | 0–3; incremented when purge begins |
+| `last_error_code` | text | yes | Stable safe code only for `failed` |
+| `requested_at` | timestamptz / now | no | Access-block authority from first committed request |
+| `purge_started_at` | timestamptz | yes | Required after leaving `requested` except a pre-purge failure |
+| `completed_at` | timestamptz | yes | Required only for `completed` |
+| `created_at`, `updated_at` | timestamptz | no | Standard timestamps |
+
+One row per subject makes the deletion request idempotent. Any existing `requested`, `purging`, `failed`, or `completed` row returns its current safe status rather than creating another request. Every status blocks customer access; `failed` remains blocked while an operator or bounded retry resumes `purging`. The table holds no email, profile fields, media path, provider payload, or customer content. The row is physically deleted no earlier than 30 days after `completed` and only after the configured maximum access-token lifetime plus clock-skew allowance has elapsed from `requested_at`; the implementation gate must verify that configuration rather than assume the default.
+
+`private.current_owner_access_allowed()` is a no-argument `stable security definer` SQL function with `search_path=''`. It derives the caller exclusively from `(select auth.uid())`, returns false when that value is null, and otherwise returns false when any deletion-request row exists for that subject. It accepts no ID argument, so callers cannot probe another account. Revoke execute from `PUBLIC` and `anon`; grant `authenticated` only `usage` on schema `private` and execute on this one function, with no table privilege. The function is the sole customer-role exception to the private-schema revocation rule and is called by every public-table and Storage customer policy. `service_role` cleanup bypasses customer RLS and does not depend on it.
+
 ### `private.notification_deliveries`
 
 | Column | Type / default | Null | Rules |
@@ -614,13 +643,16 @@ Lock the report run and submitted profile, require three schema-valid sections a
 
 ### Account deletion
 
-1. Revoke/sign out sessions and block new product actions for the user.
-2. Queue owner-scoped purge jobs for every private object and provider-side deletable artifact.
-3. Delete Storage objects and verify absence; retry failures visibly.
-4. Delete the Auth user only after owned object purge succeeds; `on delete cascade` removes structured rows.
-5. Retain only non-sensitive operator evidence that a deletion succeeded or requires intervention.
+The server verifies the current permanent customer's JWT and executes an idempotent request transaction under service authority:
 
-This is physical deletion, not a `deleted_at` state. Backup/provider residual windows are disclosed separately and cannot be represented as immediate erasure.
+1. lock or insert `private.account_deletion_requests(subject_owner_id)`; if one already exists, return its current safe status;
+2. commit the blocking row before returning success or beginning any provider call, so all later Data API and Storage policy checks fail even for a previously issued JWT;
+3. request global Auth sign-out to revoke refresh sessions, then mark the row `purging` and enqueue one owner-scoped purge job for every private object/provider-side deletable artifact;
+4. enumerate exact `photos.storage_path` and `generated_assets.storage_path` values, delete through the Storage API, verify absence, and retry failures visibly; never delete by a current-owner prefix because transferred paths retain their creation-owner segment;
+5. reconcile any object that committed before the access-block transaction and then delete structured customer rows/Auth user only after all owned object removal succeeds;
+6. mark the request `completed` with no customer content, or `failed` with a bounded safe code while keeping the owner blocked and retryable.
+
+The access guarantee begins when step 2 commits. A request already in flight before that commit may finish, but it cannot start another customer operation and its objects are included in reconciliation. This is physical customer-data deletion, not a `deleted_at` state. The private request is only the enforcement/cleanup record and expires 30 days after completion. Backup/provider residual windows are disclosed separately and cannot be represented as immediate erasure.
 
 ## Data API grants and RLS
 
@@ -632,18 +664,19 @@ Each public-table migration includes `alter table public.<table_name> enable row
 
 | Table group | `anon` | `authenticated` | Customer writes |
 |---|---|---|---|
-| All `public` customer tables | none | select only where owned | Additional named grants below |
+| All `public` customer tables | none | select only where owned and access-active | Additional named grants below |
 | `profiles` | none | select, insert, update | Draft creation/update only; owner immutable through customer policy |
 | `brand_sizes` | none | select, insert, update, delete | Only while parent profile is draft |
 | `consent_records` | none | select, insert | Append-only owned event |
-| `photos`, `photo_style_signals`, `extracted_garments` | none | select | Server/worker writes only |
+| `photos`, `photo_style_signals`, `extracted_garments` | none | select only before logical expiry | Server/worker writes only |
 | `taste_candidates` | none | select | Server writes only |
 | `taste_reactions` | none | select, insert, update | Owned candidate while profile is draft |
-| `report_runs`, `style_reports`, `report_sections`, `recommendations`, `generated_assets`, `generated_asset_sources` | none | select | Server/worker writes only |
+| `report_runs`, `style_reports`, `report_sections`, `recommendations` | none | select | Server/worker writes only |
+| `generated_assets`, `generated_asset_sources` | none | select only before asset logical expiry | Server/worker writes only |
 | `report_feedback` | none | select, insert | Customer may submit; server changes status |
 | `live_sessions` | none | select | Server owns transitions |
 | `bag_items` | none | select, insert, delete | Permanent owner; stable references only |
-| `private.*` | none | none | Server/worker only |
+| `private.*` | none | no table access; execute only on caller-derived access check | Server/worker only |
 
 The API may instantiate a Supabase client with the customer's JWT for ordinary public-table actions so RLS remains enforcing. Service-role use is limited to background work, anonymous transfer, account purge, and other explicitly private operations.
 
@@ -653,10 +686,23 @@ Each public table has separate operation policies, never an unrestricted `for al
 
 ```sql
 (select auth.uid()) is not null
+and (select private.current_owner_access_allowed())
 and owner_id = (select auth.uid())
 ```
 
-`to authenticated` is necessary but insufficient because anonymous Supabase users also use that role. Authorization always includes `owner_id`. No policy reads `user_metadata`; the immutable Auth subject is the authority.
+`to authenticated` is necessary but insufficient because anonymous Supabase users also use that role. Authorization always includes current `owner_id` plus the account access check. No policy reads `user_metadata`; the immutable Auth subject is the authority. The same access-active condition is present in `using` and `with check` for every customer read/write operation, so a committed deletion request blocks direct Data API traffic even while an old access token remains cryptographically valid.
+
+Expiring customer-readable rows add these exact select predicates:
+
+| Row | Additional customer `select` condition |
+|---|---|
+| `photos` | `expires_at > transaction_timestamp()` |
+| `photo_style_signals` | `expires_at > transaction_timestamp()` and an owned source photo exists with a future deadline |
+| `extracted_garments` | `expires_at > transaction_timestamp()` and an owned source photo exists with a future deadline |
+| `generated_assets` | `expires_at > transaction_timestamp()` |
+| `generated_asset_sources` | an owned parent generated asset exists with `expires_at > transaction_timestamp()` |
+
+Workers and service-role retention operations do not use customer policies. Logical expiry therefore denies customer reads at the deadline even if bytes/rows remain while physical deletion retries.
 
 Report, recommendation, feedback, live-session, and bag policies additionally require:
 
@@ -672,7 +718,10 @@ Owned insert policy pattern:
 create policy profiles_insert_own
 on public.profiles for insert
 to authenticated
-with check (owner_id = (select auth.uid()));
+with check (
+  (select private.current_owner_access_allowed())
+  and owner_id = (select auth.uid())
+);
 ```
 
 Owned update policy pattern:
@@ -681,8 +730,16 @@ Owned update policy pattern:
 create policy profiles_update_own_draft
 on public.profiles for update
 to authenticated
-using (owner_id = (select auth.uid()) and status = 'draft')
-with check (owner_id = (select auth.uid()) and status = 'draft');
+using (
+  (select private.current_owner_access_allowed())
+  and owner_id = (select auth.uid())
+  and status = 'draft'
+)
+with check (
+  (select private.current_owner_access_allowed())
+  and owner_id = (select auth.uid())
+  and status = 'draft'
+);
 ```
 
 Child writes additionally require an owned draft parent:
@@ -697,14 +754,14 @@ exists (
 )
 ```
 
-Update operations always have both a select policy and `using`/`with check`. Ownership changes are impossible through public policies. The anonymous transfer function is the sole owner-reassignment path.
+Update operations always have both a select policy and `using`/`with check`, including the access-active condition. Ownership and expiry changes are impossible through public policies. The anonymous transfer function is the sole owner-reassignment path; server-only draft-activity/report-publish/consent transactions are the only deadline-change paths.
 
 ### Views and privileged functions
 
 - No view is required initially. Any later exposed view must use `security_invoker=true` or remain in `private` with public roles revoked.
 - `private.set_updated_at()` is `security invoker`, has an empty fixed `search_path`, and is usable only as a trigger.
-- `private.claim_processing_job(...)` and `private.consume_anonymous_transfer(...)` are the only planned `security definer` functions.
-- Both live in the non-exposed schema, set `search_path=''`, validate all identifiers, and revoke execute from `PUBLIC`, `anon`, and `authenticated`; only `service_role` receives execute.
+- `private.claim_processing_job(...)`, `private.consume_anonymous_transfer(...)`, and no-argument `private.current_owner_access_allowed()` are the only planned `security definer` functions.
+- All live in the non-exposed schema, set `search_path=''`, and revoke default execute from `PUBLIC`. Claim/transfer validate all identifiers and grant execute only to `service_role`. The access check derives only `auth.uid()`, grants execute only to `authenticated`, and exposes no table or cross-owner result.
 - Run Supabase security/performance advisors after every migration containing RLS, functions, or Storage policies.
 
 ## Private Storage contract
@@ -720,23 +777,55 @@ Update operations always have both a select policy and `using`/`with check`. Own
 Canonical paths:
 
 ```text
-customer-photos/{owner_id}/{profile_id}/{photo_id}/original.{ext}
-derived-assets/{owner_id}/{profile_id}/{asset_id}/{kind}.{ext}
-generated-previews/{owner_id}/{profile_id}/{asset_id}/preview.{ext}
+customer-photos/{creation_owner_id}/{profile_id}/{photo_id}/original.{ext}
+derived-assets/{creation_owner_id}/{profile_id}/{asset_id}/{kind}.{ext}
+generated-previews/{creation_owner_id}/{profile_id}/{asset_id}/preview.{ext}
 ```
 
-Names contain no email, customer name, brand, product title, or original filename. Extension is derived from decoded media, not customer filename.
+`creation_owner_id` is immutable naming provenance, not current authorization. It equals the authenticated owner at browser upload or the metadata owner when a worker reserves a server-generated path. An anonymous-account transfer changes relational `owner_id` only; objects are never copied, moved, or renamed. Names contain no email, customer name, brand, product title, or original filename. Extension is derived from decoded media, not customer filename.
 
 ### Storage policies
 
-`customer-photos` grants authenticated customers:
+`customer-photos` grants authenticated customers immutable `insert` only when:
 
-- `insert` only when bucket matches and the first path segment equals `(select auth.uid())::text`;
-- `select` only for the same owned prefix;
-- no `update` policy, so upsert/overwrite fails;
-- `delete` only through the API after row ownership and lifecycle validation, using server authority.
+- `(select private.current_owner_access_allowed())` is true;
+- the bucket is `customer-photos`;
+- the first path segment equals `(select auth.uid())::text` at creation;
+- the profile/photo segments are UUID-shaped and the extension is bucket-allowed.
 
-`derived-assets` and `generated-previews` grant authenticated customers owned-prefix `select` only. Server/worker authority owns insert/delete. Buckets stay private; customer display uses authenticated object retrieval or a short-lived signed URL after row ownership checks.
+There is no customer `update` policy, so upsert/overwrite fails, and no customer `delete` policy; deletion goes through the API after lifecycle validation under server authority. `derived-assets` and `generated-previews` are inserted/deleted only by the server/worker.
+
+One authenticated-object read policy on `storage.objects` uses `storage.allow_only_operation('storage.object.get_authenticated')`; there is no customer `object.list` policy. The read is allowed only when the account access check passes and one exact metadata match exists:
+
+```sql
+(
+  bucket_id = 'customer-photos'
+  and exists (
+    select 1
+    from public.photos p
+    where p.storage_path = storage.objects.name
+      and p.owner_id = (select auth.uid())
+      and p.status in ('accepted', 'processing', 'partial', 'complete', 'failed')
+      and p.expires_at > transaction_timestamp()
+  )
+)
+or
+(
+  bucket_id in ('derived-assets', 'generated-previews')
+  and exists (
+    select 1
+    from public.generated_assets a
+    where a.storage_path = storage.objects.name
+      and a.owner_id = (select auth.uid())
+      and a.status = 'accepted'
+      and a.expires_at > transaction_timestamp()
+  )
+)
+```
+
+The actual policy wraps this bucket expression with `(select private.current_owner_access_allowed())` and `storage.allow_only_operation('storage.object.get_authenticated')`. Because each path column is unique and indexed, metadata ownership can change atomically without moving bytes. After transfer, the target's UID matches the cascaded metadata row and the source UID does not.
+
+Buckets stay private. The API may create a signed URL only after the same access-active, current-owner, accepted-state, and future-expiry checks. Signed-URL lifetime is `min(300 seconds, floor(extract(epoch from (expires_at - transaction_timestamp()))))`; non-positive results fail rather than minting a URL. Therefore a URL never remains valid after logical expiry. Signed URL creation uses server authority; the browser cannot mint arbitrary bucket URLs.
 
 The application verifies decoded type, byte count, dimensions, and SHA-256 before accepting the matching metadata row. An object without a valid metadata row is quarantined from processing and removed by reconciliation.
 
@@ -754,7 +843,7 @@ Every foreign-key column receives an index unless it is already the leftmost pre
 | `consent_records_current_idx (profile_id, purpose, captured_at desc, id desc)` | Latest purpose decision |
 | `photos_profile_position_idx unique (profile_id, position)` | Ordered upload/review |
 | `photos_profile_sha_idx unique (profile_id, sha256)` | Duplicate prevention |
-| `photos_expiry_idx (expires_at, id) where expires_at is not null` | Retention purge |
+| `photos_expiry_idx (expires_at, id)` | Mandatory-deadline retention purge and logical-expiry tests |
 | `photo_style_signals_photo_idx unique (photo_id)` | One direct signal record |
 | `photo_style_signals_expiry_idx (expires_at, id)` | Derived-signal purge no later than source |
 | `extracted_garments_photo_idx (source_photo_id, review_status, created_at, id)` | Per-photo extraction/review |
@@ -787,6 +876,7 @@ Every foreign-key column receives an index unless it is already the leftmost pre
 | `processing_jobs_idempotency_idx unique (idempotency_key)` | Durable deduplication |
 | `anonymous_transfers_token_idx unique (token_sha256)` | One-use token lookup |
 | `anonymous_transfers_expiry_idx (expires_at, id) where status='prepared'` | Expire unused transfers |
+| `account_deletion_requests_cleanup_idx (completed_at, subject_owner_id) where status='completed'` | Remove bounded non-sensitive deletion evidence after 30 days |
 | `notification_delivery_key_idx unique (idempotency_key)` | Prevent duplicate email |
 | `notification_deliveries_cleanup_idx (updated_at, id) where status in ('sent','failed')` | Global delivery retention purge |
 | `outbound_events_profile_time_idx (profile_id, occurred_at desc, id desc)` | Customer-scoped diagnostic history |
@@ -832,23 +922,37 @@ stateDiagram-v2
 
 Generated assets move `processing → accepted | rejected | failed`; only accepted assets expose a private path. Expiry physically deletes the object and row after lineage/dependent references are cleared or cascaded.
 
+### Account-deletion lifecycle
+
+```mermaid
+stateDiagram-v2
+  [*] --> requested: access block commits
+  requested --> purging: purge job starts
+  purging --> failed: bounded safe failure
+  failed --> purging: operator or retry resumes
+  purging --> completed: objects absent + rows/Auth deleted
+  completed --> [*]: 30-day operational cleanup
+```
+
+Every state is access-blocking. No transition returns an account to active; restoring an account would require a separately approved product decision and contract.
+
 ### Report job lifecycle
 
 The job transition contract is the architecture state machine: `queued → leased → succeeded`, `leased → retry_wait → queued`, `leased → failed`, expired `leased → queued`, and queued/retry work may become `cancelled`. Terminal jobs never return to a working state. Report run status mirrors the customer-visible subject, not every internal retry transition.
 
 ### Exact state invariants
 
-Named database check constraints enforce all row-local required/forbidden fields below. Zod enforces the same rules before writes. Allowed prior-state transitions and cross-record facts use conditional updates inside the named server transaction; zero updated rows is a conflict, never silent success.
+Named database check constraints enforce all row-local required/forbidden fields below. Zod enforces the same rules before writes. Allowed prior-state transitions and cross-record facts use conditional updates inside the named server transaction; zero updated rows is a conflict, never silent success. Every photo state requires a non-null `expires_at`; server transitions that process or extend a photo additionally require the existing deadline to be after `transaction_timestamp()`.
 
 | Record/status | Required | Forbidden / null | Allowed next state | Enforcement |
 |---|---|---|---|---|
-| Photo `uploaded` | object metadata/hash | `accepted_at`, `rejection_code` | `accepted`, `rejected` | DB check + validation transaction |
-| Photo `accepted` | `accepted_at` | `rejection_code` | `processing` | DB check + extraction enqueue transaction |
-| Photo `processing` | `accepted_at` | `rejection_code` | `complete`, `partial`, `failed` | DB check + worker conditional update |
-| Photo `partial` | `accepted_at`, `rejection_code` describing failed portion | — | `processing` retry or purge | DB check + bounded retry transaction |
-| Photo `complete` | `accepted_at` | `rejection_code` | purge only | DB check |
-| Photo `rejected` | `rejection_code` | `accepted_at` | purge only | DB check |
-| Photo `failed` | `accepted_at`, `rejection_code` | — | `processing` retry or purge | DB check + bounded retry transaction |
+| Photo `uploaded` | object metadata/hash, expiry | `accepted_at`, `rejection_code` | `accepted`, `rejected` | DB check + validation transaction |
+| Photo `accepted` | `accepted_at`, expiry | `rejection_code` | `processing` | DB check + extraction enqueue transaction |
+| Photo `processing` | `accepted_at`, expiry | `rejection_code` | `complete`, `partial`, `failed` | DB check + worker conditional update |
+| Photo `partial` | `accepted_at`, expiry, `rejection_code` describing failed portion | — | `processing` retry or purge | DB check + bounded retry transaction |
+| Photo `complete` | `accepted_at`, expiry | `rejection_code` | purge only | DB check |
+| Photo `rejected` | expiry, `rejection_code` | `accepted_at` | purge only | DB check |
+| Photo `failed` | `accepted_at`, expiry, `rejection_code` | — | `processing` retry or purge | DB check + bounded retry transaction |
 | Generated asset `processing` | provider provenance, expiry; likeness consent when required | storage path/type/size/dimensions/hash, rejection code | `accepted`, `rejected`, `failed` | DB check + worker conditional update |
 | Generated asset `accepted` | path/type/size/dimensions/hash, expiry, valid consent when required | `rejection_code` | purge only; recommendation attachment permitted | DB check + publish/attach transaction |
 | Generated asset `rejected`/`failed` | `rejection_code`, expiry | path/type/size/dimensions/hash | purge only | DB check |
@@ -870,6 +974,10 @@ Named database check constraints enforce all row-local required/forbidden fields
 | Transfer `prepared` | token hash, source revision, future expiry | target/consumed timestamp | `consumed`, `expired`, `cancelled` | DB check + consume function |
 | Transfer `consumed` | target owner, `consumed_at` | — | terminal | DB check + consume function |
 | Transfer `expired`/`cancelled` | terminal reason implicit in status | target owner and consumed timestamp | terminal | DB check |
+| Deletion `requested` | subject, requested timestamp, attempts 0 | purge/completion/error fields | `purging`, `failed` | DB check + request transaction |
+| Deletion `purging` | subject, purge timestamp, attempts 1–3 | completion/error fields | `completed`, `failed` | DB check + purge worker update |
+| Deletion `failed` | subject, error code; purge timestamp when work began | completion timestamp | `purging` retry | DB check + bounded retry/operator update |
+| Deletion `completed` | subject, purge/completion timestamps | error code | 30-day physical cleanup | DB check + completion transaction |
 | Delivery `queued` | idempotency key | provider ref, sent timestamp, error code | `sent`, `failed` | DB check + worker update |
 | Delivery `sent` | provider ref, `sent_at` | error code | terminal | DB check |
 | Delivery `failed` | error code, attempt count > 0 | provider ref, sent timestamp | terminal after the associated job exhausts bounded retries | DB check + notification worker |
@@ -887,8 +995,8 @@ Source-specific checks also enforce:
 
 | Data | Expiry / trigger | Physical action |
 |---|---|---|
-| Anonymous draft and owned assets | 7 days without activity | Revoke usable session path, purge objects, delete Auth user/rows when safe |
-| Original photos | 30 days after report generation, earlier customer/account deletion | Delete Storage object, then row/cascades |
+| Anonymous draft and owned assets | 7 days without accepted activity | Logical read/write denial at deadline, then purge objects and delete Auth user/rows when safe |
+| Original photos | Initial rolling seven-day draft deadline; max 30 days after report, earlier consent/account deletion | Deny row/object access at deadline; delete exact Storage path, then row/cascades |
 | Garment cutouts | Same or earlier than source photo | Delete object, asset lineage, and asset row before its photo/garment sources |
 | Photo style signals and extracted garments | Same or earlier than source photo | Physically delete detailed derived rows; candidate descriptors/reactions and immutable aggregate report remain |
 | Generated likeness previews | 30 days after generation, earlier revocation/deletion | Clear recommendation pointer, delete object and asset/lineage rows |
@@ -897,9 +1005,10 @@ Source-specific checks also enforce:
 | Live session aggregate metadata | 30 days after end | Physical row deletion |
 | Successful/failed processing jobs | 30 days after terminal state | Physical row deletion after subject reconciliation |
 | Anonymous transfer tokens | On consumption or 15-minute expiry; row metadata max 24 hours | Destroy plaintext immediately; physically delete token row |
+| Completed account-deletion request | Later of 30 days after completion or verified maximum prior-JWT lifetime plus skew | Delete non-sensitive private enforcement/cleanup row after Auth user and prior JWT lifetime are gone |
 | Notification delivery and outbound event | 30 days | Physical row deletion |
 
-Consent revocation may shorten an expiry but never lengthen it. Retention jobs are owner/subject scoped and idempotent.
+Consent revocation may shorten an expiry but never lengthen it. Draft activity and report publication are the only named bounded extensions; neither may revive expired evidence. Customer RLS, Storage authenticated reads, and signed URLs fail closed at logical expiry without waiting for physical cleanup. Retention jobs are owner/subject scoped and idempotent.
 
 ## Migration and compatibility contract
 
@@ -907,11 +1016,11 @@ Consent revocation may shorten an expiry but never lengthen it. Retention jobs a
 
 Actual timestamped filenames must be created with `supabase migration new`; the implementation must not invent timestamps or change the remote database directly.
 
-1. `create_private_schema_and_helpers` — private schema, least-privilege defaults, `set_updated_at` helper.
+1. `create_private_schema_and_helpers` — private schema, least-privilege defaults, `set_updated_at`, account-deletion request/access-check, and cleanup authority.
 2. `create_profile_and_consent_contract` — profiles, brand sizes, consent, RLS/grants.
 3. `create_photo_extraction_and_taste_contract` — photos, signals, garments, candidates, reactions, first private Storage bucket/policies.
 4. `create_report_and_asset_contract` — report runs/reports/sections/recommendations/feedback/assets/lineage and derived buckets.
-5. `create_live_bag_and_operations_contract` — live sessions, bag, private jobs/transfers/notifications/outbound events and privileged functions.
+5. `create_live_bag_and_operations_contract` — live sessions, bag, private jobs/transfers/notifications/outbound events and remaining privileged functions.
 6. `seed_synthetic_fixtures` — non-sensitive test-only fixtures; never founder/customer photos.
 
 The first integrated one-photo/one-garment slice may apply only the required prefix plus live/session tables, but final table and enum names must match this contract so the report-led extension does not need parallel schemas.
@@ -923,6 +1032,7 @@ The first integrated one-photo/one-garment slice may apply only the required pre
 - Set bounded `lock_timeout` and `statement_timeout` for migration sessions.
 - Add foreign keys/indexes with named constraints. Postgres does not support `add constraint if not exists`; use a guarded block only when an idempotent follow-up requires it.
 - Every public table enables RLS and receives its exact grants/policies in the same migration that creates exposure.
+- Storage migrations create policies on the managed `storage.objects` table but never alter that schema or manipulate its rows directly; all object writes/deletes use the Storage API.
 - Every new function sets an empty/fixed search path and explicitly revokes default `PUBLIC` execute.
 - Declare every same-owner composite FK `deferrable initially immediate`; keep ordinary reads/writes immediate and defer only inside the server-only owner-transfer transaction.
 - Run Supabase database/security/performance advisors and the two-user RLS test suite before remote push.
@@ -945,7 +1055,7 @@ The first integrated one-photo/one-garment slice may apply only the required pre
 | Profile answer | Zod trim/type/range and current-step schema | Type, range, non-draft completeness, ownership |
 | Brand/category size | Zod normalized key + bounded label | Uniqueness, parent draft ownership, row maximum at submit |
 | Consent | Exact purpose/version/hash schema | Append-only grants, owner/profile FK, allowed enum |
-| Photo | Browser preflight then server decode/signature/hash | Media metadata ranges, unique position/hash, owned path reference |
+| Photo | Browser preflight then server decode/signature/hash | Media metadata ranges, unique position/hash, immutable path, non-null bounded expiry |
 | Extraction/model output | Full discriminated Zod parse and quality checks | Bounded arrays/confidence/provenance; no raw body |
 | Taste candidate/reaction | Source-specific Zod union | Exactly one source family, unique candidate reaction, 12–20 at submit |
 | Report output | Exact section Zod union; all sections required | Unique ordered sections, immutable report/run/version relationships |
@@ -953,6 +1063,7 @@ The first integrated one-photo/one-garment slice may apply only the required pre
 | Generated asset | Decode/hash/quality/consent/lineage validation | Accepted metadata completeness, expiry, owner lineage |
 | Live action/session | Later typed action/session contract | Owned session, bounded aggregate timing, no media/transcript columns |
 | Worker result | Job-kind-specific schema and idempotency | Lease/state/attempt constraints and unique key |
+| Account deletion | Authenticated server request; subject derived from verified JWT | Unique private block, exact lifecycle, bounded safe error, policy-wide deny |
 
 ## Authoritative-source matrix
 
@@ -968,6 +1079,8 @@ The first integrated one-photo/one-garment slice may apply only the required pre
 | Live transformed video | Decart realtime session | Not persisted |
 | Voice/visual live context | Gemini Live session | Not persisted; consent reference and aggregate session metadata only |
 | Job lifecycle | Postgres private job row | Lease/state/idempotency metadata |
+| Customer access after deletion request | Private deletion request | Caller-derived boolean policy function; no JWT metadata flag |
+| Current object ownership and expiry | Public photo/generated-asset metadata | Unique immutable `storage_path`, current `owner_id`, accepted state, `expires_at` |
 
 ## Supabase-specific verification requirements
 
@@ -978,14 +1091,16 @@ Before the data-contract implementation ticket can pass:
 3. Test permanent user A, permanent user B, anonymous user A, expired session, and bare publishable-key access across every table and bucket.
 4. Verify anonymous users cannot cross-read and cannot access permanent-only report/bag operations before account connection.
 5. Verify update policies have select access plus both `using` and `with check` and cannot reassign `owner_id`.
-6. Verify Storage overwrite fails, foreign-prefix paths fail, and server reconciliation removes orphan objects.
+6. Verify Storage overwrite/listing fails, foreign-prefix inserts fail, authenticated reads require an exact current metadata owner/path/state/deadline match, and server reconciliation removes orphan objects.
 7. Verify the private schemas/functions are absent from customer Data API access and `PUBLIC` execute is revoked.
 8. Verify two workers claim different jobs with `skip locked`, external calls hold no transaction, stale leases recover, and idempotency prevents duplicate reports/emails.
 9. Verify account transfer replay, expiry, wrong owner, wrong revision, and existing-account conflict behavior.
-10. Run a migration-level owner-transfer fixture containing 8 photos, direct signals, extracted garments, cutouts/lineage, 20 candidates, 12 reactions, and a target account with an existing active profile/report; assert every transferred row has the target owner, existing target state is unchanged, and no deferred FK is violated.
+10. Run a migration-level owner-transfer fixture containing 8 photos, direct signals, extracted garments, cutouts/lineage across all three buckets, 20 candidates, 12 reactions, and a target account with an existing active profile/report; assert every transferred row has the target owner, every object path is unchanged, target authenticated reads succeed, source reads/listing fail, existing target state is unchanged, and no deferred FK is violated.
 11. Verify report-run initial failure, terminal user retry, duplicate retry replay, three-sequence ceiling, and existing-success conflict behavior.
-12. Verify every expiry scan uses its named leading index and physically removes detailed photo-derived evidence without deleting bounded candidate/reaction/report history.
-13. Verify account deletion removes all three bucket prefixes and customer rows without logging sensitive paths or content.
+12. Verify every photo is born with a deadline; draft activity/report publication can update only still-unexpired evidence within their caps; no transition can null or revive expiry; and every expiry scan uses its named leading index.
+13. With physical purge deliberately paused, verify expiring rows and authenticated object reads succeed immediately before but fail at/after the deadline, and verify every signed URL expires no later than its row.
+14. Confirm the deployed maximum access-token lifetime/skew allowance, then verify account deletion commits the private block before response, denies an old still-valid access token across every public operation and all three buckets, revokes refresh sessions, survives a retrying/failed purge, removes exact metadata paths and customer rows, and retains only bounded non-sensitive completion evidence until no prior JWT can remain valid.
+15. Verify the access-check function accepts no identifier, returns only the current caller's state, exposes no private table, sets an empty search path, and has no execute grant for `PUBLIC`/`anon`.
 
 ## Sources
 
@@ -994,6 +1109,10 @@ Before the data-contract implementation ticket can pass:
 - [Critical runtime flows](../architecture/flows.md)
 - [Supabase Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security)
 - [Supabase Storage access control](https://supabase.com/docs/guides/storage/security/access-control)
+- [Supabase Storage helper functions](https://supabase.com/docs/guides/storage/schema/helper-functions)
+- [Supabase Storage metadata-backed RLS guidance](https://supabase.com/docs/guides/troubleshooting/supabase-storage-inefficient-folder-operations-and-hierarchical-rls-challenges-b05a4d)
 - [Supabase anonymous sign-ins](https://supabase.com/docs/guides/auth/auth-anonymous)
+- [Supabase user sessions](https://supabase.com/docs/guides/auth/sessions)
+- [Supabase signing out](https://supabase.com/docs/guides/auth/signout)
 - [Supabase database migrations](https://supabase.com/docs/guides/deployment/database-migrations)
-- Supabase changelog checked 2026-07-20: new tables are not automatically exposed to Data/GraphQL APIs; `@supabase/supabase-js` will require TypeScript 5+ in 2027; self-hosted gateway changes are not applicable to the hosted project.
+- Supabase changelog checked 2026-07-20: policies remain allowed on managed `storage.objects`, but custom schema objects/indexes in `auth`/`storage` are restricted; new tables are not automatically exposed to Data/GraphQL APIs; `@supabase/supabase-js` will require TypeScript 5+ in 2027; self-hosted gateway changes are not applicable to the hosted project.

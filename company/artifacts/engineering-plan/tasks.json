@@ -1,7 +1,7 @@
 {
   "workflow": "engineering-plan",
   "status": "in-progress",
-  "currentStep": "data-contract",
+  "currentStep": "data-review",
   "steps": [
     {
       "id": "context-readiness",
@@ -58,28 +58,26 @@
     },
     {
       "id": "data-contract",
-      "status": "not-started",
+      "status": "completed",
       "reviewPassed": null,
       "evidence": [
         "company/artifacts/engineering-plan/contracts/index.md",
         "company/artifacts/engineering-plan/contracts/data.md",
         "Current Supabase changelog and official RLS, Storage access-control, anonymous Auth, and database-migration guidance checked 2026-07-20",
         "Supabase Postgres design guidance applied for lowercase identifiers, types, constraints, primary/foreign keys, composite/partial indexes, RLS ownership/performance, least privilege, keyset pagination, short transactions, and skip-locked job claims",
-        "Data-contract validation: 17 public customer-owned records, 4 private operational records, 3 private buckets, exact required sections, balanced fences, resolved local links, planning JSON, secret scan, and whitespace passed 2026-07-20",
-        "Focused repair validation: DR-001 through DR-009 each mapped to exact repaired contract text; stale contradictions absent; code fences, local links, JSON, secrets, and whitespace passed 2026-07-20"
+        "Initial data-contract validation: 17 public customer-owned records, 4 private operational records, 3 private buckets, exact required sections, balanced fences, resolved local links, planning JSON, secret scan, and whitespace passed 2026-07-20",
+        "Focused repair validation: DR-001 through DR-009 each mapped to exact repaired contract text; stale contradictions absent; code fences, local links, JSON, secrets, and whitespace passed 2026-07-20",
+        "Current official Supabase Storage access control, operation-aware helper, metadata-backed RLS, Auth session/sign-out, and managed-schema restriction guidance checked 2026-07-20",
+        "Second focused repair validation: DR-010 through DR-013 each mapped to exact transfer-safe Storage, fail-closed expiry, mandatory photo deadline, and account-deletion block text; stale owner-prefix/nullable-expiry contradictions absent; 17 public records, 5 private operational records, 3 private buckets, code fences, local links, JSON, secrets, and whitespace passed 2026-07-20"
       ],
-      "notes": "DR-001 through DR-009 passed repeat review. Returned for a narrow DR-010 through DR-013 repair covering transfer-safe metadata-authorized Storage reads, fail-closed logical expiry, mandatory photo deadlines, and database-enforceable account-deletion access blocking. No SQL migration or live database mutation was performed."
+      "notes": "Focused DR-010 through DR-013 repair completed. Immutable object paths now use creation ownership only; current metadata controls unexpired reads after transfer; every photo has a bounded non-null deadline; signed URLs cannot outlive logical expiry; and a minimal private deletion request blocks every customer table/bucket policy before purge. DR-001 through DR-009 remain accepted. No SQL migration or live database mutation was performed."
     },
     {
       "id": "data-review",
-      "status": "completed",
-      "reviewPassed": false,
-      "evidence": [
-        "company/artifacts/engineering-plan/data-review-2.md",
-        "DR-001 through DR-009 repair verification passed",
-        "Repeat lifecycle review exercised anonymous-to-existing-account transfer, all three Storage buckets, logical expiry, delayed purge, signed delivery, and account deletion"
-      ],
-      "notes": "Repeat review accepted DR-001 through DR-009 and found four new Storage-lifecycle defects: immutable owner-prefixed objects do not follow relational ownership transfer; expiry does not fail closed while purge retries; photo expiry is nullable; and account deletion lacks a database-enforceable immediate access block. Workflow returned to data-contract for focused repair."
+      "status": "not-started",
+      "reviewPassed": null,
+      "evidence": [],
+      "notes": "Reset for a fresh independent review after the DR-010 through DR-013 repair. Prior failed reviews remain preserved in data-review.md and data-review-2.md with their accepted repairs recorded in the data contract."
     },
     {
       "id": "application-contracts",

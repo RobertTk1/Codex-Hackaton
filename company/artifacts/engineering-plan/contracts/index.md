@@ -2,7 +2,7 @@
 
 | Contract | Status | Workflow owner |
 |---|---|---|
-| [Data contract](data.md) | Complete; awaiting data review | `data-contract` |
+| [Data contract](data.md) | DR-010–DR-013 repaired; awaiting repeat data review | `data-contract` |
 | Client/server API | Not started | `application-contracts` |
 | Authentication and authorization | Not started | `application-contracts` |
 | External integrations | Not started | `application-contracts` |
