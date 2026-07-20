@@ -1,7 +1,7 @@
 {
   "workflow": "engineering-plan",
   "status": "in-progress",
-  "currentStep": "data-contract",
+  "currentStep": "data-review",
   "steps": [
     {
       "id": "context-readiness",
@@ -58,10 +58,16 @@
     },
     {
       "id": "data-contract",
-      "status": "not-started",
+      "status": "completed",
       "reviewPassed": null,
-      "evidence": [],
-      "notes": ""
+      "evidence": [
+        "company/artifacts/engineering-plan/contracts/index.md",
+        "company/artifacts/engineering-plan/contracts/data.md",
+        "Current Supabase changelog and official RLS, Storage access-control, anonymous Auth, and database-migration guidance checked 2026-07-20",
+        "Supabase Postgres design guidance applied for lowercase identifiers, types, constraints, primary/foreign keys, composite/partial indexes, RLS ownership/performance, least privilege, keyset pagination, short transactions, and skip-locked job claims",
+        "Data-contract validation: 17 public customer-owned records, 4 private operational records, 3 private buckets, exact required sections, balanced fences, resolved local links, planning JSON, secret scan, and whitespace passed 2026-07-20"
+      ],
+      "notes": "Completed and ready for data review. The contract fixes exact records, bounded enums/JSON, immutable profile/report evidence, composite ownership, explicit Data API grants and RLS, private object paths, indexes, physical retention/deletion, job leasing, account transfer, and migration compatibility. No SQL migration or live database mutation was performed."
     },
     {
       "id": "data-review",

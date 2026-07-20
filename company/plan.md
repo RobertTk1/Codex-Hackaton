@@ -154,8 +154,8 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Create the exact data contract—ERD, schema, ownership, validation, lifecycle, indexes, retention/deletion, and migration design—through the `data-contract` checkpoint.
-2. Review the data contract before beginning application contracts, then complete the remaining reviews and focused engineering tickets one planning step per turn.
+1. Review the completed data contract across every field, relationship, query, constraint, ownership rule, lifecycle, private object, and migration assumption through `data-review`.
+2. After data review passes, create the application, auth, integration, event/state, and screen/data contracts, then complete their review and focused engineering tickets one planning step per turn.
 3. Run the Wardrobe, generated-preview, Shopify, Decart, and Gemini/Decart/gesture discovery spikes when their future engineering tickets and prerequisites are ready; Decart and dual-realtime remain early parallel risks.
 4. Begin implementation only after the engineering plan is founder-approved and its technical readiness gate is ready.
 
