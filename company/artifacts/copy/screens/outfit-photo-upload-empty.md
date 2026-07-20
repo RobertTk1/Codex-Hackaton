@@ -22,7 +22,7 @@ Audience: Photo guidance, analysis consent, upload entry, count rules, and image
   "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
   "labels": {
     "count": "0 of 8 required photos",
-    "accepted": "JPG, PNG, or HEIC"
+    "accepted": "JPG, PNG, HEIC, or WebP"
   },
   "helper_text": {
     "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
@@ -40,7 +40,7 @@ Audience: Photo guidance, analysis consent, upload entry, count rules, and image
   "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
   "labels": {
     "count": "0 of 8 required photos",
-    "accepted": "JPG, PNG, or HEIC"
+    "accepted": "JPG, PNG, HEIC, or WebP"
   },
   "helper_text": {
     "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
@@ -58,7 +58,7 @@ Audience: Photo guidance, analysis consent, upload entry, count rules, and image
   "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
   "labels": {
     "count": "0 of 8 required photos",
-    "accepted": "JPG, PNG, or HEIC"
+    "accepted": "JPG, PNG, HEIC, or WebP"
   },
   "helper_text": {
     "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
@@ -90,7 +90,7 @@ Audience: Photo guidance, analysis consent, upload entry, count rules, and image
   "navigation": {},
   "labels": {
     "count": "0 of 8 required photos",
-    "accepted": "JPG, PNG, or HEIC"
+    "accepted": "JPG, PNG, HEIC, or WebP"
   },
   "helper_text": {
     "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
@@ -116,7 +116,7 @@ Audience: Photo guidance, analysis consent, upload entry, count rules, and image
         "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
         "labels": {
           "count": "0 of 8 required photos",
-          "accepted": "JPG, PNG, or HEIC"
+          "accepted": "JPG, PNG, HEIC, or WebP"
         },
         "helper_text": {
           "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
@@ -133,7 +133,7 @@ Audience: Photo guidance, analysis consent, upload entry, count rules, and image
         "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
         "labels": {
           "count": "0 of 8 required photos",
-          "accepted": "JPG, PNG, or HEIC"
+          "accepted": "JPG, PNG, HEIC, or WebP"
         },
         "helper_text": {
           "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
@@ -150,7 +150,7 @@ Audience: Photo guidance, analysis consent, upload entry, count rules, and image
         "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
         "labels": {
           "count": "0 of 8 required photos",
-          "accepted": "JPG, PNG, or HEIC"
+          "accepted": "JPG, PNG, HEIC, or WebP"
         },
         "helper_text": {
           "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",

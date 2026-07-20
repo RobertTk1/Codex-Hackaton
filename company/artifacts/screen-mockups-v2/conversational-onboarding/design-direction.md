@@ -34,7 +34,7 @@ A calm private conversation with an editorial stylist. The transcript is the int
 
 ## Text response behavior
 
-Use the composer for name, gender, age, height, optional weight, desired help, brands, categories, and sizes. Gender uses that exact term, may be self-described, and is preceded by the approved styling/shopping-purpose language. The placeholder echoes the shape of a natural answer—never a field label. At most three short suggestion chips may sit above the composer when they save effort.
+Use the composer for name, adult confirmation, gender, age, height, optional weight, brands, categories, and sizes. Gender uses that exact term, may be self-described, and is preceded by the approved styling/shopping-purpose language. Do not collect a broad styling goal or desired-help field: it is outside the approved profile contract. The placeholder echoes the shape of a natural answer—never a field label. At most three short suggestion chips may sit above the composer when they save effort.
 
 Do not render ordinary answers as inputs, radio cards, tables, or mini forms.
 

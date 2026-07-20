@@ -1,0 +1,808 @@
+x-standard-response-headers: &standardResponseHeaders
+  X-Request-Id: { schema: { type: string, minLength: 1, maxLength: 160 } }
+
+responses:
+  PublicConfiguration:
+    headers: *standardResponseHeaders
+    description: Public runtime configuration
+    content: { application/json: { schema: { $ref: '#/schemas/PublicConfiguration' } } }
+  ResumeDecision:
+    headers: *standardResponseHeaders
+    description: Authoritative destination for the current identity
+    content: { application/json: { schema: { $ref: '#/schemas/ResumeDecision' } } }
+  ProfileSnapshot:
+    headers: *standardResponseHeaders
+    description: Validated profile projection
+    content: { application/json: { schema: { $ref: '#/schemas/ProfileSnapshot' } } }
+  StyleHomeSnapshot:
+    headers: *standardResponseHeaders
+    description: Current Style Home projection
+    content: { application/json: { schema: { $ref: '#/schemas/StyleHomeSnapshot' } } }
+  ConversationTurnResult:
+    headers: *standardResponseHeaders
+    description: Accepted conversational fact and resulting profile
+    content: { application/json: { schema: { $ref: '#/schemas/ConversationTurnResult' } } }
+  ConsentReceipt:
+    headers: *standardResponseHeaders
+    description: Append-only consent receipt
+    content: { application/json: { schema: { $ref: '#/schemas/ConsentReceipt' } } }
+  AcceptedReportRun:
+    headers: *standardResponseHeaders
+    description: Durable report work accepted
+    content: { application/json: { schema: { $ref: '#/schemas/AcceptedReportRun' } } }
+  ReportRunSnapshot:
+    headers: *standardResponseHeaders
+    description: Current report-run projection
+    content: { application/json: { schema: { $ref: '#/schemas/ReportRunSnapshot' } } }
+  PhotoUploadSlot:
+    headers: *standardResponseHeaders
+    description: One-path signed upload and completion tokens
+    content: { application/json: { schema: { $ref: '#/schemas/PhotoUploadSlot' } } }
+  AcceptedPhoto:
+    headers: *standardResponseHeaders
+    description: Verified photo accepted for asynchronous extraction
+    content: { application/json: { schema: { $ref: '#/schemas/AcceptedPhoto' } } }
+  PhotoCollection:
+    headers: *standardResponseHeaders
+    description: Current ordered photo set
+    content: { application/json: { schema: { $ref: '#/schemas/PhotoCollection' } } }
+  PhotoOrderResult:
+    headers: *standardResponseHeaders
+    description: Atomically reordered photo set
+    content: { application/json: { schema: { $ref: '#/schemas/PhotoOrderResult' } } }
+  ExtractionSummary:
+    headers: *standardResponseHeaders
+    description: Per-photo extraction and fallback summary
+    content: { application/json: { schema: { $ref: '#/schemas/ExtractionSummary' } } }
+  TasteCalibrationSnapshot:
+    headers: *standardResponseHeaders
+    description: Current candidate and reaction progress
+    content: { application/json: { schema: { $ref: '#/schemas/TasteCalibrationSnapshot' } } }
+  AcceptedTasteCalibration:
+    headers: *standardResponseHeaders
+    description: Candidate generation accepted
+    content: { application/json: { schema: { $ref: '#/schemas/AcceptedTasteCalibration' } } }
+  TransferPreparation:
+    headers: *standardResponseHeaders
+    description: Anonymous transfer preparation; plaintext transfer token is cookie-only
+    content: { application/json: { schema: { $ref: '#/schemas/TransferPreparation' } } }
+  TransferResult:
+    headers: *standardResponseHeaders
+    description: Completed ownership transfer result
+    content: { application/json: { schema: { $ref: '#/schemas/TransferResult' } } }
+  NotificationPreference:
+    headers: *standardResponseHeaders
+    description: Current report-notification preference
+    content: { application/json: { schema: { $ref: '#/schemas/NotificationPreference' } } }
+  ReportDocument:
+    headers: *standardResponseHeaders
+    description: Immutable current report
+    content: { application/json: { schema: { $ref: '#/schemas/ReportDocument' } } }
+  ReportSection:
+    headers: *standardResponseHeaders
+    description: One exact report section
+    content: { application/json: { schema: { $ref: '#/schemas/ReportSection' } } }
+  RecommendationCollection:
+    headers: *standardResponseHeaders
+    description: Report recommendations with refreshed current product projections
+    content: { application/json: { schema: { $ref: '#/schemas/RecommendationCollection' } } }
+  ReportFeedbackReceipt:
+    headers: *standardResponseHeaders
+    description: Accepted report feedback receipt
+    content: { application/json: { schema: { $ref: '#/schemas/ReportFeedbackReceipt' } } }
+  CatalogSearchResult:
+    headers: *standardResponseHeaders
+    description: Current normalized Shopify catalog results
+    content: { application/json: { schema: { $ref: '#/schemas/CatalogSearchResult' } } }
+  ProductSnapshot:
+    headers: *standardResponseHeaders
+    description: Current normalized Shopify product and selected offer
+    content: { application/json: { schema: { $ref: '#/schemas/ProductSnapshot' } } }
+  BagCollection:
+    headers: *standardResponseHeaders
+    description: Saved stable references with refreshed product projections
+    content: { application/json: { schema: { $ref: '#/schemas/BagCollection' } } }
+  BagItemSnapshot:
+    headers: *standardResponseHeaders
+    description: Saved bag item
+    content: { application/json: { schema: { $ref: '#/schemas/BagItemSnapshot' } } }
+  HandoffPreview:
+    headers: *standardResponseHeaders
+    description: Current retailer boundary and short-lived confirmation token
+    content: { application/json: { schema: { $ref: '#/schemas/HandoffPreview' } } }
+  HandoffDestination:
+    headers: *standardResponseHeaders
+    description: Validated current HTTPS retailer destination
+    content: { application/json: { schema: { $ref: '#/schemas/HandoffDestination' } } }
+  LiveSessionBootstrap:
+    headers: *standardResponseHeaders
+    description: Created live session and initial product
+    content: { application/json: { schema: { $ref: '#/schemas/LiveSessionBootstrap' } } }
+  RealtimeCredentialBundle:
+    headers: *standardResponseHeaders
+    description: Requested scoped ephemeral provider credentials
+    content: { application/json: { schema: { $ref: '#/schemas/RealtimeCredentialBundle' } } }
+  LiveSessionSnapshot:
+    headers: *standardResponseHeaders
+    description: Current persisted live-session projection
+    content: { application/json: { schema: { $ref: '#/schemas/LiveSessionSnapshot' } } }
+  LiveActionDecision:
+    headers: *standardResponseHeaders
+    description: Execute, confirm, or reject decision for one normalized action
+    content: { application/json: { schema: { $ref: '#/schemas/LiveActionDecision' } } }
+  LiveActionResult:
+    headers: *standardResponseHeaders
+    description: Confirmed action result
+    content: { application/json: { schema: { $ref: '#/schemas/LiveActionResult' } } }
+  DeletionStatus:
+    headers: *standardResponseHeaders
+    description: Account access block accepted
+    content: { application/json: { schema: { $ref: '#/schemas/DeletionStatus' } } }
+
+schemas:
+  Uuid: { type: string, format: uuid }
+  Timestamp: { type: string, format: date-time }
+  NullableUuid: { type: [string, 'null'], format: uuid }
+  CatalogReference:
+    type: object
+    additionalProperties: false
+    required: [productRef, shopRef, variantRef]
+    properties:
+      productRef: { type: string, minLength: 1, maxLength: 512 }
+      shopRef: { type: string, minLength: 1, maxLength: 512 }
+      variantRef: { type: [string, 'null'], minLength: 1, maxLength: 512 }
+  PublicConfiguration:
+    type: object
+    additionalProperties: false
+    required: [authMethods, upload, features, consentVersions, supportUrl]
+    properties:
+      authMethods: { type: array, minItems: 2, maxItems: 2, uniqueItems: true, items: { type: string, enum: [google, magic_link] } }
+      upload:
+        type: object
+        additionalProperties: false
+        required: [minimumPhotos, maximumPhotos, maximumBytes, mediaTypes]
+        properties:
+          minimumPhotos: { type: integer, const: 8 }
+          maximumPhotos: { type: integer, const: 12 }
+          maximumBytes: { type: integer, const: 15728640 }
+          mediaTypes: { type: array, minItems: 5, maxItems: 5, uniqueItems: true, items: { type: string, enum: [image/jpeg, image/png, image/webp, image/heic, image/heif] } }
+      features:
+        type: object
+        additionalProperties: false
+        required: [report, catalog, generatedPreviews, liveStyling, voice, gestures]
+        properties:
+          report: { type: boolean }
+          catalog: { type: boolean }
+          generatedPreviews: { type: boolean }
+          liveStyling: { type: boolean }
+          voice: { type: boolean }
+          gestures: { type: boolean }
+      consentVersions:
+        type: object
+        additionalProperties: false
+        required: [profile_processing, photo_analysis, garment_extraction, generated_likeness_preview, account_connection, live_camera, live_microphone, gemini_visual_context]
+        properties:
+          profile_processing: { type: string, minLength: 1, maxLength: 80 }
+          photo_analysis: { type: string, minLength: 1, maxLength: 80 }
+          garment_extraction: { type: string, minLength: 1, maxLength: 80 }
+          generated_likeness_preview: { type: string, minLength: 1, maxLength: 80 }
+          account_connection: { type: string, minLength: 1, maxLength: 80 }
+          live_camera: { type: string, minLength: 1, maxLength: 80 }
+          live_microphone: { type: string, minLength: 1, maxLength: 80 }
+          gemini_visual_context: { type: string, minLength: 1, maxLength: 80 }
+      supportUrl: { type: string, format: uri, maxLength: 500 }
+    example:
+      authMethods: [google, magic_link]
+      upload: { minimumPhotos: 8, maximumPhotos: 12, maximumBytes: 15728640, mediaTypes: [image/jpeg, image/png, image/webp, image/heic, image/heif] }
+      features: { report: true, catalog: true, generatedPreviews: true, liveStyling: true, voice: true, gestures: true }
+      consentVersions: { profile_processing: v1, photo_analysis: v1, garment_extraction: v1, generated_likeness_preview: v1, account_connection: v1, live_camera: v1, live_microphone: v1, gemini_visual_context: v1 }
+      supportUrl: https://example.com/help
+  ResumeDecision:
+    type: object
+    additionalProperties: false
+    required: [destination, profileId, profileStatus, currentStep, reportRunId, liveSessionId]
+    properties:
+      destination: { type: string, pattern: '^/(onboarding|analysis/[0-9a-f-]{36}|report|style-home|live/[0-9a-f-]{36})?$' }
+      profileId: { $ref: '#/schemas/NullableUuid' }
+      profileStatus: { type: [string, 'null'], enum: [draft, submitted, active, archived, null] }
+      currentStep: { type: [string, 'null'], enum: [welcome, personal_details, brand_sizing, photos, photo_review, taste, account, profile_review, complete, null] }
+      reportRunId: { $ref: '#/schemas/NullableUuid' }
+      liveSessionId: { $ref: '#/schemas/NullableUuid' }
+  FavoriteBrandSnapshot:
+    type: object
+    additionalProperties: false
+    required: [id, brandName, preferenceOrder]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      brandName: { type: string, minLength: 1, maxLength: 80 }
+      preferenceOrder: { type: integer, minimum: 1, maximum: 20 }
+  BrandSizeSnapshot:
+    type: object
+    additionalProperties: false
+    required: [id, brandName, category, sizeStatus, sizeLabel, preferenceOrder]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      brandName: { type: string, minLength: 1, maxLength: 80 }
+      category: { type: string, minLength: 1, maxLength: 80 }
+      sizeStatus: { type: string, enum: [known, unknown, not_applicable] }
+      sizeLabel: { type: [string, 'null'], minLength: 1, maxLength: 40 }
+      preferenceOrder: { type: integer, minimum: 1, maximum: 20 }
+    allOf:
+      - if: { properties: { sizeStatus: { const: known } }, required: [sizeStatus] }
+        then: { properties: { sizeLabel: { type: string, minLength: 1, maxLength: 40 } } }
+        else: { properties: { sizeLabel: { type: 'null' } } }
+  ConsentSummary:
+    type: object
+    additionalProperties: false
+    required: [purpose, decision, policyVersion, capturedAt]
+    properties:
+      purpose: { type: string, enum: [profile_processing, photo_analysis, garment_extraction, generated_likeness_preview, account_connection, live_camera, live_microphone, gemini_visual_context] }
+      decision: { type: string, enum: [granted, revoked] }
+      policyVersion: { type: string, minLength: 1, maxLength: 80 }
+      capturedAt: { $ref: '#/schemas/Timestamp' }
+  PhotoProgress:
+    type: object
+    additionalProperties: false
+    required: [accepted, total, minimum, maximum]
+    properties:
+      accepted: { type: integer, minimum: 0, maximum: 12 }
+      total: { type: integer, minimum: 0, maximum: 12 }
+      minimum: { type: integer, const: 8 }
+      maximum: { type: integer, const: 12 }
+  TasteProgress:
+    type: object
+    additionalProperties: false
+    required: [active, minimum, maximum]
+    properties:
+      active: { type: integer, minimum: 0, maximum: 20 }
+      minimum: { type: integer, const: 12 }
+      maximum: { type: integer, const: 20 }
+  ProfileSnapshot:
+    type: object
+    additionalProperties: false
+    required: [id, status, currentStep, revision, name, age, adultConfirmed, gender, heightCm, weightKg, favoriteBrands, brandSizes, photoProgress, tasteProgress, consents, completionBlockers, updatedAt]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      status: { type: string, enum: [draft, submitted, active, archived] }
+      currentStep: { type: string, enum: [welcome, personal_details, brand_sizing, photos, photo_review, taste, account, profile_review, complete] }
+      revision: { type: integer, minimum: 1 }
+      name: { type: [string, 'null'], minLength: 1, maxLength: 120 }
+      age: { type: [integer, 'null'], minimum: 18, maximum: 120 }
+      adultConfirmed: { type: boolean }
+      gender: { type: [string, 'null'], minLength: 1, maxLength: 80 }
+      heightCm: { type: [number, 'null'], minimum: 80, maximum: 250 }
+      weightKg: { type: [number, 'null'], minimum: 25, maximum: 400 }
+      favoriteBrands: { type: array, maxItems: 20, items: { $ref: '#/schemas/FavoriteBrandSnapshot' } }
+      brandSizes: { type: array, maxItems: 20, items: { $ref: '#/schemas/BrandSizeSnapshot' } }
+      photoProgress: { $ref: '#/schemas/PhotoProgress' }
+      tasteProgress: { $ref: '#/schemas/TasteProgress' }
+      consents: { type: array, maxItems: 8, items: { $ref: '#/schemas/ConsentSummary' } }
+      completionBlockers: { type: array, maxItems: 20, items: { type: string, minLength: 1, maxLength: 80, pattern: '^[A-Z0-9_]+$' } }
+      updatedAt: { $ref: '#/schemas/Timestamp' }
+  ConversationTurnResult:
+    type: object
+    additionalProperties: false
+    required: [turnId, acceptedField, displayValue, invalidatedSteps, profile]
+    properties:
+      turnId: { $ref: '#/schemas/Uuid' }
+      acceptedField: { type: string, enum: [name, adult_confirmation, gender, age, height, weight, favorite_brands, brand_sizes] }
+      displayValue: { type: string, minLength: 1, maxLength: 500 }
+      invalidatedSteps: { type: array, maxItems: 8, uniqueItems: true, items: { type: string, enum: [personal_details, brand_sizing, photos, photo_review, taste, account, profile_review] } }
+      profile: { $ref: '#/schemas/ProfileSnapshot' }
+  ConsentReceipt:
+    type: object
+    additionalProperties: false
+    required: [id, purpose, decision, policyVersion, capturedAt]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      purpose: { type: string, enum: [profile_processing, photo_analysis, garment_extraction, generated_likeness_preview, account_connection, live_camera, live_microphone, gemini_visual_context] }
+      decision: { type: string, enum: [granted, revoked] }
+      policyVersion: { type: string, minLength: 1, maxLength: 80 }
+      capturedAt: { $ref: '#/schemas/Timestamp' }
+  ReportRunSnapshot:
+    type: object
+    additionalProperties: false
+    required: [id, profileId, profileRevision, status, stage, runSequence, elapsedMs, retryable, lastErrorCode, updatedAt]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      profileId: { $ref: '#/schemas/Uuid' }
+      profileRevision: { type: integer, minimum: 1 }
+      status: { type: string, enum: [queued, processing, succeeded, failed, cancelled] }
+      stage: { type: string, enum: [queued, profile_analysis, catalog_matching, report_writing, preview_generation, finalizing] }
+      runSequence: { type: integer, minimum: 1, maximum: 3 }
+      elapsedMs: { type: integer, minimum: 0 }
+      retryable: { type: boolean }
+      lastErrorCode: { type: [string, 'null'], maxLength: 80 }
+      updatedAt: { $ref: '#/schemas/Timestamp' }
+  AcceptedReportRun:
+    type: object
+    additionalProperties: false
+    required: [run, pollAfterMs]
+    properties:
+      run: { $ref: '#/schemas/ReportRunSnapshot' }
+      pollAfterMs: { type: integer, minimum: 2000 }
+  PhotoUploadSlot:
+    type: object
+    additionalProperties: false
+    required: [photoId, bucket, path, uploadToken, completionToken, expiresAt]
+    properties:
+      photoId: { $ref: '#/schemas/Uuid' }
+      bucket: { type: string, const: customer-photos }
+      path: { type: string, minLength: 1, maxLength: 500 }
+      uploadToken: { type: string, minLength: 20, maxLength: 4000, writeOnly: true }
+      completionToken: { type: string, minLength: 20, maxLength: 4000, writeOnly: true }
+      expiresAt: { $ref: '#/schemas/Timestamp' }
+  PhotoSnapshot:
+    type: object
+    additionalProperties: false
+    required: [id, position, status, rejectionCode, rejectionMessageKey, mediaType, byteSize, widthPx, heightPx, expiresAt, extractionState, acceptedGarmentCount, displayUrl]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      position: { type: integer, minimum: 1, maximum: 12 }
+      status: { type: string, enum: [uploaded, accepted, rejected, processing, partial, complete, failed] }
+      rejectionCode: { type: [string, 'null'], maxLength: 80 }
+      rejectionMessageKey: { type: [string, 'null'], maxLength: 120 }
+      mediaType: { type: string, enum: [image/jpeg, image/png, image/webp, image/heic, image/heif] }
+      byteSize: { type: integer, minimum: 1, maximum: 15728640 }
+      widthPx: { type: integer, minimum: 640, maximum: 12000 }
+      heightPx: { type: integer, minimum: 640, maximum: 12000 }
+      expiresAt: { $ref: '#/schemas/Timestamp' }
+      extractionState: { type: string, enum: [not_started, processing, ready, partial, failed] }
+      acceptedGarmentCount: { type: integer, minimum: 0, maximum: 20 }
+      displayUrl: { type: [string, 'null'], format: uri, maxLength: 2000 }
+  AcceptedPhoto:
+    type: object
+    additionalProperties: false
+    required: [photo, revision, pollAfterMs]
+    properties:
+      photo: { $ref: '#/schemas/PhotoSnapshot' }
+      revision: { type: integer, minimum: 1 }
+      pollAfterMs: { type: integer, minimum: 2000 }
+  PhotoCollection:
+    type: object
+    additionalProperties: false
+    required: [items]
+    properties: { items: { type: array, maxItems: 12, items: { $ref: '#/schemas/PhotoSnapshot' } } }
+  PhotoOrderResult:
+    type: object
+    additionalProperties: false
+    required: [items, revision]
+    properties:
+      items: { type: array, maxItems: 12, items: { $ref: '#/schemas/PhotoSnapshot' } }
+      revision: { type: integer, minimum: 1 }
+  ExtractionPhotoSummary:
+    type: object
+    additionalProperties: false
+    required: [photoId, status, acceptedGarmentCount, reviewRequired, fallbackAvailable]
+    properties:
+      photoId: { $ref: '#/schemas/Uuid' }
+      status: { type: string, enum: [processing, ready, partial, failed, unavailable] }
+      acceptedGarmentCount: { type: integer, minimum: 0, maximum: 20 }
+      reviewRequired: { type: boolean }
+      fallbackAvailable: { type: boolean }
+  ExtractionSummary:
+    type: object
+    additionalProperties: false
+    required: [profileId, photos, acceptedGarmentCount, confidenceDisclosure, reviewRequired, fallbackAvailable, revision]
+    properties:
+      profileId: { $ref: '#/schemas/Uuid' }
+      photos: { type: array, maxItems: 12, items: { $ref: '#/schemas/ExtractionPhotoSummary' } }
+      acceptedGarmentCount: { type: integer, minimum: 0, maximum: 240 }
+      confidenceDisclosure: { type: string, minLength: 1, maxLength: 500 }
+      reviewRequired: { type: boolean }
+      fallbackAvailable: { type: boolean }
+      revision: { type: integer, minimum: 1 }
+  TasteCandidate:
+    type: object
+    additionalProperties: false
+    required: [id, source, position, status, category, colorFamily, silhouette, imageUrl, catalogReference]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      source: { type: string, enum: [extracted_garment, shopify_catalog, curated_fallback] }
+      position: { type: integer, minimum: 1, maximum: 20 }
+      status: { type: string, enum: [ready, unavailable, retired] }
+      category: { type: string, minLength: 1, maxLength: 80 }
+      colorFamily: { type: string, minLength: 1, maxLength: 80 }
+      silhouette: { type: string, minLength: 1, maxLength: 80 }
+      imageUrl: { type: [string, 'null'], format: uri, maxLength: 2000 }
+      catalogReference:
+        oneOf:
+          - { $ref: '#/schemas/CatalogReference' }
+          - { type: 'null' }
+  TasteCalibrationSnapshot:
+    type: object
+    additionalProperties: false
+    required: [profileId, state, currentCandidate, completedReactions, minimumReactions, maximumReactions, fallbackUsed, revision]
+    properties:
+      profileId: { $ref: '#/schemas/Uuid' }
+      state: { type: string, enum: [generating, ready, complete, recoverable_error] }
+      currentCandidate:
+        oneOf:
+          - { $ref: '#/schemas/TasteCandidate' }
+          - { type: 'null' }
+      completedReactions: { type: integer, minimum: 0, maximum: 20 }
+      minimumReactions: { type: integer, const: 12 }
+      maximumReactions: { type: integer, const: 20 }
+      fallbackUsed: { type: boolean }
+      revision: { type: integer, minimum: 1 }
+  AcceptedTasteCalibration:
+    type: object
+    additionalProperties: false
+    required: [calibration, pollAfterMs]
+    properties:
+      calibration: { $ref: '#/schemas/TasteCalibrationSnapshot' }
+      pollAfterMs: { type: integer, minimum: 2000 }
+  TransferPreparation:
+    type: object
+    additionalProperties: false
+    required: [profileId, method, expiresAt]
+    properties:
+      profileId: { $ref: '#/schemas/Uuid' }
+      method: { type: string, enum: [google, magic_link] }
+      expiresAt: { $ref: '#/schemas/Timestamp' }
+  TransferResult:
+    type: object
+    additionalProperties: false
+    required: [profileId, targetState, conflictPreserved, resume]
+    properties:
+      profileId: { $ref: '#/schemas/Uuid' }
+      targetState: { type: string, enum: [transferred_draft, derived_draft] }
+      conflictPreserved: { type: boolean }
+      resume: { $ref: '#/schemas/ResumeDecision' }
+  NotificationPreference:
+    type: object
+    additionalProperties: false
+    required: [enabled]
+    properties: { enabled: { type: boolean, const: true } }
+  StrengthItem:
+    type: object
+    additionalProperties: false
+    required: [label, explanation]
+    properties:
+      label: { type: string, minLength: 1, maxLength: 80 }
+      explanation: { type: string, minLength: 1, maxLength: 500 }
+  ColorItem:
+    type: object
+    additionalProperties: false
+    required: [name, hex, reason]
+    properties:
+      name: { type: string, minLength: 1, maxLength: 80 }
+      hex: { type: string, pattern: '^#[0-9A-Fa-f]{6}$' }
+      reason: { type: string, minLength: 1, maxLength: 500 }
+  OverviewSection:
+    type: object
+    additionalProperties: false
+    required: [sectionType, position, content]
+    properties:
+      sectionType: { type: string, const: overview }
+      position: { type: integer, const: 1 }
+      content:
+        type: object
+        additionalProperties: false
+        required: [style_identity, summary, strengths, priorities]
+        properties:
+          style_identity: { type: string, minLength: 1, maxLength: 120 }
+          summary: { type: string, minLength: 1, maxLength: 2000 }
+          strengths: { type: array, minItems: 1, maxItems: 6, items: { $ref: '#/schemas/StrengthItem' } }
+          priorities: { type: array, minItems: 1, maxItems: 6, items: { $ref: '#/schemas/StrengthItem' } }
+  ColorSection:
+    type: object
+    additionalProperties: false
+    required: [sectionType, position, content]
+    properties:
+      sectionType: { type: string, const: color }
+      position: { type: integer, const: 2 }
+      content:
+        type: object
+        additionalProperties: false
+        required: [palette_name, summary, best_colors, approach_with_care]
+        properties:
+          palette_name: { type: string, minLength: 1, maxLength: 120 }
+          summary: { type: string, minLength: 1, maxLength: 2000 }
+          best_colors: { type: array, minItems: 4, maxItems: 12, items: { $ref: '#/schemas/ColorItem' } }
+          approach_with_care: { type: array, maxItems: 6, items: { $ref: '#/schemas/ColorItem' } }
+  BodyStyleSection:
+    type: object
+    additionalProperties: false
+    required: [sectionType, position, content]
+    properties:
+      sectionType: { type: string, const: body_style }
+      position: { type: integer, const: 3 }
+      content:
+        type: object
+        additionalProperties: false
+        required: [kibbe_informed_family, summary, shape_guidance, proportion_guidance, disclosure]
+        properties:
+          kibbe_informed_family: { type: string, minLength: 1, maxLength: 120 }
+          summary: { type: string, minLength: 1, maxLength: 2000 }
+          shape_guidance: { type: array, minItems: 1, maxItems: 8, items: { $ref: '#/schemas/StrengthItem' } }
+          proportion_guidance: { type: array, minItems: 1, maxItems: 8, items: { $ref: '#/schemas/StrengthItem' } }
+          disclosure: { type: string, minLength: 1, maxLength: 500 }
+  ReportSection:
+    oneOf:
+      - { $ref: '#/schemas/OverviewSection' }
+      - { $ref: '#/schemas/ColorSection' }
+      - { $ref: '#/schemas/BodyStyleSection' }
+    discriminator: { propertyName: sectionType }
+  ReportSummary:
+    type: object
+    additionalProperties: false
+    required: [id, title, summary, version, createdAt]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      title: { type: string, minLength: 1, maxLength: 120 }
+      summary: { type: string, minLength: 1, maxLength: 2000 }
+      version: { type: integer, minimum: 1 }
+      createdAt: { $ref: '#/schemas/Timestamp' }
+  ReportDocument:
+    type: object
+    additionalProperties: false
+    required: [id, profileId, version, title, summary, confidenceNote, sections, recommendationCount, createdAt]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      profileId: { $ref: '#/schemas/Uuid' }
+      version: { type: integer, minimum: 1 }
+      title: { type: string, minLength: 1, maxLength: 120 }
+      summary: { type: string, minLength: 1, maxLength: 2000 }
+      confidenceNote: { type: string, minLength: 1, maxLength: 500 }
+      sections: { type: array, minItems: 3, maxItems: 3, items: { $ref: '#/schemas/ReportSection' } }
+      recommendationCount: { type: integer, minimum: 1, maximum: 24 }
+      createdAt: { $ref: '#/schemas/Timestamp' }
+  ProductOptionValue:
+    type: object
+    additionalProperties: false
+    required: [label, available, exists]
+    properties:
+      label: { type: string, minLength: 1, maxLength: 80 }
+      available: { type: boolean }
+      exists: { type: boolean }
+  ProductOption:
+    type: object
+    additionalProperties: false
+    required: [name, values]
+    properties:
+      name: { type: string, minLength: 1, maxLength: 80 }
+      values: { type: array, maxItems: 40, items: { $ref: '#/schemas/ProductOptionValue' } }
+  ProductMedia:
+    type: object
+    additionalProperties: false
+    required: [url, alt]
+    properties:
+      url: { type: string, format: uri, maxLength: 2000 }
+      alt: { type: string, maxLength: 300 }
+  ProductSnapshot:
+    type: object
+    additionalProperties: false
+    required: [reference, title, sellerName, description, amountMinor, currency, availability, options, media, checkoutAvailable, observedAt]
+    properties:
+      reference: { $ref: '#/schemas/CatalogReference' }
+      title: { type: string, minLength: 1, maxLength: 200 }
+      sellerName: { type: string, minLength: 1, maxLength: 160 }
+      description: { type: string, maxLength: 2000 }
+      amountMinor: { type: [integer, 'null'], minimum: 0 }
+      currency: { type: [string, 'null'], enum: [USD, null] }
+      availability: { type: string, enum: [available, unavailable, unknown] }
+      options: { type: array, maxItems: 20, items: { $ref: '#/schemas/ProductOption' } }
+      media: { type: array, maxItems: 12, items: { $ref: '#/schemas/ProductMedia' } }
+      checkoutAvailable: { type: boolean }
+      observedAt: { $ref: '#/schemas/Timestamp' }
+  RecommendationSnapshot:
+    type: object
+    additionalProperties: false
+    required: [id, position, category, title, rationale, stylingNote, reference, previewUrl, previewDisclosure, outfitGroupKey, outfitGroupTitle, outfitItemPosition, product]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      position: { type: integer, minimum: 1, maximum: 24 }
+      category: { type: string, minLength: 1, maxLength: 80 }
+      title: { type: string, minLength: 1, maxLength: 120 }
+      rationale: { type: string, minLength: 1, maxLength: 2000 }
+      stylingNote: { type: string, minLength: 1, maxLength: 2000 }
+      reference: { $ref: '#/schemas/CatalogReference' }
+      previewUrl: { type: [string, 'null'], format: uri, maxLength: 2000 }
+      previewDisclosure: { type: [string, 'null'], maxLength: 500 }
+      outfitGroupKey: { type: [string, 'null'], minLength: 1, maxLength: 80 }
+      outfitGroupTitle: { type: [string, 'null'], minLength: 1, maxLength: 120 }
+      outfitItemPosition: { type: [integer, 'null'], minimum: 1, maximum: 6 }
+      product:
+        oneOf:
+          - { $ref: '#/schemas/ProductSnapshot' }
+          - { type: 'null' }
+    allOf:
+      - if:
+          properties: { outfitGroupKey: { type: string } }
+          required: [outfitGroupKey]
+        then:
+          properties:
+            outfitGroupTitle: { type: string, minLength: 1, maxLength: 120 }
+            outfitItemPosition: { type: integer, minimum: 1, maximum: 6 }
+        else:
+          properties:
+            outfitGroupTitle: { type: 'null' }
+            outfitItemPosition: { type: 'null' }
+  RecommendationCollection:
+    type: object
+    additionalProperties: false
+    required: [items, nextCursor]
+    properties:
+      items: { type: array, maxItems: 50, items: { $ref: '#/schemas/RecommendationSnapshot' } }
+      nextCursor: { type: [string, 'null'], maxLength: 500 }
+  ReportFeedbackReceipt:
+    type: object
+    additionalProperties: false
+    required: [id, reportId, sectionType, kind, status, createdAt]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      reportId: { $ref: '#/schemas/Uuid' }
+      sectionType: { type: [string, 'null'], enum: [overview, color, body_style, null] }
+      kind: { type: string, enum: [helpful, unclear, incorrect, recalibrate] }
+      status: { type: string, const: open }
+      createdAt: { $ref: '#/schemas/Timestamp' }
+  CatalogSearchResult:
+    type: object
+    additionalProperties: false
+    required: [resultSetId, items, nextCursor, observedAt]
+    properties:
+      resultSetId: { $ref: '#/schemas/Uuid' }
+      items: { type: array, maxItems: 50, items: { $ref: '#/schemas/ProductSnapshot' } }
+      nextCursor: { type: [string, 'null'], maxLength: 500 }
+      observedAt: { $ref: '#/schemas/Timestamp' }
+  BagItemSnapshot:
+    type: object
+    additionalProperties: false
+    required: [id, source, reference, savedAt, product]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      source: { type: string, enum: [recommendation, live_session, product_detail] }
+      reference: { $ref: '#/schemas/CatalogReference' }
+      savedAt: { $ref: '#/schemas/Timestamp' }
+      product:
+        oneOf:
+          - { $ref: '#/schemas/ProductSnapshot' }
+          - { type: 'null' }
+  BagCollection:
+    type: object
+    additionalProperties: false
+    required: [items, nextCursor]
+    properties:
+      items: { type: array, maxItems: 50, items: { $ref: '#/schemas/BagItemSnapshot' } }
+      nextCursor: { type: [string, 'null'], maxLength: 500 }
+  HandoffPreview:
+    type: object
+    additionalProperties: false
+    required: [reference, retailerName, amountMinor, currency, availability, destinationHostname, disclosure, handoffToken, expiresAt]
+    properties:
+      reference: { $ref: '#/schemas/CatalogReference' }
+      retailerName: { type: string, minLength: 1, maxLength: 160 }
+      amountMinor: { type: [integer, 'null'], minimum: 0 }
+      currency: { type: [string, 'null'], enum: [USD, null] }
+      availability: { type: string, enum: [available, unavailable, unknown] }
+      destinationHostname: { type: string, minLength: 1, maxLength: 253 }
+      disclosure: { type: string, minLength: 1, maxLength: 500 }
+      handoffToken: { type: string, minLength: 20, maxLength: 4000, writeOnly: true }
+      expiresAt: { $ref: '#/schemas/Timestamp' }
+  HandoffDestination:
+    type: object
+    additionalProperties: false
+    required: [destinationUrl, expiresAt]
+    properties:
+      destinationUrl: { type: string, format: uri, maxLength: 2000 }
+      expiresAt: { $ref: '#/schemas/Timestamp' }
+  RecoverableWork:
+    type: object
+    additionalProperties: false
+    required: [kind, destination, status]
+    properties:
+      kind: { type: string, enum: [draft, report_run] }
+      destination: { type: string, minLength: 1, maxLength: 500 }
+      status: { type: string, minLength: 1, maxLength: 80 }
+  LiveEligibility:
+    type: object
+    additionalProperties: false
+    required: [eligible, reason]
+    properties:
+      eligible: { type: boolean }
+      reason: { type: [string, 'null'], maxLength: 120 }
+  SuggestedOutfitSnapshot:
+    type: object
+    additionalProperties: false
+    required: [key, title, items]
+    properties:
+      key: { type: string, minLength: 1, maxLength: 80 }
+      title: { type: string, minLength: 1, maxLength: 120 }
+      items: { type: array, minItems: 1, maxItems: 6, items: { $ref: '#/schemas/RecommendationSnapshot' } }
+  StyleHomeSnapshot:
+    type: object
+    additionalProperties: false
+    required: [profileId, report, recommendations, suggestedOutfits, savedItems, bagCount, recoverableWork, liveEligibility]
+    properties:
+      profileId: { $ref: '#/schemas/Uuid' }
+      report:
+        oneOf:
+          - { $ref: '#/schemas/ReportSummary' }
+          - { type: 'null' }
+      recommendations: { type: array, maxItems: 12, items: { $ref: '#/schemas/RecommendationSnapshot' } }
+      suggestedOutfits: { type: array, maxItems: 6, items: { $ref: '#/schemas/SuggestedOutfitSnapshot' } }
+      savedItems: { type: array, maxItems: 6, items: { $ref: '#/schemas/BagItemSnapshot' } }
+      bagCount: { type: integer, minimum: 0 }
+      recoverableWork:
+        oneOf:
+          - { $ref: '#/schemas/RecoverableWork' }
+          - { type: 'null' }
+      liveEligibility: { $ref: '#/schemas/LiveEligibility' }
+  LiveSessionSnapshot:
+    type: object
+    additionalProperties: false
+    required: [id, profileId, status, selectedReference, recommendationId, resultSetId, lastActionSequence, geminiContextMode, voiceEnabled, connectionMs, firstFrameMs, lastActionLatencyMs, lastErrorCode, updatedAt]
+    properties:
+      id: { $ref: '#/schemas/Uuid' }
+      profileId: { $ref: '#/schemas/Uuid' }
+      status: { type: string, enum: [created, connecting, ready, reconnecting, ended, failed] }
+      selectedReference: { $ref: '#/schemas/CatalogReference' }
+      recommendationId: { $ref: '#/schemas/NullableUuid' }
+      resultSetId: { $ref: '#/schemas/NullableUuid' }
+      lastActionSequence: { type: integer, minimum: 0 }
+      geminiContextMode: { type: [string, 'null'], enum: [structured_state, sampled_video, null] }
+      voiceEnabled: { type: boolean }
+      connectionMs: { type: [integer, 'null'], minimum: 0, maximum: 600000 }
+      firstFrameMs: { type: [integer, 'null'], minimum: 0, maximum: 600000 }
+      lastActionLatencyMs: { type: [integer, 'null'], minimum: 0, maximum: 600000 }
+      lastErrorCode: { type: [string, 'null'], maxLength: 80 }
+      updatedAt: { $ref: '#/schemas/Timestamp' }
+  LiveSessionBootstrap:
+    type: object
+    additionalProperties: false
+    required: [session, product]
+    properties:
+      session: { $ref: '#/schemas/LiveSessionSnapshot' }
+      product: { $ref: '#/schemas/ProductSnapshot' }
+  ProviderCredential:
+    type: object
+    additionalProperties: false
+    required: [provider, token, expiresAt]
+    properties:
+      provider: { type: string, enum: [decart, gemini] }
+      token: { type: string, minLength: 20, maxLength: 4000, writeOnly: true }
+      expiresAt: { $ref: '#/schemas/Timestamp' }
+  RealtimeCredentialBundle:
+    type: object
+    additionalProperties: false
+    required: [session, credentials]
+    properties:
+      session: { $ref: '#/schemas/LiveSessionSnapshot' }
+      credentials: { type: array, minItems: 1, maxItems: 2, items: { $ref: '#/schemas/ProviderCredential' } }
+  LiveActionDecision:
+    type: object
+    additionalProperties: false
+    required: [actionId, sequence, decision, confirmationToken, expiresAt, resultSetId, reason]
+    properties:
+      actionId: { $ref: '#/schemas/Uuid' }
+      sequence: { type: integer, minimum: 1 }
+      decision: { type: string, enum: [execute, confirm, reject] }
+      confirmationToken: { type: [string, 'null'], minLength: 20, maxLength: 4000, writeOnly: true }
+      expiresAt: { type: [string, 'null'], format: date-time }
+      resultSetId: { $ref: '#/schemas/NullableUuid' }
+      reason: { type: [string, 'null'], maxLength: 120 }
+  LiveActionResult:
+    type: object
+    additionalProperties: false
+    required: [actionId, sequence, status, session, bagItem, handoffPreview]
+    properties:
+      actionId: { $ref: '#/schemas/Uuid' }
+      sequence: { type: integer, minimum: 1 }
+      status: { type: string, const: executed }
+      session: { $ref: '#/schemas/LiveSessionSnapshot' }
+      bagItem:
+        oneOf:
+          - { $ref: '#/schemas/BagItemSnapshot' }
+          - { type: 'null' }
+      handoffPreview:
+        oneOf:
+          - { $ref: '#/schemas/HandoffPreview' }
+          - { type: 'null' }
+  DeletionStatus:
+    type: object
+    additionalProperties: false
+    required: [status, pollAfterMs]
+    properties:
+      status: { type: string, const: requested }
+      pollAfterMs: { type: integer, minimum: 2000 }

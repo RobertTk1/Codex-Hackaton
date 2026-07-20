@@ -26,7 +26,7 @@ Each state has one obvious question. The assistant asks it, yields, and waits. I
 
 ### 2. Text first
 
-Name, gender, age, height, optional weight, desired styling help, brands, categories, and sizes are collected through the composer as natural-language answers. Gender uses that exact term, may be self-described, and includes the approved styling/shopping-purpose language. The system may offer two or three short suggestion chips, but never a card grid where ordinary text is enough.
+Name, adult confirmation, gender, age, height, optional weight, brands, categories, and sizes are collected through the composer as natural-language answers. Gender uses that exact term, may be self-described, and includes the approved styling/shopping-purpose language. A broad styling-goal or desired-help answer is not collected because it is outside the approved profile contract. The system may offer two or three short suggestion chips, but never a card grid where ordinary text is enough.
 
 Examples:
 

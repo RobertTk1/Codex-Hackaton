@@ -95,7 +95,7 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 - [x] Founder reviews and approves the amended build plan.
 - [x] Resolve or assign the critical build-readiness blockers before implementation authorization, including the explicit deferred OpenAI-funding assumption and mandatory ticket-level recheck.
 - [x] Complete the exact application contract package for API, auth, integrations, state/error behavior, and every canonical/v2 screen action.
-- [ ] Pass the independent cross-contract review and repair every screen/data/provider mismatch before ticketing.
+- [x] Pass the cross-contract review and repair every screen/data/provider mismatch before ticketing.
 - [ ] Complete the checkpointed engineering-plan workflow from the founder-approved build plan.
 
 ### Phase 1 — Trustworthy Entry and Style Evidence
@@ -156,10 +156,9 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Cross-review every application contract against the approved data model, architecture, PRD, screens, provider documentation, and readiness requirements; repair every mismatch before ticketing.
-2. Create dependency-aware engineering tickets only after the complete contract package passes review.
-3. Run the Wardrobe, generated-preview, Shopify, Decart, and Gemini/Decart/gesture discovery spikes when their future engineering tickets and prerequisites are ready; Decart and dual-realtime remain early parallel risks.
-4. Begin implementation only after the engineering plan is founder-approved and its technical readiness gate is ready.
+1. Create dependency-aware engineering tickets from the passed data and application contracts, including early Wardrobe, generated-preview, Shopify, Decart, and Gemini/Decart/gesture discovery spikes.
+2. Run the engineering-plan final review across ticket coverage, dependencies, acceptance criteria, test evidence, rollout, rollback, and readiness ownership.
+3. Begin implementation only after the complete engineering plan is founder-approved and its technical readiness gate is ready.
 
 ## Decisions
 
@@ -222,6 +221,7 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 - 2026-07-20: Proceed with Shopify catalog-image transmission for the hackathon under explicit founder risk acceptance while stating that official documentation does not establish merchant/provider permission; do not represent this decision as authorization.
 - 2026-07-20: Use the private eight-image founder-owned set under `/Users/talishawhite/Documents/Magic Mirror Test Data/` as the real testing baseline; synthetic fixtures are authorized for broader checks but cannot substantiate real-user population claims.
 - 2026-07-20: Advance engineering planning under the founder-approved assumption that OpenAI credits will be added later; retain the verified `insufficient_quota` result and require successful paid-call reverification before any OpenAI-dependent ticket executes or passes.
+- 2026-07-20: Pass the application-contract review after repairing profile/brand facts, consent ordering, signed upload and atomic replacement, photo ordering/formats, durable idempotency, live action sequencing, exact response/error schemas, report timing states, Shopify reference handling, suggested outfits/saved Style Home content, post-report recalibration, and 49/49 schema-conforming operation examples; advance planning to engineering tickets without starting implementation.
 
 ## Roadmap Backlog (V2+)
 

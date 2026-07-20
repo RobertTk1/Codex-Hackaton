@@ -85,7 +85,7 @@ Audience: Local image rejection state that preserves successful uploads and expl
   },
   "helper_text": {},
   "validation": {
-    "format": "Choose a JPG, PNG, or HEIC image.",
+    "format": "Choose a JPG, PNG, HEIC, or WebP image.",
     "duplicate": "You already added this photo.",
     "full_body": "Choose a photo that shows your full outfit.",
     "unreadable": "We couldn’t open this image. Try another one."

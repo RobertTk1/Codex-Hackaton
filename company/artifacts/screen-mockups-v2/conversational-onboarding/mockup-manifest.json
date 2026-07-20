@@ -79,7 +79,7 @@
       "state": "collecting",
       "step": 1,
       "response_mode": "natural-language",
-      "user_job": "Answer one simple name, adult-confirmation, gender, age, height, optional-weight, or styling question in natural language.",
+      "user_job": "Answer one simple name, adult-confirmation, gender, age, height, or optional-weight question in natural language.",
       "source_contract": "company/artifacts/screen-mockups-v2/conversational-onboarding/experiment-screen-registry.json",
       "copy_manifest_entry": "company/artifacts/screen-mockups-v2/conversational-onboarding/copy-manifest.json#conversation-personal-details/collecting",
       "generation": {
@@ -119,7 +119,7 @@
       "qa_notes": [
         "Generated with built-in ImageGen as the founder-approved chat-first pre-report direction using the approved Acid Dispatch system and existing v1 visual continuity references.",
         "Ordinary profile facts are collected as text turns; contextual UI is reserved for visual or secure tasks.",
-        "Generated lettering is approximate; the v2 copy manifest is the implementation source of truth.",
+        "Generated lettering is approximate; the v2 copy manifest is the implementation source of truth and removes the deprecated styling-goal example from this layout.",
         "Founder approved this state for pre-report implementation on 2026-07-19; form-based v1 pre-report comps remain archived reference."
       ],
       "status": "approved-for-pre-report",

@@ -25,7 +25,7 @@
       "state": "collecting",
       "step": 1,
       "response_mode": "natural-language",
-      "user_job": "Answer one simple name, adult-confirmation, gender, age, height, optional-weight, or styling question in natural language."
+      "user_job": "Answer one simple name, adult-confirmation, gender, age, height, or optional-weight question in natural language."
     },
     {
       "screen_id": "66d528db-21de-4e52-9ecd-3c388cede1e3",

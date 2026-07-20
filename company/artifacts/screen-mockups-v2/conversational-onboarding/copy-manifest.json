@@ -25,7 +25,8 @@
         {"speaker": "assistant", "text": "Ready to begin?"}
       ],
       "suggestions": ["Yes, let’s start", "I already have an account"],
-      "composer_placeholder": "Type your answer…"
+      "composer_placeholder": "Type your answer…",
+      "consent": "By starting, you agree that Magic Mirror can use the answers you share to build your style report."
     },
     {
       "screen_id": "6d5f5ef1-a4a2-41d3-aa89-dc3722ae8df0",
@@ -35,14 +36,13 @@
       "transcript": [
         {"speaker": "assistant", "text": "What should I call you?"},
         {"speaker": "customer", "text": "Alex"},
-        {"speaker": "assistant", "text": "Nice to meet you, Alex. What would you most like help styling?"},
-        {"speaker": "customer", "text": "Complete outfits for work and weekends."},
+        {"speaker": "assistant", "text": "Before we continue, can you confirm you’re 18 or older?"},
+        {"speaker": "customer", "text": "Yes, I’m 18 or older."},
         {"speaker": "assistant", "text": "How old are you?"}
       ],
       "composer_placeholder": "For example, 28",
       "support_action": "Why we ask",
       "next_questions": [
-        "Are you 18 or older?",
         "What gender should I use when shaping your styling and shopping recommendations? You can self-describe.",
         "How tall are you?",
         "Would you like to share your weight? You can skip this."
@@ -79,7 +79,7 @@
         "secondary_action": "Take a photo",
         "status": "0 of 8 photos"
       },
-      "helper_text": "JPG, PNG, or HEIC. You can replace or remove any photo."
+      "helper_text": "JPG, PNG, HEIC, or WebP. You can replace, reorder, or remove any photo."
     },
     {
       "screen_id": "0903cde1-37cb-49c1-8146-ecd07dd54c70",
@@ -95,7 +95,8 @@
         "checking": "1 checking",
         "failed": "Needs another try",
         "retry": "Try again",
-        "remove": "Remove"
+        "remove": "Remove",
+        "reorder": "Drag to reorder"
       },
       "primary_action": "Keep going",
       "secondary_action": "Add more photos"

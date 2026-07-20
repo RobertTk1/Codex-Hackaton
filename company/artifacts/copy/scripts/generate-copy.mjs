@@ -89,7 +89,7 @@ const copyBySlug = {
   }),
   "outfit-photo-upload-empty": c({
     eyebrow: "STEP 3 OF 4", headline: "Show us your favorite looks.", supporting_copy: "Add 8–12 full-body photos of outfits you feel great in.", primary_cta: "Choose photos", secondary_cta: "Back", tertiary_cta: "Save and exit",
-    labels: { count: "0 of 8 required photos", accepted: "JPG, PNG, or HEIC" },
+    labels: { count: "0 of 8 required photos", accepted: "JPG, PNG, HEIC, or WebP" },
     helper_text: { quality: "Choose clear, well-lit photos that show your full outfit. One person per photo works best.", range: "8 photos minimum. 12 maximum." },
     consent: { photos: "I agree to let Magic Mirror use these photos to create my style report.", isolation: "Only you can access the photos you add." },
     validation: { consent: "Agree to photo use before continuing." }
@@ -100,7 +100,7 @@ const copyBySlug = {
   }),
   "outfit-photo-upload-validation-error": c({
     eyebrow: null, headline: "Let’s swap this one.", supporting_copy: "Choose a different photo to keep going. Your other photos are ready.", primary_cta: "Replace photo", secondary_cta: "Remove", tertiary_cta: "Add another",
-    labels: { rejected: "Try another photo", preserved: "Other photos ready" }, validation: { format: "Choose a JPG, PNG, or HEIC image.", duplicate: "You already added this photo.", full_body: "Choose a photo that shows your full outfit.", unreadable: "We couldn’t open this image. Try another one." }, status_messages: { preserved: "Your other photos are ready." }
+    labels: { rejected: "Try another photo", preserved: "Other photos ready" }, validation: { format: "Choose a JPG, PNG, HEIC, or WebP image.", duplicate: "You already added this photo.", full_body: "Choose a photo that shows your full outfit.", unreadable: "We couldn’t open this image. Try another one." }, status_messages: { preserved: "Your other photos are ready." }
   }),
   "taste-calibration-base": c({
     eyebrow: "STEP 4 OF 4", headline: "Trust your first reaction.", supporting_copy: "Swipe right for Love, left for Hate, or down for Maybe.", primary_cta: "Love", secondary_cta: "Hate", tertiary_cta: "Maybe",

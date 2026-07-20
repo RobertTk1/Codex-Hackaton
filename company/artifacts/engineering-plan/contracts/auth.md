@@ -1,6 +1,6 @@
 # Authentication and Authorization Contract
 
-- **Status:** Complete for application-contract review
+- **Status:** Approved after cross-contract review
 - **Identity provider:** Supabase Auth
 - **Supported customer methods:** anonymous, Google OAuth, email magic link
 - **Prohibited customer methods:** password, SMS, shared guest account
@@ -32,7 +32,7 @@ Every protected API request verifies the current JWT, derives `auth.uid()`, reje
 1. `Get your style report` calls `supabase.auth.signInAnonymously()` only when no valid session exists.
 2. The browser calls `createOrResumeProfile` with `entry=landing`.
 3. The server creates at most one resumable draft under the unique anonymous owner or returns the existing draft.
-4. Every accepted answer is immediately persisted through the profile operations. The chat transcript is not persistence.
+4. After the customer grants `profile_processing` consent, every accepted answer is immediately persisted through the profile operations. Favorite brands and brand/category size status are child records; the chat transcript is not persistence.
 5. Anonymous sessions cannot submit a report, use Style Home, start live styling, save a bag item, or hand off to a retailer until account connection completes.
 
 Rate limits apply to anonymous creation by identity plus coarse network signal. CAPTCHA may be added only if abuse is observed; it is not a hidden launch prerequisite.
@@ -107,9 +107,9 @@ The transaction consumes the token exactly once. Success clears the cookie and m
 | Resource/capability | Public | Anonymous owner | Permanent owner | Service/worker |
 |---|---:|---:|---:|---:|
 | Public configuration/landing | read | read | read | read |
-| Profile and brand sizes | no | own draft read/write | own draft read/write; active read | narrow privileged transactions |
+| Profile, favorite brands, and brand sizes | no | own draft read/write | own draft read/write; active read | narrow privileged transactions |
 | Consent records | no | own select/append | own select/append | validate purpose/revoke effects |
-| Original photo object | no | own unexpired immutable upload/read | own unexpired immutable upload/read | verify/sign/delete exact object |
+| Original photo object | no | upload only with one-path signed token; own unexpired read | same | sign/verify/delete exact object |
 | Photo metadata | no | own unexpired read; delete via API | same | create/transition/delete |
 | Signals/garments/candidates | no | own unexpired/bounded read | own read | create/transition |
 | Taste reactions | no | own draft insert/update | own draft insert/update | read report evidence |
@@ -124,7 +124,7 @@ RLS exists on every exposed customer table even when the API also checks ownersh
 
 ## Storage authorization
 
-All three buckets are private. `customer-photos` permits an authenticated owner to create an object only at the exact server-issued immutable slot path with `upsert=false`. Ordinary reads authorize against current, unexpired relational metadata rather than the path's creation-owner segment, so completed account transfers do not require object copy/rename. `derived-assets` and `generated-previews` are server/worker write-only.
+All three buckets are private. Customer roles receive no general Storage insert/update/delete grant. After application ownership/revision checks, the server creates a one-path Supabase signed upload token with upsert disabled plus a separate application completion token. Ordinary reads authorize against current, unexpired relational metadata rather than the path's creation-owner segment, so completed account transfers do not require object copy/rename. `derived-assets` and `generated-previews` are server/worker write-only.
 
 Authenticated downloads and API-created signed URLs require:
 

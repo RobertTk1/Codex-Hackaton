@@ -1,6 +1,6 @@
 # Error Contract
 
-- **Status:** Complete for application-contract review
+- **Status:** Approved after cross-contract review
 - **Scope:** API, worker-to-subject normalization, managed-service and provider failures
 
 ## Wire shape
@@ -76,6 +76,7 @@ Exactly one shape is selected by code; unknown keys are rejected server-side.
 | `AUTH_CALLBACK_INVALID` | 422 | restart Google/magic-link flow |
 | `AUTH_RATE_LIMITED` | 429 | wait, keep entered email local only |
 | `PERMANENT_ACCOUNT_REQUIRED` | 403 | connect Google or magic link |
+| `ANONYMOUS_ACCOUNT_REQUIRED` | 403 | restart from the owned anonymous draft |
 | `ACCESS_DENIED` | 404 | safe not-found treatment |
 | `CONSENT_REQUIRED` | 403 | present exact purpose consent |
 | `CONSENT_VERSION_INVALID` | 409 | reload current consent copy |
@@ -92,7 +93,11 @@ Exactly one shape is selected by code; unknown keys are rejected server-side.
 | `PROFILE_LIMIT_REACHED` | 409 | resume existing draft |
 | `PROFILE_INCOMPLETE` | 422 | show exact missing fields |
 | `PROFILE_FIELD_INVALID` | 422 | ask customer to correct named field |
+| `ADULT_ELIGIBILITY_REQUIRED` | 422 | explain adults-only eligibility; store no disallowed answer |
 | `ANSWER_NEEDS_CLARIFICATION` | 422 | assistant asks one narrow follow-up |
+| `FAVORITE_BRAND_INVALID` | 422 | correct a favorite-brand choice |
+| `DUPLICATE_FAVORITE_BRAND` | 409 | keep/edit the existing normalized brand |
+| `FAVORITE_BRAND_REQUIRED` | 422 | choose the matching favorite brand before its category size |
 | `BRAND_SIZE_INVALID` | 422 | correct brand/category/size tuple |
 | `DUPLICATE_BRAND_CATEGORY` | 409 | edit existing tuple |
 | `DEPENDENT_WORK_ALREADY_PUBLISHED` | 409 | start recalibration draft |
@@ -108,7 +113,9 @@ Exactly one shape is selected by code; unknown keys are rejected server-side.
 | `UPLOAD_DECLARATION_INVALID` | 422 | choose valid file |
 | `UPLOAD_NOT_FOUND` | 404 | retry upload |
 | `UPLOAD_SLOT_EXPIRED` | 410 | request new slot |
-| `PHOTO_TYPE_UNSUPPORTED` | 415 | JPEG/PNG/WebP only |
+| `UPLOAD_TOKEN_INVALID` | 410 | discard tokens and request a new slot |
+| `PHOTO_REPLACEMENT_STALE` | 409 | reload the current photo set and start replacement again |
+| `PHOTO_TYPE_UNSUPPORTED` | 415 | choose JPEG/PNG/WebP/HEIC/HEIF |
 | `PHOTO_TOO_LARGE` | 413 | choose file <=15 MiB |
 | `PHOTO_DIMENSIONS_INVALID` | 422 | choose image within dimension bounds |
 | `PHOTO_DECODE_FAILED` | 422 | replace corrupt/unsupported image |
@@ -117,6 +124,7 @@ Exactly one shape is selected by code; unknown keys are rejected server-side.
 | `PHOTO_NOT_FOUND` | 404 | reload gallery |
 | `PHOTO_EXPIRED` | 410 | upload replacement |
 | `PHOTO_DELETE_FAILED` | 503 | retain row/view and retry; never pretend removed |
+| `PHOTO_ORDER_INVALID` | 409 | reload the exact current photo set and reorder again |
 | `PHOTO_NOT_RETRYABLE` | 409 | continue fallback or replace |
 | `EXTRACTION_ATTEMPTS_EXHAUSTED` | 409 | continue with direct-signal fallback |
 | `GARMENT_NOT_FOUND` | 404 | reload extraction summary |
@@ -148,6 +156,7 @@ Exactly one shape is selected by code; unknown keys are rejected server-side.
 | `FEEDBACK_INVALID` | 422 | correct bounded feedback |
 | `RECALIBRATION_CONFIRMATION_REQUIRED` | 422 | explicit confirm |
 | `DRAFT_ALREADY_EXISTS` | 409 | resume existing draft |
+| `NO_ACTIVE_PROFILE` | 409 | resume a draft/report or start a new report |
 
 ### Transfer
 

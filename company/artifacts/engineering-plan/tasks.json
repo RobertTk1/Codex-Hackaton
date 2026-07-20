@@ -1,7 +1,7 @@
 {
   "workflow": "engineering-plan",
   "status": "in-progress",
-  "currentStep": "contracts-review",
+  "currentStep": "engineering-tickets",
   "steps": [
     {
       "id": "context-readiness",
@@ -99,16 +99,26 @@
         "company/artifacts/engineering-plan/contracts/errors.md",
         "company/artifacts/engineering-plan/contracts/screen-data.md",
         "Current official OpenAI, Shopify Global Catalog, Decart Lucy VTON, Gemini Live, Resend, Wardrobe, and Supabase Auth/Storage documentation checked 2026-07-20",
-        "Application-contract validation: 47/47 API operations match OpenAPI paths/methods; 48/48 canonical screens and 8/8 approved conversational states are mapped; every operation appears in the screen/action matrix; YAML, links, fences, secret scan, and whitespace passed 2026-07-20"
+        "Application-contract validation: 49/49 API operations match OpenAPI paths/methods; 48/48 canonical screens and 8/8 approved conversational states are mapped; every operation appears in the screen/action matrix; YAML, links, fences, secret scan, and whitespace passed 2026-07-20"
       ],
       "notes": "Completed. The package fixes client/server operations, anonymous and permanent authorization, transfer semantics, provider inputs/results/fallbacks, durable and transient state machines, normalized errors, and every approved screen/action mapping without adding unapproved persistence or implementation. Formal cross-contract review is next."
     },
     {
       "id": "contracts-review",
-      "status": "not-started",
-      "reviewPassed": null,
-      "evidence": [],
-      "notes": "Next checkpoint: independently reconcile all application contracts against the approved data contract, architecture, build plan, PRD/stories/scenarios, canonical and v2 screens, provider documentation, and readiness decisions; repair any mismatch before ticketing."
+      "status": "completed",
+      "reviewPassed": true,
+      "evidence": [
+        "company/artifacts/engineering-plan/contracts-review.md",
+        "company/artifacts/engineering-plan/contracts/schemas.yaml",
+        "company/artifacts/engineering-plan/contracts/examples.yaml",
+        "49/49 API catalog operations match OpenAPI paths and methods",
+        "49/49 operation request and success examples passed Draft 2020-12 JSON Schema validation",
+        "49/49 operations appear in the screen/action contract; 48/48 canonical and 8/8 approved conversational screen/state records are covered",
+        "All normalized error codes used by API/screen contracts exist in errors.md; all internal/external schema references and local contract links resolve",
+        "Current Supabase signed-upload, Shopify Global Catalog, Gemini Live, OpenAI, Decart, Resend, and Wardrobe boundaries reconciled 2026-07-20",
+        "YAML/JSON parsing, Markdown fences, local links, secret scan, and git diff whitespace validation passed 2026-07-20"
+      ],
+      "notes": "Passed after repairing every review finding in the owning artifacts. Exact profile/brand facts, consent ordering, photo formats/order/signed upload/atomic replacement, durable idempotency, live consent and stale-action handling, report timing, provider reference boundaries, Style Home outfits/saved selections/direct live entry, post-report recalibration, exact errors/responses, and 49 schema-conforming examples now agree. Workflow advanced to engineering-tickets; implementation remains unauthorized."
     },
     {
       "id": "engineering-tickets",

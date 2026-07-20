@@ -1,6 +1,6 @@
 # Events and State Contract
 
-- **Status:** Complete for application-contract review
+- **Status:** Approved after cross-contract review
 - **Architecture:** direct synchronous operations plus Postgres-backed durable jobs; no event bus
 - **State authority:** [data contract](data.md) for persisted enums and row transitions; this file for application commands, observable states, and transient realtime behavior
 
@@ -13,6 +13,7 @@ Only these durable notification/evidence records exist:
 | Record | Trigger | Consumer | Idempotency |
 |---|---|---|---|
 | `processing_jobs` | accepted extraction, candidate, report, preview, notification, or retention work | one worker lease loop | globally unique `idempotency_key` |
+| `api_idempotency_records` | successful named API mutation | request replay/conflict guard | owner + operation + client key + canonical request hash |
 | `notification_deliveries` | completed report + customer opted in | Resend worker path | one report/kind key |
 | `outbound_events` | confirmed current retailer handoff | operational measurement | client/API request idempotency key |
 | `consent_records` | customer grants/revokes a named purpose | authorization and retention logic | request idempotency; append-only event |
@@ -24,7 +25,7 @@ No UI transcript, model response, voice transcript, media frame, gesture frame, 
 
 - Every command has one authenticated owner, a request ID, and a bounded Zod input.
 - Profile draft commands require `If-Match-Revision`; zero-row conditional update is `REVISION_CONFLICT`.
-- Named create/action commands require `Idempotency-Key`. A replay with the same body returns the original result; same key with a different body returns `409 IDEMPOTENCY_KEY_REUSED`.
+- Named create/action commands require `Idempotency-Key`. The domain transaction and bounded private idempotency record commit together. A replay with the same body reconstructs the same durable result; same key with a different body returns `409 IDEMPOTENCY_KEY_REUSED`. Ephemeral upload/realtime/handoff tokens are re-minted for the same subject and never stored.
 - A command that enqueues work commits the subject and job in the same transaction. The UI never shows processing when no durable subject/job exists.
 - Cancel is effective only before a terminal commit and only where a data transition permits cancellation. Cancelling browser presentation alone does not falsely mark durable work cancelled.
 - All state responses include the persisted `updatedAt` and, where applicable, profile `revision` or realtime `sequence`.
@@ -47,7 +48,7 @@ stateDiagram-v2
   archived --> [*]: account deletion purge
 ```
 
-Within `draft`, `current_step` moves through `welcome → personal_details → brand_sizing → photos → photo_review → taste → account → profile_review → complete`. A customer may edit an earlier answer; the server recomputes the earliest incomplete step and invalidates only dependent draft evidence. Step progression never substitutes for completion validation.
+Within `draft`, `current_step` moves through `welcome → personal_details → brand_sizing → photos → photo_review → taste → account → profile_review → complete`. `profile_processing` consent precedes the first stored personal fact. Favorite-brand intent and category-size status are separate records even when gathered conversationally. A customer may edit an earlier answer; the server recomputes the earliest incomplete step and invalidates only dependent draft evidence. Step progression never substitutes for completion validation.
 
 The adopted conversation presentation has these transient states:
 
@@ -67,7 +68,7 @@ The exact persisted photo transitions are the data-contract matrix. The UI proje
 
 | Persisted state | UI state | Allowed customer action |
 |---|---|---|
-| upload slot only | `uploading` | cancel local upload; retry immutable upload before slot expiry |
+| signed upload/completion tokens only | `uploading` | cancel local upload; retry exact immutable upload before token expiry |
 | `uploaded` | `validating` | wait |
 | `accepted` | `ready_for_analysis` | remove before submission |
 | `processing` | `extracting` | continue reviewing siblings |
@@ -78,6 +79,10 @@ The exact persisted photo transitions are the data-contract matrix. The UI proje
 | expired/deleted | `unavailable` | upload a new photo |
 
 One photo failure does not roll back siblings. `Continue` is enabled with 8–12 accepted, unexpired photos and the required consent; it does not wait for perfect extraction when the direct-signal fallback is available.
+
+Photo reorder is one revision-checked transaction over the exact current photo-ID set. It defers the position uniqueness constraint, writes contiguous positions, increments revision once, and never moves or rewrites Storage objects. An omitted, duplicated, foreign, expired, or newly concurrent ID rejects the whole order.
+
+Photo replacement is not delete-then-add. The signed slot and application completion token bind the old photo ID and position. Completion validates the new object first, then atomically swaps the metadata rows at the same position and increments revision once. The old object becomes inaccessible at commit and is physically deleted immediately after; reconciliation handles a cleanup failure without exposing either object across owners.
 
 ### Taste calibration
 
@@ -134,7 +139,8 @@ queued -> profile_analysis -> catalog_matching -> report_writing -> preview_gene
 
 | Condition | Screen state | Recovery |
 |---|---|---|
-| `queued` or processing <120s | analysis processing | poll every 2s; optional notification |
+| `queued` or processing <90s | analysis processing | poll every 2s; optional notification |
+| processing 90–119s | analysis extended progress | keep the meaningful current stage visible; poll every 2s; no fake percentage |
 | processing >=120s | slow | keep polling, email when ready, leave safely |
 | failed + retryable + sequence <3 | error recovery | create next run sequence |
 | failed terminal/exhausted | error recovery | preserve inputs; support/recalibration path |
@@ -178,7 +184,7 @@ stateDiagram-v2
   failed --> [*]
 ```
 
-Voice and gestures are independent transient substates and do not replace persisted live status:
+Voice and gestures are independent transient substates and do not replace persisted live status. Camera consent exists when the live row is created; microphone and optional visual-context consent are added only when Gemini voice is enabled:
 
 ```text
 voice: off -> requesting_permission -> connecting -> listening -> interpreting -> confirming? -> acting -> listening
@@ -209,9 +215,9 @@ All direct controls, Gemini function calls, and local gesture proposals normaliz
 
 Rules:
 
-- `sequence` is strictly greater than the last accepted sequence for the in-memory session dispatcher. Duplicate `actionId` or sequence is rejected.
+- `sequence` is strictly greater than `live_sessions.last_action_sequence`; the action transaction conditionally advances it only when the decision executes or reserves confirmation. Duplicate `actionId` or sequence is rejected, including after reconnect.
 - `confidence` is required and 0–1 for gestures, optional for voice, and null for direct actions.
-- The session, item, bag item, and result-set references in arguments must be drawn from the server-provided current session snapshot. Arbitrary URLs/text commands are invalid.
+- The session, item, bag item, and result-set references in arguments must be drawn from the server-provided current session snapshot. `resultSetId` must equal the row's current bounded result-set identity; product payloads remain transient. Arbitrary URLs/text commands are invalid.
 - Gesture thresholds and the exact small vocabulary are set by the dual-realtime spike. Below-threshold input is ignored, never guessed.
 - Gemini may call only these action names; manual tool responses report `accepted`, `confirmation_required`, or a safe rejection.
 

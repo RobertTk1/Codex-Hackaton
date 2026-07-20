@@ -1,6 +1,6 @@
 # Data Contract
 
-- **Status:** Complete; awaiting repeat data review
+- **Status:** Approved data contract; cross-contract repairs applied
 - **Date:** 2026-07-20
 - **Database:** Supabase Postgres
 - **Binary storage:** Supabase private Storage
@@ -25,6 +25,13 @@ This contract is exact enough to produce migrations and shared Zod schemas. It d
 | DR-011 | Expiring rows, authenticated object reads, and signed URLs fail closed at the logical deadline even when physical purge retries. |
 | DR-012 | Every photo has a non-null deadline at creation; bounded activity/report extensions cannot revive expired evidence. |
 | DR-013 | A minimal private deletion request plus a caller-derived policy function blocks every customer operation before asynchronous purge. |
+| CR-001 | Favorite brands are now a distinct ordered record, while category sizes carry an exact `known`, `unknown`, or `not_applicable` status. |
+| CR-002 | Photo upload now uses a server-created Supabase signed upload token plus a signed completion token; customers have no general Storage insert grant. |
+| CR-003 | Photo order is an explicit draft mutation backed by a deferrable unique position constraint. |
+| CR-004 | Live sessions require camera consent at creation, add microphone/visual consent only when Gemini is enabled, and persist only bounded sequence/result-set state needed to reject stale actions. |
+| CR-005 | General API idempotency now has a bounded private record; durable outcomes replay by subject while upload, handoff, and realtime credentials are re-minted rather than persisted. |
+| CR-006 | Photo replacement now validates the new object before an atomic same-position metadata swap and makes the old object inaccessible before physical cleanup. |
+| CR-007 | Recommendations can form deterministic report-local suggested-outfit groups without persisting mutable retailer facts. |
 
 ## Contract decisions
 
@@ -33,9 +40,9 @@ This contract is exact enough to produce migrations and shared Zod schemas. It d
 3. Every customer-owned `public` row carries `owner_id uuid not null`. Child tables use composite foreign keys to `(owner_id, parent_id)` so ownership cannot diverge from the parent.
 4. A submitted profile is an immutable evidence set. Corrections create a new draft with `derived_from_profile_id`; completed reports remain reproducible rather than silently changing beneath the customer.
 5. Provider bodies, transcripts, prompts, copied Shopify payloads/images, and raw media bytes are never stored in Postgres. JSONB is used only for the bounded shapes specified below.
-6. Media objects are immutable. Replacing a photo creates a new object/row; browser Storage upsert is not enabled.
+6. Media objects are immutable. Replacing a photo creates a new object/row; signed upload tokens are issued with upsert disabled.
 7. Public schema exposure is explicit. Each migration grants only named operations in addition to enabling RLS; current Supabase projects do not automatically expose new tables through the Data API.
-8. Worker, transfer-token, account-deletion, notification, and outbound-event records live in non-exposed `private`; customer roles receive no table access. `authenticated` receives narrowly scoped schema usage and execute only for the no-argument access-check function used by RLS.
+8. Worker, request-idempotency, transfer-token, account-deletion, notification, and outbound-event records live in non-exposed `private`; customer roles receive no table access. `authenticated` receives narrowly scoped schema usage and execute only for the no-argument access-check function used by RLS.
 9. No customer-data soft deletion column exists. A minimal private account-deletion request is an authorization block and purge-control record, not retained product data; customer access is revoked first, objects are deleted, and rows are then physically removed.
 10. A Storage path records the creation owner for immutable naming only. Current authorization always comes from the unexpired matching Postgres metadata row, so anonymous-to-existing-account transfer never copies or renames object bytes.
 11. Logical expiry is the customer-access boundary. Physical deletion is idempotent cleanup and may retry without extending access.
@@ -45,6 +52,7 @@ This contract is exact enough to produce migrations and shared Zod schemas. It d
 ```mermaid
 erDiagram
   AUTH_USER ||--o{ PROFILE : owns
+  PROFILE ||--o{ FAVORITE_BRAND : prefers
   PROFILE ||--o{ BRAND_SIZE : records
   PROFILE ||--o{ CONSENT_RECORD : records
   PROFILE ||--o{ PHOTO : contains
@@ -65,13 +73,14 @@ erDiagram
   PROFILE ||--o{ LIVE_SESSION : starts
   PROFILE ||--o{ BAG_ITEM : saves
   PROFILE ||--o{ PROCESSING_JOB : schedules
+  PROFILE ||--o{ API_IDEMPOTENCY_RECORD : deduplicates
   PROFILE ||--o{ ANONYMOUS_TRANSFER : transfers
   AUTH_USER ||--o| ACCOUNT_DELETION_REQUEST : blocks
   STYLE_REPORT ||--o{ NOTIFICATION_DELIVERY : notifies
   PROFILE ||--o{ OUTBOUND_EVENT : records
 ```
 
-`AUTH_USER` is `auth.users`. `PROCESSING_JOB`, `ANONYMOUS_TRANSFER`, `ACCOUNT_DELETION_REQUEST`, `NOTIFICATION_DELIVERY`, and `OUTBOUND_EVENT` are private operational tables. The deletion request intentionally has no foreign key to `auth.users` so its access block and non-sensitive completion evidence survive Auth-user deletion for the bounded operational window.
+`AUTH_USER` is `auth.users`. `PROCESSING_JOB`, `API_IDEMPOTENCY_RECORD`, `ANONYMOUS_TRANSFER`, `ACCOUNT_DELETION_REQUEST`, `NOTIFICATION_DELIVERY`, and `OUTBOUND_EVENT` are private operational tables. The deletion request intentionally has no foreign key to `auth.users` so its access block and non-sensitive completion evidence survive Auth-user deletion for the bounded operational window.
 
 ## Shared conventions
 
@@ -112,6 +121,7 @@ These are `text` columns with named check constraints, not Postgres enum types, 
 | `onboarding_step` | `welcome`, `personal_details`, `brand_sizing`, `photos`, `photo_review`, `taste`, `account`, `profile_review`, `complete` |
 | `consent_purpose` | `profile_processing`, `photo_analysis`, `garment_extraction`, `generated_likeness_preview`, `account_connection`, `live_camera`, `live_microphone`, `gemini_visual_context` |
 | `consent_decision` | `granted`, `revoked` |
+| `brand_size_status` | `known`, `unknown`, `not_applicable` |
 | `photo_status` | `uploaded`, `accepted`, `rejected`, `processing`, `partial`, `complete`, `failed` |
 | `asset_kind` | `garment_cutout`, `wardrobe_preview`, `tryon_still` |
 | `asset_status` | `processing`, `accepted`, `rejected`, `failed` |
@@ -162,7 +172,7 @@ Constraints:
 - `unique (owner_id, id)` supports composite child ownership.
 - Partial unique index permits at most one `active` profile per owner.
 - A non-draft profile requires name, age, adult confirmation, gender, height, and `current_step='complete'`.
-- Only a draft may change customer-input evidence: profile fields, brand sizes, photos, photo signals, extracted garments, taste candidates, and reactions. Those rows freeze at submission except garment review completed by the already-running extraction pipeline.
+- Only a draft may change customer-input evidence: profile fields, favorite brands, brand sizes, photos, photo signals, extracted garments, taste candidates, and reactions. Those rows freeze at submission except garment review completed by the already-running extraction pipeline.
 - A submitted or active profile may receive system-output children: report runs, immutable reports/sections/recommendations, generated assets/lineage, feedback, live sessions, and bag items. Report-output records are insert-only except for the explicitly named preview attachment, status, and lifecycle fields.
 - `derived_from_profile_id` uses a simple `on delete set null` lineage FK; draft creation validates the same owner. It is null only for the first profile or after an intentionally purged source profile.
 
@@ -170,11 +180,23 @@ Evidence/output mutation matrix:
 
 | Record | Draft | Submitted | Active/archived |
 |---|---|---|---|
-| Profile answers, brand sizes, photos, candidates, reactions | create/update | frozen | frozen |
+| Profile answers, favorite brands, brand sizes, photos, candidates, reactions | create/update | frozen | frozen |
 | Photo signals and extracted garments | create/update while extraction is pending | complete already-enqueued work only | frozen until expiry purge |
 | Report runs/reports/sections/recommendations | none | create/publish | read; recommendation may attach one accepted preview from null |
 | Generated assets and lineage | cutouts may be created | cutouts/previews may complete | previews/try-on assets may be created; lifecycle status/expiry only |
 | Feedback, live sessions, bag | none | feedback only after report publish | named customer/system transitions only |
+
+### `public.favorite_brands`
+
+| Column | Type / default | Null | Rules |
+|---|---|---|---|
+| `id`, `owner_id`, `profile_id` | uuid | no | Composite owner/profile FK |
+| `brand_name` | text | no | Trimmed 1–80; customer spelling preserved |
+| `brand_key` | text | no | Application-normalized lowercase/whitespace key, 1–80 |
+| `preference_order` | smallint | no | 1–20 |
+| `created_at`, `updated_at` | timestamptz | no | Standard timestamps |
+
+Unique `(profile_id, brand_key)` and `(profile_id, preference_order)`. A complete profile has 1–20 favorite brands. Rows are mutable only while the parent is a draft. A favorite brand may have zero or more category-size rows; selecting a brand never invents a category or size.
 
 ### `public.brand_sizes`
 
@@ -184,11 +206,12 @@ Evidence/output mutation matrix:
 | `brand_name` | text | no | Trimmed 1–80; customer spelling preserved |
 | `brand_key` | text | no | Application-normalized lowercase/whitespace key, 1–80 |
 | `category` | text | no | Trimmed 1–80, e.g. `jeans`, `tops` |
-| `size_label` | text | no | Trimmed 1–40, e.g. `26`, `M` |
+| `size_status` | text | no | `known`, `unknown`, or `not_applicable` |
+| `size_label` | text | yes | Trimmed 1–40 only when `size_status='known'`, e.g. `26`, `M` |
 | `preference_order` | smallint | no | 1–20 |
 | `created_at`, `updated_at` | timestamptz | no | Standard timestamps |
 
-Unique `(profile_id, brand_key, lower(category))`; maximum 20 rows per profile is enforced when profile completion is submitted. Rows are mutable only while the parent is a draft.
+Unique `(profile_id, brand_key, lower(category))`; maximum 20 rows per profile is enforced when profile completion is submitted. `known` requires a nonblank `size_label`; `unknown` and `not_applicable` require it to be null. Every `brand_key` must match an owned `favorite_brands` row for the same profile. Rows are mutable only while the parent is a draft.
 
 ### `public.consent_records`
 
@@ -212,7 +235,7 @@ Consent is append-only: authenticated users may select and insert owned rows; no
 | `storage_path` | text | no | Unique immutable private-object path; creation-owner segment is not authorization authority |
 | `status` | text / `uploaded` | no | `photo_status` |
 | `position` | smallint | no | 1–12; unique per profile |
-| `media_type` | text | no | `image/jpeg`, `image/png`, or `image/webp` |
+| `media_type` | text | no | `image/jpeg`, `image/png`, `image/webp`, `image/heic`, or `image/heif` |
 | `byte_size` | bigint | no | 1–15,728,640 bytes |
 | `width_px`, `height_px` | integer | no | Each 640–12,000 after decode |
 | `sha256` | bytea | no | Exactly 32 bytes; duplicate detection |
@@ -221,7 +244,7 @@ Consent is append-only: authenticated users may select and insert owned rows; no
 | `expires_at` | timestamptz | no | Initial draft deadline; bounded server-only activity/report extension below |
 | `created_at`, `updated_at` | timestamptz | no | Standard timestamps |
 
-Unique `(profile_id, position)` and `(profile_id, sha256)`. Completion requires 8–12 accepted photos in one server transaction. A rejected photo does not affect accepted siblings. Photo rows are server-written after Storage verification; customers can select owned, unexpired metadata and request deletion through the API.
+The `(profile_id, position)` uniqueness is a named `deferrable initially immediate` constraint so the server can defer it inside one photo-reorder or photo-replacement transaction; `(profile_id, sha256)` remains immediately unique. Reorder locks the owned draft profile and all of its photo rows, requires the submitted IDs to be the exact current set with no duplicates, assigns positions 1..N, increments the profile revision once, and makes no object change. A replacement slot is bound to the exact old photo ID, position, owner, profile revision, and new object path. Completion locks that old row, verifies it is still current, defers position uniqueness, inserts the verified replacement, deletes the old row/cascades, and increments revision once. After commit the server deletes the known old object; a failed physical delete leaves an inaccessible orphan for reconciliation and never restores the old customer-visible row. Completion requires 8–12 accepted photos in one server transaction. A rejected photo does not affect accepted siblings. Photo rows are server-written after Storage verification; customers can select owned, unexpired metadata and request deletion through the API.
 
 Every uploaded/rejected/accepted photo receives `expires_at = now() + interval '7 days'` in its server metadata-creation transaction. While the anonymous profile remains an unexpired draft, a validated accepted customer activity may move every still-unexpired photo and derived child deadline to no later than `activity_at + interval '7 days'`; direct customer writes cannot change a deadline. Report publication may move each still-unexpired source-photo deadline once to `report.created_at + interval '30 days'`. Neither path may update a row whose existing deadline is at or before transaction time, and consent revocation or deletion may only shorten it. Derived deadlines remain less than or equal to their source-photo deadline; a shorter derived deadline need not be extended.
 
@@ -417,9 +440,12 @@ Both guidance arrays contain 1–8 entries. The disclosure must state that the r
 | `catalog_product_ref`, `catalog_shop_ref` | text | no | Stable opaque Shopify references |
 | `catalog_variant_ref` | text | yes | Stable variant reference when selected |
 | `preview_asset_id` | uuid | yes | Same-owner accepted `wardrobe_preview` asset |
+| `outfit_group_key` | text | yes | Stable report-local grouping key, 1–80; all three outfit columns are set or null together |
+| `outfit_group_title` | text | yes | Customer-facing outfit label, 1–120 |
+| `outfit_item_position` | smallint | yes | 1–6 within the outfit group |
 | `created_at` | timestamptz / now | no | Immutable report evidence |
 
-Product title, seller display name, price, inventory, retailer URL, and images are refreshed live and are never report authority. If catalog refresh or generated preview fails, rationale plus current product link fallback still completes the report.
+Product title, seller display name, price, inventory, retailer URL, and images are refreshed live and are never report authority. Rows with the same non-null `outfit_group_key` form one suggested outfit; the report-local title and position are immutable guidance while every product fact is refreshed live. The database enforces that the three grouping fields are either all null or all present, and a partial unique index prevents duplicate positions within a report/group. If catalog refresh or generated preview fails, rationale plus current product link fallback still completes the report.
 
 ### `public.report_feedback`
 
@@ -475,14 +501,18 @@ Exactly one source family is set per row: photo, garment, or catalog product+sho
 | `selected_recommendation_id` | uuid | yes | Same-owner recommendation |
 | `catalog_product_ref`, `catalog_shop_ref` | text | yes | Stable current selection refs |
 | `catalog_variant_ref` | text | yes | Stable selected variant |
-| `camera_consent_record_id`, `microphone_consent_record_id` | uuid | no | Latest granted same-owner consent events |
-| `gemini_visual_consent_record_id` | uuid | yes | Required only if visual context is transmitted |
+| `camera_consent_record_id` | uuid | no | Latest granted same-owner camera consent at session creation |
+| `microphone_consent_record_id` | uuid | yes | Set only when Gemini voice is enabled; latest granted same-owner consent |
+| `gemini_visual_consent_record_id` | uuid | yes | Required only if sampled video/screen context is transmitted |
+| `gemini_context_mode` | text | yes | `structured_state` or `sampled_video`; set only when Gemini is enabled |
+| `result_set_id` | uuid | yes | Current transient catalog-result identity; no product payload is stored |
+| `last_action_sequence` | bigint / 0 | no | `>= 0`; conditional update rejects stale/duplicate proposals |
 | `connection_ms`, `first_frame_ms`, `last_action_latency_ms` | integer | yes | Each 0–600,000; aggregate timing only |
 | `last_error_code` | text | yes | Stable safe code, maximum 80 |
 | `started_at`, `ended_at` | timestamptz | yes | State-consistent |
 | `created_at`, `updated_at` | timestamptz | no | Standard timestamps |
 
-No provider credential, camera/video frame, audio, transcript, raw gesture frame, or Gemini/Decart payload is persisted. `ended` and `failed` are terminal. Visual-context consent can be absent while structured-state voice remains enabled.
+No provider credential, provider session identifier, camera/video frame, audio, transcript, raw gesture frame, catalog payload, or Gemini/Decart payload is persisted. `ended` and `failed` are terminal. Session creation requires camera consent only. Enabling Gemini atomically records microphone consent plus context mode; `structured_state` requires no visual-context consent, while `sampled_video` requires the latest granted visual-context consent. Disabling voice does not end Decart or the live session.
 
 ### `public.bag_items`
 
@@ -546,6 +576,23 @@ No extra keys are accepted. `job_kind` must equal the row. `operation_stage` is 
 | `retention_purge` | `enumerate`, `delete_object`, `delete_rows`, `reconcile` |
 
 The mapping is a shared Zod discriminated union; database checks bound `job_kind`, text length, JSON object type, and allowed top-level keys without storing provider bodies.
+
+### `private.api_idempotency_records`
+
+| Column | Type / default | Null | Rules |
+|---|---|---|---|
+| `id`, `owner_id` | uuid | no | Server-derived current Auth subject; primary ID is generated |
+| `operation` | text | no | Allowlisted API `operationId`, maximum 80 |
+| `idempotency_key` | uuid | no | Exact client header value |
+| `request_sha256` | bytea | no | Exactly 32 bytes over canonical validated input |
+| `subject_kind` | text | no | Allowlisted bounded result kind, maximum 80 |
+| `subject_id` | uuid | yes | Durable result row when one exists |
+| `subject_revision` | integer | yes | Exact result revision/sequence when needed to reconstruct |
+| `http_status` | smallint | no | Original 2xx status only |
+| `expires_at` | timestamptz | no | At most 24 hours after creation |
+| `created_at` | timestamptz / now | no | Immutable |
+
+Unique `(owner_id, operation, idempotency_key)`. The operation transaction creates the domain result and this record atomically. A replay with the same request hash reconstructs the safe current projection of that exact subject/revision; a different hash returns `IDEMPOTENCY_KEY_REUSED`. No response body, customer text, email, product payload, URL, signed upload/download token, provider credential, transfer token, or realtime credential is stored. When a successful response contains an ephemeral token, replay returns the same durable subject with a newly scoped token and a new expiry. Account deletion purges these rows, and ordinary cleanup deletes them at `expires_at`.
 
 ### `private.anonymous_transfers`
 
@@ -628,7 +675,7 @@ The following rules require a short server transaction because Postgres check co
 Lock the draft profile, verify its `revision`, and require:
 
 - required personal fields and adult confirmation;
-- at least one and at most 20 brand-size rows;
+- 1–20 favorite-brand rows and at least one but no more than 20 category-size rows whose brand keys belong to that favorite set; unknown/not-applicable rows count as supplied context without inventing a size;
 - 8–12 accepted photos;
 - current granted consent for profile processing, photo analysis, garment extraction, and account connection;
 - 12–20 active taste reactions;
@@ -666,7 +713,7 @@ Each public-table migration includes `alter table public.<table_name> enable row
 |---|---|---|---|
 | All `public` customer tables | none | select only where owned and access-active | Additional named grants below |
 | `profiles` | none | select, insert, update | Draft creation/update only; owner immutable through customer policy |
-| `brand_sizes` | none | select, insert, update, delete | Only while parent profile is draft |
+| `favorite_brands`, `brand_sizes` | none | select, insert, update, delete | Only while parent profile is draft |
 | `consent_records` | none | select, insert | Append-only owned event |
 | `photos`, `photo_style_signals`, `extracted_garments` | none | select only before logical expiry | Server/worker writes only |
 | `taste_candidates` | none | select | Server writes only |
@@ -770,7 +817,7 @@ Update operations always have both a select policy and `using`/`with check`, inc
 
 | Bucket | Private | Object limit | Allowed media | Writer |
 |---|---|---:|---|---|
-| `customer-photos` | yes | 15 MiB | JPEG, PNG, WebP | Owned authenticated browser; immutable create |
+| `customer-photos` | yes | 15 MiB | JPEG, PNG, WebP, HEIC, HEIF | Browser with one-path server-created signed upload token; immutable create |
 | `derived-assets` | yes | 10 MiB | PNG, JPEG, WebP | Server/worker only |
 | `generated-previews` | yes | 10 MiB | PNG, JPEG, WebP | Server/worker only |
 
@@ -782,18 +829,11 @@ derived-assets/{creation_owner_id}/{profile_id}/{asset_id}/{kind}.{ext}
 generated-previews/{creation_owner_id}/{profile_id}/{asset_id}/preview.{ext}
 ```
 
-`creation_owner_id` is immutable naming provenance, not current authorization. It equals the authenticated owner at browser upload or the metadata owner when a worker reserves a server-generated path. An anonymous-account transfer changes relational `owner_id` only; objects are never copied, moved, or renamed. Names contain no email, customer name, brand, product title, or original filename. Extension is derived from decoded media, not customer filename.
+`creation_owner_id` is immutable naming provenance, not current authorization. It equals the verified application owner when the API reserves a server-generated path. An anonymous-account transfer changes relational `owner_id` only; objects are never copied, moved, or renamed. Names contain no email, customer name, brand, product title, or original filename. The reserved extension is selected from the allowlisted declaration and must agree with server-decoded media before a row is accepted.
 
 ### Storage policies
 
-`customer-photos` grants authenticated customers immutable `insert` only when:
-
-- `(select private.current_owner_access_allowed())` is true;
-- the bucket is `customer-photos`;
-- the first path segment equals `(select auth.uid())::text` at creation;
-- the profile/photo segments are UUID-shaped and the extension is bucket-allowed.
-
-There is no customer `update` policy, so upsert/overwrite fails, and no customer `delete` policy; deletion goes through the API after lifecycle validation under server authority. `derived-assets` and `generated-previews` are inserted/deleted only by the server/worker.
+Customers receive no general `insert`, `update`, or `delete` Storage policy. After checking current identity, profile ownership/revision, limits, declaration, and account status, the API uses server authority to call Supabase `createSignedUploadUrl(path, { upsert: false })`. The browser may upload only that exact path with `uploadToSignedUrl(path, token, file)`; the signed token is provider-valid for two hours and does not grant list, read, move, copy, delete, or another path. The API also returns a separate application-signed completion token binding owner pseudonym, profile ID/revision, photo ID, position, declaration, exact path, and an expiry no later than the upload token. Neither token is persisted or logged. An uncompleted object is removed only after the provider token has expired plus a bounded reconciliation grace period. `derived-assets` and `generated-previews` are inserted/deleted only by the server/worker.
 
 One authenticated-object read policy on `storage.objects` uses `storage.allow_only_operation('storage.object.get_authenticated')`; there is no customer `object.list` policy. The read is allowed only when the account access check passes and one exact metadata match exists:
 
@@ -827,7 +867,7 @@ The actual policy wraps this bucket expression with `(select private.current_own
 
 Buckets stay private. The API may create a signed URL only after the same access-active, current-owner, accepted-state, and future-expiry checks. Signed-URL lifetime is `min(300 seconds, floor(extract(epoch from (expires_at - transaction_timestamp()))))`; non-positive results fail rather than minting a URL. Therefore a URL never remains valid after logical expiry. Signed URL creation uses server authority; the browser cannot mint arbitrary bucket URLs.
 
-The application verifies decoded type, byte count, dimensions, and SHA-256 before accepting the matching metadata row. An object without a valid metadata row is quarantined from processing and removed by reconciliation.
+The completion API verifies the application token, exact object/path, decoded type, byte count, dimensions, and SHA-256 before accepting the matching metadata row. HEIC/HEIF is decoded server-side and converted in memory to an accepted provider format when a downstream provider lacks native support; the original remains the single private source object and no untracked conversion is persisted. An object without a valid metadata row is unreadable to customers, quarantined from processing, and removed by reconciliation.
 
 ## Index contract
 
@@ -838,10 +878,12 @@ Every foreign-key column receives an index unless it is already the leftmost pre
 | `profiles_owner_status_idx (owner_id, status, updated_at desc, id desc)` | Resume latest draft/active profile; RLS owner predicate |
 | `profiles_one_active_idx unique (owner_id) where status='active'` | One active profile |
 | `profiles_anonymous_cleanup_idx (last_activity_at, id) where status='draft'` | Seven-day cleanup candidates |
+| `favorite_brands_profile_order_idx unique (profile_id, preference_order)` | Ordered favorite brands |
+| `favorite_brands_profile_key_idx unique (profile_id, brand_key)` | One normalized favorite-brand choice |
 | `brand_sizes_profile_order_idx (profile_id, preference_order, id)` | Ordered profile sizes |
 | `brand_sizes_profile_brand_category_idx unique (profile_id, brand_key, lower(category))` | One size per normalized brand/category |
 | `consent_records_current_idx (profile_id, purpose, captured_at desc, id desc)` | Latest purpose decision |
-| `photos_profile_position_idx unique (profile_id, position)` | Ordered upload/review |
+| `photos_profile_position_key deferrable unique (profile_id, position)` | Ordered upload/review and atomic reordering |
 | `photos_profile_sha_idx unique (profile_id, sha256)` | Duplicate prevention |
 | `photos_expiry_idx (expires_at, id)` | Mandatory-deadline retention purge and logical-expiry tests |
 | `photo_style_signals_photo_idx unique (photo_id)` | One direct signal record |
@@ -861,12 +903,14 @@ Every foreign-key column receives an index unless it is already the leftmost pre
 | `style_reports_run_idx unique (report_run_id)` | One report per run |
 | `report_sections_report_position_idx unique (report_id, position)` | Ordered report sections |
 | `recommendations_report_position_idx unique (report_id, position)` | Ordered recommendations |
+| `recommendations_outfit_position_idx unique (report_id, outfit_group_key, outfit_item_position) where outfit_group_key is not null` | Deterministic suggested-outfit composition |
 | `report_feedback_report_created_idx (report_id, created_at desc, id desc)` | Feedback history |
 | `generated_assets_profile_kind_idx (profile_id, kind, created_at desc, id desc)` | Owned assets by kind |
 | `generated_assets_expiry_idx (expires_at, id) where status='accepted'` | Preview/derived purge |
 | `generated_assets_consent_idx (generation_consent_record_id) where generation_consent_record_id is not null` | Likeness consent lineage and revocation purge |
 | `generated_asset_sources_asset_idx (asset_id, id)` | Lineage traversal/deletion |
 | `live_sessions_profile_created_idx (profile_id, created_at desc, id desc)` | Recent session/resume |
+| `live_sessions_profile_result_set_idx (profile_id, result_set_id) where result_set_id is not null` | Validate current live catalog-result identity |
 | `live_sessions_cleanup_idx (ended_at, id) where status in ('ended','failed')` | Global 30-day terminal-session purge |
 | `bag_items_profile_saved_idx (profile_id, saved_at desc, id desc)` | Keyset-paginated bag |
 | `bag_items_stable_unique_idx` | Unique normalized stable product/shop/variant tuple |
@@ -874,6 +918,8 @@ Every foreign-key column receives an index unless it is already the leftmost pre
 | `processing_jobs_lease_idx (lease_expires_at, id) where status='leased'` | Stale lease recovery |
 | `processing_jobs_cleanup_idx (completed_at, id) where status in ('succeeded','failed','cancelled')` | Global terminal-job purge |
 | `processing_jobs_idempotency_idx unique (idempotency_key)` | Durable deduplication |
+| `api_idempotency_owner_operation_key_idx unique (owner_id, operation, idempotency_key)` | Request replay/conflict lookup |
+| `api_idempotency_expiry_idx (expires_at, id)` | Bounded request-deduplication cleanup |
 | `anonymous_transfers_token_idx unique (token_sha256)` | One-use token lookup |
 | `anonymous_transfers_expiry_idx (expires_at, id) where status='prepared'` | Expire unused transfers |
 | `account_deletion_requests_cleanup_idx (completed_at, subject_owner_id) where status='completed'` | Remove bounded non-sensitive deletion evidence after 30 days |
@@ -961,7 +1007,7 @@ Named database check constraints enforce all row-local required/forbidden fields
 | Report run `succeeded` | `started_at`, `completed_at`, stage `finalizing`, report row | error fields | terminal | DB check + report publish transaction |
 | Report run `failed` | `started_at`, `completed_at`, error code/details | report row | terminal; retry is a new sequence row | DB check + worker terminal update |
 | Report run `cancelled` | `completed_at`, cancellation error code | report row | terminal | DB check + cancellation transaction |
-| Live `created` | consent references | start/end/error fields | `connecting`, `failed` | DB check + session transition update |
+| Live `created` | camera consent; sequence 0 | start/end/error fields; microphone/visual consent and context mode until Gemini enablement | `connecting`, `failed` | DB check + session transition update |
 | Live `connecting`/`ready`/`reconnecting` | `started_at` | `ended_at`; error absent except reconnect diagnostic | ready/reconnecting/ended/failed per architecture | DB check + conditional update |
 | Live `ended` | `started_at`, `ended_at` | `last_error_code` | terminal | DB check |
 | Live `failed` | `ended_at`, `last_error_code`; `started_at` optional if setup failed | — | terminal | DB check |
@@ -989,7 +1035,7 @@ Source-specific checks also enforce:
 - Taste candidate `curated_fallback` requires the curated asset key and forbids garment/fingerprint/catalog fields.
 - Generated asset source requires exactly one source family. Catalog source requires product+shop together; non-catalog rows require `catalog_image_transmitted=false`.
 - Bag source checks require the matching provenance FK at creation for recommendation/live sources and no FK for product-detail source; source-retention may later null the FK. The expression unique index treats null variant as the empty canonical sentinel.
-- Consent-event references used by generated assets and live sessions are additionally validated for exact purpose and granted decision in the creating transaction; ordinary FKs alone cannot enforce those parent values.
+- Consent-event references used by generated assets and live sessions are additionally validated for exact purpose and granted decision in the creating/enabling transaction; ordinary FKs alone cannot enforce those parent values. Live camera is mandatory at session creation. Microphone consent becomes mandatory only when Gemini is enabled; sampled video additionally requires visual-context consent, while structured state forbids that visual reference.
 
 ## Retention and deletion matrix
 
@@ -1004,6 +1050,7 @@ Source-specific checks also enforce:
 | Live video/audio/transcript/gesture frames | Never persisted | No database/storage action because no record exists |
 | Live session aggregate metadata | 30 days after end | Physical row deletion |
 | Successful/failed processing jobs | 30 days after terminal state | Physical row deletion after subject reconciliation |
+| API idempotency records | Maximum 24 hours or account deletion | Reconstruct from durable subject; delete bounded metadata row |
 | Anonymous transfer tokens | On consumption or 15-minute expiry; row metadata max 24 hours | Destroy plaintext immediately; physically delete token row |
 | Completed account-deletion request | Later of 30 days after completion or verified maximum prior-JWT lifetime plus skew | Delete non-sensitive private enforcement/cleanup row after Auth user and prior JWT lifetime are gone |
 | Notification delivery and outbound event | 30 days | Physical row deletion |
@@ -1017,10 +1064,10 @@ Consent revocation may shorten an expiry but never lengthen it. Draft activity a
 Actual timestamped filenames must be created with `supabase migration new`; the implementation must not invent timestamps or change the remote database directly.
 
 1. `create_private_schema_and_helpers` — private schema, least-privilege defaults, `set_updated_at`, account-deletion request/access-check, and cleanup authority.
-2. `create_profile_and_consent_contract` — profiles, brand sizes, consent, RLS/grants.
+2. `create_profile_and_consent_contract` — profiles, favorite brands, brand sizes, consent, RLS/grants.
 3. `create_photo_extraction_and_taste_contract` — photos, signals, garments, candidates, reactions, first private Storage bucket/policies.
 4. `create_report_and_asset_contract` — report runs/reports/sections/recommendations/feedback/assets/lineage and derived buckets.
-5. `create_live_bag_and_operations_contract` — live sessions, bag, private jobs/transfers/notifications/outbound events and remaining privileged functions.
+5. `create_live_bag_and_operations_contract` — live sessions, bag, private jobs/idempotency/transfers/notifications/outbound events and remaining privileged functions.
 6. `seed_synthetic_fixtures` — non-sensitive test-only fixtures; never founder/customer photos.
 
 The first integrated one-photo/one-garment slice may apply only the required prefix plus live/session tables, but final table and enum names must match this contract so the report-led extension does not need parallel schemas.
@@ -1053,7 +1100,8 @@ The first integrated one-photo/one-garment slice may apply only the required pre
 | Boundary | Runtime validation | Database enforcement |
 |---|---|---|
 | Profile answer | Zod trim/type/range and current-step schema | Type, range, non-draft completeness, ownership |
-| Brand/category size | Zod normalized key + bounded label | Uniqueness, parent draft ownership, row maximum at submit |
+| Favorite brand | Zod normalized key + bounded preserved label | Unique ordered choice, parent draft ownership, 1–20 at submit |
+| Brand/category size | Zod normalized key + exact status/nullable-label union | Favorite-brand membership, uniqueness, parent draft ownership, row maximum at submit |
 | Consent | Exact purpose/version/hash schema | Append-only grants, owner/profile FK, allowed enum |
 | Photo | Browser preflight then server decode/signature/hash | Media metadata ranges, unique position/hash, immutable path, non-null bounded expiry |
 | Extraction/model output | Full discriminated Zod parse and quality checks | Bounded arrays/confidence/provenance; no raw body |
@@ -1070,7 +1118,7 @@ The first integrated one-photo/one-garment slice may apply only the required pre
 | Datum | Authority | Stored representation |
 |---|---|---|
 | Identity and anonymous/permanent status | Supabase Auth | `auth.users`; immutable `owner_id` references |
-| Profile answers and brand/category sizes | Customer accepted input | Frozen profile and child rows |
+| Profile answers, favorite brands, and brand/category sizes | Customer accepted input | Frozen profile and child rows |
 | Consent | Append-only customer decision event | Version/hash/purpose/decision event |
 | Original/derived bytes | Private Storage object | Opaque path + verified metadata/hash |
 | Style signals/report | Validated application output | Bounded structured records with provider/method provenance |
@@ -1091,7 +1139,7 @@ Before the data-contract implementation ticket can pass:
 3. Test permanent user A, permanent user B, anonymous user A, expired session, and bare publishable-key access across every table and bucket.
 4. Verify anonymous users cannot cross-read and cannot access permanent-only report/bag operations before account connection.
 5. Verify update policies have select access plus both `using` and `with check` and cannot reassign `owner_id`.
-6. Verify Storage overwrite/listing fails, foreign-prefix inserts fail, authenticated reads require an exact current metadata owner/path/state/deadline match, and server reconciliation removes orphan objects.
+6. Verify arbitrary Storage insert/update/list/delete fails; a server-created signed token uploads only its exact immutable path before expiry; replay/upsert and altered-path uploads fail; authenticated reads require an exact current metadata owner/path/state/deadline match; and server reconciliation removes orphan objects only after token expiry plus grace.
 7. Verify the private schemas/functions are absent from customer Data API access and `PUBLIC` execute is revoked.
 8. Verify two workers claim different jobs with `skip locked`, external calls hold no transaction, stale leases recover, and idempotency prevents duplicate reports/emails.
 9. Verify account transfer replay, expiry, wrong owner, wrong revision, and existing-account conflict behavior.

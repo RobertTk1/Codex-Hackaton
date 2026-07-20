@@ -506,7 +506,7 @@
         "navigation": {},
         "labels": {
           "count": "0 of 8 required photos",
-          "accepted": "JPG, PNG, or HEIC"
+          "accepted": "JPG, PNG, HEIC, or WebP"
         },
         "helper_text": {
           "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
@@ -532,7 +532,7 @@
               "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
               "labels": {
                 "count": "0 of 8 required photos",
-                "accepted": "JPG, PNG, or HEIC"
+                "accepted": "JPG, PNG, HEIC, or WebP"
               },
               "helper_text": {
                 "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
@@ -549,7 +549,7 @@
               "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
               "labels": {
                 "count": "0 of 8 required photos",
-                "accepted": "JPG, PNG, or HEIC"
+                "accepted": "JPG, PNG, HEIC, or WebP"
               },
               "helper_text": {
                 "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
@@ -566,7 +566,7 @@
               "supporting_copy": "Add 8–12 full-body photos of outfits you feel great in.",
               "labels": {
                 "count": "0 of 8 required photos",
-                "accepted": "JPG, PNG, or HEIC"
+                "accepted": "JPG, PNG, HEIC, or WebP"
               },
               "helper_text": {
                 "quality": "Choose clear, well-lit photos that show your full outfit. One person per photo works best.",
@@ -733,7 +733,7 @@
         },
         "helper_text": {},
         "validation": {
-          "format": "Choose a JPG, PNG, or HEIC image.",
+          "format": "Choose a JPG, PNG, HEIC, or WebP image.",
           "duplicate": "You already added this photo.",
           "full_body": "Choose a photo that shows your full outfit.",
           "unreadable": "We couldn’t open this image. Try another one."

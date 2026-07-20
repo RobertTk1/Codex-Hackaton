@@ -1,10 +1,10 @@
 # Client/Server API Contract
 
-- **Status:** Complete for application-contract review
-- **Version:** `2026-07-20.1`
+- **Status:** Approved after cross-contract review
+- **Version:** `2026-07-20.2`
 - **Base path:** `/api/v1`
 - **Wire format:** UTF-8 JSON unless an operation explicitly returns no body
-- **Machine-readable companion:** [OpenAPI 3.1](openapi.yaml)
+- **Machine-readable companions:** [OpenAPI 3.1 operations](openapi.yaml), [exact success schemas](schemas.yaml), and [validated operation examples](examples.yaml)
 
 This contract defines the browser-to-Magic-Mirror API. Supabase Auth and the initial private photo upload are the only approved browser-to-managed-service boundaries; all provider calls and all privileged database/storage work remain server-side. The [data contract](data.md) remains authoritative for stored names, constraints, and lifecycle rules.
 
@@ -21,10 +21,10 @@ Protected requests send `Authorization: Bearer <Supabase access token>`. The API
 | `Authorization` | Protected operations | Supabase bearer access token; never logged |
 | `Content-Type: application/json` | JSON mutation | Required |
 | `X-Request-Id` | Optional | Client UUID; server generates one when absent and always returns it |
-| `Idempotency-Key` | Named create/action operations | Client UUID, 36 characters; same authenticated owner + operation + body fingerprint returns the first result |
+| `Idempotency-Key` | Named create/action operations | Client UUID, 36 characters; same owner + operation + validated-body fingerprint returns the same durable result; ephemeral upload/realtime/handoff tokens are safely re-minted and never persisted |
 | `If-Match-Revision` | Draft profile mutations | Positive integer equal to current `profiles.revision`; mismatch returns `409 REVISION_CONFLICT` |
 
-Responses include `X-Request-Id`. Successful writes that change a draft profile include `revision`. Secrets, signed URLs, provider bodies, prompts, transcripts, and raw media never enter errors or logs.
+Responses include `X-Request-Id`. Successful writes that change a draft profile include `revision`; a `204` draft mutation returns the new value in `X-Profile-Revision`. Secrets, signed URLs/tokens, provider bodies, prompts, transcripts, and raw media never enter errors or logs.
 
 ### Time and pagination
 
@@ -68,7 +68,7 @@ The `operationId` is the implementation and screen-mapping authority. Inputs lis
 | `getPublicConfiguration` | `GET /configuration` | public | none | `200 PublicConfiguration` with enabled auth methods, upload limits, provider-feature availability, consent versions, and support URL | none | `SERVICE_UNAVAILABLE` |
 | `resolveResume` | `GET /resume` | owned | none | `200 ResumeDecision` with `destination`, `profileId`, `profileStatus`, `currentStep`, `reportRunId?`, `liveSessionId?` | none | `ACCOUNT_DELETION_IN_PROGRESS` |
 | `createOrResumeProfile` | `POST /profiles/resume` | owned | idempotency; body `{ "entry": "landing" | "login" | "new_report" }` | `200 ProfileSnapshot` or `201 ProfileSnapshot` | `profiles` only when no resumable draft exists | `PROFILE_LIMIT_REACHED`, `ACCOUNT_DELETION_IN_PROGRESS` |
-| `getStyleHome` | `GET /style-home` | permanent | none | `200 StyleHomeSnapshot` with current report summary, current recommendations, bag count, recoverable work, and live eligibility | none; Shopify facts may be refreshed synchronously | `NO_ACTIVE_PROFILE`, `CATALOG_TEMPORARILY_UNAVAILABLE` |
+| `getStyleHome` | `GET /style-home` | permanent | none | `200 StyleHomeSnapshot` with current report summary, current recommendations, suggested outfit groups, up to six saved-item previews plus bag count, recoverable work, and direct live eligibility | none; Shopify facts may be refreshed synchronously | `NO_ACTIVE_PROFILE`, `CATALOG_TEMPORARILY_UNAVAILABLE` |
 
 `ResumeDecision.destination` is one of `/onboarding`, `/analysis/{runId}`, `/report`, `/style-home`, `/live/{sessionId}`, or `/`. It is derived from persisted state, not a client-supplied redirect.
 
@@ -79,9 +79,10 @@ The server persists validated facts, not chat transcripts. The browser renders t
 | operationId | Method and path | Auth | Exact input | Success | Writes | Named errors |
 |---|---|---|---|---|---|---|
 | `getProfileSnapshot` | `GET /profiles/{profileId}` | owned | path `profileId` | `200 ProfileSnapshot` | none | `PROFILE_NOT_FOUND`, `PROFILE_EXPIRED` |
-| `submitConversationTurn` | `POST /profiles/{profileId}/conversation/turns` | owned | revision; body `ConversationTurnInput` | `200 ConversationTurnResult` | accepted field(s), `current_step`, `revision`, activity deadline extension | `ANSWER_NEEDS_CLARIFICATION`, `PROFILE_FIELD_INVALID`, `REVISION_CONFLICT`, `PROFILE_NOT_EDITABLE` |
-| `replaceProfileAnswer` | `PUT /profiles/{profileId}/answers/{field}` | owned | revision; path field from the allowed field union; body `{ "value": <field-specific>, "reason": "customer_edit" }` | `200 ConversationTurnResult` with invalidated downstream facts | profile/size change, revision; dependent candidates/run only as allowed by data transactions | same as above plus `DEPENDENT_WORK_ALREADY_PUBLISHED` |
-| `putBrandSizes` | `PUT /profiles/{profileId}/brand-sizes` | owned | revision; body `{ "items": BrandSizeInput[1..20] }` | `200 ProfileSnapshot` | replaces the draft's ordered `brand_sizes` transactionally, revision | `BRAND_SIZE_INVALID`, `DUPLICATE_BRAND_CATEGORY`, `REVISION_CONFLICT` |
+| `submitConversationTurn` | `POST /profiles/{profileId}/conversation/turns` | owned | revision; body `ConversationTurnInput` | `200 ConversationTurnResult` | accepted profile field or favorite-brand/size rows, `current_step`, `revision`, activity deadline extension | `ANSWER_NEEDS_CLARIFICATION`, `PROFILE_FIELD_INVALID`, `BRAND_SIZE_INVALID`, `ADULT_ELIGIBILITY_REQUIRED`, `CONSENT_REQUIRED`, `REVISION_CONFLICT`, `PROFILE_NOT_EDITABLE` |
+| `replaceProfileAnswer` | `PUT /profiles/{profileId}/answers/{field}` | owned | revision; path field from the personal-field union; body `{ "turnId": uuid, "text": "replacement answer", "locale": "BCP-47", "reason": "customer_edit" }` | `200 ConversationTurnResult` with invalidated downstream facts | profile change, revision; dependent candidates/run only as allowed by data transactions | same as above plus `DEPENDENT_WORK_ALREADY_PUBLISHED` |
+| `putFavoriteBrands` | `PUT /profiles/{profileId}/favorite-brands` | owned | revision; body `{ "items": FavoriteBrandInput[1..20] }` | `200 ProfileSnapshot` | replaces ordered `favorite_brands`; removes size rows only for brands explicitly removed; revision | `FAVORITE_BRAND_INVALID`, `DUPLICATE_FAVORITE_BRAND`, `REVISION_CONFLICT` |
+| `putBrandSizes` | `PUT /profiles/{profileId}/brand-sizes` | owned | revision; body `{ "items": BrandSizeInput[0..20] }` | `200 ProfileSnapshot` | replaces ordered `brand_sizes` transactionally, revision | `BRAND_SIZE_INVALID`, `FAVORITE_BRAND_REQUIRED`, `DUPLICATE_BRAND_CATEGORY`, `REVISION_CONFLICT` |
 | `recordConsent` | `POST /profiles/{profileId}/consents` | owned | idempotency; body `ConsentInput` | `201 ConsentReceipt` | append-only `consent_records`; revocation may enqueue purge | `CONSENT_VERSION_INVALID`, `CONSENT_REQUIRED`, `PROFILE_NOT_FOUND` |
 | `submitProfileForReport` | `POST /profiles/{profileId}/report-runs` | permanent | revision + idempotency; body `{ "profileRevision": integer, "notifyWhenReady": boolean }` | `202 ReportRunSnapshot`, `pollAfterMs: 2000`; replay returns `200/202` same run | freezes profile, creates `report_runs` + `processing_jobs`; optional notification intent | `PROFILE_INCOMPLETE`, `PHOTO_MINIMUM_NOT_MET`, `TASTE_MINIMUM_NOT_MET`, `CONSENT_REQUIRED`, `REPORT_ALREADY_SUCCEEDED`, `REVISION_CONFLICT` |
 
@@ -90,34 +91,35 @@ The server persists validated facts, not chat transcripts. The browser renders t
 ```json
 {
   "turnId": "uuid",
-  "targetField": "name | adult_confirmation | gender | age | height | weight",
+  "targetField": "name | adult_confirmation | gender | age | height | weight | favorite_brands | brand_sizes",
   "text": "customer answer, 1-500 characters",
   "locale": "BCP-47 tag"
 }
 ```
 
-The stored fields are exactly `name`, adult confirmation, `gender`, `age`, `height_cm`, and optional `weight_kg`. A broad styling-goal question is not part of the approved FEAT-004 persistence contract and therefore must not solicit a factual answer that appears saved; conversational framing may explain the report outcome without collecting an extra field. Height and weight responses include the normalized metric value plus the customer-facing interpretation; ambiguity returns `422 ANSWER_NEEDS_CLARIFICATION` without mutation. `ProfileSnapshot` includes ordered brand sizes, photo summaries, reaction progress, consent decisions, completion blockers, and `revision`; it excludes email, auth tokens, storage paths, signed URLs, and raw provider output.
+The accepted facts are exactly `name`, adult confirmation, `gender`, `age`, `height_cm`, optional `weight_kg`, ordered favorite brands, and brand/category size entries with `known`, `unknown`, or `not_applicable` status. Profile-processing consent is required before the first personal fact is persisted. A negative adult confirmation or age below 18 returns `422 ADULT_ELIGIBILITY_REQUIRED` without storing the disallowed answer; because eligibility precedes photos, the normal path retains no photo data for an unsupported person. The same guard rejects a later edit to an ineligible age without mutating the existing draft. A broad styling-goal question is not part of the approved FEAT-004 persistence contract and therefore must not solicit a factual answer that appears saved; conversational framing may explain the report outcome without collecting an extra field. Height and weight responses include the normalized metric value plus the customer-facing interpretation; ambiguity returns `422 ANSWER_NEEDS_CLARIFICATION` without mutation. `ProfileSnapshot` includes ordered favorite brands and sizes, photo summaries, reaction progress, consent decisions, completion blockers, and `revision`; it excludes email, auth tokens, storage paths, upload/download tokens, and raw provider output.
 
 ### Photo upload, validation, and extraction
 
 Uploads use a two-boundary protocol so media bytes do not traverse the API service:
 
-1. `createPhotoUploadSlot` reserves an opaque object path and position.
-2. The authenticated browser uploads once to private bucket `customer-photos` with Supabase Storage `upsert: false`.
-3. `completePhotoUpload` makes the server read/decode/hash the object, creates the `photos` metadata row, and enqueues extraction for accepted files.
-4. An uncompleted object is an orphan and is deleted by a bounded cleanup job after one hour.
+1. `createPhotoUploadSlot` reserves an opaque object path and position, optionally binds the slot to one existing photo being replaced, creates a Supabase signed upload token with upsert disabled, and signs a separate application completion token. Neither token is stored.
+2. The browser calls Supabase Storage `uploadToSignedUrl` for that exact private `customer-photos` path. The token grants no other path or Storage action.
+3. `completePhotoUpload` verifies the completion token and exact object, then reads/decodes/hashes it, creates the `photos` metadata row, and enqueues extraction for accepted files. For a replacement, one database transaction locks the old row, inserts the new row at the same position under the deferred unique constraint, deletes the old row, and increments the profile revision once; the now-orphaned old object is deleted after commit and remains unreadable if cleanup must retry.
+4. An uncompleted object is unreadable to customers and is deleted only after the provider's two-hour upload-token lifetime plus a bounded reconciliation grace period.
 
 | operationId | Method and path | Auth | Exact input | Success | Writes | Named errors |
 |---|---|---|---|---|---|---|
-| `createPhotoUploadSlot` | `POST /profiles/{profileId}/photo-upload-slots` | owned | revision + idempotency; body `{ "position": 1..12, "declaredMediaType": allowed type, "declaredByteSize": 1..15728640 }` | `201 PhotoUploadSlot` with `photoId`, bucket, opaque path, `expiresAt`; path is valid for immutable create only | no public photo row; server-signed short-lived slot record/cache | `PHOTO_LIMIT_REACHED`, `UPLOAD_DECLARATION_INVALID`, `REVISION_CONFLICT` |
-| `completePhotoUpload` | `POST /profiles/{profileId}/photos/{photoId}/complete` | owned | revision + idempotency; body `{ "storagePath": exact slot path }` | `202 PhotoSnapshot`, `pollAfterMs: 2000` | verified `photos`; accepted photo + extraction job; revision/activity | `UPLOAD_NOT_FOUND`, `UPLOAD_SLOT_EXPIRED`, `PHOTO_TYPE_UNSUPPORTED`, `PHOTO_TOO_LARGE`, `PHOTO_DIMENSIONS_INVALID`, `PHOTO_DECODE_FAILED`, `DUPLICATE_PHOTO`, `PHOTO_REJECTED`, `REVISION_CONFLICT` |
+| `createPhotoUploadSlot` | `POST /profiles/{profileId}/photo-upload-slots` | owned | revision + idempotency; body `{ "position": 1..12, "declaredMediaType": JPEG|PNG|WebP|HEIC|HEIF, "declaredByteSize": 1..15728640, "replacesPhotoId": uuid|null }`; replacement ID must be the owned current photo at `position` | `201 PhotoUploadSlot` with `photoId`, bucket, exact path, Supabase `uploadToken`, application `completionToken`, `expiresAt`; tokens are sensitive and one-path only | no row/cache; server creates signed upload token and application token bound to replacement identity/revision | `PHOTO_LIMIT_REACHED`, `PHOTO_REPLACEMENT_STALE`, `UPLOAD_DECLARATION_INVALID`, `REVISION_CONFLICT` |
+| `completePhotoUpload` | `POST /profiles/{profileId}/photos/{photoId}/complete` | owned | revision + idempotency; body `{ "completionToken": signed opaque token }` | `202 AcceptedPhoto` with `photo`, `revision`, `pollAfterMs: 2000` | verified `photos`; accepted add or atomic same-position replacement + extraction job; revision/activity; old replacement object cleanup after commit | `UPLOAD_NOT_FOUND`, `UPLOAD_SLOT_EXPIRED`, `UPLOAD_TOKEN_INVALID`, `PHOTO_REPLACEMENT_STALE`, `PHOTO_TYPE_UNSUPPORTED`, `PHOTO_TOO_LARGE`, `PHOTO_DIMENSIONS_INVALID`, `PHOTO_DECODE_FAILED`, `DUPLICATE_PHOTO`, `PHOTO_REJECTED`, `REVISION_CONFLICT` |
 | `listPhotos` | `GET /profiles/{profileId}/photos` | owned | none | `200 { items: PhotoSnapshot[0..12] }` | none | `PROFILE_NOT_FOUND`, `PROFILE_EXPIRED` |
 | `deletePhoto` | `DELETE /profiles/{profileId}/photos/{photoId}` | owned | revision; body absent | `204` | deletes exact object first, then row/cascades; compacts positions; revision | `PHOTO_NOT_FOUND`, `PROFILE_NOT_EDITABLE`, `PHOTO_DELETE_FAILED`, `REVISION_CONFLICT` |
+| `reorderPhotos` | `PUT /profiles/{profileId}/photos/order` | owned | revision; body `{ "orderedPhotoIds": uuid[0..12] }` | `200 { "items": PhotoSnapshot[], "revision": integer }` | locks exact current set, defers position uniqueness, assigns 1..N, revision | `PHOTO_ORDER_INVALID`, `PHOTO_NOT_FOUND`, `PROFILE_NOT_EDITABLE`, `REVISION_CONFLICT` |
 | `retryPhotoExtraction` | `POST /profiles/{profileId}/photos/{photoId}/extraction-retries` | owned | idempotency | `202 PhotoSnapshot` | conditional photo transition + new bounded job if eligible | `PHOTO_NOT_RETRYABLE`, `EXTRACTION_ATTEMPTS_EXHAUSTED`, `PHOTO_EXPIRED` |
 | `getExtractionSummary` | `GET /profiles/{profileId}/extraction-summary` | owned | none | `200 ExtractionSummary` with per-photo state, accepted garment counts, confidence disclosure, review requirement, and fallback availability | none | `PROFILE_NOT_FOUND` |
 | `reviewExtractedGarment` | `PATCH /profiles/{profileId}/garments/{garmentId}` | owned | revision; body `{ "reviewStatus": "confirmed" | "rejected" }` | `200 ExtractionSummary` | `extracted_garments.review_status`, revision | `GARMENT_NOT_FOUND`, `GARMENT_REVIEW_NOT_REQUIRED`, `REVISION_CONFLICT` |
 
-`PhotoSnapshot` never exposes `storage_path`. It contains `id`, `position`, `status`, safe rejection code/message key, dimensions, byte size, expiry, extraction summary, and an on-demand owned display URL that expires no later than the row. The API may return that URL only after relational ownership and expiry checks.
+`PhotoSnapshot` never exposes `storage_path` or either upload token. It contains `id`, `position`, `status`, safe rejection code/message key, dimensions, byte size, expiry, extraction summary, and an on-demand owned display URL that expires no later than the row. The API may return that URL only after relational ownership and expiry checks.
 
 ### Taste calibration
 
@@ -134,7 +136,7 @@ The server preserves completed reactions when candidate loading later fails. It 
 
 | operationId | Method and path | Auth | Exact input | Success | Writes | Named errors |
 |---|---|---|---|---|---|---|
-| `prepareAnonymousTransfer` | `POST /auth/transfers` | owned anonymous | revision + idempotency; body `{ "profileId": uuid, "method": "google" | "magic_link" }` | `201 TransferPreparation`; also sets a Secure, HttpOnly, SameSite=Lax transfer cookie | hashed `anonymous_transfers` row | `PERMANENT_ACCOUNT_REQUIRED_FALSE`, `TRANSFER_ALREADY_PREPARED`, `REVISION_CONFLICT` |
+| `prepareAnonymousTransfer` | `POST /auth/transfers` | owned anonymous | revision + idempotency; body `{ "profileId": uuid, "method": "google" | "magic_link" }` | `201 TransferPreparation`; also sets a Secure, HttpOnly, SameSite=Lax transfer cookie | hashed `anonymous_transfers` row | `ANONYMOUS_ACCOUNT_REQUIRED`, `TRANSFER_ALREADY_PREPARED`, `REVISION_CONFLICT` |
 | `consumeAnonymousTransfer` | `POST /auth/transfers/consume` | permanent | body `{ "profileId": uuid, "confirmation": "preserve_as_new_draft" | "activate_if_no_existing_profile" }`; plaintext token comes only from cookie | `200 TransferResult` and clears cookie | transactionally transfers/copies approved rows, consumes token | `TRANSFER_TOKEN_MISSING`, `TRANSFER_EXPIRED`, `TRANSFER_REPLAYED`, `TRANSFER_SOURCE_CHANGED`, `TRANSFER_CONFLICT_REQUIRES_CONFIRMATION`, `TRANSFER_TARGET_INVALID` |
 | `cancelAnonymousTransfer` | `DELETE /auth/transfers/current` | owned | none | `204`, clears cookie | prepared row -> cancelled | `TRANSFER_NOT_FOUND` |
 
@@ -149,19 +151,23 @@ Google OAuth and magic-link dispatch/callback use Supabase directly as specified
 | `requestReportNotification` | `PUT /report-runs/{runId}/notification` | permanent | idempotency; body `{ "enabled": true }` | `200 { "enabled": true }` | notification job/delivery if not already sent | `REPORT_RUN_NOT_FOUND`, `EMAIL_NOT_AVAILABLE` |
 | `getCurrentReport` | `GET /reports/current` | permanent | none | `200 ReportDocument` | none; recommendation product facts refreshed separately | `REPORT_NOT_FOUND` |
 | `getReportSection` | `GET /reports/{reportId}/sections/{sectionType}` | permanent | `sectionType=overview|color|body_style` | `200 ReportSection` | none | `REPORT_NOT_FOUND`, `REPORT_SECTION_NOT_FOUND` |
-| `listRecommendations` | `GET /reports/{reportId}/recommendations` | permanent | cursor, limit | `200 RecommendationCollection` with current catalog facts or per-item unavailable state | none | `REPORT_NOT_FOUND`, `CATALOG_TEMPORARILY_UNAVAILABLE` |
+| `listRecommendations` | `GET /reports/{reportId}/recommendations` | permanent | cursor, limit | `200 RecommendationCollection` with current catalog facts or per-item unavailable state; optional report-local outfit group key/title/item position compose suggested outfits without treating retailer facts as report evidence | none | `REPORT_NOT_FOUND`, `CATALOG_TEMPORARILY_UNAVAILABLE` |
 | `submitReportFeedback` | `POST /reports/{reportId}/feedback` | permanent | idempotency; body `{ "sectionType": section|null, "kind": allowed value, "note": string|null }` | `201 ReportFeedbackReceipt` | append `report_feedback` | `FEEDBACK_INVALID`, `REPORT_NOT_FOUND` |
 | `startRecalibration` | `POST /reports/{reportId}/recalibrations` | permanent | idempotency; body `{ "confirmed": true }` | `201 ProfileSnapshot` for derived draft | derived draft profile; no silent report mutation | `RECALIBRATION_CONFIRMATION_REQUIRED`, `DRAFT_ALREADY_EXISTS`, `REPORT_NOT_FOUND` |
 
+Editing favorite brands, brand/category sizes, or other profile evidence after a report uses `startRecalibration` first. The resulting derived draft is edited through the same conversational/profile operations and the published report remains intact until a new report succeeds; post-report editing never mutates frozen evidence in place.
+
 The `Save palette` and `Save guidance` screen actions are local exports: the browser downloads an accessible text/JSON or printable document from the already-loaded report section. They do not claim server persistence and have no API operation. Generated preview absence or rejection never removes the recommendation.
+
+`ReportRunSnapshot` includes `elapsedMs`, current stage, and safe stage label. Before 90 seconds the processing projection uses the normal stage treatment; from 90 through 119 seconds it keeps the meaningful stage visible and adds an extended-progress explanation without offering false precision; at 120 seconds it projects the approved slow state and its notification/safe-exit actions.
 
 ### Catalog, product detail, bag, and retailer handoff
 
 | operationId | Method and path | Auth | Exact input | Success | Writes | Named errors |
 |---|---|---|---|---|---|---|
 | `searchCatalog` | `POST /catalog/search` | permanent | body `CatalogSearchInput` | `200 CatalogSearchResult` with current normalized facts | none | `CATALOG_QUERY_INVALID`, `CATALOG_TEMPORARILY_UNAVAILABLE`, `CATALOG_RATE_LIMITED` |
-| `getProduct` | `POST /catalog/product` | permanent | body catalog reference + selected options | `200 ProductSnapshot` | none | `PRODUCT_NOT_FOUND`, `PRODUCT_UNAVAILABLE`, `VARIANT_UNAVAILABLE`, provider errors |
-| `getAlternatives` | `POST /catalog/alternatives` | permanent | body catalog reference + optional style constraints | `200 CatalogSearchResult` | none | same catalog errors |
+| `getProduct` | `POST /catalog/product` | permanent | body catalog reference + selected options | `200 ProductSnapshot` | none | `CATALOG_REFERENCE_INVALID`, `PRODUCT_NOT_FOUND`, `PRODUCT_UNAVAILABLE`, `VARIANT_UNAVAILABLE`, `CATALOG_TEMPORARILY_UNAVAILABLE`, `CATALOG_RATE_LIMITED`, `CATALOG_RESPONSE_INVALID` |
+| `getAlternatives` | `POST /catalog/alternatives` | permanent | body catalog reference + optional style constraints | `200 CatalogSearchResult` | none | `CATALOG_REFERENCE_INVALID`, `CATALOG_QUERY_INVALID`, `CATALOG_TEMPORARILY_UNAVAILABLE`, `CATALOG_RATE_LIMITED`, `CATALOG_RESPONSE_INVALID` |
 | `listBag` | `GET /bag` | permanent | cursor, limit | `200 BagCollection`; each item contains live current facts or unavailable state | none | `CATALOG_TEMPORARILY_UNAVAILABLE` only when no stored item can be rendered meaningfully |
 | `addBagItem` | `POST /bag/items` | permanent | idempotency; body catalog reference + `source` + matching source ID | `200/201 BagItemSnapshot` | `bag_items`, deduplicated by stable tuple | `PRODUCT_UNAVAILABLE`, `BAG_SOURCE_INVALID`, `CATALOG_REFERENCE_INVALID` |
 | `removeBagItem` | `DELETE /bag/items/{bagItemId}` | permanent | none | `204` | deletes owned row | `BAG_ITEM_NOT_FOUND` |
@@ -172,18 +178,18 @@ The `Save palette` and `Save guidance` screen actions are local exports: the bro
 
 ### Live styling and shared actions
 
-Browser camera/microphone permission is client-side. A server session is created only after the required versioned consents exist.
+Browser camera/microphone permission is client-side. A server session is created after camera permission and camera consent only. Microphone and optional visual-context consent are recorded later, only if the customer enables Gemini voice.
 
 | operationId | Method and path | Auth | Exact input | Success | Writes | Named errors |
 |---|---|---|---|---|---|---|
-| `createLiveSession` | `POST /live-sessions` | permanent | idempotency; body catalog reference, optional recommendation ID, consent record IDs, `geminiContextMode` | `201 LiveSessionBootstrap` | `live_sessions` in `created` | `CONSENT_REQUIRED`, `PRODUCT_UNAVAILABLE`, `LIVE_SESSION_LIMIT_REACHED`, `REALTIME_UNSUPPORTED` |
-| `mintRealtimeCredentials` | `POST /live-sessions/{sessionId}/credentials` | permanent | idempotency; body `{ "providers": ["decart", "gemini"] }` | `200 RealtimeCredentialBundle` with scoped ephemeral credentials and expiries | conditional state `created/reconnecting -> connecting`; no credential persistence | `LIVE_SESSION_NOT_FOUND`, `LIVE_SESSION_TERMINAL`, `REALTIME_PROVIDER_UNAVAILABLE`, `CONSENT_REQUIRED` |
+| `createLiveSession` | `POST /live-sessions` | permanent | idempotency; body catalog reference, optional recommendation ID, `cameraConsentRecordId` | `201 LiveSessionBootstrap` | `live_sessions` in `created`, camera consent only | `CONSENT_REQUIRED`, `PRODUCT_UNAVAILABLE`, `LIVE_SESSION_LIMIT_REACHED`, `REALTIME_UNSUPPORTED` |
+| `mintRealtimeCredentials` | `POST /live-sessions/{sessionId}/credentials` | permanent | idempotency; body `RealtimeCredentialInput`: requested providers plus Gemini consent/context fields only when `gemini` is requested | `200 RealtimeCredentialBundle` with scoped ephemeral credentials and expiries | Decart may move `created/reconnecting -> connecting`; Gemini atomically records microphone/context consent; no credential/provider ID persistence | `LIVE_SESSION_NOT_FOUND`, `LIVE_SESSION_TERMINAL`, `REALTIME_PROVIDER_UNAVAILABLE`, `CONSENT_REQUIRED` |
 | `transitionLiveSession` | `PATCH /live-sessions/{sessionId}` | permanent | body `LiveSessionTransitionInput` | `200 LiveSessionSnapshot` | allowed `live_sessions` state/aggregate timing only | `LIVE_TRANSITION_INVALID`, `LIVE_SESSION_TERMINAL` |
 | `proposeLiveAction` | `POST /live-sessions/{sessionId}/actions` | permanent | idempotency; body `LiveActionProposal` | `200 LiveActionDecision` (`execute`, `confirm`, `reject`) | no action transcript; may return signed confirmation token | `LIVE_ACTION_INVALID`, `LIVE_ACTION_STALE`, `LIVE_ACTION_DUPLICATE`, `LIVE_ACTION_NOT_AVAILABLE` |
 | `confirmLiveAction` | `POST /live-sessions/{sessionId}/actions/confirm` | permanent | idempotency; body signed token | `200 LiveActionResult` | only action-specific durable effect (bag item, selected refs, outbound event) | `LIVE_CONFIRMATION_EXPIRED`, `LIVE_ACTION_STALE`, `PRODUCT_UNAVAILABLE` |
 | `endLiveSession` | `POST /live-sessions/{sessionId}/end` | permanent | idempotency; body `{ "reason": "customer" | "provider_failure" | "timeout" }` | `200 LiveSessionSnapshot` | `ended` or `failed`, aggregate timings | `LIVE_SESSION_TERMINAL` |
 
-The shared live action union and confirmation rules are exact in [events-and-states.md](events-and-states.md). `Cancel`, `pause gestures`, `keep waiting`, and changing input mode are local connection/UI controls unless they end the session or reverse a persisted bag/selection mutation.
+`RealtimeCredentialInput` is a discriminated union. `{ "providers": ["decart"] }` contains no microphone or Gemini fields. A request containing `gemini` also requires `microphoneConsentRecordId`, `geminiContextMode`, and `geminiVisualConsentRecordId`; the visual ID must be null for `structured_state` and a current granted consent for `sampled_video`. Requesting both providers uses the Gemini-bearing shape. The shared live action union and confirmation rules are exact in [events-and-states.md](events-and-states.md). `Cancel`, `pause gestures`, `keep waiting`, and changing input mode are local connection/UI controls unless they end the session or reverse a persisted bag/selection mutation.
 
 ### Account deletion
 
@@ -202,7 +208,7 @@ These actions are deliberately not Magic Mirror API endpoints:
 | Start anonymous session | `supabase.auth.signInAnonymously()` | Then call `createOrResumeProfile`; never use a shared guest identity |
 | Google authentication | `supabase.auth.signInWithOAuth({ provider: "google" })` or `linkIdentity` only when the identity can remain on the same user | Prepare transfer first when switching owners; exact callback allowlist |
 | Email magic link | `supabase.auth.signInWithOtp()` + PKCE token-hash verification/callback | Generic success response, no email enumeration; prepare transfer first |
-| Upload bytes | Supabase Storage `.upload(path, file, { upsert: false })` | Only a server-issued slot path in `customer-photos`; complete through API |
+| Upload bytes | Supabase Storage `uploadToSignedUrl(path, uploadToken, file)` | Use only the path/token pair returned by `createPhotoUploadSlot`; complete with the separate application token |
 | Browser media permission | `navigator.mediaDevices.getUserMedia()` | Explain purpose before native prompt; record consent separately; denial is recoverable |
 | Open email app | OS/browser mail handler | No server state change; resend uses Supabase Auth with rate limit |
 | Save palette/guidance | Browser download/print/share | Uses loaded report data; no invented persistence |

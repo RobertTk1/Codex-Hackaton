@@ -1,6 +1,6 @@
 # External Integration Contract
 
-- **Status:** Complete for application-contract review
+- **Status:** Approved after cross-contract review
 - **Rule:** Every external response is untrusted until parsed through a provider-specific Zod schema
 - **Browser secrets:** none; only scoped, short-lived Decart/Gemini credentials may reach an owned live session
 
@@ -26,12 +26,12 @@ This contract fixes what Magic Mirror sends, receives, persists, times out, retr
 - Browser configuration: `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`.
 - Server configuration: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (or the current equivalent server secret selected at implementation); never a `VITE_` name.
 - Browser Auth uses anonymous, Google OAuth, and email magic link only, as defined in [auth.md](auth.md).
-- Browser Storage writes only server-issued immutable slots in `customer-photos`. Private reads are authenticated or short-lived signed URLs after relational checks.
+- Browser Storage writes use only a server-created Supabase signed upload token for one immutable `customer-photos` path with upsert disabled. The application completion token is separate. For replacement, that token also binds the exact old photo ID and position; completion validates the new object before atomically swapping metadata, then deletes the inaccessible old object after commit with reconciliation as the cleanup fallback. Private reads are authenticated or short-lived signed URLs after relational checks.
 - API/worker calls use explicit schema/table names, bounded selects, and the smallest privilege. Service-role use never substitutes for an ownership check.
 
 ### Failure normalization
 
-Auth, PostgREST, and Storage errors are mapped by stable Supabase code/status when available and by operation otherwise. Raw messages are server-log debug fields only after redaction; the browser receives `AUTH_*`, `DATA_*`, or `STORAGE_*` errors from [errors.md](errors.md). A Supabase outage prevents provider work whose result cannot be persisted.
+Auth, PostgREST, and Storage errors are mapped by stable Supabase code/status when available and by operation otherwise. Raw messages are server-log debug fields only after redaction; the browser receives only an allowlisted code from [errors.md](errors.md), such as `AUTH_SESSION_EXPIRED`, `UPLOAD_NOT_FOUND`, `PHOTO_DELETE_FAILED`, or `SERVICE_UNAVAILABLE`. A Supabase outage prevents provider work whose result cannot be persisted.
 
 ## OpenAI text and vision
 
@@ -58,13 +58,13 @@ Every request:
 - never persists a raw response or OpenAI response ID as product authority;
 - treats refusal, incomplete response, schema mismatch, safety rejection, timeout, quota, and rate limit as distinct normalized outcomes.
 
-The API downloads an owned private image server-side and supplies bounded image input bytes or a request-scoped URL that expires after the provider request. Input images may be subject to provider safety scanning; consent copy must not promise instantaneous provider erasure. Prompt text delimits customer/catalog content as untrusted data and exposes no arbitrary I/O tools.
+The API downloads an owned private image server-side and supplies bounded image input bytes or a request-scoped URL that expires after the provider request. HEIC/HEIF is decoded and converted in memory to JPEG/PNG when the target provider lacks native support; the conversion is size/dimension bounded and is not separately retained. Input images may be subject to provider safety scanning; consent copy must not promise instantaneous provider erasure. Prompt text delimits customer/catalog content as untrusted data and exposes no arbitrary I/O tools.
 
 ### Normalized operations
 
 | Adapter operation | Input | Exact accepted output | Deadline/retry | Persistence/fallback |
 |---|---|---|---|---|
-| `parseProfileAnswer` | target field, text <=500, locale, allowed unit context | `{ accepted, normalizedValue, displayValue, clarificationQuestion?, confidence }` | 15s; one safe retry only before a response | Store only accepted profile value; deterministic clarification fallback |
+| `parseProfileAnswer` | target personal/favorite-brand/brand-size field, text <=500, locale, allowed unit context | exact field-discriminated `{ accepted, normalizedValue, displayValue, clarificationQuestion?, confidence }` | 15s; one safe retry only before a response | Store only accepted value/rows; deterministic clarification or contextual-choice fallback |
 | `analyzeFavoriteLook` | one accepted photo; bounded profile context | `PhotoStyleSignal` plus 0–20 `GarmentDetection` records | 60s/photo; max two worker attempts | Store parsed signals; per-photo failure preserved |
 | `generateTasteSeedDescriptors` | bounded signals/garments + profile | 12–20 bounded candidate descriptors and balance tags | 45s; max two worker attempts | Balanced curated fallback if slow/fails |
 | `generateStyleReport` | frozen profile revision, sizes, bounded aggregate signals/reactions | exact overview/color/body-style sections plus recommendation intents | worker attempt below 120s product target; max two attempts per run | Atomic publish only if entire schema and policy checks pass |
@@ -125,6 +125,8 @@ The founder accepted unresolved hackathon risk for transmitting Shopify product 
 }
 ```
 
+For Global Catalog, `productRef` is the returned `gid://shopify/p/{upid}`, `variantRef` is the selected `gid://shopify/ProductVariant/{id}` when present, and `shopRef` is that variant offer's `seller.id` shop GID. Magic Mirror never substitutes a product URL, seller name, or domain for these stable references. Search/lookup results are offer-aware; product detail and handoff refresh the selected variant and its seller together so a UPID is never handed to the wrong merchant.
+
 Unknown/oversized fields are dropped before rendering or provider use. URLs must be HTTPS and originate from the validated provider response; Magic Mirror does not server-fetch arbitrary customer URLs.
 
 ### Freshness and persistence
@@ -152,7 +154,7 @@ Use the official JavaScript SDK with realtime model configuration `lucy-vton-lat
 - Exactly one garment change is requested at a time.
 - `set()` replaces the complete Decart state; every state change resends all intended prompt/image/enhance fields so an omitted field is not accidentally cleared.
 - Dynamic item change uses `set()` without reconnecting. UI state remains `changing` until a new remote frame or provider acknowledgment passes the action sequence guard.
-- Live video is displayed, not recorded or persisted. Decart identifiers stored in `live_sessions` are non-secret diagnostics only.
+- Live video is displayed, not recorded or persisted. No Decart credential, provider session identifier, provider payload, or frame is stored; only bounded Magic Mirror status, sequence, timing, and safe error code are durable.
 
 The catalog image is fetched only from the current validated Shopify response and transmitted under the founder-accepted hackathon risk. If the source shows a person and the extraction gate is available, use the approved garment cutout; otherwise disclose degraded fidelity or do not start the live try-on.
 
@@ -174,7 +176,7 @@ GEMINI_CONTEXT_MODE=structured_state
 GEMINI_TOKEN_TIMEOUT_MS=10000
 ```
 
-The dual-realtime spike may set `GEMINI_CONTEXT_MODE=sampled_video` only when CPU, bandwidth, echo, action latency, consent, and benefit pass the approved bar. `structured_state` sends the current selected catalog references, safe display labels, visible result set identifiers, live state, bag state, and last completed action—never storage paths, report body, email, or raw customer profile.
+The dual-realtime spike may set `GEMINI_CONTEXT_MODE=sampled_video` only when CPU, bandwidth, echo, action latency, consent, and benefit pass the approved bar. `structured_state` sends the current selected catalog references, safe display labels, current result-set identifier, live state, bag state, and last completed action—never storage paths, report body, email, or raw customer profile. Enabling Gemini records the already-granted microphone consent and chosen context mode; sampled video additionally requires current visual-context consent.
 
 ### Media and tool contract
 
@@ -229,3 +231,5 @@ Only provider, category, retryability, bounded operation, latency, and an opaque
 - [Wardrobe reference repository](https://github.com/tandpfun/wardrobe)
 - [Supabase passwordless email](https://supabase.com/docs/guides/auth/auth-email-passwordless)
 - [Supabase private bucket access](https://supabase.com/docs/guides/storage/buckets/fundamentals)
+- [Supabase signed upload URLs](https://supabase.com/docs/reference/javascript/file-buckets-createsigneduploadurl)
+- [Supabase upload to a signed URL](https://supabase.com/docs/reference/javascript/file-buckets-uploadtosignedurl)
