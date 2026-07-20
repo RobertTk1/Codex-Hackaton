@@ -8,6 +8,20 @@
 
 This contract is exact enough to produce migrations and shared Zod schemas. It defines persistence only; HTTP operations and screen mappings belong to the later application-contract checkpoint.
 
+## Data-review repair record
+
+| Finding | Repair in this version |
+|---|---|
+| DR-001 | Customer-input evidence freezes at submission; named system-output children and their narrow mutable fields are explicitly allowed afterward. |
+| DR-002 | Report runs now have bounded sequences, request idempotency, failed-history retention, and one live/succeeded partial uniqueness. |
+| DR-003 | Photo signals and extracted garments now expire no later than their photos; bounded candidates/reactions/reports survive without detailed extraction rows. |
+| DR-004 | Every likeness asset references the exact granted generation-consent event until physical purge. |
+| DR-005 | Report versions are owner-level across derived profiles with explicit prior-report lineage and publish locking. |
+| DR-006 | Job errors use a `job_kind`-discriminated, bounded operation-stage schema. |
+| DR-007 | Global cleanup indexes now lead with each due timestamp and terminal predicate. |
+| DR-008 | A complete row-state invariant/transition matrix assigns database versus transaction enforcement. |
+| DR-009 | Same-owner FKs are deferrable, and the transfer function has exact locks, preconditions, cascade behavior, and a populated migration test. |
+
 ## Contract decisions
 
 1. `auth.users.id` is identity authority. Anonymous sign-ins are real users and therefore use the `authenticated` Postgres role; `anon` receives no customer-data grants.
@@ -59,8 +73,9 @@ erDiagram
 - Primary keys: `uuid primary key default gen_random_uuid()`.
 - `owner_id`: `uuid references auth.users(id) on delete cascade`; never accepted from an untrusted request.
 - Every public table declares `unique (owner_id, id)`. This supplies the composite parent key and an owner-leading index for RLS.
-- Same-owner child keys use `(owner_id, parent_id) references parent(owner_id, id) on update cascade on delete cascade`. Owner updates occur only inside the private transfer transaction.
-- Other foreign keys use `on delete cascade` only for true owned children. Stable external references use text, not foreign keys.
+- True owned-child keys use `(owner_id, parent_id) references parent(owner_id, id) on update cascade on delete cascade deferrable initially immediate`. Owner updates occur only inside the private transfer transaction after `set constraints all deferred`.
+- Optional lineage/source references that must survive source expiry use a simple ID FK with `on delete set null`; their server-only creating transaction validates same-owner identity. They never establish access—RLS still keys only on the row's own `owner_id`.
+- Other foreign keys use `on delete restrict` unless physical parent deletion must remove the child. Stable external references use text, not foreign keys.
 - `created_at`: `timestamptz not null default now()`.
 - Mutable records also have `updated_at timestamptz not null default now()` maintained by one reused `private.set_updated_at()` trigger function.
 - Completion/expiry/lease timestamps are nullable until their named transition occurs.
@@ -104,6 +119,7 @@ These are `text` columns with named check constraints, not Postgres enum types, 
 | `feedback_kind` | `helpful`, `unclear`, `incorrect`, `recalibrate` |
 | `feedback_status` | `open`, `applied`, `dismissed` |
 | `live_status` | `created`, `connecting`, `ready`, `reconnecting`, `ended`, `failed` |
+| `bag_source` | `recommendation`, `live_session`, `product_detail` |
 | `job_kind` | `photo_extraction`, `taste_candidates`, `report_generation`, `wardrobe_preview`, `report_notification`, `retention_purge` |
 | `job_status` | `queued`, `leased`, `retry_wait`, `succeeded`, `failed`, `cancelled` |
 | `transfer_status` | `prepared`, `consumed`, `expired`, `cancelled` |
@@ -138,8 +154,19 @@ Constraints:
 - `unique (owner_id, id)` supports composite child ownership.
 - Partial unique index permits at most one `active` profile per owner.
 - A non-draft profile requires name, age, adult confirmation, gender, height, and `current_step='complete'`.
-- Only a draft may change customer fields or accept child writes. `submitted`, `active`, and `archived` profiles are evidence-frozen.
-- `derived_from_profile_id` uses a same-owner composite FK and is nullable only for the first profile.
+- Only a draft may change customer-input evidence: profile fields, brand sizes, photos, photo signals, extracted garments, taste candidates, and reactions. Those rows freeze at submission except garment review completed by the already-running extraction pipeline.
+- A submitted or active profile may receive system-output children: report runs, immutable reports/sections/recommendations, generated assets/lineage, feedback, live sessions, and bag items. Report-output records are insert-only except for the explicitly named preview attachment, status, and lifecycle fields.
+- `derived_from_profile_id` uses a simple `on delete set null` lineage FK; draft creation validates the same owner. It is null only for the first profile or after an intentionally purged source profile.
+
+Evidence/output mutation matrix:
+
+| Record | Draft | Submitted | Active/archived |
+|---|---|---|---|
+| Profile answers, brand sizes, photos, candidates, reactions | create/update | frozen | frozen |
+| Photo signals and extracted garments | create/update while extraction is pending | complete already-enqueued work only | frozen until expiry purge |
+| Report runs/reports/sections/recommendations | none | create/publish | read; recommendation may attach one accepted preview from null |
+| Generated assets and lineage | cutouts may be created | cutouts/previews may complete | previews/try-on assets may be created; lifecycle status/expiry only |
+| Feedback, live sessions, bag | none | feedback only after report publish | named customer/system transitions only |
 
 ### `public.brand_sizes`
 
@@ -201,6 +228,7 @@ One bounded direct-analysis record per photo supports the Wardrobe failure fallb
 | `aesthetic_tags` | text[] / `{}` | no | At most 12 entries, each 1–80 |
 | `confidence` | numeric(4,3) | no | 0–1 |
 | `provider_name`, `provider_model` | text | no | Bounded provenance labels, not credentials |
+| `expires_at` | timestamptz | no | Equal to or earlier than source photo expiry |
 | `created_at` | timestamptz / now | no | Immutable for the photo revision |
 
 ### `public.extracted_garments`
@@ -216,9 +244,10 @@ One bounded direct-analysis record per photo supports the Wardrobe failure fallb
 | `duplicate_group_id` | uuid | yes | Groups likely duplicates within one profile |
 | `review_status` | text / `not_required` | no | `garment_review_status` |
 | `provider_name`, `provider_model` | text | no | Bounded provenance |
+| `expires_at` | timestamptz | no | Equal to or earlier than source photo expiry |
 | `created_at`, `updated_at` | timestamptz | no | Review may update; extracted content does not |
 
-At most 20 garments per photo. `review_status` supports the spike's possible customer-review decision without making review required. Rejected garments cannot source candidates or previews.
+At most 20 garments per photo. `review_status` supports the spike's possible customer-review decision without making review required. Rejected garments cannot source candidates or previews. The retention worker deletes extracted garments and direct photo signals no later than the source photo; the immutable report and bounded candidate/reaction descriptors remain as aggregate customer evidence.
 
 ### `public.taste_candidates`
 
@@ -226,7 +255,8 @@ At most 20 garments per photo. `review_status` supports the spike's possible cus
 |---|---|---|---|
 | `id`, `owner_id`, `profile_id` | uuid | no | Composite owner/profile FK |
 | `source` | text | no | `candidate_source` |
-| `extracted_garment_id` | uuid | yes | Same-owner garment when source is extracted |
+| `extracted_garment_id` | uuid | yes | Simple ID FK `on delete set null`; server verifies same-owner garment at creation |
+| `source_fingerprint` | bytea | yes | Exactly 32 bytes for extracted source; non-reversible dedup/provenance key |
 | `catalog_product_ref` | text | yes | Stable Shopify product reference only |
 | `catalog_variant_ref`, `catalog_shop_ref` | text | yes | Stable reference when available |
 | `curated_asset_key` | text | yes | Approved non-customer fixture key, not an arbitrary URL |
@@ -238,11 +268,11 @@ At most 20 garments per photo. `review_status` supports the spike's possible cus
 
 Exactly one source family is present:
 
-- `extracted_garment`: `extracted_garment_id` only;
+- `extracted_garment`: `source_fingerprint` is required; `extracted_garment_id` is required at creation and may become null only through the FK's expiry purge;
 - `shopify_catalog`: product and shop refs, optional variant ref;
 - `curated_fallback`: `curated_asset_key` only.
 
-The database stores no Shopify image URL, copied product body, price, inventory, or merchant claim. The completion contract requires 12 reactions and permits up to 20 candidates. Candidate generation balances category, color, silhouette, and representation tags before assigning position.
+The database stores no Shopify image URL, copied product body, price, inventory, or merchant claim. The completion contract requires 12 reactions and permits up to 20 candidates. Candidate generation balances category, color, silhouette, and representation tags before assigning position. Candidate descriptors and reactions intentionally survive source-garment purge; they are bounded preference evidence, not retained photo-derived pixels or detailed extraction output.
 
 ### `public.taste_reactions`
 
@@ -263,14 +293,15 @@ Unique `(profile_id, candidate_id)`. A new reaction is an insert; changing Love/
 | `profile_revision` | integer | no | Must equal frozen profile revision at creation |
 | `status` | text / `queued` | no | `report_run_status` |
 | `stage` | text / `queued` | no | `report_stage` |
-| `idempotency_key` | text | no | Unique; server-derived from profile ID/revision |
+| `run_sequence` | smallint / 1 | no | 1–3 user-visible submission/retry sequence |
+| `idempotency_key` | text | no | Unique per request; server-derived from profile ID/revision/run sequence plus client request key |
 | `attempt_count` | smallint / 0 | no | 0–2 |
 | `started_at`, `completed_at` | timestamptz | yes | State-consistent timestamps |
 | `last_error_code` | text | yes | Allowlisted stable code, maximum 80 |
 | `last_error_details` | jsonb | yes | Exact safe shape below; never provider response |
 | `created_at`, `updated_at` | timestamptz | no | Standard timestamps |
 
-Only one non-cancelled run exists per `(profile_id, profile_revision)`. `succeeded` requires `completed_at` and a report row; `failed` requires a safe error code; retry never changes profile evidence.
+Unique `(profile_id, profile_revision, run_sequence)`. A partial unique index permits at most one row for `(profile_id, profile_revision)` where status is `queued`, `processing`, or `succeeded`. Failed/cancelled runs remain as bounded history and release that slot. A customer retry creates the next sequence with a new request-level idempotency key; replay of that request returns the same run. At most three sequences are permitted. If any succeeded report exists, it always wins and later retry creation conflicts. Each run permits at most two internal worker attempts and retry never changes profile evidence.
 
 Safe error JSON is exactly:
 
@@ -289,7 +320,8 @@ No extra keys are accepted. Each value is bounded by its corresponding enum or 1
 | Column | Type / default | Null | Rules |
 |---|---|---|---|
 | `id`, `owner_id`, `profile_id`, `report_run_id` | uuid | no | Same-owner FKs; unique run |
-| `version` | integer | no | `>= 1`; unique profile/version |
+| `derived_from_report_id` | uuid | yes | Same-owner prior report at creation; simple `on delete set null` lineage FK |
+| `version` | integer | no | `>= 1`; unique owner/version |
 | `title` | text | no | 1–120 |
 | `summary` | text | no | 1–2,000 |
 | `confidence_note` | text | no | 1–500; interpretive/non-diagnostic disclosure |
@@ -297,7 +329,7 @@ No extra keys are accepted. Each value is bounded by its corresponding enum or 1
 | `provider_name`, `provider_model` | text | no | Bounded provenance |
 | `created_at` | timestamptz / now | no | Immutable |
 
-A report publishes atomically only after every required section parses. It never stores raw model output. Activating this report changes the profile from `submitted` to `active` and archives the previous active profile in the same short transaction.
+A report publishes atomically only after every required section parses. It never stores raw model output. The publish transaction locks the owner's current active profile when one exists, assigns `version = previous version + 1` and `derived_from_report_id = previous report`; the first report uses version 1. Unique `(owner_id, version)` is the final concurrency guard, and a collision retries the short publish transaction without repeating provider work. Activating this report changes the profile from `submitted` to `active` and archives the previous active profile in the same transaction.
 
 ### `public.report_sections`
 
@@ -399,6 +431,7 @@ Feedback never mutates the report in place. `recalibrate` creates a derived draf
 | `id`, `owner_id`, `profile_id` | uuid | no | Composite owner/profile FK |
 | `kind` | text | no | `asset_kind` |
 | `status` | text / `processing` | no | `asset_status` |
+| `generation_consent_record_id` | uuid | yes | Required for `wardrobe_preview` and `tryon_still`; same-owner granted likeness consent |
 | `storage_path` | text | yes | Unique; required only for accepted asset |
 | `media_type` | text | yes | PNG, JPEG, or WebP for accepted asset |
 | `byte_size`, `width_px`, `height_px` | bigint/integer | yes | Required and bounded for accepted asset |
@@ -408,7 +441,7 @@ Feedback never mutates the report in place. `recalibrate` creates a derived draf
 | `expires_at` | timestamptz | no | Same/shorter than source; previews max 30 days |
 | `created_at`, `updated_at` | timestamptz | no | Standard timestamps |
 
-Accepted assets require all object metadata and no rejection code. Rejected/failed assets have no customer-readable object path. A row never changes `kind` or ownership.
+Accepted assets require all object metadata and no rejection code. Rejected/failed assets have no customer-readable object path. A row never changes `kind` or ownership. `wardrobe_preview` and `tryon_still` creation validates that `generation_consent_record_id` references an owned `generated_likeness_preview` event with `decision='granted'`; `garment_cutout` requires null. That immutable consent reference remains until the asset is physically deleted even if a later revocation schedules the asset for purge.
 
 ### `public.generated_asset_sources`
 
@@ -446,13 +479,14 @@ No provider credential, camera/video frame, audio, transcript, raw gesture frame
 | Column | Type / default | Null | Rules |
 |---|---|---|---|
 | `id`, `owner_id`, `profile_id` | uuid | no | Active permanent-account profile |
+| `source` | text | no | `bag_source`; durable provenance category |
 | `catalog_product_ref`, `catalog_shop_ref` | text | no | Stable opaque Shopify references |
 | `catalog_variant_ref` | text | yes | Stable chosen variant |
-| `source_recommendation_id`, `source_live_session_id` | uuid | yes | Same-owner provenance; at least one required |
+| `source_recommendation_id`, `source_live_session_id` | uuid | yes | Simple lineage FKs `on delete set null`; same-owner validated at save |
 | `saved_at` | timestamptz / now | no | Sort/cursor authority |
 | `created_at` | timestamptz / now | no | Immutable |
 
-Unique active tuple `(profile_id, catalog_shop_ref, catalog_product_ref, coalesce(catalog_variant_ref, ''))`. Bag rows never cache price, availability, retailer URL, title, or image. The existing-account transfer merges only non-conflicting stable tuples.
+Unique tuple `(profile_id, catalog_shop_ref, catalog_product_ref, coalesce(catalog_variant_ref, ''))`. Source checks require the matching lineage ID at creation for `recommendation` or `live_session`; the ID may later become null only through its source-retention purge, while `source` preserves bounded provenance. `product_detail` forbids both IDs. Bag rows never cache price, availability, retailer URL, title, or image. Anonymous account transfer cannot contain bag rows; a later explicit bag merge, if added to an authenticated flow, deduplicates only by this stable tuple.
 
 ## Private operational records
 
@@ -473,11 +507,35 @@ Unique active tuple `(profile_id, catalog_shop_ref, catalog_product_ref, coalesc
 | `leased_at`, `lease_expires_at` | timestamptz | yes | Both present only while leased |
 | `worker_id` | text | yes | Opaque deployment instance ID, max 120 |
 | `last_error_code` | text | yes | Stable safe code |
-| `last_error_details` | jsonb | yes | Same exact safe error shape as report run |
+| `last_error_details` | jsonb | yes | Exact job-safe discriminated shape below |
 | `completed_at` | timestamptz | yes | Terminal timestamp |
 | `created_at`, `updated_at` | timestamptz | no | Standard timestamps |
 
 The claim index is `(priority, available_at, created_at, id)` where status is `queued` or `retry_wait`. A private claim function performs one short `for update skip locked` claim/update and returns one row. Provider calls occur after commit; no external call holds a database lock. Stale leased jobs become claimable only after `lease_expires_at`, incrementing attempt count once.
+
+Job error JSON is exactly:
+
+```json
+{
+  "job_kind": "photo_extraction",
+  "operation_stage": "analysis",
+  "retryable": true,
+  "customer_message_key": "photo_analysis_temporarily_unavailable"
+}
+```
+
+No extra keys are accepted. `job_kind` must equal the row. `operation_stage` is validated by this map:
+
+| Job kind | Allowed operation stages |
+|---|---|
+| `photo_extraction` | `decode`, `analysis`, `cutout`, `persist` |
+| `taste_candidates` | `seed`, `balance`, `persist` |
+| `report_generation` | `profile_analysis`, `catalog_matching`, `report_writing`, `finalizing` |
+| `wardrobe_preview` | `source_prepare`, `generate`, `quality_check`, `persist` |
+| `report_notification` | `resolve_recipient`, `send` |
+| `retention_purge` | `enumerate`, `delete_object`, `delete_rows`, `reconcile` |
+
+The mapping is a shared Zod discriminated union; database checks bound `job_kind`, text length, JSON object type, and allowed top-level keys without storing provider bodies.
 
 ### `private.anonymous_transfers`
 
@@ -493,7 +551,16 @@ The claim index is `(priority, available_at, created_at, id)` where status is `q
 | `consumed_at` | timestamptz | yes | Required only when consumed |
 | `created_at` | timestamptz / now | no | Immutable |
 
-The consume function verifies the caller's authenticated target identity, source owner/profile/revision, expiry, one-use status, and target conflicts. It updates `profiles.owner_id`; composite `on update cascade` constraints move every child owner atomically. Existing target reports/taste/history remain untouched; the incoming profile remains a separate draft. Conflicting bag tuples are merged by stable reference only after explicit customer confirmation.
+The API verifies the target customer's JWT and passes that immutable Auth subject to the server-only consume function; the function never trusts a client-supplied target by itself. The transaction executes:
+
+1. `set constraints all deferred` and lock the transfer row, source draft, and target active profile in deterministic ID order;
+2. verify prepared status, token hash, 15-minute expiry, source owner/profile/revision, target Auth user, and that the source identity is anonymous;
+3. require the incoming anonymous profile to be a root draft with no completed report, live session, or bag; its populated photo/extraction/candidate/reaction/generated-cutout children are allowed;
+4. set `target_owner_id`, then update the one source `profiles.owner_id`; deferrable composite `on update cascade` keys move all descendants atomically;
+5. preserve the target's existing active profile/report/taste/bag unchanged and leave the incoming profile as a separate draft;
+6. mark the transfer consumed and commit after all deferred ownership constraints validate.
+
+No bag merge occurs during anonymous transfer because the anonymous pre-report journey has no bag. Any later explicit merge uses stable catalog tuples through its own application operation. The function is service-role-only, idempotently returns the consumed result for the same target, and rejects replay by another target.
 
 ### `private.notification_deliveries`
 
@@ -543,7 +610,7 @@ Then set `status='submitted'`, `current_step='complete'`, and `submitted_at=now(
 
 ### Publish report
 
-Lock the report run and submitted profile, require three schema-valid sections and at least one recommendation, insert the immutable report/children, set the run succeeded, archive the previous active profile, activate this profile, and enqueue the notification in one transaction. Preview assets may attach later without delaying text/link report publication; attaching a preview updates only `recommendations.preview_asset_id` from null to an accepted same-owner asset.
+Lock the report run and submitted profile, require three schema-valid sections and at least one recommendation, lock the owner's current active profile/report when present, assign the next owner-level version/derived report reference, insert the immutable report/children, set the run succeeded, archive the previous active profile, activate this profile, and enqueue the notification in one transaction. Preview assets may attach later without delaying text/link report publication; attaching a preview is the only recommendation update and changes `preview_asset_id` once from null to an accepted same-owner asset whose immutable consent reference is valid.
 
 ### Account deletion
 
@@ -675,7 +742,7 @@ The application verifies decoded type, byte count, dimensions, and SHA-256 befor
 
 ## Index contract
 
-Every foreign-key column receives an index unless it is already the leftmost prefix of a named unique/composite index. Indexes exist only for observed product or operational queries.
+Every foreign-key column receives an index unless it is already the leftmost prefix of a named unique/composite index. In addition to the product indexes below, migrations create `<table>_<foreign_key_column>_idx` for every remaining FK column; FK cascade, restriction, lineage-null, and account-purge checks are real queries and justify those indexes. No unrelated search/analytics index is added.
 
 | Index | Query / constraint served |
 |---|---|
@@ -683,36 +750,47 @@ Every foreign-key column receives an index unless it is already the leftmost pre
 | `profiles_one_active_idx unique (owner_id) where status='active'` | One active profile |
 | `profiles_anonymous_cleanup_idx (last_activity_at, id) where status='draft'` | Seven-day cleanup candidates |
 | `brand_sizes_profile_order_idx (profile_id, preference_order, id)` | Ordered profile sizes |
+| `brand_sizes_profile_brand_category_idx unique (profile_id, brand_key, lower(category))` | One size per normalized brand/category |
 | `consent_records_current_idx (profile_id, purpose, captured_at desc, id desc)` | Latest purpose decision |
 | `photos_profile_position_idx unique (profile_id, position)` | Ordered upload/review |
 | `photos_profile_sha_idx unique (profile_id, sha256)` | Duplicate prevention |
 | `photos_expiry_idx (expires_at, id) where expires_at is not null` | Retention purge |
 | `photo_style_signals_photo_idx unique (photo_id)` | One direct signal record |
+| `photo_style_signals_expiry_idx (expires_at, id)` | Derived-signal purge no later than source |
 | `extracted_garments_photo_idx (source_photo_id, review_status, created_at, id)` | Per-photo extraction/review |
 | `extracted_garments_profile_idx (profile_id, review_status, id)` | Candidate seed query |
+| `extracted_garments_expiry_idx (expires_at, id)` | Extracted-evidence purge no later than source |
 | `taste_candidates_profile_position_idx unique (profile_id, position)` | Calibration order |
 | `taste_reactions_profile_active_idx (profile_id, created_at, id) where undone_at is null` | Count/resume active reactions |
 | `taste_reactions_candidate_idx unique (candidate_id)` | One reaction per candidate |
 | `report_runs_idempotency_idx unique (idempotency_key)` | Submission replay |
+| `report_runs_sequence_idx unique (profile_id, profile_revision, run_sequence)` | Bounded explicit retry order |
+| `report_runs_one_live_idx unique (profile_id, profile_revision) where status in ('queued','processing','succeeded')` | One current/successful run while allowing failed history |
 | `report_runs_profile_status_idx (profile_id, status, created_at desc, id desc)` | Run resume/status |
-| `style_reports_profile_version_idx unique (profile_id, version)` | Versioned report lookup |
+| `style_reports_owner_version_idx unique (owner_id, version)` | Customer-visible report history across derived profiles |
+| `style_reports_derived_idx (derived_from_report_id)` | Report lineage traversal |
 | `style_reports_run_idx unique (report_run_id)` | One report per run |
 | `report_sections_report_position_idx unique (report_id, position)` | Ordered report sections |
 | `recommendations_report_position_idx unique (report_id, position)` | Ordered recommendations |
 | `report_feedback_report_created_idx (report_id, created_at desc, id desc)` | Feedback history |
 | `generated_assets_profile_kind_idx (profile_id, kind, created_at desc, id desc)` | Owned assets by kind |
 | `generated_assets_expiry_idx (expires_at, id) where status='accepted'` | Preview/derived purge |
+| `generated_assets_consent_idx (generation_consent_record_id) where generation_consent_record_id is not null` | Likeness consent lineage and revocation purge |
 | `generated_asset_sources_asset_idx (asset_id, id)` | Lineage traversal/deletion |
 | `live_sessions_profile_created_idx (profile_id, created_at desc, id desc)` | Recent session/resume |
+| `live_sessions_cleanup_idx (ended_at, id) where status in ('ended','failed')` | Global 30-day terminal-session purge |
 | `bag_items_profile_saved_idx (profile_id, saved_at desc, id desc)` | Keyset-paginated bag |
 | `bag_items_stable_unique_idx` | Unique normalized stable product/shop/variant tuple |
 | `processing_jobs_claim_idx (priority, available_at, created_at, id) where status in ('queued','retry_wait')` | Non-blocking job claim |
 | `processing_jobs_lease_idx (lease_expires_at, id) where status='leased'` | Stale lease recovery |
+| `processing_jobs_cleanup_idx (completed_at, id) where status in ('succeeded','failed','cancelled')` | Global terminal-job purge |
 | `processing_jobs_idempotency_idx unique (idempotency_key)` | Durable deduplication |
 | `anonymous_transfers_token_idx unique (token_sha256)` | One-use token lookup |
 | `anonymous_transfers_expiry_idx (expires_at, id) where status='prepared'` | Expire unused transfers |
 | `notification_delivery_key_idx unique (idempotency_key)` | Prevent duplicate email |
-| `outbound_events_profile_time_idx (profile_id, occurred_at desc, id desc)` | Diagnostic history/retention |
+| `notification_deliveries_cleanup_idx (updated_at, id) where status in ('sent','failed')` | Global delivery retention purge |
+| `outbound_events_profile_time_idx (profile_id, occurred_at desc, id desc)` | Customer-scoped diagnostic history |
+| `outbound_events_cleanup_idx (occurred_at, id)` | Global 30-day outbound-event purge |
 
 List/history pagination uses keyset cursors containing every sort field, normally `(created_at, id)` or `(saved_at, id)`; no deep `offset` pagination.
 
@@ -758,13 +836,61 @@ Generated assets move `processing → accepted | rejected | failed`; only accept
 
 The job transition contract is the architecture state machine: `queued → leased → succeeded`, `leased → retry_wait → queued`, `leased → failed`, expired `leased → queued`, and queued/retry work may become `cancelled`. Terminal jobs never return to a working state. Report run status mirrors the customer-visible subject, not every internal retry transition.
 
+### Exact state invariants
+
+Named database check constraints enforce all row-local required/forbidden fields below. Zod enforces the same rules before writes. Allowed prior-state transitions and cross-record facts use conditional updates inside the named server transaction; zero updated rows is a conflict, never silent success.
+
+| Record/status | Required | Forbidden / null | Allowed next state | Enforcement |
+|---|---|---|---|---|
+| Photo `uploaded` | object metadata/hash | `accepted_at`, `rejection_code` | `accepted`, `rejected` | DB check + validation transaction |
+| Photo `accepted` | `accepted_at` | `rejection_code` | `processing` | DB check + extraction enqueue transaction |
+| Photo `processing` | `accepted_at` | `rejection_code` | `complete`, `partial`, `failed` | DB check + worker conditional update |
+| Photo `partial` | `accepted_at`, `rejection_code` describing failed portion | — | `processing` retry or purge | DB check + bounded retry transaction |
+| Photo `complete` | `accepted_at` | `rejection_code` | purge only | DB check |
+| Photo `rejected` | `rejection_code` | `accepted_at` | purge only | DB check |
+| Photo `failed` | `accepted_at`, `rejection_code` | — | `processing` retry or purge | DB check + bounded retry transaction |
+| Generated asset `processing` | provider provenance, expiry; likeness consent when required | storage path/type/size/dimensions/hash, rejection code | `accepted`, `rejected`, `failed` | DB check + worker conditional update |
+| Generated asset `accepted` | path/type/size/dimensions/hash, expiry, valid consent when required | `rejection_code` | purge only; recommendation attachment permitted | DB check + publish/attach transaction |
+| Generated asset `rejected`/`failed` | `rejection_code`, expiry | path/type/size/dimensions/hash | purge only | DB check |
+| Report run `queued` | stage `queued`, run sequence/idempotency | start/completion/error fields | `processing`, `cancelled` | DB check + claim transaction |
+| Report run `processing` | `started_at`, non-queued stage | completion/error fields | `succeeded`, `failed`, `cancelled` | DB check + worker/publish transaction |
+| Report run `succeeded` | `started_at`, `completed_at`, stage `finalizing`, report row | error fields | terminal | DB check + report publish transaction |
+| Report run `failed` | `started_at`, `completed_at`, error code/details | report row | terminal; retry is a new sequence row | DB check + worker terminal update |
+| Report run `cancelled` | `completed_at`, cancellation error code | report row | terminal | DB check + cancellation transaction |
+| Live `created` | consent references | start/end/error fields | `connecting`, `failed` | DB check + session transition update |
+| Live `connecting`/`ready`/`reconnecting` | `started_at` | `ended_at`; error absent except reconnect diagnostic | ready/reconnecting/ended/failed per architecture | DB check + conditional update |
+| Live `ended` | `started_at`, `ended_at` | `last_error_code` | terminal | DB check |
+| Live `failed` | `ended_at`, `last_error_code`; `started_at` optional if setup failed | — | terminal | DB check |
+| Job `queued` | `available_at`, no lease | lease/worker/completion/error fields | `leased`, `cancelled` | DB check + claim function |
+| Job `leased` | lease timestamps, worker, attempt count >= 1 | completion/error fields | succeeded/retry_wait/failed or expired reclaim | DB check + claim/finish function |
+| Job `retry_wait` | `available_at`, error code/details | lease/worker/completion | `queued`, `cancelled` | DB check + scheduler update |
+| Job `succeeded` | `completed_at` | lease/worker/error fields | terminal | DB check |
+| Job `failed` | `completed_at`, error code/details | lease/worker | terminal | DB check |
+| Job `cancelled` | `completed_at`, cancellation code | lease/worker | terminal | DB check |
+| Transfer `prepared` | token hash, source revision, future expiry | target/consumed timestamp | `consumed`, `expired`, `cancelled` | DB check + consume function |
+| Transfer `consumed` | target owner, `consumed_at` | — | terminal | DB check + consume function |
+| Transfer `expired`/`cancelled` | terminal reason implicit in status | target owner and consumed timestamp | terminal | DB check |
+| Delivery `queued` | idempotency key | provider ref, sent timestamp, error code | `sent`, `failed` | DB check + worker update |
+| Delivery `sent` | provider ref, `sent_at` | error code | terminal | DB check |
+| Delivery `failed` | error code, attempt count > 0 | provider ref, sent timestamp | terminal after the associated job exhausts bounded retries | DB check + notification worker |
+
+Source-specific checks also enforce:
+
+- Taste candidate `extracted_garment` requires `source_fingerprint`, forbids catalog/curated fields, and permits `extracted_garment_id` to become null only through FK `on delete set null`.
+- Taste candidate `shopify_catalog` requires product/shop refs and forbids garment/fingerprint/curated fields.
+- Taste candidate `curated_fallback` requires the curated asset key and forbids garment/fingerprint/catalog fields.
+- Generated asset source requires exactly one source family. Catalog source requires product+shop together; non-catalog rows require `catalog_image_transmitted=false`.
+- Bag source checks require the matching provenance FK at creation for recommendation/live sources and no FK for product-detail source; source-retention may later null the FK. The expression unique index treats null variant as the empty canonical sentinel.
+- Consent-event references used by generated assets and live sessions are additionally validated for exact purpose and granted decision in the creating transaction; ordinary FKs alone cannot enforce those parent values.
+
 ## Retention and deletion matrix
 
 | Data | Expiry / trigger | Physical action |
 |---|---|---|
 | Anonymous draft and owned assets | 7 days without activity | Revoke usable session path, purge objects, delete Auth user/rows when safe |
 | Original photos | 30 days after report generation, earlier customer/account deletion | Delete Storage object, then row/cascades |
-| Garment cutouts/direct derived assets | Same or earlier than source photo | Delete object and asset row; extracted structured signals follow profile lifetime unless reset/deleted |
+| Garment cutouts | Same or earlier than source photo | Delete object, asset lineage, and asset row before its photo/garment sources |
+| Photo style signals and extracted garments | Same or earlier than source photo | Physically delete detailed derived rows; candidate descriptors/reactions and immutable aggregate report remain |
 | Generated likeness previews | 30 days after generation, earlier revocation/deletion | Clear recommendation pointer, delete object and asset/lineage rows |
 | Structured profile, reactions, report, recommendation, bag | Until explicit profile/account deletion | Physical cascade after object purge |
 | Live video/audio/transcript/gesture frames | Never persisted | No database/storage action because no record exists |
@@ -798,6 +924,7 @@ The first integrated one-photo/one-garment slice may apply only the required pre
 - Add foreign keys/indexes with named constraints. Postgres does not support `add constraint if not exists`; use a guarded block only when an idempotent follow-up requires it.
 - Every public table enables RLS and receives its exact grants/policies in the same migration that creates exposure.
 - Every new function sets an empty/fixed search path and explicitly revokes default `PUBLIC` execute.
+- Declare every same-owner composite FK `deferrable initially immediate`; keep ordinary reads/writes immediate and defer only inside the server-only owner-transfer transaction.
 - Run Supabase database/security/performance advisors and the two-user RLS test suite before remote push.
 - Generate TypeScript database types after the final local migration and compare them with shared Zod contracts; generated types do not replace runtime parsing.
 
@@ -855,7 +982,10 @@ Before the data-contract implementation ticket can pass:
 7. Verify the private schemas/functions are absent from customer Data API access and `PUBLIC` execute is revoked.
 8. Verify two workers claim different jobs with `skip locked`, external calls hold no transaction, stale leases recover, and idempotency prevents duplicate reports/emails.
 9. Verify account transfer replay, expiry, wrong owner, wrong revision, and existing-account conflict behavior.
-10. Verify account deletion removes all three bucket prefixes and customer rows without logging sensitive paths or content.
+10. Run a migration-level owner-transfer fixture containing 8 photos, direct signals, extracted garments, cutouts/lineage, 20 candidates, 12 reactions, and a target account with an existing active profile/report; assert every transferred row has the target owner, existing target state is unchanged, and no deferred FK is violated.
+11. Verify report-run initial failure, terminal user retry, duplicate retry replay, three-sequence ceiling, and existing-success conflict behavior.
+12. Verify every expiry scan uses its named leading index and physically removes detailed photo-derived evidence without deleting bounded candidate/reaction/report history.
+13. Verify account deletion removes all three bucket prefixes and customer rows without logging sensitive paths or content.
 
 ## Sources
 
