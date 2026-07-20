@@ -1,7 +1,7 @@
 {
   "workflow": "engineering-plan",
   "status": "in-progress",
-  "currentStep": "data-review",
+  "currentStep": "data-contract",
   "steps": [
     {
       "id": "context-readiness",
@@ -58,7 +58,7 @@
     },
     {
       "id": "data-contract",
-      "status": "completed",
+      "status": "not-started",
       "reviewPassed": null,
       "evidence": [
         "company/artifacts/engineering-plan/contracts/index.md",
@@ -67,14 +67,18 @@
         "Supabase Postgres design guidance applied for lowercase identifiers, types, constraints, primary/foreign keys, composite/partial indexes, RLS ownership/performance, least privilege, keyset pagination, short transactions, and skip-locked job claims",
         "Data-contract validation: 17 public customer-owned records, 4 private operational records, 3 private buckets, exact required sections, balanced fences, resolved local links, planning JSON, secret scan, and whitespace passed 2026-07-20"
       ],
-      "notes": "Completed and ready for data review. The contract fixes exact records, bounded enums/JSON, immutable profile/report evidence, composite ownership, explicit Data API grants and RLS, private object paths, indexes, physical retention/deletion, job leasing, account transfer, and migration compatibility. No SQL migration or live database mutation was performed."
+      "notes": "Returned for focused repair after data review. Preserve the approved structure and resolve DR-001 through DR-009 in company/artifacts/engineering-plan/data-review.md before resubmitting. No SQL migration or live database mutation was performed."
     },
     {
       "id": "data-review",
-      "status": "not-started",
-      "reviewPassed": null,
-      "evidence": [],
-      "notes": ""
+      "status": "completed",
+      "reviewPassed": false,
+      "evidence": [
+        "company/artifacts/engineering-plan/data-review.md",
+        "Review coverage: every field group, relationship, query/index, state constraint, ownership/RLS rule, Storage object, retention class, account-transfer path, and migration assumption",
+        "Nine repair findings: post-submission child-write scope, terminal report retry, extracted-evidence retention, generated-preview consent lineage, report version scope, job error schema, retention indexes, exact state invariants, and owner-transfer constraint execution"
+      ],
+      "notes": "Failed with specific repair requirements and returned to data-contract. The overall schema direction passed, but exact lifecycle/privacy/retry/migration defects must be corrected before application contracts. Reset this review to not-started with reviewPassed null only after the repaired data contract is completed."
     },
     {
       "id": "application-contracts",
