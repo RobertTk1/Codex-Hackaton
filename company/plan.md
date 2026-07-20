@@ -154,8 +154,8 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Complete the architecture step through `company/artifacts/engineering-plan/tasks.json`; reverify OpenAI paid execution before any OpenAI-dependent implementation ticket runs.
-2. Complete architecture review, contracts, reviews, and focused engineering tickets one planning step per turn.
+1. Review the completed seven-file architecture package through the `architecture-review` checkpoint; resolve any scope, security, or operational findings before contracts.
+2. After review passes, complete data and application contracts, their reviews, and focused engineering tickets one planning step per turn.
 3. Run the Wardrobe, generated-preview, Shopify, Decart, and Gemini/Decart/gesture discovery spikes when their future engineering tickets and prerequisites are ready; Decart and dual-realtime remain early parallel risks.
 4. Begin implementation only after the engineering plan is founder-approved and its technical readiness gate is ready.
 

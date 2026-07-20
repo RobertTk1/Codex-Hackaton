@@ -1,7 +1,7 @@
 {
   "workflow": "engineering-plan",
   "status": "in-progress",
-  "currentStep": "architecture",
+  "currentStep": "architecture-review",
   "steps": [
     {
       "id": "context-readiness",
@@ -30,10 +30,19 @@
     },
     {
       "id": "architecture",
-      "status": "not-started",
+      "status": "completed",
       "reviewPassed": null,
-      "evidence": [],
-      "notes": ""
+      "evidence": [
+        "company/artifacts/engineering-plan/architecture/overview.md",
+        "company/artifacts/engineering-plan/architecture/topology.md",
+        "company/artifacts/engineering-plan/architecture/components.md",
+        "company/artifacts/engineering-plan/architecture/data.md",
+        "company/artifacts/engineering-plan/architecture/flows.md",
+        "company/artifacts/engineering-plan/architecture/security.md",
+        "company/artifacts/engineering-plan/architecture/operations.md",
+        "Architecture structural validation: exact seven-file set, balanced Markdown fences, local-link resolution, JSON syntax, required scope separation, and whitespace passed 2026-07-20"
+      ],
+      "notes": "Completed and ready for architecture review. The blueprint explicitly preserves the repository's narrow one-photo/one-garment integrated slice while staging the founder-approved report-led product as vertical extensions on shared identity, media, job, catalog, and live-action boundaries. No implementation was created."
     },
     {
       "id": "architecture-review",
