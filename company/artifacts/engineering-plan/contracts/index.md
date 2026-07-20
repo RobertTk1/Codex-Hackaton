@@ -2,11 +2,11 @@
 
 | Contract | Status | Workflow owner |
 |---|---|---|
-| [Data contract](data.md) | DR-010–DR-013 repaired; awaiting repeat data review | `data-contract` |
+| [Data contract](data.md) | Approved; implementation tests preserved | `data-contract` + `data-review` |
 | Client/server API | Not started | `application-contracts` |
 | Authentication and authorization | Not started | `application-contracts` |
 | External integrations | Not started | `application-contracts` |
 | Events and states | Not started | `application-contracts` |
 | Screen/data operations | Not started | `application-contracts` |
 
-Only the data contract is in scope for the current checkpoint. Later files must use the identifiers, enums, ownership rules, and lifecycle transitions fixed here unless data review returns this contract for repair.
+The approved data contract is now the authority for later application contracts. Those files must use its identifiers, enums, ownership rules, and lifecycle transitions; failed migration proof may still return the affected implementation ticket for repair.

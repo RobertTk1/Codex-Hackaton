@@ -1,7 +1,7 @@
 {
   "workflow": "engineering-plan",
   "status": "in-progress",
-  "currentStep": "data-review",
+  "currentStep": "application-contracts",
   "steps": [
     {
       "id": "context-readiness",
@@ -74,10 +74,17 @@
     },
     {
       "id": "data-review",
-      "status": "not-started",
-      "reviewPassed": null,
-      "evidence": [],
-      "notes": "Reset for a fresh independent review after the DR-010 through DR-013 repair. Prior failed reviews remain preserved in data-review.md and data-review-2.md with their accepted repairs recorded in the data contract."
+      "status": "completed",
+      "reviewPassed": true,
+      "evidence": [
+        "company/artifacts/engineering-plan/data-review.md",
+        "company/artifacts/engineering-plan/data-review-2.md",
+        "company/artifacts/engineering-plan/data-review-3.md",
+        "DR-001 through DR-013 repaired and validation passed",
+        "Founder approval: Talisha White directed the workflow to stop additional data-review loops and move forward on 2026-07-20",
+        "Migration-level transfer, expiry, old-token deletion, RLS, Storage, retry, concurrency, index, and advisor tests preserved as future ticket pass conditions"
+      ],
+      "notes": "Passed by explicit founder approval after two formal review rounds and 13 completed repairs. No third document-only review was claimed or performed. Real migration and policy proofs remain mandatory implementation pass conditions. Workflow advanced to application-contracts without beginning that step."
     },
     {
       "id": "application-contracts",

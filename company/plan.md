@@ -154,10 +154,11 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Repeat the independent data review against all DR-001 through DR-013 repairs, with transfer, expiry, delayed purge, signed URL, old-token deletion, and migration-policy tests as the focus.
-2. Only after data review passes create the application, auth, integration, event/state, and screen/data contracts.
-3. Run the Wardrobe, generated-preview, Shopify, Decart, and Gemini/Decart/gesture discovery spikes when their future engineering tickets and prerequisites are ready; Decart and dual-realtime remain early parallel risks.
-4. Begin implementation only after the engineering plan is founder-approved and its technical readiness gate is ready.
+1. Create the application contracts: client/server API, authentication/authorization, provider integrations, events/states/errors, and screen/data operations.
+2. Cross-review every application contract against the approved data model, architecture, PRD, screens, and readiness requirements before ticketing.
+3. Create dependency-aware engineering tickets only after the complete contract package passes review.
+4. Run the Wardrobe, generated-preview, Shopify, Decart, and Gemini/Decart/gesture discovery spikes when their future engineering tickets and prerequisites are ready; Decart and dual-realtime remain early parallel risks.
+5. Begin implementation only after the engineering plan is founder-approved and its technical readiness gate is ready.
 
 ## Decisions
 
