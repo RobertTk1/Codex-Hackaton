@@ -94,6 +94,8 @@ Append-only operating log for agent actions and important system events.
 - 22:51:49 EDT :: Recorded DigitalOcean as the founder-selected production/hosting provider while leaving the exact DigitalOcean product, account/team access, domain, region, and secure-secret location for explicit confirmation.
 - 22:51:49 EDT :: Created `company/artifacts/engineering-plan/founder-readiness-inputs.md` as the single fillable, non-secret source for founder decisions and external-access attestations, with recommended hackathon defaults and fields reserved for later engineering work.
 - 22:51:49 EDT :: Found two unnamed OpenAI Build Week draft projects in the connected Devpost account and left both unchanged pending founder identification of the Magic Mirror draft.
+## 2026-07-20
+
 - 08:14:50 EDT :: Configured the dedicated `magic-mirror-buildweek` Google Auth Platform project, production external OAuth app, Supabase callback, Google provider, manual anonymous-user identity linking, and localhost Vite Auth URLs for Magic Mirror.
 - 08:14:50 EDT :: Enabled Supabase custom SMTP through Resend with verified domain `thecrownlist.com`, sender `magicmirror@thecrownlist.com`, port 465, and a domain-scoped send-only credential; actual inbox delivery awaits a founder-confirmed test destination.
 - 08:14:50 EDT :: A Resend credential appeared in diagnostic browser output during verification; rotated it immediately, updated Supabase to the replacement, revoked the exposed credential, and recorded the incident so future secret-bearing UI checks verify state without emitting field values.
@@ -126,3 +128,6 @@ Append-only operating log for agent actions and important system events.
 - 10:15:18 EDT :: Validated the complete four-finding repair against current official Supabase Storage/session guidance and reset the workflow to a fresh `data-review`; no migration, live schema mutation, application contract, engineering ticket, or implementation was created.
 - 10:28:19 EDT :: Recorded Talisha White's explicit approval to close the data-review loop after two formal reviews and 13 repaired findings, without misrepresenting a third independent review.
 - 10:28:19 EDT :: Preserved every migration-level RLS, Storage, transfer, expiry, old-token deletion, retry, concurrency, index, and advisor proof as future ticket pass conditions and advanced the workflow to `application-contracts`; no application contract or implementation was started.
+- 11:12:35 EDT :: Created the complete application-contract package: client/server API and OpenAPI, Supabase authentication/authorization and anonymous transfer, current external integrations, durable/transient states, normalized errors, and screen/data operations.
+- 11:12:35 EDT :: Validated 47/47 API/OpenAPI operations, 48/48 canonical screen records, 8/8 approved conversational states, complete screen/action operation mapping, YAML syntax, local links, Markdown fences, credential patterns, JSON, and whitespace.
+- 11:12:35 EDT :: Advanced the engineering-plan tracker to `contracts-review`; no product code, migration, live database change, provider mutation, or engineering ticket was created.

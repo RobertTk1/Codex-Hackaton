@@ -1,0 +1,644 @@
+openapi: 3.1.0
+info:
+  title: Magic Mirror Application API
+  version: 2026-07-20.1
+  description: |
+    Machine-readable operation inventory for the Magic Mirror browser/API boundary.
+    contracts/api.md is the normative source for operation-specific success projections,
+    persistence effects, idempotency semantics, and named errors; this file fixes paths,
+    methods, authentication, headers, and request shapes for implementation and tests.
+servers:
+  - url: /api/v1
+security:
+  - SupabaseBearer: []
+tags:
+  - name: public
+  - name: session
+  - name: profile
+  - name: photos
+  - name: taste
+  - name: auth-transfer
+  - name: reports
+  - name: catalog
+  - name: bag
+  - name: handoff
+  - name: live
+  - name: account
+paths:
+  /configuration:
+    get:
+      operationId: getPublicConfiguration
+      tags: [public]
+      security: []
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /resume:
+    get:
+      operationId: resolveResume
+      tags: [session]
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/resume:
+    post:
+      operationId: createOrResumeProfile
+      tags: [profile]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ProfileResumeInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, '201': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /style-home:
+    get:
+      operationId: getStyleHome
+      tags: [session]
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}:
+    parameters: [{ $ref: '#/components/parameters/ProfileId' }]
+    get:
+      operationId: getProfileSnapshot
+      tags: [profile]
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/conversation/turns:
+    parameters: [{ $ref: '#/components/parameters/ProfileId' }]
+    post:
+      operationId: submitConversationTurn
+      tags: [profile]
+      parameters: [{ $ref: '#/components/parameters/IfMatchRevision' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ConversationTurnInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/answers/{field}:
+    parameters:
+      - { $ref: '#/components/parameters/ProfileId' }
+      - { name: field, in: path, required: true, schema: { $ref: '#/components/schemas/ProfileField' } }
+    put:
+      operationId: replaceProfileAnswer
+      tags: [profile]
+      parameters: [{ $ref: '#/components/parameters/IfMatchRevision' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ProfileAnswerInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/brand-sizes:
+    parameters: [{ $ref: '#/components/parameters/ProfileId' }]
+    put:
+      operationId: putBrandSizes
+      tags: [profile]
+      parameters: [{ $ref: '#/components/parameters/IfMatchRevision' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/BrandSizesInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/consents:
+    parameters: [{ $ref: '#/components/parameters/ProfileId' }]
+    post:
+      operationId: recordConsent
+      tags: [profile]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ConsentInput' } } } }
+      responses: { '201': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/report-runs:
+    parameters: [{ $ref: '#/components/parameters/ProfileId' }]
+    post:
+      operationId: submitProfileForReport
+      tags: [reports]
+      parameters:
+        - { $ref: '#/components/parameters/IfMatchRevision' }
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ReportSubmissionInput' } } } }
+      responses: { '202': { $ref: '#/components/responses/Accepted' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/photo-upload-slots:
+    parameters: [{ $ref: '#/components/parameters/ProfileId' }]
+    post:
+      operationId: createPhotoUploadSlot
+      tags: [photos]
+      parameters:
+        - { $ref: '#/components/parameters/IfMatchRevision' }
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/PhotoSlotInput' } } } }
+      responses: { '201': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/photos:
+    parameters: [{ $ref: '#/components/parameters/ProfileId' }]
+    get:
+      operationId: listPhotos
+      tags: [photos]
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/photos/{photoId}/complete:
+    parameters:
+      - { $ref: '#/components/parameters/ProfileId' }
+      - { $ref: '#/components/parameters/PhotoId' }
+    post:
+      operationId: completePhotoUpload
+      tags: [photos]
+      parameters:
+        - { $ref: '#/components/parameters/IfMatchRevision' }
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/PhotoCompleteInput' } } } }
+      responses: { '202': { $ref: '#/components/responses/Accepted' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/photos/{photoId}:
+    parameters:
+      - { $ref: '#/components/parameters/ProfileId' }
+      - { $ref: '#/components/parameters/PhotoId' }
+    delete:
+      operationId: deletePhoto
+      tags: [photos]
+      parameters: [{ $ref: '#/components/parameters/IfMatchRevision' }]
+      responses: { '204': { description: Deleted }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/photos/{photoId}/extraction-retries:
+    parameters:
+      - { $ref: '#/components/parameters/ProfileId' }
+      - { $ref: '#/components/parameters/PhotoId' }
+    post:
+      operationId: retryPhotoExtraction
+      tags: [photos]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      responses: { '202': { $ref: '#/components/responses/Accepted' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/extraction-summary:
+    parameters: [{ $ref: '#/components/parameters/ProfileId' }]
+    get:
+      operationId: getExtractionSummary
+      tags: [photos]
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/garments/{garmentId}:
+    parameters:
+      - { $ref: '#/components/parameters/ProfileId' }
+      - { name: garmentId, in: path, required: true, schema: { $ref: '#/components/schemas/Uuid' } }
+    patch:
+      operationId: reviewExtractedGarment
+      tags: [photos]
+      parameters: [{ $ref: '#/components/parameters/IfMatchRevision' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/GarmentReviewInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/taste-candidates:
+    parameters: [{ $ref: '#/components/parameters/ProfileId' }]
+    post:
+      operationId: ensureTasteCandidates
+      tags: [taste]
+      parameters:
+        - { $ref: '#/components/parameters/IfMatchRevision' }
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/TasteEnsureInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, '202': { $ref: '#/components/responses/Accepted' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/taste-calibration:
+    parameters: [{ $ref: '#/components/parameters/ProfileId' }]
+    get:
+      operationId: getTasteCalibration
+      tags: [taste]
+      parameters: [{ name: afterPosition, in: query, schema: { type: integer, minimum: 1, maximum: 20 } }]
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/taste-reactions/{candidateId}:
+    parameters:
+      - { $ref: '#/components/parameters/ProfileId' }
+      - { name: candidateId, in: path, required: true, schema: { $ref: '#/components/schemas/Uuid' } }
+    put:
+      operationId: putTasteReaction
+      tags: [taste]
+      parameters:
+        - { $ref: '#/components/parameters/IfMatchRevision' }
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/TasteReactionInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /profiles/{profileId}/taste-reactions/{candidateId}/undo:
+    parameters:
+      - { $ref: '#/components/parameters/ProfileId' }
+      - { name: candidateId, in: path, required: true, schema: { $ref: '#/components/schemas/Uuid' } }
+    post:
+      operationId: undoTasteReaction
+      tags: [taste]
+      parameters:
+        - { $ref: '#/components/parameters/IfMatchRevision' }
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /auth/transfers:
+    post:
+      operationId: prepareAnonymousTransfer
+      tags: [auth-transfer]
+      parameters:
+        - { $ref: '#/components/parameters/IfMatchRevision' }
+        - { $ref: '#/components/parameters/IdempotencyKey' }
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/TransferPrepareInput' } } } }
+      responses: { '201': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /auth/transfers/consume:
+    post:
+      operationId: consumeAnonymousTransfer
+      tags: [auth-transfer]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/TransferConsumeInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /auth/transfers/current:
+    delete:
+      operationId: cancelAnonymousTransfer
+      tags: [auth-transfer]
+      responses: { '204': { description: Cancelled }, default: { $ref: '#/components/responses/Error' } }
+  /report-runs/{runId}:
+    parameters: [{ $ref: '#/components/parameters/RunId' }]
+    get:
+      operationId: getReportRun
+      tags: [reports]
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /report-runs/{runId}/retries:
+    parameters: [{ $ref: '#/components/parameters/RunId' }]
+    post:
+      operationId: retryReportRun
+      tags: [reports]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      responses: { '202': { $ref: '#/components/responses/Accepted' }, default: { $ref: '#/components/responses/Error' } }
+  /report-runs/{runId}/notification:
+    parameters: [{ $ref: '#/components/parameters/RunId' }]
+    put:
+      operationId: requestReportNotification
+      tags: [reports]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/NotificationInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /reports/current:
+    get:
+      operationId: getCurrentReport
+      tags: [reports]
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /reports/{reportId}/sections/{sectionType}:
+    parameters:
+      - { $ref: '#/components/parameters/ReportId' }
+      - { name: sectionType, in: path, required: true, schema: { type: string, enum: [overview, color, body_style] } }
+    get:
+      operationId: getReportSection
+      tags: [reports]
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /reports/{reportId}/recommendations:
+    parameters: [{ $ref: '#/components/parameters/ReportId' }]
+    get:
+      operationId: listRecommendations
+      tags: [reports]
+      parameters:
+        - { $ref: '#/components/parameters/Cursor' }
+        - { $ref: '#/components/parameters/Limit' }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /reports/{reportId}/feedback:
+    parameters: [{ $ref: '#/components/parameters/ReportId' }]
+    post:
+      operationId: submitReportFeedback
+      tags: [reports]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/FeedbackInput' } } } }
+      responses: { '201': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /reports/{reportId}/recalibrations:
+    parameters: [{ $ref: '#/components/parameters/ReportId' }]
+    post:
+      operationId: startRecalibration
+      tags: [reports]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ConfirmationInput' } } } }
+      responses: { '201': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /catalog/search:
+    post:
+      operationId: searchCatalog
+      tags: [catalog]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/CatalogSearchInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /catalog/product:
+    post:
+      operationId: getProduct
+      tags: [catalog]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ProductInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /catalog/alternatives:
+    post:
+      operationId: getAlternatives
+      tags: [catalog]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/AlternativesInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /bag:
+    get:
+      operationId: listBag
+      tags: [bag]
+      parameters:
+        - { $ref: '#/components/parameters/Cursor' }
+        - { $ref: '#/components/parameters/Limit' }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /bag/items:
+    post:
+      operationId: addBagItem
+      tags: [bag]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/BagItemInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, '201': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /bag/items/{bagItemId}:
+    parameters: [{ name: bagItemId, in: path, required: true, schema: { $ref: '#/components/schemas/Uuid' } }]
+    delete:
+      operationId: removeBagItem
+      tags: [bag]
+      responses: { '204': { description: Removed }, default: { $ref: '#/components/responses/Error' } }
+  /retailer-handoffs/prepare:
+    post:
+      operationId: prepareRetailerHandoff
+      tags: [handoff]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/CatalogReference' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /retailer-handoffs/confirm:
+    post:
+      operationId: confirmRetailerHandoff
+      tags: [handoff]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/HandoffTokenInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /live-sessions:
+    post:
+      operationId: createLiveSession
+      tags: [live]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/LiveSessionInput' } } } }
+      responses: { '201': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /live-sessions/{sessionId}:
+    parameters: [{ $ref: '#/components/parameters/SessionId' }]
+    patch:
+      operationId: transitionLiveSession
+      tags: [live]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/LiveTransitionInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /live-sessions/{sessionId}/credentials:
+    parameters: [{ $ref: '#/components/parameters/SessionId' }]
+    post:
+      operationId: mintRealtimeCredentials
+      tags: [live]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/CredentialInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /live-sessions/{sessionId}/actions:
+    parameters: [{ $ref: '#/components/parameters/SessionId' }]
+    post:
+      operationId: proposeLiveAction
+      tags: [live]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/LiveActionProposal' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /live-sessions/{sessionId}/actions/confirm:
+    parameters: [{ $ref: '#/components/parameters/SessionId' }]
+    post:
+      operationId: confirmLiveAction
+      tags: [live]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ConfirmationTokenInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /live-sessions/{sessionId}/end:
+    parameters: [{ $ref: '#/components/parameters/SessionId' }]
+    post:
+      operationId: endLiveSession
+      tags: [live]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/LiveEndInput' } } } }
+      responses: { '200': { $ref: '#/components/responses/Success' }, default: { $ref: '#/components/responses/Error' } }
+  /account/deletion:
+    post:
+      operationId: requestAccountDeletion
+      tags: [account]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ConfirmationInput' } } } }
+      responses: { '202': { $ref: '#/components/responses/Accepted' }, default: { $ref: '#/components/responses/Error' } }
+components:
+  securitySchemes:
+    SupabaseBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    ProfileId: { name: profileId, in: path, required: true, schema: { $ref: '#/components/schemas/Uuid' } }
+    PhotoId: { name: photoId, in: path, required: true, schema: { $ref: '#/components/schemas/Uuid' } }
+    RunId: { name: runId, in: path, required: true, schema: { $ref: '#/components/schemas/Uuid' } }
+    ReportId: { name: reportId, in: path, required: true, schema: { $ref: '#/components/schemas/Uuid' } }
+    SessionId: { name: sessionId, in: path, required: true, schema: { $ref: '#/components/schemas/Uuid' } }
+    IdempotencyKey: { name: Idempotency-Key, in: header, required: true, schema: { $ref: '#/components/schemas/Uuid' } }
+    IfMatchRevision: { name: If-Match-Revision, in: header, required: true, schema: { type: integer, minimum: 1 } }
+    Cursor: { name: cursor, in: query, schema: { type: string, minLength: 1, maxLength: 500 } }
+    Limit: { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 50, default: 24 } }
+  responses:
+    Success:
+      description: Operation-specific success projection defined in contracts/api.md
+      headers: { X-Request-Id: { schema: { type: string } } }
+      content: { application/json: { schema: { $ref: '#/components/schemas/ApplicationPayload' } } }
+    Accepted:
+      description: Durable subject accepted; poll the operation-specific subject, never a private job row
+      headers: { X-Request-Id: { schema: { type: string } }, Retry-After: { schema: { type: integer } } }
+      content: { application/json: { schema: { allOf: [{ $ref: '#/components/schemas/ApplicationPayload' }, { type: object, properties: { pollAfterMs: { type: integer, minimum: 2000 } } }] } } }
+    Error:
+      description: Normalized failure
+      headers: { X-Request-Id: { schema: { type: string } } }
+      content: { application/json: { schema: { $ref: '#/components/schemas/Error' } } }
+  schemas:
+    Uuid: { type: string, format: uuid }
+    ApplicationPayload:
+      type: object
+      description: Exact operation-specific projection is normative in contracts/api.md and shared Zod schemas.
+      additionalProperties: true
+    Error:
+      type: object
+      additionalProperties: false
+      required: [error, code, details, requestId]
+      properties:
+        error: { type: string, minLength: 1, maxLength: 240 }
+        code: { type: string, pattern: '^[A-Z][A-Z0-9_]{2,79}$' }
+        details: { type: object, additionalProperties: true }
+        requestId: { type: string, minLength: 1, maxLength: 160 }
+    ProfileResumeInput:
+      type: object
+      additionalProperties: false
+      required: [entry]
+      properties: { entry: { type: string, enum: [landing, login, new_report] } }
+    ProfileField: { type: string, enum: [name, adult_confirmation, gender, age, height, weight] }
+    ConversationTurnInput:
+      type: object
+      additionalProperties: false
+      required: [turnId, targetField, text, locale]
+      properties:
+        turnId: { $ref: '#/components/schemas/Uuid' }
+        targetField: { $ref: '#/components/schemas/ProfileField' }
+        text: { type: string, minLength: 1, maxLength: 500 }
+        locale: { type: string, minLength: 2, maxLength: 35 }
+    ProfileAnswerInput:
+      type: object
+      additionalProperties: false
+      required: [value, reason]
+      properties:
+        value: {}
+        reason: { type: string, const: customer_edit }
+    BrandSize:
+      type: object
+      additionalProperties: false
+      required: [brandName, category, sizeLabel, preferenceOrder]
+      properties:
+        brandName: { type: string, minLength: 1, maxLength: 80 }
+        category: { type: string, minLength: 1, maxLength: 80 }
+        sizeLabel: { type: string, minLength: 1, maxLength: 40 }
+        preferenceOrder: { type: integer, minimum: 1, maximum: 20 }
+    BrandSizesInput:
+      type: object
+      additionalProperties: false
+      required: [items]
+      properties: { items: { type: array, minItems: 1, maxItems: 20, items: { $ref: '#/components/schemas/BrandSize' } } }
+    ConsentInput:
+      type: object
+      additionalProperties: false
+      required: [purpose, decision, policyVersion, copySha256]
+      properties:
+        purpose: { type: string, enum: [profile_processing, photo_analysis, garment_extraction, generated_likeness_preview, account_connection, live_camera, live_microphone, gemini_visual_context] }
+        decision: { type: string, enum: [granted, revoked] }
+        policyVersion: { type: string, minLength: 1, maxLength: 80 }
+        copySha256: { type: string, pattern: '^[a-f0-9]{64}$' }
+    ReportSubmissionInput:
+      type: object
+      additionalProperties: false
+      required: [profileRevision, notifyWhenReady]
+      properties:
+        profileRevision: { type: integer, minimum: 1 }
+        notifyWhenReady: { type: boolean }
+    PhotoSlotInput:
+      type: object
+      additionalProperties: false
+      required: [position, declaredMediaType, declaredByteSize]
+      properties:
+        position: { type: integer, minimum: 1, maximum: 12 }
+        declaredMediaType: { type: string, enum: [image/jpeg, image/png, image/webp] }
+        declaredByteSize: { type: integer, minimum: 1, maximum: 15728640 }
+    PhotoCompleteInput:
+      type: object
+      additionalProperties: false
+      required: [storagePath]
+      properties: { storagePath: { type: string, minLength: 1, maxLength: 500 } }
+    GarmentReviewInput:
+      type: object
+      additionalProperties: false
+      required: [reviewStatus]
+      properties: { reviewStatus: { type: string, enum: [confirmed, rejected] } }
+    TasteEnsureInput:
+      type: object
+      additionalProperties: false
+      required: [allowCuratedFallback]
+      properties: { allowCuratedFallback: { type: boolean, const: true } }
+    TasteReactionInput:
+      type: object
+      additionalProperties: false
+      required: [reaction]
+      properties: { reaction: { type: string, enum: [love, hate, maybe] } }
+    TransferPrepareInput:
+      type: object
+      additionalProperties: false
+      required: [profileId, method]
+      properties:
+        profileId: { $ref: '#/components/schemas/Uuid' }
+        method: { type: string, enum: [google, magic_link] }
+    TransferConsumeInput:
+      type: object
+      additionalProperties: false
+      required: [profileId, confirmation]
+      properties:
+        profileId: { $ref: '#/components/schemas/Uuid' }
+        confirmation: { type: string, enum: [preserve_as_new_draft, activate_if_no_existing_profile] }
+    NotificationInput:
+      type: object
+      additionalProperties: false
+      required: [enabled]
+      properties: { enabled: { type: boolean, const: true } }
+    FeedbackInput:
+      type: object
+      additionalProperties: false
+      required: [sectionType, kind, note]
+      properties:
+        sectionType: { type: [string, 'null'], enum: [overview, color, body_style, null] }
+        kind: { type: string, enum: [helpful, unclear, incorrect, recalibrate] }
+        note: { type: [string, 'null'], minLength: 1, maxLength: 2000 }
+    ConfirmationInput:
+      type: object
+      additionalProperties: false
+      required: [confirmed]
+      properties: { confirmed: { type: boolean, const: true } }
+    CatalogReference:
+      type: object
+      additionalProperties: false
+      required: [productRef, shopRef, variantRef]
+      properties:
+        productRef: { type: string, minLength: 1, maxLength: 500 }
+        shopRef: { type: string, minLength: 1, maxLength: 500 }
+        variantRef: { type: [string, 'null'], minLength: 1, maxLength: 500 }
+    CatalogSearchInput:
+      type: object
+      additionalProperties: false
+      required: [query, country, styleSignals]
+      properties:
+        query: { type: string, minLength: 1, maxLength: 500 }
+        category: { type: string, minLength: 1, maxLength: 80 }
+        color: { type: string, minLength: 1, maxLength: 80 }
+        size: { type: string, minLength: 1, maxLength: 40 }
+        priceMinorMax: { type: integer, minimum: 0 }
+        country: { type: string, const: US }
+        styleSignals: { type: array, maxItems: 8, items: { type: string, minLength: 1, maxLength: 80 } }
+    ProductInput:
+      allOf:
+        - { $ref: '#/components/schemas/CatalogReference' }
+        - type: object
+          properties:
+            selectedOptions:
+              type: array
+              maxItems: 12
+              items:
+                type: object
+                additionalProperties: false
+                required: [name, label]
+                properties: { name: { type: string, minLength: 1, maxLength: 80 }, label: { type: string, minLength: 1, maxLength: 80 } }
+    AlternativesInput:
+      allOf:
+        - { $ref: '#/components/schemas/CatalogReference' }
+        - type: object
+          properties: { styleConstraints: { type: array, maxItems: 8, items: { type: string, minLength: 1, maxLength: 80 } } }
+    BagItemInput:
+      allOf:
+        - { $ref: '#/components/schemas/CatalogReference' }
+        - type: object
+          required: [source, sourceId]
+          properties:
+            source: { type: string, enum: [recommendation, live_session, product_detail] }
+            sourceId: { type: [string, 'null'], format: uuid }
+    HandoffTokenInput:
+      type: object
+      additionalProperties: false
+      required: [handoffToken]
+      properties:
+        handoffToken: { type: string, minLength: 20, maxLength: 4000 }
+    ConfirmationTokenInput:
+      type: object
+      additionalProperties: false
+      required: [confirmationToken]
+      properties:
+        confirmationToken: { type: string, minLength: 20, maxLength: 4000 }
+    LiveSessionInput:
+      allOf:
+        - { $ref: '#/components/schemas/CatalogReference' }
+        - type: object
+          required: [recommendationId, cameraConsentRecordId, microphoneConsentRecordId, geminiVisualConsentRecordId, geminiContextMode]
+          properties:
+            recommendationId: { type: [string, 'null'], format: uuid }
+            cameraConsentRecordId: { $ref: '#/components/schemas/Uuid' }
+            microphoneConsentRecordId: { $ref: '#/components/schemas/Uuid' }
+            geminiVisualConsentRecordId: { type: [string, 'null'], format: uuid }
+            geminiContextMode: { type: string, enum: [structured_state, sampled_video] }
+    LiveTransitionInput:
+      type: object
+      additionalProperties: false
+      required: [status]
+      properties:
+        status: { type: string, enum: [connecting, ready, reconnecting, ended, failed] }
+        connectionMs: { type: integer, minimum: 0, maximum: 600000 }
+        firstFrameMs: { type: integer, minimum: 0, maximum: 600000 }
+        lastActionLatencyMs: { type: integer, minimum: 0, maximum: 600000 }
+        errorCode: { type: [string, 'null'], maxLength: 80 }
+    CredentialInput:
+      type: object
+      additionalProperties: false
+      required: [providers]
+      properties: { providers: { type: array, minItems: 1, maxItems: 2, uniqueItems: true, items: { type: string, enum: [decart, gemini] } } }
+    LiveActionProposal:
+      type: object
+      additionalProperties: false
+      required: [actionId, sessionId, sequence, source, type, arguments, observedAt, confidence]
+      properties:
+        actionId: { $ref: '#/components/schemas/Uuid' }
+        sessionId: { $ref: '#/components/schemas/Uuid' }
+        sequence: { type: integer, minimum: 1 }
+        source: { type: string, enum: [direct, voice, gesture] }
+        type: { type: string, enum: [next_item, previous_item, select_item, refine_results, add_to_bag, remove_from_bag, open_retailer, end_session, undo_last_selection] }
+        arguments: { type: object, additionalProperties: true }
+        observedAt: { type: string, format: date-time }
+        confidence: { type: [number, 'null'], minimum: 0, maximum: 1 }
+    LiveEndInput:
+      type: object
+      additionalProperties: false
+      required: [reason]
+      properties: { reason: { type: string, enum: [customer, provider_failure, timeout] } }

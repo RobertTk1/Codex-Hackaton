@@ -94,6 +94,8 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 - [x] Create the amended build plan under `company/artifacts/build-plan/build-plan.md`.
 - [x] Founder reviews and approves the amended build plan.
 - [x] Resolve or assign the critical build-readiness blockers before implementation authorization, including the explicit deferred OpenAI-funding assumption and mandatory ticket-level recheck.
+- [x] Complete the exact application contract package for API, auth, integrations, state/error behavior, and every canonical/v2 screen action.
+- [ ] Pass the independent cross-contract review and repair every screen/data/provider mismatch before ticketing.
 - [ ] Complete the checkpointed engineering-plan workflow from the founder-approved build plan.
 
 ### Phase 1 — Trustworthy Entry and Style Evidence
@@ -154,11 +156,10 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Create the application contracts: client/server API, authentication/authorization, provider integrations, events/states/errors, and screen/data operations.
-2. Cross-review every application contract against the approved data model, architecture, PRD, screens, and readiness requirements before ticketing.
-3. Create dependency-aware engineering tickets only after the complete contract package passes review.
-4. Run the Wardrobe, generated-preview, Shopify, Decart, and Gemini/Decart/gesture discovery spikes when their future engineering tickets and prerequisites are ready; Decart and dual-realtime remain early parallel risks.
-5. Begin implementation only after the engineering plan is founder-approved and its technical readiness gate is ready.
+1. Cross-review every application contract against the approved data model, architecture, PRD, screens, provider documentation, and readiness requirements; repair every mismatch before ticketing.
+2. Create dependency-aware engineering tickets only after the complete contract package passes review.
+3. Run the Wardrobe, generated-preview, Shopify, Decart, and Gemini/Decart/gesture discovery spikes when their future engineering tickets and prerequisites are ready; Decart and dual-realtime remain early parallel risks.
+4. Begin implementation only after the engineering plan is founder-approved and its technical readiness gate is ready.
 
 ## Decisions
 

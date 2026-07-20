@@ -1,7 +1,7 @@
 {
   "workflow": "engineering-plan",
   "status": "in-progress",
-  "currentStep": "application-contracts",
+  "currentStep": "contracts-review",
   "steps": [
     {
       "id": "context-readiness",
@@ -88,17 +88,27 @@
     },
     {
       "id": "application-contracts",
-      "status": "not-started",
+      "status": "completed",
       "reviewPassed": null,
-      "evidence": [],
-      "notes": ""
+      "evidence": [
+        "company/artifacts/engineering-plan/contracts/api.md",
+        "company/artifacts/engineering-plan/contracts/openapi.yaml",
+        "company/artifacts/engineering-plan/contracts/auth.md",
+        "company/artifacts/engineering-plan/contracts/integrations.md",
+        "company/artifacts/engineering-plan/contracts/events-and-states.md",
+        "company/artifacts/engineering-plan/contracts/errors.md",
+        "company/artifacts/engineering-plan/contracts/screen-data.md",
+        "Current official OpenAI, Shopify Global Catalog, Decart Lucy VTON, Gemini Live, Resend, Wardrobe, and Supabase Auth/Storage documentation checked 2026-07-20",
+        "Application-contract validation: 47/47 API operations match OpenAPI paths/methods; 48/48 canonical screens and 8/8 approved conversational states are mapped; every operation appears in the screen/action matrix; YAML, links, fences, secret scan, and whitespace passed 2026-07-20"
+      ],
+      "notes": "Completed. The package fixes client/server operations, anonymous and permanent authorization, transfer semantics, provider inputs/results/fallbacks, durable and transient state machines, normalized errors, and every approved screen/action mapping without adding unapproved persistence or implementation. Formal cross-contract review is next."
     },
     {
       "id": "contracts-review",
       "status": "not-started",
       "reviewPassed": null,
       "evidence": [],
-      "notes": ""
+      "notes": "Next checkpoint: independently reconcile all application contracts against the approved data contract, architecture, build plan, PRD/stories/scenarios, canonical and v2 screens, provider documentation, and readiness decisions; repair any mismatch before ticketing."
     },
     {
       "id": "engineering-tickets",
