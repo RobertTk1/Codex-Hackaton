@@ -7,6 +7,7 @@ import { describe, expect, test } from "vitest";
 import {
   assertDevelopmentOnlyInvocation,
   assertSafeRollbackValidation,
+  findDevelopmentAppId,
   parseDoctlOutput,
 } from "../scripts/deploy-development";
 import {
@@ -160,6 +161,20 @@ describe("DigitalOcean deployment contract", () => {
     );
     expect(() => parseDoctlOutput('{"errors":[{"detail":"sensitive provider error"}]}', "json"))
       .toThrow("API error response");
+  });
+
+  test("can update a development app whose initial deployment never became active", () => {
+    expect(
+      findDevelopmentAppId([
+        {
+          id: "development-app-id",
+          spec: { name: "magic-mirror-dev" },
+        },
+      ]),
+    ).toBe("development-app-id");
+    expect(
+      findDevelopmentAppId([{ id: "production-app-id", spec: { name: "magic-mirror-prod" } }]),
+    ).toBeNull();
   });
 
   test("root package exposes stable validation and development-only deployment commands", async () => {

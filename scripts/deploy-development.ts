@@ -103,20 +103,23 @@ function appState(value: unknown): SafeAppState {
   };
 }
 
-async function findDevelopmentApp(): Promise<SafeAppState | null> {
-  const value = await runDoctl(["apps", "list"]);
+export function findDevelopmentAppId(value: unknown): string | null {
   const values = array(value, "apps");
   const match = values.find((entry, index) => {
     const app = record(entry, `apps[${index}]`);
     return record(app.spec, `apps[${index}].spec`).name === developmentAppName;
   });
-  return match === undefined ? null : appState(match);
+  return match === undefined ? null : string(record(match, "development app").id, "development app.id");
+}
+
+async function findDevelopmentAppIdFromApi(): Promise<string | null> {
+  return findDevelopmentAppId(await runDoctl(["apps", "list"]));
 }
 
 async function currentDevelopmentApp(): Promise<SafeAppState> {
-  const app = await findDevelopmentApp();
-  if (app === null) throw new Error(`${developmentAppName} does not exist.`);
-  return appState(await runDoctl(["apps", "get", app.appId]));
+  const appId = await findDevelopmentAppIdFromApi();
+  if (appId === null) throw new Error(`${developmentAppName} does not exist.`);
+  return appState(await runDoctl(["apps", "get", appId]));
 }
 
 async function withRenderedSpec<T>(action: (specPath: string) => Promise<T>): Promise<T> {
@@ -156,14 +159,14 @@ async function applyDevelopment(): Promise<SafeAppState> {
     // every command whose response we inspect remains strict JSON.
     await runDoctl(["apps", "spec", "validate", specPath, "--schema-only"], "text");
     await runDoctl(["apps", "spec", "validate", specPath], "text");
-    const existing = await findDevelopmentApp();
-    if (existing === null) {
+    const existingAppId = await findDevelopmentAppIdFromApi();
+    if (existingAppId === null) {
       await runDoctl(["apps", "create", "--spec", specPath, "--wait"]);
     } else {
       await runDoctl([
         "apps",
         "update",
-        existing.appId,
+        existingAppId,
         "--spec",
         specPath,
         "--update-sources",
