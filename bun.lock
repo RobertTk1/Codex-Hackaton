@@ -35,6 +35,13 @@
         "vite": "8.1.5",
       },
     },
+    "packages/contracts": {
+      "name": "@magic-mirror/contracts",
+      "version": "0.0.0",
+      "dependencies": {
+        "zod": "4.4.3",
+      },
+    },
   },
   "packages": {
     "@emnapi/core": ["@emnapi/core@1.11.1", "", { "dependencies": { "@emnapi/wasi-threads": "1.2.2", "tslib": "^2.4.0" } }, "sha512-RSvbQmHzdKzNsLYa/wHrbc3KN4sYLKAdPZxqiM2HATqv/SBk2/ENSHpvXGaLOMcsAyz0poEGqkmmKYG3OWiJEQ=="],
@@ -54,6 +61,8 @@
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
 
     "@magic-mirror/api": ["@magic-mirror/api@workspace:apps/api"],
+
+    "@magic-mirror/contracts": ["@magic-mirror/contracts@workspace:packages/contracts"],
 
     "@magic-mirror/web": ["@magic-mirror/web@workspace:apps/web"],
 

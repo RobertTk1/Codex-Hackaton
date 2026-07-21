@@ -21,6 +21,12 @@ export default defineConfig({
           name: "web",
         },
       }),
+      defineProject({
+        test: {
+          include: ["packages/contracts/test/**/*.test.ts"],
+          name: "contracts",
+        },
+      }),
     ],
   },
 });
