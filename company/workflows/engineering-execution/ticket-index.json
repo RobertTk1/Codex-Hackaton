@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T18:23:34.401Z",
+  "generated_at": "2026-07-21T18:40:18.669Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "82110ad88b31afac665f5abb5d854e41d264283dbae282600593f5efc2cb92a1",
+  "source_plan_sha256": "42fb83c2c7bd49554f169fedda4580bd66d736ad443ef22f5149e2ab7e0ee1e4",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 162,
   "eligible_count": 2,
-  "passing_count": 4,
+  "passing_count": 5,
   "status_counts": {
-    "completed": 4,
-    "in-progress": 1,
+    "completed": 5,
     "not-started": 157
   },
-  "next_ticket_id": "ENG-005",
+  "next_ticket_id": "ENG-008",
   "tickets": [
     {
       "order": 1,
@@ -121,16 +120,19 @@
       "id": "ENG-005",
       "title": "Configure local Supabase migration and policy tests",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-001"
       ],
       "readinessPrerequisites": [
         "IR-006"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 6,
@@ -168,7 +170,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-005",
         "dependency:ENG-006",
         "bootstrap:ENG-155"
       ]
@@ -296,10 +297,8 @@
       "readinessPrerequisites": [
         "IR-006"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-005"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 15,
@@ -3253,7 +3252,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-005",
         "dependency:ENG-013"
       ]
     },

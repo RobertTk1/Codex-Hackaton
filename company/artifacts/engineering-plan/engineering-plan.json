@@ -414,14 +414,14 @@
         "supabase/seed.sql",
         "supabase/tests/harness.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-21T18:23:34.394Z] Claimed by root at 2026-07-21T18:23:34Z; branch codex/eng-005-supabase-harness; worktree /Users/talishawhite/.codex/worktrees/eng-005-supabase-harness; scope limited to isolated local Supabase config, baseline test roles, deterministic seed harness, pgTAP policy runner, reset proof, and intentional leak failure proof; no linked or production project mutation; bootstrap deployment deferred per approved sequence.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-21T18:23:34.394Z] Claimed by root at 2026-07-21T18:23:34Z; branch codex/eng-005-supabase-harness; worktree /Users/talishawhite/.codex/worktrees/eng-005-supabase-harness; scope limited to isolated local Supabase config, baseline test roles, deterministic seed harness, pgTAP policy runner, reset proof, and intentional leak failure proof; no linked or production project mutation; bootstrap deployment deferred per approved sequence.\n[2026-07-21T18:40:18.664Z] Implemented CLI-generated local Supabase harness with stable magic-mirror-local project ID, Postgres 17 config, local anonymous Auth support, two data-only synthetic Auth seed owners, explicit baseline-role assertions, transactional pgTAP owner-isolation probe, intentional permissive-policy leak fixture, stable root reset/test commands, zero-test rejection, and contributor documentation. No product tables, linked-project operation, hosted project mutation, or secrets were added. Evidence: ticket commits 24c35b3 and d81a7a6; integrated 7b78e1c; Supabase CLI 2.75.0 with local Postgres 17.6.1.075; exact supabase db reset, supabase test db, bun run test:db, bun run check, and direct negative fixture exit 1 pass in ticket/integrated checkouts and a clean archive rebuilt after deleting the synthetic volume. Database probes confirm two seeded .test identities and both policy probe schemas absent after rollback. Two bounded environment/harness retries bypassed a stale Docker Desktop credential helper without global mutation and hardened against Docker-unmounted NOTESTS false success. Development deployment: bootstrap-deferred until ENG-155.",
       "id": "ENG-005",
       "dependsOn": [
         "ENG-001"
       ],
-      "stateUpdatedAt": "2026-07-21T18:23:34.394Z"
+      "stateUpdatedAt": "2026-07-21T18:40:18.664Z"
     },
     {
       "title": "Validate server and browser environment boundaries",
