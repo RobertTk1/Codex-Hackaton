@@ -157,12 +157,13 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Claim and execute `ENG-001 — Create the root Bun workspace` in its dedicated ticket branch/worktree.
-2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`, using `bootstrap-deferred` only for its explicitly permitted prerequisite tickets.
+1. Claim and execute `ENG-002 — Scaffold the Vite and Tailwind web application` in its dedicated ticket branch/worktree.
+2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`; `ENG-001` is complete and `bootstrap-deferred` remains permitted only for the named baseline prerequisites.
 3. Execute exactly one ticket per implementation turn; mark it passed only after all required evidence succeeds and synchronize the authoritative plan, derived index, and progress memory.
 
 ## Decisions
 
+- 2026-07-21: Complete `ENG-001` with a reproducible private Bun workspace, strict shared TypeScript configuration, frozen lockfile, workspace-failure test, and secret-safe ignore rules; record development deployment as `bootstrap-deferred` until the first deployable baseline at `ENG-155`.
 - 2026-07-21: Talisha White approved the 162-ticket engineering plan for runtime execution. Future execution uses the full plan as authority and a generated compact ticket index for selection.
 - 2026-07-21: Pass the formal engineering-plan final review after repairing archived-v1 screen leakage, experiment hypotheses/thresholds, Vitest command grounding, DigitalOcean validator ownership, generic ticket language, readiness/risk mappings, and dependency-change evidence; the subsequently approved 162-ticket package is authorized for controlled runtime implementation.
 - 2026-07-21: Replace the rejected 36-workstream engineering package with 162 independently executable tickets covering all approved features, stories, scenarios, canonical screens, conversational-v2 screens, and OpenAPI operations; require one target, explicit implementation/test/rollback units, focused automated proof, exact UI references, and live verification for external provider boundaries before any ticket can pass.

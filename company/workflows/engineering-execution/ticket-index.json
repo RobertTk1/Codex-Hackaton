@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T17:36:19.921Z",
+  "generated_at": "2026-07-21T17:42:14.076Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "85d5db95df7246dee92bff40c7dbd6b0ece194702bf77d5b653d658e3a0810cd",
+  "source_plan_sha256": "25acf8f15dbba71429ef396961523e2fc76a9c0f7a018a3ee97d9731c20985d7",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,28 +30,31 @@
     ]
   },
   "ticket_count": 162,
-  "eligible_count": 1,
-  "passing_count": 0,
+  "eligible_count": 3,
+  "passing_count": 1,
   "status_counts": {
-    "in-progress": 1,
+    "completed": 1,
     "not-started": 161
   },
-  "next_ticket_id": "ENG-001",
+  "next_ticket_id": "ENG-002",
   "tickets": [
     {
       "order": 1,
       "id": "ENG-001",
       "title": "Create the root Bun workspace",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [],
       "readinessPrerequisites": [
         "IR-002",
         "IR-003"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 2,
@@ -66,10 +69,8 @@
       "readinessPrerequisites": [
         "IR-002"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-001"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 3,
@@ -84,10 +85,8 @@
       "readinessPrerequisites": [
         "IR-002"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-001"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 4,
@@ -123,10 +122,8 @@
       "readinessPrerequisites": [
         "IR-006"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-001"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 6,

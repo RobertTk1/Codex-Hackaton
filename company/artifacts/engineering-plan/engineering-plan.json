@@ -91,12 +91,12 @@
         "tsconfig.json",
         ".gitignore"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-21T17:36:19.914Z] Claimed by root on 2026-07-21T17:36:19Z; branch codex/eng-001-root-bun-workspace; worktree /Users/talishawhite/.codex/worktrees/eng-001-root-bun-workspace; bootstrap deployment deferred per approved sequence.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-21T17:36:19.914Z] Claimed by root on 2026-07-21T17:36:19Z; branch codex/eng-001-root-bun-workspace; worktree /Users/talishawhite/.codex/worktrees/eng-001-root-bun-workspace; bootstrap deployment deferred per approved sequence.\n[2026-07-21T17:42:14.067Z] Completed by root at 2026-07-21T17:42:13Z. Ticket commit 0f65464b7c7ad1f207fb4ef971d24173d231a12b; integrated commit ee87e1176f4ec3b4c9bc93972e65a86651994b2e. Changed .gitignore, README.md, package.json, bun.lock, tsconfig.json, scripts/validate-workspaces.ts, and tests/workspace-config.test.ts. Verification passed: bun run check (workspace validation, TypeScript, 2 Bun tests); bun install --frozen-lockfile; pristine git-archive install/check; git check-ignore confirmed .env/.env.local/.env.production ignored and .env.example allowed. Retry count 1: corrected the negative test to assert Bun's native missing-workspace failure. dev_deployment: bootstrap-deferred under the approved ENG-001-through-ENG-155 baseline sequence; no deployable app exists yet.",
       "id": "ENG-001",
       "dependsOn": [],
-      "stateUpdatedAt": "2026-07-21T17:36:19.914Z"
+      "stateUpdatedAt": "2026-07-21T17:42:14.067Z"
     },
     {
       "title": "Scaffold the Vite and Tailwind web application",
