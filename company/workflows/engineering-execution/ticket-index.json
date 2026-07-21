@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T19:24:33.043Z",
+  "generated_at": "2026-07-21T19:31:32.926Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "752f4afadb8161a90b2c564b639e2c3aa8e641c8de25edb4435bd2760ff1abe9",
+  "source_plan_sha256": "d9d8d838d1d92652d8a931e19fede68092b34f091d4e984287f22ced506534b0",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 8,
   "status_counts": {
     "completed": 8,
-    "not-started": 154
+    "in-progress": 1,
+    "not-started": 153
   },
   "next_ticket_id": "ENG-014",
   "tickets": [
@@ -289,7 +290,7 @@
       "id": "ENG-014",
       "title": "Create the private schema and least-privilege helper baseline",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-005"
