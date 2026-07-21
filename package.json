@@ -32,6 +32,8 @@
     "db:start": "supabase db start",
     "db:reset": "supabase db reset",
     "test:db": "bash scripts/test-supabase-policies.sh",
+    "validate:deploy": "bun scripts/validate-deploy.ts",
+    "deploy:dev": "bun --env-file=.env.digitalocean.dev.local scripts/deploy-development.ts",
     "playwright:install": "playwright install chromium",
     "check": "bun run validate:workspaces && bun run lint && bun run typecheck && bun run test"
   },
@@ -40,6 +42,7 @@
     "@types/bun": "1.3.14",
     "oxlint": "1.74.0",
     "typescript": "7.0.2",
-    "vitest": "4.1.10"
+    "vitest": "4.1.10",
+    "yaml": "2.9.0"
   }
 }

@@ -68,3 +68,7 @@ the resulting cross-owner leak.
   the existing compiler and test runner do not enforce lint rules. It is
   development-only, pinned, adds no production bundle weight, and is maintained
   with the Oxc toolchain.
+- `yaml`: parses the committed DigitalOcean app-spec templates identically in
+  Bun scripts and Vitest; neither JSON nor the existing toolchain can parse the
+  required YAML format. It is development-only, pinned, adds no production
+  bundle weight, and is maintained as the standard JavaScript YAML package.
