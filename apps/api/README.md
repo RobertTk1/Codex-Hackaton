@@ -22,3 +22,9 @@ code; the pinned package is about 667 KB unpacked before its maintained
 Supabase client modules, an accepted API-runtime cost for this single boundary. The
 existing `@magic-mirror/contracts` workspace package supplies the shared strict
 error envelope without adding an external runtime dependency.
+
+Database and Storage calls use the scoped constructors in
+`src/supabase/clients.ts`. Request handlers receive a user-token client so RLS
+continues to enforce the verified customer identity. Only API/worker code may
+construct the separately typed server-only client. Both return query data as
+`unknown`; the calling capability must parse it with its approved Zod schema.
