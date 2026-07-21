@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T18:52:06.870Z",
+  "generated_at": "2026-07-21T18:54:53.429Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "bbfd17aadcdea426b0e9d5933715335afc9f0488db6e7faef4a7bc7911440ac2",
+  "source_plan_sha256": "dec35488c7818c2c14aad337bb682ff9a0305541e2c59c8022cd6fac82ac17fe",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 6,
   "status_counts": {
     "completed": 6,
-    "not-started": 156
+    "in-progress": 1,
+    "not-started": 155
   },
   "next_ticket_id": "ENG-006",
   "tickets": [
@@ -139,7 +140,7 @@
       "id": "ENG-006",
       "title": "Validate server and browser environment boundaries",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-008"

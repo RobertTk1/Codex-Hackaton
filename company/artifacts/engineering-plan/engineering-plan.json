@@ -496,13 +496,14 @@
         "apps/web/src/env.ts",
         "apps/api/test/env.test.ts"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-21T18:54:53.424Z] Claimed 2026-07-21T18:54:53Z by root turn 16 on branch codex/eng-006-env-boundaries at /Users/talishawhite/.codex/worktrees/eng-006-env-boundaries; scope is separate server/browser Zod environment schemas, safe placeholders, browser-secret rejection, and focused boundary tests; dev deployment bootstrap-deferred.",
       "id": "ENG-006",
       "dependsOn": [
         "ENG-008"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-21T18:54:53.424Z"
     },
     {
       "title": "Verify anonymous, Google, and email-link authentication configuration",
