@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T17:51:24.472Z",
+  "generated_at": "2026-07-21T17:55:38.720Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "5422c6e494126be52985081be0438640d2ae54098a911094212f2817015f6fc4",
+  "source_plan_sha256": "954ce005151247ee6b602e730a27a457ca184cfc48b925a568ebd685aea0abed",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 2,
   "status_counts": {
     "completed": 2,
-    "not-started": 160
+    "in-progress": 1,
+    "not-started": 159
   },
   "next_ticket_id": "ENG-003",
   "tickets": [
@@ -80,7 +81,7 @@
       "id": "ENG-003",
       "title": "Scaffold the TypeScript API application",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-001"

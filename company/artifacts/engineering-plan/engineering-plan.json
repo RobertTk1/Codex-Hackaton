@@ -250,13 +250,14 @@
         "apps/api/src/config.ts",
         "scripts/smoke-api.sh"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-21T17:55:38.711Z] Claimed by root on 2026-07-21T17:55:38Z; branch codex/eng-003-typescript-api; worktree /Users/talishawhite/.codex/worktrees/eng-003-typescript-api; scope limited to native Bun API scaffold, Zod-validated base config, GET /health, root scripts, smoke and focused tests; bootstrap deployment deferred per approved sequence.",
       "id": "ENG-003",
       "dependsOn": [
         "ENG-001"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-21T17:55:38.711Z"
     },
     {
       "title": "Establish the Vitest and Playwright command contract",
