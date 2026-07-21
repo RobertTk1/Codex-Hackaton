@@ -91,11 +91,12 @@
         "tsconfig.json",
         ".gitignore"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-21T17:36:19.914Z] Claimed by root on 2026-07-21T17:36:19Z; branch codex/eng-001-root-bun-workspace; worktree /Users/talishawhite/.codex/worktrees/eng-001-root-bun-workspace; bootstrap deployment deferred per approved sequence.",
       "id": "ENG-001",
-      "dependsOn": []
+      "dependsOn": [],
+      "stateUpdatedAt": "2026-07-21T17:36:19.914Z"
     },
     {
       "title": "Scaffold the Vite and Tailwind web application",
