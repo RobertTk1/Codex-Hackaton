@@ -83,6 +83,7 @@ operations:
         gender: x
         heightCm: 80
         weightKg: 25
+        fitPreference: regular
         favoriteBrands: []
         brandSizes: []
         photoProgress:

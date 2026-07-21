@@ -447,7 +447,7 @@ components:
         code: { type: string, pattern: '^[A-Z][A-Z0-9_]{2,79}$' }
         details: { $ref: '#/components/schemas/ErrorDetails' }
         requestId: { type: string, minLength: 1, maxLength: 160 }
-    ErrorField: { type: string, enum: [name, adult_confirmation, gender, age, height, weight, favorite_brands, brand_sizes, photo, taste, consent, account, product, live_action] }
+    ErrorField: { type: string, enum: [name, adult_confirmation, gender, age, height, weight, fit_preference, favorite_brands, brand_sizes, photo, taste, consent, account, product, live_action] }
     EmptyErrorDetails: { type: object, additionalProperties: false }
     FieldErrorDetails:
       type: object
@@ -517,8 +517,8 @@ components:
       additionalProperties: false
       required: [entry]
       properties: { entry: { type: string, enum: [landing, login, new_report] } }
-    PersonalProfileField: { type: string, enum: [name, adult_confirmation, gender, age, height, weight] }
-    ConversationTargetField: { type: string, enum: [name, adult_confirmation, gender, age, height, weight, favorite_brands, brand_sizes] }
+    PersonalProfileField: { type: string, enum: [name, adult_confirmation, gender, age, height, weight, fit_preference] }
+    ConversationTargetField: { type: string, enum: [name, adult_confirmation, gender, age, height, weight, fit_preference, favorite_brands, brand_sizes] }
     ProfileField: { $ref: '#/components/schemas/PersonalProfileField' }
     ConversationTurnInput:
       type: object
@@ -553,10 +553,10 @@ components:
     BrandSize:
       type: object
       additionalProperties: false
-      required: [brandName, category, sizeStatus, sizeLabel, preferenceOrder]
+      required: [brandName, garmentType, sizeStatus, sizeLabel, preferenceOrder]
       properties:
         brandName: { type: string, minLength: 1, maxLength: 80 }
-        category: { type: string, minLength: 1, maxLength: 80 }
+        garmentType: { type: string, enum: [tops, knitwear, dresses, skirts, jeans, trousers, shorts, outerwear, activewear, swimwear, shoes, other] }
         sizeStatus: { type: string, enum: [known, unknown, not_applicable] }
         sizeLabel: { type: [string, 'null'], minLength: 1, maxLength: 40 }
         preferenceOrder: { type: integer, minimum: 1, maximum: 20 }

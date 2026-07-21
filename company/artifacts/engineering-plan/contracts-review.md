@@ -28,6 +28,7 @@ The application contract package now gives every approved screen action one type
 | CR-012 — Style Home lacked the approved direct live entry, real suggested-outfit composition, and saved-selection previews. | `StyleHomeSnapshot` now includes live eligibility, report, standalone recommendations, deterministic suggested-outfit groups, saved-item previews/count, and recoverable work. |
 | CR-013 — Post-report brand/size editing conflicted with frozen report evidence. | Edit style profile starts a confirmed derived recalibration draft and reuses the conversational operations; the published report stays immutable until replacement succeeds. |
 | CR-014 — Exact example payloads were missing. | Added schema-conforming request and success fixtures for all 49 operations and validated every body and explicit parameter against OpenAPI/JSON Schema. |
+| CR-015 — One size per brand/category and no explicit fit preference lost the founder’s intended fit evidence. | Replaced the tuple with brand + garment type, added required overall fit preference, defined a bounded `FitProfileSnapshot`, updated chat copy/contracts, and revalidated 49/49 examples on 2026-07-21. |
 
 ## Coverage evidence
 

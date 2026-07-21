@@ -1,7 +1,7 @@
 {
   "workflow": "engineering-plan",
   "status": "in-progress",
-  "currentStep": "engineering-tickets",
+  "currentStep": "final-review",
   "steps": [
     {
       "id": "context-readiness",
@@ -122,17 +122,24 @@
     },
     {
       "id": "engineering-tickets",
-      "status": "not-started",
+      "status": "completed",
       "reviewPassed": null,
-      "evidence": [],
-      "notes": ""
+      "evidence": [
+        "company/artifacts/engineering-plan/engineering-plan.json",
+        "36 one-outcome tickets cover 16/16 build-plan features, 23/23 user stories, 15/15 scenarios, 48/48 canonical screen states, and 8/8 approved conversational v2 states",
+        "Founder amendment applied before ticketing: required overall fit preference, brand + garment-type size observations, and deterministic FitProfileSnapshot with confidence/conflict evidence",
+        "Early Decart and Gemini + Decart + gesture spikes have no product-code dependency and can run beside PH-01/PH-02",
+        "validate_engineering_plan.py: VALID, 36 tickets, 0 warnings",
+        "OpenAPI/JSON Schema revalidation: 49/49 operation request and success examples conform after the fit amendment"
+      ],
+      "notes": "Completed. Tickets preserve the report-led release, isolate provider spikes, use genuine dependency gates, include exact verification commands, and do not authorize implementation. Final review is next."
     },
     {
       "id": "final-review",
-      "status": "not-started",
+      "status": "in-progress",
       "reviewPassed": null,
       "evidence": [],
-      "notes": ""
+      "notes": "Review checkpoint opened; no final-review validation or approval has been claimed yet."
     }
   ]
 }

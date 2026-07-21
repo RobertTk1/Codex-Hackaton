@@ -45,7 +45,8 @@
       "next_questions": [
         "What gender should I use when shaping your styling and shopping recommendations? You can self-describe.",
         "How tall are you?",
-        "Would you like to share your weight? You can skip this."
+        "Would you like to share your weight? You can skip this.",
+        "How do you like your clothes to fit overall—fitted, regular, relaxed, or does it depend on the garment?"
       ],
       "consent": "Your gender is used only to shape styling and shopping recommendations."
     },
@@ -143,7 +144,7 @@
       "progress": "6 of 6",
       "transcript": [
         {"speaker": "assistant", "text": "I have what I need to build your report."},
-        {"speaker": "assistant", "text": "You’re looking for complete work and weekend outfits. You wear COS in M tops and 30 trousers. I have 10 favorite looks and 12 taste reactions."},
+        {"speaker": "assistant", "text": "You prefer a regular fit. You wear COS in M tops and 30 trousers. I have 10 favorite looks and 12 taste reactions."},
         {"speaker": "assistant", "text": "Want me to create your style report?"}
       ],
       "primary_action": "Create my style report",

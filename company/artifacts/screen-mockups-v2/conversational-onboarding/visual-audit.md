@@ -18,7 +18,7 @@ The first pass failed the experiment hypothesis: it kept multi-field form logic,
 ## Passed checks
 
 - Every state uses one narrow conversation thread with minimal header progress and no sidebar, profile rail, dashboard, or split layout.
-- Name, adult confirmation, age, gender, height, optional weight, brand, category, and size collection are text turns—not fields or form cards. The deprecated styling-goal example is excluded from implementation copy because it is not an approved persisted field.
+- Name, adult confirmation, age, gender, height, optional weight, overall fit preference, brand, garment type, and size collection are text turns—not fields or form cards. The deprecated styling-goal example is excluded from implementation copy because it is not an approved persisted field.
 - The assistant asks one active question, yields the turn, and keeps prior exchanges visually quieter.
 - Photo upload and recovery appear as compact inline components at the moment they are needed.
 - Taste calibration uses a single visual look with Love, Hate, and Maybe; swipe gestures retain visible button alternatives.

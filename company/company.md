@@ -22,7 +22,7 @@ Magic Mirror turns the looks a customer already loves into an affirming personal
 Product journey:
 
 - A visitor starts a style report without creating a permanent account first.
-- Through chat-first onboarding, they provide name, adult confirmation, gender, age, height, optional weight, favorite brands and category-specific known sizes, plus 8–12 favorite full-body outfit photos.
+- Through chat-first onboarding, they provide name, adult confirmation, gender, age, height, optional weight, overall fit preference, favorite brands, and distinct known sizes by garment type within each brand, plus 8–12 favorite full-body outfit photos.
 - Magic Mirror extracts garment signals from the photos, then dynamically refines inferred taste through Love, Hate, and Maybe choices; direct favorite-look/style-signal analysis is the extraction fallback.
 - They connect their anonymous progress to Google or an email magic-link account.
 - They receive a style identity overview, labeled color guidance, Kibbe-informed body-style guidance, actionable recommendations, and safe generated wardrobe previews linked to current products when consent, quality, and product-image permission pass; otherwise recommendations remain complete through text and links.

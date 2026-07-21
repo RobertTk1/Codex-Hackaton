@@ -28,7 +28,7 @@ flowchart LR
 |---|---|---|
 | `app/router` | Public/protected routes, auth callback, resume routing, not-found | Route + authenticated account summary |
 | `features/auth` | Anonymous start, Google, magic link, callback, anonymous-draft claim | Supabase Auth + server claim result |
-| `features/onboarding` | One-question-per-turn chat, profile, brand/category size, photo collection, taste calibration | Persisted profile/progress; transcript is presentation only |
+| `features/onboarding` | One-question-per-turn chat, profile, overall fit preference, brand/garment-type size, photo collection, taste calibration | Persisted profile/progress; transcript is presentation only |
 | `features/media` | File preflight, upload progress, camera/mic permissions, signed asset display | Server photo/asset records |
 | `features/report` | Processing/slow/error states, overview, color, body-style, recommendations, feedback | Versioned report records |
 | `features/catalog` | Current product query, filters, product detail, unavailable state | Live Shopify response + stored stable references |

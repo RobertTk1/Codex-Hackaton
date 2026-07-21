@@ -50,31 +50,33 @@
       "priority": "must-have",
       "requirement_source": ["founder", "policy", "inference"],
       "acceptance_criteria": [
-        "The profile collects name, adult confirmation, gender, age, height, and optional weight.",
+        "The profile collects name, adult confirmation, gender, age, height, optional weight, and an overall fit preference of fitted, regular, relaxed, or varies by garment.",
         "Gender uses one consistent inclusive term across profile, copy, and consent language, allows the customer to self-describe, and explains its styling and shopping purpose.",
         "Each sensitive input states whether it is required and how it affects recommendations.",
         "Invalid or missing required fields show field-specific correction and preserve valid entries."
       ],
-      "edge_cases": ["Customer declines optional weight", "Customer selects a non-binary gender option or self-describes", "Customer is not an adult"],
+      "edge_cases": ["Customer declines optional weight", "Customer selects a non-binary gender option or self-describes", "Customer is not an adult", "Customer says fit preference varies by garment"],
       "dependencies": ["Field policy", "Anonymous authenticated session"],
       "analytics_or_success_events": ["profile_step_completed", "optional_field_skipped"],
       "scenario_ids": ["SC-003"]
     },
     {
       "story_id": "US-004",
-      "title": "Record brand-specific sizes",
+      "title": "Record garment-type sizes by brand",
       "epic": "Guided style onboarding",
-      "story": "As a first-time customer, I want to record the sizes I wear by brand and category so that recommendations reflect my real shopping history.",
+      "story": "As a first-time customer, I want to record the sizes I wear for each garment type within each brand so that fit guidance reflects how those clothes actually fit me.",
       "user_type": "First-time customer",
       "priority": "must-have",
       "requirement_source": ["founder"],
       "acceptance_criteria": [
-        "The customer can choose favorite brands and add known sizes for relevant garment categories, such as Zara jeans 26 or H&M tops M.",
-        "The customer can mark a category as unknown and continue.",
-        "Saved brand-size entries can be edited before and after report creation."
+        "The customer can choose favorite brands and add a separate size for each relevant garment type, such as Zara jeans L and Zara tops M.",
+        "Adding a second garment type for the same brand preserves the first observation instead of overwriting it.",
+        "The customer can mark a garment type as unknown and continue.",
+        "The system derives a bounded fit profile from garment-type size observations and overall fit preference, preserving conflicts and uncertainty rather than promising a universal size.",
+        "Saved brand-size entries and fit preference can be edited before and after report creation."
       ],
-      "edge_cases": ["Brand not listed", "Different size by category", "Customer does not know a size"],
-      "dependencies": ["Brand directory", "Size-category taxonomy"],
+      "edge_cases": ["Brand not listed", "Different sizes for multiple garment types within one brand", "Customer does not know a garment-type size", "Size evidence conflicts across brands"],
+      "dependencies": ["Brand directory", "Garment-type taxonomy", "Overall fit preference"],
       "analytics_or_success_events": ["brand_added", "brand_size_saved"],
       "scenario_ids": ["SC-001"]
     },

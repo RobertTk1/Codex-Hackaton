@@ -48,7 +48,7 @@ stateDiagram-v2
   archived --> [*]: account deletion purge
 ```
 
-Within `draft`, `current_step` moves through `welcome → personal_details → brand_sizing → photos → photo_review → taste → account → profile_review → complete`. `profile_processing` consent precedes the first stored personal fact. Favorite-brand intent and category-size status are separate records even when gathered conversationally. A customer may edit an earlier answer; the server recomputes the earliest incomplete step and invalidates only dependent draft evidence. Step progression never substitutes for completion validation.
+Within `draft`, `current_step` moves through `welcome → personal_details → brand_sizing → photos → photo_review → taste → account → profile_review → complete`. `profile_processing` consent precedes the first stored personal fact. Overall fit preference, favorite-brand intent, and garment-type-size status are separate facts even when gathered conversationally. A customer may edit an earlier answer; the server recomputes the earliest incomplete step and invalidates only dependent draft evidence. Step progression never substitutes for completion validation.
 
 The adopted conversation presentation has these transient states:
 

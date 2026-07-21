@@ -10,7 +10,9 @@
       "requirement": "Use the founder-approved amended build plan as the implementation-scope authority.",
       "category": "product-authority",
       "owner": "Founder",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-002"
+      ],
       "status": "ready",
       "evidence": "Talisha White approved company/artifacts/build-plan/build-plan.md and authorized checkpointed engineering planning on 2026-07-19.",
       "secretNames": []
@@ -20,7 +22,11 @@
       "requirement": "Use TypeScript with Vite, Tailwind, and Bun for the frontend, TypeScript for the API layer, and Supabase for database, auth, and private asset storage.",
       "category": "stack",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-001",
+        "ENG-002",
+        "ENG-008"
+      ],
       "status": "ready",
       "evidence": "Founder constraint recorded in the approved build plan and company/build-notes.md; it is not an architecture alternative.",
       "secretNames": []
@@ -30,7 +36,9 @@
       "requirement": "Treat the repository as a greenfield product implementation while preserving approved company and product artifacts.",
       "category": "repository",
       "owner": "Engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-001"
+      ],
       "status": "ready",
       "evidence": "Repository inspection found no package.json, Bun lockfile, Vite config, TypeScript config, Supabase config, application source, tests, deployment config, or environment example; current tracked content is planning, research, brand, and design material.",
       "secretNames": []
@@ -40,7 +48,15 @@
       "requirement": "Implement the founder-approved chat-first v2 for pre-report screens and use form-based v1 pre-report comps only as archived reference.",
       "category": "experience-direction",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-009",
+        "ENG-010",
+        "ENG-012",
+        "ENG-014",
+        "ENG-017",
+        "ENG-019",
+        "ENG-021"
+      ],
       "status": "ready",
       "evidence": "The v2 manifest and shared interaction contract are approved for pre-report implementation; the v1 manifest records pre_report_status=archived-reference.",
       "secretNames": []
@@ -50,7 +66,10 @@
       "requirement": "Confirm the internal feature/code and demo/submission freeze times before the official OpenAI Build Week deadline of Tuesday, July 21, 2026 at 5:00 PM Pacific / 8:00 PM Eastern.",
       "category": "delivery",
       "owner": "Founder",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-033",
+        "ENG-034"
+      ],
       "status": "ready",
       "evidence": "The Devpost Hackathons connector confirmed the official deadline and latest announcement correction. Talisha White approved a feature/code freeze of 2026-07-21 13:00 PT / 16:00 ET and a demo/submission freeze of 15:00 PT / 18:00 ET in founder-readiness-inputs.md.",
       "secretNames": []
@@ -60,7 +79,13 @@
       "requirement": "Provision the Supabase project, confirm founder/engineering access and project region, and identify the secure deployment secret store without sharing values.",
       "category": "supabase-access",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-003",
+        "ENG-004",
+        "ENG-006",
+        "ENG-007",
+        "ENG-034"
+      ],
       "status": "ready",
       "evidence": "After Talisha White explicitly confirmed the quoted $10/month cost, the Supabase connector created project magic-mirror (ref vhpxxmefcuewkmukissr) in the General Intelligence Agency organization and us-east-1. The project reached ACTIVE_HEALTHY on 2026-07-20. Its URL and active modern publishable key are present only in gitignored .env.local; .env.example contains names without values. Talisha selected DigitalOcean encrypted environment variables for deployed secrets, and SUPABASE_SERVICE_ROLE_KEY remains server-only and absent from tracked files.",
       "secretNames": [
@@ -74,7 +99,12 @@
       "requirement": "Provision and configure Google OAuth for Supabase Auth, including approved local, preview, and production redirect origins and permission for anonymous-user identity linking.",
       "category": "authentication-access",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-007",
+        "ENG-018",
+        "ENG-019",
+        "ENG-034"
+      ],
       "status": "ready",
       "evidence": "On 2026-07-20, Google Cloud project Magic Mirror (magic-mirror-buildweek) was configured with an external Google Auth Platform app in production and a Web OAuth client using the Supabase callback https://vhpxxmefcuewkmukissr.supabase.co/auth/v1/callback. The Google provider and manual identity linking are enabled in Supabase. Public Auth settings confirm Google, email, and anonymous sign-ins are enabled. Supabase Site URL and redirect allowlist are configured for http://localhost:5173; the final DigitalOcean hostname must be added as a deployment-ticket acceptance criterion. OAuth credentials remain in provider configuration and are not recorded in tracked files.",
       "secretNames": [
@@ -87,7 +117,12 @@
       "requirement": "Choose and provision the email-delivery path for Supabase magic links and report-ready notifications, including an approved sender/domain for the target environment.",
       "category": "email-access",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-007",
+        "ENG-018",
+        "ENG-019",
+        "ENG-034"
+      ],
       "status": "ready",
       "evidence": "On 2026-07-20, Supabase custom SMTP was enabled with Resend using verified domain thecrownlist.com, sender magicmirror@thecrownlist.com, sender name Magic Mirror, smtp.resend.com on port 465, and a domain-scoped send-only credential held only by Supabase. A credential shown during diagnostic verification was immediately replaced and revoked; only the replacement remains active. A test magic link to the founder-confirmed destination returned HTTP 200, Supabase Auth logged user_confirmation_requested with no error, and Talisha White confirmed successful inbox delivery.",
       "secretNames": [
@@ -99,7 +134,14 @@
       "requirement": "Confirm an OpenAI API project with billing and required model access, and identify the server-side secret location without sharing the credential value.",
       "category": "openai-access",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-005",
+        "ENG-013",
+        "ENG-015",
+        "ENG-020",
+        "ENG-023",
+        "ENG-034"
+      ],
       "status": "ready",
       "evidence": "OPENAI_API_KEY is present only in gitignored .env.local and the intended deployed location is DigitalOcean encrypted environment variables. The key successfully listed GPT-5.6 and OpenAI image models on 2026-07-20, confirming authentication and capability visibility, but a minimal Responses API request failed with HTTP 429 insufficient_quota. On 2026-07-20, Talisha White explicitly overrode the planning block and directed the engineering plan to assume credits will be added later. This is a founder-approved planning assumption, not successful runtime verification; every OpenAI-dependent ticket must recheck a paid request before implementation and cannot pass while quota remains unavailable.",
       "secretNames": [
@@ -111,7 +153,11 @@
       "requirement": "Confirm a Google AI project with billing and Gemini Live access, and identify the server-side credential location used to mint short-lived client tokens.",
       "category": "google-ai-access",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-027",
+        "ENG-034",
+        "ENG-036"
+      ],
       "status": "ready",
       "evidence": "Talisha White attested that the Google AI project has billing and Gemini Live access and selected DigitalOcean encrypted environment variables as the deployed secret store. No credential value is recorded in planning artifacts.",
       "secretNames": [
@@ -123,7 +169,13 @@
       "requirement": "Confirm a Decart account with billing and Lucy VTON realtime access, and identify the server-side credential location used to mint ten-minute client tokens.",
       "category": "decart-access",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-025",
+        "ENG-026",
+        "ENG-034",
+        "ENG-035",
+        "ENG-036"
+      ],
       "status": "ready",
       "evidence": "Talisha White attested that the Decart account has billing and Lucy VTON realtime access and selected DigitalOcean encrypted environment variables as the deployed secret store. No credential value is recorded in planning artifacts.",
       "secretNames": [
@@ -135,7 +187,13 @@
       "requirement": "Publish the required Shopify UCP agent profile and confirm Global Catalog MCP access from the intended development and deployed environments.",
       "category": "shopify-access",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-016",
+        "ENG-022",
+        "ENG-024",
+        "ENG-029",
+        "ENG-034"
+      ],
       "status": "ready",
       "evidence": "Shopify's current official Global Catalog documentation confirms the endpoint is keyless and requires an agent-profile URL on each request. On 2026-07-20, the intended development environment successfully called search_catalog at https://catalog.shopify.com/api/ucp/mcp with Shopify's documented validation profile and received a product result without error. Publishing Magic Mirror's own profile is application/deployment work and must be an engineering ticket, not an external-access prerequisite.",
       "secretNames": []
@@ -145,7 +203,9 @@
       "requirement": "Use DigitalOcean for production/hosting and confirm the DigitalOcean product, account/team access, region, domain, environment separation, and secure-secret location.",
       "category": "deployment",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-034"
+      ],
       "status": "ready",
       "evidence": "Talisha White approved DigitalOcean App Platform, identified the General Intelligence Agency team and her deployment access, authorized app creation during deployment, requested a DigitalOcean-provided domain with a magicmirror prefix, reported no region preference, and selected encrypted environment variables for deployed secrets. Exact component/runtime design belongs to the architecture step.",
       "secretNames": []
@@ -155,7 +215,19 @@
       "requirement": "Provide a consented, representation-diverse test dataset covering 8–12-photo sets, extraction expectations, taste candidates, report fixtures, generated-preview cases, catalog queries, and supported live-try-on garments.",
       "category": "test-data",
       "owner": "Founder / product",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-004",
+        "ENG-013",
+        "ENG-014",
+        "ENG-015",
+        "ENG-016",
+        "ENG-020",
+        "ENG-023",
+        "ENG-025",
+        "ENG-033",
+        "ENG-035",
+        "ENG-036"
+      ],
       "status": "ready",
       "evidence": "Talisha White explicitly consented on 2026-07-20 to Magic Mirror hackathon use of the eight photos she provided and authorized synthetic fixtures. Exact copies, a narrow authorization record, and synthetic-fixture rules are stored outside Git under /Users/talishawhite/Documents/Magic Mirror Test Data/. This is one real participant baseline, not population-wide evidence. Broader synthetic representation fixtures, dynamic catalog queries, garment cases, and expected-result annotations are implementation/spike outputs and must be ticketed rather than misclassified as missing founder access.",
       "secretNames": []
@@ -165,7 +237,16 @@
       "requirement": "Approve retention and deletion rules for original photos, derived crops, extracted garments, generated customer-likeness previews, reports, transcripts, live-session media, backups, and anonymous users.",
       "category": "privacy-policy",
       "owner": "Founder / policy / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-003",
+        "ENG-004",
+        "ENG-005",
+        "ENG-006",
+        "ENG-007",
+        "ENG-013",
+        "ENG-023",
+        "ENG-032"
+      ],
       "status": "ready",
       "evidence": "Talisha White approved the documented hackathon lifecycle: seven-day anonymous cleanup; 30-day original-photo and generated-preview retention; same-or-shorter derived-asset retention; no default live-media or transcript persistence; account-deletion cascade; and documented provider/backup residual periods. Supabase cleanup must be implemented explicitly because it is not automatic.",
       "secretNames": []
@@ -175,7 +256,23 @@
       "requirement": "Approve purpose-specific consent and customer deletion behavior for gender, profile data, favorite-look photos, garment extraction, generated likeness previews, account connection, camera, microphone, and optional Gemini visual context.",
       "category": "consent-policy",
       "owner": "Founder / policy",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-003",
+        "ENG-004",
+        "ENG-005",
+        "ENG-006",
+        "ENG-009",
+        "ENG-010",
+        "ENG-012",
+        "ENG-013",
+        "ENG-014",
+        "ENG-015",
+        "ENG-023",
+        "ENG-026",
+        "ENG-027",
+        "ENG-032",
+        "ENG-036"
+      ],
       "status": "ready",
       "evidence": "Talisha White approved separate versioned consent purposes and allowed sampled camera/screen context during live sessions. The implementation contract must disclose Gemini visual transmission explicitly and obtain that purpose-specific consent together with camera/microphone consent before sending frames; browser permission alone is insufficient.",
       "secretNames": []
@@ -185,7 +282,13 @@
       "requirement": "Decide whether a styling expert, legal reviewer, or explicit founder risk acceptance approves the color and Kibbe-informed report methodology and claims.",
       "category": "report-governance",
       "owner": "Founder",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-005",
+        "ENG-010",
+        "ENG-011",
+        "ENG-020",
+        "ENG-021"
+      ],
       "status": "ready",
       "evidence": "Talisha White explicitly accepted the approved interpretive, non-diagnostic color and Kibbe-informed language for the hackathon without an external reviewer.",
       "secretNames": []
@@ -195,7 +298,10 @@
       "requirement": "Approve the minimum Love/Hate/Maybe reaction count, dynamic candidate sourcing and balance rules, and the slow, partial-failure, and balanced-fallback behavior.",
       "category": "taste-calibration-policy",
       "owner": "Founder / product",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-016",
+        "ENG-017"
+      ],
       "status": "ready",
       "evidence": "Talisha White approved 12 required reactions, up to 20, balanced categories/colors/silhouettes/representation, preservation of completed reactions, and a balanced curated fallback when dynamic sourcing cannot return promptly.",
       "secretNames": []
@@ -205,7 +311,21 @@
       "requirement": "Name the target hackathon demo device, browser, camera orientation, and minimum desktop/mobile support matrix for realtime and accessibility validation.",
       "category": "support-matrix",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-008",
+        "ENG-012",
+        "ENG-014",
+        "ENG-017",
+        "ENG-024",
+        "ENG-025",
+        "ENG-026",
+        "ENG-027",
+        "ENG-028",
+        "ENG-029",
+        "ENG-033",
+        "ENG-035",
+        "ENG-036"
+      ],
       "status": "ready",
       "evidence": "Talisha White approved current Chrome on a camera-equipped MacBook as primary and current Safari on iPhone plus keyboard-only and reduced-motion desktop checks as secondary validation. Realtime support may narrow only when the spike records the limitation.",
       "secretNames": []
@@ -215,7 +335,12 @@
       "requirement": "Approve the small hand-gesture vocabulary, confidence threshold, confirmation rules, and fallback behavior after the dual-realtime spike provides measured evidence.",
       "category": "gesture-policy",
       "owner": "Founder / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-006",
+        "ENG-027",
+        "ENG-028",
+        "ENG-036"
+      ],
       "status": "ready",
       "evidence": "Talisha White approved the shared action contract and delegated the exact small gesture vocabulary and measured confidence thresholds to the dual-realtime spike, with direct/voice controls retained and consequential actions requiring confirmation.",
       "secretNames": []
@@ -225,7 +350,14 @@
       "requirement": "Approve affiliate disclosure, outbound attribution, and retailer-link tracking rules that exclude sensitive customer data and do not imply retailer partnership.",
       "category": "retailer-policy",
       "owner": "Founder / business / policy",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-006",
+        "ENG-022",
+        "ENG-024",
+        "ENG-029",
+        "ENG-030",
+        "ENG-031"
+      ],
       "status": "ready",
       "evidence": "Talisha White excluded affiliate behavior for the hackathon and approved only a non-sensitive outbound-click event naming the destination retailer.",
       "secretNames": []
@@ -235,7 +367,14 @@
       "requirement": "Resolve Shopify Global Catalog product-image transmission by recording affirmative permission, adopting the visible text/link plus user-owned-image fallback, or explicitly accepting the unverified rights risk for the hackathon without claiming permission.",
       "category": "catalog-image-rights",
       "owner": "Founder / product / policy",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-005",
+        "ENG-016",
+        "ENG-022",
+        "ENG-023",
+        "ENG-025",
+        "ENG-035"
+      ],
       "status": "ready",
       "evidence": "Official Global Catalog documentation supports cross-retailer discovery and current offers but does not establish permission to transmit catalog images to OpenAI or Decart. On 2026-07-20, Talisha White explicitly directed the hackathon plan to proceed despite that unresolved rights question. This records founder risk acceptance only, does not claim merchant/provider permission, and must remain visible in ticket risk notes; it is no longer an unanswered product decision.",
       "secretNames": []
@@ -245,7 +384,11 @@
       "requirement": "Approve the generated wardrobe-preview quality bar, likeness-safety rejection threshold, disclosure, latency limit, representative review set, and text-plus-link fallback.",
       "category": "generated-preview-policy",
       "owner": "Founder / product / policy",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-005",
+        "ENG-021",
+        "ENG-023"
+      ],
       "status": "ready",
       "evidence": "Talisha White approved the documented recognizability, garment fidelity, harmful-artifact, disclosure, latency, and text/current-product-link fallback rule and delegated measurable thresholds to the representative spike.",
       "secretNames": []
@@ -255,7 +398,11 @@
       "requirement": "Approve deterministic ownership and merge behavior when anonymous onboarding progress connects to an existing account that already has a profile, report, taste history, or bag.",
       "category": "identity-policy",
       "owner": "Founder / product / engineering",
-      "neededByTickets": [],
+      "neededByTickets": [
+        "ENG-003",
+        "ENG-018",
+        "ENG-019"
+      ],
       "status": "ready",
       "evidence": "Talisha White approved preserving anonymous answers/uploads as a new draft, never silently overwriting an existing report/taste history/bag, merging only non-conflicting bag references, showing both existing and draft state, and requiring confirmation before a new report version.",
       "secretNames": []

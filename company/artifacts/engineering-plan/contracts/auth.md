@@ -32,7 +32,7 @@ Every protected API request verifies the current JWT, derives `auth.uid()`, reje
 1. `Get your style report` calls `supabase.auth.signInAnonymously()` only when no valid session exists.
 2. The browser calls `createOrResumeProfile` with `entry=landing`.
 3. The server creates at most one resumable draft under the unique anonymous owner or returns the existing draft.
-4. After the customer grants `profile_processing` consent, every accepted answer is immediately persisted through the profile operations. Favorite brands and brand/category size status are child records; the chat transcript is not persistence.
+4. After the customer grants `profile_processing` consent, every accepted answer is immediately persisted through the profile operations. Overall fit preference is a profile fact; favorite brands and brand/garment-type size status are child records; the chat transcript is not persistence.
 5. Anonymous sessions cannot submit a report, use Style Home, start live styling, save a bag item, or hand off to a retailer until account connection completes.
 
 Rate limits apply to anonymous creation by identity plus coarse network signal. CAPTCHA may be added only if abuse is observed; it is not a hidden launch prerequisite.

@@ -25,13 +25,14 @@ This contract is exact enough to produce migrations and shared Zod schemas. It d
 | DR-011 | Expiring rows, authenticated object reads, and signed URLs fail closed at the logical deadline even when physical purge retries. |
 | DR-012 | Every photo has a non-null deadline at creation; bounded activity/report extensions cannot revive expired evidence. |
 | DR-013 | A minimal private deletion request plus a caller-derived policy function blocks every customer operation before asynchronous purge. |
-| CR-001 | Favorite brands are now a distinct ordered record, while category sizes carry an exact `known`, `unknown`, or `not_applicable` status. |
+| CR-001 | Favorite brands are now a distinct ordered record, while garment-type sizes carry an exact `known`, `unknown`, or `not_applicable` status. |
 | CR-002 | Photo upload now uses a server-created Supabase signed upload token plus a signed completion token; customers have no general Storage insert grant. |
 | CR-003 | Photo order is an explicit draft mutation backed by a deferrable unique position constraint. |
 | CR-004 | Live sessions require camera consent at creation, add microphone/visual consent only when Gemini is enabled, and persist only bounded sequence/result-set state needed to reject stale actions. |
 | CR-005 | General API idempotency now has a bounded private record; durable outcomes replay by subject while upload, handoff, and realtime credentials are re-minted rather than persisted. |
 | CR-006 | Photo replacement now validates the new object before an atomic same-position metadata swap and makes the old object inaccessible before physical cleanup. |
 | CR-007 | Recommendations can form deterministic report-local suggested-outfit groups without persisting mutable retailer facts. |
+| CR-015 | Brand sizing is evidence per brand and garment type, and the profile stores an explicit overall fit preference (`fitted`, `regular`, `relaxed`, or `varies`) so fit guidance preserves uncertainty instead of claiming one universal size. |
 
 ## Contract decisions
 
@@ -103,7 +104,7 @@ erDiagram
 |---|---:|
 | Customer name | 120 characters |
 | Gender self-description | 80 characters |
-| Brand/category/size labels | 80 / 80 / 40 characters |
+| Brand/garment-type/size labels | 80 / fixed enum / 40 characters |
 | Short title/label | 120 characters |
 | Summary/rationale/customer feedback | 2,000 characters |
 | Operational error code | 80 characters |
@@ -162,6 +163,7 @@ These are `text` columns with named check constraints, not Postgres enum types, 
 | `gender` | text | yes | Inclusive/self-described, 1–80 when present |
 | `height_cm` | numeric(5,2) | yes | 80–250 |
 | `weight_kg` | numeric(5,2) | yes | Optional; 25–400 when present |
+| `fit_preference` | text | yes while draft | `fitted`, `regular`, `relaxed`, or `varies`; required when non-draft |
 | `submitted_at` | timestamptz | yes | Required when status is not `draft` |
 | `last_activity_at` | timestamptz / now | no | Anonymous cleanup query authority |
 | `created_at` | timestamptz / now | no | Immutable |
@@ -171,7 +173,7 @@ Constraints:
 
 - `unique (owner_id, id)` supports composite child ownership.
 - Partial unique index permits at most one `active` profile per owner.
-- A non-draft profile requires name, age, adult confirmation, gender, height, and `current_step='complete'`.
+- A non-draft profile requires name, age, adult confirmation, gender, height, fit preference, and `current_step='complete'`.
 - Only a draft may change customer-input evidence: profile fields, favorite brands, brand sizes, photos, photo signals, extracted garments, taste candidates, and reactions. Those rows freeze at submission except garment review completed by the already-running extraction pipeline.
 - A submitted or active profile may receive system-output children: report runs, immutable reports/sections/recommendations, generated assets/lineage, feedback, live sessions, and bag items. Report-output records are insert-only except for the explicitly named preview attachment, status, and lifecycle fields.
 - `derived_from_profile_id` uses a simple `on delete set null` lineage FK; draft creation validates the same owner. It is null only for the first profile or after an intentionally purged source profile.
@@ -196,7 +198,7 @@ Evidence/output mutation matrix:
 | `preference_order` | smallint | no | 1–20 |
 | `created_at`, `updated_at` | timestamptz | no | Standard timestamps |
 
-Unique `(profile_id, brand_key)` and `(profile_id, preference_order)`. A complete profile has 1–20 favorite brands. Rows are mutable only while the parent is a draft. A favorite brand may have zero or more category-size rows; selecting a brand never invents a category or size.
+Unique `(profile_id, brand_key)` and `(profile_id, preference_order)`. A complete profile has 1–20 favorite brands. Rows are mutable only while the parent is a draft. A favorite brand may have zero or more garment-type-size rows; selecting a brand never invents a garment type or size.
 
 ### `public.brand_sizes`
 
@@ -205,13 +207,13 @@ Unique `(profile_id, brand_key)` and `(profile_id, preference_order)`. A complet
 | `id`, `owner_id`, `profile_id` | uuid | no | Composite owner/profile FK |
 | `brand_name` | text | no | Trimmed 1–80; customer spelling preserved |
 | `brand_key` | text | no | Application-normalized lowercase/whitespace key, 1–80 |
-| `category` | text | no | Trimmed 1–80, e.g. `jeans`, `tops` |
+| `garment_type` | text | no | `tops`, `knitwear`, `dresses`, `skirts`, `jeans`, `trousers`, `shorts`, `outerwear`, `activewear`, `swimwear`, `shoes`, or `other` |
 | `size_status` | text | no | `known`, `unknown`, or `not_applicable` |
 | `size_label` | text | yes | Trimmed 1–40 only when `size_status='known'`, e.g. `26`, `M` |
 | `preference_order` | smallint | no | 1–20 |
 | `created_at`, `updated_at` | timestamptz | no | Standard timestamps |
 
-Unique `(profile_id, brand_key, lower(category))`; maximum 20 rows per profile is enforced when profile completion is submitted. `known` requires a nonblank `size_label`; `unknown` and `not_applicable` require it to be null. Every `brand_key` must match an owned `favorite_brands` row for the same profile. Rows are mutable only while the parent is a draft.
+Unique `(profile_id, brand_key, garment_type)`; maximum 20 rows per profile is enforced when profile completion is submitted. `known` requires a nonblank `size_label`; `unknown` and `not_applicable` require it to be null. Every `brand_key` must match an owned `favorite_brands` row for the same profile. Distinct observations such as Zara jeans L and Zara tops M never overwrite each other. Rows are mutable only while the parent is a draft.
 
 ### `public.consent_records`
 
@@ -674,8 +676,8 @@ The following rules require a short server transaction because Postgres check co
 
 Lock the draft profile, verify its `revision`, and require:
 
-- required personal fields and adult confirmation;
-- 1–20 favorite-brand rows and at least one but no more than 20 category-size rows whose brand keys belong to that favorite set; unknown/not-applicable rows count as supplied context without inventing a size;
+- required personal fields, adult confirmation, and overall fit preference;
+- 1–20 favorite-brand rows and at least one but no more than 20 garment-type-size rows whose brand keys belong to that favorite set; unknown/not-applicable rows count as supplied context without inventing a size;
 - 8–12 accepted photos;
 - current granted consent for profile processing, photo analysis, garment extraction, and account connection;
 - 12–20 active taste reactions;
@@ -881,7 +883,7 @@ Every foreign-key column receives an index unless it is already the leftmost pre
 | `favorite_brands_profile_order_idx unique (profile_id, preference_order)` | Ordered favorite brands |
 | `favorite_brands_profile_key_idx unique (profile_id, brand_key)` | One normalized favorite-brand choice |
 | `brand_sizes_profile_order_idx (profile_id, preference_order, id)` | Ordered profile sizes |
-| `brand_sizes_profile_brand_category_idx unique (profile_id, brand_key, lower(category))` | One size per normalized brand/category |
+| `brand_sizes_profile_brand_garment_type_idx unique (profile_id, brand_key, garment_type)` | One observation per normalized brand/garment type |
 | `consent_records_current_idx (profile_id, purpose, captured_at desc, id desc)` | Latest purpose decision |
 | `photos_profile_position_key deferrable unique (profile_id, position)` | Ordered upload/review and atomic reordering |
 | `photos_profile_sha_idx unique (profile_id, sha256)` | Duplicate prevention |
@@ -1101,7 +1103,7 @@ The first integrated one-photo/one-garment slice may apply only the required pre
 |---|---|---|
 | Profile answer | Zod trim/type/range and current-step schema | Type, range, non-draft completeness, ownership |
 | Favorite brand | Zod normalized key + bounded preserved label | Unique ordered choice, parent draft ownership, 1–20 at submit |
-| Brand/category size | Zod normalized key + exact status/nullable-label union | Favorite-brand membership, uniqueness, parent draft ownership, row maximum at submit |
+| Brand/garment-type size | Zod normalized key + exact garment-type enum + status/nullable-label union | Favorite-brand membership, uniqueness, parent draft ownership, row maximum at submit |
 | Consent | Exact purpose/version/hash schema | Append-only grants, owner/profile FK, allowed enum |
 | Photo | Browser preflight then server decode/signature/hash | Media metadata ranges, unique position/hash, immutable path, non-null bounded expiry |
 | Extraction/model output | Full discriminated Zod parse and quality checks | Bounded arrays/confidence/provenance; no raw body |
@@ -1118,7 +1120,7 @@ The first integrated one-photo/one-garment slice may apply only the required pre
 | Datum | Authority | Stored representation |
 |---|---|---|
 | Identity and anonymous/permanent status | Supabase Auth | `auth.users`; immutable `owner_id` references |
-| Profile answers, favorite brands, and brand/category sizes | Customer accepted input | Frozen profile and child rows |
+| Profile answers, fit preference, favorite brands, and brand/garment-type sizes | Customer accepted input | Frozen profile and child rows |
 | Consent | Append-only customer decision event | Version/hash/purpose/decision event |
 | Original/derived bytes | Private Storage object | Opaque path + verified metadata/hash |
 | Style signals/report | Validated application output | Bounded structured records with provider/method provenance |

@@ -35,7 +35,7 @@ erDiagram
 |---|---|---|
 | `profiles` | `id`, `owner_id`, `status`, name, adult confirmation, gender, age, height, optional weight, onboarding step, created/updated | One active profile plus preserved drafts per owner; sensitive fields never enter logs |
 | `favorite_brands` | `id`, `profile_id`, preserved brand label, normalized brand key, order | Separate 1–20 ordered choices so favorite-brand intent is not invented from size rows |
-| `brand_sizes` | `id`, `profile_id`, brand, category, known/unknown/not-applicable status, optional size label | Unique profile + normalized brand + category; known customer-entered label preserved |
+| `brand_sizes` | `id`, `profile_id`, brand, garment type, known/unknown/not-applicable status, optional size label | Unique profile + normalized brand + garment type; Zara jeans L and Zara tops M remain distinct evidence |
 | `consent_records` | `id`, `profile_id`, purpose, version, granted/revoked time | Append-only evidence per purpose; revocation drives feature disable/delete behavior |
 | `photos` | `id`, `profile_id`, storage path, status, media type, dimensions, byte size, rejection code, timestamps | Private path under owner/profile; 8 valid minimum and 12 maximum enforced at completion boundary |
 | `extracted_garments` | `id`, `profile_id`, source photo, derived asset, category/color/material/pattern/fit signals, confidence, duplicate group, status | Extract styling-visible garments only; correction/delete independent per item |

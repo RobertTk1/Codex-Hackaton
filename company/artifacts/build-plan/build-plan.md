@@ -47,7 +47,8 @@ Beyond the founder-constrained TypeScript/Vite/Tailwind/Bun/Supabase stack, the 
 6. **The founder-constrained stack is TypeScript throughout the frontend/API, with Vite, Tailwind, Bun, and Supabase for database, auth, and private asset storage.** The engineering plan must use this stack and may resolve boundaries and setup, not substitute the platform choices.
 7. **Gemini Live replaces OpenAI Realtime for live voice.** OpenAI remains preferred for the text agent, report generation, and still-image generation/editing; Gemini Live owns PH-06 voice and optional multimodal session awareness.
 8. **AI-generated wardrobe previews are now part of FEAT-009.** They may appear only when consent, likeness quality, and catalog-image reuse permission pass; otherwise text and linked product recommendations complete the report.
-9. **`Gender` replaces `style presentation` as the single profile and consent term.** It remains inclusive and may be self-described. Name, gender, height, optional weight, age, favorite brands, and brand-plus-category sizes are the required profile contract.
+9. **`Gender` replaces `style presentation` as the single profile and consent term.** It remains inclusive and may be self-described. Name, gender, height, optional weight, age, overall fit preference, favorite brands, and brand-plus-garment-type sizes are the required profile contract.
+10. **Brand sizing is garment-type evidence, not one brand-wide size.** A customer may record Zara jeans L and Zara tops M independently. The report pipeline derives a bounded, explainable fit profile from those observations plus the customer’s stated `fitted`, `regular`, `relaxed`, or `varies` preference and never claims guaranteed fit.
 
 ### Planning boundaries and remaining assumptions
 
@@ -232,30 +233,33 @@ The product sequence is founder-approved, but the full build is not ready to sta
 
 **Priority:** Must-have  
 **Primary source:** Founder amendments 2026-07-19; US-003, US-004; SC-001, SC-003  
-**Customer outcome:** In the adopted chat-first conversation, the customer provides name, adult confirmation, gender, age, height, optional weight, favorite brands, and the sizes they actually wear by brand and item category.
+**Customer outcome:** In the adopted chat-first conversation, the customer provides name, adult confirmation, gender, age, height, optional weight, overall fit preference, favorite brands, and the sizes they actually wear by brand and garment type.
 
 **Experience and system behavior**
 
-- Collect name, adult confirmation, gender, age, height, and optional weight one question at a time; use `gender` consistently, allow inclusive options or self-description, and disclose its styling/shopping purpose.
-- Capture favorite brands and category-specific known sizes such as Zara jeans 26 or H&M tops M; allow unknown or not-applicable values.
+- Collect name, adult confirmation, gender, age, height, optional weight, and overall fit preference one question at a time; use `gender` consistently, allow inclusive options or self-description, and disclose its styling/shopping purpose.
+- Ask explicitly: `How do you like your clothes to fit overall—fitted, regular, relaxed, or does it depend on the garment?`
+- Capture favorite brands and garment-type-specific known sizes such as Zara jeans L and Zara tops M; allow numeric/alpha labels plus unknown or not-applicable values.
+- Derive a bounded fit profile by garment type from stated fit preference and observed brand-size evidence, with confidence/evidence labels and no universal-size or guaranteed-fit claim.
 - Validate field-level input without erasing other valid answers.
 - Persist structured progress to the anonymous identity after each completed turn or section.
 - Use chat-first v2 as the implementation direction while writing the same validated FEAT-004 data and completion contract formerly represented by form-based v1.
 
-**Integration points:** Anonymous customer state; structured validation; brand and size taxonomy; progress routing.  
+**Integration points:** Anonymous customer state; structured validation; garment-type and size taxonomy; pure fit-profile derivation; progress routing.
 **Dependencies:** FEAT-003, BR-008, BR-009, BR-024, BR-025.
 
 **Acceptance criteria**
 
-1. The chat collects name, adult confirmation, gender, age, height, optional weight, favorite brands, and category-specific brand sizes; required and optional values match the amended PRD.
+1. The chat collects name, adult confirmation, gender, age, height, optional weight, overall fit preference, favorite brands, and garment-type-specific brand sizes; required and optional values match the amended PRD.
 2. Adult confirmation blocks unsupported minor onboarding without retaining disallowed photo data.
 3. Gender uses that exact term across conversation, structured state, copy, validation, and consent; inclusive options or self-description are accepted and its styling/shopping purpose is explained.
-4. Brand sizes are recorded by brand and category, permit unknown values, and never invent a universal size.
+4. Brand sizes are recorded independently by brand and garment type, permit unknown/not-applicable values, and never invent a universal brand size.
 5. Invalid input identifies the affected conversational answer and preserves every other valid answer.
 6. Refresh, return, or supported-device continuation restores the latest owned valid state.
-7. The adopted v2 presentation writes the same validated profile contract and completion state as the archived v1 reference.
+7. The derived fit profile is deterministic for the same inputs, preserves conflicting observations as uncertainty, and never claims guaranteed fit.
+8. The adopted v2 presentation writes the same validated profile contract and completion state as the archived v1 reference plus this founder-approved fit amendment.
 
-**End-to-end validation:** Given an anonymous adult customer, when they enter valid personal details, one known brand/category size, and one unknown size, then the saved profile resumes correctly; when one field is invalid, only that field requires correction.
+**End-to-end validation:** Given an anonymous adult customer who prefers a relaxed fit, when they enter valid personal details, Zara jeans L, Zara tops M, and one unknown garment-type size, then the distinct observations and fit preference resume correctly and produce the same bounded fit profile; when one field is invalid, only that field requires correction.
 
 #### FEAT-005 — Favorite-Look Photo Collection
 

@@ -5,7 +5,7 @@ Feature: Magic Mirror style intelligence and shopping journey
     Given an adult visitor has opened the Magic Mirror landing page
     And the visitor has not created a Magic Mirror account
     When the visitor starts the style report
-    And completes the personal and brand-size profile
+    And records an overall fit preference plus brand sizes by garment type
     And uploads between 8 and 12 qualifying full-body favorite-look photos
     And Magic Mirror extracts usable garment signals or applies the approved favorite-look analysis fallback without discarding successful per-image results
     And completes the required taste calibration choices
@@ -32,6 +32,7 @@ Feature: Magic Mirror style intelligence and shopping journey
     Then Magic Mirror identifies the specific field and correction needed
     And preserves every valid field value
     And allows optional weight to remain unanswered
+    And preserves distinct sizes for different garment types within the same brand
     And does not allow a person who has not confirmed adult status to continue
 
   @SC-004 @US-005 @US-020

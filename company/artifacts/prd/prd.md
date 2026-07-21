@@ -184,9 +184,9 @@ Testing must cover varied ages within the adult population, skin tones, body sha
 ### Journey B: Build the initial style profile
 
 1. The customer provides their name and confirms they are an adult.
-2. The customer supplies gender, age, height, and optional weight. Gender is the single approved term across product, copy, and consent language; the customer can choose an inclusive option or self-describe. Each sensitive field explains why it is requested, whether it is required, and how it affects styling and shopping recommendations.
+2. The customer supplies gender, age, height, optional weight, and an overall fit preference: fitted, regular, relaxed, or varies by garment. Gender is the single approved term across product, copy, and consent language; the customer can choose an inclusive option or self-describe. Each sensitive field explains why it is requested, whether it is required, and how it affects styling and shopping recommendations.
 3. The customer selects favorite brands.
-4. For each selected brand, the customer may record sizes by relevant category, such as tops, bottoms, dresses, jackets, or shoes.
+4. For each selected brand, the customer records sizes by garment type—not one universal brand size—such as Zara jeans L, Zara tops M, or a known numeric size. A garment type may be marked unknown or not applicable.
 5. Progress is saved to the anonymous authenticated session so accidental navigation does not erase completed work before permanent account connection.
 
 ### Journey C: Upload outfit evidence
@@ -346,7 +346,7 @@ These are user-visible capability requirements, not architecture choices.
 
 ### Profile and preference data
 
-- Store structured profile fields, including gender consent, favorite brands, category-specific sizes, taste choices, feedback, and report version.
+- Store structured profile fields, including gender consent, overall fit preference, favorite brands, garment-type-specific brand sizes, taste choices, feedback, and report version.
 - Preserve provenance so the report can distinguish customer-provided facts, visual inferences, explicit swipe preferences, and catalog data.
 - Permit customers to correct profile facts and report feedback without requiring total account recreation.
 
@@ -360,7 +360,7 @@ These are user-visible capability requirements, not architecture choices.
 
 ### AI analysis and report generation
 
-- Combine structured profile, brand sizes, outfit imagery, extracted garment signals or their approved fallback, and taste choices into a versioned analysis request.
+- Combine structured profile, garment-type brand sizes, overall fit preference, outfit imagery, extracted garment signals or their approved fallback, and taste choices into a versioned analysis request. Derive a bounded fit profile from stated preference and observed brand/garment-type sizes; preserve uncertainty and never present it as a fit guarantee.
 - Return structured report sections, confidence or uncertainty where relevant, evidence references, and actionable recommendations.
 - Normalize provider or model errors into customer-visible error, code, and recovery detail.
 - Enforce a 120-second user-facing target with processing, slow, completion, and failure states.
@@ -410,8 +410,8 @@ These are user-visible capability requirements, not architecture choices.
 ### Customer inputs
 
 - Name and adult confirmation.
-- Gender, age or age band, height, and optional weight, with approved gender consent explaining its styling and shopping purpose.
-- Favorite brands and known sizes by garment category.
+- Gender, age or age band, height, optional weight, and overall fit preference (`fitted`, `regular`, `relaxed`, or `varies`), with approved gender consent explaining its styling and shopping purpose.
+- Favorite brands and known/unknown sizes by garment type, allowing different sizes within one brand (for example Zara jeans L and Zara tops M).
 - Eight to twelve consented full-body images of the customer wearing favorite looks.
 - Explicit taste choices from look and garment cards.
 - Google account identity or email address for a magic link, plus account/privacy consent.

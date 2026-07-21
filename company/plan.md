@@ -103,7 +103,8 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 **User outcome:** A visitor can start anonymously, provide respectful profile and size context, upload 8–12 qualifying favorite-look photos, and complete Love/Hate/Maybe calibration without losing valid work.
 
 - [ ] Implement the report-led entry, anonymous ownership, account access, consent, accessibility, and recovery baseline.
-- [ ] Implement chat-first name, adult confirmation, gender, age, height, optional weight, favorite-brand, and brand/category-size collection using one validated profile contract.
+- [ ] Implement chat-first name, adult confirmation, gender, age, height, optional weight, explicit overall fit preference, favorite-brand, and brand/garment-type-size collection using one validated profile contract.
+- [ ] Derive bounded per-garment-type fit guidance from the customer’s stated fit preference and brand/garment-type observations, retaining conflicting evidence and never presenting a universal-size guarantee.
 - [ ] Implement private favorite-look photo collection with independent validation, the approved retention policy, and the critical Wardrobe extraction/fallback step.
 - [ ] Implement dynamically sourced Love/Hate/Maybe calibration seeded by extracted garments and style signals, with undo, recovery, and a balanced fallback set.
 
@@ -156,7 +157,7 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Create dependency-aware engineering tickets from the passed data and application contracts, including early Wardrobe, generated-preview, Shopify, Decart, and Gemini/Decart/gesture discovery spikes.
+1. Run the final engineering-plan review over the dependency-aware ticket package, including the fit-profile derivation ticket and early Wardrobe, generated-preview, Shopify, Decart, and Gemini/Decart/gesture spikes.
 2. Run the engineering-plan final review across ticket coverage, dependencies, acceptance criteria, test evidence, rollout, rollback, and readiness ownership.
 3. Begin implementation only after the complete engineering plan is founder-approved and its technical readiness gate is ready.
 
@@ -222,6 +223,7 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 - 2026-07-20: Use the private eight-image founder-owned set under `/Users/talishawhite/Documents/Magic Mirror Test Data/` as the real testing baseline; synthetic fixtures are authorized for broader checks but cannot substantiate real-user population claims.
 - 2026-07-20: Advance engineering planning under the founder-approved assumption that OpenAI credits will be added later; retain the verified `insufficient_quota` result and require successful paid-call reverification before any OpenAI-dependent ticket executes or passes.
 - 2026-07-20: Pass the application-contract review after repairing profile/brand facts, consent ordering, signed upload and atomic replacement, photo ordering/formats, durable idempotency, live action sequencing, exact response/error schemas, report timing states, Shopify reference handling, suggested outfits/saved Style Home content, post-report recalibration, and 49/49 schema-conforming operation examples; advance planning to engineering tickets without starting implementation.
+- 2026-07-21: Amend onboarding and contracts so sizes are stored per brand + garment type, ask overall fit preference explicitly, and require deterministic fit-profile derivation with visible uncertainty before engineering ticket generation.
 
 ## Roadmap Backlog (V2+)
 

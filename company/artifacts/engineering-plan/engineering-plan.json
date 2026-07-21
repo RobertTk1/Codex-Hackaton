@@ -1,0 +1,3638 @@
+{
+  "project": "Magic Mirror",
+  "status": "provisional",
+  "generatedAt": "2026-07-21T09:32:34-04:00",
+  "executionPolicy": {
+    "oneTicketPerTurn": true,
+    "dependencyGate": {
+      "requiredStatus": "completed",
+      "requirePass": true
+    }
+  },
+  "sources": {
+    "prd": "company/artifacts/prd/prd.md",
+    "buildPlan": "company/artifacts/build-plan/build-plan.md",
+    "userStories": "company/artifacts/prd/user-stories.json",
+    "screens": "company/artifacts/prd/screens.json",
+    "architectureRoot": "company/artifacts/engineering-plan/architecture",
+    "contractsRoot": "company/artifacts/engineering-plan/contracts",
+    "readiness": "company/artifacts/engineering-plan/implementation-readiness.json"
+  },
+  "tickets": [
+    {
+      "id": "ENG-001",
+      "title": "Scaffold the Bun monorepo and quality commands",
+      "type": "infrastructure",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-003"
+      ],
+      "storyIds": [
+        "US-020",
+        "US-021"
+      ],
+      "scenarioIds": [],
+      "screenIds": [],
+      "target": {
+        "kind": "infrastructure",
+        "names": [
+          "Bun workspace",
+          "Vite web app",
+          "TypeScript API app"
+        ]
+      },
+      "objective": "Create the smallest strict TypeScript monorepo that gives every later ticket stable build, lint, typecheck, unit, and end-to-end commands.",
+      "scope": {
+        "includes": [
+          "Create apps/web, apps/api, packages/contracts, and root Bun workspace configuration",
+          "Configure strict TypeScript, Vite, Tailwind, Vitest, Playwright, ESLint, and shared scripts",
+          "Document each dependency with purpose and maintenance impact"
+        ],
+        "excludes": [
+          "Product screens",
+          "Provider integrations",
+          "Database migrations"
+        ]
+      },
+      "implementationSteps": [
+        "Scaffold workspace manifests and applications",
+        "Add strict compiler and lint configuration",
+        "Add empty but executable smoke tests and root scripts",
+        "Document environment variable names with placeholders"
+      ],
+      "acceptanceCriteria": [
+        "bun install succeeds",
+        "All root quality commands run from a clean checkout",
+        "No secret value is committed"
+      ],
+      "passConditions": [
+        "Test: bun install --frozen-lockfile",
+        "Test: bun run typecheck and bun run lint pass",
+        "Test: bun test and bun run test:e2e execute the scaffold smoke tests"
+      ],
+      "verification": {
+        "commands": [
+          "bun install --frozen-lockfile",
+          "bun run typecheck",
+          "bun run lint",
+          "bun test",
+          "bun run test:e2e"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [],
+      "readinessPrerequisites": [
+        "IR-002",
+        "IR-003"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "package.json",
+        "bun.lock",
+        "tsconfig.json",
+        "apps/web/package.json",
+        "apps/api/package.json",
+        "packages/contracts/package.json",
+        ".env.example"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Foundation only; do not create speculative services or product placeholders."
+    },
+    {
+      "id": "ENG-002",
+      "title": "Implement shared Zod API and domain contracts",
+      "type": "backend",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-003"
+      ],
+      "storyIds": [
+        "US-019",
+        "US-020"
+      ],
+      "scenarioIds": [],
+      "screenIds": [],
+      "target": {
+        "kind": "cross-cutting",
+        "names": [
+          "packages/contracts"
+        ]
+      },
+      "objective": "Make every browser, API, database, and provider boundary consume the approved schemas through one versioned Zod package.",
+      "scope": {
+        "includes": [
+          "Encode approved OpenAPI request and response shapes",
+          "Encode error, event, profile, fit-profile, report, catalog, and realtime unions",
+          "Add fixtures for valid and invalid boundary data"
+        ],
+        "excludes": [
+          "HTTP handlers",
+          "Database access",
+          "UI components"
+        ]
+      },
+      "implementationSteps": [
+        "Translate approved YAML schemas into Zod without widening fields",
+        "Export inferred TypeScript types",
+        "Add schema conformance tests for the 49 approved operation examples",
+        "Reject unknown keys and invalid discriminators"
+      ],
+      "acceptanceCriteria": [
+        "All 49 approved examples parse against their operation schemas",
+        "Unknown keys and untrusted enum values fail",
+        "Fit preference and brand + garment-type size observations round-trip distinctly"
+      ],
+      "passConditions": [
+        "Test: bun test packages/contracts validates 49 examples",
+        "Test: Zara jeans L and Zara tops M remain separate after parse/serialize",
+        "Test: Loose customer wording is not accepted at the storage schema boundary; normalized relaxed is accepted"
+      ],
+      "verification": {
+        "commands": [
+          "bun test packages/contracts",
+          "bun run typecheck"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-001"
+      ],
+      "readinessPrerequisites": [
+        "IR-001",
+        "IR-002"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "packages/contracts/src/index.ts",
+        "packages/contracts/src/profile.ts",
+        "packages/contracts/src/errors.ts",
+        "packages/contracts/src/report.ts",
+        "packages/contracts/test/contracts.test.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "This typed boundary is the intentional exception to the two-call-site helper rule."
+    },
+    {
+      "id": "ENG-003",
+      "title": "Create profile, consent, brand-size, and transfer schema",
+      "type": "data",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-002",
+        "FEAT-003",
+        "FEAT-004",
+        "FEAT-007"
+      ],
+      "storyIds": [
+        "US-002",
+        "US-003",
+        "US-004",
+        "US-007",
+        "US-019"
+      ],
+      "scenarioIds": [
+        "SC-003",
+        "SC-006",
+        "SC-013"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "data-model",
+        "names": [
+          "profiles",
+          "favorite_brands",
+          "brand_sizes",
+          "consent_records",
+          "anonymous_transfers"
+        ]
+      },
+      "objective": "Persist anonymous and permanent profile evidence with exact ownership, consent, garment-type sizing, revision, and transfer invariants.",
+      "scope": {
+        "includes": [
+          "Create one baseline Supabase migration for the named tables and private transfer records",
+          "Add RLS, grants, checks, unique keys, and transfer function",
+          "Store fit_preference and unique brand_key + garment_type observations",
+          "Add populated migration and cross-owner denial tests"
+        ],
+        "excludes": [
+          "Photos, taste, reports, live sessions",
+          "Application UI"
+        ]
+      },
+      "implementationSteps": [
+        "Implement tables from data.md",
+        "Enable and test RLS before application access",
+        "Implement revision-safe profile completion and deterministic account transfer transaction",
+        "Seed two garment types for one brand in migration tests"
+      ],
+      "acceptanceCriteria": [
+        "Anonymous owners can access only their rows",
+        "Zara jeans L and Zara tops M coexist",
+        "A duplicate brand + garment type updates or conflicts explicitly",
+        "Transfer preserves evidence and blocks cross-owner reads"
+      ],
+      "passConditions": [
+        "Test: supabase db reset passes populated migration tests",
+        "Test: Cross-owner SQL tests deny profile and child access",
+        "Test: Non-draft profile cannot omit fit preference"
+      ],
+      "verification": {
+        "commands": [
+          "supabase db reset",
+          "bun test apps/api -- profile-data"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-001",
+        "ENG-002"
+      ],
+      "readinessPrerequisites": [
+        "IR-006",
+        "IR-015",
+        "IR-016",
+        "IR-024"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "supabase/migrations/0001_profile.sql",
+        "supabase/tests/profile_rls.sql",
+        "supabase/seed.sql"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Treat size labels as observed evidence, not a universal-size claim."
+    },
+    {
+      "id": "ENG-004",
+      "title": "Create photo, extraction, and taste schema with private storage",
+      "type": "data",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-003",
+        "FEAT-005",
+        "FEAT-006"
+      ],
+      "storyIds": [
+        "US-005",
+        "US-006",
+        "US-019",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-004",
+        "SC-005",
+        "SC-013"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "data-model",
+        "names": [
+          "photos",
+          "photo_style_signals",
+          "extracted_garments",
+          "taste_candidates",
+          "taste_reactions",
+          "customer-photos bucket"
+        ]
+      },
+      "objective": "Provide owner-isolated, bounded evidence storage for upload, partial extraction, dynamic calibration, and retention.",
+      "scope": {
+        "includes": [
+          "Add approved photo/extraction/taste tables and state constraints",
+          "Create private bucket policies and relational read authorization",
+          "Add expiry indexes, position/hash uniqueness, and partial-failure states",
+          "Add RLS and lifecycle tests"
+        ],
+        "excludes": [
+          "Provider extraction calls",
+          "Photo or taste UI",
+          "Report generation"
+        ]
+      },
+      "implementationSteps": [
+        "Implement the approved data contract exactly",
+        "Verify signed-upload-only writes and immutable object paths",
+        "Test successful sibling rows survive one extraction failure",
+        "Test logical expiry denies reads before physical purge"
+      ],
+      "acceptanceCriteria": [
+        "Raw media is never stored in Postgres",
+        "One failed photo or extraction does not remove valid siblings",
+        "Anonymous and permanent owners cannot cross-read evidence"
+      ],
+      "passConditions": [
+        "Test: supabase db reset passes media RLS and lifecycle tests",
+        "Test: Private bucket has no general customer insert grant",
+        "Test: Expired media access fails closed"
+      ],
+      "verification": {
+        "commands": [
+          "supabase db reset",
+          "bun test apps/api -- media-data"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-001",
+        "ENG-002"
+      ],
+      "readinessPrerequisites": [
+        "IR-006",
+        "IR-014",
+        "IR-015",
+        "IR-016"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "supabase/migrations/0002_media_taste.sql",
+        "supabase/tests/media_rls.sql",
+        "supabase/tests/media_lifecycle.sql"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Store binaries by opaque private reference only."
+    },
+    {
+      "id": "ENG-005",
+      "title": "Create report, recommendation, asset, job, and notification schema",
+      "type": "data",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-003",
+        "FEAT-008",
+        "FEAT-009",
+        "FEAT-010"
+      ],
+      "storyIds": [
+        "US-008",
+        "US-009",
+        "US-010",
+        "US-011",
+        "US-012",
+        "US-013",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-007",
+        "SC-008",
+        "SC-009",
+        "SC-014"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "data-model",
+        "names": [
+          "report_runs",
+          "style_reports",
+          "report_sections",
+          "recommendations",
+          "generated_assets",
+          "processing_jobs",
+          "notification_deliveries"
+        ]
+      },
+      "objective": "Persist immutable, explainable reports and safe derived assets while keeping provider jobs recoverable and bounded.",
+      "scope": {
+        "includes": [
+          "Add approved report, recommendation, source-lineage, generated-asset, job, and notification tables",
+          "Add immutable publication transaction and one-time preview attachment rule",
+          "Add RLS, expiry, lease, and state transition constraints",
+          "Test retry, publication, and purge behavior"
+        ],
+        "excludes": [
+          "Report worker implementation",
+          "Shopify calls",
+          "Report UI"
+        ]
+      },
+      "implementationSteps": [
+        "Implement schema and private worker tables",
+        "Add generated-likeness consent reference constraints",
+        "Enforce one active report and reproducible evidence lineage",
+        "Test partial preview failure does not block text report"
+      ],
+      "acceptanceCriteria": [
+        "Report publication is atomic and immutable",
+        "Generated customer images have distinct lifecycle metadata",
+        "Failed preview work leaves usable text/link recommendations"
+      ],
+      "passConditions": [
+        "Test: supabase db reset passes report publication and RLS tests",
+        "Test: Worker lease transition tests pass",
+        "Test: Generated asset expiry and consent tests pass"
+      ],
+      "verification": {
+        "commands": [
+          "supabase db reset",
+          "bun test apps/api -- report-data"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-001",
+        "ENG-002",
+        "ENG-003",
+        "ENG-004"
+      ],
+      "readinessPrerequisites": [
+        "IR-009",
+        "IR-015",
+        "IR-016",
+        "IR-017",
+        "IR-022",
+        "IR-023"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "supabase/migrations/0003_reports_jobs.sql",
+        "supabase/tests/report_publication.sql",
+        "supabase/tests/generated_assets.sql"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "No live Shopify facts or provider bodies are persisted."
+    },
+    {
+      "id": "ENG-006",
+      "title": "Create live-session, bag, handoff, and deletion schema",
+      "type": "data",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-003",
+        "FEAT-011",
+        "FEAT-012",
+        "FEAT-013",
+        "FEAT-014",
+        "FEAT-015",
+        "FEAT-016"
+      ],
+      "storyIds": [
+        "US-014",
+        "US-015",
+        "US-016",
+        "US-017",
+        "US-018",
+        "US-019",
+        "US-023"
+      ],
+      "scenarioIds": [
+        "SC-010",
+        "SC-011",
+        "SC-012",
+        "SC-015"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "data-model",
+        "names": [
+          "live_sessions",
+          "bag_items",
+          "outbound_events",
+          "account_deletion_requests"
+        ]
+      },
+      "objective": "Persist only bounded live state and stable catalog references while supporting safe bag, retailer handoff, and deletion authorization.",
+      "scope": {
+        "includes": [
+          "Add live session and action sequence constraints",
+          "Add bag stable-reference records and private outbound events",
+          "Add deletion access-block and purge-control record",
+          "Add RLS and transition tests"
+        ],
+        "excludes": [
+          "Realtime provider transport",
+          "Product UI",
+          "Deletion worker"
+        ]
+      },
+      "implementationSteps": [
+        "Implement approved tables and policies",
+        "Reject stale live sequences and cross-owner bag operations",
+        "Exclude raw video, audio, transcript, product payload, and destination URL from persistence",
+        "Test deletion block precedes asynchronous purge"
+      ],
+      "acceptanceCriteria": [
+        "Live records contain no media or transcript",
+        "Bag stores stable references only",
+        "A pending deletion request blocks every customer operation"
+      ],
+      "passConditions": [
+        "Test: supabase db reset passes live/bag/deletion tests",
+        "Test: Schema inspection finds no forbidden payload columns",
+        "Test: Cross-owner tests fail closed"
+      ],
+      "verification": {
+        "commands": [
+          "supabase db reset",
+          "bun test apps/api -- live-data"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-001",
+        "ENG-002",
+        "ENG-003",
+        "ENG-005"
+      ],
+      "readinessPrerequisites": [
+        "IR-006",
+        "IR-015",
+        "IR-016",
+        "IR-020",
+        "IR-021"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "supabase/migrations/0004_live_bag_delete.sql",
+        "supabase/tests/live_bag_rls.sql",
+        "supabase/tests/deletion_block.sql"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Retail checkout remains an outbound handoff."
+    },
+    {
+      "id": "ENG-007",
+      "title": "Implement API authentication, error, timeout, and idempotency baseline",
+      "type": "backend",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-003"
+      ],
+      "storyIds": [
+        "US-019",
+        "US-020",
+        "US-021"
+      ],
+      "scenarioIds": [],
+      "screenIds": [],
+      "target": {
+        "kind": "backend-function",
+        "names": [
+          "API request boundary",
+          "Supabase auth middleware",
+          "normalized error responder"
+        ]
+      },
+      "objective": "Give all API operations one strict, observable security and recovery boundary before feature handlers are added.",
+      "scope": {
+        "includes": [
+          "Validate Supabase JWTs and derive owner identity",
+          "Parse headers/path/body with shared Zod contracts",
+          "Return approved error envelopes with request IDs",
+          "Implement durable idempotency for named mutations and provider timeout helper"
+        ],
+        "excludes": [
+          "Feature-specific route logic",
+          "Provider adapters",
+          "Browser presentation"
+        ]
+      },
+      "implementationSteps": [
+        "Build direct route middleware without a repository or service layer",
+        "Redact sensitive fields from logs",
+        "Add timeout and normalized provider errors",
+        "Test replay, body mismatch, anonymous/permanent guards, and deletion blocks"
+      ],
+      "acceptanceCriteria": [
+        "No request can choose owner_id",
+        "No error silently loses retryability or request ID",
+        "Duplicate mutations replay only for the same validated input"
+      ],
+      "passConditions": [
+        "Test: bun test apps/api -- boundary",
+        "Test: bun run typecheck passes",
+        "Test: Log-capture test contains no tokens, photos, prompts, or customer identifiers"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- boundary",
+          "bun run typecheck",
+          "bun run lint"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-001",
+        "ENG-002",
+        "ENG-003",
+        "ENG-006"
+      ],
+      "readinessPrerequisites": [
+        "IR-006",
+        "IR-007",
+        "IR-008",
+        "IR-015"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/http/auth.ts",
+        "apps/api/src/http/errors.ts",
+        "apps/api/src/http/idempotency.ts",
+        "apps/api/src/providers/timeout.ts",
+        "apps/api/test/boundary.test.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Keep the data path handler → Zod → Supabase."
+    },
+    {
+      "id": "ENG-008",
+      "title": "Implement the responsive web shell and accessible state primitives",
+      "type": "ui",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-003"
+      ],
+      "storyIds": [
+        "US-020",
+        "US-021"
+      ],
+      "scenarioIds": [
+        "SC-003",
+        "SC-010",
+        "SC-015"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "cross-cutting",
+        "names": [
+          "web router",
+          "API client",
+          "loading/slow/error primitives",
+          "accessible controls"
+        ]
+      },
+      "objective": "Provide the shared responsive, keyboard-accessible, recoverable shell used by every approved screen state.",
+      "scope": {
+        "includes": [
+          "Add routes and authenticated/anonymous layout boundaries",
+          "Add typed API client that parses all responses",
+          "Add loading, slow, empty, failure, confirmation, focus, and live-region primitives",
+          "Apply brand tokens without adding unapproved polish"
+        ],
+        "excludes": [
+          "Feature content",
+          "Provider integrations",
+          "Data mutations"
+        ]
+      },
+      "implementationSteps": [
+        "Implement router and error boundary",
+        "Implement accessible control/state primitives",
+        "Add responsive viewport and reduced-motion tests",
+        "Add no-silent-error UI contract tests"
+      ],
+      "acceptanceCriteria": [
+        "Keyboard and pointer users reach equivalent actions",
+        "Slow and failed states remain understandable",
+        "Untrusted response data never reaches components"
+      ],
+      "passConditions": [
+        "Test: Keyboard and pointer users reach equivalent actions",
+        "Test: Slow and failed states remain understandable",
+        "Test: Untrusted response data never reaches components"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/web -- shell",
+          "bun run test:e2e -- shell-accessibility",
+          "bun run typecheck"
+        ],
+        "manualChecks": [
+          "Verify 360px, 768px, and 1440px layouts",
+          "Verify focus returns to repaired control after an error"
+        ]
+      },
+      "dependsOn": [
+        "ENG-001",
+        "ENG-002"
+      ],
+      "readinessPrerequisites": [
+        "IR-002",
+        "IR-019"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/src/app/router.tsx",
+        "apps/web/src/lib/api.ts",
+        "apps/web/src/components/AsyncState.tsx",
+        "apps/web/src/styles.css",
+        "apps/web/e2e/shell.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Use the approved mockups as direction, not as generated HTML to paste wholesale."
+    },
+    {
+      "id": "ENG-009",
+      "title": "Build the report-led landing page and anonymous start",
+      "type": "ui",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-001"
+      ],
+      "storyIds": [
+        "US-001"
+      ],
+      "scenarioIds": [
+        "SC-001"
+      ],
+      "screenIds": [
+        "76a5f0c7-aa78-4eaf-ae0f-4b577024f5c6"
+      ],
+      "target": {
+        "kind": "screen",
+        "names": [
+          "landing-page-base"
+        ]
+      },
+      "objective": "Move a new visitor from the report-led story into a real anonymous profile without premature account friction.",
+      "scope": {
+        "includes": [
+          "Render the approved landing sections and customer-facing copy",
+          "Create or resume anonymous Supabase auth on the primary CTA",
+          "Route returning customers to account access",
+          "Instrument start success and visible recovery"
+        ],
+        "excludes": [
+          "Profile questions",
+          "Photo upload",
+          "Report generation"
+        ]
+      },
+      "implementationSteps": [
+        "Implement landing screen from approved design and copy",
+        "Connect CTA to profile resume endpoint",
+        "Add loading/retry and accessible navigation",
+        "Add responsive E2E scenario"
+      ],
+      "acceptanceCriteria": [
+        "Primary CTA creates or resumes exactly one draft",
+        "Failure preserves the page and offers retry",
+        "Returning-customer path does not create duplicate progress"
+      ],
+      "passConditions": [
+        "Test: Primary CTA creates or resumes exactly one draft",
+        "Test: Failure preserves the page and offers retry",
+        "Test: Returning-customer path does not create duplicate progress"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/web -- landing",
+          "bun run test:e2e -- landing-start"
+        ],
+        "manualChecks": [
+          "Confirm story hierarchy at supported viewports"
+        ]
+      },
+      "dependsOn": [
+        "ENG-007",
+        "ENG-008"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-016"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/src/routes/LandingPage.tsx",
+        "apps/web/src/features/onboarding/start.ts",
+        "apps/web/e2e/landing.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "No marketing-only fake success state."
+    },
+    {
+      "id": "ENG-010",
+      "title": "Implement profile conversation and garment-type sizing operations",
+      "type": "backend",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-004"
+      ],
+      "storyIds": [
+        "US-003",
+        "US-004"
+      ],
+      "scenarioIds": [
+        "SC-001",
+        "SC-003"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "backend-function",
+        "names": [
+          "submitConversationTurn",
+          "replaceProfileAnswer",
+          "putFavoriteBrands",
+          "putBrandSizes",
+          "getProfileSnapshot"
+        ]
+      },
+      "objective": "Persist chat answers as exact profile facts, including required fit preference and multiple garment-type observations per brand.",
+      "scope": {
+        "includes": [
+          "Implement direct typed route handlers and revision checks",
+          "Normalize natural fit wording to the stored enum",
+          "Parse brand + garment-type + size tuples without overwriting siblings",
+          "Return completion blockers and invalidated downstream steps"
+        ],
+        "excludes": [
+          "Chat rendering",
+          "Fit-profile derivation",
+          "Report prompting"
+        ]
+      },
+      "implementationSteps": [
+        "Implement operation handlers from api.md",
+        "Add answer parsing with structured fallback choices",
+        "Add transactional brand-size replacement and favorite-brand membership validation",
+        "Add BDD tests for invalid answer preservation and same-brand multi-garment sizes"
+      ],
+      "acceptanceCriteria": [
+        "Fit question accepts fitted, regular, relaxed/loose, and varies",
+        "Zara jeans L and Zara tops M both persist",
+        "Ambiguous size or fit asks one clarification and mutates nothing"
+      ],
+      "passConditions": [
+        "Test: Fit question accepts fitted, regular, relaxed/loose, and varies",
+        "Test: Zara jeans L and Zara tops M both persist",
+        "Test: Ambiguous size or fit asks one clarification and mutates nothing"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- profile-operations",
+          "bun run typecheck"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-003",
+        "ENG-007"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-016",
+        "IR-017"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/routes/profiles.ts",
+        "apps/api/src/profile/parse-answer.ts",
+        "apps/api/test/profile-operations.test.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "The chat transcript is presentation; ProfileSnapshot is truth."
+    },
+    {
+      "id": "ENG-011",
+      "title": "Derive a deterministic per-garment-type fit profile",
+      "type": "backend",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-004",
+        "FEAT-009",
+        "FEAT-010"
+      ],
+      "storyIds": [
+        "US-004",
+        "US-012",
+        "US-013"
+      ],
+      "scenarioIds": [
+        "SC-001",
+        "SC-009",
+        "SC-014"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "backend-function",
+        "names": [
+          "deriveFitProfile"
+        ]
+      },
+      "objective": "Turn stated fit preference and observed brand/garment-type sizes into bounded guidance with evidence, conflict, and confidence—not a universal size prediction.",
+      "scope": {
+        "includes": [
+          "Define a pure input/output contract using FitProfileSnapshot",
+          "Group known, unknown, and conflicting evidence by garment type",
+          "Apply deterministic confidence rules and customer-safe guidance",
+          "Expose the result to report and catalog ranking inputs"
+        ],
+        "excludes": [
+          "Machine-learned sizing",
+          "Retailer-specific fit guarantee",
+          "UI presentation"
+        ]
+      },
+      "implementationSteps": [
+        "Implement pure derivation with no provider or database access",
+        "Preserve raw labels and explicit unknown/not-applicable evidence",
+        "Lower confidence when brands conflict or evidence is sparse",
+        "Add table-driven tests for preference and evidence combinations"
+      ],
+      "acceptanceCriteria": [
+        "Same input always produces same ordered output",
+        "Conflicting sizes are visible and lower confidence",
+        "No output contains a guaranteed size claim"
+      ],
+      "passConditions": [
+        "Test: Same input always produces same ordered output",
+        "Test: Conflicting sizes are visible and lower confidence",
+        "Test: No output contains a guaranteed size claim"
+      ],
+      "verification": {
+        "commands": [
+          "bun test packages/contracts -- fit-profile",
+          "bun run typecheck"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-002",
+        "ENG-010"
+      ],
+      "readinessPrerequisites": [
+        "IR-017"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "packages/contracts/src/fit-profile.ts",
+        "packages/contracts/test/fit-profile.test.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "This is a bounded hackathon heuristic; future learning can replace it behind the same typed contract."
+    },
+    {
+      "id": "ENG-012",
+      "title": "Build chat-first personal and brand-sizing onboarding",
+      "type": "ui",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-004"
+      ],
+      "storyIds": [
+        "US-003",
+        "US-004",
+        "US-021"
+      ],
+      "scenarioIds": [
+        "SC-001",
+        "SC-003"
+      ],
+      "screenIds": [
+        "29c00d17-3c1d-4231-8b85-4f359a82b5f7",
+        "6d5f5ef1-a4a2-41d3-aa89-dc3722ae8df0",
+        "66d528db-21de-4e52-9ecd-3c388cede1e3",
+        "61df36bb-6d7c-41a3-bf06-9c2c99824e51",
+        "4df9db19-8f5b-53dd-a000-18e33ad9a6e3",
+        "9ad25480-da71-430f-816a-6f394bed7f15"
+      ],
+      "target": {
+        "kind": "screen",
+        "names": [
+          "conversation-welcome",
+          "conversation-personal-details",
+          "conversation-brand-sizing"
+        ]
+      },
+      "objective": "Deliver the approved one-question-per-turn experience while writing the exact FEAT-004 profile contract.",
+      "scope": {
+        "includes": [
+          "Render only the approved v2 chat states",
+          "Ask the explicit fit-preference question",
+          "Show structured choices only for clarification/accessibility",
+          "Support edit, save/exit, resume, keyboard, and screen reader behavior"
+        ],
+        "excludes": [
+          "Archived form-first v1 implementation",
+          "Photo upload",
+          "Taste calibration"
+        ]
+      },
+      "implementationSteps": [
+        "Build conversational transcript from ProfileSnapshot facts",
+        "Wire composer and revision-safe edits",
+        "Render brand/garment-type summaries as separate rows",
+        "Add error recovery and BDD E2E coverage"
+      ],
+      "acceptanceCriteria": [
+        "No full-page form or sidebar is introduced",
+        "Fit preference is explicitly asked and reviewable",
+        "Multiple sizes within one brand display without collapse"
+      ],
+      "passConditions": [
+        "Test: No full-page form or sidebar is introduced",
+        "Test: Fit preference is explicitly asked and reviewable",
+        "Test: Multiple sizes within one brand display without collapse"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/web -- conversational-profile",
+          "bun run test:e2e -- onboarding-profile"
+        ],
+        "manualChecks": [
+          "Complete flow with keyboard only",
+          "Verify archived v1 IDs are reference-only and not routed"
+        ]
+      },
+      "dependsOn": [
+        "ENG-008",
+        "ENG-010"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-016",
+        "IR-019"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/src/features/onboarding/Conversation.tsx",
+        "apps/web/src/features/onboarding/ProfileTurns.tsx",
+        "apps/web/e2e/onboarding-profile.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "V2 is implementation authority; listed v1 screen IDs provide traceability only."
+    },
+    {
+      "id": "ENG-013",
+      "title": "Implement signed photo upload, validation, replacement, and ordering",
+      "type": "backend",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-005"
+      ],
+      "storyIds": [
+        "US-005",
+        "US-019",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-001",
+        "SC-004",
+        "SC-013"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "backend-function",
+        "names": [
+          "createPhotoUpload",
+          "completePhotoUpload",
+          "replacePhoto",
+          "reorderPhotos",
+          "getPhotoSet"
+        ]
+      },
+      "objective": "Accept 8–12 sensitive photos through owner-bound immutable uploads while preserving valid work across individual failures.",
+      "scope": {
+        "includes": [
+          "Mint one-slot signed uploads and application completion tokens",
+          "Decode and validate file type, dimensions, hash, duplicate, and full-body result",
+          "Implement atomic same-position replacement and explicit reordering",
+          "Return independent item states and actionable errors"
+        ],
+        "excludes": [
+          "Garment extraction",
+          "Photo chat UI",
+          "Report generation"
+        ]
+      },
+      "implementationSteps": [
+        "Implement approved operations and Storage checks",
+        "Add timeout to quality provider call",
+        "Test interrupted, duplicate, rejected, replacement, and cross-owner cases",
+        "Never log bytes or signed tokens"
+      ],
+      "acceptanceCriteria": [
+        "A failed image does not remove successful images",
+        "Replacement never exposes both old and new objects",
+        "Eight accepted photos satisfies the upload completion gate"
+      ],
+      "passConditions": [
+        "Test: A failed image does not remove successful images",
+        "Test: Replacement never exposes both old and new objects",
+        "Test: Eight accepted photos satisfies the upload completion gate"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- photo-operations",
+          "bun run typecheck"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-004",
+        "ENG-007"
+      ],
+      "readinessPrerequisites": [
+        "IR-009",
+        "IR-014",
+        "IR-015",
+        "IR-016"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/routes/photos.ts",
+        "apps/api/src/photos/validate-photo.ts",
+        "apps/api/test/photo-operations.test.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "JPEG, PNG, and WebP only unless the contract is amended."
+    },
+    {
+      "id": "ENG-014",
+      "title": "Build conversational photo collection and recovery",
+      "type": "ui",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-005"
+      ],
+      "storyIds": [
+        "US-005",
+        "US-020",
+        "US-021"
+      ],
+      "scenarioIds": [
+        "SC-001",
+        "SC-004",
+        "SC-013"
+      ],
+      "screenIds": [
+        "0dfa9f00-c27f-489e-bc14-53eb49f55b8f",
+        "0903cde1-37cb-49c1-8146-ecd07dd54c70",
+        "bfc87225-7f0e-45c1-90f7-6623d96e9dad",
+        "7628f30f-b601-49ab-93eb-2cc367ab1b2e",
+        "acea6cc0-08ca-4691-806e-2faae3ce2b0f"
+      ],
+      "target": {
+        "kind": "screen",
+        "names": [
+          "conversation-photo-collection",
+          "conversation-photo-review"
+        ]
+      },
+      "objective": "Collect and review 8–12 photos inside the chat flow with per-image progress and focused recovery.",
+      "scope": {
+        "includes": [
+          "Render contextual uploader only when requested by the conversation",
+          "Show independent upload/validation states, count, reorder, replace, and remove",
+          "Explain consent and accepted-photo guidance",
+          "Resume from the committed set after reload"
+        ],
+        "excludes": [
+          "Extraction review",
+          "Taste cards",
+          "Form-first upload pages"
+        ]
+      },
+      "implementationSteps": [
+        "Implement direct-to-Storage upload client",
+        "Bind completions to signed slots",
+        "Build accessible gallery recovery controls",
+        "Add partial-failure and reload E2E tests"
+      ],
+      "acceptanceCriteria": [
+        "One rejected photo can be fixed without repeating valid uploads",
+        "Continue remains disabled below eight accepted photos",
+        "Sensitive URLs are short-lived and not cached"
+      ],
+      "passConditions": [
+        "Test: One rejected photo can be fixed without repeating valid uploads",
+        "Test: Continue remains disabled below eight accepted photos",
+        "Test: Sensitive URLs are short-lived and not cached"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/web -- photo-chat",
+          "bun run test:e2e -- photo-partial-recovery"
+        ],
+        "manualChecks": [
+          "Verify selection and reorder with keyboard"
+        ]
+      },
+      "dependsOn": [
+        "ENG-012",
+        "ENG-013"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-014",
+        "IR-016",
+        "IR-019"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/src/features/onboarding/PhotoTurn.tsx",
+        "apps/web/src/features/photos/PhotoGrid.tsx",
+        "apps/web/e2e/photos.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "V1 upload screen IDs are traceability-only."
+    },
+    {
+      "id": "ENG-015",
+      "title": "Spike and integrate Wardrobe garment extraction with fallback",
+      "type": "integration",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-005",
+        "FEAT-006"
+      ],
+      "storyIds": [
+        "US-005",
+        "US-006",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-004",
+        "SC-005"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "integration",
+        "names": [
+          "tandpfun/wardrobe adapter",
+          "OpenAI cutout fallback",
+          "direct style-signal fallback"
+        ]
+      },
+      "objective": "Prove the extraction path over 8–12 photos and implement partial-failure behavior that never blocks taste or report generation.",
+      "scope": {
+        "includes": [
+          "Run the approved consented fixture set through the repository",
+          "Measure per-image and total latency, reliability, deduplication, and review need",
+          "Wrap proven output in Zod and persist accepted signals/cutouts",
+          "Implement direct photo-style-signal fallback for failed or unusable extraction"
+        ],
+        "excludes": [
+          "Taste UI",
+          "Report narrative",
+          "Production-scale extraction"
+        ]
+      },
+      "implementationSteps": [
+        "Record spike evidence and adopt/park decision",
+        "Implement only the smallest proven adapter",
+        "Add partial batch and total failure tests",
+        "Make generated cutouts visibly synthetic where shown"
+      ],
+      "acceptanceCriteria": [
+        "Successful siblings survive failed photos",
+        "Fallback yields enough bounded style signals to continue",
+        "Measured evidence states whether customer review is required"
+      ],
+      "passConditions": [
+        "Test: Successful siblings survive failed photos",
+        "Test: Fallback yields enough bounded style signals to continue",
+        "Test: Measured evidence states whether customer review is required"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- wardrobe-extraction",
+          "bun run typecheck"
+        ],
+        "manualChecks": [
+          "Run the 8–12 photo fixture batch on the target demo machine and record latency"
+        ]
+      },
+      "dependsOn": [
+        "ENG-004",
+        "ENG-013"
+      ],
+      "readinessPrerequisites": [
+        "IR-009",
+        "IR-014",
+        "IR-016"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/integrations/wardrobe.ts",
+        "apps/api/src/workers/extract-garments.ts",
+        "apps/api/test/wardrobe.test.ts",
+        "company/artifacts/engineering-plan/spikes/wardrobe-extraction.md"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Time-box the spike; fallback is a valid passing outcome when documented and implemented."
+    },
+    {
+      "id": "ENG-016",
+      "title": "Implement dynamic taste-candidate and reaction operations",
+      "type": "backend",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-006"
+      ],
+      "storyIds": [
+        "US-006",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-001",
+        "SC-005"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "backend-function",
+        "names": [
+          "getTasteCalibration",
+          "recordTasteReaction",
+          "undoTasteReaction"
+        ]
+      },
+      "objective": "Generate balanced Love/Hate/Maybe candidates from extracted garments and broader signals with resumable failure handling.",
+      "scope": {
+        "includes": [
+          "Build deterministic candidate balancing from approved sources",
+          "Persist bounded candidates and reactions",
+          "Support reaction idempotency, undo, retry, and curated fallback",
+          "Expose progress and source/fallback status"
+        ],
+        "excludes": [
+          "Swipe presentation",
+          "Report generation",
+          "Catalog browsing"
+        ]
+      },
+      "implementationSteps": [
+        "Implement direct handlers and candidate generator",
+        "Parse provider/catalog inputs through Zod",
+        "Preserve completed responses during regeneration",
+        "Test slow and mid-flow failure behavior"
+      ],
+      "acceptanceCriteria": [
+        "Twelve valid reactions complete calibration",
+        "Dynamic candidates use customer evidence when available",
+        "Failure preserves reactions and offers balanced fallback"
+      ],
+      "passConditions": [
+        "Test: Twelve valid reactions complete calibration",
+        "Test: Dynamic candidates use customer evidence when available",
+        "Test: Failure preserves reactions and offers balanced fallback"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- taste-calibration",
+          "bun run typecheck"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-004",
+        "ENG-007",
+        "ENG-015"
+      ],
+      "readinessPrerequisites": [
+        "IR-012",
+        "IR-014",
+        "IR-018",
+        "IR-022"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/routes/taste.ts",
+        "apps/api/src/taste/generate-candidates.ts",
+        "apps/api/test/taste.test.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "A static fixture set is fallback, never the normal source."
+    },
+    {
+      "id": "ENG-017",
+      "title": "Build conversational Love/Hate/Maybe calibration",
+      "type": "ui",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-006"
+      ],
+      "storyIds": [
+        "US-006",
+        "US-020",
+        "US-021"
+      ],
+      "scenarioIds": [
+        "SC-001",
+        "SC-005"
+      ],
+      "screenIds": [
+        "fd161337-14fc-4476-9cec-9d004248c1c7",
+        "e6f13ec8-a8d0-405c-932b-3befeb7de4f6",
+        "37d792e1-4d6c-494f-b53d-1dc4a498c294"
+      ],
+      "target": {
+        "kind": "screen",
+        "names": [
+          "conversation-taste-calibration"
+        ]
+      },
+      "objective": "Let customers react fluidly with swipe right Love, left Hate, down Maybe, plus equivalent visible and keyboard controls.",
+      "scope": {
+        "includes": [
+          "Render one contextual visual card in the chat",
+          "Implement three gestures and three equivalent controls",
+          "Show progress, undo, loading, fallback, and retry",
+          "Preserve state after reload"
+        ],
+        "excludes": [
+          "Candidate generation",
+          "Form-first calibration route",
+          "Report processing"
+        ]
+      },
+      "implementationSteps": [
+        "Build accessible gesture recognizer",
+        "Wire reactions and undo to typed operations",
+        "Announce changes in a live region",
+        "Add pointer, touch, keyboard, and recovery tests"
+      ],
+      "acceptanceCriteria": [
+        "All three actions have gesture, button, and keyboard parity",
+        "Accidental movement does not submit",
+        "Recovery keeps prior reactions"
+      ],
+      "passConditions": [
+        "Test: All three actions have gesture, button, and keyboard parity",
+        "Test: Accidental movement does not submit",
+        "Test: Recovery keeps prior reactions"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/web -- taste-chat",
+          "bun run test:e2e -- taste-calibration"
+        ],
+        "manualChecks": [
+          "Verify swipe thresholds on touch and trackpad"
+        ]
+      },
+      "dependsOn": [
+        "ENG-014",
+        "ENG-016"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-018",
+        "IR-019"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/src/features/onboarding/TasteTurn.tsx",
+        "apps/web/src/features/taste/SwipeCard.tsx",
+        "apps/web/e2e/taste.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "V1 taste screen IDs are reference-only."
+    },
+    {
+      "id": "ENG-018",
+      "title": "Implement Google, magic-link, resume, and anonymous transfer operations",
+      "type": "backend",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-002",
+        "FEAT-007"
+      ],
+      "storyIds": [
+        "US-002",
+        "US-007",
+        "US-019",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-002",
+        "SC-006",
+        "SC-013"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "backend-function",
+        "names": [
+          "account access callbacks",
+          "createAnonymousTransfer",
+          "completeAnonymousTransfer",
+          "getStyleHome resume projection"
+        ]
+      },
+      "objective": "Connect or resume an account without losing anonymous progress and with deterministic existing-account merge behavior.",
+      "scope": {
+        "includes": [
+          "Configure Google and magic-link auth callbacks",
+          "Create signed transfer handshake around Supabase identity linking",
+          "Execute approved transfer/merge transaction",
+          "Return exact resume destination and recoverable work"
+        ],
+        "excludes": [
+          "Account UI",
+          "Report generation",
+          "Email template design"
+        ]
+      },
+      "implementationSteps": [
+        "Implement callback and transfer routes",
+        "Test new, returning, same-email, expired-link, conflict, and deletion-block cases",
+        "Avoid exposing account-existence details",
+        "Record only safe auth telemetry"
+      ],
+      "acceptanceCriteria": [
+        "Google and magic-link both resume committed work",
+        "Existing-account conflict follows the approved deterministic policy",
+        "Expired or reused transfer token changes no ownership"
+      ],
+      "passConditions": [
+        "Test: Google and magic-link both resume committed work",
+        "Test: Existing-account conflict follows the approved deterministic policy",
+        "Test: Expired or reused transfer token changes no ownership"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- account-transfer",
+          "bun run typecheck"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-003",
+        "ENG-007"
+      ],
+      "readinessPrerequisites": [
+        "IR-007",
+        "IR-008",
+        "IR-024"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/routes/auth.ts",
+        "apps/api/src/routes/transfers.ts",
+        "apps/api/test/account-transfer.test.ts",
+        "supabase/config.toml"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Do not replace Supabase Auth with custom identity storage."
+    },
+    {
+      "id": "ENG-019",
+      "title": "Build unified account access, connection, and resume screens",
+      "type": "ui",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-002",
+        "FEAT-007"
+      ],
+      "storyIds": [
+        "US-002",
+        "US-007",
+        "US-020",
+        "US-021",
+        "US-022"
+      ],
+      "scenarioIds": [
+        "SC-001",
+        "SC-002",
+        "SC-006"
+      ],
+      "screenIds": [
+        "ee82967b-e205-401b-a90b-6a94d36470f7",
+        "27d64888-57dc-4ecd-a4b2-7bbaecc5ef0f",
+        "a97cdab0-56b4-4922-8244-a9b95c1d7381",
+        "782fdff8-e9b9-4828-aaa2-33b089ffd011",
+        "e74afd3b-7709-40af-bedc-15cc9d2a6f1e",
+        "eef632ce-8d4a-5035-aa15-b5efdd09b2a2",
+        "dd9e7858-c66f-5351-a51c-dd63a8b11d7a"
+      ],
+      "target": {
+        "kind": "screen",
+        "names": [
+          "account-access-unauthenticated",
+          "conversation-account-access",
+          "conversation-profile-review",
+          "style-home-resume-or-recover"
+        ]
+      },
+      "objective": "Give new and returning customers one Google-or-magic-link surface that preserves progress and routes to the right next action.",
+      "scope": {
+        "includes": [
+          "Render public account access and contextual chat account turn",
+          "Show sent, expired, conflict, loading, and retry states",
+          "Render factual profile summary including fit preference and garment-type sizes",
+          "Route returning customers to report, live session, or recoverable draft"
+        ],
+        "excludes": [
+          "Password auth",
+          "Profile data mutations",
+          "Style Home content"
+        ]
+      },
+      "implementationSteps": [
+        "Wire Supabase browser auth to server transfer handshake",
+        "Implement callback route and resume router",
+        "Add accessible status and focus handling",
+        "Test new and existing identities"
+      ],
+      "acceptanceCriteria": [
+        "No password field appears",
+        "Successful connection preserves all anonymous progress",
+        "Returning users do not see first-time onboarding unless starting a new report"
+      ],
+      "passConditions": [
+        "Test: No password field appears",
+        "Test: Successful connection preserves all anonymous progress",
+        "Test: Returning users do not see first-time onboarding unless starting a new report"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/web -- account-access",
+          "bun run test:e2e -- account-resume-transfer"
+        ],
+        "manualChecks": [
+          "Verify magic-link callback in a fresh browser context"
+        ]
+      },
+      "dependsOn": [
+        "ENG-008",
+        "ENG-017",
+        "ENG-018"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-007",
+        "IR-008",
+        "IR-024"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/src/routes/AccountAccess.tsx",
+        "apps/web/src/features/onboarding/AccountTurn.tsx",
+        "apps/web/src/routes/AuthCallback.tsx",
+        "apps/web/e2e/account.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "The v2 account turn is authority; v1 states remain reference."
+    },
+    {
+      "id": "ENG-020",
+      "title": "Implement report submission, worker lifecycle, and retries",
+      "type": "backend",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-008"
+      ],
+      "storyIds": [
+        "US-008",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-001",
+        "SC-007",
+        "SC-008"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "backend-function",
+        "names": [
+          "submitProfileForReport",
+          "getReportRun",
+          "retryReportRun",
+          "report worker"
+        ]
+      },
+      "objective": "Produce a real report job with one-to-two-minute target UX, explicit slow state, retry, and no lost evidence.",
+      "scope": {
+        "includes": [
+          "Validate completion and freeze evidence transactionally",
+          "Create idempotent report run and worker lease",
+          "Call OpenAI text/report generation with timeout and exact schema parse",
+          "Publish or fail with safe stage/error and retry rules"
+        ],
+        "excludes": [
+          "Report screen rendering",
+          "Generated preview images",
+          "Notifications"
+        ]
+      },
+      "implementationSteps": [
+        "Implement submit/status/retry routes",
+        "Implement worker stages using frozen evidence and derived fit profile",
+        "Add schema-repair budget and hard failure state",
+        "Test duplicate submission, slow, retryable, terminal, and publish cases"
+      ],
+      "acceptanceCriteria": [
+        "Duplicate submit does not create duplicate reports",
+        "Slow status is observable without claiming fake progress",
+        "Retry never repeats completed stages unsafely"
+      ],
+      "passConditions": [
+        "Test: Duplicate submit does not create duplicate reports",
+        "Test: Slow status is observable without claiming fake progress",
+        "Test: Retry never repeats completed stages unsafely"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- report-lifecycle",
+          "bun run typecheck"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-005",
+        "ENG-007",
+        "ENG-011",
+        "ENG-015",
+        "ENG-016",
+        "ENG-018"
+      ],
+      "readinessPrerequisites": [
+        "IR-009",
+        "IR-014",
+        "IR-017"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/routes/report-runs.ts",
+        "apps/api/src/workers/generate-report.ts",
+        "apps/api/test/report-lifecycle.test.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "OpenAI credits are assumed available per founder instruction; failures must still be real states."
+    },
+    {
+      "id": "ENG-021",
+      "title": "Build analysis lifecycle and explainable style report screens",
+      "type": "ui",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-008",
+        "FEAT-009"
+      ],
+      "storyIds": [
+        "US-008",
+        "US-009",
+        "US-010",
+        "US-011",
+        "US-012",
+        "US-020",
+        "US-021"
+      ],
+      "scenarioIds": [
+        "SC-001",
+        "SC-007",
+        "SC-008",
+        "SC-009"
+      ],
+      "screenIds": [
+        "ecb422c1-0285-4592-9407-97a1f82bf96e",
+        "762423ae-d732-4325-bed9-b91b42370ca9",
+        "6c9017a7-ec72-46df-bba8-79dcc691a817",
+        "1c2d940e-9782-4d23-866a-9e676af44138",
+        "b16feadb-5618-46fc-b03f-be77d1de7b4f",
+        "3acb5ce5-518b-4cf3-beba-ce38439031e2",
+        "ec0e2f41-d712-48b1-83fe-c535b1438a12",
+        "4d345373-f991-5f0d-8ac7-5885e4a456f8"
+      ],
+      "target": {
+        "kind": "screen",
+        "names": [
+          "style-report-analysis-processing",
+          "style-report-analysis-slow",
+          "style-report-analysis-error-recovery",
+          "style-report-overview",
+          "style-report-color",
+          "style-report-body-style",
+          "style-report-recommendations",
+          "style-report-feedback-and-recalibration"
+        ]
+      },
+      "objective": "Show honest processing and a useful, explainable, correctable report with fit uncertainty and accessible recommendations.",
+      "scope": {
+        "includes": [
+          "Render polling lifecycle, slow threshold, terminal recovery, and ready transition",
+          "Render overview, color, body-style, fit guidance, recommendations, and disclosures",
+          "Support feedback and explicit recalibration draft creation",
+          "Keep report usable when preview images fail"
+        ],
+        "excludes": [
+          "Report generation",
+          "Catalog adapter",
+          "Preview worker"
+        ]
+      },
+      "implementationSteps": [
+        "Build screens from approved mockups and copy",
+        "Parse all report payloads",
+        "Render evidence/confidence without universal-size claims",
+        "Add navigation, responsive, and recovery E2E tests"
+      ],
+      "acceptanceCriteria": [
+        "Published text report is usable without generated images",
+        "Conflicting size evidence is described as uncertainty",
+        "Correction starts a new draft and leaves published report intact"
+      ],
+      "passConditions": [
+        "Test: Published text report is usable without generated images",
+        "Test: Conflicting size evidence is described as uncertainty",
+        "Test: Correction starts a new draft and leaves published report intact"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/web -- report",
+          "bun run test:e2e -- report-lifecycle"
+        ],
+        "manualChecks": [
+          "Verify section navigation and disclosures with keyboard and screen reader"
+        ]
+      },
+      "dependsOn": [
+        "ENG-008",
+        "ENG-020"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-017",
+        "IR-023"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/src/routes/ReportProcessing.tsx",
+        "apps/web/src/routes/StyleReport.tsx",
+        "apps/web/src/features/report/FitGuidance.tsx",
+        "apps/web/e2e/report.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Do not imply medical, objective-body, or guaranteed-fit authority."
+    },
+    {
+      "id": "ENG-022",
+      "title": "Integrate Shopify Global Catalog with live product normalization",
+      "type": "integration",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-010",
+        "FEAT-014",
+        "FEAT-016"
+      ],
+      "storyIds": [
+        "US-013",
+        "US-016",
+        "US-018",
+        "US-022"
+      ],
+      "scenarioIds": [
+        "SC-012",
+        "SC-014"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "integration",
+        "names": [
+          "Shopify UCP agent profile",
+          "Global Catalog MCP adapter"
+        ]
+      },
+      "objective": "Search across retailers and resolve current product/variant/handoff data through one typed server adapter.",
+      "scope": {
+        "includes": [
+          "Publish/use the approved UCP agent profile",
+          "Implement search_catalog and get_product with timeouts and Zod parsing",
+          "Normalize stable references separately from live display facts",
+          "Handle unavailable, changed, rate-limited, and malformed results"
+        ],
+        "excludes": [
+          "Catalog UI",
+          "Bag persistence",
+          "Retail checkout proxying"
+        ]
+      },
+      "implementationSteps": [
+        "Build one adapter with fixture and live smoke tests",
+        "Keep catalog images and current facts out of persistence",
+        "Apply fit profile as ranking context without filtering as certainty",
+        "Redact customer-sensitive data from provider requests and logs"
+      ],
+      "acceptanceCriteria": [
+        "Cross-retailer results come from Global Catalog, not a single storefront",
+        "Unavailable product returns an explicit normalized state",
+        "No live price, inventory, image, or URL is persisted"
+      ],
+      "passConditions": [
+        "Test: Cross-retailer results come from Global Catalog, not a single storefront",
+        "Test: Unavailable product returns an explicit normalized state",
+        "Test: No live price, inventory, image, or URL is persisted"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- shopify-catalog",
+          "bun run typecheck"
+        ],
+        "manualChecks": [
+          "Run one deployed-environment Global Catalog search and product lookup"
+        ]
+      },
+      "dependsOn": [
+        "ENG-002",
+        "ENG-007",
+        "ENG-011"
+      ],
+      "readinessPrerequisites": [
+        "IR-012",
+        "IR-021",
+        "IR-022"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/integrations/shopify.ts",
+        "apps/api/src/catalog/normalize-product.ts",
+        "apps/api/test/shopify.test.ts",
+        "public/.well-known/ucp"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Global Catalog MCP and per-store Storefront MCP are not interchangeable."
+    },
+    {
+      "id": "ENG-023",
+      "title": "Generate safe wardrobe preview images with text fallback",
+      "type": "integration",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-009"
+      ],
+      "storyIds": [
+        "US-012",
+        "US-019",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-009"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "integration",
+        "names": [
+          "OpenAI wardrobe preview worker",
+          "likeness quality gate"
+        ]
+      },
+      "objective": "Attach customer-likeness wardrobe previews only when consent, catalog-image risk posture, quality, and latency pass; otherwise keep text/link recommendations complete.",
+      "scope": {
+        "includes": [
+          "Generate previews from owned likeness evidence and current product input",
+          "Enforce consent lineage, timeout, decode, safety, likeness, and quality checks",
+          "Store accepted derived assets with separate expiry",
+          "Reject or fail to text-only recommendation without blocking report"
+        ],
+        "excludes": [
+          "Live video try-on",
+          "Catalog search",
+          "Report copy generation"
+        ]
+      },
+      "implementationSteps": [
+        "Run representative quality spike and record approved threshold evidence",
+        "Implement typed OpenAI image adapter and worker",
+        "Add rejection, timeout, partial, and consent-revocation tests",
+        "Attach one accepted asset idempotently"
+      ],
+      "acceptanceCriteria": [
+        "Rejected likeness never appears",
+        "One failed preview leaves report and product link usable",
+        "Accepted asset has source and consent lineage plus expiry"
+      ],
+      "passConditions": [
+        "Test: Rejected likeness never appears",
+        "Test: One failed preview leaves report and product link usable",
+        "Test: Accepted asset has source and consent lineage plus expiry"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- wardrobe-preview",
+          "bun run typecheck"
+        ],
+        "manualChecks": [
+          "Review the approved representative set against the quality bar"
+        ]
+      },
+      "dependsOn": [
+        "ENG-005",
+        "ENG-020",
+        "ENG-022"
+      ],
+      "readinessPrerequisites": [
+        "IR-009",
+        "IR-014",
+        "IR-015",
+        "IR-016",
+        "IR-022",
+        "IR-023"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/integrations/openai-images.ts",
+        "apps/api/src/workers/generate-preview.ts",
+        "apps/api/test/preview.test.ts",
+        "company/artifacts/engineering-plan/spikes/preview-quality.md"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Founder accepted unverified Shopify image-rights risk for hackathon; do not claim permission."
+    },
+    {
+      "id": "ENG-024",
+      "title": "Build Style Home and personalized catalog recommendations",
+      "type": "ui",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-010"
+      ],
+      "storyIds": [
+        "US-002",
+        "US-013",
+        "US-022"
+      ],
+      "scenarioIds": [
+        "SC-002",
+        "SC-014"
+      ],
+      "screenIds": [
+        "d677a738-5703-4b02-b7ca-667c31ac7555",
+        "dd9e7858-c66f-5351-a51c-dd63a8b11d7a",
+        "7dc86399-4d75-56ec-a7a7-975b78bec909"
+      ],
+      "target": {
+        "kind": "screen",
+        "names": [
+          "style-home-base",
+          "style-home-resume-or-recover",
+          "recommended-product-unavailable"
+        ]
+      },
+      "objective": "Give returning customers direct access to report, suggested outfits, saved items, current recommendations, and live styling.",
+      "scope": {
+        "includes": [
+          "Implement Style Home projection and screen",
+          "Search/fetch live products with profile and fit context",
+          "Add direct Start live styling entry",
+          "Render unavailable product and recoverable-work states"
+        ],
+        "excludes": [
+          "Product detail internals",
+          "Bag mutations",
+          "Realtime session"
+        ]
+      },
+      "implementationSteps": [
+        "Add backend Style Home projection route",
+        "Build responsive UI from approved mockups",
+        "Keep current catalog facts session-only",
+        "Add return/resume and unavailable-result tests"
+      ],
+      "acceptanceCriteria": [
+        "Live styling is a first-class Style Home action",
+        "Report and suggested outfits are accessible without live providers",
+        "Unavailable products do not become dead cards"
+      ],
+      "passConditions": [
+        "Test: Live styling is a first-class Style Home action",
+        "Test: Report and suggested outfits are accessible without live providers",
+        "Test: Unavailable products do not become dead cards"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/web -- style-home",
+          "bun run test:e2e -- style-home"
+        ],
+        "manualChecks": [
+          "Verify direct report and live-session entry points"
+        ]
+      },
+      "dependsOn": [
+        "ENG-019",
+        "ENG-021",
+        "ENG-022"
+      ],
+      "readinessPrerequisites": [
+        "IR-012",
+        "IR-019",
+        "IR-021"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/routes/style-home.ts",
+        "apps/web/src/routes/StyleHome.tsx",
+        "apps/web/e2e/style-home.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Do not cache mutable catalog facts in Supabase."
+    },
+    {
+      "id": "ENG-025",
+      "title": "Implement the proven Decart realtime session adapter",
+      "type": "integration",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-011"
+      ],
+      "storyIds": [
+        "US-014",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-010",
+        "SC-011"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "integration",
+        "names": [
+          "Decart Lucy VTON token mint",
+          "Decart realtime adapter"
+        ]
+      },
+      "objective": "Prove target-device virtual try-on feasibility early and expose typed connect/change/reconnect behavior with explicit failure states.",
+      "scope": {
+        "includes": [
+          "Measure first-frame, item-change, reconnect, bandwidth, supported garment, and failure behavior",
+          "Mint ten-minute client tokens server-side",
+          "Implement typed session creation and normalized adapter events",
+          "Record adopt/limit/fallback decision"
+        ],
+        "excludes": [
+          "Gemini voice",
+          "Gesture recognition",
+          "Full live UI"
+        ]
+      },
+      "implementationSteps": [
+        "Run the approved target-device spike",
+        "Implement smallest proven Decart adapter",
+        "Add token, timeout, unsupported-garment, reconnect, and stale-session tests",
+        "Preserve static recommendations on failure"
+      ],
+      "acceptanceCriteria": [
+        "Measured target device produces a usable try-on or documented fallback boundary",
+        "Permanent Decart credential never reaches browser",
+        "Failure returns to report/product state without data loss"
+      ],
+      "passConditions": [
+        "Test: Measured target device produces a usable try-on or documented fallback boundary",
+        "Test: Permanent Decart credential never reaches browser",
+        "Test: Failure returns to report/product state without data loss"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- decart",
+          "bun run typecheck"
+        ],
+        "manualChecks": [
+          "Run one camera session and one garment change on the target demo device"
+        ]
+      },
+      "dependsOn": [
+        "ENG-006",
+        "ENG-007",
+        "ENG-022",
+        "ENG-035"
+      ],
+      "readinessPrerequisites": [
+        "IR-011",
+        "IR-014",
+        "IR-019",
+        "IR-022"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/routes/live-sessions.ts",
+        "apps/web/src/integrations/decart.ts",
+        "apps/api/test/decart.test.ts",
+        "company/artifacts/engineering-plan/spikes/decart.md"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "This is pulled forward as a demo-risk spike; it must not block report-led release one."
+    },
+    {
+      "id": "ENG-026",
+      "title": "Build recoverable live styling session screens",
+      "type": "ui",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-011"
+      ],
+      "storyIds": [
+        "US-014",
+        "US-020",
+        "US-021"
+      ],
+      "scenarioIds": [
+        "SC-010",
+        "SC-011",
+        "SC-015"
+      ],
+      "screenIds": [
+        "5e8e9f80-901b-4fb1-932c-f1bec76da0c9",
+        "40fd9de9-e880-5bfc-9b65-6cd20fb67ec6",
+        "54dc6ff8-3d1b-5989-b8d2-0ad2a89aeaa5",
+        "5b6baf59-f2d4-4c52-aaa7-b4910435c892",
+        "dded5401-afec-5473-908c-600462fb42ec",
+        "ae357eac-806d-5768-be5f-89d98443000e",
+        "1716ecc3-8b94-5ef0-9b0c-2ead1ab289ca",
+        "6904e26b-6abb-5437-9ca5-dad6b2f8de4a"
+      ],
+      "target": {
+        "kind": "screen",
+        "names": [
+          "live-styling-camera-permission",
+          "live-styling-camera-denied",
+          "live-styling-connecting",
+          "live-styling-ready",
+          "live-styling-changing-item",
+          "live-styling-slow",
+          "live-styling-error-recovery",
+          "live-styling-ended"
+        ]
+      },
+      "objective": "Let customers start, change, recover, and end a real try-on session with direct controls before optional voice or gestures.",
+      "scope": {
+        "includes": [
+          "Render camera consent and denied recovery",
+          "Connect Decart stream with ready/changing/slow/error/ended states",
+          "Expose direct previous/next/save/end controls",
+          "Restore report/catalog context after failure or end"
+        ],
+        "excludes": [
+          "Voice transport",
+          "Gesture recognition",
+          "Retailer checkout"
+        ]
+      },
+      "implementationSteps": [
+        "Build state machine UI around typed adapter",
+        "Add action sequencing and stale-result rejection",
+        "Add responsive distance-readable controls",
+        "Test permission denial, reconnect, slow, failure, and end"
+      ],
+      "acceptanceCriteria": [
+        "No camera starts before consent",
+        "Every pending render has loading, slow, and failed states",
+        "Direct controls remain available when optional modalities fail"
+      ],
+      "passConditions": [
+        "Test: No camera starts before consent",
+        "Test: Every pending render has loading, slow, and failed states",
+        "Test: Direct controls remain available when optional modalities fail"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/web -- live-session",
+          "bun run test:e2e -- live-recovery"
+        ],
+        "manualChecks": [
+          "Run camera permission, denial, change, and reconnect on target device"
+        ]
+      },
+      "dependsOn": [
+        "ENG-008",
+        "ENG-024",
+        "ENG-025"
+      ],
+      "readinessPrerequisites": [
+        "IR-011",
+        "IR-016",
+        "IR-019"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/src/routes/LiveStyling.tsx",
+        "apps/web/src/features/live/live-machine.ts",
+        "apps/web/e2e/live.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Maintain a functioning direct-control golden path."
+    },
+    {
+      "id": "ENG-027",
+      "title": "Implement Gemini Live voice refinement from the proven context mode",
+      "type": "integration",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-012"
+      ],
+      "storyIds": [
+        "US-015",
+        "US-020",
+        "US-021"
+      ],
+      "scenarioIds": [
+        "SC-011"
+      ],
+      "screenIds": [
+        "e72fcc42-581c-44fa-b466-c3ac642e54df",
+        "87b489bf-c543-4911-a09d-48b57be4a80a",
+        "b6b1be00-af2d-5976-9648-61bfbd14a836",
+        "8183dd09-dfd2-5ba9-ba70-c8034de399cf",
+        "fb5d25f2-f5c4-5d26-a3e6-0335bbd9df72",
+        "c8945f7b-bc1b-5d12-ba8b-39dc97cba22a"
+      ],
+      "target": {
+        "kind": "integration",
+        "names": [
+          "Gemini Live token mint",
+          "voice action adapter"
+        ]
+      },
+      "objective": "Prove Decart + Gemini + gesture coexistence and let voice propose and confirm the same typed live actions as direct controls.",
+      "scope": {
+        "includes": [
+          "Measure CPU, bandwidth, echo, action latency, and session recovery on target device",
+          "Compare raw video frames with structured session state",
+          "Mint short-lived Gemini credentials and implement tool/action proposals",
+          "Render microphone, listening, interpreting, confirmation, acting, and failure states"
+        ],
+        "excludes": [
+          "Unconfirmed destructive action",
+          "Transcript persistence",
+          "Replacing direct controls"
+        ]
+      },
+      "implementationSteps": [
+        "Run dual-realtime spike with gesture observer active",
+        "Choose structured state unless raw frames materially improve the approved signal",
+        "Implement typed proposal/confirmation/action path",
+        "Test token, consent, echo, timeout, failure, and stale proposal"
+      ],
+      "acceptanceCriteria": [
+        "Voice sees sufficient session context by the chosen path",
+        "Risky actions require confirmation",
+        "Voice failure leaves Decart and direct controls working"
+      ],
+      "passConditions": [
+        "Test: Voice sees sufficient session context by the chosen path",
+        "Test: Risky actions require confirmation",
+        "Test: Voice failure leaves Decart and direct controls working"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- gemini-live",
+          "bun test apps/web -- live-voice"
+        ],
+        "manualChecks": [
+          "Record target-device CPU, bandwidth, echo, and action latency for both context modes"
+        ]
+      },
+      "dependsOn": [
+        "ENG-025",
+        "ENG-026",
+        "ENG-036"
+      ],
+      "readinessPrerequisites": [
+        "IR-010",
+        "IR-016",
+        "IR-019",
+        "IR-020"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/routes/gemini.ts",
+        "apps/web/src/integrations/gemini-live.ts",
+        "apps/web/src/features/live/VoiceControls.tsx",
+        "company/artifacts/engineering-plan/spikes/dual-realtime.md"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Gemini Live is preferred for voice; OpenAI remains report/text agent."
+    },
+    {
+      "id": "ENG-028",
+      "title": "Add confirmed hand-gesture control with direct equivalents",
+      "type": "ui",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-013"
+      ],
+      "storyIds": [
+        "US-023",
+        "US-021"
+      ],
+      "scenarioIds": [
+        "SC-015"
+      ],
+      "screenIds": [
+        "83f2ff2a-7951-42b5-b715-5fbe97ffb568",
+        "a66498d1-8567-5492-b8da-9e2b12d376e9",
+        "96d21855-d455-5843-a97e-a0fb78bec909",
+        "a861bac2-1c68-51c8-af40-7ea3cad52809",
+        "096e3398-1e3a-5c6e-b473-e714ca54ff43",
+        "d40738f4-6d72-51fe-8c9b-8308a5e7f97d"
+      ],
+      "target": {
+        "kind": "screen",
+        "names": [
+          "live-styling-hand-gesture-guide",
+          "live-styling-gesture-observing",
+          "live-styling-gesture-interpreting",
+          "live-styling-gesture-accepted",
+          "live-styling-gesture-ignored-or-unavailable",
+          "live-styling-gesture-confirmation"
+        ]
+      },
+      "objective": "Allow distance control using the approved small gesture vocabulary without accidental or inaccessible actions.",
+      "scope": {
+        "includes": [
+          "Implement approved gesture detector and confidence/debounce rules",
+          "Map gestures to the same typed action dispatcher",
+          "Render guide, observing, interpreting, accepted, ignored, and confirmation states",
+          "Keep voice and direct controls equivalent"
+        ],
+        "excludes": [
+          "New gesture vocabulary",
+          "Unconfirmed retailer handoff",
+          "Gesture-only actions"
+        ]
+      },
+      "implementationSteps": [
+        "Implement local recognition path chosen by spike",
+        "Add confidence, cooldown, stale-sequence, and confirmation gates",
+        "Test false positives and modality collisions",
+        "Add disable/fallback control"
+      ],
+      "acceptanceCriteria": [
+        "Low-confidence gestures do nothing visibly and safely",
+        "Confirmed gestures invoke exactly one action",
+        "Every gesture action has a button and voice equivalent"
+      ],
+      "passConditions": [
+        "Test: Low-confidence gestures do nothing visibly and safely",
+        "Test: Confirmed gestures invoke exactly one action",
+        "Test: Every gesture action has a button and voice equivalent"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/web -- gestures",
+          "bun run test:e2e -- gesture-equivalence"
+        ],
+        "manualChecks": [
+          "Run false-positive and distance tests on the target device"
+        ]
+      },
+      "dependsOn": [
+        "ENG-026",
+        "ENG-027"
+      ],
+      "readinessPrerequisites": [
+        "IR-019",
+        "IR-020"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/src/features/live/GestureControls.tsx",
+        "apps/web/src/features/live/gesture-recognizer.ts",
+        "apps/web/e2e/gestures.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Use the spike-approved vocabulary only."
+    },
+    {
+      "id": "ENG-029",
+      "title": "Build current product detail and availability recovery",
+      "type": "ui",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-014"
+      ],
+      "storyIds": [
+        "US-016",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-012",
+        "SC-014"
+      ],
+      "screenIds": [
+        "a7d262bf-0e4a-423f-9d51-fed5b2594b14",
+        "7dc86399-4d75-56ec-a7a7-975b78b7992f"
+      ],
+      "target": {
+        "kind": "screen",
+        "names": [
+          "recommended-product-detail-drawer",
+          "recommended-product-unavailable"
+        ]
+      },
+      "objective": "Show current product, seller, variant, price, availability, disclosure, and recovery without pretending stale data is valid.",
+      "scope": {
+        "includes": [
+          "Fetch current product on open",
+          "Render seller/variant/availability and fit guidance as non-guaranteed context",
+          "Handle unavailable or changed products",
+          "Expose try on, save, and retailer actions"
+        ],
+        "excludes": [
+          "Bag persistence",
+          "Retailer confirmation token",
+          "Catalog caching"
+        ]
+      },
+      "implementationSteps": [
+        "Build typed detail drawer",
+        "Refetch before action",
+        "Add focus trap and return focus",
+        "Test changed variant and unavailable product"
+      ],
+      "acceptanceCriteria": [
+        "Every product action uses a current response",
+        "Unavailable product offers alternatives or back action",
+        "Fit language is evidence-based and non-guaranteed"
+      ],
+      "passConditions": [
+        "Test: Every product action uses a current response",
+        "Test: Unavailable product offers alternatives or back action",
+        "Test: Fit language is evidence-based and non-guaranteed"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/web -- product-detail",
+          "bun run test:e2e -- unavailable-product"
+        ],
+        "manualChecks": [
+          "Verify drawer keyboard and screen-reader behavior"
+        ]
+      },
+      "dependsOn": [
+        "ENG-022",
+        "ENG-024"
+      ],
+      "readinessPrerequisites": [
+        "IR-012",
+        "IR-019",
+        "IR-021"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/src/features/catalog/ProductDrawer.tsx",
+        "apps/web/e2e/product-detail.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Do not infer retailer partnership."
+    },
+    {
+      "id": "ENG-030",
+      "title": "Implement Magic Mirror bag operations and screens",
+      "type": "backend",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-015"
+      ],
+      "storyIds": [
+        "US-017",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-012",
+        "SC-014"
+      ],
+      "screenIds": [
+        "1eb0f961-b299-4ab3-b90d-12692f254494",
+        "d894b82b-ac4b-564a-9d74-bce7184b05be"
+      ],
+      "target": {
+        "kind": "cross-cutting",
+        "names": [
+          "bag API",
+          "magic-mirror-bag-base",
+          "bag-item-unavailable"
+        ]
+      },
+      "objective": "Let permanent users save stable product selections and recover gracefully when current retailer data changes.",
+      "scope": {
+        "includes": [
+          "Implement add/list/remove bag operations with stable references",
+          "Build bag screen that refetches current products",
+          "Render unavailable item recovery",
+          "Support items saved from report, Style Home, product, or live session"
+        ],
+        "excludes": [
+          "Magic Mirror checkout",
+          "Price caching",
+          "Anonymous durable bag"
+        ]
+      },
+      "implementationSteps": [
+        "Add direct route handlers and RLS-backed mutations",
+        "Build responsive accessible bag",
+        "Refetch each item before retailer action",
+        "Test duplicate add, cross-owner, unavailable, and removal"
+      ],
+      "acceptanceCriteria": [
+        "Duplicate save is idempotent",
+        "Bag never displays cached price as current",
+        "Unavailable item can be removed or replaced"
+      ],
+      "passConditions": [
+        "Test: Duplicate save is idempotent",
+        "Test: Bag never displays cached price as current",
+        "Test: Unavailable item can be removed or replaced"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- bag",
+          "bun test apps/web -- bag",
+          "bun run test:e2e -- bag"
+        ],
+        "manualChecks": [
+          "Verify bag after sign out/in"
+        ]
+      },
+      "dependsOn": [
+        "ENG-006",
+        "ENG-007",
+        "ENG-029"
+      ],
+      "readinessPrerequisites": [
+        "IR-021"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/routes/bag.ts",
+        "apps/web/src/routes/Bag.tsx",
+        "apps/web/e2e/bag.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Bag is a selection list, not checkout."
+    },
+    {
+      "id": "ENG-031",
+      "title": "Implement transparent retailer handoff confirmation",
+      "type": "backend",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-016"
+      ],
+      "storyIds": [
+        "US-018",
+        "US-019"
+      ],
+      "scenarioIds": [
+        "SC-012"
+      ],
+      "screenIds": [
+        "49c5dc8e-da7f-433d-bba0-5011bb755948"
+      ],
+      "target": {
+        "kind": "cross-cutting",
+        "names": [
+          "retailer handoff API",
+          "retailer-handoff-confirmation"
+        ]
+      },
+      "objective": "Send customers to the current retailer destination only after clear disclosure and server revalidation.",
+      "scope": {
+        "includes": [
+          "Mint short-lived confirmation token from current product state",
+          "Render merchant, destination, affiliate disclosure, and changed-state warning",
+          "Revalidate token and live destination before redirect",
+          "Record bounded attribution event without sensitive profile data"
+        ],
+        "excludes": [
+          "In-app checkout",
+          "Long-lived retailer URLs",
+          "Automatic redirect without confirmation"
+        ]
+      },
+      "implementationSteps": [
+        "Implement prepare/confirm operations",
+        "Build accessible confirmation modal/screen",
+        "Test expiry, replay, changed state, unsafe URL, and unavailable destination",
+        "Verify event redaction"
+      ],
+      "acceptanceCriteria": [
+        "Customer explicitly confirms external handoff",
+        "Expired or changed state cannot redirect",
+        "Recorded attribution contains no sensitive customer data"
+      ],
+      "passConditions": [
+        "Test: Customer explicitly confirms external handoff",
+        "Test: Expired or changed state cannot redirect",
+        "Test: Recorded attribution contains no sensitive customer data"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- retailer-handoff",
+          "bun run test:e2e -- retailer-handoff"
+        ],
+        "manualChecks": [
+          "Inspect external-navigation warning and merchant identity"
+        ]
+      },
+      "dependsOn": [
+        "ENG-006",
+        "ENG-022",
+        "ENG-029",
+        "ENG-030"
+      ],
+      "readinessPrerequisites": [
+        "IR-021"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/routes/retailer-handoff.ts",
+        "apps/web/src/features/catalog/RetailerHandoff.tsx",
+        "apps/web/e2e/handoff.spec.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Retailers own checkout and fulfillment."
+    },
+    {
+      "id": "ENG-032",
+      "title": "Implement retention, consent revocation, and account deletion workers",
+      "type": "backend",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-003"
+      ],
+      "storyIds": [
+        "US-019",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-013"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "backend-function",
+        "names": [
+          "retention purge worker",
+          "consent revocation worker",
+          "account deletion worker"
+        ]
+      },
+      "objective": "Make sensitive originals and derived customer images expire or delete according to their distinct approved classes while failing closed at logical deadlines.",
+      "scope": {
+        "includes": [
+          "Implement due-row cleanup for photos, signals, cutouts, generated previews, and live metadata",
+          "Implement consent revocation effects and account deletion ordering",
+          "Reconcile Storage deletion failures idempotently",
+          "Expose safe deletion status without retaining sensitive payloads"
+        ],
+        "excludes": [
+          "Changing approved retention policy",
+          "Backup-provider administration",
+          "UI beyond status/error"
+        ]
+      },
+      "implementationSteps": [
+        "Add bounded worker claims and retries",
+        "Delete access before physical bytes",
+        "Test partial Storage failure and rerun",
+        "Test original and derived asset classes independently"
+      ],
+      "acceptanceCriteria": [
+        "Expired assets cannot be read even if purge retries",
+        "Generated customer images follow their distinct derived-asset rule",
+        "Account deletion blocks access before asynchronous cleanup"
+      ],
+      "passConditions": [
+        "Test: Expired assets cannot be read even if purge retries",
+        "Test: Generated customer images follow their distinct derived-asset rule",
+        "Test: Account deletion blocks access before asynchronous cleanup"
+      ],
+      "verification": {
+        "commands": [
+          "bun test apps/api -- retention-deletion",
+          "supabase db reset"
+        ],
+        "manualChecks": []
+      },
+      "dependsOn": [
+        "ENG-004",
+        "ENG-005",
+        "ENG-006",
+        "ENG-007"
+      ],
+      "readinessPrerequisites": [
+        "IR-015",
+        "IR-016"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/api/src/workers/purge-assets.ts",
+        "apps/api/src/workers/delete-account.ts",
+        "apps/api/test/retention.test.ts"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Never log object bytes, signed URLs, or customer identifiers."
+    },
+    {
+      "id": "ENG-033",
+      "title": "Add golden-path, recovery, accessibility, and isolation E2E coverage",
+      "type": "test",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-001",
+        "FEAT-002",
+        "FEAT-003",
+        "FEAT-004",
+        "FEAT-005",
+        "FEAT-006",
+        "FEAT-007",
+        "FEAT-008",
+        "FEAT-009",
+        "FEAT-010",
+        "FEAT-011",
+        "FEAT-012",
+        "FEAT-013",
+        "FEAT-014",
+        "FEAT-015",
+        "FEAT-016"
+      ],
+      "storyIds": [
+        "US-001",
+        "US-002",
+        "US-003",
+        "US-004",
+        "US-005",
+        "US-006",
+        "US-007",
+        "US-008",
+        "US-009",
+        "US-010",
+        "US-011",
+        "US-012",
+        "US-013",
+        "US-014",
+        "US-015",
+        "US-016",
+        "US-017",
+        "US-018",
+        "US-019",
+        "US-020",
+        "US-021",
+        "US-022",
+        "US-023"
+      ],
+      "scenarioIds": [
+        "SC-001",
+        "SC-002",
+        "SC-003",
+        "SC-004",
+        "SC-005",
+        "SC-006",
+        "SC-007",
+        "SC-008",
+        "SC-009",
+        "SC-010",
+        "SC-011",
+        "SC-012",
+        "SC-013",
+        "SC-014",
+        "SC-015"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "test-suite",
+        "names": [
+          "Playwright release suite",
+          "cross-owner security suite",
+          "provider fallback suite"
+        ]
+      },
+      "objective": "Protect the report-led golden path and critical recovery/security behavior with observable Given/When/Then scenarios.",
+      "scope": {
+        "includes": [
+          "Automate SC-001 through SC-015 at the cheapest appropriate boundary",
+          "Use deterministic provider fixtures plus named live smoke tags",
+          "Add keyboard, reduced-motion, responsive, and screen-reader assertions",
+          "Add anonymous/permanent cross-owner and retention assertions"
+        ],
+        "excludes": [
+          "Provider load testing",
+          "Visual pixel perfection",
+          "Unapproved roadmap journeys"
+        ]
+      },
+      "implementationSteps": [
+        "Create reusable test fixtures without hiding product behavior",
+        "Implement golden path with one failed photo and provider fallback variants",
+        "Run isolation tests against local Supabase",
+        "Document live smoke prerequisites"
+      ],
+      "acceptanceCriteria": [
+        "SC-001 passes without fake provider success",
+        "All recovery scenarios preserve previously valid work",
+        "No cross-owner test can access protected data"
+      ],
+      "passConditions": [
+        "Test: SC-001 passes without fake provider success",
+        "Test: All recovery scenarios preserve previously valid work",
+        "Test: No cross-owner test can access protected data"
+      ],
+      "verification": {
+        "commands": [
+          "bun run typecheck",
+          "bun run lint",
+          "bun test",
+          "bun run test:e2e"
+        ],
+        "manualChecks": [
+          "Run target-device live smoke checklist"
+        ]
+      },
+      "dependsOn": [
+        "ENG-009",
+        "ENG-012",
+        "ENG-014",
+        "ENG-017",
+        "ENG-019",
+        "ENG-021",
+        "ENG-023",
+        "ENG-024",
+        "ENG-026",
+        "ENG-027",
+        "ENG-028",
+        "ENG-029",
+        "ENG-030",
+        "ENG-031",
+        "ENG-032"
+      ],
+      "readinessPrerequisites": [
+        "IR-005",
+        "IR-014",
+        "IR-019"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/e2e/golden-path.spec.ts",
+        "apps/web/e2e/recovery.spec.ts",
+        "apps/api/test/isolation.test.ts",
+        "company/artifacts/engineering-plan/live-smoke-checklist.md"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Provider-dependent smoke tests are explicit; deterministic integration tests remain mandatory."
+    },
+    {
+      "id": "ENG-034",
+      "title": "Deploy production to DigitalOcean with health and demo telemetry",
+      "type": "infrastructure",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-003"
+      ],
+      "storyIds": [
+        "US-020"
+      ],
+      "scenarioIds": [],
+      "screenIds": [],
+      "target": {
+        "kind": "infrastructure",
+        "names": [
+          "DigitalOcean web/API deployment",
+          "CI pipeline",
+          "health and safe telemetry"
+        ]
+      },
+      "objective": "Produce a reproducible production deployment with secrets outside git, migration gates, safe health checks, and demo-critical latency/error visibility.",
+      "scope": {
+        "includes": [
+          "Create container/build configuration for web and API",
+          "Configure DigitalOcean environment, domain, health checks, and secret injection",
+          "Run migrations before compatible application rollout",
+          "Add redacted metrics for report, catalog, preview, and realtime stages"
+        ],
+        "excludes": [
+          "New cloud architecture",
+          "Sensitive payload logging",
+          "Automatic destructive rollback"
+        ]
+      },
+      "implementationSteps": [
+        "Implement deployment manifests and CI checks",
+        "Add startup config validation and readiness endpoints",
+        "Document deploy/rollback and demo freeze procedure",
+        "Verify production redirect origins and provider connectivity"
+      ],
+      "acceptanceCriteria": [
+        "Clean checkout deploys with one documented command/pipeline",
+        "Missing secret fails startup without leaking value",
+        "Production health and critical-stage telemetry are visible"
+      ],
+      "passConditions": [
+        "Test: Clean checkout deploys with one documented command/pipeline",
+        "Test: Missing secret fails startup without leaking value",
+        "Test: Production health and critical-stage telemetry are visible"
+      ],
+      "verification": {
+        "commands": [
+          "bun run build",
+          "bun run typecheck",
+          "bun run lint",
+          "bun test"
+        ],
+        "manualChecks": [
+          "Deploy production and complete the smoke checklist"
+        ]
+      },
+      "dependsOn": [
+        "ENG-001",
+        "ENG-007",
+        "ENG-008",
+        "ENG-033"
+      ],
+      "readinessPrerequisites": [
+        "IR-005",
+        "IR-006",
+        "IR-007",
+        "IR-008",
+        "IR-009",
+        "IR-010",
+        "IR-011",
+        "IR-012",
+        "IR-013"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "Dockerfile",
+        "apps/web/Dockerfile",
+        "apps/api/Dockerfile",
+        ".github/workflows/ci.yml",
+        "deploy/digitalocean.yaml",
+        "docs/deploy.md"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "DigitalOcean is the founder-confirmed production host."
+    },
+    {
+      "id": "ENG-035",
+      "title": "Run the early Decart target-device feasibility spike",
+      "type": "integration",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-011"
+      ],
+      "storyIds": [
+        "US-014",
+        "US-020"
+      ],
+      "scenarioIds": [
+        "SC-010",
+        "SC-011"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "integration",
+        "names": [
+          "Decart Lucy VTON feasibility spike"
+        ]
+      },
+      "objective": "Resolve the highest-risk virtual try-on unknown in parallel with foundation work before live-session implementation depends on it.",
+      "scope": {
+        "includes": [
+          "Use the approved target device and consented fixtures",
+          "Measure connection, first frame, garment change, reconnect, bandwidth, and supported garment behavior",
+          "Record provider failures and the smallest acceptable fallback boundary",
+          "Make an adopt, limit, park, or discard decision"
+        ],
+        "excludes": [
+          "Production adapter",
+          "Integrated live UI",
+          "Gemini voice"
+        ]
+      },
+      "implementationSteps": [
+        "Run a disposable thin vertical spike against Decart",
+        "Capture exact environment and measurements without sensitive media",
+        "Record evidence and implementation constraints",
+        "Delete disposable credentials and unneeded spike media"
+      ],
+      "acceptanceCriteria": [
+        "A measured feasibility decision exists",
+        "Demo-critical latency and garment limits are explicit",
+        "Failure fallback preserves report and static product flow"
+      ],
+      "passConditions": [
+        "Test: A measured feasibility decision exists",
+        "Test: Demo-critical latency and garment limits are explicit",
+        "Test: Failure fallback preserves report and static product flow"
+      ],
+      "verification": {
+        "commands": [
+          "test -s company/artifacts/engineering-plan/spikes/decart-feasibility.md"
+        ],
+        "manualChecks": [
+          "Run one start, one garment change, one reconnect, and one provider-failure case"
+        ]
+      },
+      "dependsOn": [],
+      "readinessPrerequisites": [
+        "IR-011",
+        "IR-014",
+        "IR-019",
+        "IR-022"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "company/artifacts/engineering-plan/spikes/decart-feasibility.md"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "This ticket intentionally has no product-code dependency so it can run beside PH-01/PH-02."
+    },
+    {
+      "id": "ENG-036",
+      "title": "Run the early Gemini + Decart + gesture coexistence spike",
+      "type": "integration",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-012",
+        "FEAT-013"
+      ],
+      "storyIds": [
+        "US-015",
+        "US-023"
+      ],
+      "scenarioIds": [
+        "SC-011",
+        "SC-015"
+      ],
+      "screenIds": [],
+      "target": {
+        "kind": "integration",
+        "names": [
+          "dual-realtime target-device spike"
+        ]
+      },
+      "objective": "Determine whether the demo device can sustain Decart, Gemini Live, and gesture observation and whether structured session state is sufficient for the voice agent.",
+      "scope": {
+        "includes": [
+          "Run Gemini Live beside the proven Decart spike session with gesture observation active",
+          "Compare raw video/screen frames with structured selected-item and visible-result state",
+          "Measure CPU, bandwidth, echo, voice action latency, and recovery",
+          "Record the chosen context mode and degraded fallback"
+        ],
+        "excludes": [
+          "Production voice adapter",
+          "Gesture product UI",
+          "Persistent transcript"
+        ]
+      },
+      "implementationSteps": [
+        "Build the cheapest disposable coexistence harness",
+        "Run both context modes against the same scripted actions",
+        "Record measurements and decision evidence",
+        "Remove any captured raw session media after measurement"
+      ],
+      "acceptanceCriteria": [
+        "A context-mode decision is supported by measurements",
+        "CPU, bandwidth, echo, and action latency are recorded",
+        "Failure of either optional modality leaves direct controls feasible"
+      ],
+      "passConditions": [
+        "Test: A context-mode decision is supported by measurements",
+        "Test: CPU, bandwidth, echo, and action latency are recorded",
+        "Test: Failure of either optional modality leaves direct controls feasible"
+      ],
+      "verification": {
+        "commands": [
+          "test -s company/artifacts/engineering-plan/spikes/dual-realtime-feasibility.md"
+        ],
+        "manualChecks": [
+          "Run the scripted coexistence session on the target demo device"
+        ]
+      },
+      "dependsOn": [
+        "ENG-035"
+      ],
+      "readinessPrerequisites": [
+        "IR-010",
+        "IR-011",
+        "IR-014",
+        "IR-016",
+        "IR-019",
+        "IR-020"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/overview.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/index.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups-v2/conversational-onboarding",
+          "company/artifacts/screen-mockups"
+        ]
+      },
+      "filesLikelyTouched": [
+        "company/artifacts/engineering-plan/spikes/dual-realtime-feasibility.md"
+      ],
+      "status": "not-started",
+      "passes": false,
+      "notes": "Pulled forward by founder decision; structured state is preferred if it performs sufficiently."
+    }
+  ]
+}

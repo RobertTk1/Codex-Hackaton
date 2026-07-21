@@ -160,7 +160,7 @@
       "surface": "product",
       "type": "app-specific",
       "route_or_context": "/style-report/brands-and-sizes",
-      "description": "Favorite-brand selection and category-specific known-size entry.",
+      "description": "Favorite-brand selection with distinct known, unknown, or not-applicable sizes by garment type.",
       "primary_actions": [
         "Add a brand",
         "Continue"

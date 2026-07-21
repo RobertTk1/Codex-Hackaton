@@ -97,9 +97,10 @@ Exactly one shape is selected by code; unknown keys are rejected server-side.
 | `ANSWER_NEEDS_CLARIFICATION` | 422 | assistant asks one narrow follow-up |
 | `FAVORITE_BRAND_INVALID` | 422 | correct a favorite-brand choice |
 | `DUPLICATE_FAVORITE_BRAND` | 409 | keep/edit the existing normalized brand |
-| `FAVORITE_BRAND_REQUIRED` | 422 | choose the matching favorite brand before its category size |
-| `BRAND_SIZE_INVALID` | 422 | correct brand/category/size tuple |
-| `DUPLICATE_BRAND_CATEGORY` | 409 | edit existing tuple |
+| `FAVORITE_BRAND_REQUIRED` | 422 | choose the matching favorite brand before its garment-type size |
+| `BRAND_SIZE_INVALID` | 422 | correct brand/garment-type/size tuple |
+| `DUPLICATE_BRAND_GARMENT_TYPE` | 422 | keep one observation for each brand + garment type pair |
+| `FIT_PREFERENCE_INVALID` | 422 | answer fitted, regular, relaxed, or varies |
 | `DEPENDENT_WORK_ALREADY_PUBLISHED` | 409 | start recalibration draft |
 | `REVISION_CONFLICT` | 409 | reload snapshot and reapply explicit edit |
 | `IDEMPOTENCY_KEY_REQUIRED` | 400 | client defect; do not double-submit |

@@ -6,7 +6,7 @@
   "interaction_model": "one-question-per-turn",
   "approved_at": "2026-07-19",
   "approved_by": "Talisha White",
-  "structured_contract": "Same validated profile and completion contract as FEAT-004: name, adult confirmation, gender, age, height, optional weight, favorite brands, and brand-plus-category sizes.",
+  "structured_contract": "Same validated profile and completion contract as FEAT-004: name, adult confirmation, gender, age, height, optional weight, overall fit preference, favorite brands, and separate brand-plus-garment-type sizes.",
   "handoff_target": "company/artifacts/screen-mockups/screens/style-report-analysis-processing/processing",
   "screens": [
     {
@@ -25,7 +25,7 @@
       "state": "collecting",
       "step": 1,
       "response_mode": "natural-language",
-      "user_job": "Answer one simple name, adult-confirmation, gender, age, height, or optional-weight question in natural language."
+      "user_job": "Answer one simple name, adult-confirmation, gender, age, height, optional-weight, or overall-fit question in natural language."
     },
     {
       "screen_id": "66d528db-21de-4e52-9ecd-3c388cede1e3",
@@ -34,7 +34,7 @@
       "state": "collecting",
       "step": 2,
       "response_mode": "natural-language-with-clarification",
-      "user_job": "Describe a familiar brand and usual sizes through a short adaptive exchange."
+      "user_job": "Describe a familiar brand and distinct sizes by garment type through a short adaptive exchange."
     },
     {
       "screen_id": "0dfa9f00-c27f-489e-bc14-53eb49f55b8f",

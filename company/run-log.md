@@ -134,3 +134,10 @@ Append-only operating log for agent actions and important system events.
 - 12:10:11 EDT :: Completed the cross-contract repair across approved PRD, canonical and conversational screens, data/architecture, API/auth/states/errors, and current Supabase, Shopify, OpenAI, Gemini, Decart, Resend, and Wardrobe boundaries.
 - 12:10:11 EDT :: Added exact success schemas and one validated request/success fixture for all 49 operations; confirmed every operation appears in the screen/action contract, all 48 canonical and 8 conversational records are covered, every normalized error resolves, and no generic success payload remains.
 - 12:10:11 EDT :: Passed `contracts-review` and advanced the tracker to `engineering-tickets`; no application code, migration, live database mutation, provider mutation, or engineering ticket was created in this checkpoint.
+
+## 2026-07-21
+
+- 09:32:34 EDT :: Updated the PRD, stories, scenarios, build plan, company context, build notes, conversational v2 copy/specs, architecture, and application/data contracts so fit evidence is stored per brand + garment type and onboarding explicitly asks for fitted, regular, relaxed, or variable fit preference.
+- 09:32:34 EDT :: Added a typed deterministic fit-profile contract that preserves evidence, conflicts, and confidence without promising a universal size; revalidated all 49 operation examples against OpenAPI/JSON Schema.
+- 09:32:34 EDT :: Created `engineering-plan.json` with 36 one-outcome tickets covering 16/16 features, 23/23 stories, 15/15 scenarios, 48/48 canonical screens, and 8/8 conversational v2 states; the ticket validator passed with zero warnings.
+- 09:32:34 EDT :: Advanced the engineering-plan workflow to `final-review`; no product code, migration, deployment, provider mutation, or live Supabase change was started.
