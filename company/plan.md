@@ -96,7 +96,7 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 - [x] Resolve or assign the critical build-readiness blockers before implementation authorization, including the explicit deferred OpenAI-funding assumption and mandatory ticket-level recheck.
 - [x] Complete the exact application contract package for API, auth, integrations, state/error behavior, and every canonical/v2 screen action.
 - [x] Pass the cross-contract review and repair every screen/data/provider mismatch before ticketing.
-- [ ] Complete the checkpointed engineering-plan workflow from the founder-approved build plan.
+- [x] Complete the checkpointed engineering-plan workflow from the founder-approved build plan.
 
 ### Phase 1 — Trustworthy Entry and Style Evidence
 
@@ -157,12 +157,13 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Run the formal engineering-plan final review across the 162-ticket package: coverage, one-task scope, dependencies, acceptance criteria, verification evidence, rollout, rollback, and readiness ownership.
-2. Present the reviewed engineering plan for founder approval.
-3. Begin implementation only after explicit founder approval; execute one dependency-ready ticket per implementation turn.
+1. Founder reviews and approves or returns the ready-for-review engineering plan.
+2. After explicit approval, select the first dependency-ready engineering ticket using report-led release priority and early risk-spike timing.
+3. Execute exactly one ticket per implementation turn; mark it passed only after all automated and manual evidence succeeds.
 
 ## Decisions
 
+- 2026-07-21: Pass the formal engineering-plan final review after repairing archived-v1 screen leakage, experiment hypotheses/thresholds, Vitest command grounding, DigitalOcean validator ownership, generic ticket language, readiness/risk mappings, and dependency-change evidence; the 162-ticket package is ready for founder approval and implementation remains unauthorized.
 - 2026-07-21: Replace the rejected 36-workstream engineering package with 162 independently executable tickets covering all approved features, stories, scenarios, canonical screens, conversational-v2 screens, and OpenAPI operations; require one target, explicit implementation/test/rollback units, focused automated proof, exact UI references, and live verification for external provider boundaries before any ticket can pass.
 
 - 2026-07-17: Use a monorepo structure.
