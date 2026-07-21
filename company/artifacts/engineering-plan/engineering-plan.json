@@ -496,14 +496,14 @@
         "apps/web/src/env.ts",
         "apps/api/test/env.test.ts"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-21T18:54:53.424Z] Claimed 2026-07-21T18:54:53Z by root turn 16 on branch codex/eng-006-env-boundaries at /Users/talishawhite/.codex/worktrees/eng-006-env-boundaries; scope is separate server/browser Zod environment schemas, safe placeholders, browser-secret rejection, and focused boundary tests; dev deployment bootstrap-deferred.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-21T18:54:53.424Z] Claimed 2026-07-21T18:54:53Z by root turn 16 on branch codex/eng-006-env-boundaries at /Users/talishawhite/.codex/worktrees/eng-006-env-boundaries; scope is separate server/browser Zod environment schemas, safe placeholders, browser-secret rejection, and focused boundary tests; dev deployment bootstrap-deferred.\n[2026-07-21T19:09:13.108Z] Passing on integrated commit 947b89084973d877163217a5f29080c48ec87b07; ticket commits 8fa4067 and 88c65ed. Added separate Zod server/browser environment contracts, safe .env.example names, strict Vite environment typing, server-only runtime rejection, single-variable redacted startup failures, and synthetic smoke fixtures. Verified: bun install --frozen-lockfile; focused env/API smoke 8/8; bun run typecheck; bun run build:web; bun run build:api; bash scripts/smoke-api.sh; bun run check (6 files/17 tests); emitted browser bundle excludes server-secret sentinel; tracked secret-pattern scan; pristine archive /tmp/magic-mirror-eng006.GLgQUk passed frozen install, focused tests, typecheck, both builds, API smoke, and full check. Spawned API tests disable dotenv autoload so ignored local secrets cannot backfill negative fixtures. dev_deployment=bootstrap-deferred under the approved ENG-155 first-baseline sequence.",
       "id": "ENG-006",
       "dependsOn": [
         "ENG-008"
       ],
-      "stateUpdatedAt": "2026-07-21T18:54:53.424Z"
+      "stateUpdatedAt": "2026-07-21T19:09:13.108Z"
     },
     {
       "title": "Verify anonymous, Google, and email-link authentication configuration",

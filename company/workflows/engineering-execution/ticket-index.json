@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T18:54:53.429Z",
+  "generated_at": "2026-07-21T19:09:13.113Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "dec35488c7818c2c14aad337bb682ff9a0305541e2c59c8022cd6fac82ac17fe",
+  "source_plan_sha256": "93dccdd9698199097e8297565e92032298e2dec1a0620555355caf0d28b4de45",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 162,
   "eligible_count": 4,
-  "passing_count": 6,
+  "passing_count": 7,
   "status_counts": {
-    "completed": 6,
-    "in-progress": 1,
+    "completed": 7,
     "not-started": 155
   },
-  "next_ticket_id": "ENG-006",
+  "next_ticket_id": "ENG-013",
   "tickets": [
     {
       "order": 1,
@@ -140,8 +139,8 @@
       "id": "ENG-006",
       "title": "Validate server and browser environment boundaries",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-008"
       ],
@@ -149,8 +148,11 @@
         "IR-006",
         "IR-013"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 7,
@@ -169,7 +171,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-006",
         "bootstrap:ENG-155"
       ]
     },
@@ -892,7 +893,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-006",
         "dependency:ENG-039"
       ]
     },
@@ -3206,10 +3206,8 @@
       "readinessPrerequisites": [
         "IR-013"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-006"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 153,
