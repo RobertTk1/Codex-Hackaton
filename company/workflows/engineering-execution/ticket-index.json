@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T17:42:14.076Z",
+  "generated_at": "2026-07-21T17:45:40.557Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "25acf8f15dbba71429ef396961523e2fc76a9c0f7a018a3ee97d9731c20985d7",
+  "source_plan_sha256": "9959e261c1dce7464affde3a2690f7df469beef62cd99c35b826bb6f3f6ef223",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 1,
   "status_counts": {
     "completed": 1,
-    "not-started": 161
+    "in-progress": 1,
+    "not-started": 160
   },
   "next_ticket_id": "ENG-002",
   "tickets": [
@@ -61,7 +62,7 @@
       "id": "ENG-002",
       "title": "Scaffold the Vite and Tailwind web application",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-001"

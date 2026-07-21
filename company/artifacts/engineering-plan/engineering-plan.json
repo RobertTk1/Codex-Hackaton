@@ -169,13 +169,14 @@
         "apps/web/src/router.tsx",
         "bun.lock"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "Dependencies: React/React DOM provide the approved component and media-session state model, React Router provides stable callback/resume routes, and Vite/Tailwind provide the chosen build and styling toolchain; established maintained packages, pinned in the app manifest.",
+      "notes": "Dependencies: React/React DOM provide the approved component and media-session state model, React Router provides stable callback/resume routes, and Vite/Tailwind provide the chosen build and styling toolchain; established maintained packages, pinned in the app manifest.\n[2026-07-21T17:45:40.550Z] Claimed by root on 2026-07-21T17:45:40Z; branch codex/eng-002-vite-tailwind-web; worktree /Users/talishawhite/.codex/worktrees/eng-002-vite-tailwind-web; frontend-design used for a production-grade foundation without adding out-of-scope product screens; bootstrap deployment deferred per approved sequence.",
       "id": "ENG-002",
       "dependsOn": [
         "ENG-001"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-21T17:45:40.550Z"
     },
     {
       "title": "Scaffold the TypeScript API application",
