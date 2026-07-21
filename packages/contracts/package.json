@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/common.ts"
+    ".": "./src/common.ts",
+    "./live": "./src/live.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --project tsconfig.json"
