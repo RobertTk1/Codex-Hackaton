@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/server.ts",
+    "dev:worker": "bun --watch src/worker.ts",
     "start": "bun src/server.ts",
+    "start:worker": "bun src/worker.ts",
     "build": "bun build src/server.ts --target bun --outdir dist",
+    "build:worker": "bun build src/worker.ts --target bun --outdir dist",
     "typecheck": "tsc --noEmit --project tsconfig.json"
   },
   "dependencies": {
