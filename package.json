@@ -16,7 +16,11 @@
     "dev:web": "bun run --cwd apps/web dev",
     "build:web": "bun run --cwd apps/web build",
     "typecheck:web": "bun run --cwd apps/web typecheck",
-    "typecheck": "tsc --noEmit --project tsconfig.json && bun run typecheck:web",
+    "dev:api": "bun run --cwd apps/api dev",
+    "start:api": "bun run --cwd apps/api start",
+    "build:api": "bun run --cwd apps/api build",
+    "typecheck:api": "bun run --cwd apps/api typecheck",
+    "typecheck": "tsc --noEmit --project tsconfig.json && bun run typecheck:web && bun run typecheck:api",
     "test": "bun test",
     "check": "bun run validate:workspaces && bun run typecheck && bun test"
   },
