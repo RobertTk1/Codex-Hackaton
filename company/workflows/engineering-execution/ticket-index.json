@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T18:03:56.336Z",
+  "generated_at": "2026-07-21T18:07:40.348Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "367456e92362fa087a75ae5d293aec03dcd4b490a831baa1d3c19478da53791f",
+  "source_plan_sha256": "7d4299bf7509a2339b94544758f550ce7e12995c8e42728d275001e2fcf00ba5",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 3,
   "status_counts": {
     "completed": 3,
-    "not-started": 159
+    "in-progress": 1,
+    "not-started": 158
   },
   "next_ticket_id": "ENG-004",
   "tickets": [
@@ -99,7 +100,7 @@
       "id": "ENG-004",
       "title": "Establish the Vitest and Playwright command contract",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-002",

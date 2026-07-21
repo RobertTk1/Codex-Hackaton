@@ -333,14 +333,15 @@
         "package.json",
         "bun.lock"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "Dependencies: Vitest and Playwright provide unit/component and observable browser proof that type checking cannot supply; development-only, established tooling pinned at the root.",
+      "notes": "Dependencies: Vitest and Playwright provide unit/component and observable browser proof that type checking cannot supply; development-only, established tooling pinned at the root.\n[2026-07-21T18:07:40.339Z] Claimed by root at 2026-07-21T18:07:40Z; branch codex/eng-004-test-harness; worktree /Users/talishawhite/.codex/worktrees/eng-004-test-harness; scope limited to root Vitest/Playwright command contract, exact focused-file syntax, and one passing smoke per application; bootstrap deployment deferred per approved sequence.",
       "id": "ENG-004",
       "dependsOn": [
         "ENG-002",
         "ENG-003"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-21T18:07:40.339Z"
     },
     {
       "title": "Configure local Supabase migration and policy tests",
