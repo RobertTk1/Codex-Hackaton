@@ -665,13 +665,14 @@
         "packages/contracts/package.json",
         "bun.lock"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "Dependency: Zod provides runtime validation because TypeScript types disappear at external boundaries; small, maintained, and required by repository rules.",
+      "notes": "Dependency: Zod provides runtime validation because TypeScript types disappear at external boundaries; small, maintained, and required by repository rules.\n[2026-07-21T18:45:53.512Z] Claimed 2026-07-21T18:45:53Z by root turn 15 on branch codex/eng-008-common-contracts at /Users/talishawhite/.codex/worktrees/eng-008-common-contracts; implementation scope is common closed Zod schemas and focused contract tests; dev deployment bootstrap-deferred.",
       "id": "ENG-008",
       "dependsOn": [
         "ENG-004"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-21T18:45:53.512Z"
     },
     {
       "title": "Implement profile, consent, and transfer contracts",
