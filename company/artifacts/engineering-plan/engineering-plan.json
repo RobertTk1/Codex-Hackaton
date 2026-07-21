@@ -1987,14 +1987,14 @@
         "supabase/migrations/20260721000500_create_live_bag_and_operations_contract.sql",
         "supabase/tests/processing-jobs-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-21T19:44:32.801Z] Claimed turn 19 by root on codex/eng-024-processing-jobs at /Users/talishawhite/.codex/worktrees/eng-024-processing-jobs starting 2026-07-21T19:44:32Z; local Supabase only; development deployment bootstrap-deferred.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-21T19:44:32.801Z] Claimed turn 19 by root on codex/eng-024-processing-jobs at /Users/talishawhite/.codex/worktrees/eng-024-processing-jobs starting 2026-07-21T19:44:32Z; local Supabase only; development deployment bootstrap-deferred.\n[2026-07-21T19:56:43.965Z] Completed turn 19 at 2026-07-21T19:56:43Z. Ticket commit 17fcae4a87f01f5c4b900b2c5bc087d6d2f849ae; integrated commit d329789744efbb8dcc713e19499f59c09996c322. Added CLI-generated supabase/migrations/20260721194454_create_live_bag_and_operations_contract.sql, supabase/tests/processing-jobs-data.sql, and forward-compatible aggregate security coverage. Verification passed: supabase db reset; focused pgTAP 42/42; aggregate pgTAP 69/69; intentional cross-owner leak rejected; supabase db lint --local; supabase migration list --local; bun run check (7 files/25 tests); pristine archive /Users/talishawhite/.codex/worktrees/eng-024-archive.0DGTSN repeated reset, focused/aggregate DB tests, lint, and repository checks. Three bounded corrections replaced an unavailable JSON helper with supported JSONB operators, repaired an invalid expired-lease fixture, and evolved ENG-014's zero-table snapshot into a durable private-privilege invariant. The table is private/RLS-enabled, errors and lifecycles are database-bounded, idempotency is unique, and private.claim_processing_job is fixed-search-path SECURITY DEFINER with execute only for service_role. Dev deployment bootstrap-deferred under ENG-155.",
       "id": "ENG-024",
       "dependsOn": [
         "ENG-014"
       ],
-      "stateUpdatedAt": "2026-07-21T19:44:32.801Z"
+      "stateUpdatedAt": "2026-07-21T19:56:43.965Z"
     },
     {
       "title": "Create report-run lifecycle records",

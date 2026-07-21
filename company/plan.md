@@ -157,12 +157,13 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Claim and execute `ENG-024 — Create durable processing-job lease records` in its dedicated ticket branch/worktree.
-2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`; nine tickets now pass (`ENG-001` through `ENG-006`, `ENG-008`, `ENG-013`, and `ENG-014`), and `bootstrap-deferred` remains permitted only for the named baseline prerequisites.
+1. Claim and execute `ENG-039 — Authenticate requests and derive immutable owner identity` in its dedicated ticket branch/worktree.
+2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`; ten tickets now pass (`ENG-001` through `ENG-006`, `ENG-008`, `ENG-013`, `ENG-014`, and `ENG-024`), and `bootstrap-deferred` remains permitted only for the named baseline prerequisites.
 3. Execute exactly one ticket per implementation turn; mark it passed only after all required evidence succeeds and synchronize the authoritative plan, derived index, and progress memory.
 
 ## Decisions
 
+- 2026-07-21: Complete `ENG-024` with private/RLS-protected processing-job records, bounded discriminated error and lifecycle checks, durable idempotency and worker indexes, and a fixed-search-path service-role-only atomic claim/reclaim function using `FOR UPDATE SKIP LOCKED`; keep worker/provider execution out of this data ticket.
 - 2026-07-21: Complete `ENG-014` with a non-exposed `private` schema, explicit least-privilege schema/default grants, an empty-search-path `SECURITY INVOKER` updated-at trigger helper, and 19 focused pgTAP checks; introduce no `SECURITY DEFINER` helper before its owning ticket can enforce a verified-owner contract.
 - 2026-07-21: Complete `ENG-013` with closed shared Zod schemas for live sessions, Decart/Gemini credentials and consent modes, independent voice/gesture substates, and all nine direct/voice/gesture action variants; reject unknown commands, arbitrary URLs, invalid confidence/source combinations, malformed consent pairs, and invalid source lineage before application logic.
 - 2026-07-21: Complete `ENG-006` with separate Zod server/browser environment contracts, strict Vite variable typing, single-name redacted startup failures, explicit server-only browser rejection, synthetic smoke fixtures, and emitted-bundle secret checks; disable dotenv loading in negative API processes so local secrets cannot mask missing configuration.

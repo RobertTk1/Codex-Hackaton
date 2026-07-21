@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T19:44:32.806Z",
+  "generated_at": "2026-07-21T19:56:43.971Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "27993315098a861cde175b0f2876dbace861867e23de734f14cf287a6d3f9a1b",
+  "source_plan_sha256": "e6938bc4f823ada32770c946a3bc8afa3229691b4b6d2184c12a224c6b3be419",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 162,
-  "eligible_count": 4,
-  "passing_count": 9,
+  "eligible_count": 3,
+  "passing_count": 10,
   "status_counts": {
-    "completed": 9,
-    "in-progress": 1,
+    "completed": 10,
     "not-started": 152
   },
-  "next_ticket_id": "ENG-024",
+  "next_ticket_id": "ENG-039",
   "tickets": [
     {
       "order": 1,
@@ -484,14 +483,17 @@
       "id": "ENG-024",
       "title": "Create durable processing-job lease records",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-014"
       ],
       "readinessPrerequisites": [],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 25,
@@ -758,7 +760,6 @@
         "dependency:ENG-021",
         "dependency:ENG-022",
         "dependency:ENG-023",
-        "dependency:ENG-024",
         "dependency:ENG-030",
         "dependency:ENG-031",
         "dependency:ENG-032",
@@ -800,7 +801,6 @@
         "dependency:ENG-021",
         "dependency:ENG-022",
         "dependency:ENG-023",
-        "dependency:ENG-024",
         "dependency:ENG-030",
         "dependency:ENG-031",
         "dependency:ENG-032",
@@ -956,7 +956,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-024",
         "dependency:ENG-043"
       ]
     },
@@ -1184,7 +1183,6 @@
       "blockers": [
         "dependency:ENG-041",
         "dependency:ENG-025",
-        "dependency:ENG-024",
         "dependency:ENG-043",
         "bootstrap:ENG-155"
       ]
@@ -1247,7 +1245,6 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-021",
-        "dependency:ENG-024",
         "dependency:ENG-042",
         "dependency:ENG-010",
         "dependency:ENG-043",
@@ -1310,7 +1307,6 @@
       "blockers": [
         "dependency:ENG-041",
         "dependency:ENG-022",
-        "dependency:ENG-024",
         "dependency:ENG-043",
         "bootstrap:ENG-155"
       ]
@@ -1527,7 +1523,6 @@
       "blockers": [
         "dependency:ENG-041",
         "dependency:ENG-025",
-        "dependency:ENG-024",
         "dependency:ENG-043",
         "bootstrap:ENG-155"
       ]
