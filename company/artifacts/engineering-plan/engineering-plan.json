@@ -13179,14 +13179,14 @@
         "apps/web/Dockerfile",
         "apps/web/nginx.conf"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-21T21:03:39.499Z] Claimed turn 23 by root on codex/eng-152-web-container at /Users/talishawhite/.codex/worktrees/eng-152-web-container starting 2026-07-21T21:03:39Z; IR-013 ready; Docker 29.5.2 server available; web development deployment bootstrap-deferred until ENG-155. Runtime configuration will be injected only at container startup from the three browser-safe VITE names, with no build arguments or server-only variables.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-21T21:03:39.499Z] Claimed turn 23 by root on codex/eng-152-web-container at /Users/talishawhite/.codex/worktrees/eng-152-web-container starting 2026-07-21T21:03:39Z; IR-013 ready; Docker 29.5.2 server available; web development deployment bootstrap-deferred until ENG-155. Runtime configuration will be injected only at container startup from the three browser-safe VITE names, with no build arguments or server-only variables.\n[2026-07-21T21:23:03.736Z] Integrated 8e616903b1de91f16a50035ab600b3578f33b4ff from ticket 24ad352dfe65c904fc90081e740eb4b03852b5c5. Exact Docker build passed with an 80.38 kB allowlisted context; the pinned final image is 23,193,292 bytes, runs as 101:101, and exposes a Docker health check on /healthz. Focused runtime/container tests passed 6/6; full Vitest passed 12 files/47 tests; strict typecheck, web/API/worker builds, and Playwright browser smoke 1/1 passed. A pristine detached checkout reproduced every gate. Image metadata, history, and static-files checks found no synthetic server-secret sentinel; missing runtime config exits nonzero without echoing values. Distinct bounded corrections removed a BuildKit-only chmod, moved atomic runtime config into unprivileged writable /tmp, isolated concurrent Vite test outputs, and supplied synthetic public E2E configuration. Development deployment is bootstrap-deferred until ENG-155. Completed 2026-07-21T21:23:03Z.",
       "id": "ENG-152",
       "dependsOn": [
         "ENG-006"
       ],
-      "stateUpdatedAt": "2026-07-21T21:03:39.499Z"
+      "stateUpdatedAt": "2026-07-21T21:23:03.736Z"
     },
     {
       "title": "Build the production API and worker container",

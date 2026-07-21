@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T21:03:39.506Z",
+  "generated_at": "2026-07-21T21:23:03.743Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "ada016f957218043bed8aefba94442f6dfd5dc9110f2d5046893519d43d52970",
+  "source_plan_sha256": "6990d7c641ab8f29df114822eaa60406b38a6e5d2ee0920cbeb8c40edac807d7",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 162,
-  "eligible_count": 3,
-  "passing_count": 13,
+  "eligible_count": 2,
+  "passing_count": 14,
   "status_counts": {
-    "completed": 13,
-    "in-progress": 1,
+    "completed": 14,
     "not-started": 148
   },
-  "next_ticket_id": "ENG-152",
+  "next_ticket_id": "ENG-153",
   "tickets": [
     {
       "order": 1,
@@ -3146,16 +3145,19 @@
       "id": "ENG-152",
       "title": "Build the production web container",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-006"
       ],
       "readinessPrerequisites": [
         "IR-013"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 153,
@@ -3208,7 +3210,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-152",
         "dependency:ENG-153",
         "dependency:ENG-154"
       ]

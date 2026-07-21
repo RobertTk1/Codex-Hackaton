@@ -157,12 +157,13 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Claim and execute `ENG-152 — Build the production web container` in its dedicated ticket branch/worktree.
-2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`; thirteen tickets now pass (`ENG-001` through `ENG-006`, `ENG-008`, `ENG-013`, `ENG-014`, `ENG-024`, `ENG-039`, `ENG-043`, and `ENG-046`), and `bootstrap-deferred` remains permitted only for the named baseline prerequisites.
+1. Claim and execute `ENG-153 — Build the production API and worker container` in its dedicated ticket branch/worktree.
+2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`; fourteen tickets now pass (`ENG-001` through `ENG-006`, `ENG-008`, `ENG-013`, `ENG-014`, `ENG-024`, `ENG-039`, `ENG-043`, `ENG-046`, and `ENG-152`), and `bootstrap-deferred` remains permitted only for the named baseline prerequisites.
 3. Execute exactly one ticket per implementation turn; mark it passed only after all required evidence succeeds and synchronize the authoritative plan, derived index, and progress memory.
 
 ## Decisions
 
+- 2026-07-21: Complete `ENG-152` with a pinned 23.2 MB Bun-to-NGINX Unprivileged production image that runs as UID 101, serves `/healthz` and SPA fallbacks, and injects only the three browser-safe environment values at container startup through a strict base64-decoded runtime boundary. Keep server secrets out of build arguments, layers, metadata, and static files; restrict the Docker context to 80.38 kB; isolate build-test output directories and give Playwright synthetic public configuration so clean-checkout evidence is deterministic. Keep development deployment deferred to `ENG-155`.
 - 2026-07-21: Complete `ENG-046` with one typed Bun worker loop, registered-handler-only polling, bounded database calls, active lease heartbeats, graceful signal handling, safe retry/terminal failures, and payload-free structured logs. Keep `private.processing_jobs` and its elevated atomic claim implementation unexposed; use four public, fixed-search-path, security-invoker RPC bridges callable only by `service_role` so the real Supabase Data API transport can claim and transition work without exposing the private schema or adding a database credential. Keep deployment deferred to `ENG-155`.
 - 2026-07-21: Complete `ENG-043` with distinct nominal user-token and server-only Supabase clients, official request-scoped access-token forwarding that preserves RLS, API-only service-role construction, untrusted database boundary types, safe configuration failures, and a browser compilation/dependency boundary; verify the exact commit and integrated result while keeping deployment deferred to `ENG-155`.
 - 2026-07-21: Complete `ENG-039` with strict bearer parsing, server-side Supabase `getUser` verification using the publishable key, Zod-validated immutable owner context, explicit anonymous/permanent identity state, shared normalized auth errors, and no request-body or user-metadata ownership path; verify both fixtures and real local anonymous tokens while keeping deployment deferred to `ENG-155`.
