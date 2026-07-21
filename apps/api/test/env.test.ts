@@ -145,11 +145,14 @@ describe("environment boundaries", () => {
 
   test("a valid web build cannot contain a server secret value", async () => {
     const secretSentinel = "must-not-enter-the-browser-bundle";
+    const outputDirectory = await mkdtemp(path.join(tmpdir(), "magic-mirror-env-build-"));
+    temporaryDirectories.push(outputDirectory);
     const result = spawnSync("bun", ["run", "build:web"], {
       cwd: repositoryRoot,
       encoding: "utf8",
       env: {
         ...process.env,
+        MAGIC_MIRROR_WEB_OUT_DIR: outputDirectory,
         SUPABASE_SERVICE_ROLE_KEY: secretSentinel,
         VITE_API_BASE_URL: "http://127.0.0.1:3000",
         VITE_SUPABASE_PUBLISHABLE_KEY: "test-publishable-key",
@@ -158,7 +161,7 @@ describe("environment boundaries", () => {
     });
 
     expect(result.status).toBe(0);
-    const assetsDirectory = path.join(repositoryRoot, "apps/web/dist/assets");
+    const assetsDirectory = path.join(outputDirectory, "assets");
     const assets = await readdir(assetsDirectory);
     const contents = await Promise.all(
       assets.map((asset) => readFile(path.join(assetsDirectory, asset), "utf8")),

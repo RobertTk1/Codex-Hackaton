@@ -11,3 +11,7 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+interface Window {
+  readonly __MAGIC_MIRROR_RUNTIME_CONFIG__?: unknown;
+}

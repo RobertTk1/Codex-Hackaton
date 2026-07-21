@@ -25,7 +25,21 @@ const browserEnvironmentSchema = z.strictObject({
   VITE_SUPABASE_URL: z.url(),
 });
 
+const browserRuntimeConfigurationSchema = z.strictObject({
+  schemaVersion: z.literal(1),
+  VITE_API_BASE_URL_BASE64: z.string().trim().min(1).max(8_192),
+  VITE_SUPABASE_PUBLISHABLE_KEY_BASE64: z.string().trim().min(1).max(8_192),
+  VITE_SUPABASE_URL_BASE64: z.string().trim().min(1).max(8_192),
+});
+
+const browserPublicEnvironmentSchema = browserEnvironmentSchema.pick({
+  VITE_API_BASE_URL: true,
+  VITE_SUPABASE_PUBLISHABLE_KEY: true,
+  VITE_SUPABASE_URL: true,
+});
+
 export type BrowserEnvironment = z.infer<typeof browserEnvironmentSchema>;
+export type BrowserRuntimeConfiguration = z.infer<typeof browserRuntimeConfigurationSchema>;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -47,4 +61,46 @@ export function loadBrowserEnvironment(source: unknown): BrowserEnvironment {
   }
 
   return result.data;
+}
+
+function decodeBase64EnvironmentValue(name: string, value: string): string {
+  try {
+    const binaryValue = globalThis.atob(value);
+    const bytes = Uint8Array.from(binaryValue, (character) => character.charCodeAt(0));
+    return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+  } catch {
+    throw new Error(`Invalid browser runtime environment variable: ${name}.`);
+  }
+}
+
+export function loadBrowserRuntimeEnvironment(source: unknown) {
+  const result = browserRuntimeConfigurationSchema.safeParse(source);
+  if (!result.success) {
+    const variableName = result.error.issues[0]?.path[0];
+    const safeName = typeof variableName === "string" ? variableName : "configuration";
+    throw new Error(`Invalid browser runtime environment variable: ${safeName}.`);
+  }
+
+  const decodedResult = browserPublicEnvironmentSchema.safeParse({
+    VITE_API_BASE_URL: decodeBase64EnvironmentValue(
+      "VITE_API_BASE_URL",
+      result.data.VITE_API_BASE_URL_BASE64,
+    ),
+    VITE_SUPABASE_PUBLISHABLE_KEY: decodeBase64EnvironmentValue(
+      "VITE_SUPABASE_PUBLISHABLE_KEY",
+      result.data.VITE_SUPABASE_PUBLISHABLE_KEY_BASE64,
+    ),
+    VITE_SUPABASE_URL: decodeBase64EnvironmentValue(
+      "VITE_SUPABASE_URL",
+      result.data.VITE_SUPABASE_URL_BASE64,
+    ),
+  });
+
+  if (!decodedResult.success) {
+    const variableName = decodedResult.error.issues[0]?.path[0];
+    const safeName = typeof variableName === "string" ? variableName : "configuration";
+    throw new Error(`Invalid browser runtime environment variable: ${safeName}.`);
+  }
+
+  return decodedResult.data;
 }

@@ -20,6 +20,12 @@ export default defineConfig({
   },
   webServer: {
     command: "bun run dev:web",
+    env: {
+      ...process.env,
+      VITE_API_BASE_URL: "http://127.0.0.1:3000",
+      VITE_SUPABASE_PUBLISHABLE_KEY: "synthetic-playwright-public-key",
+      VITE_SUPABASE_URL: "https://playwright.supabase.co",
+    },
     reuseExistingServer: false,
     timeout: 120_000,
     url: webOrigin,

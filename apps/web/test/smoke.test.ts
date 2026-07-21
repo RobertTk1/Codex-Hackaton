@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, test } from "vitest";
 import { spawnSync } from "node:child_process";
-import { access, readFile, rm, writeFile } from "node:fs/promises";
+import { access, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -12,29 +13,39 @@ const invalidComponentPath = path.join(
   "src",
   "__invalid_typecheck_fixture__.tsx",
 );
+const temporaryDirectories: string[] = [];
 
 afterEach(async () => {
   await rm(invalidComponentPath, { force: true });
+  await Promise.all(
+    temporaryDirectories.splice(0).map((directory) =>
+      rm(directory, { force: true, recursive: true })
+    ),
+  );
 });
 
-function runRootScript(script: string) {
+function runRootScript(script: string, environment: Record<string, string> = {}) {
   return spawnSync("bun", ["run", script], {
     cwd: repositoryRoot,
     encoding: "utf8",
-    env: { ...process.env, CI: "1" },
+    env: { ...process.env, ...environment, CI: "1" },
   });
 }
 
 describe("web smoke", () => {
   // Given the web scaffold, when it builds, then it emits a loadable HTML entry.
   test("build:web emits a production HTML bundle", async () => {
-    const result = runRootScript("build:web");
+    const outputDirectory = await mkdtemp(path.join(tmpdir(), "magic-mirror-web-smoke-"));
+    temporaryDirectories.push(outputDirectory);
+    const result = runRootScript("build:web", {
+      MAGIC_MIRROR_WEB_OUT_DIR: outputDirectory,
+    });
     const output = `${result.stdout}\n${result.stderr}`;
 
     expect(result.status, output).toBe(0);
-    await access(path.join(repositoryRoot, "apps", "web", "dist", "index.html"));
+    await access(path.join(outputDirectory, "index.html"));
     const builtHtml = await readFile(
-      path.join(repositoryRoot, "apps", "web", "dist", "index.html"),
+      path.join(outputDirectory, "index.html"),
       "utf8",
     );
     expect(builtHtml).toContain('<div id="root"></div>');
