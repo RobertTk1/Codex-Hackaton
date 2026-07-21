@@ -2,8 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 
+import { loadBrowserEnvironment } from "./env";
 import { router } from "./router";
 import "./styles.css";
+
+loadBrowserEnvironment(import.meta.env);
 
 const rootElement = document.querySelector<HTMLElement>("#root");
 if (!rootElement) {
