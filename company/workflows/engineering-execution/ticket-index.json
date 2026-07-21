@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T19:39:19.793Z",
+  "generated_at": "2026-07-21T19:44:32.806Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "989a3ca86f72f98c9ace5b44feadf4a3be5293488990ba259db6b39beb15bb8e",
+  "source_plan_sha256": "27993315098a861cde175b0f2876dbace861867e23de734f14cf287a6d3f9a1b",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 9,
   "status_counts": {
     "completed": 9,
-    "not-started": 153
+    "in-progress": 1,
+    "not-started": 152
   },
   "next_ticket_id": "ENG-024",
   "tickets": [
@@ -483,7 +484,7 @@
       "id": "ENG-024",
       "title": "Create durable processing-job lease records",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-014"
