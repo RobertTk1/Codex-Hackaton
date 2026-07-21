@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T21:28:51.819Z",
+  "generated_at": "2026-07-21T21:42:32.943Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "c6a01f283979398fe7ec3ff91b71a984857dea9bdcab990e15516353f95b0478",
+  "source_plan_sha256": "79dfdef1c824980a9a4daa7299ce90e80f214ea62f3689305d99c25ea1a35eea",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 162,
-  "eligible_count": 2,
-  "passing_count": 14,
+  "eligible_count": 1,
+  "passing_count": 15,
   "status_counts": {
-    "completed": 14,
-    "in-progress": 1,
+    "completed": 15,
     "not-started": 147
   },
-  "next_ticket_id": "ENG-153",
+  "next_ticket_id": "ENG-154",
   "tickets": [
     {
       "order": 1,
@@ -3165,16 +3164,19 @@
       "id": "ENG-153",
       "title": "Build the production API and worker container",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-046"
       ],
       "readinessPrerequisites": [
         "IR-013"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 154,
@@ -3211,7 +3213,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-153",
         "dependency:ENG-154"
       ]
     },
