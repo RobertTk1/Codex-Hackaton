@@ -17,7 +17,8 @@ Do not reconstruct a missing contract from memory or chat history.
 
 ## 3. Confirm Repository and Toolchain
 
-- Record the repository root, branch, working-tree status, and existing uncommitted changes.
+- Resolve the repository/package root with `git rev-parse --show-toplevel`; it currently resolves to `/Users/talishawhite/Documents/openai-buildweek-hackathon`. Record the root, branch, working-tree status, and existing uncommitted changes.
+- Confirm `ENG-001` owns root workspace scaffolding; later tickets place deployable applications in `apps/web` and `apps/api`, shared packages in `packages/`, and Supabase resources in `supabase/`.
 - Confirm Bun, TypeScript, Vite, Tailwind, test commands, Supabase tooling, and Git are available as required by the first eligible ticket.
 - Confirm `.env.example` documents required names and real secrets remain uncommitted.
 - Run only the baseline checks that already exist; do not pretend missing scripts pass.

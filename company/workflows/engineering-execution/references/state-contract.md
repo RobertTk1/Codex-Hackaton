@@ -14,6 +14,16 @@ Do not duplicate detailed work-item state in multiple mutable queues.
 
 `tasks.json` records loop status, current stage, stage controllers, and queue pointers. It does not duplicate all tickets, QA cases, or release tasks.
 
+## Controller and Gate Shape
+
+`tasks.json.execution_queue` identifies the current stage, its detailed authority, any derived index, and the exact preflight/selection/extraction commands. `tasks.json.stage_gates` is a controller registry, not an approval queue. Each gate records `status: defined`, its authority, its observable pass signal, and the next stage. Runtime transition occurs only when the named authority contains the named passing result; a bare `defined` value never means the gate passed.
+
+| Gate | Runtime pass signal |
+| --- | --- |
+| Engineering → QA | Every required engineering ticket is `completed` with `passes: true`, the integrated suite and clean-checkout verification pass, and one frozen candidate is recorded. |
+| QA → DevOps | `company/artifacts/qa/qa-final-report.md` says `PASS FOR DEVOPS` for the frozen candidate. |
+| DevOps → Complete | The release record says `PRODUCTION DEPLOYED AND VERIFIED` for the deployed revision. |
+
 ## Native Status Vocabularies and Lossless Mapping
 
 | Semantic state | Workflow controller | Engineering ticket | QA case | DevOps release task |

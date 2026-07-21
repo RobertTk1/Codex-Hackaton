@@ -91,9 +91,23 @@ const index = JSON.parse(await readFile(path.join(workflowRoot, "ticket-index.js
 const workflowState = JSON.parse(await readFile(path.join(workflowRoot, "tasks.json"), "utf8"));
 const canonicalManifest = JSON.parse(await readFile(path.join(repositoryRoot, "company/artifacts/screen-mockups/mockup-manifest.json"), "utf8"));
 const v2Manifest = JSON.parse(await readFile(path.join(repositoryRoot, "company/artifacts/screen-mockups-v2/conversational-onboarding/mockup-manifest.json"), "utf8"));
+const sourcesContract = await readFile(path.join(workflowRoot, "references/sources.md"), "utf8");
+const stateContract = await readFile(path.join(workflowRoot, "references/state-contract.md"), "utf8");
+const ticketSelectionContract = await readFile(path.join(workflowRoot, "developer/references/ticket-selection.md"), "utf8");
+const releaseRequirements = await readFile(path.join(workflowRoot, "devops/references/requirements.md"), "utf8");
+const releaseQueueContract = await readFile(path.join(workflowRoot, "devops/references/release-queue.md"), "utf8");
 
 if (plan.status !== "approved") failures.push(`engineering plan status is ${plan.status}, expected approved`);
 if (workflowState.loop_status !== "active") failures.push(`loop status is ${workflowState.loop_status}, expected active`);
+if (workflowState.execution_queue?.stage !== workflowState.current_stage) {
+  failures.push("execution queue stage differs from current_stage");
+}
+for (const [gateId, gate] of Object.entries(workflowState.stage_gates ?? {})) {
+  if (gate?.status !== "defined" || !gate.authority || !gate.pass_signal || !gate.next_stage) {
+    failures.push(`${gateId} does not define status, authority, pass_signal, and next_stage`);
+  }
+}
+if (Object.keys(workflowState.stage_gates ?? {}).length !== 3) failures.push("expected exactly three stage gates");
 for (const loopTask of workflowState.tasks ?? []) {
   if (!["pending", "in_progress", "blocked", "complete"].includes(loopTask.status)) {
     failures.push(`${loopTask.id} has invalid workflow status ${loopTask.status}`);
@@ -108,6 +122,20 @@ if (index.source_readiness_sha256 !== sha256(readinessSource)) failures.push("ti
 if (index.ticket_count !== plan.tickets.length) failures.push("ticket index count differs from engineering plan");
 if (canonicalManifest.status !== "approved-with-archived-pre-report") failures.push(`canonical mockup status is ${canonicalManifest.status}`);
 if (v2Manifest.status !== "approved-for-pre-report") failures.push(`v2 mockup status is ${v2Manifest.status}`);
+if (!sourcesContract.includes("git rev-parse --show-toplevel") || !sourcesContract.includes("apps/web") || !sourcesContract.includes("apps/api")) {
+  failures.push("repository/application roots are not explicit in sources.md");
+}
+if (sourcesContract.includes("Project Paths to Confirm")) failures.push("sources.md still contains unresolved project-path placeholders");
+if (!stateContract.includes("Controller and Gate Shape")) failures.push("state contract lacks the controller/gate shape");
+if (!ticketSelectionContract.includes("Stale-Claim Recovery") || !ticketSelectionContract.includes("two hours")) {
+  failures.push("ticket selection lacks bounded stale-claim recovery");
+}
+if (!releaseRequirements.includes("at most three") || !releaseRequirements.includes("never automatically retried")) {
+  failures.push("DevOps requirements lack bounded retry rules");
+}
+if (!releaseQueueContract.includes("provision `magic-mirror-prod`")) {
+  failures.push("release queue does not own production-app provisioning");
+}
 
 for (const ticket of plan.tickets) {
   for (const resourcePath of [
@@ -125,6 +153,9 @@ for (const ticket of plan.tickets) {
 
 const branchResult = Bun.spawnSync(["git", "branch", "--show-current"], { cwd: repositoryRoot });
 const branch = branchResult.stdout.toString().trim();
+const rootResult = Bun.spawnSync(["git", "rev-parse", "--show-toplevel"], { cwd: repositoryRoot });
+const resolvedRoot = rootResult.stdout.toString().trim();
+if (resolvedRoot !== repositoryRoot) failures.push(`resolved repository root ${JSON.stringify(resolvedRoot)} differs from ${JSON.stringify(repositoryRoot)}`);
 const validBranch = /^(codex\/engineering-execution|codex\/(eng-[0-9]+|qa-[a-f0-9]+|release-[a-z0-9-]+|fix-[a-z0-9-]+)(-[a-z0-9-]+)?)$/.test(branch);
 if (!validBranch) failures.push(`branch ${JSON.stringify(branch)} does not match the execution branch contract`);
 

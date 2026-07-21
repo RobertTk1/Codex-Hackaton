@@ -29,6 +29,14 @@ During Developer, query rather than read `ticket-index.json`. Do not load the co
 | API, data, auth, state, error, screen-data, and provider contracts | `company/artifacts/engineering-plan/contracts/` | Approved implementation contracts |
 | Environment variable names only | `.env.example` | Public configuration-name contract; contains no secret values |
 
+## Repository and Application Roots
+
+- Current repository root: `/Users/talishawhite/Documents/openai-buildweek-hackathon`. Resolve it portably with `git rev-parse --show-toplevel`; the resolved directory, not the hard-coded absolute path, is authoritative at runtime.
+- Monorepo/package root: the repository root. `ENG-001` owns the root `package.json`, workspace declaration, lockfile, and repository-wide commands.
+- Deployable applications: `apps/web` and `apps/api` as established by their owning engineering tickets.
+- Shared packages: `packages/`; Supabase resources: `supabase/`; DigitalOcean specifications: `deploy/digitalocean/`.
+- Company, product, design, and planning artifacts remain under `company/` and are inputs, not deployable application roots.
+
 ## Approved UX, Copy, Mockups, and Interaction Sources
 
 | Purpose | Path | Runtime rule |

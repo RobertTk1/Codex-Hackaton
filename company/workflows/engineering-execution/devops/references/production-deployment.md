@@ -5,7 +5,7 @@ This is one atomic production-mutation task. Do not start it unless the complete
 ## Before Mutation
 
 - Reconfirm QA candidate commit and both image digests.
-- Reconfirm target `magic-mirror-prod` app ID and production Supabase project ref.
+- Reconfirm target `magic-mirror-prod` app ID and production Supabase project ref. If the app does not exist, stop and complete the dedicated adopt/provision release task first; production deployment does not create an app implicitly.
 - Validate and propose the production app spec; review the full diff and cost.
 - Record current live deployment ID, code/config/spec, image digests, health, and rollback eligibility.
 - Confirm production migration compatibility and recovery plan.

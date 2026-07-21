@@ -30,18 +30,19 @@ Allowed statuses: `pending`, `in_progress`, `blocked`, `failed`, `passed`, `roll
 ## Required Queue Order
 
 1. Verify QA handoff and candidate identity.
-2. Validate environment isolation and production access.
+2. Validate environment isolation, DigitalOcean identity/access, and authority to adopt or provision `magic-mirror-prod`.
 3. Validate checked-in dev/prod App Platform specs and drift.
-4. Verify pinned candidate images and software/dependency/security checks.
-5. Validate secrets/configuration by name, scope, and redacted presence.
-6. Verify backup/recovery and production migration compatibility.
-7. Verify zero test data before deployment.
-8. Execute production migration plus pinned-image deployment as one guarded release operation.
-9. Verify deployment, health, worker, domain/TLS, logs, and alerts.
-10. Execute non-mutating production smoke.
-11. Run post-deploy observation/canary.
-12. Verify zero test data again.
-13. Generate release record and production-completion decision.
+4. Adopt the existing production app or provision `magic-mirror-prod` in a dedicated serialized task; record app ID, project, region, cost/config summary, domains, and empty initial state without deploying an unapproved application revision.
+5. Verify pinned candidate images and software/dependency/security checks.
+6. Validate secrets/configuration by name, scope, and redacted presence.
+7. Verify backup/recovery and production migration compatibility.
+8. Verify zero test data before deployment.
+9. Execute production migration plus pinned-image deployment as one guarded release operation.
+10. Verify deployment, health, worker, domain/TLS, logs, and alerts.
+11. Execute non-mutating production smoke.
+12. Run post-deploy observation/canary.
+13. Verify zero test data again.
+14. Generate release record and production-completion decision.
 
 ## State Rules
 
@@ -51,3 +52,4 @@ Allowed statuses: `pending`, `in_progress`, `blocked`, `failed`, `passed`, `roll
 - A failed production deployment stays failed even if the prior release remains healthy.
 - A successful rollback is `rolled_back`, not passed; create a new release candidate after repair and QA.
 - Record discovered work in this queue unless it changes product scope; scope changes remain blocked until an explicit product decision updates an authoritative source.
+- Apply the bounded retry and production-mutation rules in `requirements.md`; do not silently rerun a failed production action.

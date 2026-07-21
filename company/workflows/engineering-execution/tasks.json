@@ -3,8 +3,8 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-21T16:33:43Z",
-  "current_turn": 6,
+  "updated_at": "2026-07-21T17:12:23Z",
+  "current_turn": 7,
   "execution_queue": {
     "stage": "developer",
     "authority": "company/artifacts/engineering-plan/engineering-plan.json",
@@ -15,9 +15,24 @@
     "preflight_command": "bun company/workflows/engineering-execution/scripts/validate-loop.mjs"
   },
   "stage_gates": {
-    "engineering_to_qa": "defined",
-    "qa_to_release": "defined",
-    "release_to_complete": "defined"
+    "engineering_to_qa": {
+      "status": "defined",
+      "authority": "company/workflows/engineering-execution/developer/TASK.md",
+      "pass_signal": "all required tickets completed and passing; integrated suite and clean-checkout verification passing; frozen candidate recorded",
+      "next_stage": "qa"
+    },
+    "qa_to_release": {
+      "status": "defined",
+      "authority": "company/artifacts/qa/qa-final-report.md",
+      "pass_signal": "PASS FOR DEVOPS",
+      "next_stage": "devops"
+    },
+    "release_to_complete": {
+      "status": "defined",
+      "authority": "company/artifacts/devops/releases/<release-id>/summary.md",
+      "pass_signal": "PRODUCTION DEPLOYED AND VERIFIED",
+      "next_stage": "complete"
+    }
   },
   "tasks": [
     {
@@ -101,9 +116,9 @@
       ],
       "verification": "deterministic/manual review: validate JSON, resolve source and skill paths, check the ticket index, run the six-question sanity check, and confirm loop_status is active",
       "subtasks": [],
-      "notes": "Completed during turn 6 after reconciling legacy progress/task drift. No legacy placeholder timestamp is treated as wall-clock audit evidence.",
+      "notes": "Completed during turn 6 after reconciling legacy progress/task drift. Turn 7 re-audited the original scaffold review and added explicit app-root, stale-claim, stage-controller, production-provisioning, and DevOps retry contracts. No legacy placeholder timestamp is treated as wall-clock audit evidence.",
       "created_at": "2026-07-21T16:33:43Z",
-      "updated_at": "2026-07-21T16:33:43Z"
+      "updated_at": "2026-07-21T17:12:23Z"
     }
   ]
 }

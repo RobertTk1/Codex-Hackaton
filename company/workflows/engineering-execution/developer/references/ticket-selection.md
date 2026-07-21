@@ -25,6 +25,17 @@ bun company/workflows/engineering-execution/scripts/ticket-index.mjs get <ticket
 4. Mark it `blocked` with evidence if it cannot continue.
 5. Never claim a second copy of an already-owned ticket.
 
+## Stale-Claim Recovery
+
+Age alone never invalidates a live claim. Treat an `in-progress` ticket as potentially abandoned only when all of the following are true:
+
+- no active root/worker session owns it;
+- its recorded branch/worktree has no running process or active collaborator;
+- no ticket note, progress entry, commit, or verified heartbeat has appeared for two hours; and
+- the current root agent has inspected the worktree status and recent branch history.
+
+Only the root execution agent may break a stale claim. Before doing so, record the former owner/session, branch/worktree, last known update, inspection evidence, and recovery decision in the authoritative ticket note and `progress.txt`. Preserve uncommitted or unmerged work; never delete the worktree as part of claim recovery. Resume on the existing branch when safe, otherwise mark the ticket `blocked` and create an explicit repair/recovery action.
+
 ## Eligibility
 
 A ticket is eligible only when:
@@ -55,6 +66,7 @@ Before implementation, the root agent:
 - Sets the ticket to `status: "in-progress"` through `ticket-index.mjs set` so the derived index is regenerated.
 - Keeps `passes: false`.
 - Adds bounded ownership metadata to notes or the active execution summary: session, agent, branch/worktree, and start time.
+- Updates the ticket note or progress entry with a heartbeat after any material checkpoint so stale-claim recovery has observable evidence.
 - Saves valid JSON before delegating or editing code.
 
 ## Discovered Work
