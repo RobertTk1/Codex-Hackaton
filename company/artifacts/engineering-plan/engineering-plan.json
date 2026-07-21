@@ -250,14 +250,14 @@
         "apps/api/src/config.ts",
         "scripts/smoke-api.sh"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-21T17:55:38.711Z] Claimed by root on 2026-07-21T17:55:38Z; branch codex/eng-003-typescript-api; worktree /Users/talishawhite/.codex/worktrees/eng-003-typescript-api; scope limited to native Bun API scaffold, Zod-validated base config, GET /health, root scripts, smoke and focused tests; bootstrap deployment deferred per approved sequence.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-21T17:55:38.711Z] Claimed by root on 2026-07-21T17:55:38Z; branch codex/eng-003-typescript-api; worktree /Users/talishawhite/.codex/worktrees/eng-003-typescript-api; scope limited to native Bun API scaffold, Zod-validated base config, GET /health, root scripts, smoke and focused tests; bootstrap deployment deferred per approved sequence.\n[2026-07-21T18:03:56.327Z] Implemented native Bun API scaffold with strict TypeScript, Zod-validated APP_BASE_URL/CORS/HOST/PORT configuration, documented GET /health payload, X-Request-Id responses, root API scripts, dependency rationale, process-level startup-failure coverage, and a portable health smoke. Evidence: ticket ce7e109; integrated checks bun run check, bun run build:api, bun run typecheck:api, bash scripts/smoke-api.sh, bun install --frozen-lockfile, and pristine archive install/check/build/smoke all pass. One bounded integrated rerun corrected a parallel install/build verification race; no product code defect remained. Development deployment: bootstrap-deferred until ENG-155.",
       "id": "ENG-003",
       "dependsOn": [
         "ENG-001"
       ],
-      "stateUpdatedAt": "2026-07-21T17:55:38.711Z"
+      "stateUpdatedAt": "2026-07-21T18:03:56.327Z"
     },
     {
       "title": "Establish the Vitest and Playwright command contract",

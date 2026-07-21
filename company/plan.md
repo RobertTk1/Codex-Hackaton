@@ -157,12 +157,13 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Claim and execute `ENG-003 — Scaffold the TypeScript API application` in its dedicated ticket branch/worktree.
-2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`; `ENG-001` and `ENG-002` are complete, and `bootstrap-deferred` remains permitted only for the named baseline prerequisites.
+1. Claim and execute `ENG-004 — Establish the Vitest and Playwright command contract` in its dedicated ticket branch/worktree.
+2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`; `ENG-001` through `ENG-003` are complete, and `bootstrap-deferred` remains permitted only for the named baseline prerequisites.
 3. Execute exactly one ticket per implementation turn; mark it passed only after all required evidence succeeds and synchronize the authoritative plan, derived index, and progress memory.
 
 ## Decisions
 
+- 2026-07-21: Complete `ENG-003` with a native Bun TypeScript API, Zod-validated startup configuration, documented `GET /health` response, request IDs, visible configuration failure, root commands, process-level tests, and a portable smoke; defer product routes, auth, provider calls, and deployment to their owning tickets.
 - 2026-07-21: Complete `ENG-002` with a strict Vite 8/React 19/React Router 7/Tailwind 4 web scaffold, package-local browser types, root web commands, negative typecheck coverage, production-bundle verification, and live dev-server smoke; defer visual/product routes to their owning tickets and deployment to `ENG-155`.
 - 2026-07-21: Complete `ENG-001` with a reproducible private Bun workspace, strict shared TypeScript configuration, frozen lockfile, workspace-failure test, and secret-safe ignore rules; record development deployment as `bootstrap-deferred` until the first deployable baseline at `ENG-155`.
 - 2026-07-21: Talisha White approved the 162-ticket engineering plan for runtime execution. Future execution uses the full plan as authority and a generated compact ticket index for selection.
