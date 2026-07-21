@@ -1153,14 +1153,14 @@
         "supabase/migrations/20260721000100_create_private_schema_and_helpers.sql",
         "supabase/tests/private-schema-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-21T19:31:32.919Z] Claimed turn 18 by root on codex/eng-014-private-schema at /Users/talishawhite/.codex/worktrees/eng-014-private-schema starting 2026-07-21T19:31:32Z; local Supabase only; development deployment bootstrap-deferred.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-21T19:31:32.919Z] Claimed turn 18 by root on codex/eng-014-private-schema at /Users/talishawhite/.codex/worktrees/eng-014-private-schema starting 2026-07-21T19:31:32Z; local Supabase only; development deployment bootstrap-deferred.\n[2026-07-21T19:39:19.787Z] Completed turn 18 at 2026-07-21T19:39:19Z. Ticket commit 2d953b3; integrated commit cc4e2267a3e380f35d8825f4c178cfe56fc18847. Added supabase/migrations/20260721000100_create_private_schema_and_helpers.sql, supabase/tests/private-schema-data.sql, and aggregate runner coverage. Verification passed: supabase db reset; focused pgTAP 19/19; aggregate pgTAP 27/27; intentional cross-owner leak rejected; supabase db lint --local; bun run check (7 files/25 tests); pristine archive /Users/talishawhite/.codex/worktrees/eng-014-archive.k8ovJd repeated reset, database tests, lint, and repository checks. Retry 1 corrected only pgTAP's declared assertion count; a /tmp archive correctly failed NOTESTS and was replaced by the Docker-shared pristine archive. No SECURITY DEFINER helper is introduced before a ticket supplies a verified-owner contract. Dev deployment bootstrap-deferred under ENG-155.",
       "id": "ENG-014",
       "dependsOn": [
         "ENG-005"
       ],
-      "stateUpdatedAt": "2026-07-21T19:31:32.919Z"
+      "stateUpdatedAt": "2026-07-21T19:39:19.787Z"
     },
     {
       "title": "Create profiles and profile revision constraints",
