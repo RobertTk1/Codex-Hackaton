@@ -31,7 +31,10 @@ export function startApiServer(config: ServerEnvironment): Bun.Server<undefined>
       const url = new URL(request.url);
       const { headers, requestId } = requestContext(request, config);
 
-      if (request.method === "GET" && url.pathname === "/health") {
+      if (
+        request.method === "GET" &&
+        (url.pathname === "/health" || url.pathname === "/healthz")
+      ) {
         return Response.json(HEALTH_PAYLOAD, { headers, status: 200 });
       }
 

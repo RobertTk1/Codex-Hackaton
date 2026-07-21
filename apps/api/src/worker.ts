@@ -1,4 +1,8 @@
-import { loadServerEnvironment, type ServerEnvironment } from "./env";
+import {
+  loadServerEnvironment,
+  type EnvironmentSource,
+  type ServerEnvironment,
+} from "./env";
 import { createServerOnlySupabaseClient } from "./supabase/clients";
 import {
   createDurableWorkerRuntime,
@@ -10,11 +14,19 @@ import {
 // stays healthy and idle rather than claiming work it cannot safely complete.
 const handlers: WorkerHandlerRegistry = {};
 
-export async function runWorkerProcess(configuration: ServerEnvironment): Promise<void> {
-  const workerId = `worker-${crypto.randomUUID()}`;
+export interface WorkerProcessOptions {
+  handlers?: WorkerHandlerRegistry;
+  workerId?: string;
+}
+
+export async function runWorkerProcess(
+  configuration: ServerEnvironment,
+  options: WorkerProcessOptions = {},
+): Promise<void> {
+  const workerId = options.workerId ?? `worker-${crypto.randomUUID()}`;
   const client = createServerOnlySupabaseClient(configuration);
   const runtime = createDurableWorkerRuntime({
-    handlers,
+    handlers: options.handlers ?? handlers,
     store: createSupabaseWorkerJobStore(client),
     workerId,
   });
@@ -32,9 +44,16 @@ export async function runWorkerProcess(configuration: ServerEnvironment): Promis
   }
 }
 
+export async function runWorkerProcessFromEnvironment(
+  source: EnvironmentSource,
+  options: WorkerProcessOptions = {},
+): Promise<void> {
+  await runWorkerProcess(loadServerEnvironment(source), options);
+}
+
 if (import.meta.main) {
   try {
-    await runWorkerProcess(loadServerEnvironment(Bun.env));
+    await runWorkerProcessFromEnvironment(Bun.env);
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown worker error.";
     console.error(`Worker startup failed: ${message}`);
