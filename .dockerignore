@@ -13,6 +13,10 @@ apps/**
 !apps/api/
 apps/api/**
 !apps/api/package.json
+!apps/api/tsconfig.json
+!apps/api/src/
+apps/api/src/**
+!apps/api/src/**
 !apps/web/
 apps/web/**
 !apps/web/Dockerfile
@@ -36,3 +40,7 @@ packages/**
 !packages/contracts/
 packages/contracts/**
 !packages/contracts/package.json
+!packages/contracts/tsconfig.json
+!packages/contracts/src/
+packages/contracts/src/**
+!packages/contracts/src/**

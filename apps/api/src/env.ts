@@ -30,7 +30,7 @@ const serverEnvironmentSchema = z.object({
 
 export type ServerEnvironment = z.infer<typeof serverEnvironmentSchema>;
 
-type EnvironmentSource = Record<string, string | undefined>;
+export type EnvironmentSource = Record<string, string | undefined>;
 
 function configurationError(result: z.ZodSafeParseError<unknown>, source: EnvironmentSource): Error {
   const issue = result.error.issues[0];
