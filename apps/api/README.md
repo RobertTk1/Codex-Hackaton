@@ -28,3 +28,11 @@ Database and Storage calls use the scoped constructors in
 continues to enforce the verified customer identity. Only API/worker code may
 construct the separately typed server-only client. Both return query data as
 `unknown`; the calling capability must parse it with its approved Zod schema.
+
+## Durable worker
+
+Run the single worker process with `bun run start:worker` from the repository
+root (`bun run dev:worker` enables watch mode). The runtime polls only job kinds
+with registered handlers, renews active leases, and releases interrupted work
+through service-role-only RPCs. Feature tickets add handlers; an empty registry
+is intentionally idle and never consumes queued work.
