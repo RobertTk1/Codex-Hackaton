@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T18:19:26.771Z",
+  "generated_at": "2026-07-21T18:23:34.401Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "32bed0f44b064d240d9470b6abe202c096b5998811a1243c9585f14fd6fdb72f",
+  "source_plan_sha256": "82110ad88b31afac665f5abb5d854e41d264283dbae282600593f5efc2cb92a1",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 4,
   "status_counts": {
     "completed": 4,
-    "not-started": 158
+    "in-progress": 1,
+    "not-started": 157
   },
   "next_ticket_id": "ENG-005",
   "tickets": [
@@ -120,7 +121,7 @@
       "id": "ENG-005",
       "title": "Configure local Supabase migration and policy tests",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-001"

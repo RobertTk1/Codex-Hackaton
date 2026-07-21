@@ -414,13 +414,14 @@
         "supabase/seed.sql",
         "supabase/tests/harness.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-21T18:23:34.394Z] Claimed by root at 2026-07-21T18:23:34Z; branch codex/eng-005-supabase-harness; worktree /Users/talishawhite/.codex/worktrees/eng-005-supabase-harness; scope limited to isolated local Supabase config, baseline test roles, deterministic seed harness, pgTAP policy runner, reset proof, and intentional leak failure proof; no linked or production project mutation; bootstrap deployment deferred per approved sequence.",
       "id": "ENG-005",
       "dependsOn": [
         "ENG-001"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-21T18:23:34.394Z"
     },
     {
       "title": "Validate server and browser environment boundaries",
