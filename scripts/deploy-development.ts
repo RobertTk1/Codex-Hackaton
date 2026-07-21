@@ -78,7 +78,7 @@ async function runDoctl(arguments_: string[], output: DoctlOutput = "json"): Pro
   return parseDoctlOutput(stdout, output);
 }
 
-function appState(value: unknown): SafeAppState {
+export function appState(value: unknown): SafeAppState {
   const values = Array.isArray(value) ? value : [value];
   const candidate = values
     .map((entry, index) => record(entry, `apps[${index}]`))
@@ -90,7 +90,7 @@ function appState(value: unknown): SafeAppState {
   const spec = record(candidate.spec, "app.spec");
   const deployment = record(candidate.active_deployment, "app.active_deployment");
   const componentNames = ["static_sites", "services", "workers"].flatMap((key) =>
-    array(spec[key], `app.spec.${key}`).map((component, index) =>
+    (spec[key] === undefined ? [] : array(spec[key], `app.spec.${key}`)).map((component, index) =>
       string(record(component, `app.spec.${key}[${index}]`).name, `app.spec.${key}[${index}].name`),
     ),
   );

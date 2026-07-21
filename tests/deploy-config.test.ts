@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { describe, expect, test } from "vitest";
 
 import {
+  appState,
   assertDevelopmentOnlyInvocation,
   assertSafeRollbackValidation,
   findDevelopmentAppId,
@@ -175,6 +176,27 @@ describe("DigitalOcean deployment contract", () => {
     expect(
       findDevelopmentAppId([{ id: "production-app-id", spec: { name: "magic-mirror-prod" } }]),
     ).toBeNull();
+  });
+
+  test("reads the image-only three-component app without requiring a static site", () => {
+    expect(
+      appState({
+        active_deployment: { id: "deployment-id", phase: "ACTIVE" },
+        default_ingress: "https://magic-mirror-dev.example",
+        id: "development-app-id",
+        spec: {
+          name: "magic-mirror-dev",
+          services: [{ name: "magic-mirror-web" }, { name: "magic-mirror-api" }],
+          workers: [{ name: "magic-mirror-worker" }],
+        },
+      }),
+    ).toEqual({
+      activeDeploymentId: "deployment-id",
+      appId: "development-app-id",
+      componentNames: ["magic-mirror-web", "magic-mirror-api", "magic-mirror-worker"],
+      defaultIngress: "https://magic-mirror-dev.example",
+      phase: "ACTIVE",
+    });
   });
 
   test("root package exposes stable validation and development-only deployment commands", async () => {
