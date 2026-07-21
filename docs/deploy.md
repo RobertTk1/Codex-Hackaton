@@ -12,6 +12,8 @@ Both app-spec templates contain exactly three components:
 
 The DigitalOcean-provided hostname is environment-specific because each app has a unique name. The API is routed under `/api`; the web component owns `/`. Both images are immutable, independently pinned digests. App Platform never reads a Git branch directly, so deployment does not depend on a DigitalOcean GitHub OAuth installation and cannot deploy on push.
 
+Build both deployment images for `linux/amd64`, even when the developer workstation is Apple Silicon. DigitalOcean App Platform rejects a native ARM image at process start. Label both images with the exact integrated commit (`org.opencontainers.image.revision`), push them to their separate DOCR repositories, and deploy the registry-reported digests rather than mutable tags.
+
 ## Secret and data isolation
 
 The committed YAML files are templates. They contain environment-specific variable references, never credential values. DigitalOcean receives rendered development values only through an ignored `.env.digitalocean.dev.local` file and stores credential fields as encrypted `SECRET` variables. Do not commit that file or a rendered app spec.
