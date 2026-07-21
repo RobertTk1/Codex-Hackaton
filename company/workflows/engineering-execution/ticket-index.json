@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T18:07:40.348Z",
+  "generated_at": "2026-07-21T18:19:26.771Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "7d4299bf7509a2339b94544758f550ce7e12995c8e42728d275001e2fcf00ba5",
+  "source_plan_sha256": "32bed0f44b064d240d9470b6abe202c096b5998811a1243c9585f14fd6fdb72f",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 162,
   "eligible_count": 2,
-  "passing_count": 3,
+  "passing_count": 4,
   "status_counts": {
-    "completed": 3,
-    "in-progress": 1,
+    "completed": 4,
     "not-started": 158
   },
-  "next_ticket_id": "ENG-004",
+  "next_ticket_id": "ENG-005",
   "tickets": [
     {
       "order": 1,
@@ -100,8 +99,8 @@
       "id": "ENG-004",
       "title": "Establish the Vitest and Playwright command contract",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-002",
         "ENG-003"
@@ -110,8 +109,11 @@
         "IR-002",
         "IR-019"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 5,
@@ -183,10 +185,8 @@
       "readinessPrerequisites": [
         "IR-001"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-004"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 9,
@@ -765,7 +765,6 @@
         "dependency:ENG-034",
         "dependency:ENG-035",
         "dependency:ENG-036",
-        "dependency:ENG-004",
         "bootstrap:ENG-155"
       ]
     },
@@ -808,7 +807,6 @@
         "dependency:ENG-034",
         "dependency:ENG-035",
         "dependency:ENG-036",
-        "dependency:ENG-004",
         "bootstrap:ENG-155"
       ]
     },

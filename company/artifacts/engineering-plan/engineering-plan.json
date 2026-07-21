@@ -333,15 +333,15 @@
         "package.json",
         "bun.lock"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "Dependencies: Vitest and Playwright provide unit/component and observable browser proof that type checking cannot supply; development-only, established tooling pinned at the root.\n[2026-07-21T18:07:40.339Z] Claimed by root at 2026-07-21T18:07:40Z; branch codex/eng-004-test-harness; worktree /Users/talishawhite/.codex/worktrees/eng-004-test-harness; scope limited to root Vitest/Playwright command contract, exact focused-file syntax, and one passing smoke per application; bootstrap deployment deferred per approved sequence.",
+      "status": "completed",
+      "passes": true,
+      "notes": "Dependencies: Vitest and Playwright provide unit/component and observable browser proof that type checking cannot supply; development-only, established tooling pinned at the root.\n[2026-07-21T18:07:40.339Z] Claimed by root at 2026-07-21T18:07:40Z; branch codex/eng-004-test-harness; worktree /Users/talishawhite/.codex/worktrees/eng-004-test-harness; scope limited to root Vitest/Playwright command contract, exact focused-file syntax, and one passing smoke per application; bootstrap deployment deferred per approved sequence.\n[2026-07-21T18:19:26.765Z] Implemented pinned Vitest 4.1.10 projects and Playwright 1.61.1 Chromium harness with stable root/focused commands, repository/API/web project separation, migrated scaffold coverage, one smoke suite per application, named local-server browser smoke, console/network assertions, dependency rationale, generated-artifact ignores, and automated nonzero failure-exit proof. Evidence: ticket commits 5424057 and a4b825f; integrated 88fa966; bun install --frozen-lockfile, bun run check, bun run test -- --reporter=verbose (repository/api/web projects), bun run test -- apps/api/test/smoke.test.ts, bun run test -- tests/test-harness.test.ts, bun run test:e2e -- apps/web/e2e/smoke.spec.ts, bun run build:web, and bun run build:api pass in the ticket worktree, integrated checkout, and pristine archive. Two bounded migration retries replaced Bun-only test globals and import.meta.dir with Node-compatible process/path boundaries required by Vitest. Development deployment: bootstrap-deferred until ENG-155.",
       "id": "ENG-004",
       "dependsOn": [
         "ENG-002",
         "ENG-003"
       ],
-      "stateUpdatedAt": "2026-07-21T18:07:40.339Z"
+      "stateUpdatedAt": "2026-07-21T18:19:26.765Z"
     },
     {
       "title": "Configure local Supabase migration and policy tests",
