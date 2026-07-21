@@ -3,16 +3,34 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-21T17:30:00Z",
-  "current_turn": 8,
+  "updated_at": "2026-07-21T17:33:39Z",
+  "current_turn": 9,
   "execution_queue": {
     "stage": "developer",
+    "status": "in_progress",
     "authority": "company/artifacts/engineering-plan/engineering-plan.json",
     "index": "company/workflows/engineering-execution/ticket-index.json",
     "freshness_command": "bun company/workflows/engineering-execution/scripts/ticket-index.mjs check",
     "selection_command": "bun company/workflows/engineering-execution/scripts/ticket-index.mjs next",
     "ticket_command": "bun company/workflows/engineering-execution/scripts/ticket-index.mjs get <ticket-id>",
-    "preflight_command": "bun company/workflows/engineering-execution/scripts/validate-loop.mjs"
+    "preflight_command": "bun company/workflows/engineering-execution/scripts/validate-loop.mjs",
+    "preflight": {
+      "status": "passed",
+      "completed_at": "2026-07-21T17:33:39Z",
+      "repository_root": "/Users/talishawhite/Documents/openai-buildweek-hackathon",
+      "branch": "codex/engineering-execution",
+      "next_ticket_id": "ENG-001",
+      "evidence": [
+        "Approved 162-ticket plan has no missing required ticket fields",
+        "IR-002 and IR-003 are ready",
+        "validate-loop.mjs passes all 32 project sources and 18 installed skills",
+        "ticket-index.mjs check and next pass with ENG-001 eligible",
+        "Bun 1.3.11, Supabase CLI 2.75.0, and Git 2.50.1 are available",
+        ".env.example contains names only and .gitignore excludes local secret files",
+        "Repository is clean and no engineering ticket is already claimed"
+      ],
+      "notes": "A local TypeScript compiler is not present before workspace scaffolding; ENG-001 owns adding the required development dependency and lockfile. An attempted npx tsc lookup returned the unrelated deprecated tsc package and is not treated as compiler evidence. Bootstrap deployment remains deferred under the approved ENG-001-through-ENG-155 sequence."
+    }
   },
   "stage_gates": {
     "engineering_to_qa": {

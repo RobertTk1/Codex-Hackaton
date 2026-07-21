@@ -102,6 +102,9 @@ if (workflowState.loop_status !== "active") failures.push(`loop status is ${work
 if (workflowState.execution_queue?.stage !== workflowState.current_stage) {
   failures.push("execution queue stage differs from current_stage");
 }
+if (!["pending", "in_progress", "blocked", "complete"].includes(workflowState.execution_queue?.status)) {
+  failures.push("execution queue lacks a valid workflow-controller status");
+}
 for (const [gateId, gate] of Object.entries(workflowState.stage_gates ?? {})) {
   if (gate?.status !== "defined" || !gate.authority || !gate.pass_signal || !gate.next_stage) {
     failures.push(`${gateId} does not define status, authority, pass_signal, and next_stage`);

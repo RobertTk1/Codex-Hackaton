@@ -157,9 +157,9 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Finalize and activate the engineering-execution workflow against the approved engineering plan.
-2. Select the first dependency-ready engineering ticket from the derived ticket index using report-led release priority and early risk-spike timing.
-3. Execute exactly one ticket per implementation turn; mark it passed only after all automated and manual evidence succeeds.
+1. Claim and execute `ENG-001 — Create the root Bun workspace` in its dedicated ticket branch/worktree.
+2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`, using `bootstrap-deferred` only for its explicitly permitted prerequisite tickets.
+3. Execute exactly one ticket per implementation turn; mark it passed only after all required evidence succeeds and synchronize the authoritative plan, derived index, and progress memory.
 
 ## Decisions
 
