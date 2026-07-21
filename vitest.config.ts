@@ -17,6 +17,10 @@ export default defineConfig({
       }),
       defineProject({
         test: {
+          // Web smoke coverage temporarily writes an invalid source fixture to
+          // prove the type gate. Keep web files serial so container builds
+          // never copy that deliberately invalid fixture.
+          fileParallelism: false,
           include: ["apps/web/test/**/*.test.ts"],
           name: "web",
         },
