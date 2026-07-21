@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T19:56:43.971Z",
+  "generated_at": "2026-07-21T20:03:13.714Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "e6938bc4f823ada32770c946a3bc8afa3229691b4b6d2184c12a224c6b3be419",
+  "source_plan_sha256": "3814113c6b96a36a935e53fd1c2abc5fac8656b3fd9a520b677ccbd345a26d12",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 10,
   "status_counts": {
     "completed": 10,
-    "not-started": 152
+    "in-progress": 1,
+    "not-started": 151
   },
   "next_ticket_id": "ENG-039",
   "tickets": [
@@ -816,7 +817,7 @@
       "id": "ENG-039",
       "title": "Authenticate requests and derive immutable owner identity",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-008"

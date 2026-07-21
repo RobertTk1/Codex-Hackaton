@@ -3255,13 +3255,14 @@
         "apps/api/src/http/auth.ts",
         "apps/api/test/http-auth.test.ts"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-21T20:03:13.706Z] Turn 20 root claim at 2026-07-21T20:03:13Z; owner root; branch codex/eng-039-request-auth; worktree /Users/talishawhite/.codex/worktrees/eng-039-request-auth. Implement verified Supabase bearer-token authentication only; deployment bootstrap-deferred.",
       "id": "ENG-039",
       "dependsOn": [
         "ENG-008"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-21T20:03:13.706Z"
     },
     {
       "title": "Return normalized API errors and request IDs",
