@@ -13338,14 +13338,15 @@
       "filesLikelyTouched": [
         ".github/workflows/ci.yml"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-21T21:48:16.505Z] Claimed 2026-07-21T21:48:16Z on codex/eng-154-ci-quality-current from integration 253896e. The stale codex/eng-154-ci-quality worktree based on 6607bbe is preserved untouched and is not authoritative.",
       "id": "ENG-154",
       "dependsOn": [
         "ENG-005",
         "ENG-013"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-21T21:48:16.505Z"
     },
     {
       "title": "Provision and validate the DigitalOcean development deployment",

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T21:42:32.943Z",
+  "generated_at": "2026-07-21T21:48:16.511Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "79dfdef1c824980a9a4daa7299ce90e80f214ea62f3689305d99c25ea1a35eea",
+  "source_plan_sha256": "877a9c3d476d385546d8c2940481674825c75ea76790eeb2aead320a2bf0cb56",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 15,
   "status_counts": {
     "completed": 15,
-    "not-started": 147
+    "in-progress": 1,
+    "not-started": 146
   },
   "next_ticket_id": "ENG-154",
   "tickets": [
@@ -3183,7 +3184,7 @@
       "id": "ENG-154",
       "title": "Run repository quality gates in CI",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-005",
