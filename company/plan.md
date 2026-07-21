@@ -157,12 +157,13 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Claim and execute `ENG-043 — Create scoped server Supabase clients` in its dedicated ticket branch/worktree.
-2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`; eleven tickets now pass (`ENG-001` through `ENG-006`, `ENG-008`, `ENG-013`, `ENG-014`, `ENG-024`, and `ENG-039`), and `bootstrap-deferred` remains permitted only for the named baseline prerequisites.
+1. Claim and execute `ENG-046 — Run one durable Bun worker process safely` in its dedicated ticket branch/worktree.
+2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`; twelve tickets now pass (`ENG-001` through `ENG-006`, `ENG-008`, `ENG-013`, `ENG-014`, `ENG-024`, `ENG-039`, and `ENG-043`), and `bootstrap-deferred` remains permitted only for the named baseline prerequisites.
 3. Execute exactly one ticket per implementation turn; mark it passed only after all required evidence succeeds and synchronize the authoritative plan, derived index, and progress memory.
 
 ## Decisions
 
+- 2026-07-21: Complete `ENG-043` with distinct nominal user-token and server-only Supabase clients, official request-scoped access-token forwarding that preserves RLS, API-only service-role construction, untrusted database boundary types, safe configuration failures, and a browser compilation/dependency boundary; verify the exact commit and integrated result while keeping deployment deferred to `ENG-155`.
 - 2026-07-21: Complete `ENG-039` with strict bearer parsing, server-side Supabase `getUser` verification using the publishable key, Zod-validated immutable owner context, explicit anonymous/permanent identity state, shared normalized auth errors, and no request-body or user-metadata ownership path; verify both fixtures and real local anonymous tokens while keeping deployment deferred to `ENG-155`.
 - 2026-07-21: Complete `ENG-024` with private/RLS-protected processing-job records, bounded discriminated error and lifecycle checks, durable idempotency and worker indexes, and a fixed-search-path service-role-only atomic claim/reclaim function using `FOR UPDATE SKIP LOCKED`; keep worker/provider execution out of this data ticket.
 - 2026-07-21: Complete `ENG-014` with a non-exposed `private` schema, explicit least-privilege schema/default grants, an empty-search-path `SECURITY INVOKER` updated-at trigger helper, and 19 focused pgTAP checks; introduce no `SECURITY DEFINER` helper before its owning ticket can enforce a verified-owner contract.

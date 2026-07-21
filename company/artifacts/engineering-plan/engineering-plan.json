@@ -3576,15 +3576,15 @@
         "apps/api/package.json",
         "bun.lock"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "Dependency: @supabase/supabase-js implements supported Auth, RLS-preserving database, and Storage protocols; the official SDK is safer and smaller to maintain than reimplementing Supabase protocols.\n[2026-07-21T20:21:16.388Z] Turn 21 root claim at 2026-07-21T20:21:16Z; owner root; branch codex/eng-043-scoped-supabase-clients; worktree /Users/talishawhite/.codex/worktrees/eng-043-scoped-supabase-clients. Implement separated request-token and server-only Supabase clients only; deployment bootstrap-deferred.",
+      "status": "completed",
+      "passes": true,
+      "notes": "Dependency: @supabase/supabase-js implements supported Auth, RLS-preserving database, and Storage protocols; the official SDK is safer and smaller to maintain than reimplementing Supabase protocols.\n[2026-07-21T20:21:16.388Z] Turn 21 root claim at 2026-07-21T20:21:16Z; owner root; branch codex/eng-043-scoped-supabase-clients; worktree /Users/talishawhite/.codex/worktrees/eng-043-scoped-supabase-clients. Implement separated request-token and server-only Supabase clients only; deployment bootstrap-deferred.\n[2026-07-21T20:30:31.507Z] Integrated 1763c5696b439855c6dcffb5eb4c891c05c27d9a; focused 5/5, full 35/35, strict typecheck, API/web builds, clean exact-commit verification, RLS bearer forwarding and browser-boundary assertions passed; development deployment bootstrap-deferred. Completed 2026-07-21T20:30:31Z.",
       "id": "ENG-043",
       "dependsOn": [
         "ENG-006",
         "ENG-039"
       ],
-      "stateUpdatedAt": "2026-07-21T20:21:16.388Z"
+      "stateUpdatedAt": "2026-07-21T20:30:31.507Z"
     },
     {
       "title": "Create the browser Supabase Auth client",
