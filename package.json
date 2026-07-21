@@ -25,6 +25,7 @@
     "typecheck:api": "bun run --cwd apps/api typecheck",
     "typecheck:contracts": "bun run --cwd packages/contracts typecheck",
     "typecheck": "tsc --noEmit --project tsconfig.json && bun run typecheck:web && bun run typecheck:api && bun run typecheck:contracts",
+    "lint": "oxlint --deny-warnings apps packages tests scripts playwright.config.ts vitest.config.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
@@ -32,11 +33,12 @@
     "db:reset": "supabase db reset",
     "test:db": "bash scripts/test-supabase-policies.sh",
     "playwright:install": "playwright install chromium",
-    "check": "bun run validate:workspaces && bun run typecheck && bun run test"
+    "check": "bun run validate:workspaces && bun run lint && bun run typecheck && bun run test"
   },
   "devDependencies": {
     "@playwright/test": "1.61.1",
     "@types/bun": "1.3.14",
+    "oxlint": "1.74.0",
     "typescript": "7.0.2",
     "vitest": "4.1.10"
   }

@@ -10,6 +10,7 @@ bun run playwright:install
 ## Stable root commands
 
 ```bash
+bun run lint
 bun run test
 bun run test:e2e
 bun run check
@@ -62,3 +63,8 @@ the resulting cross-owner leak.
   cannot provide; development-only with no production-bundle impact, mature,
   and pinned at the root. Its comparatively large browser binary lives in the
   developer or CI cache rather than the repository.
+- `oxlint`: provides fast deterministic static analysis for application,
+  package, test, script, and executable configuration TypeScript/JavaScript;
+  the existing compiler and test runner do not enforce lint rules. It is
+  development-only, pinned, adds no production bundle weight, and is maintained
+  with the Oxc toolchain.
