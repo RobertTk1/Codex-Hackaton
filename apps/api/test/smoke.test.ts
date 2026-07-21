@@ -46,8 +46,17 @@ describe("API smoke", () => {
         ...process.env,
         APP_BASE_URL: "http://127.0.0.1:5173",
         CORS_ALLOWED_ORIGINS: "http://127.0.0.1:5173",
+        DECART_API_KEY: "test-decart-key",
+        EMAIL_DELIVERY_API_KEY: "test-email-key",
+        EMAIL_FROM_ADDRESS: "test@magicmirror.example",
+        GEMINI_API_KEY: "test-gemini-key",
         HOST: "127.0.0.1",
+        OPENAI_API_KEY: "test-openai-key",
         PORT: String(port),
+        SHOPIFY_AGENT_PROFILE_URL: "https://shopify.example/ucp",
+        SUPABASE_SERVICE_ROLE_KEY: "test-service-role-key",
+        VITE_SUPABASE_PUBLISHABLE_KEY: "test-publishable-key",
+        VITE_SUPABASE_URL: "https://project.supabase.co",
       },
       stdio: ["ignore", "pipe", "pipe"],
     });
@@ -85,21 +94,34 @@ describe("API smoke", () => {
     }
   });
 
-  // Given missing base configuration, when startup runs, then it fails visibly.
-  test("startup without required base configuration fails visibly", () => {
+  // Given invalid base configuration, when startup runs, then it names only that variable.
+  test("startup with invalid base configuration fails without exposing values", () => {
     const result = spawnSync("bun", ["apps/api/src/server.ts"], {
       cwd: repositoryRoot,
       encoding: "utf8",
       env: {
-        APP_BASE_URL: "",
-        CORS_ALLOWED_ORIGINS: "",
+        APP_BASE_URL: "not-a-url",
+        CORS_ALLOWED_ORIGINS: "http://127.0.0.1:5173",
+        DECART_API_KEY: "test-decart-key",
+        EMAIL_DELIVERY_API_KEY: "test-email-key",
+        EMAIL_FROM_ADDRESS: "test@magicmirror.example",
+        GEMINI_API_KEY: "test-gemini-key",
+        HOST: "127.0.0.1",
+        OPENAI_API_KEY: "test-openai-key",
         PATH: process.env.PATH ?? "",
+        PORT: "3000",
+        SHOPIFY_AGENT_PROFILE_URL: "https://shopify.example/ucp",
+        SUPABASE_SERVICE_ROLE_KEY: "test-service-role-key",
+        VITE_SUPABASE_PUBLISHABLE_KEY: "test-publishable-key",
+        VITE_SUPABASE_URL: "https://project.supabase.co",
       },
     });
 
     expect(result.status).not.toBe(0);
-    expect(result.stderr).toContain("API startup failed");
-    expect(result.stderr).toContain("APP_BASE_URL");
-    expect(result.stderr).toContain("CORS_ALLOWED_ORIGINS");
+    expect(result.stderr.trim()).toBe(
+      "API startup failed: Invalid server environment variable: APP_BASE_URL.",
+    );
+    expect(result.stderr).not.toContain("not-a-url");
+    expect(result.stderr).not.toContain("test-service-role-key");
   });
 });

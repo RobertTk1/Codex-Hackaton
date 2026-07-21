@@ -20,8 +20,17 @@ trap cleanup EXIT
 
 APP_BASE_URL="http://127.0.0.1:5173" \
 CORS_ALLOWED_ORIGINS="http://127.0.0.1:5173" \
+DECART_API_KEY="test-decart-key" \
+EMAIL_DELIVERY_API_KEY="test-email-key" \
+EMAIL_FROM_ADDRESS="test@magicmirror.example" \
+GEMINI_API_KEY="test-gemini-key" \
 HOST="127.0.0.1" \
+OPENAI_API_KEY="test-openai-key" \
 PORT="${smoke_port}" \
+SHOPIFY_AGENT_PROFILE_URL="https://shopify.example/ucp" \
+SUPABASE_SERVICE_ROLE_KEY="test-service-role-key" \
+VITE_SUPABASE_PUBLISHABLE_KEY="test-publishable-key" \
+VITE_SUPABASE_URL="https://project.supabase.co" \
 bun run --cwd "${repo_dir}/apps/api" start \
   >"${temporary_dir}/server.log" \
   2>"${temporary_dir}/server.err" &

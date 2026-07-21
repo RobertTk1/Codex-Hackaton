@@ -1,4 +1,4 @@
-import { loadServerConfig, type ServerConfig } from "./config";
+import { loadServerEnvironment, type ServerEnvironment } from "./env";
 
 export const HEALTH_PAYLOAD = {
   service: "magic-mirror-api",
@@ -7,7 +7,7 @@ export const HEALTH_PAYLOAD = {
 
 function requestContext(
   request: Request,
-  config: ServerConfig,
+  config: ServerEnvironment,
 ): { headers: Headers; requestId: string } {
   const requestId = crypto.randomUUID();
   const headers = new Headers({
@@ -23,7 +23,7 @@ function requestContext(
   return { headers, requestId };
 }
 
-export function startApiServer(config: ServerConfig): Bun.Server<undefined> {
+export function startApiServer(config: ServerEnvironment): Bun.Server<undefined> {
   return Bun.serve({
     hostname: config.HOST,
     port: config.PORT,
@@ -50,7 +50,7 @@ export function startApiServer(config: ServerConfig): Bun.Server<undefined> {
 
 if (import.meta.main) {
   try {
-    const config = loadServerConfig(Bun.env);
+    const config = loadServerEnvironment(Bun.env);
     const server = startApiServer(config);
 
     console.info(
