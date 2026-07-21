@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T20:14:38.748Z",
+  "generated_at": "2026-07-21T20:21:16.395Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "254470aadbfb3b63ad3690af72311a1674de6a50d123ce990e0e05d171ff4f2f",
+  "source_plan_sha256": "3a1a4224b038cd9db48cfed82b5b9d4b2139cc8f4a5b2076cdf9b626487d1a4e",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 11,
   "status_counts": {
     "completed": 11,
-    "not-started": 151
+    "in-progress": 1,
+    "not-started": 150
   },
   "next_ticket_id": "ENG-043",
   "tickets": [
@@ -888,7 +889,7 @@
       "id": "ENG-043",
       "title": "Create scoped server Supabase clients",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-006",
