@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    min-width: 20rem;
+    min-height: 100%;
+    color-scheme: light;
+  }
+
+  body,
+  #root {
+    min-height: 100vh;
+    margin: 0;
+  }
+}

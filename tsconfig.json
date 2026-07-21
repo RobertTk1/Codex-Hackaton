@@ -33,10 +33,6 @@
     "verbatimModuleSyntax": true
   },
   "include": [
-    "apps/**/*.ts",
-    "apps/**/*.tsx",
-    "packages/**/*.ts",
-    "packages/**/*.tsx",
     "scripts/**/*.ts",
     "tests/**/*.ts"
   ],

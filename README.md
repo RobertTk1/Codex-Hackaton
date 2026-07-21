@@ -7,6 +7,14 @@ bun install --frozen-lockfile
 bun run check
 ```
 
+The web workspace is available through root commands:
+
+```bash
+bun run dev:web
+bun run typecheck:web
+bun run build:web
+```
+
 Deployable applications live under `apps/`; shared packages live under `packages/`. Literal workspace entries must point to an existing package, while the approved `apps/*` and `packages/*` bootstrap globs may be empty until their owning engineering tickets scaffold them.
 
 ## Root development dependencies
