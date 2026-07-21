@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T19:14:05.866Z",
+  "generated_at": "2026-07-21T19:24:33.043Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "c60f07da71d2acb8020b3e509f0e8cfa6ebc381a66e769729b078c5a7796686f",
+  "source_plan_sha256": "752f4afadb8161a90b2c564b639e2c3aa8e641c8de25edb4435bd2760ff1abe9",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 162,
   "eligible_count": 4,
-  "passing_count": 7,
+  "passing_count": 8,
   "status_counts": {
-    "completed": 7,
-    "in-progress": 1,
+    "completed": 8,
     "not-started": 154
   },
-  "next_ticket_id": "ENG-013",
+  "next_ticket_id": "ENG-014",
   "tickets": [
     {
       "order": 1,
@@ -271,16 +270,19 @@
       "id": "ENG-013",
       "title": "Implement live-session, voice, and gesture contracts",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-008"
       ],
       "readinessPrerequisites": [
         "IR-001"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 14,
@@ -1882,7 +1884,6 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-032",
-        "dependency:ENG-013",
         "dependency:ENG-043",
         "bootstrap:ENG-155"
       ]
@@ -2317,7 +2318,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-013",
         "bootstrap:ENG-155"
       ]
     },
@@ -3242,10 +3242,8 @@
       "readinessPrerequisites": [
         "IR-013"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-013"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 155,

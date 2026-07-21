@@ -1068,14 +1068,14 @@
         "packages/contracts/src/live.ts",
         "packages/contracts/test/live.test.ts"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-21T19:14:05.859Z] Claimed 2026-07-21T19:14:05Z by root turn 17 on branch codex/eng-013-live-contracts at /Users/talishawhite/.codex/worktrees/eng-013-live-contracts; scope is closed live-session, realtime credential, voice/gesture state, and shared action Zod schemas plus focused fixtures; dev deployment bootstrap-deferred.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-21T19:14:05.859Z] Claimed 2026-07-21T19:14:05Z by root turn 17 on branch codex/eng-013-live-contracts at /Users/talishawhite/.codex/worktrees/eng-013-live-contracts; scope is closed live-session, realtime credential, voice/gesture state, and shared action Zod schemas plus focused fixtures; dev deployment bootstrap-deferred.\n[2026-07-21T19:24:33.038Z] Passing on integrated commit 917cba8caa0efb30a0f628ad11f1ead2f2070aca; ticket commit 71f35b6. Added @magic-mirror/contracts/live closed Zod schemas for live-session creation/snapshots/transitions, voice and gesture substates, Decart/Gemini credential requests and bundles, both Gemini context-consent modes, all nine shared action variants, stable error-code projections, confirmation tokens/decisions, and end reasons. Verified: bun install --frozen-lockfile; focused live contracts 8/8; all nine action discriminators exercised; unknown top-level/nested fields and invalid action/source/confidence/consent/lineage/time combinations rejected; bun run typecheck; bun run check (7 files/25 tests); git diff --check; pristine archive /tmp/magic-mirror-eng013.2YS3Pq passed frozen install, focused test, typecheck, and full check. No routes, provider calls, persistence, or UI added. dev_deployment=bootstrap-deferred under the approved ENG-155 first-baseline sequence.",
       "id": "ENG-013",
       "dependsOn": [
         "ENG-008"
       ],
-      "stateUpdatedAt": "2026-07-21T19:14:05.859Z"
+      "stateUpdatedAt": "2026-07-21T19:24:33.038Z"
     },
     {
       "title": "Create the private schema and least-privilege helper baseline",
