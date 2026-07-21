@@ -3255,14 +3255,14 @@
         "apps/api/src/http/auth.ts",
         "apps/api/test/http-auth.test.ts"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-21T20:03:13.706Z] Turn 20 root claim at 2026-07-21T20:03:13Z; owner root; branch codex/eng-039-request-auth; worktree /Users/talishawhite/.codex/worktrees/eng-039-request-auth. Implement verified Supabase bearer-token authentication only; deployment bootstrap-deferred.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-21T20:03:13.706Z] Turn 20 root claim at 2026-07-21T20:03:13Z; owner root; branch codex/eng-039-request-auth; worktree /Users/talishawhite/.codex/worktrees/eng-039-request-auth. Implement verified Supabase bearer-token authentication only; deployment bootstrap-deferred.\n[2026-07-21T20:14:38.739Z] Completed 2026-07-21T20:14:38Z. Ticket commit 92246573c940f6368d5c1697f791b89086e77bed; integrated commit b07e3d9598d02d02de6bf21c8b91850514e95399. Added apps/api/src/http/auth.ts, apps/api/test/http-auth.test.ts, pinned @supabase/supabase-js 2.110.8 and the shared contracts workspace dependency. Verification: focused auth 5/5; full repository 8 files/30 tests; strict typecheck; API build; frozen install; secret scan; real local Supabase anonymous token owner/status and invalid-token 401 passed before and after integration; pristine archive /Users/talishawhite/.codex/worktrees/eng-039-archive.qqTbhz passed. Request body and user_metadata owner claims are ignored. Dev deployment bootstrap-deferred until ENG-155.",
       "id": "ENG-039",
       "dependsOn": [
         "ENG-008"
       ],
-      "stateUpdatedAt": "2026-07-21T20:03:13.706Z"
+      "stateUpdatedAt": "2026-07-21T20:14:38.739Z"
     },
     {
       "title": "Return normalized API errors and request IDs",

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T20:03:13.714Z",
+  "generated_at": "2026-07-21T20:14:38.748Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "3814113c6b96a36a935e53fd1c2abc5fac8656b3fd9a520b677ccbd345a26d12",
+  "source_plan_sha256": "254470aadbfb3b63ad3690af72311a1674de6a50d123ce990e0e05d171ff4f2f",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 162,
   "eligible_count": 3,
-  "passing_count": 10,
+  "passing_count": 11,
   "status_counts": {
-    "completed": 10,
-    "in-progress": 1,
+    "completed": 11,
     "not-started": 151
   },
-  "next_ticket_id": "ENG-039",
+  "next_ticket_id": "ENG-043",
   "tickets": [
     {
       "order": 1,
@@ -817,16 +816,19 @@
       "id": "ENG-039",
       "title": "Authenticate requests and derive immutable owner identity",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-008"
       ],
       "readinessPrerequisites": [
         "IR-006"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 40,
@@ -859,7 +861,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-039",
         "dependency:ENG-040",
         "dependency:ENG-036",
         "bootstrap:ENG-155"
@@ -896,10 +897,8 @@
       "readinessPrerequisites": [
         "IR-006"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-039"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 44,
