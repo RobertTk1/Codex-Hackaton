@@ -13338,15 +13338,15 @@
       "filesLikelyTouched": [
         ".github/workflows/ci.yml"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-21T21:48:16.505Z] Claimed 2026-07-21T21:48:16Z on codex/eng-154-ci-quality-current from integration 253896e. The stale codex/eng-154-ci-quality worktree based on 6607bbe is preserved untouched and is not authoritative.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-21T21:48:16.505Z] Claimed 2026-07-21T21:48:16Z on codex/eng-154-ci-quality-current from integration 253896e. The stale codex/eng-154-ci-quality worktree based on 6607bbe is preserved untouched and is not authoritative.\n[2026-07-21T22:24:06.492Z] Integrated CI quality gates at a30ccd0618b1ca100735ae85c6a601ea8be65330. GitHub Actions run 29873317900 passed lint, typecheck, local Supabase migration/reset, API image build, 57 unit/contract tests, 91 pgTAP assertions, schema lint, and browser smoke; raw logs matched none of seven secret probes. Failure run 29872429516 stopped at the failing unit/contract gate and skipped downstream gates. Development deployment remains bootstrap-deferred until ENG-155.",
       "id": "ENG-154",
       "dependsOn": [
         "ENG-005",
         "ENG-013"
       ],
-      "stateUpdatedAt": "2026-07-21T21:48:16.505Z"
+      "stateUpdatedAt": "2026-07-21T22:24:06.492Z"
     },
     {
       "title": "Provision and validate the DigitalOcean development deployment",
