@@ -21,11 +21,16 @@
     "build:api": "bun run --cwd apps/api build",
     "typecheck:api": "bun run --cwd apps/api typecheck",
     "typecheck": "tsc --noEmit --project tsconfig.json && bun run typecheck:web && bun run typecheck:api",
-    "test": "bun test",
-    "check": "bun run validate:workspaces && bun run typecheck && bun test"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "playwright:install": "playwright install chromium",
+    "check": "bun run validate:workspaces && bun run typecheck && bun run test"
   },
   "devDependencies": {
+    "@playwright/test": "1.61.1",
     "@types/bun": "1.3.14",
-    "typescript": "7.0.2"
+    "typescript": "7.0.2",
+    "vitest": "4.1.10"
   }
 }
