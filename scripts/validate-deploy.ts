@@ -66,6 +66,23 @@ function oneComponent(spec: Record<string, unknown>, key: string): Record<string
   return record(components[0], `${key}[0]`);
 }
 
+function namedComponent(
+  spec: Record<string, unknown>,
+  key: string,
+  name: string,
+  expectedCount: number,
+): Record<string, unknown> {
+  const components = array(spec[key], key);
+  if (components.length !== expectedCount) {
+    throw new Error(`${key} must contain exactly ${expectedCount} components.`);
+  }
+  const component = components
+    .map((value, index) => record(value, `${key}[${index}]`))
+    .find((value) => value.name === name);
+  if (component === undefined) throw new Error(`${key} is missing ${name}.`);
+  return component;
+}
+
 function envMap(component: Record<string, unknown>, label: string): Map<string, Record<string, unknown>> {
   const entries = array(component.envs, `${label}.envs`);
   const result = new Map<string, Record<string, unknown>>();
@@ -104,18 +121,20 @@ function validateImage(
   component: Record<string, unknown>,
   environment: DeploymentEnvironment,
   label: string,
+  repository: "magic-mirror-api" | "magic-mirror-web",
+  digestKey: "API_IMAGE_DIGEST" | "WEB_IMAGE_DIGEST",
 ): string {
   const image = record(component.image, `${label}.image`);
   exact(image.registry_type, "DOCR", `${label}.image.registry_type`);
   exact(image.registry, "sageprovisioning", `${label}.image.registry`);
-  exact(image.repository, "magic-mirror-api", `${label}.image.repository`);
+  exact(image.repository, repository, `${label}.image.repository`);
   if ("tag" in image) {
     throw new Error(`${label}.image must use an immutable digest, not a tag.`);
   }
   const digest = string(image.digest, `${label}.image.digest`);
   exact(
     digest,
-    expectedReference(environment, "API_IMAGE_DIGEST"),
+    expectedReference(environment, digestKey),
     `${label}.image.digest`,
   );
   return digest;
@@ -183,54 +202,50 @@ export function validateDeploymentTemplate(
   exact(spec.name, `magic-mirror-${environment}`, `${label}.name`);
   string(spec.region, `${label}.region`);
 
-  const web = oneComponent(spec, "static_sites");
-  exact(web.name, "magic-mirror-web", `${label}.static_sites[0].name`);
-  const github = record(web.github, `${label}.static_sites[0].github`);
-  exact(github.repo, "RobertTk1/Codex-Hackaton", `${label}.static_sites[0].github.repo`);
-  exact(
-    github.branch,
-    environment === "dev" ? "codex/engineering-execution" : "main",
-    `${label}.static_sites[0].github.branch`,
-  );
-  exact(github.deploy_on_push, false, `${label}.static_sites[0].github.deploy_on_push`);
-  exact(web.source_dir, "/", `${label}.static_sites[0].source_dir`);
-  const buildCommand = string(web.build_command, `${label}.static_sites[0].build_command`);
-  if (!buildCommand.includes("bun install --frozen-lockfile") || !buildCommand.includes("bun run build:web")) {
-    throw new Error(`${label}.static_sites[0].build_command must use the frozen web build contract.`);
-  }
-  exact(web.output_dir, "apps/web/dist", `${label}.static_sites[0].output_dir`);
-  exact(web.environment_slug, "bun", `${label}.static_sites[0].environment_slug`);
-  const webEnvironment = envMap(web, `${label}.static_sites[0]`);
-  const bunVersion = webEnvironment.get("BUN_VERSION");
-  if (bunVersion === undefined) throw new Error(`${label} is missing BUN_VERSION.`);
-  exact(bunVersion.scope, "BUILD_TIME", `${label}.BUN_VERSION.scope`);
-  exact(bunVersion.type, "GENERAL", `${label}.BUN_VERSION.type`);
-  exact(bunVersion.value, "1.3.11", `${label}.BUN_VERSION.value`);
-  requireEnvironmentReference(webEnvironment, environment, "VITE_SUPABASE_URL", "BUILD_TIME", label);
+  const web = namedComponent(spec, "services", "magic-mirror-web", 2);
+  exact(web.http_port, 8080, `${label}.services.web.http_port`);
+  const webHealth = record(web.health_check, `${label}.services.web.health_check`);
+  exact(webHealth.http_path, "/healthz", `${label}.services.web.health_check.http_path`);
+  validateImage(web, environment, `${label}.services.web`, "magic-mirror-web", "WEB_IMAGE_DIGEST");
+  const webEnvironment = envMap(web, `${label}.services.web`);
+  requireEnvironmentReference(webEnvironment, environment, "VITE_SUPABASE_URL", "RUN_TIME", label);
   requireEnvironmentReference(
     webEnvironment,
     environment,
     "VITE_SUPABASE_PUBLISHABLE_KEY",
-    "BUILD_TIME",
+    "RUN_TIME",
     label,
   );
   const apiUrl = webEnvironment.get("VITE_API_BASE_URL");
   if (apiUrl === undefined) throw new Error(`${label} is missing VITE_API_BASE_URL.`);
-  exact(apiUrl.value, "${magic-mirror-api.PUBLIC_URL}", `${label}.VITE_API_BASE_URL.value`);
+  exact(apiUrl.scope, "RUN_TIME", `${label}.VITE_API_BASE_URL.scope`);
+  exact(apiUrl.type, "GENERAL", `${label}.VITE_API_BASE_URL.type`);
+  exact(apiUrl.value, "${APP_URL}/api", `${label}.VITE_API_BASE_URL.value`);
 
-  const api = oneComponent(spec, "services");
-  exact(api.name, "magic-mirror-api", `${label}.services[0].name`);
-  exact(api.http_port, 3000, `${label}.services[0].http_port`);
-  exact(api.run_command, "bun server.js", `${label}.services[0].run_command`);
-  const health = record(api.health_check, `${label}.services[0].health_check`);
-  exact(health.http_path, "/healthz", `${label}.services[0].health_check.http_path`);
-  const apiDigest = validateImage(api, environment, `${label}.services[0]`);
-  validateServerEnvironment(api, environment, `${label}.services[0]`);
+  const api = namedComponent(spec, "services", "magic-mirror-api", 2);
+  exact(api.http_port, 3000, `${label}.services.api.http_port`);
+  exact(api.run_command, "bun server.js", `${label}.services.api.run_command`);
+  const health = record(api.health_check, `${label}.services.api.health_check`);
+  exact(health.http_path, "/healthz", `${label}.services.api.health_check.http_path`);
+  const apiDigest = validateImage(
+    api,
+    environment,
+    `${label}.services.api`,
+    "magic-mirror-api",
+    "API_IMAGE_DIGEST",
+  );
+  validateServerEnvironment(api, environment, `${label}.services.api`);
 
   const worker = oneComponent(spec, "workers");
   exact(worker.name, "magic-mirror-worker", `${label}.workers[0].name`);
   exact(worker.run_command, "bun worker.js", `${label}.workers[0].run_command`);
-  const workerDigest = validateImage(worker, environment, `${label}.workers[0]`);
+  const workerDigest = validateImage(
+    worker,
+    environment,
+    `${label}.workers[0]`,
+    "magic-mirror-api",
+    "API_IMAGE_DIGEST",
+  );
   exact(workerDigest, apiDigest, `${label} API/worker image digest`);
   validateServerEnvironment(worker, environment, `${label}.workers[0]`);
   validateIngress(spec);
@@ -262,7 +277,7 @@ export function renderDevelopmentTemplate(
 ): string {
   validateDeploymentTemplate(source, "dev");
   return source.replaceAll(placeholderPattern, (placeholder, name: string) => {
-    if (name === "APP_URL" || name === "magic-mirror-api.PUBLIC_URL") return placeholder;
+    if (name === "APP_URL") return placeholder;
     const value = environment[name];
     if (value === undefined || value.length === 0) {
       throw new Error(`Missing required development deployment variable: ${name}.`);

@@ -48,8 +48,26 @@ function parseJson(source: string, label: string): unknown {
   }
 }
 
-async function runDoctl(arguments_: string[]): Promise<unknown> {
-  const process = Bun.spawn(["doctl", ...arguments_, "--output", "json"], {
+type DoctlOutput = "json" | "text";
+
+export function parseDoctlOutput(source: string, output: DoctlOutput): unknown {
+  if (output === "text") {
+    if (source.trim().length === 0) throw new Error("DigitalOcean CLI returned an empty response.");
+    return source;
+  }
+  const value = parseJson(source, "DigitalOcean CLI");
+  if (typeof value === "object" && value !== null && !Array.isArray(value)) {
+    const errors = Reflect.get(value, "errors");
+    if (Array.isArray(errors) && errors.length > 0) {
+      throw new Error("DigitalOcean CLI returned an API error response.");
+    }
+  }
+  return value;
+}
+
+async function runDoctl(arguments_: string[], output: DoctlOutput = "json"): Promise<unknown> {
+  const outputArguments = output === "json" ? ["--output", "json"] : [];
+  const process = Bun.spawn(["doctl", ...arguments_, ...outputArguments], {
     stderr: "pipe",
     stdout: "pipe",
   });
@@ -57,7 +75,7 @@ async function runDoctl(arguments_: string[]): Promise<unknown> {
   if (exitCode !== 0) {
     throw new Error(`DigitalOcean command failed at ${arguments_.slice(0, 2).join(" ")}.`);
   }
-  return parseJson(stdout, "DigitalOcean CLI");
+  return parseDoctlOutput(stdout, output);
 }
 
 function appState(value: unknown): SafeAppState {
@@ -133,8 +151,11 @@ async function verifyHealthy(app: SafeAppState): Promise<void> {
 
 async function applyDevelopment(): Promise<SafeAppState> {
   return withRenderedSpec(async (specPath) => {
-    await runDoctl(["apps", "spec", "validate", specPath, "--schema-only"]);
-    await runDoctl(["apps", "spec", "validate", specPath]);
+    // `doctl apps spec validate` emits a normalized YAML spec even when a global
+    // JSON output flag is supplied. Treat successful validation as opaque text;
+    // every command whose response we inspect remains strict JSON.
+    await runDoctl(["apps", "spec", "validate", specPath, "--schema-only"], "text");
+    await runDoctl(["apps", "spec", "validate", specPath], "text");
     const existing = await findDevelopmentApp();
     if (existing === null) {
       await runDoctl(["apps", "create", "--spec", specPath, "--wait"]);

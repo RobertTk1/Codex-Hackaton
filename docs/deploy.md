@@ -6,17 +6,17 @@ Magic Mirror uses one DigitalOcean App Platform app per environment. `magic-mirr
 
 Both app-spec templates contain exactly three components:
 
-- `magic-mirror-web`: a static Vite build from the environment's approved Git branch using DigitalOcean's Bun buildpack pinned by `BUN_VERSION=1.3.11`;
+- `magic-mirror-web`: the pinned `magic-mirror-web` DOCR digest serving the Vite bundle through its tested unprivileged Nginx runtime;
 - `magic-mirror-api`: the pinned `magic-mirror-api` DOCR digest running `bun server.js`, with `/healthz` gating rollout;
 - `magic-mirror-worker`: the same pinned digest running `bun worker.js`.
 
-The DigitalOcean-provided hostname is environment-specific because each app has a unique name. The API is routed under `/api`; the web component owns `/`. Development uses `codex/engineering-execution`; production uses `main` and cannot deploy on push.
+The DigitalOcean-provided hostname is environment-specific because each app has a unique name. The API is routed under `/api`; the web component owns `/`. Both images are immutable, independently pinned digests. App Platform never reads a Git branch directly, so deployment does not depend on a DigitalOcean GitHub OAuth installation and cannot deploy on push.
 
 ## Secret and data isolation
 
 The committed YAML files are templates. They contain environment-specific variable references, never credential values. DigitalOcean receives rendered development values only through an ignored `.env.digitalocean.dev.local` file and stores credential fields as encrypted `SECRET` variables. Do not commit that file or a rendered app spec.
 
-Development must use a persistent Supabase development branch or separate development project. It must never use project `vhpxxmefcuewkmukissr`, its data, Storage objects, or credentials. Provider values may be sandbox/test credentials only. Production references use the `MAGIC_MIRROR_PROD_` prefix and are never read by Developer tooling.
+Development must use a persistent Supabase development branch or separate development project. It must never use project `vhpxxmefcuewkmukissr`, its data, Storage objects, or credentials. Provider values may be sandbox/test credentials only. A not-yet-configured integration must use an explicitly non-deliverable development value and cannot be represented as working. Production references use the `MAGIC_MIRROR_PROD_` prefix and are never read by Developer tooling.
 
 Required development names are documented in `.env.example`. `DIGITALOCEAN_ACCESS_TOKEN` is needed only for the formal rollback API; load it from the existing secure `doctl` context or another local secret store without printing it.
 

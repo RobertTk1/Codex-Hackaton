@@ -7,6 +7,7 @@ import { describe, expect, test } from "vitest";
 import {
   assertDevelopmentOnlyInvocation,
   assertSafeRollbackValidation,
+  parseDoctlOutput,
 } from "../scripts/deploy-development";
 import {
   placeholderNames,
@@ -37,6 +38,8 @@ describe("DigitalOcean deployment contract", () => {
     expect(() => validateDeploymentTemplates(source)).not.toThrow();
     expect(source.dev).toContain("name: magic-mirror-dev");
     expect(source.prod).toContain("name: magic-mirror-prod");
+    expect(source.dev).toContain("repository: magic-mirror-web");
+    expect(source.dev).not.toContain("github:");
     expect(source.dev).not.toContain("MAGIC_MIRROR_PROD_");
     expect(source.prod).not.toContain("MAGIC_MIRROR_DEV_");
     expect(source.dev).not.toContain("vhpxxmefcuewkmukissr");
@@ -59,7 +62,7 @@ describe("DigitalOcean deployment contract", () => {
       validateDeploymentTemplate(
         replacement(
           source.prod,
-          "      digest: ${MAGIC_MIRROR_PROD_API_IMAGE_DIGEST}\n",
+          "      digest: ${MAGIC_MIRROR_PROD_WEB_IMAGE_DIGEST}\n",
           "      tag: latest\n",
         ),
         "prod",
@@ -92,7 +95,7 @@ describe("DigitalOcean deployment contract", () => {
         .filter((name) => name.startsWith("MAGIC_MIRROR_DEV_"))
         .map((name, index) => [
           name,
-          name.endsWith("API_IMAGE_DIGEST")
+          name.endsWith("IMAGE_DIGEST")
             ? "sha256:" + "a".repeat(64)
             : `synthetic-deployment-value-${index}`,
         ]),
@@ -142,6 +145,21 @@ describe("DigitalOcean deployment contract", () => {
         warnings: [{ code: "image_source_missing_digest" }],
       }),
     ).toThrow("unsafe warning code");
+  });
+
+  test("accepts DigitalOcean's YAML validation response without weakening JSON commands", () => {
+    expect(parseDoctlOutput("name: magic-mirror-dev\n", "text")).toBe(
+      "name: magic-mirror-dev\n",
+    );
+    expect(() => parseDoctlOutput("", "text")).toThrow("empty response");
+    expect(parseDoctlOutput('[{"id":"development-app"}]', "json")).toEqual([
+      { id: "development-app" },
+    ]);
+    expect(() => parseDoctlOutput("name: magic-mirror-dev\n", "json")).toThrow(
+      "invalid response",
+    );
+    expect(() => parseDoctlOutput('{"errors":[{"detail":"sensitive provider error"}]}', "json"))
+      .toThrow("API error response");
   });
 
   test("root package exposes stable validation and development-only deployment commands", async () => {

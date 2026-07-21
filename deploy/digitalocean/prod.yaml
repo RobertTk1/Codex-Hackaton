@@ -5,35 +5,36 @@ alerts:
   - rule: DEPLOYMENT_FAILED
   - rule: DOMAIN_FAILED
 
-static_sites:
+services:
   - name: magic-mirror-web
-    github:
-      repo: RobertTk1/Codex-Hackaton
-      branch: main
-      deploy_on_push: false
-    source_dir: /
-    build_command: bun install --frozen-lockfile && bun run build:web
-    output_dir: apps/web/dist
-    environment_slug: bun
+    image:
+      registry_type: DOCR
+      registry: sageprovisioning
+      repository: magic-mirror-web
+      digest: ${MAGIC_MIRROR_PROD_WEB_IMAGE_DIGEST}
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    health_check:
+      http_path: /healthz
+      initial_delay_seconds: 10
+      period_seconds: 10
+      timeout_seconds: 5
+      success_threshold: 1
+      failure_threshold: 3
     envs:
-      - key: BUN_VERSION
-        scope: BUILD_TIME
-        type: GENERAL
-        value: 1.3.11
       - key: VITE_API_BASE_URL
-        scope: BUILD_TIME
+        scope: RUN_TIME
         type: GENERAL
-        value: ${magic-mirror-api.PUBLIC_URL}
+        value: ${APP_URL}/api
       - key: VITE_SUPABASE_URL
-        scope: BUILD_TIME
+        scope: RUN_TIME
         type: SECRET
         value: ${MAGIC_MIRROR_PROD_VITE_SUPABASE_URL}
       - key: VITE_SUPABASE_PUBLISHABLE_KEY
-        scope: BUILD_TIME
+        scope: RUN_TIME
         type: SECRET
         value: ${MAGIC_MIRROR_PROD_VITE_SUPABASE_PUBLISHABLE_KEY}
-
-services:
   - name: magic-mirror-api
     image:
       registry_type: DOCR
