@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T20:37:27.422Z",
+  "generated_at": "2026-07-21T20:57:02.243Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "850229aa2531676bb30608c9b096a7db0170e230388e786b824ef90c7e100f5c",
+  "source_plan_sha256": "5659e89d660773babe2a51792be8eabd4282fad671761b7951f55059e732ad94",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 162,
   "eligible_count": 3,
-  "passing_count": 12,
+  "passing_count": 13,
   "status_counts": {
-    "completed": 12,
-    "in-progress": 1,
+    "completed": 13,
     "not-started": 149
   },
-  "next_ticket_id": "ENG-046",
+  "next_ticket_id": "ENG-152",
   "tickets": [
     {
       "order": 1,
@@ -949,8 +948,8 @@
       "id": "ENG-046",
       "title": "Run one durable Bun worker process safely",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-024",
         "ENG-043"
@@ -958,8 +957,11 @@
       "readinessPrerequisites": [
         "IR-013"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 47,
@@ -2001,7 +2003,6 @@
         "dependency:ENG-098",
         "dependency:ENG-099",
         "dependency:ENG-022",
-        "dependency:ENG-046",
         "bootstrap:ENG-155"
       ]
     },
@@ -2069,7 +2070,6 @@
       "blockers": [
         "dependency:ENG-102",
         "dependency:ENG-029",
-        "dependency:ENG-046",
         "bootstrap:ENG-155"
       ]
     },
@@ -2111,7 +2111,6 @@
       "blockers": [
         "dependency:ENG-104",
         "dependency:ENG-031",
-        "dependency:ENG-046",
         "bootstrap:ENG-155"
       ]
     },
@@ -2246,7 +2245,6 @@
         "dependency:ENG-110",
         "dependency:ENG-028",
         "dependency:ENG-027",
-        "dependency:ENG-046",
         "bootstrap:ENG-155"
       ]
     },
@@ -3093,7 +3091,6 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-021",
-        "dependency:ENG-046",
         "bootstrap:ENG-155"
       ]
     },
@@ -3117,7 +3114,6 @@
       "blockers": [
         "dependency:ENG-028",
         "dependency:ENG-022",
-        "dependency:ENG-046",
         "bootstrap:ENG-155"
       ]
     },
@@ -3173,10 +3169,8 @@
       "readinessPrerequisites": [
         "IR-013"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-046"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 154,

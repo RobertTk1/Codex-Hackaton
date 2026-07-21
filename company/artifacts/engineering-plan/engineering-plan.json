@@ -3843,15 +3843,15 @@
         "apps/api/src/workers/runtime.ts",
         "apps/api/test/workers/runtime.test.ts"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-21T20:37:27.417Z] Claimed turn 22 by root on codex/eng-046-durable-worker at /Users/talishawhite/.codex/worktrees/eng-046-durable-worker starting 2026-07-21T20:37:27Z; local Supabase only; development deployment bootstrap-deferred. Preflight confirmed IR-013 ready and found the private claim function is not reachable through the configured public-only Data API, so the ticket will add the minimum service-role-only RPC bridge without exposing the private schema.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-21T20:37:27.417Z] Claimed turn 22 by root on codex/eng-046-durable-worker at /Users/talishawhite/.codex/worktrees/eng-046-durable-worker starting 2026-07-21T20:37:27Z; local Supabase only; development deployment bootstrap-deferred. Preflight confirmed IR-013 ready and found the private claim function is not reachable through the configured public-only Data API, so the ticket will add the minimum service-role-only RPC bridge without exposing the private schema.\n[2026-07-21T20:57:02.237Z] Integrated 853e6787e71c26021b20c5ab7f6299ac83af4bee; focused runtime 6/6, full Vitest 10 files/41 tests, pgTAP 91/91 plus intentional leak rejection, strict typecheck, API/worker/web builds, database reset/lint/migration history, exact-commit detached verification, and real local service-role claim/heartbeat/release transport passed. Added service-role-only security-invoker public RPC bridges because the approved private schema is intentionally absent from PostgREST; private table and privileged claim implementation remain unexposed. One bounded retry updated the aggregate DB harness count from 69/3 files to 91/4 after adding the new focused suite. Development deployment bootstrap-deferred. Completed 2026-07-21T20:57:02Z.",
       "id": "ENG-046",
       "dependsOn": [
         "ENG-024",
         "ENG-043"
       ],
-      "stateUpdatedAt": "2026-07-21T20:37:27.417Z"
+      "stateUpdatedAt": "2026-07-21T20:57:02.237Z"
     },
     {
       "title": "Implement getPublicConfiguration",
