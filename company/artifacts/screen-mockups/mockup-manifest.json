@@ -2,13 +2,13 @@
   "schema_version": "1.0",
   "project": "Magic Mirror",
   "run_mode": "full-package",
-  "status": "ready-for-review",
+  "status": "approved-with-archived-pre-report",
   "pre_report_status": "archived-reference",
   "pre_report_replaced_by": "company/artifacts/screen-mockups-v2/conversational-onboarding/mockup-manifest.json",
-  "post_report_status": "ready-for-review",
-  "direction_gate": "founder-approved-representative-direction",
+  "post_report_status": "approved-for-implementation",
+  "direction_gate": "approved-representative-direction",
   "design_direction": "company/artifacts/screen-mockups/design-direction.md",
-  "updated_at": "2026-07-19T19:15:12.006Z",
+  "updated_at": "2026-07-21T16:33:43Z",
   "screens": [
     {
       "screen_id": "76a5f0c7-aa78-4eaf-ae0f-4b577024f5c6",

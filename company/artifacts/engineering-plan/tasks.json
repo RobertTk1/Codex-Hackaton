@@ -1,6 +1,6 @@
 {
   "workflow": "engineering-plan",
-  "status": "ready-for-review",
+  "status": "approved",
   "currentStep": null,
   "steps": [
     {
@@ -153,7 +153,7 @@
         "validate_planning_tasks.py: VALID, 9 planning steps",
         "validate_engineering_plan.py --strict-scope: VALID, 162 tickets, 0 warnings"
       ],
-      "notes": "Passed after seven focused repairs. The package is ready for founder approval; only the founder may change the engineering-plan status to approved, and implementation remains unauthorized until that explicit approval."
+      "notes": "Passed after seven focused repairs. Talisha White approved the plan for runtime execution on 2026-07-21; engineering-plan.json is now the authoritative implementation queue."
     }
   ]
 }

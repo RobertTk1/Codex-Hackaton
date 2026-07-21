@@ -157,13 +157,14 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Founder reviews and approves or returns the ready-for-review engineering plan.
-2. After explicit approval, select the first dependency-ready engineering ticket using report-led release priority and early risk-spike timing.
+1. Finalize and activate the engineering-execution workflow against the approved engineering plan.
+2. Select the first dependency-ready engineering ticket from the derived ticket index using report-led release priority and early risk-spike timing.
 3. Execute exactly one ticket per implementation turn; mark it passed only after all automated and manual evidence succeeds.
 
 ## Decisions
 
-- 2026-07-21: Pass the formal engineering-plan final review after repairing archived-v1 screen leakage, experiment hypotheses/thresholds, Vitest command grounding, DigitalOcean validator ownership, generic ticket language, readiness/risk mappings, and dependency-change evidence; the 162-ticket package is ready for founder approval and implementation remains unauthorized.
+- 2026-07-21: Talisha White approved the 162-ticket engineering plan for runtime execution. Future execution uses the full plan as authority and a generated compact ticket index for selection.
+- 2026-07-21: Pass the formal engineering-plan final review after repairing archived-v1 screen leakage, experiment hypotheses/thresholds, Vitest command grounding, DigitalOcean validator ownership, generic ticket language, readiness/risk mappings, and dependency-change evidence; the subsequently approved 162-ticket package is authorized for controlled runtime implementation.
 - 2026-07-21: Replace the rejected 36-workstream engineering package with 162 independently executable tickets covering all approved features, stories, scenarios, canonical screens, conversational-v2 screens, and OpenAPI operations; require one target, explicit implementation/test/rollback units, focused automated proof, exact UI references, and live verification for external provider boundaries before any ticket can pass.
 
 - 2026-07-17: Use a monorepo structure.

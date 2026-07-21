@@ -1,0 +1,3449 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-21T16:55:45.153Z",
+  "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
+  "source_plan_sha256": "0bf122976fffee9b68b3118c466e594914bed44ff4b6acfe73de07193b538c5f",
+  "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
+  "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
+  "plan_status": "approved",
+  "bootstrap_gate": {
+    "ticket_id": "ENG-155",
+    "complete": false,
+    "allowed_ticket_ids": [
+      "ENG-001",
+      "ENG-002",
+      "ENG-003",
+      "ENG-004",
+      "ENG-005",
+      "ENG-006",
+      "ENG-008",
+      "ENG-013",
+      "ENG-014",
+      "ENG-024",
+      "ENG-039",
+      "ENG-043",
+      "ENG-046",
+      "ENG-152",
+      "ENG-153",
+      "ENG-154",
+      "ENG-155"
+    ]
+  },
+  "ticket_count": 162,
+  "eligible_count": 1,
+  "passing_count": 0,
+  "status_counts": {
+    "not-started": 162
+  },
+  "next_ticket_id": "ENG-001",
+  "tickets": [
+    {
+      "order": 1,
+      "id": "ENG-001",
+      "title": "Create the root Bun workspace",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [],
+      "readinessPrerequisites": [
+        "IR-002",
+        "IR-003"
+      ],
+      "eligible": true,
+      "blockers": []
+    },
+    {
+      "order": 2,
+      "id": "ENG-002",
+      "title": "Scaffold the Vite and Tailwind web application",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-001"
+      ],
+      "readinessPrerequisites": [
+        "IR-002"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-001"
+      ]
+    },
+    {
+      "order": 3,
+      "id": "ENG-003",
+      "title": "Scaffold the TypeScript API application",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-001"
+      ],
+      "readinessPrerequisites": [
+        "IR-002"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-001"
+      ]
+    },
+    {
+      "order": 4,
+      "id": "ENG-004",
+      "title": "Establish the Vitest and Playwright command contract",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-002",
+        "ENG-003"
+      ],
+      "readinessPrerequisites": [
+        "IR-002",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-002",
+        "dependency:ENG-003"
+      ]
+    },
+    {
+      "order": 5,
+      "id": "ENG-005",
+      "title": "Configure local Supabase migration and policy tests",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-001"
+      ],
+      "readinessPrerequisites": [
+        "IR-006"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-001"
+      ]
+    },
+    {
+      "order": 6,
+      "id": "ENG-006",
+      "title": "Validate server and browser environment boundaries",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-008"
+      ],
+      "readinessPrerequisites": [
+        "IR-006",
+        "IR-013"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-008"
+      ]
+    },
+    {
+      "order": 7,
+      "id": "ENG-007",
+      "title": "Verify anonymous, Google, and email-link authentication configuration",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-005",
+        "ENG-006"
+      ],
+      "readinessPrerequisites": [
+        "IR-007",
+        "IR-008"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-005",
+        "dependency:ENG-006",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 8,
+      "id": "ENG-008",
+      "title": "Implement common IDs, errors, and pagination contracts",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-004"
+      ],
+      "readinessPrerequisites": [
+        "IR-001"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-004"
+      ]
+    },
+    {
+      "order": 9,
+      "id": "ENG-009",
+      "title": "Implement profile, consent, and transfer contracts",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-008"
+      ],
+      "readinessPrerequisites": [
+        "IR-001"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-008",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 10,
+      "id": "ENG-010",
+      "title": "Implement photo, extraction, and taste contracts",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-008"
+      ],
+      "readinessPrerequisites": [
+        "IR-001"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-008",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 11,
+      "id": "ENG-011",
+      "title": "Implement report, recommendation, and asset contracts",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-008"
+      ],
+      "readinessPrerequisites": [
+        "IR-001"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-008",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 12,
+      "id": "ENG-012",
+      "title": "Implement catalog, bag, and handoff contracts",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-008"
+      ],
+      "readinessPrerequisites": [
+        "IR-001"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-008",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 13,
+      "id": "ENG-013",
+      "title": "Implement live-session, voice, and gesture contracts",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-008"
+      ],
+      "readinessPrerequisites": [
+        "IR-001"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-008"
+      ]
+    },
+    {
+      "order": 14,
+      "id": "ENG-014",
+      "title": "Create the private schema and least-privilege helper baseline",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-005"
+      ],
+      "readinessPrerequisites": [
+        "IR-006"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-005"
+      ]
+    },
+    {
+      "order": 15,
+      "id": "ENG-015",
+      "title": "Create profiles and profile revision constraints",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-014"
+      ],
+      "readinessPrerequisites": [
+        "IR-006",
+        "IR-016"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-014",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 16,
+      "id": "ENG-016",
+      "title": "Create favorite-brand and garment-type size records",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-015"
+      ],
+      "readinessPrerequisites": [
+        "IR-006"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-015",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 17,
+      "id": "ENG-017",
+      "title": "Create append-only consent records",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-015"
+      ],
+      "readinessPrerequisites": [
+        "IR-015",
+        "IR-016"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-015",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 18,
+      "id": "ENG-018",
+      "title": "Enforce profile child ownership and draft-only writes",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-016",
+        "ENG-017"
+      ],
+      "readinessPrerequisites": [
+        "IR-006"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-016",
+        "dependency:ENG-017",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 19,
+      "id": "ENG-019",
+      "title": "Create anonymous-transfer records and atomic ownership function",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-018"
+      ],
+      "readinessPrerequisites": [
+        "IR-024"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-018",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 20,
+      "id": "ENG-020",
+      "title": "Create ordered photo metadata and expiry constraints",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-015"
+      ],
+      "readinessPrerequisites": [
+        "IR-015"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-015",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 21,
+      "id": "ENG-021",
+      "title": "Create private customer-photo bucket policies",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-020"
+      ],
+      "readinessPrerequisites": [
+        "IR-006",
+        "IR-015"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-020",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 22,
+      "id": "ENG-022",
+      "title": "Create extracted-garment and photo-signal records",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-020"
+      ],
+      "readinessPrerequisites": [
+        "IR-015"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-020",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 23,
+      "id": "ENG-023",
+      "title": "Create bounded taste candidates and reactions",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-015"
+      ],
+      "readinessPrerequisites": [
+        "IR-018"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-015",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 24,
+      "id": "ENG-024",
+      "title": "Create durable processing-job lease records",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-014"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-014"
+      ]
+    },
+    {
+      "order": 25,
+      "id": "ENG-025",
+      "title": "Create report-run lifecycle records",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-015"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-015",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 26,
+      "id": "ENG-026",
+      "title": "Create immutable style reports and sections",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-025"
+      ],
+      "readinessPrerequisites": [
+        "IR-017"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-025",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 27,
+      "id": "ENG-027",
+      "title": "Create report recommendation records",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-026"
+      ],
+      "readinessPrerequisites": [
+        "IR-021"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-026",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 28,
+      "id": "ENG-028",
+      "title": "Create generated-asset lineage and expiry records",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-017",
+        "ENG-020"
+      ],
+      "readinessPrerequisites": [
+        "IR-015",
+        "IR-016",
+        "IR-023"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-017",
+        "dependency:ENG-020",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 29,
+      "id": "ENG-029",
+      "title": "Create the atomic report publication function",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-027",
+        "ENG-028"
+      ],
+      "readinessPrerequisites": [
+        "IR-017"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-027",
+        "dependency:ENG-028",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 30,
+      "id": "ENG-030",
+      "title": "Enforce report and generated-asset ownership policies",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-029"
+      ],
+      "readinessPrerequisites": [
+        "IR-006",
+        "IR-015"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-029",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 31,
+      "id": "ENG-031",
+      "title": "Create bounded report notification delivery records",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-025"
+      ],
+      "readinessPrerequisites": [
+        "IR-008"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-025",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 32,
+      "id": "ENG-032",
+      "title": "Create bounded live-session state records",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-017"
+      ],
+      "readinessPrerequisites": [
+        "IR-016"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-017",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 33,
+      "id": "ENG-033",
+      "title": "Create stable-reference bag records",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-015"
+      ],
+      "readinessPrerequisites": [
+        "IR-021"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-015",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 34,
+      "id": "ENG-034",
+      "title": "Create privacy-bounded retailer handoff events",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-015"
+      ],
+      "readinessPrerequisites": [
+        "IR-021"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-015",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 35,
+      "id": "ENG-035",
+      "title": "Create the immediate account-deletion access block",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-018"
+      ],
+      "readinessPrerequisites": [
+        "IR-015"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-018",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 36,
+      "id": "ENG-036",
+      "title": "Create bounded API idempotency records",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-015"
+      ],
+      "readinessPrerequisites": [
+        "IR-015"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-015",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 37,
+      "id": "ENG-037",
+      "title": "Seed the approved synthetic database fixtures",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-019",
+        "ENG-021",
+        "ENG-022",
+        "ENG-023",
+        "ENG-024",
+        "ENG-030",
+        "ENG-031",
+        "ENG-032",
+        "ENG-033",
+        "ENG-034",
+        "ENG-035",
+        "ENG-036",
+        "ENG-004"
+      ],
+      "readinessPrerequisites": [
+        "IR-014",
+        "IR-015"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-019",
+        "dependency:ENG-021",
+        "dependency:ENG-022",
+        "dependency:ENG-023",
+        "dependency:ENG-024",
+        "dependency:ENG-030",
+        "dependency:ENG-031",
+        "dependency:ENG-032",
+        "dependency:ENG-033",
+        "dependency:ENG-034",
+        "dependency:ENG-035",
+        "dependency:ENG-036",
+        "dependency:ENG-004",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 38,
+      "id": "ENG-038",
+      "title": "Generate and verify Supabase database types",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-019",
+        "ENG-021",
+        "ENG-022",
+        "ENG-023",
+        "ENG-024",
+        "ENG-030",
+        "ENG-031",
+        "ENG-032",
+        "ENG-033",
+        "ENG-034",
+        "ENG-035",
+        "ENG-036",
+        "ENG-004"
+      ],
+      "readinessPrerequisites": [
+        "IR-006"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-019",
+        "dependency:ENG-021",
+        "dependency:ENG-022",
+        "dependency:ENG-023",
+        "dependency:ENG-024",
+        "dependency:ENG-030",
+        "dependency:ENG-031",
+        "dependency:ENG-032",
+        "dependency:ENG-033",
+        "dependency:ENG-034",
+        "dependency:ENG-035",
+        "dependency:ENG-036",
+        "dependency:ENG-004",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 39,
+      "id": "ENG-039",
+      "title": "Authenticate requests and derive immutable owner identity",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-008"
+      ],
+      "readinessPrerequisites": [
+        "IR-006"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-008"
+      ]
+    },
+    {
+      "order": 40,
+      "id": "ENG-040",
+      "title": "Return normalized API errors and request IDs",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-008"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-008",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 41,
+      "id": "ENG-041",
+      "title": "Apply durable idempotency to named mutations",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-039",
+        "ENG-040",
+        "ENG-036"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-039",
+        "dependency:ENG-040",
+        "dependency:ENG-036",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 42,
+      "id": "ENG-042",
+      "title": "Normalize provider timeouts and retryability",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-040"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-040",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 43,
+      "id": "ENG-043",
+      "title": "Create scoped server Supabase clients",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-006",
+        "ENG-039"
+      ],
+      "readinessPrerequisites": [
+        "IR-006"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-006",
+        "dependency:ENG-039"
+      ]
+    },
+    {
+      "order": 44,
+      "id": "ENG-044",
+      "title": "Create the browser Supabase Auth client",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-007"
+      ],
+      "readinessPrerequisites": [
+        "IR-006",
+        "IR-007",
+        "IR-008"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-007",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 45,
+      "id": "ENG-045",
+      "title": "Create the typed browser API client boundary",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-044"
+      ],
+      "readinessPrerequisites": [
+        "IR-006"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-044",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 46,
+      "id": "ENG-046",
+      "title": "Run one durable Bun worker process safely",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-024",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [
+        "IR-013"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-024",
+        "dependency:ENG-043"
+      ]
+    },
+    {
+      "order": 47,
+      "id": "ENG-047",
+      "title": "Implement getPublicConfiguration",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 48,
+      "id": "ENG-048",
+      "title": "Implement resolveResume",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-015",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-015",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 49,
+      "id": "ENG-049",
+      "title": "Implement createOrResumeProfile",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-041",
+        "ENG-018",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-041",
+        "dependency:ENG-018",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 50,
+      "id": "ENG-050",
+      "title": "Implement getStyleHome",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-030",
+        "ENG-033",
+        "ENG-108",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-030",
+        "dependency:ENG-033",
+        "dependency:ENG-108",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 51,
+      "id": "ENG-051",
+      "title": "Implement getProfileSnapshot",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-018",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-018",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 52,
+      "id": "ENG-052",
+      "title": "Implement submitConversationTurn",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-041",
+        "ENG-018",
+        "ENG-009",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-041",
+        "dependency:ENG-018",
+        "dependency:ENG-009",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 53,
+      "id": "ENG-053",
+      "title": "Implement replaceProfileAnswer",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-018",
+        "ENG-009",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-018",
+        "dependency:ENG-009",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 54,
+      "id": "ENG-054",
+      "title": "Implement putBrandSizes",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-016",
+        "ENG-009",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-016",
+        "dependency:ENG-009",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 55,
+      "id": "ENG-055",
+      "title": "Implement putFavoriteBrands",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-016",
+        "ENG-009",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-016",
+        "dependency:ENG-009",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 56,
+      "id": "ENG-056",
+      "title": "Implement recordConsent",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-017",
+        "ENG-041",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-017",
+        "dependency:ENG-041",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 57,
+      "id": "ENG-057",
+      "title": "Implement submitProfileForReport",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-041",
+        "ENG-025",
+        "ENG-024",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-041",
+        "dependency:ENG-025",
+        "dependency:ENG-024",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 58,
+      "id": "ENG-058",
+      "title": "Implement createPhotoUploadSlot",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-021",
+        "ENG-041",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-021",
+        "dependency:ENG-041",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 59,
+      "id": "ENG-059",
+      "title": "Implement listPhotos",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-021",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-021",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 60,
+      "id": "ENG-060",
+      "title": "Implement completePhotoUpload",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-021",
+        "ENG-024",
+        "ENG-042",
+        "ENG-010",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-021",
+        "dependency:ENG-024",
+        "dependency:ENG-042",
+        "dependency:ENG-010",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 61,
+      "id": "ENG-061",
+      "title": "Implement deletePhoto",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-020",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-020",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 62,
+      "id": "ENG-062",
+      "title": "Implement reorderPhotos",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-020",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-020",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 63,
+      "id": "ENG-063",
+      "title": "Implement retryPhotoExtraction",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-041",
+        "ENG-022",
+        "ENG-024",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-041",
+        "dependency:ENG-022",
+        "dependency:ENG-024",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 64,
+      "id": "ENG-064",
+      "title": "Implement getExtractionSummary",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-022",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-022",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 65,
+      "id": "ENG-065",
+      "title": "Implement reviewExtractedGarment",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-022",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-022",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 66,
+      "id": "ENG-066",
+      "title": "Implement ensureTasteCandidates",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-041",
+        "ENG-023",
+        "ENG-101"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-041",
+        "dependency:ENG-023",
+        "dependency:ENG-101",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 67,
+      "id": "ENG-067",
+      "title": "Implement getTasteCalibration",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-023",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-023",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 68,
+      "id": "ENG-068",
+      "title": "Implement putTasteReaction",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-023",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-023",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 69,
+      "id": "ENG-069",
+      "title": "Implement undoTasteReaction",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-023",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-023",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 70,
+      "id": "ENG-070",
+      "title": "Implement prepareAnonymousTransfer",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-019",
+        "ENG-041",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-019",
+        "dependency:ENG-041",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 71,
+      "id": "ENG-071",
+      "title": "Implement consumeAnonymousTransfer",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-019",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-019",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 72,
+      "id": "ENG-072",
+      "title": "Implement cancelAnonymousTransfer",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-019",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-019",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 73,
+      "id": "ENG-073",
+      "title": "Implement getReportRun",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-025",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-025",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 74,
+      "id": "ENG-074",
+      "title": "Implement retryReportRun",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-041",
+        "ENG-025",
+        "ENG-024",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-041",
+        "dependency:ENG-025",
+        "dependency:ENG-024",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 75,
+      "id": "ENG-075",
+      "title": "Implement requestReportNotification",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-031",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-031",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 76,
+      "id": "ENG-076",
+      "title": "Implement getCurrentReport",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-030",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-030",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 77,
+      "id": "ENG-077",
+      "title": "Implement getReportSection",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-030",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-030",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 78,
+      "id": "ENG-078",
+      "title": "Implement listRecommendations",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-030",
+        "ENG-108",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-030",
+        "dependency:ENG-108",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 79,
+      "id": "ENG-079",
+      "title": "Implement submitReportFeedback",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-041",
+        "ENG-030",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-041",
+        "dependency:ENG-030",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 80,
+      "id": "ENG-080",
+      "title": "Implement startRecalibration",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-041",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-041",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 81,
+      "id": "ENG-081",
+      "title": "Implement searchCatalog",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-107",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-107",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 82,
+      "id": "ENG-082",
+      "title": "Implement getProduct",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-108",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-108",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 83,
+      "id": "ENG-083",
+      "title": "Implement getAlternatives",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-107",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-107",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 84,
+      "id": "ENG-084",
+      "title": "Implement listBag",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-033",
+        "ENG-108",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-033",
+        "dependency:ENG-108",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 85,
+      "id": "ENG-085",
+      "title": "Implement addBagItem",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-041",
+        "ENG-033",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-041",
+        "dependency:ENG-033",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 86,
+      "id": "ENG-086",
+      "title": "Implement removeBagItem",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-033",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-033",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 87,
+      "id": "ENG-087",
+      "title": "Implement prepareRetailerHandoff",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-108",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-108",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 88,
+      "id": "ENG-088",
+      "title": "Implement confirmRetailerHandoff",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-034",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-034",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 89,
+      "id": "ENG-089",
+      "title": "Implement createLiveSession",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-032",
+        "ENG-041",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-032",
+        "dependency:ENG-041",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 90,
+      "id": "ENG-090",
+      "title": "Implement transitionLiveSession",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-032",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-032",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 91,
+      "id": "ENG-091",
+      "title": "Implement mintRealtimeCredentials",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-032",
+        "ENG-113",
+        "ENG-116",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-032",
+        "dependency:ENG-113",
+        "dependency:ENG-116",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 92,
+      "id": "ENG-092",
+      "title": "Implement proposeLiveAction",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-032",
+        "ENG-013",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-032",
+        "dependency:ENG-013",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 93,
+      "id": "ENG-093",
+      "title": "Implement confirmLiveAction",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-032",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-032",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 94,
+      "id": "ENG-094",
+      "title": "Implement endLiveSession",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-032",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-032",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 95,
+      "id": "ENG-095",
+      "title": "Implement requestAccountDeletion",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-035",
+        "ENG-041",
+        "ENG-043"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-035",
+        "dependency:ENG-041",
+        "dependency:ENG-043",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 96,
+      "id": "ENG-096",
+      "title": "Derive deterministic garment-type fit guidance",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-009"
+      ],
+      "readinessPrerequisites": [
+        "IR-017"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-009",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 97,
+      "id": "ENG-097",
+      "title": "Measure Wardrobe extraction feasibility on the approved fixture set",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-010"
+      ],
+      "readinessPrerequisites": [
+        "IR-009",
+        "IR-014"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-010",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 98,
+      "id": "ENG-098",
+      "title": "Implement the proven Wardrobe extraction adapter",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-097",
+        "ENG-042"
+      ],
+      "readinessPrerequisites": [
+        "IR-009"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-097",
+        "dependency:ENG-042",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 99,
+      "id": "ENG-099",
+      "title": "Implement OpenAI garment cutout reconstruction",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-042",
+        "ENG-010"
+      ],
+      "readinessPrerequisites": [
+        "IR-009",
+        "IR-014",
+        "IR-016"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-042",
+        "dependency:ENG-010",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 100,
+      "id": "ENG-100",
+      "title": "Process one photo extraction job with partial-failure preservation",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-098",
+        "ENG-099",
+        "ENG-022",
+        "ENG-046"
+      ],
+      "readinessPrerequisites": [
+        "IR-014"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-098",
+        "dependency:ENG-099",
+        "dependency:ENG-022",
+        "dependency:ENG-046",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 101,
+      "id": "ENG-101",
+      "title": "Generate balanced taste candidates from customer evidence",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-100",
+        "ENG-107"
+      ],
+      "readinessPrerequisites": [
+        "IR-012",
+        "IR-018"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-100",
+        "dependency:ENG-107",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 102,
+      "id": "ENG-102",
+      "title": "Implement OpenAI structured style-report generation",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-042",
+        "ENG-011",
+        "ENG-096"
+      ],
+      "readinessPrerequisites": [
+        "IR-009",
+        "IR-014",
+        "IR-017"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-042",
+        "dependency:ENG-011",
+        "dependency:ENG-096",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 103,
+      "id": "ENG-103",
+      "title": "Process one report run through generation and publication",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-102",
+        "ENG-029",
+        "ENG-046"
+      ],
+      "readinessPrerequisites": [],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-102",
+        "dependency:ENG-029",
+        "dependency:ENG-046",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 104,
+      "id": "ENG-104",
+      "title": "Send one report-ready magic-link email safely",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-042"
+      ],
+      "readinessPrerequisites": [
+        "IR-008"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-042",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 105,
+      "id": "ENG-105",
+      "title": "Process one report-ready notification job",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-104",
+        "ENG-031",
+        "ENG-046"
+      ],
+      "readinessPrerequisites": [
+        "IR-008"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-104",
+        "dependency:ENG-031",
+        "dependency:ENG-046",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 106,
+      "id": "ENG-106",
+      "title": "Publish and validate the Shopify UCP agent profile",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-012"
+      ],
+      "readinessPrerequisites": [
+        "IR-012"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-012",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 107,
+      "id": "ENG-107",
+      "title": "Implement Shopify Global Catalog search adapter",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-106",
+        "ENG-042"
+      ],
+      "readinessPrerequisites": [
+        "IR-012"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-106",
+        "dependency:ENG-042",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 108,
+      "id": "ENG-108",
+      "title": "Implement Shopify current-product adapter",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-106",
+        "ENG-042"
+      ],
+      "readinessPrerequisites": [
+        "IR-012",
+        "IR-021"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-106",
+        "dependency:ENG-042",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 109,
+      "id": "ENG-109",
+      "title": "Measure generated wardrobe-preview quality and likeness safety",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-011"
+      ],
+      "readinessPrerequisites": [
+        "IR-009",
+        "IR-014",
+        "IR-022",
+        "IR-023"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-011",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 110,
+      "id": "ENG-110",
+      "title": "Implement OpenAI wardrobe preview adapter",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-109",
+        "ENG-042"
+      ],
+      "readinessPrerequisites": [
+        "IR-009",
+        "IR-016",
+        "IR-022",
+        "IR-023"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-109",
+        "dependency:ENG-042",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 111,
+      "id": "ENG-111",
+      "title": "Validate, store, and attach one wardrobe preview",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-110",
+        "ENG-028",
+        "ENG-027",
+        "ENG-046"
+      ],
+      "readinessPrerequisites": [
+        "IR-015",
+        "IR-016",
+        "IR-023"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-110",
+        "dependency:ENG-028",
+        "dependency:ENG-027",
+        "dependency:ENG-046",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 112,
+      "id": "ENG-112",
+      "title": "Measure Decart target-device realtime feasibility",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-013"
+      ],
+      "readinessPrerequisites": [
+        "IR-011",
+        "IR-014",
+        "IR-019",
+        "IR-022"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-013",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 113,
+      "id": "ENG-113",
+      "title": "Implement short-lived Decart token minting",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-112",
+        "ENG-042"
+      ],
+      "readinessPrerequisites": [
+        "IR-011"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-112",
+        "dependency:ENG-042",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 114,
+      "id": "ENG-114",
+      "title": "Implement Decart browser session transport",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-113"
+      ],
+      "readinessPrerequisites": [
+        "IR-011",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-113",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 115,
+      "id": "ENG-115",
+      "title": "Measure Gemini, Decart, and gesture coexistence",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-112"
+      ],
+      "readinessPrerequisites": [
+        "IR-010",
+        "IR-011",
+        "IR-019",
+        "IR-020"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-112",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 116,
+      "id": "ENG-116",
+      "title": "Implement short-lived Gemini Live credential minting",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-115",
+        "ENG-042"
+      ],
+      "readinessPrerequisites": [
+        "IR-010",
+        "IR-016"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-115",
+        "dependency:ENG-042",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 117,
+      "id": "ENG-117",
+      "title": "Implement Gemini Live browser voice transport",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-116"
+      ],
+      "readinessPrerequisites": [
+        "IR-010",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-116",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 118,
+      "id": "ENG-118",
+      "title": "Recognize the approved hand-gesture vocabulary safely",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-115"
+      ],
+      "readinessPrerequisites": [
+        "IR-019",
+        "IR-020"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-115",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 119,
+      "id": "ENG-119",
+      "title": "Implement the report-led landing screen",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-049",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-049",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 120,
+      "id": "ENG-120",
+      "title": "Implement public Google and magic-link account access",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-048",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-048",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 121,
+      "id": "ENG-121",
+      "title": "Implement the chat onboarding welcome turn",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-049",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-049",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 122,
+      "id": "ENG-122",
+      "title": "Implement personal-detail conversation turns",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-052",
+        "ENG-053",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-052",
+        "dependency:ENG-053",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 123,
+      "id": "ENG-123",
+      "title": "Implement brand and garment-size conversation",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-054",
+        "ENG-055",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-054",
+        "dependency:ENG-055",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 124,
+      "id": "ENG-124",
+      "title": "Implement conversational photo collection",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-058",
+        "ENG-060",
+        "ENG-059",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-058",
+        "dependency:ENG-060",
+        "dependency:ENG-059",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 125,
+      "id": "ENG-125",
+      "title": "Implement conversational photo review and recovery",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-061",
+        "ENG-062",
+        "ENG-059",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-061",
+        "dependency:ENG-062",
+        "dependency:ENG-059",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 126,
+      "id": "ENG-126",
+      "title": "Implement conversational Love, Hate, and Maybe calibration",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-067",
+        "ENG-068",
+        "ENG-069",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-067",
+        "dependency:ENG-068",
+        "dependency:ENG-069",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 127,
+      "id": "ENG-127",
+      "title": "Implement contextual account connection turn",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-070",
+        "ENG-071",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-070",
+        "dependency:ENG-071",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 128,
+      "id": "ENG-128",
+      "title": "Implement final conversational profile review",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-051",
+        "ENG-057",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-004",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-051",
+        "dependency:ENG-057",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 129,
+      "id": "ENG-129",
+      "title": "Implement report processing, slow, and recovery states",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-073",
+        "ENG-074",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-073",
+        "dependency:ENG-074",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 130,
+      "id": "ENG-130",
+      "title": "Implement style report overview",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-076",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-076",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 131,
+      "id": "ENG-131",
+      "title": "Implement personalized color report section",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-077",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-077",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 132,
+      "id": "ENG-132",
+      "title": "Implement body-style and fit-guidance section",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-077",
+        "ENG-096",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-077",
+        "dependency:ENG-096",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 133,
+      "id": "ENG-133",
+      "title": "Implement report recommendations and previews",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-078",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-078",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 134,
+      "id": "ENG-134",
+      "title": "Implement report feedback and recalibration confirmation",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-079",
+        "ENG-080",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-079",
+        "dependency:ENG-080",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 135,
+      "id": "ENG-135",
+      "title": "Implement Style Home base and resume states",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-050",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-050",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 136,
+      "id": "ENG-136",
+      "title": "Implement product detail and unavailable states",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-082",
+        "ENG-083",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-082",
+        "dependency:ENG-083",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 137,
+      "id": "ENG-137",
+      "title": "Implement live camera permission and denial recovery",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-089",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-089",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 138,
+      "id": "ENG-138",
+      "title": "Implement live connecting and ready states",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-114",
+        "ENG-090",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-114",
+        "dependency:ENG-090",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 139,
+      "id": "ENG-139",
+      "title": "Implement live changing, slow, and error recovery states",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-090",
+        "ENG-114",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-090",
+        "dependency:ENG-114",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 140,
+      "id": "ENG-140",
+      "title": "Implement ended live-session state",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-094",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-094",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 141,
+      "id": "ENG-141",
+      "title": "Implement microphone permission and listening states",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-117",
+        "ENG-091",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-117",
+        "dependency:ENG-091",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 142,
+      "id": "ENG-142",
+      "title": "Implement voice interpreting, confirmation, and acting states",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-092",
+        "ENG-093",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-092",
+        "dependency:ENG-093",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 143,
+      "id": "ENG-143",
+      "title": "Implement voice failure recovery",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-117",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-117",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 144,
+      "id": "ENG-144",
+      "title": "Implement gesture guide and observing states",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-118",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-118",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 145,
+      "id": "ENG-145",
+      "title": "Implement gesture interpreting, accepted, and ignored states",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-118",
+        "ENG-092",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-118",
+        "dependency:ENG-092",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 146,
+      "id": "ENG-146",
+      "title": "Implement gesture confirmation state",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-093",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-093",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 147,
+      "id": "ENG-147",
+      "title": "Implement bag and unavailable-item states",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-084",
+        "ENG-086",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-084",
+        "dependency:ENG-086",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 148,
+      "id": "ENG-148",
+      "title": "Implement retailer handoff confirmation",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-087",
+        "ENG-088",
+        "ENG-045"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-087",
+        "dependency:ENG-088",
+        "dependency:ENG-045",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 149,
+      "id": "ENG-149",
+      "title": "Purge expired original photos and inaccessible objects",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-021",
+        "ENG-046"
+      ],
+      "readinessPrerequisites": [
+        "IR-015"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-021",
+        "dependency:ENG-046",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 150,
+      "id": "ENG-150",
+      "title": "Purge expired derived garments and likeness assets",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-028",
+        "ENG-022",
+        "ENG-046"
+      ],
+      "readinessPrerequisites": [
+        "IR-015",
+        "IR-016"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-028",
+        "dependency:ENG-022",
+        "dependency:ENG-046",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 151,
+      "id": "ENG-151",
+      "title": "Complete blocked account deletion safely",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-035",
+        "ENG-149",
+        "ENG-150"
+      ],
+      "readinessPrerequisites": [
+        "IR-015"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-035",
+        "dependency:ENG-149",
+        "dependency:ENG-150",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 152,
+      "id": "ENG-152",
+      "title": "Build the production web container",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-006"
+      ],
+      "readinessPrerequisites": [
+        "IR-013"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-006"
+      ]
+    },
+    {
+      "order": 153,
+      "id": "ENG-153",
+      "title": "Build the production API and worker container",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-046"
+      ],
+      "readinessPrerequisites": [
+        "IR-013"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-046"
+      ]
+    },
+    {
+      "order": 154,
+      "id": "ENG-154",
+      "title": "Run repository quality gates in CI",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-005",
+        "ENG-013"
+      ],
+      "readinessPrerequisites": [
+        "IR-013"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-005",
+        "dependency:ENG-013"
+      ]
+    },
+    {
+      "order": 155,
+      "id": "ENG-155",
+      "title": "Provision and validate the DigitalOcean development deployment",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-152",
+        "ENG-153",
+        "ENG-154"
+      ],
+      "readinessPrerequisites": [
+        "IR-005",
+        "IR-013"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-152",
+        "dependency:ENG-153",
+        "dependency:ENG-154"
+      ]
+    },
+    {
+      "order": 156,
+      "id": "ENG-156",
+      "title": "Implement and validate the gated Supabase migration command",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-155"
+      ],
+      "readinessPrerequisites": [
+        "IR-006",
+        "IR-013"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-155",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 157,
+      "id": "ENG-157",
+      "title": "Expose redacted demo-critical health and latency telemetry",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-155",
+        "ENG-040"
+      ],
+      "readinessPrerequisites": [
+        "IR-013"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-155",
+        "dependency:ENG-040",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 158,
+      "id": "ENG-158",
+      "title": "Verify the report-led customer golden path across system boundaries",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-119",
+        "ENG-128",
+        "ENG-129",
+        "ENG-133",
+        "ENG-111"
+      ],
+      "readinessPrerequisites": [
+        "IR-014"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-119",
+        "dependency:ENG-128",
+        "dependency:ENG-129",
+        "dependency:ENG-133",
+        "dependency:ENG-111",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 159,
+      "id": "ENG-159",
+      "title": "Verify cross-owner isolation across sensitive boundaries",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-095",
+        "ENG-032",
+        "ENG-033",
+        "ENG-030",
+        "ENG-021"
+      ],
+      "readinessPrerequisites": [
+        "IR-015"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-095",
+        "dependency:ENG-032",
+        "dependency:ENG-033",
+        "dependency:ENG-030",
+        "dependency:ENG-021",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 160,
+      "id": "ENG-160",
+      "title": "Document the exact runnable repository contract",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-156"
+      ],
+      "readinessPrerequisites": [
+        "IR-003",
+        "IR-013"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-156",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 161,
+      "id": "ENG-161",
+      "title": "Verify the deployed report-led demo path",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-156",
+        "ENG-157",
+        "ENG-158"
+      ],
+      "readinessPrerequisites": [
+        "IR-005",
+        "IR-013",
+        "IR-014"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-156",
+        "dependency:ENG-157",
+        "dependency:ENG-158",
+        "bootstrap:ENG-155"
+      ]
+    },
+    {
+      "order": 162,
+      "id": "ENG-162",
+      "title": "Document provider-specific demo recovery actions",
+      "priority": "must",
+      "status": "not-started",
+      "passes": false,
+      "dependsOn": [
+        "ENG-161",
+        "ENG-114",
+        "ENG-117",
+        "ENG-105"
+      ],
+      "readinessPrerequisites": [
+        "IR-005",
+        "IR-019"
+      ],
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-161",
+        "dependency:ENG-114",
+        "dependency:ENG-117",
+        "dependency:ENG-105",
+        "bootstrap:ENG-155"
+      ]
+    }
+  ]
+}

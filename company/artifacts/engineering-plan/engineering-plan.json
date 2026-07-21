@@ -1,6 +1,8 @@
 {
   "project": "Magic Mirror",
-  "status": "ready-for-review",
+  "status": "approved",
+  "approvedBy": "Talisha White",
+  "approvedAt": "2026-07-21T16:33:43Z",
   "generatedAt": "2026-07-21T10:45:00-04:00",
   "executionPolicy": {
     "oneTicketPerTurn": true,
@@ -13331,7 +13333,7 @@
       ]
     },
     {
-      "title": "Deploy web, API, and worker components to DigitalOcean",
+      "title": "Provision and validate the DigitalOcean development deployment",
       "type": "infrastructure",
       "priority": "must",
       "buildPlanFeatureIds": [
@@ -13345,44 +13347,47 @@
       "target": {
         "kind": "infrastructure",
         "names": [
-          "DigitalOcean application deployment"
+          "DigitalOcean development application deployment"
         ]
       },
-      "objective": "DigitalOcean runs pinned web, API, and one worker component with approved domain, region, environment separation, and rollback.",
+      "objective": "magic-mirror-dev runs pinned web, API, and one worker component with isolated development configuration and a verified rollback route; Developer does not mutate production.",
       "executionScope": {
-        "implementationUnit": "DigitalOcean application deployment: Create the three-component deployment manifest, its schema validator, root validation command, and documented deploy/rollback procedure",
-        "testUnit": "preview and production components use separate secret references",
-        "rollbackUnit": "Revert only the DigitalOcean application deployment changes in deploy/digitalocean.yaml, docs/deploy.md, scripts/validate-deploy.ts, package.json and its validator; preserve built images and CI outputs."
+        "implementationUnit": "DigitalOcean development deployment: Create separate dev/prod three-component specs, their schema validator, root validation command, and documented deployment boundaries; apply and rehearse rollback only on magic-mirror-dev",
+        "testUnit": "development and production specs use separate secret references and only the dev spec is applied by Developer",
+        "rollbackUnit": "Revert only the DigitalOcean development deployment changes in deploy/digitalocean/dev.yaml, deploy/digitalocean/prod.yaml, docs/deploy.md, scripts/validate-deploy.ts, package.json and its validator; preserve built images and CI outputs."
       },
       "scope": {
         "includes": [
-          "Create the three-component deployment manifest, its schema validator, root validation command, and documented deploy/rollback procedure"
+          "Create separate dev/prod three-component specs, their schema validator, root validation command, and documented deployment boundaries",
+          "Apply the dev spec and rehearse rollback only on magic-mirror-dev"
         ],
         "excludes": [
+          "Production deployment or mutation",
           "Database migration execution",
           "Telemetry dashboards"
         ]
       },
       "implementationSteps": [
-        "Create the DigitalOcean static-site, API-service, and worker-component manifest using secret references only.",
-        "Create the manifest validator and root validate:deploy command, including negative fixtures for missing health, worker, region, and secret-reference fields.",
-        "Document rollout and image rollback without automatic database rollback.",
-        "Run the validator and live deployment/rollback rehearsal, inspect the diff, and record sanitized evidence."
+        "Create separate DigitalOcean dev and prod static-site, API-service, and worker-component specs using environment-specific secret references only.",
+        "Create the spec validator and root validate:deploy command, including negative fixtures for missing health, worker, region, environment isolation, immutable production digests, and secret-reference fields.",
+        "Document the Developer-only dev rollout boundary and the DevOps-only production promotion/rollback boundary without automatic database rollback.",
+        "Run the validator and a live magic-mirror-dev deployment/rollback rehearsal, inspect the diff, and record sanitized evidence without mutating magic-mirror-prod."
       ],
       "acceptanceCriteria": [
-        "DigitalOcean runs pinned web, API, and one worker component with approved domain, region, environment separation, and rollback."
+        "magic-mirror-dev runs pinned web, API, and one worker component with isolated development configuration and a verified rollback route; Developer does not mutate production."
       ],
       "passConditions": [
-        "Test: preview and production components use separate secret references",
-        "Test: web/API health and worker command validation gate rollout",
-        "Test: rollback restores the prior healthy image without database rollback"
+        "Test: development and production components use separate app, Supabase, domain, and secret references",
+        "Test: dev web/API health and worker command validation gate rollout",
+        "Test: dev rollback restores the prior healthy image without database rollback",
+        "Test: Developer commands cannot target magic-mirror-prod"
       ],
       "verification": {
         "commands": [
           "bun run validate:deploy"
         ],
         "manualChecks": [
-          "Deploy to the approved DigitalOcean environment; record healthy web/API checks, a running worker, and a successful rollback rehearsal."
+          "Deploy only to magic-mirror-dev; record healthy web/API checks, a running worker, a successful dev rollback rehearsal, and evidence that magic-mirror-prod was not mutated."
         ]
       },
       "readinessPrerequisites": [
@@ -13397,7 +13402,8 @@
         "design": []
       },
       "filesLikelyTouched": [
-        "deploy/digitalocean.yaml",
+        "deploy/digitalocean/dev.yaml",
+        "deploy/digitalocean/prod.yaml",
         "docs/deploy.md",
         "scripts/validate-deploy.ts",
         "package.json"
@@ -13413,7 +13419,7 @@
       ]
     },
     {
-      "title": "Apply Supabase migrations as a gated deployment step",
+      "title": "Implement and validate the gated Supabase migration command",
       "type": "infrastructure",
       "priority": "must",
       "buildPlanFeatureIds": [
@@ -13430,41 +13436,44 @@
           "production migration gate"
         ]
       },
-      "objective": "Validated migrations apply before compatible application rollout and a failed migration prevents deployment.",
+      "objective": "A noninteractive migration gate is proven against the isolated development Supabase environment and is ready for DevOps to execute against production after QA; Developer does not mutate production.",
       "executionScope": {
-        "implementationUnit": "production migration gate: Add noninteractive migration check/apply step using secure project configuration",
+        "implementationUnit": "environment-scoped migration gate: Add a noninteractive check/apply step with an explicit target guard and prove it on the isolated development environment",
         "testUnit": "dry-run detects drift before apply",
         "rollbackUnit": "Revert only the production migration gate changes in deploy/migrate.sh, .github/workflows/deploy.yml and their focused tests; preserve completed prerequisite outputs."
       },
       "scope": {
         "includes": [
-          "Add noninteractive migration check/apply step using secure project configuration"
+          "Add an environment-scoped noninteractive migration check/apply step using secure project configuration",
+          "Prove success and failure behavior on the isolated development Supabase environment"
         ],
         "excludes": [
           "Schema design",
-          "Destructive automatic rollback"
+          "Destructive automatic rollback",
+          "Production migration execution during Developer"
         ]
       },
       "implementationSteps": [
-        "Implement only production migration gate using the declared scope: Add noninteractive migration check/apply step using secure project configuration.",
+        "Implement only the environment-scoped migration gate using the declared scope: add noninteractive check/apply with an explicit target guard and prove it on development.",
         "Implement the negative, authorization, persistence, or recovery behavior named by this ticket’s pass conditions.",
         "Add the focused automated tests required by the pass conditions.",
         "Run every verification command and manual check, inspect the diff, and record pass/fail evidence."
       ],
       "acceptanceCriteria": [
-        "Validated migrations apply before compatible application rollout and a failed migration prevents deployment."
+        "The migration gate applies validated migrations on development before compatible rollout, rejects target drift, and is ready for DevOps production execution after QA."
       ],
       "passConditions": [
         "Test: dry-run detects drift before apply",
-        "Test: successful migration records expected version",
-        "Test: failed migration stops application rollout"
+        "Test: successful development migration records expected version",
+        "Test: failed migration stops application rollout",
+        "Test: Developer invocation rejects the production Supabase project ref"
       ],
       "verification": {
         "commands": [
           "supabase db reset"
         ],
         "manualChecks": [
-          "Run the production migration gate against the approved project and record the applied migration version without exposing credentials."
+          "Run the migration gate against the isolated development Supabase environment, record the applied version without credentials, and verify Developer mode rejects the production project ref."
         ]
       },
       "readinessPrerequisites": [

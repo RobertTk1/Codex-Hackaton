@@ -63,4 +63,8 @@ The review applied the global engineering ticket contract, the approved Founder 
 
 ## Final Decision
 
-The engineering plan is internally consistent, dependency-aware, fully traceable, and sufficiently decomposed for one-ticket implementation turns. Set the package to `ready-for-review` and request founder approval. Do not start implementation until the founder explicitly approves the engineering plan.
+The engineering plan is internally consistent, dependency-aware, fully traceable, and sufficiently decomposed for one-ticket implementation turns.
+
+## Runtime Approval
+
+Talisha White approved the 162-ticket engineering plan for runtime execution on 2026-07-21. `company/artifacts/engineering-plan/engineering-plan.json` is the detailed ticket authority; the engineering-execution workflow's generated compact index is selection state only.

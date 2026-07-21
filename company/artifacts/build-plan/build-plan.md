@@ -24,10 +24,10 @@ Beyond the founder-constrained TypeScript/Vite/Tailwind/Bun/Supabase stack, the 
 | `company/artifacts/prd/prd.md` | Approved v1.1.0 with founder amendments, 2026-07-19 | Primary product contract | Scope, user outcomes, functional behavior, non-goals, trust rules, release priorities |
 | `company/artifacts/prd/user-stories.json` | Approved package; 23 stories | Primary traceability contract | Priorities, acceptance criteria, dependencies, analytics events |
 | `company/artifacts/prd/scenarios.feature` | Approved package; 15 scenarios | Primary observable validation contract | End-to-end behavior and recovery paths |
-| `company/artifacts/prd/screens.json` | UX and copy approved; visual mockups ready for review; 48 records | Primary screen/state inventory | Required surfaces, actions, states, viewports, and traceability joins |
+| `company/artifacts/prd/screens.json` | UX, copy, and active visual targets approved; 48 records | Primary screen/state inventory | Required surfaces, actions, states, viewports, and traceability joins |
 | `company/artifacts/ui-ux-design/ux-notes.md` and `wireframe-manifest.json` | Founder-approved; 48 screen/state records | Approved structural experience | Information architecture, responsive structure, accessible interaction expectations |
 | `company/voice.md` and `company/artifacts/copy/copy-manifest.json` | Founder-approved; 48 records | Approved customer language | Tone, claims, labels, consent/error language, retailer boundary |
-| `company/artifacts/screen-mockups/mockup-manifest.json` | Form-based pre-report comps archived as reference; post-report comps ready for review | Reference and downstream visual package | Form-based v1 pre-report is non-implementation reference; post-report Acid Dispatch comps remain proposed |
+| `company/artifacts/screen-mockups/mockup-manifest.json` | Form-based pre-report comps archived as reference; active canonical comps approved for implementation | Approved canonical visual package plus archived history | Form-based v1 pre-report is non-implementation reference; active canonical Acid Dispatch comps are implementation targets when named by engineering tickets |
 | `company/artifacts/screen-mockups-v2/conversational-onboarding/` | Founder-approved for pre-report; eight responsive states | Adopted pre-report interaction | Chat-first one-question-per-turn implementation direction with the same validated profile contract |
 | `company/build-notes.md` | Founder-directed engineering-plan input | Preferred provider roles and integration constraints | OpenAI, Gemini Live, Decart, Shopify Global Catalog, critical Wardrobe extraction, required spikes |
 | `company/company.md` | Canonical company profile | Product framing and boundaries | Audience, journey, positioning, trust, retailer ownership |
@@ -793,9 +793,9 @@ The feature slices preserve the approved 48-record screen inventory. Slugs are u
 
 ## Engineering-Plan Handoff
 
-After founder approval of this build plan and resolution/assignment of the critical readiness blockers, the engineering plan must convert each PH/FEAT slice into an implementable full-stack sequence while preserving the IDs in this document.
+This approved build plan has been converted into an approved engineering plan. Runtime execution must preserve the PH/FEAT IDs in this document and satisfy each ticket's readiness prerequisites before work begins.
 
-- **Approved build-plan status:** `approved` by Talisha White on 2026-07-19; this approval authorizes checkpointed engineering planning, not implementation.
+- **Approved build-plan status:** `approved` by Talisha White on 2026-07-19. The approved engineering plan now authorizes implementation through the engineering-execution workflow without another approval gate.
 - **Critical readiness blockers:** BR-004, BR-005, BR-006, BR-007, BR-008, BR-009, BR-010, BR-011, BR-014, BR-016, BR-027.
 - **Architecture decisions still required:** identity ownership/merge; persistence and private-asset lifecycle; Wardrobe extraction/fallback integration; dynamic candidate sourcing; structured report contract/versioning; asynchronous analysis/notification; generated-preview quality and catalog-image permission; provider boundaries; shared live-action state; observability; deployment; degraded-provider behavior.
 - **Highest-risk integration boundaries:** anonymous-to-account ownership; Wardrobe reliability/latency/partial failure; OpenAI report and likeness-preview quality/timing; Shopify no-cache/image-reuse rules and current offer refresh; permitted garment imagery for OpenAI/Decart; Decart quality/latency; simultaneous Gemini, Decart, and gesture processing; gesture confidence and confirmation.

@@ -1,0 +1,109 @@
+{
+  "project": "Magic Mirror Engineering Delivery Loop",
+  "loop_status": "active",
+  "current_stage": "developer",
+  "created_at": "2026-07-21T16:33:43Z",
+  "updated_at": "2026-07-21T16:33:43Z",
+  "current_turn": 6,
+  "execution_queue": {
+    "stage": "developer",
+    "authority": "company/artifacts/engineering-plan/engineering-plan.json",
+    "index": "company/workflows/engineering-execution/ticket-index.json",
+    "freshness_command": "bun company/workflows/engineering-execution/scripts/ticket-index.mjs check",
+    "selection_command": "bun company/workflows/engineering-execution/scripts/ticket-index.mjs next",
+    "ticket_command": "bun company/workflows/engineering-execution/scripts/ticket-index.mjs get <ticket-id>",
+    "preflight_command": "bun company/workflows/engineering-execution/scripts/validate-loop.mjs"
+  },
+  "stage_gates": {
+    "engineering_to_qa": "defined",
+    "qa_to_release": "defined",
+    "release_to_complete": "defined"
+  },
+  "tasks": [
+    {
+      "id": "LC-001",
+      "name": "Finalize Developer task contract",
+      "description": "Complete the ticket-selection, implementation, testing, UI-validation, failure, evidence, branch, skill, and checkpoint rules for one engineering ticket per turn.",
+      "status": "complete",
+      "depends_on": [],
+      "order": 1,
+      "spec_ref": "developer/TASK.md",
+      "acceptance_criteria": [
+        "The engineering plan remains authoritative while a fingerprinted compact index handles selection.",
+        "The implementation, verification, blocker, result, branch/worktree, and checkpoint rules are explicit.",
+        "The contract is adapted to the approved Bun, Vite, Tailwind, TypeScript, Supabase, and DigitalOcean stack.",
+        "UI rules identify exact approved mockup, interaction, copy, token, font, logo, icon, and brand sources.",
+        "Every referenced skill has an exact verified ID and installed path or a verified installation source."
+      ],
+      "verification": "deterministic/manual contract review: source paths resolve, skill registry resolves, ticket-index commands pass, and a selected ticket can be extracted without loading the full plan",
+      "subtasks": [],
+      "notes": "Reconciled from the legacy scaffold draft and completed during turn 6.",
+      "created_at": "2026-07-21T16:33:43Z",
+      "updated_at": "2026-07-21T16:33:43Z"
+    },
+    {
+      "id": "LC-002",
+      "name": "Finalize product QA contract",
+      "description": "Define integrated user-story, recovery, accessibility, security, browser, real-device, and defect-triage verification after engineering completion.",
+      "status": "complete",
+      "depends_on": ["LC-001"],
+      "order": 2,
+      "spec_ref": "qa/TASK.md",
+      "acceptance_criteria": [
+        "The QA inventory source and one-case-per-turn selection rules are explicit.",
+        "Severity, evidence, retest, and release-blocker rules are explicit.",
+        "QA binds to one frozen candidate and cannot be silently replaced by dev auto-deployment.",
+        "Customer journeys use the in-app Browser and add physical-device evidence for hardware/realtime behavior.",
+        "Failure, accessibility, responsive, auth, isolation, privacy, and provider-boundary coverage are explicit.",
+        "Failed cases route through Developer repair and deterministic retesting."
+      ],
+      "verification": "manual contract review: QA source, candidate, evidence, failure, defect, and release-gate rules are complete and mutually consistent",
+      "subtasks": [],
+      "notes": "Reconciled from the legacy scaffold draft and completed during turn 6.",
+      "created_at": "2026-07-21T16:33:43Z",
+      "updated_at": "2026-07-21T16:33:43Z"
+    },
+    {
+      "id": "LC-003",
+      "name": "Finalize release and deployment contract",
+      "description": "Define production-readiness review, DigitalOcean deployment, migration, secrets, smoke, monitoring, rollback, evidence, and release-completion rules.",
+      "status": "complete",
+      "depends_on": ["LC-002"],
+      "order": 3,
+      "spec_ref": "devops/TASK.md",
+      "acceptance_criteria": [
+        "The QA-to-release gate and recorded medium-exception path are explicit.",
+        "Development and production use separate DigitalOcean apps, Supabase environments, secrets, domains, data, and triggers.",
+        "Developer mutates only development; DevOps promotes only the exact QA-approved immutable images to production.",
+        "App-spec, migration, secret, domain/TLS, health, worker, logs, alerts, smoke, monitoring, and rollback checks are explicit.",
+        "Production completion requires zero test data and a complete release record."
+      ],
+      "verification": "manual contract review: development/production boundaries, release queue, production mutation, rollback, and completion evidence resolve without conflict",
+      "subtasks": [],
+      "notes": "Reconciled from the legacy scaffold draft and completed during turn 6.",
+      "created_at": "2026-07-21T16:33:43Z",
+      "updated_at": "2026-07-21T16:33:43Z"
+    },
+    {
+      "id": "LC-004",
+      "name": "Validate and activate the engineering delivery loop",
+      "description": "Complete the source map, status mapping, branch contract, skill registry, compact work selection, sanity check, and queue binding.",
+      "status": "complete",
+      "depends_on": ["LC-001", "LC-002", "LC-003"],
+      "order": 4,
+      "spec_ref": "WORKFLOW.md",
+      "acceptance_criteria": [
+        "A fresh agent can locate the next eligible work item without chat history or loading the full engineering plan.",
+        "All source paths, stage gates, verification rules, status mappings, and state transitions resolve without contradiction.",
+        "Development/production deployment and Supabase boundaries agree across architecture, plan, and workflow.",
+        "The approved plan is bound as authority and the workflow is active without a separate activation approval.",
+        "The six loop sanity questions have concrete answers in the package."
+      ],
+      "verification": "deterministic/manual review: validate JSON, resolve source and skill paths, check the ticket index, run the six-question sanity check, and confirm loop_status is active",
+      "subtasks": [],
+      "notes": "Completed during turn 6 after reconciling legacy progress/task drift. No legacy placeholder timestamp is treated as wall-clock audit evidence.",
+      "created_at": "2026-07-21T16:33:43Z",
+      "updated_at": "2026-07-21T16:33:43Z"
+    }
+  ]
+}

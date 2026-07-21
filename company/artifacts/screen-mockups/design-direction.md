@@ -1,7 +1,7 @@
 # Magic Mirror Screen Mockup Design Direction
 
-Status: Ready for representative-screen review  
-Run mode: Full package, gated by representative direction approval  
+Status: Approved for active canonical screen implementation
+Run mode: Full package; archived form-based pre-report screens remain excluded
 Direction: Acid Dispatch / Editorial Edge
 
 ## Source authority
@@ -94,6 +94,6 @@ Processing and waiting use purposeful progress signals without AI glows. Error a
 - No purple/blue AI gradients, glassmorphism stacks, floating orbs, meaningless charts, or generic dashboard card spam.
 - No restructuring of the approved wireframe or replacement of approved copy.
 
-## Representative approval gate
+## Approved representative direction
 
-Generate the Landing Page — Base in desktop and mobile first. After founder approval, reuse the confirmed color roles, typography, button system, image treatment, spacing rhythm, focus language, and chrome across the remaining 47 screen/state records.
+The Landing Page — Base desktop and mobile mockups establish the approved color roles, typography, button system, image treatment, spacing rhythm, focus language, and chrome for the remaining active screen/state records. No additional approval gate is required before implementation.

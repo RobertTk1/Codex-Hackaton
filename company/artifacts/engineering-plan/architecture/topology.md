@@ -68,7 +68,7 @@ flowchart TB
     SRC[Monorepo source]
   end
 
-  subgraph APP[One DigitalOcean App Platform app]
+  subgraph APP[One DigitalOcean App Platform app per environment]
     STATIC[Static site: apps/web]
     SERVICE[Web service: apps/api server]
     BG[Worker: apps/api worker]
@@ -90,7 +90,7 @@ flowchart TB
   BG --> PROVIDERS
 ```
 
-Use one App Platform app so its static, service, and worker components share deployment history and environment ownership. The API and worker use the same container image with different commands. This preserves Bun in production even when buildpack support changes.
+Use one App Platform app per environment so each environment's static, service, and worker components share deployment history without sharing data, secrets, domains, or deployment triggers across environments. `magic-mirror-dev` is the Developer integration and QA-candidate app; `magic-mirror-prod` is the DevOps-controlled production app. The API and worker use the same environment-specific container-image digest with different commands. This preserves Bun in production even when buildpack support changes.
 
 Official deployment references: [container images](https://docs.digitalocean.com/products/app-platform/how-to/deploy-from-container-images/), [workers](https://docs.digitalocean.com/products/app-platform/how-to/manage-workers/), and [jobs](https://docs.digitalocean.com/products/app-platform/how-to/manage-jobs/).
 
@@ -98,11 +98,11 @@ Official deployment references: [container images](https://docs.digitalocean.com
 
 | Environment | Web/API origin | Data | Secrets |
 |---|---|---|---|
-| Local | `http://localhost:5173` and `http://localhost:3000` | Hosted Supabase project until a local stack is intentionally introduced; synthetic or founder-consented fixtures only | `.env.local`, ignored |
-| Preview/test | DigitalOcean preview component when needed | Same hackathon project with explicit fixture ownership; no production customer data | DigitalOcean encrypted variables |
-| Production/demo | DigitalOcean-provided `magicmirror` domain | `vhpxxmefcuewkmukissr` Supabase project | DigitalOcean encrypted variables and Supabase provider settings |
+| Local | `http://localhost:5173` and `http://localhost:3000` | Local Supabase or the isolated development Supabase environment; synthetic or consented fixtures only | `.env.local`, ignored |
+| Development/QA | `magic-mirror-dev` DigitalOcean app | Persistent isolated Supabase development branch or separate development project; no production customer data | Development-only DigitalOcean encrypted variables |
+| Production/demo | `magic-mirror-prod` DigitalOcean app and approved production domain | `vhpxxmefcuewkmukissr` production Supabase project | Production-only DigitalOcean encrypted variables and Supabase provider settings |
 
-The final DigitalOcean hostname must be added to Supabase Auth redirect allowlists and Google OAuth origins during deployment. Do not use wildcard production origins.
+The development and production hostnames must be added only to their matching Supabase Auth redirect allowlists and Google OAuth origins. Do not use wildcard production origins or point development/QA at the production Supabase project. Developer may mutate `magic-mirror-dev`; only the DevOps stage may mutate `magic-mirror-prod` after the QA release gate passes.
 
 ## Relationship types
 
