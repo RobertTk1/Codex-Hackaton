@@ -40,7 +40,7 @@ describe("API smoke", () => {
   // Given a configured API, when health is requested, then it reports ready.
   test("GET /health returns the documented healthy payload", async () => {
     const port = await availablePort();
-    const child = spawn("bun", ["apps/api/src/server.ts"], {
+    const child = spawn("bun", ["--no-env-file", "apps/api/src/server.ts"], {
       cwd: repositoryRoot,
       env: {
         ...process.env,
@@ -96,7 +96,7 @@ describe("API smoke", () => {
 
   // Given invalid base configuration, when startup runs, then it names only that variable.
   test("startup with invalid base configuration fails without exposing values", () => {
-    const result = spawnSync("bun", ["apps/api/src/server.ts"], {
+    const result = spawnSync("bun", ["--no-env-file", "apps/api/src/server.ts"], {
       cwd: repositoryRoot,
       encoding: "utf8",
       env: {

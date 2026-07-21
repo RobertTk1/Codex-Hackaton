@@ -88,7 +88,7 @@ describe("environment boundaries", () => {
 
   test("server startup reports only the missing variable name", () => {
     const { GEMINI_API_KEY: _missing, ...environmentWithoutGemini } = validServerEnvironment;
-    const result = spawnSync("bun", ["apps/api/src/server.ts"], {
+    const result = spawnSync("bun", ["--no-env-file", "apps/api/src/server.ts"], {
       cwd: repositoryRoot,
       encoding: "utf8",
       env: {
