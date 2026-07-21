@@ -11,7 +11,12 @@
       "category": "product-authority",
       "owner": "Founder",
       "neededByTickets": [
-        "ENG-002"
+        "ENG-008",
+        "ENG-009",
+        "ENG-010",
+        "ENG-011",
+        "ENG-012",
+        "ENG-013"
       ],
       "status": "ready",
       "evidence": "Talisha White approved company/artifacts/build-plan/build-plan.md and authorized checkpointed engineering planning on 2026-07-19.",
@@ -25,7 +30,8 @@
       "neededByTickets": [
         "ENG-001",
         "ENG-002",
-        "ENG-008"
+        "ENG-003",
+        "ENG-004"
       ],
       "status": "ready",
       "evidence": "Founder constraint recorded in the approved build plan and company/build-notes.md; it is not an architecture alternative.",
@@ -37,7 +43,8 @@
       "category": "repository",
       "owner": "Engineering",
       "neededByTickets": [
-        "ENG-001"
+        "ENG-001",
+        "ENG-160"
       ],
       "status": "ready",
       "evidence": "Repository inspection found no package.json, Bun lockfile, Vite config, TypeScript config, Supabase config, application source, tests, deployment config, or environment example; current tracked content is planning, research, brand, and design material.",
@@ -49,13 +56,36 @@
       "category": "experience-direction",
       "owner": "Founder / engineering",
       "neededByTickets": [
-        "ENG-009",
-        "ENG-010",
-        "ENG-012",
-        "ENG-014",
-        "ENG-017",
-        "ENG-019",
-        "ENG-021"
+        "ENG-119",
+        "ENG-120",
+        "ENG-121",
+        "ENG-122",
+        "ENG-123",
+        "ENG-124",
+        "ENG-125",
+        "ENG-126",
+        "ENG-127",
+        "ENG-128",
+        "ENG-129",
+        "ENG-130",
+        "ENG-131",
+        "ENG-132",
+        "ENG-133",
+        "ENG-134",
+        "ENG-135",
+        "ENG-136",
+        "ENG-137",
+        "ENG-138",
+        "ENG-139",
+        "ENG-140",
+        "ENG-141",
+        "ENG-142",
+        "ENG-143",
+        "ENG-144",
+        "ENG-145",
+        "ENG-146",
+        "ENG-147",
+        "ENG-148"
       ],
       "status": "ready",
       "evidence": "The v2 manifest and shared interaction contract are approved for pre-report implementation; the v1 manifest records pre_report_status=archived-reference.",
@@ -67,8 +97,9 @@
       "category": "delivery",
       "owner": "Founder",
       "neededByTickets": [
-        "ENG-033",
-        "ENG-034"
+        "ENG-155",
+        "ENG-161",
+        "ENG-162"
       ],
       "status": "ready",
       "evidence": "The Devpost Hackathons connector confirmed the official deadline and latest announcement correction. Talisha White approved a feature/code freeze of 2026-07-21 13:00 PT / 16:00 ET and a demo/submission freeze of 15:00 PT / 18:00 ET in founder-readiness-inputs.md.",
@@ -80,11 +111,20 @@
       "category": "supabase-access",
       "owner": "Founder / engineering",
       "neededByTickets": [
-        "ENG-003",
-        "ENG-004",
+        "ENG-005",
         "ENG-006",
-        "ENG-007",
-        "ENG-034"
+        "ENG-014",
+        "ENG-015",
+        "ENG-016",
+        "ENG-018",
+        "ENG-021",
+        "ENG-030",
+        "ENG-038",
+        "ENG-039",
+        "ENG-043",
+        "ENG-044",
+        "ENG-045",
+        "ENG-156"
       ],
       "status": "ready",
       "evidence": "After Talisha White explicitly confirmed the quoted $10/month cost, the Supabase connector created project magic-mirror (ref vhpxxmefcuewkmukissr) in the General Intelligence Agency organization and us-east-1. The project reached ACTIVE_HEALTHY on 2026-07-20. Its URL and active modern publishable key are present only in gitignored .env.local; .env.example contains names without values. Talisha selected DigitalOcean encrypted environment variables for deployed secrets, and SUPABASE_SERVICE_ROLE_KEY remains server-only and absent from tracked files.",
@@ -101,9 +141,7 @@
       "owner": "Founder / engineering",
       "neededByTickets": [
         "ENG-007",
-        "ENG-018",
-        "ENG-019",
-        "ENG-034"
+        "ENG-044"
       ],
       "status": "ready",
       "evidence": "On 2026-07-20, Google Cloud project Magic Mirror (magic-mirror-buildweek) was configured with an external Google Auth Platform app in production and a Web OAuth client using the Supabase callback https://vhpxxmefcuewkmukissr.supabase.co/auth/v1/callback. The Google provider and manual identity linking are enabled in Supabase. Public Auth settings confirm Google, email, and anonymous sign-ins are enabled. Supabase Site URL and redirect allowlist are configured for http://localhost:5173; the final DigitalOcean hostname must be added as a deployment-ticket acceptance criterion. OAuth credentials remain in provider configuration and are not recorded in tracked files.",
@@ -119,9 +157,10 @@
       "owner": "Founder / engineering",
       "neededByTickets": [
         "ENG-007",
-        "ENG-018",
-        "ENG-019",
-        "ENG-034"
+        "ENG-031",
+        "ENG-044",
+        "ENG-104",
+        "ENG-105"
       ],
       "status": "ready",
       "evidence": "On 2026-07-20, Supabase custom SMTP was enabled with Resend using verified domain thecrownlist.com, sender magicmirror@thecrownlist.com, sender name Magic Mirror, smtp.resend.com on port 465, and a domain-scoped send-only credential held only by Supabase. A credential shown during diagnostic verification was immediately replaced and revoked; only the replacement remains active. A test magic link to the founder-confirmed destination returned HTTP 200, Supabase Auth logged user_confirmation_requested with no error, and Talisha White confirmed successful inbox delivery.",
@@ -135,12 +174,15 @@
       "category": "openai-access",
       "owner": "Founder / engineering",
       "neededByTickets": [
-        "ENG-005",
-        "ENG-013",
-        "ENG-015",
-        "ENG-020",
-        "ENG-023",
-        "ENG-034"
+        "ENG-024",
+        "ENG-025",
+        "ENG-097",
+        "ENG-098",
+        "ENG-099",
+        "ENG-102",
+        "ENG-103",
+        "ENG-109",
+        "ENG-110"
       ],
       "status": "ready",
       "evidence": "OPENAI_API_KEY is present only in gitignored .env.local and the intended deployed location is DigitalOcean encrypted environment variables. The key successfully listed GPT-5.6 and OpenAI image models on 2026-07-20, confirming authentication and capability visibility, but a minimal Responses API request failed with HTTP 429 insufficient_quota. On 2026-07-20, Talisha White explicitly overrode the planning block and directed the engineering plan to assume credits will be added later. This is a founder-approved planning assumption, not successful runtime verification; every OpenAI-dependent ticket must recheck a paid request before implementation and cannot pass while quota remains unavailable.",
@@ -154,9 +196,9 @@
       "category": "google-ai-access",
       "owner": "Founder / engineering",
       "neededByTickets": [
-        "ENG-027",
-        "ENG-034",
-        "ENG-036"
+        "ENG-115",
+        "ENG-116",
+        "ENG-117"
       ],
       "status": "ready",
       "evidence": "Talisha White attested that the Google AI project has billing and Gemini Live access and selected DigitalOcean encrypted environment variables as the deployed secret store. No credential value is recorded in planning artifacts.",
@@ -170,11 +212,10 @@
       "category": "decart-access",
       "owner": "Founder / engineering",
       "neededByTickets": [
-        "ENG-025",
-        "ENG-026",
-        "ENG-034",
-        "ENG-035",
-        "ENG-036"
+        "ENG-112",
+        "ENG-113",
+        "ENG-114",
+        "ENG-115"
       ],
       "status": "ready",
       "evidence": "Talisha White attested that the Decart account has billing and Lucy VTON realtime access and selected DigitalOcean encrypted environment variables as the deployed secret store. No credential value is recorded in planning artifacts.",
@@ -188,11 +229,10 @@
       "category": "shopify-access",
       "owner": "Founder / engineering",
       "neededByTickets": [
-        "ENG-016",
-        "ENG-022",
-        "ENG-024",
-        "ENG-029",
-        "ENG-034"
+        "ENG-101",
+        "ENG-106",
+        "ENG-107",
+        "ENG-108"
       ],
       "status": "ready",
       "evidence": "Shopify's current official Global Catalog documentation confirms the endpoint is keyless and requires an agent-profile URL on each request. On 2026-07-20, the intended development environment successfully called search_catalog at https://catalog.shopify.com/api/ucp/mcp with Shopify's documented validation profile and received a product result without error. Publishing Magic Mirror's own profile is application/deployment work and must be an engineering ticket, not an external-access prerequisite.",
@@ -204,7 +244,16 @@
       "category": "deployment",
       "owner": "Founder / engineering",
       "neededByTickets": [
-        "ENG-034"
+        "ENG-006",
+        "ENG-046",
+        "ENG-152",
+        "ENG-153",
+        "ENG-154",
+        "ENG-155",
+        "ENG-156",
+        "ENG-157",
+        "ENG-160",
+        "ENG-161"
       ],
       "status": "ready",
       "evidence": "Talisha White approved DigitalOcean App Platform, identified the General Intelligence Agency team and her deployment access, authorized app creation during deployment, requested a DigitalOcean-provided domain with a magicmirror prefix, reported no region preference, and selected encrypted environment variables for deployed secrets. Exact component/runtime design belongs to the architecture step.",
@@ -216,17 +265,15 @@
       "category": "test-data",
       "owner": "Founder / product",
       "neededByTickets": [
-        "ENG-004",
-        "ENG-013",
-        "ENG-014",
-        "ENG-015",
-        "ENG-016",
-        "ENG-020",
-        "ENG-023",
-        "ENG-025",
-        "ENG-033",
-        "ENG-035",
-        "ENG-036"
+        "ENG-037",
+        "ENG-097",
+        "ENG-099",
+        "ENG-100",
+        "ENG-102",
+        "ENG-109",
+        "ENG-112",
+        "ENG-158",
+        "ENG-161"
       ],
       "status": "ready",
       "evidence": "Talisha White explicitly consented on 2026-07-20 to Magic Mirror hackathon use of the eight photos she provided and authorized synthetic fixtures. Exact copies, a narrow authorization record, and synthetic-fixture rules are stored outside Git under /Users/talishawhite/Documents/Magic Mirror Test Data/. This is one real participant baseline, not population-wide evidence. Broader synthetic representation fixtures, dynamic catalog queries, garment cases, and expected-result annotations are implementation/spike outputs and must be ticketed rather than misclassified as missing founder access.",
@@ -238,14 +285,20 @@
       "category": "privacy-policy",
       "owner": "Founder / policy / engineering",
       "neededByTickets": [
-        "ENG-003",
-        "ENG-004",
-        "ENG-005",
-        "ENG-006",
-        "ENG-007",
-        "ENG-013",
-        "ENG-023",
-        "ENG-032"
+        "ENG-017",
+        "ENG-020",
+        "ENG-021",
+        "ENG-022",
+        "ENG-028",
+        "ENG-030",
+        "ENG-035",
+        "ENG-036",
+        "ENG-037",
+        "ENG-111",
+        "ENG-149",
+        "ENG-150",
+        "ENG-151",
+        "ENG-159"
       ],
       "status": "ready",
       "evidence": "Talisha White approved the documented hackathon lifecycle: seven-day anonymous cleanup; 30-day original-photo and generated-preview retention; same-or-shorter derived-asset retention; no default live-media or transcript persistence; account-deletion cascade; and documented provider/backup residual periods. Supabase cleanup must be implemented explicitly because it is not automatic.",
@@ -257,21 +310,15 @@
       "category": "consent-policy",
       "owner": "Founder / policy",
       "neededByTickets": [
-        "ENG-003",
-        "ENG-004",
-        "ENG-005",
-        "ENG-006",
-        "ENG-009",
-        "ENG-010",
-        "ENG-012",
-        "ENG-013",
-        "ENG-014",
         "ENG-015",
-        "ENG-023",
-        "ENG-026",
-        "ENG-027",
+        "ENG-017",
+        "ENG-028",
         "ENG-032",
-        "ENG-036"
+        "ENG-099",
+        "ENG-110",
+        "ENG-111",
+        "ENG-116",
+        "ENG-150"
       ],
       "status": "ready",
       "evidence": "Talisha White approved separate versioned consent purposes and allowed sampled camera/screen context during live sessions. The implementation contract must disclose Gemini visual transmission explicitly and obtain that purpose-specific consent together with camera/microphone consent before sending frames; browser permission alone is insufficient.",
@@ -283,11 +330,10 @@
       "category": "report-governance",
       "owner": "Founder",
       "neededByTickets": [
-        "ENG-005",
-        "ENG-010",
-        "ENG-011",
-        "ENG-020",
-        "ENG-021"
+        "ENG-026",
+        "ENG-029",
+        "ENG-096",
+        "ENG-102"
       ],
       "status": "ready",
       "evidence": "Talisha White explicitly accepted the approved interpretive, non-diagnostic color and Kibbe-informed language for the hackathon without an external reviewer.",
@@ -299,8 +345,8 @@
       "category": "taste-calibration-policy",
       "owner": "Founder / product",
       "neededByTickets": [
-        "ENG-016",
-        "ENG-017"
+        "ENG-023",
+        "ENG-101"
       ],
       "status": "ready",
       "evidence": "Talisha White approved 12 required reactions, up to 20, balanced categories/colors/silhouettes/representation, preservation of completed reactions, and a balanced curated fallback when dynamic sourcing cannot return promptly.",
@@ -312,19 +358,43 @@
       "category": "support-matrix",
       "owner": "Founder / engineering",
       "neededByTickets": [
-        "ENG-008",
-        "ENG-012",
-        "ENG-014",
-        "ENG-017",
-        "ENG-024",
-        "ENG-025",
-        "ENG-026",
-        "ENG-027",
-        "ENG-028",
-        "ENG-029",
-        "ENG-033",
-        "ENG-035",
-        "ENG-036"
+        "ENG-004",
+        "ENG-112",
+        "ENG-114",
+        "ENG-115",
+        "ENG-117",
+        "ENG-118",
+        "ENG-119",
+        "ENG-120",
+        "ENG-121",
+        "ENG-122",
+        "ENG-123",
+        "ENG-124",
+        "ENG-125",
+        "ENG-126",
+        "ENG-127",
+        "ENG-128",
+        "ENG-129",
+        "ENG-130",
+        "ENG-131",
+        "ENG-132",
+        "ENG-133",
+        "ENG-134",
+        "ENG-135",
+        "ENG-136",
+        "ENG-137",
+        "ENG-138",
+        "ENG-139",
+        "ENG-140",
+        "ENG-141",
+        "ENG-142",
+        "ENG-143",
+        "ENG-144",
+        "ENG-145",
+        "ENG-146",
+        "ENG-147",
+        "ENG-148",
+        "ENG-162"
       ],
       "status": "ready",
       "evidence": "Talisha White approved current Chrome on a camera-equipped MacBook as primary and current Safari on iPhone plus keyboard-only and reduced-motion desktop checks as secondary validation. Realtime support may narrow only when the spike records the limitation.",
@@ -336,10 +406,8 @@
       "category": "gesture-policy",
       "owner": "Founder / engineering",
       "neededByTickets": [
-        "ENG-006",
-        "ENG-027",
-        "ENG-028",
-        "ENG-036"
+        "ENG-115",
+        "ENG-118"
       ],
       "status": "ready",
       "evidence": "Talisha White approved the shared action contract and delegated the exact small gesture vocabulary and measured confidence thresholds to the dual-realtime spike, with direct/voice controls retained and consequential actions requiring confirmation.",
@@ -351,12 +419,10 @@
       "category": "retailer-policy",
       "owner": "Founder / business / policy",
       "neededByTickets": [
-        "ENG-006",
-        "ENG-022",
-        "ENG-024",
-        "ENG-029",
-        "ENG-030",
-        "ENG-031"
+        "ENG-027",
+        "ENG-033",
+        "ENG-034",
+        "ENG-108"
       ],
       "status": "ready",
       "evidence": "Talisha White excluded affiliate behavior for the hackathon and approved only a non-sensitive outbound-click event naming the destination retailer.",
@@ -368,12 +434,12 @@
       "category": "catalog-image-rights",
       "owner": "Founder / product / policy",
       "neededByTickets": [
-        "ENG-005",
-        "ENG-016",
-        "ENG-022",
-        "ENG-023",
-        "ENG-025",
-        "ENG-035"
+        "ENG-027",
+        "ENG-101",
+        "ENG-107",
+        "ENG-109",
+        "ENG-110",
+        "ENG-112"
       ],
       "status": "ready",
       "evidence": "Official Global Catalog documentation supports cross-retailer discovery and current offers but does not establish permission to transmit catalog images to OpenAI or Decart. On 2026-07-20, Talisha White explicitly directed the hackathon plan to proceed despite that unresolved rights question. This records founder risk acceptance only, does not claim merchant/provider permission, and must remain visible in ticket risk notes; it is no longer an unanswered product decision.",
@@ -385,9 +451,10 @@
       "category": "generated-preview-policy",
       "owner": "Founder / product / policy",
       "neededByTickets": [
-        "ENG-005",
-        "ENG-021",
-        "ENG-023"
+        "ENG-028",
+        "ENG-109",
+        "ENG-110",
+        "ENG-111"
       ],
       "status": "ready",
       "evidence": "Talisha White approved the documented recognizability, garment fidelity, harmful-artifact, disclosure, latency, and text/current-product-link fallback rule and delegated measurable thresholds to the representative spike.",
@@ -399,8 +466,6 @@
       "category": "identity-policy",
       "owner": "Founder / product / engineering",
       "neededByTickets": [
-        "ENG-003",
-        "ENG-018",
         "ENG-019"
       ],
       "status": "ready",

@@ -126,20 +126,27 @@
       "reviewPassed": null,
       "evidence": [
         "company/artifacts/engineering-plan/engineering-plan.json",
-        "36 one-outcome tickets cover 16/16 build-plan features, 23/23 user stories, 15/15 scenarios, 48/48 canonical screen states, and 8/8 approved conversational v2 states",
-        "Founder amendment applied before ticketing: required overall fit preference, brand + garment-type size observations, and deterministic FitProfileSnapshot with confidence/conflict evidence",
-        "Early Decart and Gemini + Decart + gesture spikes have no product-code dependency and can run beside PH-01/PH-02",
-        "validate_engineering_plan.py: VALID, 36 tickets, 0 warnings",
-        "OpenAPI/JSON Schema revalidation: 49/49 operation request and success examples conform after the fit amendment"
+        "162 independently executable tickets: 24 data, 73 backend, 17 integration, 30 UI, 15 infrastructure, and 3 cross-boundary test tickets",
+        "Complete scope coverage: 16/16 build-plan features, 23/23 user stories, 15/15 scenarios, 48/48 canonical screens, and 8/8 adopted conversational-v2 screens",
+        "Every ticket has exactly one named target plus implementationUnit, testUnit, and rollbackUnit; maximum scope is three steps, four likely files, three screens, three stories, and three features",
+        "49/49 OpenAPI operationIds each have exactly one focused route ticket with authorization, persistence/provider, normalized failure, schema, and focused-test proof",
+        "All 56 approved screen records have exactly one UI-ticket owner; all 30 UI state-family tickets reference exact interaction specs and raster mockups and require desktop/mobile similarity of at least 90%, keyboard equivalence, and zero console errors",
+        "All 17 external-integration tickets include bounded live/sandbox verification in addition to fixture-backed automated tests; OpenAI tickets explicitly recheck credits before they can pass",
+        "24/24 readiness requirements map bidirectionally to the tickets that consume them",
+        "Dependency graph is acyclic, contains no redundant transitive edges or list-order chaining, and preserves early Wardrobe, Decart, preview, and Gemini/Decart/gesture experiments",
+        "Global strict validator: VALID, 162 tickets, 0 warnings"
       ],
-      "notes": "Completed. Tickets preserve the report-led release, isolate provider spikes, use genuine dependency gates, include exact verification commands, and do not authorize implementation. Final review is next."
+      "notes": "Completed after replacing the rejected 36-workstream package with independently implementable, testable, reviewable, and revertible tickets under the strengthened global ticket contract. This completes ticket authoring only; no implementation was started."
     },
     {
       "id": "final-review",
       "status": "in-progress",
       "reviewPassed": null,
-      "evidence": [],
-      "notes": "Review checkpoint opened; no final-review validation or approval has been claimed yet."
+      "evidence": [
+        "2026-07-21 semantic audit: prior 36-ticket package failed the one-task scope test",
+        "Global strict-scope validator reported 274 errors against the prior package, including missing execution-scope proofs, oversized targets/screens/stories, generic design resources, repeated acceptance text, insufficient experiment proof, and redundant dependencies"
+      ],
+      "notes": "Ready for the formal final engineering-plan review. The ticket artifact passes strict structural and semantic validation, but plan approval remains a distinct founder checkpoint and implementation is still unauthorized."
     }
   ]
 }

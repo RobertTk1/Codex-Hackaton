@@ -157,11 +157,13 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Run the final engineering-plan review over the dependency-aware ticket package, including the fit-profile derivation ticket and early Wardrobe, generated-preview, Shopify, Decart, and Gemini/Decart/gesture spikes.
-2. Run the engineering-plan final review across ticket coverage, dependencies, acceptance criteria, test evidence, rollout, rollback, and readiness ownership.
-3. Begin implementation only after the complete engineering plan is founder-approved and its technical readiness gate is ready.
+1. Run the formal engineering-plan final review across the 162-ticket package: coverage, one-task scope, dependencies, acceptance criteria, verification evidence, rollout, rollback, and readiness ownership.
+2. Present the reviewed engineering plan for founder approval.
+3. Begin implementation only after explicit founder approval; execute one dependency-ready ticket per implementation turn.
 
 ## Decisions
+
+- 2026-07-21: Replace the rejected 36-workstream engineering package with 162 independently executable tickets covering all approved features, stories, scenarios, canonical screens, conversational-v2 screens, and OpenAPI operations; require one target, explicit implementation/test/rollback units, focused automated proof, exact UI references, and live verification for external provider boundaries before any ticket can pass.
 
 - 2026-07-17: Use a monorepo structure.
 - 2026-07-17: Maintain a living plan with user outcomes and explicit next actions.
