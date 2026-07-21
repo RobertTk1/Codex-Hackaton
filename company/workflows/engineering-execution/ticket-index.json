@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T19:09:13.113Z",
+  "generated_at": "2026-07-21T19:14:05.866Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "93dccdd9698199097e8297565e92032298e2dec1a0620555355caf0d28b4de45",
+  "source_plan_sha256": "c60f07da71d2acb8020b3e509f0e8cfa6ebc381a66e769729b078c5a7796686f",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 7,
   "status_counts": {
     "completed": 7,
-    "not-started": 155
+    "in-progress": 1,
+    "not-started": 154
   },
   "next_ticket_id": "ENG-013",
   "tickets": [
@@ -270,7 +271,7 @@
       "id": "ENG-013",
       "title": "Implement live-session, voice, and gesture contracts",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-008"

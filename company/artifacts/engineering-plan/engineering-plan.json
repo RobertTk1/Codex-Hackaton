@@ -1068,13 +1068,14 @@
         "packages/contracts/src/live.ts",
         "packages/contracts/test/live.test.ts"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-21T19:14:05.859Z] Claimed 2026-07-21T19:14:05Z by root turn 17 on branch codex/eng-013-live-contracts at /Users/talishawhite/.codex/worktrees/eng-013-live-contracts; scope is closed live-session, realtime credential, voice/gesture state, and shared action Zod schemas plus focused fixtures; dev deployment bootstrap-deferred.",
       "id": "ENG-013",
       "dependsOn": [
         "ENG-008"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-21T19:14:05.859Z"
     },
     {
       "title": "Create the private schema and least-privilege helper baseline",
