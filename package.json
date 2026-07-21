@@ -13,7 +13,10 @@
   "scripts": {
     "preinstall": "bun scripts/validate-workspaces.ts",
     "validate:workspaces": "bun scripts/validate-workspaces.ts",
-    "typecheck": "tsc --noEmit --project tsconfig.json",
+    "dev:web": "bun run --cwd apps/web dev",
+    "build:web": "bun run --cwd apps/web build",
+    "typecheck:web": "bun run --cwd apps/web typecheck",
+    "typecheck": "tsc --noEmit --project tsconfig.json && bun run typecheck:web",
     "test": "bun test",
     "check": "bun run validate:workspaces && bun run typecheck && bun test"
   },
