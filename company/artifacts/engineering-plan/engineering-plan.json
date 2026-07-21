@@ -665,14 +665,14 @@
         "packages/contracts/package.json",
         "bun.lock"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "Dependency: Zod provides runtime validation because TypeScript types disappear at external boundaries; small, maintained, and required by repository rules.\n[2026-07-21T18:45:53.512Z] Claimed 2026-07-21T18:45:53Z by root turn 15 on branch codex/eng-008-common-contracts at /Users/talishawhite/.codex/worktrees/eng-008-common-contracts; implementation scope is common closed Zod schemas and focused contract tests; dev deployment bootstrap-deferred.",
+      "status": "completed",
+      "passes": true,
+      "notes": "Dependency: Zod provides runtime validation because TypeScript types disappear at external boundaries; small, maintained, and required by repository rules.\n[2026-07-21T18:45:53.512Z] Claimed 2026-07-21T18:45:53Z by root turn 15 on branch codex/eng-008-common-contracts at /Users/talishawhite/.codex/worktrees/eng-008-common-contracts; implementation scope is common closed Zod schemas and focused contract tests; dev deployment bootstrap-deferred.\n[2026-07-21T18:52:06.865Z] Passing on integrated commit 333d9aa494433d0561db2e100c294adad3e9938f; ticket commit b00b96f. Added @magic-mirror/contracts closed Zod schemas for UUID IDs/request IDs, the complete 118-code approved normalized-error envelope and bounded detail shapes, keyset pagination query limits/cursors, and bounded collection responses. Verified: bun install --frozen-lockfile; bun run test -- packages/contracts/test/common.test.ts (4/4); bun run typecheck; bun run check (5 files/11 tests); approved error-code source comparison 118/118; git diff --check; pristine archive /tmp/magic-mirror-eng008.bVT3Fq frozen install/focused test/typecheck/check. No UI/runtime route or database behavior changed. dev_deployment=bootstrap-deferred under the approved ENG-155 first-baseline sequence.",
       "id": "ENG-008",
       "dependsOn": [
         "ENG-004"
       ],
-      "stateUpdatedAt": "2026-07-21T18:45:53.512Z"
+      "stateUpdatedAt": "2026-07-21T18:52:06.865Z"
     },
     {
       "title": "Implement profile, consent, and transfer contracts",

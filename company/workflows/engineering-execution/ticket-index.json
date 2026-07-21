@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T18:45:53.519Z",
+  "generated_at": "2026-07-21T18:52:06.870Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "ab209a600e6338763e4986a25dc791d5815113ebda38930d15c610dbafc54aed",
+  "source_plan_sha256": "bbfd17aadcdea426b0e9d5933715335afc9f0488db6e7faef4a7bc7911440ac2",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 162,
-  "eligible_count": 2,
-  "passing_count": 5,
+  "eligible_count": 4,
+  "passing_count": 6,
   "status_counts": {
-    "completed": 5,
-    "in-progress": 1,
+    "completed": 6,
     "not-started": 156
   },
-  "next_ticket_id": "ENG-008",
+  "next_ticket_id": "ENG-006",
   "tickets": [
     {
       "order": 1,
@@ -149,10 +148,8 @@
         "IR-006",
         "IR-013"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-008"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 7,
@@ -180,16 +177,19 @@
       "id": "ENG-008",
       "title": "Implement common IDs, errors, and pagination contracts",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-004"
       ],
       "readinessPrerequisites": [
         "IR-001"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 9,
@@ -206,7 +206,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-008",
         "bootstrap:ENG-155"
       ]
     },
@@ -225,7 +224,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-008",
         "bootstrap:ENG-155"
       ]
     },
@@ -244,7 +242,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-008",
         "bootstrap:ENG-155"
       ]
     },
@@ -263,7 +260,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-008",
         "bootstrap:ENG-155"
       ]
     },
@@ -280,10 +276,8 @@
       "readinessPrerequisites": [
         "IR-001"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-008"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 14,
@@ -824,10 +818,8 @@
       "readinessPrerequisites": [
         "IR-006"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-008"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 40,
@@ -842,7 +834,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-008",
         "bootstrap:ENG-155"
       ]
     },

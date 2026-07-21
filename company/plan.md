@@ -157,12 +157,13 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Claim and execute `ENG-008 — Implement common IDs, errors, and pagination contracts` in its dedicated ticket branch/worktree.
-2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`; `ENG-001` through `ENG-005` are complete, and `bootstrap-deferred` remains permitted only for the named baseline prerequisites.
+1. Claim and execute `ENG-006 — Validate server and browser environment boundaries` in its dedicated ticket branch/worktree.
+2. Continue the dependency-safe deployable-baseline sequence through `ENG-155`; six tickets now pass (`ENG-001` through `ENG-005`, plus `ENG-008`), and `bootstrap-deferred` remains permitted only for the named baseline prerequisites.
 3. Execute exactly one ticket per implementation turn; mark it passed only after all required evidence succeeds and synchronize the authoritative plan, derived index, and progress memory.
 
 ## Decisions
 
+- 2026-07-21: Complete `ENG-008` with a shared `@magic-mirror/contracts` workspace containing strict UUID/request-ID, normalized-error, and keyset-pagination Zod schemas; pin the approved 118-code allowlist, reject unknown external keys and malformed discriminators, bound collection responses to 50 items, and defer development deployment to `ENG-155`.
 - 2026-07-21: Complete `ENG-005` with a CLI-generated local-only Supabase/Postgres 17 harness, two data-only synthetic Auth identities, transactional pgTAP role/owner-isolation tests, explicit intentional-leak failure proof, and zero-test rejection; keep product tables for their owning migrations and make no linked or hosted-project mutation.
 - 2026-07-21: Complete `ENG-004` with pinned Vitest repository/API/web projects, Playwright Chromium local-server execution, stable root and focused-file commands, migrated scaffold coverage, browser console/network assertions, and automated nonzero assertion-failure proof; keep browser binaries in developer/CI caches and deployment deferred to `ENG-155`.
 - 2026-07-21: Complete `ENG-003` with a native Bun TypeScript API, Zod-validated startup configuration, documented `GET /health` response, request IDs, visible configuration failure, root commands, process-level tests, and a portable smoke; defer product routes, auth, provider calls, and deployment to their owning tickets.
