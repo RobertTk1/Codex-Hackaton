@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T22:32:47.055Z",
+  "generated_at": "2026-07-21T23:00:46.818Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "95fdf95fe42c7bccebaede67a657e1e81227ab7ec4fbc503a1d2b8f1a30a347d",
+  "source_plan_sha256": "07308e99cf3d5d19d08dcf83509080dd336742f2359619a4f17efee8dded63e3",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",

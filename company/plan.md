@@ -157,8 +157,8 @@ OpenAI Build Week submissions close Tuesday, July 21, 2026 at 5:00 PM Pacific / 
 
 ## Next
 
-1. Claim and execute `ENG-155 — Provision and validate the DigitalOcean development deployment` in its dedicated ticket branch/worktree.
-2. Complete the dependency-safe deployable baseline at `ENG-155`; sixteen tickets now pass (`ENG-001` through `ENG-006`, `ENG-008`, `ENG-013`, `ENG-014`, `ENG-024`, `ENG-039`, `ENG-043`, `ENG-046`, and `ENG-152` through `ENG-154`), and `bootstrap-deferred` ends when the development deployment is validated.
+1. Resume `ENG-155 — Provision and validate the DigitalOcean development deployment` after the founder confirms the quoted Supabase development-branch charge of $0.01344/hour; the validated specs, deployment tooling, readiness endpoint, passing CI run, and pinned development image are preserved on `codex/eng-155-digitalocean-dev`.
+2. Create an isolated persistent Supabase development branch, apply the dev-only App Platform spec, prove web/API/worker health, rehearse and commit a rollback to a prior healthy deployment, then reapply the current integrated revision. Sixteen tickets remain passing until that live evidence closes `bootstrap-deferred`.
 3. Execute exactly one ticket per implementation turn; mark it passed only after all required evidence succeeds and synchronize the authoritative plan, derived index, and progress memory.
 
 ## Decisions
