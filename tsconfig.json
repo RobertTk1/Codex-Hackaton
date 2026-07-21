@@ -33,6 +33,10 @@
     "verbatimModuleSyntax": true
   },
   "include": [
+    "*.config.ts",
+    "apps/api/test/**/*.ts",
+    "apps/web/e2e/**/*.ts",
+    "apps/web/test/**/*.ts",
     "scripts/**/*.ts",
     "tests/**/*.ts"
   ],

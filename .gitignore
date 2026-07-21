@@ -3,6 +3,8 @@ node_modules/
 .bun/
 dist/
 coverage/
+playwright-report/
+test-results/
 *.tsbuildinfo
 
 # Local environment and secret files

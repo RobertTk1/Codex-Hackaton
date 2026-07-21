@@ -1,9 +1,12 @@
-import { afterEach, describe, expect, test } from "bun:test";
+import { afterEach, describe, expect, test } from "vitest";
+import { spawnSync } from "node:child_process";
 import { copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const temporaryDirectories: string[] = [];
+const repositoryRoot = fileURLToPath(new URL("../", import.meta.url));
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -16,7 +19,7 @@ afterEach(async () => {
 describe("root Bun workspace", () => {
   test("declares the approved application and package workspace globs", async () => {
     const packageJson: unknown = JSON.parse(
-      await readFile(path.join(import.meta.dir, "..", "package.json"), "utf8")
+      await readFile(path.join(repositoryRoot, "package.json"), "utf8")
     );
     if (!isRecord(packageJson)) throw new Error("Root package.json must contain an object.");
 
@@ -30,7 +33,7 @@ describe("root Bun workspace", () => {
     const fixtureScripts = path.join(fixtureRoot, "scripts");
     await mkdir(fixtureScripts);
     await copyFile(
-      path.join(import.meta.dir, "..", "scripts", "validate-workspaces.ts"),
+      path.join(repositoryRoot, "scripts", "validate-workspaces.ts"),
       path.join(fixtureScripts, "validate-workspaces.ts")
     );
     await writeFile(
@@ -44,15 +47,14 @@ describe("root Bun workspace", () => {
       "utf8"
     );
 
-    const result = Bun.spawnSync(["bun", "install"], {
+    const result = spawnSync("bun", ["install"], {
       cwd: fixtureRoot,
+      encoding: "utf8",
       env: { ...process.env, CI: "1" },
-      stderr: "pipe",
-      stdout: "pipe"
     });
-    const output = `${result.stdout.toString()}\n${result.stderr.toString()}`;
+    const output = `${result.stdout}\n${result.stderr}`;
 
-    expect(result.exitCode).not.toBe(0);
+    expect(result.status).not.toBe(0);
     expect(output).toContain('Workspace not found "packages/missing"');
   });
 });
