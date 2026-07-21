@@ -169,14 +169,14 @@
         "apps/web/src/router.tsx",
         "bun.lock"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "Dependencies: React/React DOM provide the approved component and media-session state model, React Router provides stable callback/resume routes, and Vite/Tailwind provide the chosen build and styling toolchain; established maintained packages, pinned in the app manifest.\n[2026-07-21T17:45:40.550Z] Claimed by root on 2026-07-21T17:45:40Z; branch codex/eng-002-vite-tailwind-web; worktree /Users/talishawhite/.codex/worktrees/eng-002-vite-tailwind-web; frontend-design used for a production-grade foundation without adding out-of-scope product screens; bootstrap deployment deferred per approved sequence.",
+      "status": "completed",
+      "passes": true,
+      "notes": "Dependencies: React/React DOM provide the approved component and media-session state model, React Router provides stable callback/resume routes, and Vite/Tailwind provide the chosen build and styling toolchain; established maintained packages, pinned in the app manifest.\n[2026-07-21T17:45:40.550Z] Claimed by root on 2026-07-21T17:45:40Z; branch codex/eng-002-vite-tailwind-web; worktree /Users/talishawhite/.codex/worktrees/eng-002-vite-tailwind-web; frontend-design used for a production-grade foundation without adding out-of-scope product screens; bootstrap deployment deferred per approved sequence.\n[2026-07-21T17:51:24.467Z] Completed by root at 2026-07-21T17:51:24Z. Ticket commit fd9848c27ca1d9ed3eb84ac984ef33d448a1cf72; integrated commit e2a4080e15005820e64bc24ce197dd3a7d828589. Added apps/web Vite 8.1.5, React 19.2.8, React Router 7.18.1, Tailwind 4.3.3, strict package TypeScript, root dev/build/typecheck scripts, dependency rationale, accessible route shell, and focused build/type-failure tests. Verification passed: bun run typecheck:web; bun run build:web (production HTML/CSS/JS emitted); bun test tests/web-scaffold.test.ts; bun run check (4 tests); bun install --frozen-lockfile; pristine git-archive install/typecheck/build/check; Vite dev server ready at 127.0.0.1:5173 with index and main.tsx HTTP 200. Retry count 2: corrected Bun --cwd script ordering, then separated root/shared TypeScript from Vite browser declarations. frontend-design applied to a production-grade accessible foundation; product screens/design intentionally excluded. dev_deployment: bootstrap-deferred under the approved ENG-001-through-ENG-155 baseline sequence.",
       "id": "ENG-002",
       "dependsOn": [
         "ENG-001"
       ],
-      "stateUpdatedAt": "2026-07-21T17:45:40.550Z"
+      "stateUpdatedAt": "2026-07-21T17:51:24.467Z"
     },
     {
       "title": "Scaffold the TypeScript API application",
