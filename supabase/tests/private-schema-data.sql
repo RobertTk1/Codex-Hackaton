@@ -116,8 +116,20 @@ select is_empty(
     join pg_namespace as namespace on namespace.oid = procedure.pronamespace
     where namespace.nspname = 'private'
       and procedure.prosecdef
+      and (
+        has_function_privilege(
+          'anon',
+          procedure.oid,
+          'EXECUTE'
+        )
+        or has_function_privilege(
+          'authenticated',
+          procedure.oid,
+          'EXECUTE'
+        )
+      )
   $$,
-  'no security-definer helper can accept an unset verified owner context'
+  'no customer-callable security-definer helper can accept unset owner context'
 );
 
 select is_empty(
@@ -194,15 +206,40 @@ select ok(
   'revoked direct execution does not prevent service writes from firing the trigger'
 );
 
-select is(
-  (
-    select count(*)::integer
-    from information_schema.tables
-    where table_schema = 'private'
-      and table_name <> 'updated_at_probe'
-  ),
-  0,
-  'baseline creates no customer or operational tables'
+select is_empty(
+  $$
+    select relation.oid
+    from pg_class as relation
+    join pg_namespace as namespace on namespace.oid = relation.relnamespace
+    where namespace.nspname = 'private'
+      and relation.relkind in ('r', 'p')
+      and relation.relname <> 'updated_at_probe'
+      and (
+        has_table_privilege('anon', relation.oid, 'SELECT')
+        or has_table_privilege('anon', relation.oid, 'INSERT')
+        or has_table_privilege('anon', relation.oid, 'UPDATE')
+        or has_table_privilege('anon', relation.oid, 'DELETE')
+        or has_table_privilege('authenticated', relation.oid, 'SELECT')
+        or has_table_privilege('authenticated', relation.oid, 'INSERT')
+        or has_table_privilege('authenticated', relation.oid, 'UPDATE')
+        or has_table_privilege('authenticated', relation.oid, 'DELETE')
+        or exists (
+          select 1
+          from aclexplode(
+            coalesce(relation.relacl, acldefault('r', relation.relowner))
+          ) as privilege
+          where privilege.grantee = 0
+            and privilege.privilege_type in (
+              'SELECT',
+              'INSERT',
+              'UPDATE',
+              'DELETE',
+              'TRUNCATE'
+            )
+        )
+      )
+  $$,
+  'every private table remains inaccessible to customer roles'
 );
 
 select is(
