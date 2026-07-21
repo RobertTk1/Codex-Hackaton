@@ -1,7 +1,9 @@
 # Dependencies and generated output
 node_modules/
+.bun/
 dist/
 coverage/
+*.tsbuildinfo
 
 # Local environment and secret files
 .env
@@ -10,4 +12,3 @@ coverage/
 
 # Local operating-system files
 .DS_Store
-
