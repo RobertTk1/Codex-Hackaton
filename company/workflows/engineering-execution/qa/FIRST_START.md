@@ -20,7 +20,7 @@ Confirm these sources exist and record their versions:
 - `company/artifacts/prd/scenarios.feature`
 - `company/artifacts/prd/screens.json`
 - `company/artifacts/ui-ux-design/user-flows/`
-- the approved screen/mockup and interaction-spec package
+- the approved mockup and interaction-spec packages: `company/artifacts/screen-mockups/` for canonical screens and `company/artifacts/screen-mockups-v2/conversational-onboarding/` for the chat-first pre-report screens, scoped per case by the plan's `screenCoverage` and each ticket's `resources.design` (see `../references/sources.md`)
 - `company/artifacts/engineering-plan/contracts/`
 - `company/artifacts/engineering-plan/architecture/security.md`
 - the engineering plan's declared verification and target-device inputs
