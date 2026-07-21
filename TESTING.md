@@ -35,6 +35,22 @@ To focus a named Playwright test inside a file:
 bun run test:e2e -- apps/web/e2e/smoke.spec.ts --grep "local web application"
 ```
 
+## Local Supabase policy tests
+
+Docker and the Supabase CLI are required. The harness is local-only and does
+not link to or mutate a hosted project.
+
+```bash
+bun run db:start
+bun run db:reset
+bun run test:db
+```
+
+`db:reset` rebuilds the isolated local database and applies the data-only
+synthetic Auth seed. `test:db` runs the passing pgTAP policy harness, then runs
+an intentionally permissive policy fixture and succeeds only when pgTAP rejects
+the resulting cross-owner leak.
+
 ## Dependency rationale
 
 - `vitest`: provides project-aware unit/integration execution, file filters,

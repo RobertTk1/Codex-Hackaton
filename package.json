@@ -24,6 +24,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "db:start": "supabase db start",
+    "db:reset": "supabase db reset",
+    "test:db": "bash scripts/test-supabase-policies.sh",
     "playwright:install": "playwright install chromium",
     "check": "bun run validate:workspaces && bun run typecheck && bun run test"
   },
