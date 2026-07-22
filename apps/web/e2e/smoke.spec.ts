@@ -16,7 +16,7 @@ test("local web application starts without browser errors", async ({ page }) => 
 
   expect(navigation?.status()).toBe(200);
   await expect(page.getByRole("main", { name: "Magic Mirror application" })).toBeAttached();
-  await expect(page.getByRole("heading", { name: "Magic Mirror" })).toBeAttached();
+  await expect(page.getByRole("heading", { name: "Your style already has a point of view." })).toBeVisible();
   expect(browserErrors).toEqual([]);
   expect(failedRequests).toEqual([]);
 });

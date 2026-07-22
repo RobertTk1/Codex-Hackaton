@@ -21,7 +21,7 @@ export default defineConfig({
           // prove the type gate. Keep web files serial so container builds
           // never copy that deliberately invalid fixture.
           fileParallelism: false,
-          include: ["apps/web/test/**/*.test.ts"],
+          include: ["apps/web/test/**/*.test.ts", "apps/web/src/**/*.test.tsx"],
           name: "web",
         },
       }),
