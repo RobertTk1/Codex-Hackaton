@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(46);
+select plan(49);
 
 select has_table(
   'private',
@@ -303,6 +303,32 @@ insert into public.consent_records (
     now() - interval '30 days'
   );
 
+insert into public.photos (
+  id,
+  owner_id,
+  profile_id,
+  storage_path,
+  position,
+  media_type,
+  byte_size,
+  width_px,
+  height_px,
+  sha256,
+  expires_at
+) values (
+  '91600000-0000-4000-8000-000000000001',
+  '91000000-0000-4000-8000-000000000001',
+  '91100000-0000-4000-8000-000000000001',
+  'customer-photos/91000000-0000-4000-8000-000000000001/91100000-0000-4000-8000-000000000001/91600000-0000-4000-8000-000000000001/original.jpg',
+  1,
+  'image/jpeg',
+  2048,
+  1200,
+  1800,
+  decode(repeat('ef', 32), 'hex'),
+  now() + interval '6 days'
+);
+
 select throws_ok(
   $$
     insert into private.anonymous_transfers (
@@ -422,6 +448,16 @@ select is(
   'consent-event ownership cascades without changing evidence'
 );
 
+select is(
+  (
+    select owner_id
+    from public.photos
+    where id = '91600000-0000-4000-8000-000000000001'
+  ),
+  '92000000-0000-4000-8000-000000000001'::uuid,
+  'photo ownership cascades while its immutable object path stays in place'
+);
+
 select results_eq(
   $$
     select name, revision, status
@@ -471,6 +507,11 @@ select is_empty(
   'prior anonymous identity can no longer read the transferred profile'
 );
 
+select is_empty(
+  $$select id from public.photos$$,
+  'prior anonymous identity can no longer read transferred photo metadata'
+);
+
 reset role;
 set local role authenticated;
 set local request.jwt.claim.sub = '92000000-0000-4000-8000-000000000001';
@@ -485,6 +526,12 @@ select results_eq(
   $$select brand_key from public.favorite_brands order by brand_key$$,
   array['cos', 'zara']::text[],
   'target account can read both existing and transferred profile evidence'
+);
+
+select results_eq(
+  $$select storage_path from public.photos$$,
+  array['customer-photos/91000000-0000-4000-8000-000000000001/91100000-0000-4000-8000-000000000001/91600000-0000-4000-8000-000000000001/original.jpg']::text[],
+  'target account reads transferred photo metadata without renaming the object path'
 );
 
 reset role;
