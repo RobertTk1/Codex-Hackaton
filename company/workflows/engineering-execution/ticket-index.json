@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T23:00:46.818Z",
+  "generated_at": "2026-07-22T00:15:22.542Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "07308e99cf3d5d19d08dcf83509080dd336742f2359619a4f17efee8dded63e3",
+  "source_plan_sha256": "50141b57607efcd8a82ba3b983a58acc1780c396fa72b8b31d5dd3f29d338e6a",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
   "bootstrap_gate": {
     "ticket_id": "ENG-155",
-    "complete": false,
+    "complete": true,
     "allowed_ticket_ids": [
       "ENG-001",
       "ENG-002",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 162,
-  "eligible_count": 1,
-  "passing_count": 16,
+  "eligible_count": 10,
+  "passing_count": 17,
   "status_counts": {
-    "completed": 16,
-    "in-progress": 1,
+    "completed": 17,
     "not-started": 145
   },
-  "next_ticket_id": "ENG-155",
+  "next_ticket_id": "ENG-007",
   "tickets": [
     {
       "order": 1,
@@ -170,10 +169,8 @@
         "IR-007",
         "IR-008"
       ],
-      "eligible": false,
-      "blockers": [
-        "bootstrap:ENG-155"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 8,
@@ -207,10 +204,8 @@
       "readinessPrerequisites": [
         "IR-001"
       ],
-      "eligible": false,
-      "blockers": [
-        "bootstrap:ENG-155"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 10,
@@ -225,10 +220,8 @@
       "readinessPrerequisites": [
         "IR-001"
       ],
-      "eligible": false,
-      "blockers": [
-        "bootstrap:ENG-155"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 11,
@@ -243,10 +236,8 @@
       "readinessPrerequisites": [
         "IR-001"
       ],
-      "eligible": false,
-      "blockers": [
-        "bootstrap:ENG-155"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 12,
@@ -261,10 +252,8 @@
       "readinessPrerequisites": [
         "IR-001"
       ],
-      "eligible": false,
-      "blockers": [
-        "bootstrap:ENG-155"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 13,
@@ -318,10 +307,8 @@
         "IR-006",
         "IR-016"
       ],
-      "eligible": false,
-      "blockers": [
-        "bootstrap:ENG-155"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 16,
@@ -338,8 +325,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-015",
-        "bootstrap:ENG-155"
+        "dependency:ENG-015"
       ]
     },
     {
@@ -358,8 +344,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-015",
-        "bootstrap:ENG-155"
+        "dependency:ENG-015"
       ]
     },
     {
@@ -379,8 +364,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-016",
-        "dependency:ENG-017",
-        "bootstrap:ENG-155"
+        "dependency:ENG-017"
       ]
     },
     {
@@ -398,8 +382,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-018",
-        "bootstrap:ENG-155"
+        "dependency:ENG-018"
       ]
     },
     {
@@ -417,8 +400,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-015",
-        "bootstrap:ENG-155"
+        "dependency:ENG-015"
       ]
     },
     {
@@ -437,8 +419,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-020",
-        "bootstrap:ENG-155"
+        "dependency:ENG-020"
       ]
     },
     {
@@ -456,8 +437,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-020",
-        "bootstrap:ENG-155"
+        "dependency:ENG-020"
       ]
     },
     {
@@ -475,8 +455,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-015",
-        "bootstrap:ENG-155"
+        "dependency:ENG-015"
       ]
     },
     {
@@ -509,8 +488,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-015",
-        "bootstrap:ENG-155"
+        "dependency:ENG-015"
       ]
     },
     {
@@ -528,8 +506,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-025",
-        "bootstrap:ENG-155"
+        "dependency:ENG-025"
       ]
     },
     {
@@ -547,8 +524,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-026",
-        "bootstrap:ENG-155"
+        "dependency:ENG-026"
       ]
     },
     {
@@ -570,8 +546,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-017",
-        "dependency:ENG-020",
-        "bootstrap:ENG-155"
+        "dependency:ENG-020"
       ]
     },
     {
@@ -591,8 +566,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-027",
-        "dependency:ENG-028",
-        "bootstrap:ENG-155"
+        "dependency:ENG-028"
       ]
     },
     {
@@ -611,8 +585,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-029",
-        "bootstrap:ENG-155"
+        "dependency:ENG-029"
       ]
     },
     {
@@ -630,8 +603,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-025",
-        "bootstrap:ENG-155"
+        "dependency:ENG-025"
       ]
     },
     {
@@ -649,8 +621,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-017",
-        "bootstrap:ENG-155"
+        "dependency:ENG-017"
       ]
     },
     {
@@ -668,8 +639,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-015",
-        "bootstrap:ENG-155"
+        "dependency:ENG-015"
       ]
     },
     {
@@ -687,8 +657,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-015",
-        "bootstrap:ENG-155"
+        "dependency:ENG-015"
       ]
     },
     {
@@ -706,8 +675,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-018",
-        "bootstrap:ENG-155"
+        "dependency:ENG-018"
       ]
     },
     {
@@ -725,8 +693,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-015",
-        "bootstrap:ENG-155"
+        "dependency:ENG-015"
       ]
     },
     {
@@ -767,8 +734,7 @@
         "dependency:ENG-033",
         "dependency:ENG-034",
         "dependency:ENG-035",
-        "dependency:ENG-036",
-        "bootstrap:ENG-155"
+        "dependency:ENG-036"
       ]
     },
     {
@@ -808,8 +774,7 @@
         "dependency:ENG-033",
         "dependency:ENG-034",
         "dependency:ENG-035",
-        "dependency:ENG-036",
-        "bootstrap:ENG-155"
+        "dependency:ENG-036"
       ]
     },
     {
@@ -842,10 +807,8 @@
         "ENG-008"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "bootstrap:ENG-155"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 41,
@@ -863,8 +826,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-040",
-        "dependency:ENG-036",
-        "bootstrap:ENG-155"
+        "dependency:ENG-036"
       ]
     },
     {
@@ -880,8 +842,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-040",
-        "bootstrap:ENG-155"
+        "dependency:ENG-040"
       ]
     },
     {
@@ -921,8 +882,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-007",
-        "bootstrap:ENG-155"
+        "dependency:ENG-007"
       ]
     },
     {
@@ -940,8 +900,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-044",
-        "bootstrap:ENG-155"
+        "dependency:ENG-044"
       ]
     },
     {
@@ -975,10 +934,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "bootstrap:ENG-155"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 48,
@@ -994,8 +951,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-015",
-        "bootstrap:ENG-155"
+        "dependency:ENG-015"
       ]
     },
     {
@@ -1014,8 +970,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-041",
-        "dependency:ENG-018",
-        "bootstrap:ENG-155"
+        "dependency:ENG-018"
       ]
     },
     {
@@ -1036,8 +991,7 @@
       "blockers": [
         "dependency:ENG-030",
         "dependency:ENG-033",
-        "dependency:ENG-108",
-        "bootstrap:ENG-155"
+        "dependency:ENG-108"
       ]
     },
     {
@@ -1054,8 +1008,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-018",
-        "bootstrap:ENG-155"
+        "dependency:ENG-018"
       ]
     },
     {
@@ -1076,8 +1029,7 @@
       "blockers": [
         "dependency:ENG-041",
         "dependency:ENG-018",
-        "dependency:ENG-009",
-        "bootstrap:ENG-155"
+        "dependency:ENG-009"
       ]
     },
     {
@@ -1096,8 +1048,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-018",
-        "dependency:ENG-009",
-        "bootstrap:ENG-155"
+        "dependency:ENG-009"
       ]
     },
     {
@@ -1116,8 +1067,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-016",
-        "dependency:ENG-009",
-        "bootstrap:ENG-155"
+        "dependency:ENG-009"
       ]
     },
     {
@@ -1136,8 +1086,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-016",
-        "dependency:ENG-009",
-        "bootstrap:ENG-155"
+        "dependency:ENG-009"
       ]
     },
     {
@@ -1156,8 +1105,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-017",
-        "dependency:ENG-041",
-        "bootstrap:ENG-155"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -1177,8 +1125,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-041",
-        "dependency:ENG-025",
-        "bootstrap:ENG-155"
+        "dependency:ENG-025"
       ]
     },
     {
@@ -1197,8 +1144,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-021",
-        "dependency:ENG-041",
-        "bootstrap:ENG-155"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -1215,8 +1161,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-021",
-        "bootstrap:ENG-155"
+        "dependency:ENG-021"
       ]
     },
     {
@@ -1238,8 +1183,7 @@
       "blockers": [
         "dependency:ENG-021",
         "dependency:ENG-042",
-        "dependency:ENG-010",
-        "bootstrap:ENG-155"
+        "dependency:ENG-010"
       ]
     },
     {
@@ -1256,8 +1200,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-020",
-        "bootstrap:ENG-155"
+        "dependency:ENG-020"
       ]
     },
     {
@@ -1274,8 +1217,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-020",
-        "bootstrap:ENG-155"
+        "dependency:ENG-020"
       ]
     },
     {
@@ -1295,8 +1237,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-041",
-        "dependency:ENG-022",
-        "bootstrap:ENG-155"
+        "dependency:ENG-022"
       ]
     },
     {
@@ -1313,8 +1254,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-022",
-        "bootstrap:ENG-155"
+        "dependency:ENG-022"
       ]
     },
     {
@@ -1331,8 +1271,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-022",
-        "bootstrap:ENG-155"
+        "dependency:ENG-022"
       ]
     },
     {
@@ -1352,8 +1291,7 @@
       "blockers": [
         "dependency:ENG-041",
         "dependency:ENG-023",
-        "dependency:ENG-101",
-        "bootstrap:ENG-155"
+        "dependency:ENG-101"
       ]
     },
     {
@@ -1370,8 +1308,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-023",
-        "bootstrap:ENG-155"
+        "dependency:ENG-023"
       ]
     },
     {
@@ -1388,8 +1325,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-023",
-        "bootstrap:ENG-155"
+        "dependency:ENG-023"
       ]
     },
     {
@@ -1406,8 +1342,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-023",
-        "bootstrap:ENG-155"
+        "dependency:ENG-023"
       ]
     },
     {
@@ -1426,8 +1361,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-019",
-        "dependency:ENG-041",
-        "bootstrap:ENG-155"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -1444,8 +1378,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-019",
-        "bootstrap:ENG-155"
+        "dependency:ENG-019"
       ]
     },
     {
@@ -1462,8 +1395,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-019",
-        "bootstrap:ENG-155"
+        "dependency:ENG-019"
       ]
     },
     {
@@ -1480,8 +1412,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-025",
-        "bootstrap:ENG-155"
+        "dependency:ENG-025"
       ]
     },
     {
@@ -1501,8 +1432,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-041",
-        "dependency:ENG-025",
-        "bootstrap:ENG-155"
+        "dependency:ENG-025"
       ]
     },
     {
@@ -1519,8 +1449,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-031",
-        "bootstrap:ENG-155"
+        "dependency:ENG-031"
       ]
     },
     {
@@ -1537,8 +1466,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-030",
-        "bootstrap:ENG-155"
+        "dependency:ENG-030"
       ]
     },
     {
@@ -1555,8 +1483,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-030",
-        "bootstrap:ENG-155"
+        "dependency:ENG-030"
       ]
     },
     {
@@ -1575,8 +1502,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-030",
-        "dependency:ENG-108",
-        "bootstrap:ENG-155"
+        "dependency:ENG-108"
       ]
     },
     {
@@ -1595,8 +1521,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-041",
-        "dependency:ENG-030",
-        "bootstrap:ENG-155"
+        "dependency:ENG-030"
       ]
     },
     {
@@ -1613,8 +1538,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-041",
-        "bootstrap:ENG-155"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -1631,8 +1555,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-107",
-        "bootstrap:ENG-155"
+        "dependency:ENG-107"
       ]
     },
     {
@@ -1649,8 +1572,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-108",
-        "bootstrap:ENG-155"
+        "dependency:ENG-108"
       ]
     },
     {
@@ -1667,8 +1589,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-107",
-        "bootstrap:ENG-155"
+        "dependency:ENG-107"
       ]
     },
     {
@@ -1687,8 +1608,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-033",
-        "dependency:ENG-108",
-        "bootstrap:ENG-155"
+        "dependency:ENG-108"
       ]
     },
     {
@@ -1707,8 +1627,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-041",
-        "dependency:ENG-033",
-        "bootstrap:ENG-155"
+        "dependency:ENG-033"
       ]
     },
     {
@@ -1725,8 +1644,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-033",
-        "bootstrap:ENG-155"
+        "dependency:ENG-033"
       ]
     },
     {
@@ -1743,8 +1661,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-108",
-        "bootstrap:ENG-155"
+        "dependency:ENG-108"
       ]
     },
     {
@@ -1761,8 +1678,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-034",
-        "bootstrap:ENG-155"
+        "dependency:ENG-034"
       ]
     },
     {
@@ -1781,8 +1697,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-032",
-        "dependency:ENG-041",
-        "bootstrap:ENG-155"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -1799,8 +1714,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-032",
-        "bootstrap:ENG-155"
+        "dependency:ENG-032"
       ]
     },
     {
@@ -1821,8 +1735,7 @@
       "blockers": [
         "dependency:ENG-032",
         "dependency:ENG-113",
-        "dependency:ENG-116",
-        "bootstrap:ENG-155"
+        "dependency:ENG-116"
       ]
     },
     {
@@ -1840,8 +1753,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-032",
-        "bootstrap:ENG-155"
+        "dependency:ENG-032"
       ]
     },
     {
@@ -1858,8 +1770,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-032",
-        "bootstrap:ENG-155"
+        "dependency:ENG-032"
       ]
     },
     {
@@ -1876,8 +1787,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-032",
-        "bootstrap:ENG-155"
+        "dependency:ENG-032"
       ]
     },
     {
@@ -1896,8 +1806,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-035",
-        "dependency:ENG-041",
-        "bootstrap:ENG-155"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -1915,8 +1824,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-009",
-        "bootstrap:ENG-155"
+        "dependency:ENG-009"
       ]
     },
     {
@@ -1935,8 +1843,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-010",
-        "bootstrap:ENG-155"
+        "dependency:ENG-010"
       ]
     },
     {
@@ -1956,8 +1863,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-097",
-        "dependency:ENG-042",
-        "bootstrap:ENG-155"
+        "dependency:ENG-042"
       ]
     },
     {
@@ -1979,8 +1885,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-042",
-        "dependency:ENG-010",
-        "bootstrap:ENG-155"
+        "dependency:ENG-010"
       ]
     },
     {
@@ -2003,8 +1908,7 @@
       "blockers": [
         "dependency:ENG-098",
         "dependency:ENG-099",
-        "dependency:ENG-022",
-        "bootstrap:ENG-155"
+        "dependency:ENG-022"
       ]
     },
     {
@@ -2025,8 +1929,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-100",
-        "dependency:ENG-107",
-        "bootstrap:ENG-155"
+        "dependency:ENG-107"
       ]
     },
     {
@@ -2050,8 +1953,7 @@
       "blockers": [
         "dependency:ENG-042",
         "dependency:ENG-011",
-        "dependency:ENG-096",
-        "bootstrap:ENG-155"
+        "dependency:ENG-096"
       ]
     },
     {
@@ -2070,8 +1972,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-102",
-        "dependency:ENG-029",
-        "bootstrap:ENG-155"
+        "dependency:ENG-029"
       ]
     },
     {
@@ -2089,8 +1990,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-042",
-        "bootstrap:ENG-155"
+        "dependency:ENG-042"
       ]
     },
     {
@@ -2111,8 +2011,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-104",
-        "dependency:ENG-031",
-        "bootstrap:ENG-155"
+        "dependency:ENG-031"
       ]
     },
     {
@@ -2130,8 +2029,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-012",
-        "bootstrap:ENG-155"
+        "dependency:ENG-012"
       ]
     },
     {
@@ -2151,8 +2049,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-106",
-        "dependency:ENG-042",
-        "bootstrap:ENG-155"
+        "dependency:ENG-042"
       ]
     },
     {
@@ -2173,8 +2070,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-106",
-        "dependency:ENG-042",
-        "bootstrap:ENG-155"
+        "dependency:ENG-042"
       ]
     },
     {
@@ -2195,8 +2091,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-011",
-        "bootstrap:ENG-155"
+        "dependency:ENG-011"
       ]
     },
     {
@@ -2219,8 +2114,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-109",
-        "dependency:ENG-042",
-        "bootstrap:ENG-155"
+        "dependency:ENG-042"
       ]
     },
     {
@@ -2245,8 +2139,7 @@
       "blockers": [
         "dependency:ENG-110",
         "dependency:ENG-028",
-        "dependency:ENG-027",
-        "bootstrap:ENG-155"
+        "dependency:ENG-027"
       ]
     },
     {
@@ -2265,10 +2158,8 @@
         "IR-019",
         "IR-022"
       ],
-      "eligible": false,
-      "blockers": [
-        "bootstrap:ENG-155"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 113,
@@ -2287,8 +2178,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-112",
-        "dependency:ENG-042",
-        "bootstrap:ENG-155"
+        "dependency:ENG-042"
       ]
     },
     {
@@ -2307,8 +2197,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-113",
-        "bootstrap:ENG-155"
+        "dependency:ENG-113"
       ]
     },
     {
@@ -2329,8 +2218,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-112",
-        "bootstrap:ENG-155"
+        "dependency:ENG-112"
       ]
     },
     {
@@ -2351,8 +2239,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-115",
-        "dependency:ENG-042",
-        "bootstrap:ENG-155"
+        "dependency:ENG-042"
       ]
     },
     {
@@ -2371,8 +2258,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-116",
-        "bootstrap:ENG-155"
+        "dependency:ENG-116"
       ]
     },
     {
@@ -2391,8 +2277,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-115",
-        "bootstrap:ENG-155"
+        "dependency:ENG-115"
       ]
     },
     {
@@ -2412,8 +2297,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-049",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2433,8 +2317,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-048",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2455,8 +2338,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-049",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2479,8 +2361,7 @@
       "blockers": [
         "dependency:ENG-052",
         "dependency:ENG-053",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2503,8 +2384,7 @@
       "blockers": [
         "dependency:ENG-054",
         "dependency:ENG-055",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2529,8 +2409,7 @@
         "dependency:ENG-058",
         "dependency:ENG-060",
         "dependency:ENG-059",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2555,8 +2434,7 @@
         "dependency:ENG-061",
         "dependency:ENG-062",
         "dependency:ENG-059",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2581,8 +2459,7 @@
         "dependency:ENG-067",
         "dependency:ENG-068",
         "dependency:ENG-069",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2605,8 +2482,7 @@
       "blockers": [
         "dependency:ENG-070",
         "dependency:ENG-071",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2629,8 +2505,7 @@
       "blockers": [
         "dependency:ENG-051",
         "dependency:ENG-057",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2652,8 +2527,7 @@
       "blockers": [
         "dependency:ENG-073",
         "dependency:ENG-074",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2673,8 +2547,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-076",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2694,8 +2567,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-077",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2717,8 +2589,7 @@
       "blockers": [
         "dependency:ENG-077",
         "dependency:ENG-096",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2738,8 +2609,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-078",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2761,8 +2631,7 @@
       "blockers": [
         "dependency:ENG-079",
         "dependency:ENG-080",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2782,8 +2651,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-050",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2805,8 +2673,7 @@
       "blockers": [
         "dependency:ENG-082",
         "dependency:ENG-083",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2826,8 +2693,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-089",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2849,8 +2715,7 @@
       "blockers": [
         "dependency:ENG-114",
         "dependency:ENG-090",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2872,8 +2737,7 @@
       "blockers": [
         "dependency:ENG-090",
         "dependency:ENG-114",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2893,8 +2757,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-094",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2916,8 +2779,7 @@
       "blockers": [
         "dependency:ENG-117",
         "dependency:ENG-091",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2939,8 +2801,7 @@
       "blockers": [
         "dependency:ENG-092",
         "dependency:ENG-093",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2960,8 +2821,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-117",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -2981,8 +2841,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-118",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -3004,8 +2863,7 @@
       "blockers": [
         "dependency:ENG-118",
         "dependency:ENG-092",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -3025,8 +2883,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-093",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -3048,8 +2905,7 @@
       "blockers": [
         "dependency:ENG-084",
         "dependency:ENG-086",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -3071,8 +2927,7 @@
       "blockers": [
         "dependency:ENG-087",
         "dependency:ENG-088",
-        "dependency:ENG-045",
-        "bootstrap:ENG-155"
+        "dependency:ENG-045"
       ]
     },
     {
@@ -3091,8 +2946,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-021",
-        "bootstrap:ENG-155"
+        "dependency:ENG-021"
       ]
     },
     {
@@ -3114,8 +2968,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-028",
-        "dependency:ENG-022",
-        "bootstrap:ENG-155"
+        "dependency:ENG-022"
       ]
     },
     {
@@ -3137,8 +2990,7 @@
       "blockers": [
         "dependency:ENG-035",
         "dependency:ENG-149",
-        "dependency:ENG-150",
-        "bootstrap:ENG-155"
+        "dependency:ENG-150"
       ]
     },
     {
@@ -3204,8 +3056,8 @@
       "id": "ENG-155",
       "title": "Provision and validate the DigitalOcean development deployment",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-152",
         "ENG-153",
@@ -3215,8 +3067,11 @@
         "IR-005",
         "IR-013"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 156,
@@ -3232,11 +3087,8 @@
         "IR-006",
         "IR-013"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-155",
-        "bootstrap:ENG-155"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 157,
@@ -3254,9 +3106,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-155",
-        "dependency:ENG-040",
-        "bootstrap:ENG-155"
+        "dependency:ENG-040"
       ]
     },
     {
@@ -3282,8 +3132,7 @@
         "dependency:ENG-128",
         "dependency:ENG-129",
         "dependency:ENG-133",
-        "dependency:ENG-111",
-        "bootstrap:ENG-155"
+        "dependency:ENG-111"
       ]
     },
     {
@@ -3309,8 +3158,7 @@
         "dependency:ENG-032",
         "dependency:ENG-033",
         "dependency:ENG-030",
-        "dependency:ENG-021",
-        "bootstrap:ENG-155"
+        "dependency:ENG-021"
       ]
     },
     {
@@ -3329,8 +3177,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-156",
-        "bootstrap:ENG-155"
+        "dependency:ENG-156"
       ]
     },
     {
@@ -3354,8 +3201,7 @@
       "blockers": [
         "dependency:ENG-156",
         "dependency:ENG-157",
-        "dependency:ENG-158",
-        "bootstrap:ENG-155"
+        "dependency:ENG-158"
       ]
     },
     {
@@ -3380,8 +3226,7 @@
         "dependency:ENG-161",
         "dependency:ENG-114",
         "dependency:ENG-117",
-        "dependency:ENG-105",
-        "bootstrap:ENG-155"
+        "dependency:ENG-105"
       ]
     }
   ]
