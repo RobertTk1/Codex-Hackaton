@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T22:15:29.180Z",
+  "generated_at": "2026-07-22T22:35:28.803Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "6e8a066ef34a43fab5c75e720459be6156b04c49806b98cb11809d5467c465fd",
+  "source_plan_sha256": "df6e2b720035185c340292492e7fd663fe765b05f18b3d06a2ba9a6a64cd8bf9",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 30,
-  "passing_count": 31,
+  "eligible_count": 32,
+  "passing_count": 32,
   "status_counts": {
-    "completed": 31,
-    "in-progress": 1,
+    "completed": 32,
     "not-started": 131
   },
-  "next_ticket_id": "ENG-023",
+  "next_ticket_id": "ENG-025",
   "tickets": [
     {
       "order": 1,
@@ -493,16 +492,19 @@
       "id": "ENG-023",
       "title": "Create bounded taste candidates and reactions",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-015"
       ],
       "readinessPrerequisites": [
         "IR-018"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 24,
@@ -769,7 +771,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-023",
         "dependency:ENG-030",
         "dependency:ENG-031",
         "dependency:ENG-032",
@@ -807,7 +808,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-023",
         "dependency:ENG-030",
         "dependency:ENG-031",
         "dependency:ENG-032",
@@ -1325,7 +1325,6 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-041",
-        "dependency:ENG-023",
         "dependency:ENG-101"
       ]
     },
@@ -1342,10 +1341,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-023"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 68,
@@ -1360,10 +1357,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-023"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 69,
@@ -1378,10 +1373,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-023"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 70,
