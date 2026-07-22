@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T17:01:42.762Z",
+  "generated_at": "2026-07-22T17:11:29.188Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "9df0846453d12a26422b9587e904205870d32650c55b6ac68caf06166523b406",
+  "source_plan_sha256": "47548b5c2a537a9c12758a131e625a952c4f9c4060b456a235b70d43b7990c15",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 25,
   "status_counts": {
     "completed": 25,
-    "not-started": 138
+    "in-progress": 1,
+    "not-started": 137
   },
   "next_ticket_id": "ENG-017",
   "tickets": [
@@ -369,7 +370,7 @@
       "id": "ENG-017",
       "title": "Create append-only consent records",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-015"

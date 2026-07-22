@@ -1411,13 +1411,14 @@
         "supabase/migrations/20260721000200_create_profile_and_consent_contract.sql",
         "supabase/tests/consent-data.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T17:11:29.181Z] Claimed by root turn 36 on codex/eng-017-consent-events at /Users/talishawhite/.codex/worktrees/eng-017-consent-events; implementation and verification in progress.",
       "id": "ENG-017",
       "dependsOn": [
         "ENG-015"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T17:11:29.181Z"
     },
     {
       "title": "Enforce profile child ownership and draft-only writes",
