@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T21:28:34.764Z",
+  "generated_at": "2026-07-22T22:06:54.161Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "f880e13139a951e43b320776a0394c955e1cf7396a3d95b741249b1c7f87f843",
+  "source_plan_sha256": "800924f3a79b3ce4f25984ae6ce9fa04b3e46414a41cccc1f26e1b57150c821c",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 29,
-  "passing_count": 30,
+  "eligible_count": 30,
+  "passing_count": 31,
   "status_counts": {
-    "completed": 30,
-    "in-progress": 1,
+    "completed": 31,
     "not-started": 132
   },
-  "next_ticket_id": "ENG-022",
+  "next_ticket_id": "ENG-023",
   "tickets": [
     {
       "order": 1,
@@ -473,16 +472,19 @@
       "id": "ENG-022",
       "title": "Create extracted-garment and photo-signal records",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-020"
       ],
       "readinessPrerequisites": [
         "IR-015"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 23,
@@ -766,7 +768,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-022",
         "dependency:ENG-023",
         "dependency:ENG-030",
         "dependency:ENG-031",
@@ -805,7 +806,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-022",
         "dependency:ENG-023",
         "dependency:ENG-030",
         "dependency:ENG-031",
@@ -1272,8 +1272,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-041",
-        "dependency:ENG-022"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -1289,10 +1288,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-022"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 65,
@@ -1307,10 +1304,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-022"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 66,
@@ -1970,8 +1965,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-098",
-        "dependency:ENG-099",
-        "dependency:ENG-022"
+        "dependency:ENG-099"
       ]
     },
     {
@@ -3094,8 +3088,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-028",
-        "dependency:ENG-022"
+        "dependency:ENG-028"
       ]
     },
     {

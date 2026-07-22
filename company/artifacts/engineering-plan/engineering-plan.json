@@ -1831,14 +1831,14 @@
         "supabase/migrations/20260721000300_create_photo_extraction_and_taste_contract.sql",
         "supabase/tests/extraction-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-22T21:28:34.758Z] Claimed by root turn 41 on codex/eng-022-extraction-records at /Users/talishawhite/.codex/worktrees/eng-022-extraction-records; implementing only photo_style_signals and extracted_garments persistence, constraints, expiry, partial-state, and customer-read isolation.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-22T21:28:34.758Z] Claimed by root turn 41 on codex/eng-022-extraction-records at /Users/talishawhite/.codex/worktrees/eng-022-extraction-records; implementing only photo_style_signals and extracted_garments persistence, constraints, expiry, partial-state, and customer-read isolation.\n[2026-07-22T22:06:54.150Z] Integrated normalized extraction evidence with source-bounded retention, partial-failure persistence, owner-isolated reads, no raw provider payloads, and advisor-driven owner/photo indexes. Verified by 59 focused and 441 aggregate pgTAP assertions, signed storage harness, schema lint, CI runs 29961460300 and 29961473386, transactional hosted proof with zero retained fixtures, Supabase security/performance advisors, development deploy 095ced79-7ea4-425a-9ef5-d7566a62bf3, and successful application rollback.",
       "id": "ENG-022",
       "dependsOn": [
         "ENG-020"
       ],
-      "stateUpdatedAt": "2026-07-22T21:28:34.758Z"
+      "stateUpdatedAt": "2026-07-22T22:06:54.150Z"
     },
     {
       "title": "Create bounded taste candidates and reactions",
