@@ -5,7 +5,8 @@
   "type": "module",
   "exports": {
     ".": "./src/common.ts",
-    "./live": "./src/live.ts"
+    "./live": "./src/live.ts",
+    "./profile": "./src/profile.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --project tsconfig.json"
