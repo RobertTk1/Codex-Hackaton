@@ -1748,14 +1748,14 @@
         "supabase/migrations/20260721000300_create_photo_extraction_and_taste_contract.sql",
         "supabase/tests/photo-storage.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-22T20:34:27.208Z] [2026-07-22T20:34:27Z] Claimed by root turn 40 on codex/eng-021-customer-photo-storage at /Users/talishawhite/.codex/worktrees/eng-021-customer-photo-storage; private bucket and exact customer-photo Storage policy implementation in progress.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-22T20:34:27.208Z] [2026-07-22T20:34:27Z] Claimed by root turn 40 on codex/eng-021-customer-photo-storage at /Users/talishawhite/.codex/worktrees/eng-021-customer-photo-storage; private bucket and exact customer-photo Storage policy implementation in progress.\n[2026-07-22T21:15:08.301Z] Private customer-photo bucket and exact relational owner/expiry read policy pass locally and in isolated hosted development; immutable signed upload, general insert denial, overwrite denial, cross-owner denial, list denial, and expiry denial verified. Ticket and integration CI passed; rollback and final dev deployment smoke passed; production untouched.",
       "id": "ENG-021",
       "dependsOn": [
         "ENG-020"
       ],
-      "stateUpdatedAt": "2026-07-22T20:34:27.208Z"
+      "stateUpdatedAt": "2026-07-22T21:15:08.301Z"
     },
     {
       "title": "Create extracted-garment and photo-signal records",

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T20:34:27.214Z",
+  "generated_at": "2026-07-22T21:15:08.306Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "f8fcd4c423f9bacb239ad94bcc03ef927cca0858c0ef00ea105c5db2056c6730",
+  "source_plan_sha256": "5f6d5d708ad3275df8d01ce3138d5743589e3a7006c8d5ade291fb22c466ad2a",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 28,
-  "passing_count": 29,
+  "eligible_count": 29,
+  "passing_count": 30,
   "status_counts": {
-    "completed": 29,
-    "in-progress": 1,
+    "completed": 30,
     "not-started": 133
   },
-  "next_ticket_id": "ENG-021",
+  "next_ticket_id": "ENG-022",
   "tickets": [
     {
       "order": 1,
@@ -452,8 +451,8 @@
       "id": "ENG-021",
       "title": "Create private customer-photo bucket policies",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-020"
       ],
@@ -461,8 +460,11 @@
         "IR-006",
         "IR-015"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 22,
@@ -763,7 +765,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-021",
         "dependency:ENG-022",
         "dependency:ENG-023",
         "dependency:ENG-030",
@@ -803,7 +804,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-021",
         "dependency:ENG-022",
         "dependency:ENG-023",
         "dependency:ENG-030",
@@ -1182,7 +1182,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-021",
         "dependency:ENG-041"
       ]
     },
@@ -1199,10 +1198,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-021"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 60,
@@ -1222,7 +1219,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-021",
         "dependency:ENG-042"
       ]
     },
@@ -3075,10 +3071,8 @@
       "readinessPrerequisites": [
         "IR-015"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-021"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 151,
@@ -3297,8 +3291,7 @@
         "dependency:ENG-095",
         "dependency:ENG-032",
         "dependency:ENG-033",
-        "dependency:ENG-030",
-        "dependency:ENG-021"
+        "dependency:ENG-030"
       ]
     },
     {
