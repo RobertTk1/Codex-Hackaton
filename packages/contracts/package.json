@@ -6,6 +6,7 @@
   "exports": {
     ".": "./src/common.ts",
     "./live": "./src/live.ts",
+    "./media": "./src/media.ts",
     "./profile": "./src/profile.ts"
   },
   "scripts": {
