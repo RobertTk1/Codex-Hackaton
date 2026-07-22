@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(51);
+select plan(53);
 
 select has_table('public', 'favorite_brands', 'favorite brands table exists');
 
@@ -80,6 +80,13 @@ select has_index(
 select has_index(
   'public',
   'favorite_brands',
+  'favorite_brands_owner_profile_idx',
+  'favorite brands cover the owned-profile foreign key'
+);
+
+select has_index(
+  'public',
+  'favorite_brands',
   'favorite_brands_profile_order_idx',
   'favorite brand ordering is unique per profile'
 );
@@ -96,6 +103,13 @@ select has_index(
   'brand_sizes',
   'brand_sizes_owner_id_key',
   'brand sizes expose the same-owner composite key'
+);
+
+select has_index(
+  'public',
+  'brand_sizes',
+  'brand_sizes_owner_profile_idx',
+  'brand sizes cover the owned-profile foreign key'
 );
 
 select has_index(
