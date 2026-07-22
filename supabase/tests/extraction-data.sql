@@ -129,9 +129,11 @@ select ok(
 select has_index('public', 'photo_style_signals', 'photo_style_signals_owner_id_key', 'photo signals expose the same-owner composite key');
 select has_index('public', 'photo_style_signals', 'photo_style_signals_photo_idx', 'one direct signal record is allowed per photo');
 select has_index('public', 'photo_style_signals', 'photo_style_signals_owner_profile_idx', 'photo signal owner/profile lineage is indexed');
+select has_index('public', 'photo_style_signals', 'photo_style_signals_owner_photo_idx', 'photo signal owner/photo lineage is indexed');
 select has_index('public', 'photo_style_signals', 'photo_style_signals_expiry_idx', 'photo signal cleanup leads with expiry');
 select has_index('public', 'extracted_garments', 'extracted_garments_owner_id_key', 'garments expose the same-owner composite key');
 select has_index('public', 'extracted_garments', 'extracted_garments_owner_profile_idx', 'garment owner/profile lineage is indexed');
+select has_index('public', 'extracted_garments', 'extracted_garments_owner_photo_idx', 'garment owner/photo lineage is indexed');
 select has_index('public', 'extracted_garments', 'extracted_garments_photo_idx', 'per-photo extraction and review reads are indexed');
 select has_index('public', 'extracted_garments', 'extracted_garments_profile_idx', 'profile candidate seeding is indexed');
 select has_index('public', 'extracted_garments', 'extracted_garments_expiry_idx', 'garment cleanup leads with expiry');
