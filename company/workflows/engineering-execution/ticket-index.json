@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T14:07:54.092Z",
+  "generated_at": "2026-07-22T14:19:17.735Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "df16cd45b7ccaae2fac33a93a205cfe7643f21c80c2a24ec6bd6c3a6ce810737",
+  "source_plan_sha256": "da5e06ae75f6760bf0d26f02500d3178641289b42e88ad0031f8ff36222797af",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 21,
   "status_counts": {
     "completed": 21,
-    "not-started": 142
+    "in-progress": 1,
+    "not-started": 141
   },
   "next_ticket_id": "ENG-011",
   "tickets": [
@@ -248,7 +249,7 @@
       "id": "ENG-011",
       "title": "Implement report, recommendation, and asset contracts",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-008"

@@ -911,13 +911,14 @@
         "packages/contracts/src/report.ts",
         "packages/contracts/test/report.test.ts"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T14:19:17.729Z] Claimed 2026-07-22T14:19:03Z by root for codex/eng-011-report-contracts at /Users/talishawhite/.codex/worktrees/eng-011-report-contracts from integration f994b248c35fe60d371bbb0674cc6782814e66a6. ENG-008 passes and IR-001 is ready. Scope is limited to shared report, recommendation, and derived-asset Zod contracts plus focused tests; no database, API route, UI, provider, deployment configuration, or production mutation is authorized.",
       "id": "ENG-011",
       "dependsOn": [
         "ENG-008"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T14:19:17.729Z"
     },
     {
       "title": "Implement catalog, bag, and handoff contracts",
