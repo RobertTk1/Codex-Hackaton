@@ -830,14 +830,14 @@
         "packages/contracts/src/media.ts",
         "packages/contracts/test/media.test.ts"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-22T13:45:41.125Z] Claimed 2026-07-22T13:45:28Z by root for codex/eng-010-media-contracts at /Users/talishawhite/.codex/worktrees/eng-010-media-contracts from integration 8bdb8464b100012790d9cfe1976e28c7f783f522. ENG-008 passes and IR-001 is ready. Scope is limited to shared photo, extraction, and taste Zod contracts plus focused tests; no database, API route, UI, provider, deployment, or production mutation is authorized.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-22T13:45:41.125Z] Claimed 2026-07-22T13:45:28Z by root for codex/eng-010-media-contracts at /Users/talishawhite/.codex/worktrees/eng-010-media-contracts from integration 8bdb8464b100012790d9cfe1976e28c7f783f522. ENG-008 passes and IR-001 is ready. Scope is limited to shared photo, extraction, and taste Zod contracts plus focused tests; no database, API route, UI, provider, deployment, or production mutation is authorized.\n[2026-07-22T14:07:54.070Z] Completed with strict Zod photo upload/snapshot, extraction summary, taste candidate, and calibration schemas plus inferred TypeScript types and negative fixtures. One bounded test correction replaced an RFC-valid non-HTTP URI with a truly malformed URI so verification matches the approved generic URI contract. Ticket commit d54339a; integrated commit 8a88e2a7124eca3041b4684e24e65ea6b86bec9f. Focused tests 7/7, full Vitest 20 files/92 tests, strict typecheck/lint/check, web/API/worker builds, clean archive verification, ticket CI 29925983172, integration CI 29926337096. Deployed exact linux/amd64 revision-labeled images web sha256:164d93dc8cae25954c923692209c1c1132ada44bafc6044b3926a0610a5f8bcd and API/worker sha256:bcbaf000be53f7b915a261fc7ed562a3fe2b19554f945b46defc1a780fd8abb1 to magic-mirror-dev deployment 40f5a7ea-4daa-47ea-9ddc-b6422f2d2db3. Root, web health, API health/readiness, worker startup, and deploy/runtime logs passed; production untouched.",
       "id": "ENG-010",
       "dependsOn": [
         "ENG-008"
       ],
-      "stateUpdatedAt": "2026-07-22T13:45:41.125Z"
+      "stateUpdatedAt": "2026-07-22T14:07:54.070Z"
     },
     {
       "title": "Implement report, recommendation, and asset contracts",

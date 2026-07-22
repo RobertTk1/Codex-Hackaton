@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T13:45:41.132Z",
+  "generated_at": "2026-07-22T14:07:54.092Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "06cb7982c2f6d4e2e366afbc8d4f9dd9093b19a30456290d89a0124f10d590eb",
+  "source_plan_sha256": "df16cd45b7ccaae2fac33a93a205cfe7643f21c80c2a24ec6bd6c3a6ce810737",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 163,
   "eligible_count": 10,
-  "passing_count": 20,
+  "passing_count": 21,
   "status_counts": {
-    "completed": 20,
-    "in-progress": 1,
+    "completed": 21,
     "not-started": 142
   },
-  "next_ticket_id": "ENG-010",
+  "next_ticket_id": "ENG-011",
   "tickets": [
     {
       "order": 1,
@@ -229,16 +228,19 @@
       "id": "ENG-010",
       "title": "Implement photo, extraction, and taste contracts",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-008"
       ],
       "readinessPrerequisites": [
         "IR-001"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 11,
@@ -1243,8 +1245,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-021",
-        "dependency:ENG-042",
-        "dependency:ENG-010"
+        "dependency:ENG-042"
       ]
     },
     {
@@ -1937,10 +1938,8 @@
         "IR-009",
         "IR-014"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-010"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 98,
@@ -1982,8 +1981,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-042",
-        "dependency:ENG-010"
+        "dependency:ENG-042"
       ]
     },
     {
