@@ -5,7 +5,7 @@ export default defineConfig({
     projects: [
       defineProject({
         test: {
-          include: ["tests/**/*.test.ts"],
+          include: ["tests/**/*.test.ts", "scripts/**/*.test.ts"],
           name: "repository",
         },
       }),

@@ -21,6 +21,10 @@ jobs:
       VITE_API_BASE_URL: http://127.0.0.1:3000
       VITE_SUPABASE_URL: https://example.supabase.co
       VITE_SUPABASE_PUBLISHABLE_KEY: ci-public-test-key
+      # Synthetic values let the isolated local Auth service exercise its Google-provider config.
+      # They are not accepted as evidence of a working hosted provider.
+      SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID: ci-google-client-id.apps.googleusercontent.com
+      SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_SECRET: ci-google-client-secret
     steps:
       - name: Check out the repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
