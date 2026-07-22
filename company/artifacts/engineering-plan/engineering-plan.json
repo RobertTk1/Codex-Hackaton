@@ -1327,14 +1327,14 @@
         "supabase/migrations/20260721000200_create_profile_and_consent_contract.sql",
         "supabase/tests/brand-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-22T16:21:32.329Z] Claimed by root turn 35 on codex/eng-016-brand-size-records at /Users/talishawhite/.codex/worktrees/eng-016-brand-size-records; implementation and verification in progress.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-22T16:21:32.329Z] Claimed by root turn 35 on codex/eng-016-brand-size-records at /Users/talishawhite/.codex/worktrees/eng-016-brand-size-records; implementation and verification in progress.\n[2026-07-22T17:01:42.754Z] Verified and integrated as f24114d68f7e78fae6b2a93eccd8c08519dcd558; development deployment 1ffd5c7f-ea22-473a-a15b-60f81c80efa0 is healthy after rollback rehearsal. Favorite brands and garment-type-specific sizes are enforced with draft-only mutation, owner isolation, contradictory-state rejection, and indexed foreign keys.",
       "id": "ENG-016",
       "dependsOn": [
         "ENG-015"
       ],
-      "stateUpdatedAt": "2026-07-22T16:21:32.329Z"
+      "stateUpdatedAt": "2026-07-22T17:01:42.754Z"
     },
     {
       "title": "Create append-only consent records",

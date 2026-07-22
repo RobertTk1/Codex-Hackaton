@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T16:21:32.336Z",
+  "generated_at": "2026-07-22T17:01:42.762Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "642a3ff24e1d131a20f15ea2246edec64a470e226efb9b7ea2f8fc4e4d1ac6f9",
+  "source_plan_sha256": "9df0846453d12a26422b9587e904205870d32650c55b6ac68caf06166523b406",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 18,
-  "passing_count": 24,
+  "eligible_count": 19,
+  "passing_count": 25,
   "status_counts": {
-    "completed": 24,
-    "in-progress": 1,
+    "completed": 25,
     "not-started": 138
   },
-  "next_ticket_id": "ENG-016",
+  "next_ticket_id": "ENG-017",
   "tickets": [
     {
       "order": 1,
@@ -350,16 +349,19 @@
       "id": "ENG-016",
       "title": "Create favorite-brand and garment-type size records",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-015"
       ],
       "readinessPrerequisites": [
         "IR-006"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 17,
@@ -396,7 +398,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-016",
         "dependency:ENG-017"
       ]
     },
@@ -1115,10 +1116,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-016"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 55,
@@ -1134,10 +1133,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-016"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 56,
