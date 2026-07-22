@@ -493,8 +493,8 @@ select throws_like(
     set status='succeeded', completed_at=now()
     where id='b2510000-0000-4000-8000-000000000001'
   $$,
-  'report success requires the report publish contract',
-  'success fails closed until a published report can be proven'
+  'report success requires one published report',
+  'success fails closed until a published report exists for the run'
 );
 
 reset role;
