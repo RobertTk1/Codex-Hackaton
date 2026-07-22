@@ -2169,14 +2169,14 @@
         "supabase/migrations/20260721000400_create_report_and_asset_contract.sql",
         "supabase/tests/report-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-22T23:21:29.825Z] Turn 44 claimed by root in codex/eng-026-immutable-style-reports at /Users/talishawhite/.codex/worktrees/eng-026-immutable-style-reports; implementing only immutable style_reports and typed report_sections with versioning, ownership, publication completeness, and focused database tests.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-22T23:21:29.825Z] Turn 44 claimed by root in codex/eng-026-immutable-style-reports at /Users/talishawhite/.codex/worktrees/eng-026-immutable-style-reports; implementing only immutable style_reports and typed report_sections with versioning, ownership, publication completeness, and focused database tests.\n[2026-07-22T23:56:59.983Z] Completed in ticket commits 5db4190, 8596985, and c13cace; integrated revision c13cace3e9286fbe9e39586af4f38438cb76098b. Added CLI-generated migrations 20260722232333_create_immutable_style_report_contract.sql and 20260722234435_add_style_report_owner_indexes.sql, focused supabase/tests/report-data.sql, updated report-run fail-closed expectation, and advanced the fail-closed database suite guard. Exact overview/color/body_style JSON shapes, canonical positions, deferred three-section plus succeeded-run publication, immutable reports/sections, owner-level version/derived lineage, same-owner FKs, explicit grants, RLS, and covering indexes are database-enforced; recommendations and previews remain excluded. Verification: supabase db reset; focused pgTAP 45/45; full policy suite 15 files/597 assertions plus signed-upload and intentional cross-owner leak rejection; local schema lint; local security/performance advisors with no issues; bun run check 105 tests; web/API/worker builds; clean archive reset/check/build; ticket CI 29967114003 success; integration CI 29967271072 success. Development Supabase applied create_immutable_style_report_contract and add_style_report_owner_indexes; rollback-only synthetic publication proved complete and left zero fixture rows; hosted RLS/grants/migration checks passed; ticket-specific unindexed-FK advisor findings cleared. Development app 39f71f56-5cb8-4164-9c45-6b8f620c76a6 deployed healthy as 9fc6f607-abef-42e0-950e-8af8f0390981, rolled back application-only to prior 92facb6b-0cca-4d62-8a61-67c45e5d63aa via healthy rollback deployment b5204749-7206-4cb6-af6f-2872b750ad20, and restored current spec as healthy deployment 67275631-fc6f-4768-96a5-6b35b30ceb8e. Root, web health, API health/readiness, and worker-start log passed; production untouched.",
       "id": "ENG-026",
       "dependsOn": [
         "ENG-025"
       ],
-      "stateUpdatedAt": "2026-07-22T23:21:29.825Z"
+      "stateUpdatedAt": "2026-07-22T23:56:59.983Z"
     },
     {
       "title": "Create report recommendation records",

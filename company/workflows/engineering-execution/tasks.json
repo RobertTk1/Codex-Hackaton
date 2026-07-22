@@ -3,7 +3,7 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-22T23:21:38Z",
+  "updated_at": "2026-07-22T23:57:11Z",
   "current_turn": 44,
   "execution_queue": {
     "stage": "developer",
@@ -15,20 +15,13 @@
     "ticket_command": "bun company/workflows/engineering-execution/scripts/ticket-index.mjs get <ticket-id>",
     "preflight_command": "bun company/workflows/engineering-execution/scripts/validate-loop.mjs",
     "last_completed_ticket": {
-      "id": "ENG-025",
-      "completed_at": "2026-07-22T23:11:51Z",
-      "integrated_commit": "dc986fb6ba571d9169fe93f36f0728cd23d14e89",
-      "dev_deployment": "92facb6b-0cca-4d62-8a61-67c45e5d63aa"
-    },
-    "next_ticket_id": "ENG-026",
-    "active_ticket": {
       "id": "ENG-026",
-      "started_at": "2026-07-22T23:21:38Z",
-      "branch": "codex/eng-026-immutable-style-reports",
-      "worktree": "/Users/talishawhite/.codex/worktrees/eng-026-immutable-style-reports",
-      "owner": "root"
+      "completed_at": "2026-07-22T23:57:11Z",
+      "integrated_commit": "c13cace3e9286fbe9e39586af4f38438cb76098b",
+      "dev_deployment": "67275631-fc6f-4768-96a5-6b35b30ceb8e"
     },
-    "passing_ticket_count": 33,
+    "next_ticket_id": "ENG-027",
+    "passing_ticket_count": 34,
     "preflight": {
       "status": "passed",
       "completed_at": "2026-07-21T17:33:39Z",
