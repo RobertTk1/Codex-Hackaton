@@ -7,7 +7,8 @@
     ".": "./src/common.ts",
     "./live": "./src/live.ts",
     "./media": "./src/media.ts",
-    "./profile": "./src/profile.ts"
+    "./profile": "./src/profile.ts",
+    "./report": "./src/report.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit --project tsconfig.json"
