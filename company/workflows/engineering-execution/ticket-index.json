@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T13:37:10.382Z",
+  "generated_at": "2026-07-22T13:45:41.132Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "923e294d3efea07ae2a644d286f996e73d71d0ebd2998b3e77ca507075b388c4",
+  "source_plan_sha256": "06cb7982c2f6d4e2e366afbc8d4f9dd9093b19a30456290d89a0124f10d590eb",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 20,
   "status_counts": {
     "completed": 20,
-    "not-started": 143
+    "in-progress": 1,
+    "not-started": 142
   },
   "next_ticket_id": "ENG-010",
   "tickets": [
@@ -228,7 +229,7 @@
       "id": "ENG-010",
       "title": "Implement photo, extraction, and taste contracts",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-008"

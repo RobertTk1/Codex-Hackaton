@@ -830,13 +830,14 @@
         "packages/contracts/src/media.ts",
         "packages/contracts/test/media.test.ts"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T13:45:41.125Z] Claimed 2026-07-22T13:45:28Z by root for codex/eng-010-media-contracts at /Users/talishawhite/.codex/worktrees/eng-010-media-contracts from integration 8bdb8464b100012790d9cfe1976e28c7f783f522. ENG-008 passes and IR-001 is ready. Scope is limited to shared photo, extraction, and taste Zod contracts plus focused tests; no database, API route, UI, provider, deployment, or production mutation is authorized.",
       "id": "ENG-010",
       "dependsOn": [
         "ENG-008"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T13:45:41.125Z"
     },
     {
       "title": "Implement report, recommendation, and asset contracts",
