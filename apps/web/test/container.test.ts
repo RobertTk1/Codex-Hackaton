@@ -111,6 +111,12 @@ describe("web production container", () => {
     const port = await waitForWebContainer();
     const healthResponse = await fetch(`http://127.0.0.1:${port}/healthz`);
     const runtimeResponse = await fetch(`http://127.0.0.1:${port}/runtime-config.js`);
+    const wordmarkResponse = await fetch(
+      `http://127.0.0.1:${port}/brand/magic-mirror-wordmark.svg`,
+    );
+    const heroImageResponse = await fetch(
+      `http://127.0.0.1:${port}/media/landing/hero-editorial.png`,
+    );
     const routeResponse = await fetch(`http://127.0.0.1:${port}/reports/latest`);
     const runtimeBody = await runtimeResponse.text();
     const routeBody = await routeResponse.text();
@@ -123,6 +129,10 @@ describe("web production container", () => {
     expect(runtimeBody).toContain(Buffer.from("https://project.supabase.co").toString("base64"));
     expect(runtimeBody).toContain(Buffer.from("synthetic-public-key").toString("base64"));
     expect(runtimeBody).not.toContain(secretSentinel);
+    expect(wordmarkResponse.status).toBe(200);
+    expect(wordmarkResponse.headers.get("content-type")).toContain("image/svg+xml");
+    expect(heroImageResponse.status).toBe(200);
+    expect(heroImageResponse.headers.get("content-type")).toContain("image/png");
     expect(routeResponse.status).toBe(200);
     expect(routeBody).toContain('<div id="root"></div>');
 

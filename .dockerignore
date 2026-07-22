@@ -28,7 +28,7 @@ apps/web/docker-entrypoint.d/**
 !apps/web/package.json
 !apps/web/public/
 apps/web/public/**
-!apps/web/public/runtime-config.js
+!apps/web/public/**
 !apps/web/src/
 apps/web/src/**
 !apps/web/src/**
