@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T23:12:08.499Z",
+  "generated_at": "2026-07-22T23:21:29.840Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "a717ff20e211ae191ad8387807367e05794e5345a983aaa20345ad3fc8329734",
+  "source_plan_sha256": "8e9b8df95fb8cd9865eb61ce31681e04a24736925071f50a07704c0cbbfd59c3",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 33,
   "status_counts": {
     "completed": 33,
-    "not-started": 130
+    "in-progress": 1,
+    "not-started": 129
   },
   "next_ticket_id": "ENG-026",
   "tickets": [
@@ -548,7 +549,7 @@
       "id": "ENG-026",
       "title": "Create immutable style reports and sections",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-025"

@@ -2169,13 +2169,14 @@
         "supabase/migrations/20260721000400_create_report_and_asset_contract.sql",
         "supabase/tests/report-data.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T23:21:29.825Z] Turn 44 claimed by root in codex/eng-026-immutable-style-reports at /Users/talishawhite/.codex/worktrees/eng-026-immutable-style-reports; implementing only immutable style_reports and typed report_sections with versioning, ownership, publication completeness, and focused database tests.",
       "id": "ENG-026",
       "dependsOn": [
         "ENG-025"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T23:21:29.825Z"
     },
     {
       "title": "Create report recommendation records",

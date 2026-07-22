@@ -3,8 +3,8 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-22T23:11:51Z",
-  "current_turn": 43,
+  "updated_at": "2026-07-22T23:21:38Z",
+  "current_turn": 44,
   "execution_queue": {
     "stage": "developer",
     "status": "in_progress",
@@ -21,6 +21,13 @@
       "dev_deployment": "92facb6b-0cca-4d62-8a61-67c45e5d63aa"
     },
     "next_ticket_id": "ENG-026",
+    "active_ticket": {
+      "id": "ENG-026",
+      "started_at": "2026-07-22T23:21:38Z",
+      "branch": "codex/eng-026-immutable-style-reports",
+      "worktree": "/Users/talishawhite/.codex/worktrees/eng-026-immutable-style-reports",
+      "owner": "root"
+    },
     "passing_ticket_count": 33,
     "preflight": {
       "status": "passed",
