@@ -6,6 +6,12 @@ const localStatusSchema = z.object({
   PUBLISHABLE_KEY: z.string().min(1),
   SERVICE_ROLE_KEY: z.string().min(1),
 });
+const acceptedPhotoSchema = z.object({
+  expires_at: z.iso.datetime({ offset: true }),
+  owner_id: z.uuid(),
+  status: z.literal("accepted"),
+  storage_path: z.string().min(1),
+});
 
 const statusProcess = Bun.spawnSync(["supabase", "status", "-o", "json"], {
   stderr: "pipe",
@@ -141,6 +147,7 @@ try {
       await publicClient.storage
         .from("customer-photos")
         .uploadToSignedUrl(objectPath, signedSlot.data.token, pngBytes, {
+          cacheControl: "0",
           contentType: "image/png",
           upsert: false,
         })
@@ -151,6 +158,7 @@ try {
   const overwrite = await publicClient.storage
     .from("customer-photos")
     .uploadToSignedUrl(objectPath, signedSlot.data.token, pngBytes, {
+      cacheControl: "0",
       contentType: "image/png",
       upsert: false,
     });
@@ -168,14 +176,22 @@ try {
     throw new Error("General authenticated Storage insert unexpectedly succeeded.");
   }
 
+  const acceptedPhotoResult = await server
+    .from("photos")
+    .update({ accepted_at: new Date().toISOString(), status: "accepted" })
+    .eq("id", photoId)
+    .select("expires_at,owner_id,status,storage_path")
+    .single();
+  requireNoError(acceptedPhotoResult.error, "Accept uploaded photo metadata");
+  const acceptedPhoto = acceptedPhotoSchema.parse(acceptedPhotoResult.data);
+
+  if (acceptedPhoto.owner_id !== ownerId || acceptedPhoto.storage_path !== objectPath) {
+    throw new Error("Accepted photo metadata does not match the signed object owner and path.");
+  }
+
   requireNoError(
-    (
-      await server
-        .from("photos")
-        .update({ accepted_at: new Date().toISOString(), status: "accepted" })
-        .eq("id", photoId)
-    ).error,
-    "Accept uploaded photo metadata",
+    (await server.storage.from("customer-photos").info(objectPath)).error,
+    "Verify exact uploaded object",
   );
 
   requireNoError(
@@ -197,15 +213,22 @@ try {
     throw new Error("Authenticated bucket listing unexpectedly exposed an object.");
   }
 
-  requireNoError(
-    (await server.from("photos").update({ expires_at: expiredAt.toISOString() }).eq("id", photoId))
-      .error,
-    "Expire photo metadata",
-  );
+  const expiredPhotoResult = await server
+    .from("photos")
+    .update({ expires_at: expiredAt.toISOString() })
+    .eq("id", photoId)
+    .select("expires_at,owner_id,status,storage_path")
+    .single();
+  requireNoError(expiredPhotoResult.error, "Expire photo metadata");
+  const expiredPhoto = acceptedPhotoSchema.parse(expiredPhotoResult.data);
+
+  if (Date.parse(expiredPhoto.expires_at) > Date.now()) {
+    throw new Error("Photo metadata did not reach its logical expiry deadline.");
+  }
 
   const expiredRead = await ownerClient.storage
     .from("customer-photos")
-    .download(objectPath);
+    .download(objectPath, { cacheNonce: crypto.randomUUID() });
   if (!expiredRead.error) {
     throw new Error("Expired photo object read unexpectedly succeeded.");
   }

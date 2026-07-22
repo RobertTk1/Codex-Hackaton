@@ -79,13 +79,25 @@ select is(
 
 select ok(
   (
-    select qual like '%allow_only_operation%object.get_authenticated%'
+    select qual like '%allow_only_operation%storage.object.get_authenticated%'
     from pg_policies
     where schemaname = 'storage'
       and tablename = 'objects'
       and policyname = 'customer_photos_select_owned_unexpired'
   ),
-  'the read policy permits authenticated object reads but not bucket listing'
+  'the read policy permits authenticated object downloads'
+);
+
+select ok(
+  (
+    select qual like '%allow_only_operation%object.get_authenticated_info%'
+      and qual not like '%storage.object.list%'
+    from pg_policies
+    where schemaname = 'storage'
+      and tablename = 'objects'
+      and policyname = 'customer_photos_select_owned_unexpired'
+  ),
+  'the read policy permits authenticated object metadata checks but not bucket listing'
 );
 
 select ok(
@@ -134,6 +146,14 @@ select is(
   storage.allow_only_operation('storage.object.get_authenticated'),
   true,
   'the operation helper accepts only the authenticated object-read operation'
+);
+
+select set_config('storage.operation', 'object.get_authenticated_info', true);
+
+select is(
+  storage.allow_only_operation('object.get_authenticated_info'),
+  true,
+  'the operation helper accepts the authenticated object-info operation used by hosted Storage'
 );
 
 select set_config('storage.operation', 'storage.object.list', true);
