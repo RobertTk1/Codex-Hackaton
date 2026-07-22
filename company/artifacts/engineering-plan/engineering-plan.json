@@ -1748,13 +1748,14 @@
         "supabase/migrations/20260721000300_create_photo_extraction_and_taste_contract.sql",
         "supabase/tests/photo-storage.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T20:34:27.208Z] [2026-07-22T20:34:27Z] Claimed by root turn 40 on codex/eng-021-customer-photo-storage at /Users/talishawhite/.codex/worktrees/eng-021-customer-photo-storage; private bucket and exact customer-photo Storage policy implementation in progress.",
       "id": "ENG-021",
       "dependsOn": [
         "ENG-020"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T20:34:27.208Z"
     },
     {
       "title": "Create extracted-garment and photo-signal records",

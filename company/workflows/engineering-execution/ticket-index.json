@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T20:21:25.424Z",
+  "generated_at": "2026-07-22T20:34:27.214Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "d84ca1af98ff3750baf61349b64c42783f25490cc7e29a22488d675815fe5541",
+  "source_plan_sha256": "f8fcd4c423f9bacb239ad94bcc03ef927cca0858c0ef00ea105c5db2056c6730",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 29,
   "status_counts": {
     "completed": 29,
-    "not-started": 134
+    "in-progress": 1,
+    "not-started": 133
   },
   "next_ticket_id": "ENG-021",
   "tickets": [
@@ -451,7 +452,7 @@
       "id": "ENG-021",
       "title": "Create private customer-photo bucket policies",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-020"
