@@ -992,13 +992,14 @@
         "packages/contracts/src/catalog.ts",
         "packages/contracts/test/catalog.test.ts"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T14:57:41.509Z] Claimed 2026-07-22T14:57:28Z by root session on branch codex/eng-012-catalog-contracts in /Users/talishawhite/.codex/worktrees/eng-012-catalog-contracts. Scope: closed catalog, bag, and retailer-handoff Zod contracts plus focused fixtures only; no routes, database access, or UI.",
       "id": "ENG-012",
       "dependsOn": [
         "ENG-008"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T14:57:41.509Z"
     },
     {
       "title": "Implement live-session, voice, and gesture contracts",

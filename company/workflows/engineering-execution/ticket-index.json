@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T14:45:14.693Z",
+  "generated_at": "2026-07-22T14:57:41.515Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "e02cd4d8f016adfdd050905be72a24bacba2fa8435bfeb375c7114957fa9c4db",
+  "source_plan_sha256": "7ac322687e81929eb4869ff0752b1bd454e4f22314979dad975fbeefbc0cb6e9",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 22,
   "status_counts": {
     "completed": 22,
-    "not-started": 141
+    "in-progress": 1,
+    "not-started": 140
   },
   "next_ticket_id": "ENG-012",
   "tickets": [
@@ -268,7 +269,7 @@
       "id": "ENG-012",
       "title": "Implement catalog, bag, and handoff contracts",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-008"
