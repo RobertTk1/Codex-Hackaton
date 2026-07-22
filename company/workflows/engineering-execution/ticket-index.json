@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T22:06:54.161Z",
+  "generated_at": "2026-07-22T22:15:29.180Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "800924f3a79b3ce4f25984ae6ce9fa04b3e46414a41cccc1f26e1b57150c821c",
+  "source_plan_sha256": "6e8a066ef34a43fab5c75e720459be6156b04c49806b98cb11809d5467c465fd",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 31,
   "status_counts": {
     "completed": 31,
-    "not-started": 132
+    "in-progress": 1,
+    "not-started": 131
   },
   "next_ticket_id": "ENG-023",
   "tickets": [
@@ -492,7 +493,7 @@
       "id": "ENG-023",
       "title": "Create bounded taste candidates and reactions",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-015"
