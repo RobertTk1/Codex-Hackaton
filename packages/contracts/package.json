@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     ".": "./src/common.ts",
+    "./catalog": "./src/catalog.ts",
     "./live": "./src/live.ts",
     "./media": "./src/media.ts",
     "./profile": "./src/profile.ts",
