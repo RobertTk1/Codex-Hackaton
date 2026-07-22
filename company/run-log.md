@@ -154,3 +154,8 @@ Append-only operating log for agent actions and important system events.
 - 22:53:28 EDT :: Implemented and integrated the approved responsive landing screen with semantic navigation, accessible mobile menu and FAQ behavior, stable CTA targets, production brand assets, and exact mockup-derived imagery; no new visual direction or generated production image was introduced.
 - 22:53:28 EDT :: Corrected the web-container context so public brand and landing assets ship, added container regression checks for the wordmark and hero image, and verified all three focused container checks pass.
 - 22:53:28 EDT :: Deployed immutable web digest `sha256:f5f86ba9a0c2ad9c1afdd69d4451b0f424648db7674177fdf6001ee898625efc` to active development deployment `08a506ce-a0eb-4938-b0aa-b210fb6dbdcb`; API/worker images remained unchanged, all health and asset checks returned 200, desktop/mobile images loaded without browser errors, and production remained absent.
+
+## 2026-07-22
+
+- 08:52:28 EDT :: Completed ENG-007 with versioned exact callbacks and safe local/hosted verification for anonymous, Google, and email-link Supabase Auth; removed the development wildcard redirect, kept password authentication outside the application surface, and left production untouched.
+- 08:52:28 EDT :: Integrated commit `8877bfa`, passed GitHub Actions run `29921085627`, reverified the hosted Auth contract, and confirmed `magic-mirror-dev` root, `/health`, and `/api/health` return 200 without rebuilding unchanged runtime images.
