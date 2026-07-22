@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T16:10:46.876Z",
+  "generated_at": "2026-07-22T16:21:32.336Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "4c2cadb45d3a9fe64e2b6882cc2b310668e642746d6f91b94213126bc1b18742",
+  "source_plan_sha256": "642a3ff24e1d131a20f15ea2246edec64a470e226efb9b7ea2f8fc4e4d1ac6f9",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 24,
   "status_counts": {
     "completed": 24,
-    "not-started": 139
+    "in-progress": 1,
+    "not-started": 138
   },
   "next_ticket_id": "ENG-016",
   "tickets": [
@@ -349,7 +350,7 @@
       "id": "ENG-016",
       "title": "Create favorite-brand and garment-type size records",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-015"
