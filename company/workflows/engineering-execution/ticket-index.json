@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T22:45:20.607Z",
+  "generated_at": "2026-07-22T23:12:08.499Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "1703d752c6a783dbb3eeb77a54ac0da45801eeecaf95abac89df2ccc4748a070",
+  "source_plan_sha256": "a717ff20e211ae191ad8387807367e05794e5345a983aaa20345ad3fc8329734",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 32,
-  "passing_count": 32,
+  "eligible_count": 34,
+  "passing_count": 33,
   "status_counts": {
-    "completed": 32,
-    "in-progress": 1,
+    "completed": 33,
     "not-started": 130
   },
-  "next_ticket_id": "ENG-025",
+  "next_ticket_id": "ENG-026",
   "tickets": [
     {
       "order": 1,
@@ -531,14 +530,17 @@
       "id": "ENG-025",
       "title": "Create report-run lifecycle records",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-015"
       ],
       "readinessPrerequisites": [],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 26,
@@ -554,10 +556,8 @@
       "readinessPrerequisites": [
         "IR-017"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-025"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 27,
@@ -653,10 +653,8 @@
       "readinessPrerequisites": [
         "IR-008"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-025"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 32,
@@ -1165,8 +1163,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-041",
-        "dependency:ENG-025"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -1441,10 +1438,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-025"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 74,
@@ -1463,8 +1458,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-041",
-        "dependency:ENG-025"
+        "dependency:ENG-041"
       ]
     },
     {

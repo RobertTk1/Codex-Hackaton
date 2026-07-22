@@ -2084,14 +2084,14 @@
         "supabase/migrations/20260721000400_create_report_and_asset_contract.sql",
         "supabase/tests/report-run-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-22T22:45:20.602Z] Turn 43 claimed by root at 2026-07-22T22:45:10Z on codex/eng-025-report-run-lifecycle in /Users/talishawhite/.codex/worktrees/eng-025-report-run-lifecycle; implementing only the approved report-run lifecycle record contract.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-22T22:45:20.602Z] Turn 43 claimed by root at 2026-07-22T22:45:10Z on codex/eng-025-report-run-lifecycle in /Users/talishawhite/.codex/worktrees/eng-025-report-run-lifecycle; implementing only the approved report-run lifecycle record contract.\n[2026-07-22T23:12:08.491Z] Integrated report_runs lifecycle records at 2026-07-22T23:11:51Z. Frozen submitted-profile revision lineage, unique idempotency, exact 1-3 retry sequences, one live/succeeded slot, 0-2 internal attempts, monotonic stages, exact safe errors, terminal immutability, publish-before-success fail-closed behavior, owner-only customer reads, and server/worker-only writes are enforced. Local proof: focused pgTAP 45/45; aggregate 552/552 plus signed-storage and intentional-leak harnesses; schema lint/advisors; generated types; 105 app tests; strict checks; web/API/worker builds; clean archive /tmp/magic-mirror-eng025.I9gM5r. Ticket commit a430069; integrated commit dc986fb; CI 29964681308 and 29964886903. Exact migration applied to development Supabase hsivtshdoyazwccpxfxt; rollback-only hosted proof rejected duplicate, unsafe error, stale sequence, non-retryable retry, and cross-owner access with zero retained fixtures. Hosted advisors introduced no ticket-specific performance finding; authenticated-anonymous read warning is intentional because anonymous identities use the authenticated role. Development deployment 92facb6b-0cca-4d62-8a61-67c45e5d63aa is ACTIVE on the existing exact AMD64 image digests; root/health/readiness/worker startup pass. Application rollback deployment ba3dd9cd-5ae4-40c1-94ed-126cd1a24060 passed and current spec was restored. Production untouched.",
       "id": "ENG-025",
       "dependsOn": [
         "ENG-015"
       ],
-      "stateUpdatedAt": "2026-07-22T22:45:20.602Z"
+      "stateUpdatedAt": "2026-07-22T23:12:08.491Z"
     },
     {
       "title": "Create immutable style reports and sections",
