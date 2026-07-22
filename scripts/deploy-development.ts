@@ -226,6 +226,12 @@ function deployment(value: unknown): Record<string, unknown> {
   return record(values[0], "deployment");
 }
 
+export function assertRollbackTargetPhase(value: unknown): void {
+  if (value !== "ACTIVE" && value !== "SUPERSEDED") {
+    throw new Error("Rollback target is not a previously healthy deployment.");
+  }
+}
+
 async function waitForDeployment(appId: string, deploymentId: string): Promise<void> {
   const startedAt = Date.now();
   while (Date.now() - startedAt < deploymentTimeoutMilliseconds) {
@@ -248,7 +254,10 @@ async function rollbackDevelopment(targetDeploymentId: string): Promise<SafeAppS
   const target = deployment(
     await runDoctl(["apps", "get-deployment", app.appId, targetDeploymentId]),
   );
-  if (target.phase !== "ACTIVE") throw new Error("Rollback target is not a previously healthy deployment.");
+  // DigitalOcean changes the former active deployment to SUPERSEDED as soon as
+  // a newer deployment becomes active. Both states can represent a known-good
+  // rollback target; the provider validation below remains authoritative.
+  assertRollbackTargetPhase(target.phase);
   assertSafeRollbackValidation(
     await digitalOceanPost(`/v2/apps/${app.appId}/rollback/validate`, {
       deployment_id: targetDeploymentId,

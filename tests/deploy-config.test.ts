@@ -7,6 +7,7 @@ import { describe, expect, test } from "vitest";
 import {
   appState,
   assertDevelopmentOnlyInvocation,
+  assertRollbackTargetPhase,
   assertSafeRollbackValidation,
   findDevelopmentAppId,
   parseDoctlOutput,
@@ -147,6 +148,13 @@ describe("DigitalOcean deployment contract", () => {
         warnings: [{ code: "image_source_missing_digest" }],
       }),
     ).toThrow("unsafe warning code");
+  });
+
+  test("allows only active or superseded rollback targets", () => {
+    expect(() => assertRollbackTargetPhase("ACTIVE")).not.toThrow();
+    expect(() => assertRollbackTargetPhase("SUPERSEDED")).not.toThrow();
+    expect(() => assertRollbackTargetPhase("ERROR")).toThrow("not a previously healthy");
+    expect(() => assertRollbackTargetPhase("CANCELED")).toThrow("not a previously healthy");
   });
 
   test("accepts DigitalOcean's YAML validation response without weakening JSON commands", () => {
