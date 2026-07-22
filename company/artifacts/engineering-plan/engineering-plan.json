@@ -1663,14 +1663,14 @@
         "supabase/migrations/20260721000300_create_photo_extraction_and_taste_contract.sql",
         "supabase/tests/photos-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-22T19:41:00.828Z] Claimed by root turn 39 for isolated implementation on codex/eng-020-photo-metadata; implementing only ordered private photo metadata, duplicate-hash rejection, immutable bounded expiry, and owner-scoped unexpired reads under the approved data contract.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-22T19:41:00.828Z] Claimed by root turn 39 for isolated implementation on codex/eng-020-photo-metadata; implementing only ordered private photo metadata, duplicate-hash rejection, immutable bounded expiry, and owner-scoped unexpired reads under the approved data contract.\n[2026-07-22T20:21:25.418Z] Integrated commit 248818b implements ordered private photo metadata, per-profile duplicate-hash rejection, verified immutable object evidence, the seven-day initial deadline, valid lifecycle transitions, server-only writes, owner-scoped unexpired reads, and anonymous-transfer cascade. Focused pgTAP 104/104, aggregate pgTAP 364/364 plus intentional leak rejection, exact supabase db reset, schema lint, 105 application tests, strict checks/builds, ticket and integration CI 29952905392/29953991179, hosted rollback-only proof with zero retained fixtures, Supabase advisors, development migration, healthy immutable-image deployment 7efde50c-2490-4dda-b14f-5450dba9dfd0, and rollback rehearsal all passed; production untouched.",
       "id": "ENG-020",
       "dependsOn": [
         "ENG-015"
       ],
-      "stateUpdatedAt": "2026-07-22T19:41:00.828Z"
+      "stateUpdatedAt": "2026-07-22T20:21:25.418Z"
     },
     {
       "title": "Create private customer-photo bucket policies",
