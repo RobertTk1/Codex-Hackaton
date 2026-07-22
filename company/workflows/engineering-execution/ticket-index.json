@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T18:57:34.891Z",
+  "generated_at": "2026-07-22T19:32:07.955Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "8be7ff59f276175055638298751d8e5f70d4db37bd29809eb100eace92e70c9d",
+  "source_plan_sha256": "22e03df06454320c6db68c3cef4760442aa39c5f727161ddae5fa3ddf4af1bc7",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 23,
-  "passing_count": 27,
+  "eligible_count": 24,
+  "passing_count": 28,
   "status_counts": {
-    "completed": 27,
-    "in-progress": 1,
+    "completed": 28,
     "not-started": 135
   },
-  "next_ticket_id": "ENG-019",
+  "next_ticket_id": "ENG-020",
   "tickets": [
     {
       "order": 1,
@@ -412,16 +411,19 @@
       "id": "ENG-019",
       "title": "Create anonymous-transfer records and atomic ownership function",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-018"
       ],
       "readinessPrerequisites": [
         "IR-024"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 20,
@@ -763,7 +765,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-019",
         "dependency:ENG-021",
         "dependency:ENG-022",
         "dependency:ENG-023",
@@ -804,7 +805,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-019",
         "dependency:ENG-021",
         "dependency:ENG-022",
         "dependency:ENG-023",
@@ -1412,7 +1412,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-019",
         "dependency:ENG-041"
       ]
     },
@@ -1429,10 +1428,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-019"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 72,
@@ -1447,10 +1444,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-019"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 73,
