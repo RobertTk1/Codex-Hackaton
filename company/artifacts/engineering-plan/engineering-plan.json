@@ -2084,13 +2084,14 @@
         "supabase/migrations/20260721000400_create_report_and_asset_contract.sql",
         "supabase/tests/report-run-data.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T22:45:20.602Z] Turn 43 claimed by root at 2026-07-22T22:45:10Z on codex/eng-025-report-run-lifecycle in /Users/talishawhite/.codex/worktrees/eng-025-report-run-lifecycle; implementing only the approved report-run lifecycle record contract.",
       "id": "ENG-025",
       "dependsOn": [
         "ENG-015"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T22:45:20.602Z"
     },
     {
       "title": "Create immutable style reports and sections",

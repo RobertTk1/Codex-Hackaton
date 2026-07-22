@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T22:35:28.803Z",
+  "generated_at": "2026-07-22T22:45:20.607Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "df6e2b720035185c340292492e7fd663fe765b05f18b3d06a2ba9a6a64cd8bf9",
+  "source_plan_sha256": "1703d752c6a783dbb3eeb77a54ac0da45801eeecaf95abac89df2ccc4748a070",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 32,
   "status_counts": {
     "completed": 32,
-    "not-started": 131
+    "in-progress": 1,
+    "not-started": 130
   },
   "next_ticket_id": "ENG-025",
   "tickets": [
@@ -530,7 +531,7 @@
       "id": "ENG-025",
       "title": "Create report-run lifecycle records",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-015"
