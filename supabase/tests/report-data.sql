@@ -43,7 +43,9 @@ select is(
 select has_index('public', 'style_reports', 'style_reports_owner_version_idx', 'owner report versions are unique');
 select has_index('public', 'style_reports', 'style_reports_derived_idx', 'prior report lineage is indexed');
 select has_index('public', 'style_reports', 'style_reports_run_idx', 'one report per run is enforced');
+select has_index('public', 'style_reports', 'style_reports_owner_profile_run_idx', 'same-owner report-run lineage has one covering index');
 select has_index('public', 'report_sections', 'report_sections_report_position_idx', 'canonical report positions are unique');
+select has_index('public', 'report_sections', 'report_sections_owner_profile_report_idx', 'same-owner section lineage has one covering index');
 
 select ok(
   exists (
