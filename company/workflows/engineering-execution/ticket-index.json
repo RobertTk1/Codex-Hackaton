@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T19:32:07.955Z",
+  "generated_at": "2026-07-22T19:41:00.835Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "22e03df06454320c6db68c3cef4760442aa39c5f727161ddae5fa3ddf4af1bc7",
+  "source_plan_sha256": "7c81877466448b2833b462164c29407d5c97791a9d5cf668ad063a7a7e26b9c5",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 28,
   "status_counts": {
     "completed": 28,
-    "not-started": 135
+    "in-progress": 1,
+    "not-started": 134
   },
   "next_ticket_id": "ENG-020",
   "tickets": [
@@ -431,7 +432,7 @@
       "id": "ENG-020",
       "title": "Create ordered photo metadata and expiry constraints",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-015"

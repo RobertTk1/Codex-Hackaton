@@ -1663,13 +1663,14 @@
         "supabase/migrations/20260721000300_create_photo_extraction_and_taste_contract.sql",
         "supabase/tests/photos-data.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T19:41:00.828Z] Claimed by root turn 39 for isolated implementation on codex/eng-020-photo-metadata; implementing only ordered private photo metadata, duplicate-hash rejection, immutable bounded expiry, and owner-scoped unexpired reads under the approved data contract.",
       "id": "ENG-020",
       "dependsOn": [
         "ENG-015"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T19:41:00.828Z"
     },
     {
       "title": "Create private customer-photo bucket policies",
