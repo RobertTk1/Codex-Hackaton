@@ -584,15 +584,15 @@
         "scripts/verify-supabase-auth-config.ts",
         "scripts/verify-supabase-auth-config.test.ts"
       ],
-      "status": "in-progress",
+      "status": "not-started",
       "passes": false,
-      "notes": "[2026-07-22T01:23:50.178Z] Claimed 2026-07-22T01:23:33Z by root for codex/eng-007-supabase-auth from integration f8430f96264befccce6eb62a1ac8d43b6390e1e8. Dependencies ENG-005 and ENG-006 pass; IR-007 and IR-008 are ready. Scope is limited to non-secret auth settings, exact redirect allowlists, safe verification, and live development checks. Production is out of scope. The live app is visually blank because its current ApplicationShell intentionally contains only a screen-reader heading; that is a later UI-ticket concern, not an ENG-007 deployment failure.",
+      "notes": "[2026-07-22T01:23:50.178Z] Claimed 2026-07-22T01:23:33Z by root for codex/eng-007-supabase-auth from integration f8430f96264befccce6eb62a1ac8d43b6390e1e8. Dependencies ENG-005 and ENG-006 pass; IR-007 and IR-008 are ready. Scope is limited to non-secret auth settings, exact redirect allowlists, safe verification, and live development checks. Production is out of scope. The live app is visually blank because its current ApplicationShell intentionally contains only a screen-reader heading; that is a later UI-ticket concern, not an ENG-007 deployment failure.\n[2026-07-22T01:46:11.304Z] Released 2026-07-22T01:28:00Z before implementation after the founder explicitly reprioritized visible frontend work. No Supabase, source, deployment, or provider configuration changed under ENG-007. The ticket remains required and may be reclaimed after the frontend-first plan amendment.",
       "id": "ENG-007",
       "dependsOn": [
         "ENG-005",
         "ENG-006"
       ],
-      "stateUpdatedAt": "2026-07-22T01:23:50.178Z"
+      "stateUpdatedAt": "2026-07-22T01:46:11.304Z"
     },
     {
       "title": "Implement common IDs, errors, and pagination contracts",
@@ -9956,37 +9956,38 @@
           "LandingPage"
         ]
       },
-      "objective": "LandingPage delivers its approved customer-facing state using the exact interaction contract and typed operation boundary.",
+      "objective": "LandingPage delivers its approved customer-facing visual state before its separately owned anonymous-draft integration is available.",
       "executionScope": {
-        "implementationUnit": "LandingPage: Implement only LandingPage and its tightly coupled listed states; Use approved design-system components, tokens, copy, focus, and live-region behavior",
-        "testUnit": "primary CTA starts or resumes one anonymous draft",
+        "implementationUnit": "LandingPage visual shell: Implement the complete responsive public landing screen using approved tokens, copy, assets, semantic sections, navigation, and visible CTA affordances; keep anonymous-draft behavior outside this ticket",
+        "testUnit": "desktop and mobile landing content, navigation, and CTA affordances match the approved screen contract",
         "rollbackUnit": "Revert only the LandingPage changes in apps/web/src/screens/LandingPage.tsx, apps/web/src/screens/LandingPage.test.tsx, apps/web/e2e/landing-ui.spec.ts and their focused tests; preserve completed prerequisite outputs."
       },
       "scope": {
         "includes": [
-          "Implement only LandingPage and its tightly coupled listed states",
-          "Use approved design-system components, tokens, copy, focus, and live-region behavior"
+          "Implement the complete visible LandingPage and its responsive sections",
+          "Use approved design tokens, production brand assets, customer copy, semantic navigation, focus, and reduced-motion behavior"
         ],
         "excludes": [
+          "Anonymous sign-in, profile creation, resume logic, and API operation wiring, which move to ENG-163",
           "Other destinations or provider implementation",
           "Archived form-first routes where a v2 screen is adopted"
         ]
       },
       "implementationSteps": [
-        "Implement only LandingPage using the declared scope: Implement only LandingPage and its tightly coupled listed states; Use approved design-system components, tokens, copy, focus, and live-region behavior.",
-        "Implement the negative, authorization, persistence, or recovery behavior named by this ticket’s pass conditions.",
+        "Implement only the LandingPage visual shell using the exact approved desktop/mobile mockups, customer copy, brand assets, and interaction specification.",
+        "Make every public navigation target and CTA affordance semantically correct without inventing provider success or anonymous-profile behavior.",
         "Add the focused automated tests required by the pass conditions.",
         "Run every verification command and manual check, inspect the diff, and record pass/fail evidence."
       ],
       "acceptanceCriteria": [
-        "Primary cta starts or resumes one anonymous draft",
-        "Failed start leaves content visible with retry",
+        "The development app presents the complete approved landing experience instead of a visually blank shell",
+        "Primary and secondary CTA affordances are visible, keyboard reachable, and expose stable integration targets without claiming anonymous-draft success",
         "The screen uses approved components, tokens, copy, and responsive behavior"
       ],
       "passConditions": [
-        "Test: primary CTA starts or resumes one anonymous draft",
-        "Test: failed start leaves content visible with retry",
-        "Test: keyboard and pointer users can complete equivalent actions with no console error"
+        "Test: all approved landing sections and customer-facing copy render at desktop and mobile widths",
+        "Test: navigation and CTA affordances have semantic accessible names and stable targets",
+        "Test: keyboard and pointer users can traverse the page with no console or failed-network error"
       ],
       "verification": {
         "commands": [
@@ -10019,11 +10020,108 @@
         "apps/web/src/screens/LandingPage.test.tsx",
         "apps/web/e2e/landing-ui.spec.ts"
       ],
+      "status": "in-progress",
+      "passes": false,
+      "notes": "Amended by explicit founder direction on 2026-07-21 to execute visible frontend work before the remaining backend sequence. The visual screen and its anonymous-draft integration are split so neither ticket claims behavior it does not own.\n[2026-07-22T01:52:03.297Z] Claimed by root on codex/engineering-execution after explicit founder reprioritization of visible frontend work. Build the approved responsive landing experience first; real anonymous draft/auth wiring remains ENG-163 and ENG-007. No fake success states.",
+      "id": "ENG-119",
+      "executionPriority": 0,
+      "dependsOn": [
+        "ENG-002"
+      ],
+      "stateUpdatedAt": "2026-07-22T01:52:03.297Z"
+    },
+    {
+      "title": "Connect the landing CTA to anonymous draft start and resume",
+      "type": "integration",
+      "priority": "must",
+      "buildPlanFeatureIds": [
+        "FEAT-001"
+      ],
+      "storyIds": [
+        "US-001"
+      ],
+      "scenarioIds": [
+        "SC-001"
+      ],
+      "screenIds": [
+        "76a5f0c7-aa78-4eaf-ae0f-4b577024f5c6"
+      ],
+      "target": {
+        "kind": "integration",
+        "names": [
+          "LandingPage anonymous-draft start integration"
+        ]
+      },
+      "objective": "The completed landing screen starts or resumes exactly one real anonymous draft through the typed browser operation boundary and preserves the visible page on recoverable failure.",
+      "executionScope": {
+        "implementationUnit": "LandingPage anonymous-draft integration: connect the primary CTA to the completed createOrResumeProfile operation, provide loading/failure/retry state, and route a successful draft to the approved onboarding entry",
+        "testUnit": "one CTA activation creates or resumes exactly one real anonymous draft and duplicate activation cannot create a second draft",
+        "rollbackUnit": "Revert only the landing start adapter, LandingPage integration wiring, and focused integration/browser tests; preserve ENG-119 visual output and prerequisite API/client contracts."
+      },
+      "scope": {
+        "includes": [
+          "Connect the existing landing primary CTA to the typed anonymous create-or-resume operation",
+          "Render honest loading, normalized failure, retry, and successful navigation behavior"
+        ],
+        "excludes": [
+          "Landing visual redesign",
+          "Other onboarding screens",
+          "Authentication provider configuration"
+        ]
+      },
+      "implementationSteps": [
+        "Bind the completed LandingPage CTA to createOrResumeProfile through the typed browser API client and authenticated anonymous session boundary.",
+        "Prevent duplicate mutation, preserve page content during failure, expose retry, and navigate only after a validated success response.",
+        "Add focused unit/integration and browser coverage using a real isolated-development smoke check.",
+        "Run every verification command and manual check, inspect the diff, and record pass/fail evidence."
+      ],
+      "acceptanceCriteria": [
+        "Primary CTA starts or resumes one anonymous draft",
+        "Failed start leaves the completed landing content visible with an actionable retry",
+        "Success enters the approved onboarding route without duplicate profile creation"
+      ],
+      "passConditions": [
+        "Test: primary CTA starts or resumes one anonymous draft",
+        "Test: repeated activation while pending cannot repeat the mutation",
+        "Test: normalized failure leaves content visible and retry succeeds"
+      ],
+      "verification": {
+        "commands": [
+          "bun run test -- apps/web/src/screens/landing-start.test.ts",
+          "bun run test:e2e -- apps/web/e2e/landing-start.spec.ts"
+        ],
+        "manualChecks": [
+          "Against magic-mirror-dev, verify one real anonymous identity/draft is created or resumed, failure remains actionable, and browser console/network contain no unresolved error."
+        ]
+      },
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "resources": {
+        "architecture": [
+          "company/artifacts/engineering-plan/architecture/components.md"
+        ],
+        "contracts": [
+          "company/artifacts/engineering-plan/contracts/screen-data.md",
+          "company/artifacts/engineering-plan/contracts/errors.md",
+          "company/artifacts/engineering-plan/contracts/auth.md"
+        ],
+        "design": [
+          "company/artifacts/screen-mockups/interaction-specs/landing-page-base.md"
+        ]
+      },
+      "filesLikelyTouched": [
+        "apps/web/src/screens/landing-start.ts",
+        "apps/web/src/screens/landing-start.test.ts",
+        "apps/web/src/screens/LandingPage.tsx",
+        "apps/web/e2e/landing-start.spec.ts"
+      ],
       "status": "not-started",
       "passes": false,
-      "notes": "",
-      "id": "ENG-119",
+      "notes": "Created by explicit founder direction on 2026-07-21 when the visual LandingPage was moved ahead of its backend integration dependencies. This ticket preserves the original ENG-119 anonymous-draft behavior as a separately verifiable real integration.",
+      "id": "ENG-163",
       "dependsOn": [
+        "ENG-119",
         "ENG-049",
         "ENG-045"
       ]

@@ -39,6 +39,9 @@ function validateInputs(plan, readiness) {
     if (!ticket.id || ticketIds.has(ticket.id)) {
       throw new Error(`Missing or duplicate ticket ID: ${JSON.stringify(ticket.id)}.`);
     }
+    if (ticket.executionPriority !== undefined && (!Number.isSafeInteger(ticket.executionPriority) || ticket.executionPriority < 0)) {
+      throw new Error(`${ticket.id} executionPriority must be a non-negative integer when present.`);
+    }
     ticketIds.add(ticket.id);
   }
   for (const ticket of plan.tickets) {
@@ -99,6 +102,7 @@ function buildIndex(planSource, plan, readinessSource, readiness) {
 
     return {
       order: offset + 1,
+      executionPriority: ticket.executionPriority ?? 1000,
       id: ticket.id,
       title: ticket.title,
       priority: ticket.priority,
@@ -116,6 +120,8 @@ function buildIndex(planSource, plan, readinessSource, readiness) {
     .sort((left, right) => {
       const resumeDifference = Number(left.status !== "in-progress") - Number(right.status !== "in-progress");
       if (resumeDifference !== 0) return resumeDifference;
+      const executionDifference = left.executionPriority - right.executionPriority;
+      if (executionDifference !== 0) return executionDifference;
       const priorityDifference = (priorityRank[left.priority] ?? 99) - (priorityRank[right.priority] ?? 99);
       if (priorityDifference !== 0) return priorityDifference;
       return left.order - right.order;

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T01:23:50.183Z",
+  "generated_at": "2026-07-22T01:52:03.301Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "0ddf9d207e67549e4bceadd8c80db4fafb75d598a4e7deaee352adb32fbeb97d",
+  "source_plan_sha256": "423c24504c099a53e6ee80b4f28a7aa809a1467cfe875a00f7e58fedbd090d3f",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -29,18 +29,19 @@
       "ENG-155"
     ]
   },
-  "ticket_count": 162,
-  "eligible_count": 10,
+  "ticket_count": 163,
+  "eligible_count": 11,
   "passing_count": 17,
   "status_counts": {
     "completed": 17,
     "in-progress": 1,
-    "not-started": 144
+    "not-started": 145
   },
-  "next_ticket_id": "ENG-007",
+  "next_ticket_id": "ENG-119",
   "tickets": [
     {
       "order": 1,
+      "executionPriority": 1000,
       "id": "ENG-001",
       "title": "Create the root Bun workspace",
       "priority": "must",
@@ -59,6 +60,7 @@
     },
     {
       "order": 2,
+      "executionPriority": 1000,
       "id": "ENG-002",
       "title": "Scaffold the Vite and Tailwind web application",
       "priority": "must",
@@ -78,6 +80,7 @@
     },
     {
       "order": 3,
+      "executionPriority": 1000,
       "id": "ENG-003",
       "title": "Scaffold the TypeScript API application",
       "priority": "must",
@@ -97,6 +100,7 @@
     },
     {
       "order": 4,
+      "executionPriority": 1000,
       "id": "ENG-004",
       "title": "Establish the Vitest and Playwright command contract",
       "priority": "must",
@@ -118,6 +122,7 @@
     },
     {
       "order": 5,
+      "executionPriority": 1000,
       "id": "ENG-005",
       "title": "Configure local Supabase migration and policy tests",
       "priority": "must",
@@ -137,6 +142,7 @@
     },
     {
       "order": 6,
+      "executionPriority": 1000,
       "id": "ENG-006",
       "title": "Validate server and browser environment boundaries",
       "priority": "must",
@@ -157,10 +163,11 @@
     },
     {
       "order": 7,
+      "executionPriority": 1000,
       "id": "ENG-007",
       "title": "Verify anonymous, Google, and email-link authentication configuration",
       "priority": "must",
-      "status": "in-progress",
+      "status": "not-started",
       "passes": false,
       "dependsOn": [
         "ENG-005",
@@ -175,6 +182,7 @@
     },
     {
       "order": 8,
+      "executionPriority": 1000,
       "id": "ENG-008",
       "title": "Implement common IDs, errors, and pagination contracts",
       "priority": "must",
@@ -194,6 +202,7 @@
     },
     {
       "order": 9,
+      "executionPriority": 1000,
       "id": "ENG-009",
       "title": "Implement profile, consent, and transfer contracts",
       "priority": "must",
@@ -210,6 +219,7 @@
     },
     {
       "order": 10,
+      "executionPriority": 1000,
       "id": "ENG-010",
       "title": "Implement photo, extraction, and taste contracts",
       "priority": "must",
@@ -226,6 +236,7 @@
     },
     {
       "order": 11,
+      "executionPriority": 1000,
       "id": "ENG-011",
       "title": "Implement report, recommendation, and asset contracts",
       "priority": "must",
@@ -242,6 +253,7 @@
     },
     {
       "order": 12,
+      "executionPriority": 1000,
       "id": "ENG-012",
       "title": "Implement catalog, bag, and handoff contracts",
       "priority": "must",
@@ -258,6 +270,7 @@
     },
     {
       "order": 13,
+      "executionPriority": 1000,
       "id": "ENG-013",
       "title": "Implement live-session, voice, and gesture contracts",
       "priority": "must",
@@ -277,6 +290,7 @@
     },
     {
       "order": 14,
+      "executionPriority": 1000,
       "id": "ENG-014",
       "title": "Create the private schema and least-privilege helper baseline",
       "priority": "must",
@@ -296,6 +310,7 @@
     },
     {
       "order": 15,
+      "executionPriority": 1000,
       "id": "ENG-015",
       "title": "Create profiles and profile revision constraints",
       "priority": "must",
@@ -313,6 +328,7 @@
     },
     {
       "order": 16,
+      "executionPriority": 1000,
       "id": "ENG-016",
       "title": "Create favorite-brand and garment-type size records",
       "priority": "must",
@@ -331,6 +347,7 @@
     },
     {
       "order": 17,
+      "executionPriority": 1000,
       "id": "ENG-017",
       "title": "Create append-only consent records",
       "priority": "must",
@@ -350,6 +367,7 @@
     },
     {
       "order": 18,
+      "executionPriority": 1000,
       "id": "ENG-018",
       "title": "Enforce profile child ownership and draft-only writes",
       "priority": "must",
@@ -370,6 +388,7 @@
     },
     {
       "order": 19,
+      "executionPriority": 1000,
       "id": "ENG-019",
       "title": "Create anonymous-transfer records and atomic ownership function",
       "priority": "must",
@@ -388,6 +407,7 @@
     },
     {
       "order": 20,
+      "executionPriority": 1000,
       "id": "ENG-020",
       "title": "Create ordered photo metadata and expiry constraints",
       "priority": "must",
@@ -406,6 +426,7 @@
     },
     {
       "order": 21,
+      "executionPriority": 1000,
       "id": "ENG-021",
       "title": "Create private customer-photo bucket policies",
       "priority": "must",
@@ -425,6 +446,7 @@
     },
     {
       "order": 22,
+      "executionPriority": 1000,
       "id": "ENG-022",
       "title": "Create extracted-garment and photo-signal records",
       "priority": "must",
@@ -443,6 +465,7 @@
     },
     {
       "order": 23,
+      "executionPriority": 1000,
       "id": "ENG-023",
       "title": "Create bounded taste candidates and reactions",
       "priority": "must",
@@ -461,6 +484,7 @@
     },
     {
       "order": 24,
+      "executionPriority": 1000,
       "id": "ENG-024",
       "title": "Create durable processing-job lease records",
       "priority": "must",
@@ -478,6 +502,7 @@
     },
     {
       "order": 25,
+      "executionPriority": 1000,
       "id": "ENG-025",
       "title": "Create report-run lifecycle records",
       "priority": "must",
@@ -494,6 +519,7 @@
     },
     {
       "order": 26,
+      "executionPriority": 1000,
       "id": "ENG-026",
       "title": "Create immutable style reports and sections",
       "priority": "must",
@@ -512,6 +538,7 @@
     },
     {
       "order": 27,
+      "executionPriority": 1000,
       "id": "ENG-027",
       "title": "Create report recommendation records",
       "priority": "must",
@@ -530,6 +557,7 @@
     },
     {
       "order": 28,
+      "executionPriority": 1000,
       "id": "ENG-028",
       "title": "Create generated-asset lineage and expiry records",
       "priority": "must",
@@ -552,6 +580,7 @@
     },
     {
       "order": 29,
+      "executionPriority": 1000,
       "id": "ENG-029",
       "title": "Create the atomic report publication function",
       "priority": "must",
@@ -572,6 +601,7 @@
     },
     {
       "order": 30,
+      "executionPriority": 1000,
       "id": "ENG-030",
       "title": "Enforce report and generated-asset ownership policies",
       "priority": "must",
@@ -591,6 +621,7 @@
     },
     {
       "order": 31,
+      "executionPriority": 1000,
       "id": "ENG-031",
       "title": "Create bounded report notification delivery records",
       "priority": "must",
@@ -609,6 +640,7 @@
     },
     {
       "order": 32,
+      "executionPriority": 1000,
       "id": "ENG-032",
       "title": "Create bounded live-session state records",
       "priority": "must",
@@ -627,6 +659,7 @@
     },
     {
       "order": 33,
+      "executionPriority": 1000,
       "id": "ENG-033",
       "title": "Create stable-reference bag records",
       "priority": "must",
@@ -645,6 +678,7 @@
     },
     {
       "order": 34,
+      "executionPriority": 1000,
       "id": "ENG-034",
       "title": "Create privacy-bounded retailer handoff events",
       "priority": "must",
@@ -663,6 +697,7 @@
     },
     {
       "order": 35,
+      "executionPriority": 1000,
       "id": "ENG-035",
       "title": "Create the immediate account-deletion access block",
       "priority": "must",
@@ -681,6 +716,7 @@
     },
     {
       "order": 36,
+      "executionPriority": 1000,
       "id": "ENG-036",
       "title": "Create bounded API idempotency records",
       "priority": "must",
@@ -699,6 +735,7 @@
     },
     {
       "order": 37,
+      "executionPriority": 1000,
       "id": "ENG-037",
       "title": "Seed the approved synthetic database fixtures",
       "priority": "must",
@@ -740,6 +777,7 @@
     },
     {
       "order": 38,
+      "executionPriority": 1000,
       "id": "ENG-038",
       "title": "Generate and verify Supabase database types",
       "priority": "must",
@@ -780,6 +818,7 @@
     },
     {
       "order": 39,
+      "executionPriority": 1000,
       "id": "ENG-039",
       "title": "Authenticate requests and derive immutable owner identity",
       "priority": "must",
@@ -799,6 +838,7 @@
     },
     {
       "order": 40,
+      "executionPriority": 1000,
       "id": "ENG-040",
       "title": "Return normalized API errors and request IDs",
       "priority": "must",
@@ -813,6 +853,7 @@
     },
     {
       "order": 41,
+      "executionPriority": 1000,
       "id": "ENG-041",
       "title": "Apply durable idempotency to named mutations",
       "priority": "must",
@@ -832,6 +873,7 @@
     },
     {
       "order": 42,
+      "executionPriority": 1000,
       "id": "ENG-042",
       "title": "Normalize provider timeouts and retryability",
       "priority": "must",
@@ -848,6 +890,7 @@
     },
     {
       "order": 43,
+      "executionPriority": 1000,
       "id": "ENG-043",
       "title": "Create scoped server Supabase clients",
       "priority": "must",
@@ -868,6 +911,7 @@
     },
     {
       "order": 44,
+      "executionPriority": 1000,
       "id": "ENG-044",
       "title": "Create the browser Supabase Auth client",
       "priority": "must",
@@ -888,6 +932,7 @@
     },
     {
       "order": 45,
+      "executionPriority": 1000,
       "id": "ENG-045",
       "title": "Create the typed browser API client boundary",
       "priority": "must",
@@ -906,6 +951,7 @@
     },
     {
       "order": 46,
+      "executionPriority": 1000,
       "id": "ENG-046",
       "title": "Run one durable Bun worker process safely",
       "priority": "must",
@@ -926,6 +972,7 @@
     },
     {
       "order": 47,
+      "executionPriority": 1000,
       "id": "ENG-047",
       "title": "Implement getPublicConfiguration",
       "priority": "must",
@@ -940,6 +987,7 @@
     },
     {
       "order": 48,
+      "executionPriority": 1000,
       "id": "ENG-048",
       "title": "Implement resolveResume",
       "priority": "must",
@@ -957,6 +1005,7 @@
     },
     {
       "order": 49,
+      "executionPriority": 1000,
       "id": "ENG-049",
       "title": "Implement createOrResumeProfile",
       "priority": "must",
@@ -976,6 +1025,7 @@
     },
     {
       "order": 50,
+      "executionPriority": 1000,
       "id": "ENG-050",
       "title": "Implement getStyleHome",
       "priority": "must",
@@ -997,6 +1047,7 @@
     },
     {
       "order": 51,
+      "executionPriority": 1000,
       "id": "ENG-051",
       "title": "Implement getProfileSnapshot",
       "priority": "must",
@@ -1014,6 +1065,7 @@
     },
     {
       "order": 52,
+      "executionPriority": 1000,
       "id": "ENG-052",
       "title": "Implement submitConversationTurn",
       "priority": "must",
@@ -1035,6 +1087,7 @@
     },
     {
       "order": 53,
+      "executionPriority": 1000,
       "id": "ENG-053",
       "title": "Implement replaceProfileAnswer",
       "priority": "must",
@@ -1054,6 +1107,7 @@
     },
     {
       "order": 54,
+      "executionPriority": 1000,
       "id": "ENG-054",
       "title": "Implement putBrandSizes",
       "priority": "must",
@@ -1073,6 +1127,7 @@
     },
     {
       "order": 55,
+      "executionPriority": 1000,
       "id": "ENG-055",
       "title": "Implement putFavoriteBrands",
       "priority": "must",
@@ -1092,6 +1147,7 @@
     },
     {
       "order": 56,
+      "executionPriority": 1000,
       "id": "ENG-056",
       "title": "Implement recordConsent",
       "priority": "must",
@@ -1111,6 +1167,7 @@
     },
     {
       "order": 57,
+      "executionPriority": 1000,
       "id": "ENG-057",
       "title": "Implement submitProfileForReport",
       "priority": "must",
@@ -1131,6 +1188,7 @@
     },
     {
       "order": 58,
+      "executionPriority": 1000,
       "id": "ENG-058",
       "title": "Implement createPhotoUploadSlot",
       "priority": "must",
@@ -1150,6 +1208,7 @@
     },
     {
       "order": 59,
+      "executionPriority": 1000,
       "id": "ENG-059",
       "title": "Implement listPhotos",
       "priority": "must",
@@ -1167,6 +1226,7 @@
     },
     {
       "order": 60,
+      "executionPriority": 1000,
       "id": "ENG-060",
       "title": "Implement completePhotoUpload",
       "priority": "must",
@@ -1189,6 +1249,7 @@
     },
     {
       "order": 61,
+      "executionPriority": 1000,
       "id": "ENG-061",
       "title": "Implement deletePhoto",
       "priority": "must",
@@ -1206,6 +1267,7 @@
     },
     {
       "order": 62,
+      "executionPriority": 1000,
       "id": "ENG-062",
       "title": "Implement reorderPhotos",
       "priority": "must",
@@ -1223,6 +1285,7 @@
     },
     {
       "order": 63,
+      "executionPriority": 1000,
       "id": "ENG-063",
       "title": "Implement retryPhotoExtraction",
       "priority": "must",
@@ -1243,6 +1306,7 @@
     },
     {
       "order": 64,
+      "executionPriority": 1000,
       "id": "ENG-064",
       "title": "Implement getExtractionSummary",
       "priority": "must",
@@ -1260,6 +1324,7 @@
     },
     {
       "order": 65,
+      "executionPriority": 1000,
       "id": "ENG-065",
       "title": "Implement reviewExtractedGarment",
       "priority": "must",
@@ -1277,6 +1342,7 @@
     },
     {
       "order": 66,
+      "executionPriority": 1000,
       "id": "ENG-066",
       "title": "Implement ensureTasteCandidates",
       "priority": "must",
@@ -1297,6 +1363,7 @@
     },
     {
       "order": 67,
+      "executionPriority": 1000,
       "id": "ENG-067",
       "title": "Implement getTasteCalibration",
       "priority": "must",
@@ -1314,6 +1381,7 @@
     },
     {
       "order": 68,
+      "executionPriority": 1000,
       "id": "ENG-068",
       "title": "Implement putTasteReaction",
       "priority": "must",
@@ -1331,6 +1399,7 @@
     },
     {
       "order": 69,
+      "executionPriority": 1000,
       "id": "ENG-069",
       "title": "Implement undoTasteReaction",
       "priority": "must",
@@ -1348,6 +1417,7 @@
     },
     {
       "order": 70,
+      "executionPriority": 1000,
       "id": "ENG-070",
       "title": "Implement prepareAnonymousTransfer",
       "priority": "must",
@@ -1367,6 +1437,7 @@
     },
     {
       "order": 71,
+      "executionPriority": 1000,
       "id": "ENG-071",
       "title": "Implement consumeAnonymousTransfer",
       "priority": "must",
@@ -1384,6 +1455,7 @@
     },
     {
       "order": 72,
+      "executionPriority": 1000,
       "id": "ENG-072",
       "title": "Implement cancelAnonymousTransfer",
       "priority": "must",
@@ -1401,6 +1473,7 @@
     },
     {
       "order": 73,
+      "executionPriority": 1000,
       "id": "ENG-073",
       "title": "Implement getReportRun",
       "priority": "must",
@@ -1418,6 +1491,7 @@
     },
     {
       "order": 74,
+      "executionPriority": 1000,
       "id": "ENG-074",
       "title": "Implement retryReportRun",
       "priority": "must",
@@ -1438,6 +1512,7 @@
     },
     {
       "order": 75,
+      "executionPriority": 1000,
       "id": "ENG-075",
       "title": "Implement requestReportNotification",
       "priority": "must",
@@ -1455,6 +1530,7 @@
     },
     {
       "order": 76,
+      "executionPriority": 1000,
       "id": "ENG-076",
       "title": "Implement getCurrentReport",
       "priority": "must",
@@ -1472,6 +1548,7 @@
     },
     {
       "order": 77,
+      "executionPriority": 1000,
       "id": "ENG-077",
       "title": "Implement getReportSection",
       "priority": "must",
@@ -1489,6 +1566,7 @@
     },
     {
       "order": 78,
+      "executionPriority": 1000,
       "id": "ENG-078",
       "title": "Implement listRecommendations",
       "priority": "must",
@@ -1508,6 +1586,7 @@
     },
     {
       "order": 79,
+      "executionPriority": 1000,
       "id": "ENG-079",
       "title": "Implement submitReportFeedback",
       "priority": "must",
@@ -1527,6 +1606,7 @@
     },
     {
       "order": 80,
+      "executionPriority": 1000,
       "id": "ENG-080",
       "title": "Implement startRecalibration",
       "priority": "must",
@@ -1544,6 +1624,7 @@
     },
     {
       "order": 81,
+      "executionPriority": 1000,
       "id": "ENG-081",
       "title": "Implement searchCatalog",
       "priority": "must",
@@ -1561,6 +1642,7 @@
     },
     {
       "order": 82,
+      "executionPriority": 1000,
       "id": "ENG-082",
       "title": "Implement getProduct",
       "priority": "must",
@@ -1578,6 +1660,7 @@
     },
     {
       "order": 83,
+      "executionPriority": 1000,
       "id": "ENG-083",
       "title": "Implement getAlternatives",
       "priority": "must",
@@ -1595,6 +1678,7 @@
     },
     {
       "order": 84,
+      "executionPriority": 1000,
       "id": "ENG-084",
       "title": "Implement listBag",
       "priority": "must",
@@ -1614,6 +1698,7 @@
     },
     {
       "order": 85,
+      "executionPriority": 1000,
       "id": "ENG-085",
       "title": "Implement addBagItem",
       "priority": "must",
@@ -1633,6 +1718,7 @@
     },
     {
       "order": 86,
+      "executionPriority": 1000,
       "id": "ENG-086",
       "title": "Implement removeBagItem",
       "priority": "must",
@@ -1650,6 +1736,7 @@
     },
     {
       "order": 87,
+      "executionPriority": 1000,
       "id": "ENG-087",
       "title": "Implement prepareRetailerHandoff",
       "priority": "must",
@@ -1667,6 +1754,7 @@
     },
     {
       "order": 88,
+      "executionPriority": 1000,
       "id": "ENG-088",
       "title": "Implement confirmRetailerHandoff",
       "priority": "must",
@@ -1684,6 +1772,7 @@
     },
     {
       "order": 89,
+      "executionPriority": 1000,
       "id": "ENG-089",
       "title": "Implement createLiveSession",
       "priority": "must",
@@ -1703,6 +1792,7 @@
     },
     {
       "order": 90,
+      "executionPriority": 1000,
       "id": "ENG-090",
       "title": "Implement transitionLiveSession",
       "priority": "must",
@@ -1720,6 +1810,7 @@
     },
     {
       "order": 91,
+      "executionPriority": 1000,
       "id": "ENG-091",
       "title": "Implement mintRealtimeCredentials",
       "priority": "must",
@@ -1741,6 +1832,7 @@
     },
     {
       "order": 92,
+      "executionPriority": 1000,
       "id": "ENG-092",
       "title": "Implement proposeLiveAction",
       "priority": "must",
@@ -1759,6 +1851,7 @@
     },
     {
       "order": 93,
+      "executionPriority": 1000,
       "id": "ENG-093",
       "title": "Implement confirmLiveAction",
       "priority": "must",
@@ -1776,6 +1869,7 @@
     },
     {
       "order": 94,
+      "executionPriority": 1000,
       "id": "ENG-094",
       "title": "Implement endLiveSession",
       "priority": "must",
@@ -1793,6 +1887,7 @@
     },
     {
       "order": 95,
+      "executionPriority": 1000,
       "id": "ENG-095",
       "title": "Implement requestAccountDeletion",
       "priority": "must",
@@ -1812,6 +1907,7 @@
     },
     {
       "order": 96,
+      "executionPriority": 1000,
       "id": "ENG-096",
       "title": "Derive deterministic garment-type fit guidance",
       "priority": "must",
@@ -1830,6 +1926,7 @@
     },
     {
       "order": 97,
+      "executionPriority": 1000,
       "id": "ENG-097",
       "title": "Measure Wardrobe extraction feasibility on the approved fixture set",
       "priority": "must",
@@ -1849,6 +1946,7 @@
     },
     {
       "order": 98,
+      "executionPriority": 1000,
       "id": "ENG-098",
       "title": "Implement the proven Wardrobe extraction adapter",
       "priority": "must",
@@ -1869,6 +1967,7 @@
     },
     {
       "order": 99,
+      "executionPriority": 1000,
       "id": "ENG-099",
       "title": "Implement OpenAI garment cutout reconstruction",
       "priority": "must",
@@ -1891,6 +1990,7 @@
     },
     {
       "order": 100,
+      "executionPriority": 1000,
       "id": "ENG-100",
       "title": "Process one photo extraction job with partial-failure preservation",
       "priority": "must",
@@ -1914,6 +2014,7 @@
     },
     {
       "order": 101,
+      "executionPriority": 1000,
       "id": "ENG-101",
       "title": "Generate balanced taste candidates from customer evidence",
       "priority": "must",
@@ -1935,6 +2036,7 @@
     },
     {
       "order": 102,
+      "executionPriority": 1000,
       "id": "ENG-102",
       "title": "Implement OpenAI structured style-report generation",
       "priority": "must",
@@ -1959,6 +2061,7 @@
     },
     {
       "order": 103,
+      "executionPriority": 1000,
       "id": "ENG-103",
       "title": "Process one report run through generation and publication",
       "priority": "must",
@@ -1978,6 +2081,7 @@
     },
     {
       "order": 104,
+      "executionPriority": 1000,
       "id": "ENG-104",
       "title": "Send one report-ready magic-link email safely",
       "priority": "must",
@@ -1996,6 +2100,7 @@
     },
     {
       "order": 105,
+      "executionPriority": 1000,
       "id": "ENG-105",
       "title": "Process one report-ready notification job",
       "priority": "must",
@@ -2017,6 +2122,7 @@
     },
     {
       "order": 106,
+      "executionPriority": 1000,
       "id": "ENG-106",
       "title": "Publish and validate the Shopify UCP agent profile",
       "priority": "must",
@@ -2035,6 +2141,7 @@
     },
     {
       "order": 107,
+      "executionPriority": 1000,
       "id": "ENG-107",
       "title": "Implement Shopify Global Catalog search adapter",
       "priority": "must",
@@ -2055,6 +2162,7 @@
     },
     {
       "order": 108,
+      "executionPriority": 1000,
       "id": "ENG-108",
       "title": "Implement Shopify current-product adapter",
       "priority": "must",
@@ -2076,6 +2184,7 @@
     },
     {
       "order": 109,
+      "executionPriority": 1000,
       "id": "ENG-109",
       "title": "Measure generated wardrobe-preview quality and likeness safety",
       "priority": "must",
@@ -2097,6 +2206,7 @@
     },
     {
       "order": 110,
+      "executionPriority": 1000,
       "id": "ENG-110",
       "title": "Implement OpenAI wardrobe preview adapter",
       "priority": "must",
@@ -2120,6 +2230,7 @@
     },
     {
       "order": 111,
+      "executionPriority": 1000,
       "id": "ENG-111",
       "title": "Validate, store, and attach one wardrobe preview",
       "priority": "must",
@@ -2145,6 +2256,7 @@
     },
     {
       "order": 112,
+      "executionPriority": 1000,
       "id": "ENG-112",
       "title": "Measure Decart target-device realtime feasibility",
       "priority": "must",
@@ -2164,6 +2276,7 @@
     },
     {
       "order": 113,
+      "executionPriority": 1000,
       "id": "ENG-113",
       "title": "Implement short-lived Decart token minting",
       "priority": "must",
@@ -2184,6 +2297,7 @@
     },
     {
       "order": 114,
+      "executionPriority": 1000,
       "id": "ENG-114",
       "title": "Implement Decart browser session transport",
       "priority": "must",
@@ -2203,6 +2317,7 @@
     },
     {
       "order": 115,
+      "executionPriority": 1000,
       "id": "ENG-115",
       "title": "Measure Gemini, Decart, and gesture coexistence",
       "priority": "must",
@@ -2224,6 +2339,7 @@
     },
     {
       "order": 116,
+      "executionPriority": 1000,
       "id": "ENG-116",
       "title": "Implement short-lived Gemini Live credential minting",
       "priority": "must",
@@ -2245,6 +2361,7 @@
     },
     {
       "order": 117,
+      "executionPriority": 1000,
       "id": "ENG-117",
       "title": "Implement Gemini Live browser voice transport",
       "priority": "must",
@@ -2264,6 +2381,7 @@
     },
     {
       "order": 118,
+      "executionPriority": 1000,
       "id": "ENG-118",
       "title": "Recognize the approved hand-gesture vocabulary safely",
       "priority": "must",
@@ -2283,12 +2401,31 @@
     },
     {
       "order": 119,
+      "executionPriority": 0,
       "id": "ENG-119",
       "title": "Implement the report-led landing screen",
+      "priority": "must",
+      "status": "in-progress",
+      "passes": false,
+      "dependsOn": [
+        "ENG-002"
+      ],
+      "readinessPrerequisites": [
+        "IR-019"
+      ],
+      "eligible": true,
+      "blockers": []
+    },
+    {
+      "order": 120,
+      "executionPriority": 1000,
+      "id": "ENG-163",
+      "title": "Connect the landing CTA to anonymous draft start and resume",
       "priority": "must",
       "status": "not-started",
       "passes": false,
       "dependsOn": [
+        "ENG-119",
         "ENG-049",
         "ENG-045"
       ],
@@ -2297,12 +2434,14 @@
       ],
       "eligible": false,
       "blockers": [
+        "dependency:ENG-119",
         "dependency:ENG-049",
         "dependency:ENG-045"
       ]
     },
     {
-      "order": 120,
+      "order": 121,
+      "executionPriority": 1000,
       "id": "ENG-120",
       "title": "Implement public Google and magic-link account access",
       "priority": "must",
@@ -2322,7 +2461,8 @@
       ]
     },
     {
-      "order": 121,
+      "order": 122,
+      "executionPriority": 1000,
       "id": "ENG-121",
       "title": "Implement the chat onboarding welcome turn",
       "priority": "must",
@@ -2343,7 +2483,8 @@
       ]
     },
     {
-      "order": 122,
+      "order": 123,
+      "executionPriority": 1000,
       "id": "ENG-122",
       "title": "Implement personal-detail conversation turns",
       "priority": "must",
@@ -2366,7 +2507,8 @@
       ]
     },
     {
-      "order": 123,
+      "order": 124,
+      "executionPriority": 1000,
       "id": "ENG-123",
       "title": "Implement brand and garment-size conversation",
       "priority": "must",
@@ -2389,7 +2531,8 @@
       ]
     },
     {
-      "order": 124,
+      "order": 125,
+      "executionPriority": 1000,
       "id": "ENG-124",
       "title": "Implement conversational photo collection",
       "priority": "must",
@@ -2414,7 +2557,8 @@
       ]
     },
     {
-      "order": 125,
+      "order": 126,
+      "executionPriority": 1000,
       "id": "ENG-125",
       "title": "Implement conversational photo review and recovery",
       "priority": "must",
@@ -2439,7 +2583,8 @@
       ]
     },
     {
-      "order": 126,
+      "order": 127,
+      "executionPriority": 1000,
       "id": "ENG-126",
       "title": "Implement conversational Love, Hate, and Maybe calibration",
       "priority": "must",
@@ -2464,7 +2609,8 @@
       ]
     },
     {
-      "order": 127,
+      "order": 128,
+      "executionPriority": 1000,
       "id": "ENG-127",
       "title": "Implement contextual account connection turn",
       "priority": "must",
@@ -2487,7 +2633,8 @@
       ]
     },
     {
-      "order": 128,
+      "order": 129,
+      "executionPriority": 1000,
       "id": "ENG-128",
       "title": "Implement final conversational profile review",
       "priority": "must",
@@ -2510,7 +2657,8 @@
       ]
     },
     {
-      "order": 129,
+      "order": 130,
+      "executionPriority": 1000,
       "id": "ENG-129",
       "title": "Implement report processing, slow, and recovery states",
       "priority": "must",
@@ -2532,7 +2680,8 @@
       ]
     },
     {
-      "order": 130,
+      "order": 131,
+      "executionPriority": 1000,
       "id": "ENG-130",
       "title": "Implement style report overview",
       "priority": "must",
@@ -2552,7 +2701,8 @@
       ]
     },
     {
-      "order": 131,
+      "order": 132,
+      "executionPriority": 1000,
       "id": "ENG-131",
       "title": "Implement personalized color report section",
       "priority": "must",
@@ -2572,7 +2722,8 @@
       ]
     },
     {
-      "order": 132,
+      "order": 133,
+      "executionPriority": 1000,
       "id": "ENG-132",
       "title": "Implement body-style and fit-guidance section",
       "priority": "must",
@@ -2594,7 +2745,8 @@
       ]
     },
     {
-      "order": 133,
+      "order": 134,
+      "executionPriority": 1000,
       "id": "ENG-133",
       "title": "Implement report recommendations and previews",
       "priority": "must",
@@ -2614,7 +2766,8 @@
       ]
     },
     {
-      "order": 134,
+      "order": 135,
+      "executionPriority": 1000,
       "id": "ENG-134",
       "title": "Implement report feedback and recalibration confirmation",
       "priority": "must",
@@ -2636,7 +2789,8 @@
       ]
     },
     {
-      "order": 135,
+      "order": 136,
+      "executionPriority": 1000,
       "id": "ENG-135",
       "title": "Implement Style Home base and resume states",
       "priority": "must",
@@ -2656,7 +2810,8 @@
       ]
     },
     {
-      "order": 136,
+      "order": 137,
+      "executionPriority": 1000,
       "id": "ENG-136",
       "title": "Implement product detail and unavailable states",
       "priority": "must",
@@ -2678,7 +2833,8 @@
       ]
     },
     {
-      "order": 137,
+      "order": 138,
+      "executionPriority": 1000,
       "id": "ENG-137",
       "title": "Implement live camera permission and denial recovery",
       "priority": "must",
@@ -2698,7 +2854,8 @@
       ]
     },
     {
-      "order": 138,
+      "order": 139,
+      "executionPriority": 1000,
       "id": "ENG-138",
       "title": "Implement live connecting and ready states",
       "priority": "must",
@@ -2720,7 +2877,8 @@
       ]
     },
     {
-      "order": 139,
+      "order": 140,
+      "executionPriority": 1000,
       "id": "ENG-139",
       "title": "Implement live changing, slow, and error recovery states",
       "priority": "must",
@@ -2742,7 +2900,8 @@
       ]
     },
     {
-      "order": 140,
+      "order": 141,
+      "executionPriority": 1000,
       "id": "ENG-140",
       "title": "Implement ended live-session state",
       "priority": "must",
@@ -2762,7 +2921,8 @@
       ]
     },
     {
-      "order": 141,
+      "order": 142,
+      "executionPriority": 1000,
       "id": "ENG-141",
       "title": "Implement microphone permission and listening states",
       "priority": "must",
@@ -2784,7 +2944,8 @@
       ]
     },
     {
-      "order": 142,
+      "order": 143,
+      "executionPriority": 1000,
       "id": "ENG-142",
       "title": "Implement voice interpreting, confirmation, and acting states",
       "priority": "must",
@@ -2806,7 +2967,8 @@
       ]
     },
     {
-      "order": 143,
+      "order": 144,
+      "executionPriority": 1000,
       "id": "ENG-143",
       "title": "Implement voice failure recovery",
       "priority": "must",
@@ -2826,7 +2988,8 @@
       ]
     },
     {
-      "order": 144,
+      "order": 145,
+      "executionPriority": 1000,
       "id": "ENG-144",
       "title": "Implement gesture guide and observing states",
       "priority": "must",
@@ -2846,7 +3009,8 @@
       ]
     },
     {
-      "order": 145,
+      "order": 146,
+      "executionPriority": 1000,
       "id": "ENG-145",
       "title": "Implement gesture interpreting, accepted, and ignored states",
       "priority": "must",
@@ -2868,7 +3032,8 @@
       ]
     },
     {
-      "order": 146,
+      "order": 147,
+      "executionPriority": 1000,
       "id": "ENG-146",
       "title": "Implement gesture confirmation state",
       "priority": "must",
@@ -2888,7 +3053,8 @@
       ]
     },
     {
-      "order": 147,
+      "order": 148,
+      "executionPriority": 1000,
       "id": "ENG-147",
       "title": "Implement bag and unavailable-item states",
       "priority": "must",
@@ -2910,7 +3076,8 @@
       ]
     },
     {
-      "order": 148,
+      "order": 149,
+      "executionPriority": 1000,
       "id": "ENG-148",
       "title": "Implement retailer handoff confirmation",
       "priority": "must",
@@ -2932,7 +3099,8 @@
       ]
     },
     {
-      "order": 149,
+      "order": 150,
+      "executionPriority": 1000,
       "id": "ENG-149",
       "title": "Purge expired original photos and inaccessible objects",
       "priority": "must",
@@ -2951,7 +3119,8 @@
       ]
     },
     {
-      "order": 150,
+      "order": 151,
+      "executionPriority": 1000,
       "id": "ENG-150",
       "title": "Purge expired derived garments and likeness assets",
       "priority": "must",
@@ -2973,7 +3142,8 @@
       ]
     },
     {
-      "order": 151,
+      "order": 152,
+      "executionPriority": 1000,
       "id": "ENG-151",
       "title": "Complete blocked account deletion safely",
       "priority": "must",
@@ -2995,7 +3165,8 @@
       ]
     },
     {
-      "order": 152,
+      "order": 153,
+      "executionPriority": 1000,
       "id": "ENG-152",
       "title": "Build the production web container",
       "priority": "must",
@@ -3014,7 +3185,8 @@
       ]
     },
     {
-      "order": 153,
+      "order": 154,
+      "executionPriority": 1000,
       "id": "ENG-153",
       "title": "Build the production API and worker container",
       "priority": "must",
@@ -3033,7 +3205,8 @@
       ]
     },
     {
-      "order": 154,
+      "order": 155,
+      "executionPriority": 1000,
       "id": "ENG-154",
       "title": "Run repository quality gates in CI",
       "priority": "must",
@@ -3053,7 +3226,8 @@
       ]
     },
     {
-      "order": 155,
+      "order": 156,
+      "executionPriority": 1000,
       "id": "ENG-155",
       "title": "Provision and validate the DigitalOcean development deployment",
       "priority": "must",
@@ -3075,7 +3249,8 @@
       ]
     },
     {
-      "order": 156,
+      "order": 157,
+      "executionPriority": 1000,
       "id": "ENG-156",
       "title": "Implement and validate the gated Supabase migration command",
       "priority": "must",
@@ -3092,7 +3267,8 @@
       "blockers": []
     },
     {
-      "order": 157,
+      "order": 158,
+      "executionPriority": 1000,
       "id": "ENG-157",
       "title": "Expose redacted demo-critical health and latency telemetry",
       "priority": "must",
@@ -3111,7 +3287,8 @@
       ]
     },
     {
-      "order": 158,
+      "order": 159,
+      "executionPriority": 1000,
       "id": "ENG-158",
       "title": "Verify the report-led customer golden path across system boundaries",
       "priority": "must",
@@ -3137,7 +3314,8 @@
       ]
     },
     {
-      "order": 159,
+      "order": 160,
+      "executionPriority": 1000,
       "id": "ENG-159",
       "title": "Verify cross-owner isolation across sensitive boundaries",
       "priority": "must",
@@ -3163,7 +3341,8 @@
       ]
     },
     {
-      "order": 160,
+      "order": 161,
+      "executionPriority": 1000,
       "id": "ENG-160",
       "title": "Document the exact runnable repository contract",
       "priority": "must",
@@ -3182,7 +3361,8 @@
       ]
     },
     {
-      "order": 161,
+      "order": 162,
+      "executionPriority": 1000,
       "id": "ENG-161",
       "title": "Verify the deployed report-led demo path",
       "priority": "must",
@@ -3206,7 +3386,8 @@
       ]
     },
     {
-      "order": 162,
+      "order": 163,
+      "executionPriority": 1000,
       "id": "ENG-162",
       "title": "Document provider-specific demo recovery actions",
       "priority": "must",
