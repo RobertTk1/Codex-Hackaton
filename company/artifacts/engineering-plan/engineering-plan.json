@@ -584,14 +584,15 @@
         "scripts/verify-supabase-auth-config.ts",
         "scripts/verify-supabase-auth-config.test.ts"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T01:23:50.178Z] Claimed 2026-07-22T01:23:33Z by root for codex/eng-007-supabase-auth from integration f8430f96264befccce6eb62a1ac8d43b6390e1e8. Dependencies ENG-005 and ENG-006 pass; IR-007 and IR-008 are ready. Scope is limited to non-secret auth settings, exact redirect allowlists, safe verification, and live development checks. Production is out of scope. The live app is visually blank because its current ApplicationShell intentionally contains only a screen-reader heading; that is a later UI-ticket concern, not an ENG-007 deployment failure.",
       "id": "ENG-007",
       "dependsOn": [
         "ENG-005",
         "ENG-006"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T01:23:50.178Z"
     },
     {
       "title": "Implement common IDs, errors, and pagination contracts",

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T00:15:22.542Z",
+  "generated_at": "2026-07-22T01:23:50.183Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "50141b57607efcd8a82ba3b983a58acc1780c396fa72b8b31d5dd3f29d338e6a",
+  "source_plan_sha256": "0ddf9d207e67549e4bceadd8c80db4fafb75d598a4e7deaee352adb32fbeb97d",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 17,
   "status_counts": {
     "completed": 17,
-    "not-started": 145
+    "in-progress": 1,
+    "not-started": 144
   },
   "next_ticket_id": "ENG-007",
   "tickets": [
@@ -159,7 +160,7 @@
       "id": "ENG-007",
       "title": "Verify anonymous, Google, and email-link authentication configuration",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-005",
