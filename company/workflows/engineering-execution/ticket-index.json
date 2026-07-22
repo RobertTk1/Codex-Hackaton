@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T17:11:29.188Z",
+  "generated_at": "2026-07-22T17:44:18.248Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "47548b5c2a537a9c12758a131e625a952c4f9c4060b456a235b70d43b7990c15",
+  "source_plan_sha256": "89c3ea2515383f50d2f073c6457c16d35af1f5f1d8e1c515acc3c3285252cb17",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 19,
-  "passing_count": 25,
+  "eligible_count": 20,
+  "passing_count": 26,
   "status_counts": {
-    "completed": 25,
-    "in-progress": 1,
+    "completed": 26,
     "not-started": 137
   },
-  "next_ticket_id": "ENG-017",
+  "next_ticket_id": "ENG-018",
   "tickets": [
     {
       "order": 1,
@@ -370,8 +369,8 @@
       "id": "ENG-017",
       "title": "Create append-only consent records",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-015"
       ],
@@ -379,8 +378,11 @@
         "IR-015",
         "IR-016"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 18,
@@ -397,10 +399,8 @@
       "readinessPrerequisites": [
         "IR-006"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-017"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 19,
@@ -584,7 +584,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-017",
         "dependency:ENG-020"
       ]
     },
@@ -662,10 +661,8 @@
       "readinessPrerequisites": [
         "IR-016"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-017"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 33,
@@ -1153,7 +1150,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-017",
         "dependency:ENG-041"
       ]
     },

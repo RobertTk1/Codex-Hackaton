@@ -1411,14 +1411,14 @@
         "supabase/migrations/20260721000200_create_profile_and_consent_contract.sql",
         "supabase/tests/consent-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-22T17:11:29.181Z] Claimed by root turn 36 on codex/eng-017-consent-events at /Users/talishawhite/.codex/worktrees/eng-017-consent-events; implementation and verification in progress.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-22T17:11:29.181Z] Claimed by root turn 36 on codex/eng-017-consent-events at /Users/talishawhite/.codex/worktrees/eng-017-consent-events; implementation and verification in progress.\n[2026-07-22T17:44:18.241Z] Completed append-only purpose-specific consent events with exact SHA-256 copy evidence, latest-decision ordering, customer-owned select/insert RLS, no customer or service-role update/delete surface, owner-transfer compatibility, and profile-purge cascading. Verified locally, from a clean archive, in ticket and integration CI, transactionally on the isolated Supabase development project with zero persisted fixtures, through security/performance advisors, and on the exact AMD64 development deployment; rollback and restore passed; production untouched.",
       "id": "ENG-017",
       "dependsOn": [
         "ENG-015"
       ],
-      "stateUpdatedAt": "2026-07-22T17:11:29.181Z"
+      "stateUpdatedAt": "2026-07-22T17:44:18.241Z"
     },
     {
       "title": "Enforce profile child ownership and draft-only writes",
