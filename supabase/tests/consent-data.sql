@@ -460,13 +460,20 @@ reset role;
 set local role authenticated;
 set local request.jwt.claim.sub = '22222222-2222-4222-8222-222222222222';
 
-select lives_ok(
+select throws_like(
   $$
     delete from public.profiles
     where id = 'bbbbbbbb-1000-4000-8000-000000000001'
   $$,
-  'deleting an owned draft profile cascades its consent history'
+  '%permission denied for table profiles%',
+  'an owner cannot directly delete a draft profile and its consent history'
 );
+
+reset role;
+set local role service_role;
+
+delete from public.profiles
+where id = 'bbbbbbbb-1000-4000-8000-000000000001';
 
 select is_empty(
   $$

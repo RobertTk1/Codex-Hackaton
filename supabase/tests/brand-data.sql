@@ -788,15 +788,20 @@ select results_eq(
   'customer-facing deletion cannot remove submitted favorite brands'
 );
 
-select lives_ok(
+select throws_like(
   $$
     delete from public.profiles
     where id = 'aaaaaaaa-1000-4000-8000-000000000001'
   $$,
-  'an owner can remove a draft profile and its brand evidence'
+  '%permission denied for table profiles%',
+  'an owner cannot directly delete a draft profile and its brand evidence'
 );
 
 reset role;
+set local role service_role;
+
+delete from public.profiles
+where id = 'aaaaaaaa-1000-4000-8000-000000000001';
 
 select is(
   (

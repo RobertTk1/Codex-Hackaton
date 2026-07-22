@@ -80,8 +80,9 @@ select ok(
 select ok(
   has_table_privilege('authenticated', 'public.profiles', 'SELECT')
   and has_table_privilege('authenticated', 'public.profiles', 'INSERT')
-  and has_table_privilege('authenticated', 'public.profiles', 'DELETE'),
-  'authenticated identities receive profile read, create, and draft-delete operations'
+  and not has_table_privilege('authenticated', 'public.profiles', 'DELETE')
+  and not has_table_privilege('authenticated', 'public.profiles', 'TRUNCATE'),
+  'authenticated identities receive profile read and draft-create operations without destructive authority'
 );
 
 select ok(
@@ -130,7 +131,6 @@ select results_eq(
     order by policyname
   $$,
   array[
-    'profiles_delete_own_draft',
     'profiles_insert_own',
     'profiles_select_own',
     'profiles_update_own_draft'
@@ -614,23 +614,29 @@ reset role;
 set local role authenticated;
 set local request.jwt.claim.sub = '11111111-1111-4111-8111-111111111111';
 
-select results_eq(
+select throws_like(
   $$
     delete from public.profiles
     where id = 'aaaaaaaa-0000-4000-8000-000000000010'
-    returning id
   $$,
-  array[]::uuid[],
+  '%permission denied for table profiles%',
   'customer-facing deletion cannot remove a non-draft profile'
 );
 
-select lives_ok(
+select throws_like(
   $$
     delete from public.profiles
     where id = 'aaaaaaaa-0000-4000-8000-000000000001'
   $$,
-  'an owner can remove its own draft profile'
+  '%permission denied for table profiles%',
+  'an owner cannot directly delete its own draft profile'
 );
+
+reset role;
+set local role service_role;
+
+delete from public.profiles
+where id = 'aaaaaaaa-0000-4000-8000-000000000001';
 
 select is(
   (
