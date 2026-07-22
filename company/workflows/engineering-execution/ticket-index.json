@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T18:48:05.193Z",
+  "generated_at": "2026-07-22T18:57:34.891Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "1ea311165926d353c2784ac97aef68cbc49402236160172f0ac139a721640d05",
+  "source_plan_sha256": "8be7ff59f276175055638298751d8e5f70d4db37bd29809eb100eace92e70c9d",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 27,
   "status_counts": {
     "completed": 27,
-    "not-started": 136
+    "in-progress": 1,
+    "not-started": 135
   },
   "next_ticket_id": "ENG-019",
   "tickets": [
@@ -411,7 +412,7 @@
       "id": "ENG-019",
       "title": "Create anonymous-transfer records and atomic ownership function",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-018"
