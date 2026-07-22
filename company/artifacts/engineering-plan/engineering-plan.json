@@ -749,13 +749,14 @@
         "packages/contracts/src/profile.ts",
         "packages/contracts/test/profile.test.ts"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T12:59:55.966Z] Claimed 2026-07-22T12:59:42Z by root for codex/eng-009-profile-contracts at /Users/talishawhite/.codex/worktrees/eng-009-profile-contracts from integration 9ae3c0fa74610c48ed2e59975bea847284f5afae. ENG-008 passes and IR-001 is ready. Scope is limited to shared profile, consent, and transfer Zod contracts plus focused tests; no database, API route, UI, provider, deployment, or production mutation is authorized.",
       "id": "ENG-009",
       "dependsOn": [
         "ENG-008"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T12:59:55.966Z"
     },
     {
       "title": "Implement photo, extraction, and taste contracts",
