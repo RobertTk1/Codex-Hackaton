@@ -39,7 +39,7 @@ jobs:
       - name: Install Supabase CLI
         uses: supabase/setup-cli@46f7f98c7f948ad727d22c1e67fab04c223a0520 # v3.0.0
         with:
-          version: 2.75.0
+          version: 2.109.1
 
       - name: Install frozen dependencies
         run: bun install --frozen-lockfile
@@ -54,7 +54,7 @@ jobs:
         run: |
           set -eu
           start_log="${RUNNER_TEMP}/supabase-start.log"
-          if ! supabase start -x realtime,storage-api,imgproxy,postgres-meta,studio,edge-runtime,logflare,vector,supavisor,mailpit >"${start_log}" 2>&1; then
+          if ! supabase start -x realtime,imgproxy,postgres-meta,studio,edge-runtime,logflare,vector,supavisor,mailpit >"${start_log}" 2>&1; then
             echo "::error::Local Supabase services failed to start; credential-bearing CLI output was withheld." >&2
             exit 1
           fi

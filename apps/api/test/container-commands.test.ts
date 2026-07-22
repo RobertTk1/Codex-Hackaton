@@ -15,8 +15,12 @@ const statusSchema = z.strictObject({
   JWT_SECRET: z.string().min(1),
   PUBLISHABLE_KEY: z.string().min(1),
   REST_URL: z.url(),
+  S3_PROTOCOL_ACCESS_KEY_ID: z.string().min(1),
+  S3_PROTOCOL_ACCESS_KEY_SECRET: z.string().min(1),
+  S3_PROTOCOL_REGION: z.string().min(1),
   SECRET_KEY: z.string().min(1),
   SERVICE_ROLE_KEY: z.string().min(1),
+  STORAGE_S3_URL: z.url(),
 });
 
 type LocalStatus = z.infer<typeof statusSchema>;

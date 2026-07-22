@@ -16,12 +16,14 @@ cd "${repository_root}"
 supabase test db --local \
   2>&1 | tee "${positive_output}"
 
-if ! grep -Eq 'Files=10([ ,]|$)' "${positive_output}" \
-  || ! grep -Eq 'Tests=364([ ,]|$)' "${positive_output}" \
+if ! grep -Eq 'Files=11([ ,]|$)' "${positive_output}" \
+  || ! grep -Eq 'Tests=380([ ,]|$)' "${positive_output}" \
   || ! grep -q 'Result: PASS' "${positive_output}"; then
-  echo "Positive policy harness did not execute all 364 assertions." >&2
+  echo "Positive policy harness did not execute all 380 assertions." >&2
   exit 1
 fi
+
+bun apps/api/scripts/test-photo-storage.ts
 
 set +e
 supabase test db --local \
@@ -42,4 +44,4 @@ if ! grep -q "intentional cross-owner leak is rejected" "${negative_output}"; th
   exit 1
 fi
 
-echo "Supabase policy harness passed and rejected the intentional cross-owner leak."
+echo "Supabase policy and signed-upload harnesses passed and rejected the intentional cross-owner leak."

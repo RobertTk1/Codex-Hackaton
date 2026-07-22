@@ -58,7 +58,7 @@ describe("CI quality workflow", () => {
       "permissions:\n  contents: read",
       "persist-credentials: false",
       "bun-version: 1.3.11",
-      "version: 2.75.0",
+      "version: 2.109.1",
       "run: bun install --frozen-lockfile",
       "run: bun run lint",
       "run: bun run typecheck",
@@ -74,6 +74,7 @@ describe("CI quality workflow", () => {
     ];
 
     for (const fragment of requiredFragments) expect(workflow).toContain(fragment);
+    expect(workflow).not.toContain("storage-api");
 
     const commandOrder = [
       "bun install --frozen-lockfile",
