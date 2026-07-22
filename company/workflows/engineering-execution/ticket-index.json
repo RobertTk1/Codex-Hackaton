@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T21:15:08.306Z",
+  "generated_at": "2026-07-22T21:28:34.764Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "5f6d5d708ad3275df8d01ce3138d5743589e3a7006c8d5ade291fb22c466ad2a",
+  "source_plan_sha256": "f880e13139a951e43b320776a0394c955e1cf7396a3d95b741249b1c7f87f843",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 30,
   "status_counts": {
     "completed": 30,
-    "not-started": 133
+    "in-progress": 1,
+    "not-started": 132
   },
   "next_ticket_id": "ENG-022",
   "tickets": [
@@ -472,7 +473,7 @@
       "id": "ENG-022",
       "title": "Create extracted-garment and photo-signal records",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-020"
