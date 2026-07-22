@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T12:59:55.980Z",
+  "generated_at": "2026-07-22T13:37:10.382Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "39a83279cf44cba47834a0e1d5c886387bc43b6e3f0337f8821c4ad20dafdd10",
+  "source_plan_sha256": "923e294d3efea07ae2a644d286f996e73d71d0ebd2998b3e77ca507075b388c4",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 163,
   "eligible_count": 10,
-  "passing_count": 19,
+  "passing_count": 20,
   "status_counts": {
-    "completed": 19,
-    "in-progress": 1,
+    "completed": 20,
     "not-started": 143
   },
-  "next_ticket_id": "ENG-009",
+  "next_ticket_id": "ENG-010",
   "tickets": [
     {
       "order": 1,
@@ -209,16 +208,19 @@
       "id": "ENG-009",
       "title": "Implement profile, consent, and transfer contracts",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-008"
       ],
       "readinessPrerequisites": [
         "IR-001"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 10,
@@ -1082,8 +1084,7 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-041",
-        "dependency:ENG-018",
-        "dependency:ENG-009"
+        "dependency:ENG-018"
       ]
     },
     {
@@ -1102,8 +1103,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-018",
-        "dependency:ENG-009"
+        "dependency:ENG-018"
       ]
     },
     {
@@ -1122,8 +1122,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-016",
-        "dependency:ENG-009"
+        "dependency:ENG-016"
       ]
     },
     {
@@ -1142,8 +1141,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-016",
-        "dependency:ENG-009"
+        "dependency:ENG-016"
       ]
     },
     {
@@ -1920,10 +1918,8 @@
       "readinessPrerequisites": [
         "IR-017"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-009"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 97,

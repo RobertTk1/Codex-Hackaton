@@ -3,7 +3,7 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-22T12:59:42Z",
+  "updated_at": "2026-07-22T13:37:10Z",
   "current_turn": 30,
   "execution_queue": {
     "stage": "developer",
@@ -15,13 +15,13 @@
     "ticket_command": "bun company/workflows/engineering-execution/scripts/ticket-index.mjs get <ticket-id>",
     "preflight_command": "bun company/workflows/engineering-execution/scripts/validate-loop.mjs",
     "last_completed_ticket": {
-      "id": "ENG-007",
-      "completed_at": "2026-07-22T12:52:28Z",
-      "integrated_commit": "8877bfa6505cce810f8a903b7df86acce6bc1f5d",
-      "dev_deployment": "config-only:existing-images+hosted-auth-verified"
+      "id": "ENG-009",
+      "completed_at": "2026-07-22T13:37:10Z",
+      "integrated_commit": "73af4829647154d5c5c5e7211820178e687f3aa5",
+      "dev_deployment": "673a772c-12ab-4bcf-904d-ea29dbdabb6c"
     },
-    "next_ticket_id": "ENG-009",
-    "passing_ticket_count": 19,
+    "next_ticket_id": "ENG-010",
+    "passing_ticket_count": 20,
     "preflight": {
       "status": "passed",
       "completed_at": "2026-07-21T17:33:39Z",
