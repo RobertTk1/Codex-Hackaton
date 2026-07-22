@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T17:44:18.248Z",
+  "generated_at": "2026-07-22T17:56:05.348Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "89c3ea2515383f50d2f073c6457c16d35af1f5f1d8e1c515acc3c3285252cb17",
+  "source_plan_sha256": "732a2bb94dc5c851eac5efee69c2572fd18ae9009c29e373a2d053d126cb639c",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 26,
   "status_counts": {
     "completed": 26,
-    "not-started": 137
+    "in-progress": 1,
+    "not-started": 136
   },
   "next_ticket_id": "ENG-018",
   "tickets": [
@@ -390,7 +391,7 @@
       "id": "ENG-018",
       "title": "Enforce profile child ownership and draft-only writes",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-016",

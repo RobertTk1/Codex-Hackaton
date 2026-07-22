@@ -1496,14 +1496,15 @@
         "supabase/migrations/20260721000200_create_profile_and_consent_contract.sql",
         "supabase/tests/profile-rls.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T17:56:05.340Z] Claimed by root turn 37 for isolated implementation on codex/eng-018-profile-graph-rls; enforcing owner-only profile graph reads and draft-only customer evidence writes across profiles, favorite brands, brand sizes, and consent records.",
       "id": "ENG-018",
       "dependsOn": [
         "ENG-016",
         "ENG-017"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T17:56:05.340Z"
     },
     {
       "title": "Create anonymous-transfer records and atomic ownership function",
