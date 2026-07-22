@@ -1244,14 +1244,14 @@
         "supabase/migrations/20260721000200_create_profile_and_consent_contract.sql",
         "supabase/tests/profiles-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-22T15:33:57.719Z] Claimed by root turn 34 on codex/eng-015-profile-constraints at /Users/talishawhite/.codex/worktrees/eng-015-profile-constraints; implementation and verification in progress.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-22T15:33:57.719Z] Claimed by root turn 34 on codex/eng-015-profile-constraints at /Users/talishawhite/.codex/worktrees/eng-015-profile-constraints; implementation and verification in progress.\n[2026-07-22T16:10:46.849Z] Completed root turn 34. Ticket commit 1ac7e73; integrated commit 73a8e62. Exact verification: supabase db reset; focused pgTAP 50/50; aggregate pgTAP 141/141 with intentional cross-owner leak rejected; Supabase schema lint clean; bun run check 22 files/105 tests; web/API/worker builds; exact integrated archive /Users/talishawhite/.codex/worktrees/eng-015-integrated.asidnP. GitHub CI passed ticket run 29934743115 and integrated run 29935150081. Applied approved prerequisite migrations and create_profile_and_consent_contract to isolated Supabase development project hsivtshdoyazwccpxfxt after an atomic missing-private-schema preflight failure; remote transactional proof showed one-owner visibility, retained revision 2 after a rejected decrease, RLS enabled, four policies, and rollback left zero fixture rows. Advisor notices are expected or pre-existing: anonymous authenticated identities are an approved onboarding requirement; private processing_jobs intentionally has no customer policies; fresh indexes are unused; the pre-existing processing_jobs owner FK index notice is outside ENG-015. Deployed linux/amd64 web sha256:385fc5f06da2248ec9971d2fd1a21c715ebe8fd3331e611593949af11a0e5f5b and API/worker sha256:59ccda114505c02d6ed83c0fde4512f34ef5239ca4cd15a83e73889d4f2d649c. Development app 39f71f56-5cb8-4164-9c45-6b8f620c76a6 final deployment 60347d30-2a42-4d3b-927b-68264dd63afa is ACTIVE; root, web health, API health/readiness returned 200; API and worker startup logs are clean. Formal application-only rollback deployment 81a5a28d-8104-4e3e-b6fa-3bf5b4404124 to prior images passed and current images were restored. Production untouched.",
       "id": "ENG-015",
       "dependsOn": [
         "ENG-014"
       ],
-      "stateUpdatedAt": "2026-07-22T15:33:57.719Z"
+      "stateUpdatedAt": "2026-07-22T16:10:46.849Z"
     },
     {
       "title": "Create favorite-brand and garment-type size records",

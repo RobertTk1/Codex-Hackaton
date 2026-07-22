@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T15:33:57.725Z",
+  "generated_at": "2026-07-22T16:10:46.876Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "0c6d7b5f7547b282b488f88e7063a8ddd68ed8f88c0fd58a9eb837bd06dfaf5a",
+  "source_plan_sha256": "4c2cadb45d3a9fe64e2b6882cc2b310668e642746d6f91b94213126bc1b18742",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 10,
-  "passing_count": 23,
+  "eligible_count": 18,
+  "passing_count": 24,
   "status_counts": {
-    "completed": 23,
-    "in-progress": 1,
+    "completed": 24,
     "not-started": 139
   },
-  "next_ticket_id": "ENG-015",
+  "next_ticket_id": "ENG-016",
   "tickets": [
     {
       "order": 1,
@@ -329,8 +328,8 @@
       "id": "ENG-015",
       "title": "Create profiles and profile revision constraints",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-014"
       ],
@@ -338,8 +337,11 @@
         "IR-006",
         "IR-016"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 16,
@@ -355,10 +357,8 @@
       "readinessPrerequisites": [
         "IR-006"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-015"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 17,
@@ -375,10 +375,8 @@
         "IR-015",
         "IR-016"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-015"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 18,
@@ -434,10 +432,8 @@
       "readinessPrerequisites": [
         "IR-015"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-015"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 21,
@@ -492,10 +488,8 @@
       "readinessPrerequisites": [
         "IR-018"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-015"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 24,
@@ -527,10 +521,8 @@
         "ENG-015"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-015"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 26,
@@ -686,10 +678,8 @@
       "readinessPrerequisites": [
         "IR-021"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-015"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 34,
@@ -705,10 +695,8 @@
       "readinessPrerequisites": [
         "IR-021"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-015"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 35,
@@ -743,10 +731,8 @@
       "readinessPrerequisites": [
         "IR-015"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-015"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 37,
@@ -1011,10 +997,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-015"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 49,
