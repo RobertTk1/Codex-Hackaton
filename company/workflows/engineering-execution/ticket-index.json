@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T01:52:03.301Z",
+  "generated_at": "2026-07-22T02:54:34.663Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "423c24504c099a53e6ee80b4f28a7aa809a1467cfe875a00f7e58fedbd090d3f",
+  "source_plan_sha256": "0f31d13d44d664a304ac9f18471b0686d6db18bb6573203453f3cd2f240e5cb3",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 11,
-  "passing_count": 17,
+  "eligible_count": 10,
+  "passing_count": 18,
   "status_counts": {
-    "completed": 17,
-    "in-progress": 1,
+    "completed": 18,
     "not-started": 145
   },
-  "next_ticket_id": "ENG-119",
+  "next_ticket_id": "ENG-007",
   "tickets": [
     {
       "order": 1,
@@ -2405,16 +2404,19 @@
       "id": "ENG-119",
       "title": "Implement the report-led landing screen",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-002"
       ],
       "readinessPrerequisites": [
         "IR-019"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 120,
@@ -2434,7 +2436,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-119",
         "dependency:ENG-049",
         "dependency:ENG-045"
       ]
@@ -3306,7 +3307,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-119",
         "dependency:ENG-128",
         "dependency:ENG-129",
         "dependency:ENG-133",

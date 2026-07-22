@@ -10020,15 +10020,15 @@
         "apps/web/src/screens/LandingPage.test.tsx",
         "apps/web/e2e/landing-ui.spec.ts"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "Amended by explicit founder direction on 2026-07-21 to execute visible frontend work before the remaining backend sequence. The visual screen and its anonymous-draft integration are split so neither ticket claims behavior it does not own.\n[2026-07-22T01:52:03.297Z] Claimed by root on codex/engineering-execution after explicit founder reprioritization of visible frontend work. Build the approved responsive landing experience first; real anonymous draft/auth wiring remains ENG-163 and ENG-007. No fake success states.",
+      "status": "completed",
+      "passes": true,
+      "notes": "Amended by explicit founder direction on 2026-07-21 to execute visible frontend work before the remaining backend sequence. The visual screen and its anonymous-draft integration are split so neither ticket claims behavior it does not own.\n[2026-07-22T01:52:03.297Z] Claimed by root on codex/engineering-execution after explicit founder reprioritization of visible frontend work. Build the approved responsive landing experience first; real anonymous draft/auth wiring remains ENG-163 and ENG-007. No fake success states.\n[2026-07-22T02:53:15.699Z] Implemented and deployed the complete approved responsive landing screen from the exact desktop/mobile mockups. All production imagery was extracted from the approved desktop mockup; no new visual direction or generated imagery was used. Verified focused unit 2/2, focused Playwright 2/2, full Vitest 73/73, smoke plus landing Playwright 3/3, typecheck, lint, build, frozen install, full check, and GitHub CI run 29885621643. Container regression 3/3 proves the wordmark and hero asset ship. Live dev deployment 08a506ce-a0eb-4938-b0aa-b210fb6dbdcb serves immutable web digest sha256:f5f86ba9a0c2ad9c1afdd69d4451b0f424648db7674177fdf6001ee898625efc with unchanged API/worker digests; web, health, readiness, wordmark, and hero return 200; desktop/mobile browser checks show all images loaded with zero console or failed-network errors and approximately 94% adjusted manual similarity to approved layouts. Stable CTA targets remain visual-only pending ENG-163; production is absent and untouched.",
       "id": "ENG-119",
       "executionPriority": 0,
       "dependsOn": [
         "ENG-002"
       ],
-      "stateUpdatedAt": "2026-07-22T01:52:03.297Z"
+      "stateUpdatedAt": "2026-07-22T02:53:15.699Z"
     },
     {
       "title": "Connect the landing CTA to anonymous draft start and resume",
