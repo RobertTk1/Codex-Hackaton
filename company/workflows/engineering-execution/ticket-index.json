@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T14:57:41.515Z",
+  "generated_at": "2026-07-22T15:21:30.254Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "7ac322687e81929eb4869ff0752b1bd454e4f22314979dad975fbeefbc0cb6e9",
+  "source_plan_sha256": "4d8142283e46961717634a7e2299cbe3f219e8cbd419951b97131221936e9371",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 163,
   "eligible_count": 10,
-  "passing_count": 22,
+  "passing_count": 23,
   "status_counts": {
-    "completed": 22,
-    "in-progress": 1,
+    "completed": 23,
     "not-started": 140
   },
-  "next_ticket_id": "ENG-012",
+  "next_ticket_id": "ENG-015",
   "tickets": [
     {
       "order": 1,
@@ -269,16 +268,19 @@
       "id": "ENG-012",
       "title": "Implement catalog, bag, and handoff contracts",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-008"
       ],
       "readinessPrerequisites": [
         "IR-001"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 13,
@@ -2133,10 +2135,8 @@
       "readinessPrerequisites": [
         "IR-012"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-012"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 107,

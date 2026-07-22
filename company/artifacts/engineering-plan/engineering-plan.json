@@ -992,14 +992,14 @@
         "packages/contracts/src/catalog.ts",
         "packages/contracts/test/catalog.test.ts"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-22T14:57:41.509Z] Claimed 2026-07-22T14:57:28Z by root session on branch codex/eng-012-catalog-contracts in /Users/talishawhite/.codex/worktrees/eng-012-catalog-contracts. Scope: closed catalog, bag, and retailer-handoff Zod contracts plus focused fixtures only; no routes, database access, or UI.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-22T14:57:41.509Z] Claimed 2026-07-22T14:57:28Z by root session on branch codex/eng-012-catalog-contracts in /Users/talishawhite/.codex/worktrees/eng-012-catalog-contracts. Scope: closed catalog, bag, and retailer-handoff Zod contracts plus focused fixtures only; no routes, database access, or UI.\n[2026-07-22T15:21:30.247Z] Completed 2026-07-22T15:21:01Z. Ticket commit 0f7b8f3e6f9a5e88d42ad0965a6dda441b1b00e0; integrated commit 89380d6d6e94eb492cd135f907120ad2f2d01615. Added strict exported Zod request/response contracts for US catalog search, product and alternatives inputs, source-aware bag writes, current product/bag projections, and short-lived retailer handoff. Focused catalog tests 5/5; full Vitest 22 files/105 tests; strict typecheck/lint/check; web/API/worker builds; package self-export and clean archive verification passed. Ticket CI 29931764052 and integration CI 29932346060 passed. Exact Linux/AMD64 images: web sha256:a72e8223f59a736a763138b2806b6b8174c3c923848022e63231efafa2100f34; API/worker sha256:08bdbb9197c9c8afba1eef7a7170d4950ede8fc202b036de3010c210bbdfeeb0. Development app 39f71f56-5cb8-4164-9c45-6b8f620c76a6 deployment a44e8f0e-48ff-47ac-a97d-c345e382c9dc ACTIVE; root, /healthz, /api/healthz, and /api/readyz returned 200; API and worker startup plus deploy/runtime logs were clean. Production untouched.",
       "id": "ENG-012",
       "dependsOn": [
         "ENG-008"
       ],
-      "stateUpdatedAt": "2026-07-22T14:57:41.509Z"
+      "stateUpdatedAt": "2026-07-22T15:21:30.247Z"
     },
     {
       "title": "Implement live-session, voice, and gesture contracts",
