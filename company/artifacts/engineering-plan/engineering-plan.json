@@ -1244,13 +1244,14 @@
         "supabase/migrations/20260721000200_create_profile_and_consent_contract.sql",
         "supabase/tests/profiles-data.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-22T15:33:57.719Z] Claimed by root turn 34 on codex/eng-015-profile-constraints at /Users/talishawhite/.codex/worktrees/eng-015-profile-constraints; implementation and verification in progress.",
       "id": "ENG-015",
       "dependsOn": [
         "ENG-014"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-22T15:33:57.719Z"
     },
     {
       "title": "Create favorite-brand and garment-type size records",

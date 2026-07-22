@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T15:21:30.254Z",
+  "generated_at": "2026-07-22T15:33:57.725Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "4d8142283e46961717634a7e2299cbe3f219e8cbd419951b97131221936e9371",
+  "source_plan_sha256": "0c6d7b5f7547b282b488f88e7063a8ddd68ed8f88c0fd58a9eb837bd06dfaf5a",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 23,
   "status_counts": {
     "completed": 23,
-    "not-started": 140
+    "in-progress": 1,
+    "not-started": 139
   },
   "next_ticket_id": "ENG-015",
   "tickets": [
@@ -328,7 +329,7 @@
       "id": "ENG-015",
       "title": "Create profiles and profile revision constraints",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-014"
