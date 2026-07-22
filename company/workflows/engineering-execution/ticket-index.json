@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T17:56:05.348Z",
+  "generated_at": "2026-07-22T18:48:05.193Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "732a2bb94dc5c851eac5efee69c2572fd18ae9009c29e373a2d053d126cb639c",
+  "source_plan_sha256": "1ea311165926d353c2784ac97aef68cbc49402236160172f0ac139a721640d05",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 20,
-  "passing_count": 26,
+  "eligible_count": 23,
+  "passing_count": 27,
   "status_counts": {
-    "completed": 26,
-    "in-progress": 1,
+    "completed": 27,
     "not-started": 136
   },
-  "next_ticket_id": "ENG-018",
+  "next_ticket_id": "ENG-019",
   "tickets": [
     {
       "order": 1,
@@ -391,8 +390,8 @@
       "id": "ENG-018",
       "title": "Enforce profile child ownership and draft-only writes",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-016",
         "ENG-017"
@@ -400,8 +399,11 @@
       "readinessPrerequisites": [
         "IR-006"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 19,
@@ -417,10 +419,8 @@
       "readinessPrerequisites": [
         "IR-024"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-018"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 20,
@@ -713,10 +713,8 @@
       "readinessPrerequisites": [
         "IR-015"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-018"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 36,
@@ -1017,8 +1015,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-041",
-        "dependency:ENG-018"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -1056,10 +1053,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-018"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 52,
@@ -1078,8 +1073,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-041",
-        "dependency:ENG-018"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -1096,10 +1090,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-018"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 54,
