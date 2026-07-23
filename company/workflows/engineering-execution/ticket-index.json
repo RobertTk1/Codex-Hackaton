@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T00:34:26.090Z",
+  "generated_at": "2026-07-23T00:45:38.402Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "8efe0bfb39fdbd178f1c456bfc843e75368d7838566e227dc5bac90806c0394a",
+  "source_plan_sha256": "fa9e7497307ffec7b82b9dae8cd633481ea3c5584f9591b3b65ddda62afe61a2",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 35,
   "status_counts": {
     "completed": 35,
-    "not-started": 128
+    "in-progress": 1,
+    "not-started": 127
   },
   "next_ticket_id": "ENG-027",
   "tickets": [
@@ -568,7 +569,7 @@
       "id": "ENG-027",
       "title": "Create report recommendation records",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-026",

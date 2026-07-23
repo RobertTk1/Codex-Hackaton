@@ -2254,14 +2254,15 @@
         "supabase/migrations/20260721000400_create_report_and_asset_contract.sql",
         "supabase/tests/recommendation-data.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-23T00:45:38.388Z] Turn 46 owner: root; branch codex/eng-027-report-recommendations; worktree /Users/talishawhite/.codex/worktrees/eng-027-report-recommendations; claimed 2026-07-23T00:45:28Z.",
       "id": "ENG-027",
       "dependsOn": [
         "ENG-026",
         "ENG-028"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-23T00:45:38.388Z"
     },
     {
       "title": "Create generated-asset lineage and expiry records",
