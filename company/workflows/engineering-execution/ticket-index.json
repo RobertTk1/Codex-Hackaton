@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T02:07:34.268Z",
+  "generated_at": "2026-07-23T02:17:17.450Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "6e5d4d79dd86409684a67f13d588991c654655822a72a4cbdc9d982c0d9a1419",
+  "source_plan_sha256": "1da1661bd7a43c58fd6b4c1a16903926c68840f66963ff54a57f83017b671c0b",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 37,
   "status_counts": {
     "completed": 37,
-    "not-started": 126
+    "in-progress": 1,
+    "not-started": 125
   },
   "next_ticket_id": "ENG-030",
   "tickets": [
@@ -633,7 +634,7 @@
       "id": "ENG-030",
       "title": "Enforce report and generated-asset ownership policies",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-029"

@@ -3,8 +3,8 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-23T02:07:45Z",
-  "current_turn": 47,
+  "updated_at": "2026-07-23T02:17:06Z",
+  "current_turn": 48,
   "execution_queue": {
     "stage": "developer",
     "status": "in_progress",
@@ -19,6 +19,12 @@
       "completed_at": "2026-07-23T02:07:45Z",
       "integrated_commit": "1d840fdfa1d39bef7ed18712d81de301af66ea6e",
       "dev_deployment": "34bd6f91-c012-4a1e-8a4d-37aedf12e3d8"
+    },
+    "active_ticket": {
+      "id": "ENG-030",
+      "branch": "codex/eng-030-report-asset-rls",
+      "worktree": "/Users/talishawhite/.codex/worktrees/eng-030-report-asset-rls",
+      "claimed_at": "2026-07-23T02:17:06Z"
     },
     "next_ticket_id": "ENG-030",
     "passing_ticket_count": 37,

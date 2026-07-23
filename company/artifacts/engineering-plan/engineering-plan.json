@@ -2513,13 +2513,14 @@
         "supabase/migrations/20260721000400_create_report_and_asset_contract.sql",
         "supabase/tests/report-rls.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-23T02:17:17.443Z] [2026-07-23T02:17:06Z] Turn 48 owner: root; branch codex/eng-030-report-asset-rls; worktree /Users/talishawhite/.codex/worktrees/eng-030-report-asset-rls; claimed 2026-07-23T02:17:06Z.",
       "id": "ENG-030",
       "dependsOn": [
         "ENG-029"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-23T02:17:17.443Z"
     },
     {
       "title": "Create bounded report notification delivery records",
