@@ -2679,13 +2679,14 @@
         "supabase/migrations/20260721000500_create_live_bag_and_operations_contract.sql",
         "supabase/tests/live-data.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-23T13:19:29.187Z] [2026-07-23T13:19:15Z] Turn 50 owner: root; branch codex/eng-032-live-session-state; worktree /Users/talishawhite/.codex/worktrees/eng-032-live-session-state; claimed 2026-07-23T13:19:15Z.",
       "id": "ENG-032",
       "dependsOn": [
         "ENG-017"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-23T13:19:29.187Z"
     },
     {
       "title": "Create stable-reference bag records",

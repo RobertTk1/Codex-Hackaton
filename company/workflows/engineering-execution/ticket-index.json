@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T13:12:10.029Z",
+  "generated_at": "2026-07-23T13:19:29.193Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "b4cf4acdc15700e8f8b25ed7a49995e16fddbc6423c12914ad019bc945f934bd",
+  "source_plan_sha256": "42e3ea3fa151f453c75be1343a60c0a8148b9954b2cdf087803a637519d7f118",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 39,
   "status_counts": {
     "completed": 39,
-    "not-started": 124
+    "in-progress": 1,
+    "not-started": 123
   },
   "next_ticket_id": "ENG-032",
   "tickets": [
@@ -674,7 +675,7 @@
       "id": "ENG-032",
       "title": "Create bounded live-session state records",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-017"

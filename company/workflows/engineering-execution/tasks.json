@@ -3,8 +3,8 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-23T13:11:54Z",
-  "current_turn": 49,
+  "updated_at": "2026-07-23T13:19:15Z",
+  "current_turn": 50,
   "execution_queue": {
     "stage": "developer",
     "status": "in_progress",
@@ -19,6 +19,12 @@
       "completed_at": "2026-07-23T13:11:54Z",
       "integrated_commit": "a2a809ca877a7afa510f0f1aeb89e8b42858b18e",
       "dev_deployment": "80180985-27f2-4839-84f8-43dec1dfd323"
+    },
+    "active_ticket": {
+      "id": "ENG-032",
+      "branch": "codex/eng-032-live-session-state",
+      "worktree": "/Users/talishawhite/.codex/worktrees/eng-032-live-session-state",
+      "claimed_at": "2026-07-23T13:19:15Z"
     },
     "next_ticket_id": "ENG-032",
     "passing_ticket_count": 39,
