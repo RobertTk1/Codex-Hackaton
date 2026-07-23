@@ -3,8 +3,8 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-23T01:27:30Z",
-  "current_turn": 46,
+  "updated_at": "2026-07-23T01:36:16Z",
+  "current_turn": 47,
   "execution_queue": {
     "stage": "developer",
     "status": "in_progress",
@@ -19,6 +19,12 @@
       "completed_at": "2026-07-23T01:27:30Z",
       "integrated_commit": "f62e4ebb3cf125eef238944310b5b08786bf9240",
       "dev_deployment": "34ca53be-2b38-4f7e-92c5-5a793684e0fd"
+    },
+    "active_ticket": {
+      "id": "ENG-029",
+      "branch": "codex/eng-029-atomic-report-publication",
+      "worktree": "/Users/talishawhite/.codex/worktrees/eng-029-atomic-report-publication",
+      "claimed_at": "2026-07-23T01:36:16Z"
     },
     "next_ticket_id": "ENG-029",
     "passing_ticket_count": 36,

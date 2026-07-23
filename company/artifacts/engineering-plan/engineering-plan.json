@@ -2427,14 +2427,15 @@
         "supabase/migrations/20260721000400_create_report_and_asset_contract.sql",
         "supabase/tests/report-publish.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-23T01:36:29.579Z] Turn 47 owner: root; branch codex/eng-029-atomic-report-publication; worktree /Users/talishawhite/.codex/worktrees/eng-029-atomic-report-publication; claimed 2026-07-23T01:36:16Z.",
       "id": "ENG-029",
       "dependsOn": [
         "ENG-027",
         "ENG-028"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-23T01:36:29.579Z"
     },
     {
       "title": "Enforce report and generated-asset ownership policies",

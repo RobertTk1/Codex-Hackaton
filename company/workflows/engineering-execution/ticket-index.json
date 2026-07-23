@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T01:27:18.940Z",
+  "generated_at": "2026-07-23T01:36:29.586Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "c7ffef7282370ebf277870f537b3b5c9d4097364794f0c72e3c6539d50c4c207",
+  "source_plan_sha256": "201fbb1609ffc74788c38119d1676204c71e66e9095ed0c813453b95d7ce927f",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 36,
   "status_counts": {
     "completed": 36,
-    "not-started": 127
+    "in-progress": 1,
+    "not-started": 126
   },
   "next_ticket_id": "ENG-029",
   "tickets": [
@@ -612,7 +613,7 @@
       "id": "ENG-029",
       "title": "Create the atomic report publication function",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-027",
