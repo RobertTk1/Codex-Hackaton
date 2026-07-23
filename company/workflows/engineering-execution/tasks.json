@@ -3,7 +3,7 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-23T14:36:58Z",
+  "updated_at": "2026-07-23T15:01:24Z",
   "current_turn": 52,
   "execution_queue": {
     "stage": "developer",
@@ -15,19 +15,13 @@
     "ticket_command": "bun company/workflows/engineering-execution/scripts/ticket-index.mjs get <ticket-id>",
     "preflight_command": "bun company/workflows/engineering-execution/scripts/validate-loop.mjs",
     "last_completed_ticket": {
-      "id": "ENG-033",
-      "completed_at": "2026-07-23T14:25:05Z",
-      "integrated_commit": "696193b627215d8766698fd1fc3ff6a642395b65",
-      "dev_deployment": "a0fd7666-0121-4ca9-a237-c73a42e2fa78"
-    },
-    "next_ticket_id": "ENG-034",
-    "active_ticket": {
       "id": "ENG-034",
-      "claimed_at": "2026-07-23T14:36:58Z",
-      "branch": "codex/eng-034-retailer-handoff-events",
-      "worktree": "/Users/talishawhite/.codex/worktrees/eng-034-retailer-handoff-events"
+      "completed_at": "2026-07-23T15:01:24Z",
+      "integrated_commit": "6024ba3ef8b996ce961000a421362013a3eac094",
+      "dev_deployment": "0b1121fb-3d99-4605-bed8-af9109e4ab30"
     },
-    "passing_ticket_count": 41,
+    "next_ticket_id": "ENG-035",
+    "passing_ticket_count": 42,
     "preflight": {
       "status": "passed",
       "completed_at": "2026-07-21T17:33:39Z",

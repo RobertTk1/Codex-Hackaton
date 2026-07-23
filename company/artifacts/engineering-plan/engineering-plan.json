@@ -2846,14 +2846,14 @@
         "supabase/migrations/20260721000500_create_live_bag_and_operations_contract.sql",
         "supabase/tests/handoff-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-23T14:37:11.542Z] [2026-07-23T14:36:58Z] Claimed by root turn 52 on branch codex/eng-034-retailer-handoff-events at /Users/talishawhite/.codex/worktrees/eng-034-retailer-handoff-events; scope is private privacy-bounded retailer handoff event persistence and focused database tests only.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-23T14:37:11.542Z] [2026-07-23T14:36:58Z] Claimed by root turn 52 on branch codex/eng-034-retailer-handoff-events at /Users/talishawhite/.codex/worktrees/eng-034-retailer-handoff-events; scope is private privacy-bounded retailer handoff event persistence and focused database tests only.\n[2026-07-23T15:01:42.340Z] [2026-07-23T15:01:24Z] Completed by root. Added private immutable retailer handoff events with stable Shopify product/shop/variant references, a bounded disclosure version, deterministic confirmation-ID replay collapse, permanent-account and active-profile enforcement, service-role-only append/read/retention-delete grants, RLS defense in depth, and no persisted token, destination URL, profile trait, media, price, or inventory data. Evidence: ticket 35bbdf0; integrated 6024ba3; CI 30017414581 + 30017709107; focused pgTAP 29/29; aggregate 23 files/842 assertions plus signed-storage, report-concurrency, and intentional-leak proof; schema lint clean; app 22 files/105 tests; strict lint/typecheck/three builds; clean checkout /Users/talishawhite/.codex/worktrees/verify-eng034.7wzryO; development Supabase migration 20260723145453 create_privacy_bounded_retailer_handoff_events with hosted exact-column/grant proof, rollback-only replay count 1, and zero retained fixtures; advisors show no ticket-specific warning or unindexed foreign key; DigitalOcean apply 3c3c2b6d-0d03-4a1e-8858-7cacfa157d07, rollback de59104c-ffe0-4e3b-837a-da2d227d2401, restored ACTIVE deployment 0b1121fb-3d99-4605-bed8-af9109e4ab30 on unchanged approved image digests. Production untouched.",
       "id": "ENG-034",
       "dependsOn": [
         "ENG-015"
       ],
-      "stateUpdatedAt": "2026-07-23T14:37:11.542Z"
+      "stateUpdatedAt": "2026-07-23T15:01:42.340Z"
     },
     {
       "title": "Create the immediate account-deletion access block",
