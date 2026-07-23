@@ -102,6 +102,16 @@ select results_eq(
   'recommendations expose one owner-and-permanent-account policy'
 );
 
+select ok(
+  (
+    select pg_get_expr(polqual, polrelid)
+    from pg_policy
+    where polrelid = 'public.recommendations'::regclass
+      and polname = 'recommendations_select_own_permanent'
+  ) like '%SELECT auth.jwt() AS jwt%',
+  'the permanent-account JWT check is cached once per statement'
+);
+
 select has_function(
   'private', 'enforce_recommendation_contract', array[]::text[],
   'recommendation immutability and preview guard exists'
