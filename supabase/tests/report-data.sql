@@ -513,7 +513,11 @@ select results_eq(
 );
 
 reset role;
-select set_config('request.jwt.claim.sub', '11111111-1111-4111-8111-111111111111', true);
+select set_config(
+  'request.jwt.claims',
+  '{"sub":"11111111-1111-4111-8111-111111111111","is_anonymous":false}',
+  true
+);
 set local role authenticated;
 
 select is(
@@ -535,7 +539,11 @@ select throws_like(
 );
 
 reset role;
-select set_config('request.jwt.claim.sub', '22222222-2222-4222-8222-222222222222', true);
+select set_config(
+  'request.jwt.claims',
+  '{"sub":"22222222-2222-4222-8222-222222222222","is_anonymous":false}',
+  true
+);
 set local role authenticated;
 
 select results_eq(
