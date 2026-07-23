@@ -3,8 +3,8 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-22T23:57:11Z",
-  "current_turn": 44,
+  "updated_at": "2026-07-23T00:07:56Z",
+  "current_turn": 45,
   "execution_queue": {
     "stage": "developer",
     "status": "in_progress",
@@ -20,7 +20,14 @@
       "integrated_commit": "c13cace3e9286fbe9e39586af4f38438cb76098b",
       "dev_deployment": "67275631-fc6f-4768-96a5-6b35b30ceb8e"
     },
-    "next_ticket_id": "ENG-027",
+    "next_ticket_id": "ENG-028",
+    "active_ticket": {
+      "id": "ENG-028",
+      "started_at": "2026-07-23T00:07:56Z",
+      "branch": "codex/eng-028-generated-asset-records",
+      "worktree": "/Users/talishawhite/.codex/worktrees/eng-028-generated-asset-records",
+      "owner": "root"
+    },
     "passing_ticket_count": 34,
     "preflight": {
       "status": "passed",

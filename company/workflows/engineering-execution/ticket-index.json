@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T00:07:12.561Z",
+  "generated_at": "2026-07-23T00:08:21.568Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "05cbeff4dbf42df132d089daac998d2fcdc08e0f33f9769300a69bbdfd27688d",
+  "source_plan_sha256": "33d0608d7a8e4bea5b93e0bb7d1c988313ec8bd4afafb5e2b88408e11adb05f4",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 34,
   "status_counts": {
     "completed": 34,
-    "not-started": 129
+    "in-progress": 1,
+    "not-started": 128
   },
   "next_ticket_id": "ENG-028",
   "tickets": [
@@ -588,7 +589,7 @@
       "id": "ENG-028",
       "title": "Create generated-asset lineage and expiry records",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-017",
