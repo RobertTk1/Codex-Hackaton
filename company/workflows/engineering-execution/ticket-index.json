@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T13:19:29.193Z",
+  "generated_at": "2026-07-23T13:51:14.324Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "42e3ea3fa151f453c75be1343a60c0a8148b9954b2cdf087803a637519d7f118",
+  "source_plan_sha256": "f69040fd52d7c0c0c14bc2d165554aaa60e00d693e9a1cd2e71241d5c13a35a9",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 35,
-  "passing_count": 39,
+  "eligible_count": 38,
+  "passing_count": 40,
   "status_counts": {
-    "completed": 39,
-    "in-progress": 1,
+    "completed": 40,
     "not-started": 123
   },
-  "next_ticket_id": "ENG-032",
+  "next_ticket_id": "ENG-033",
   "tickets": [
     {
       "order": 1,
@@ -675,16 +674,19 @@
       "id": "ENG-032",
       "title": "Create bounded live-session state records",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-017"
       ],
       "readinessPrerequisites": [
         "IR-016"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 33,
@@ -783,7 +785,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-032",
         "dependency:ENG-033",
         "dependency:ENG-034",
         "dependency:ENG-035",
@@ -818,7 +819,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-032",
         "dependency:ENG-033",
         "dependency:ENG-034",
         "dependency:ENG-035",
@@ -1737,7 +1737,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-032",
         "dependency:ENG-041"
       ]
     },
@@ -1754,10 +1753,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-032"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 91,
@@ -1776,7 +1773,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-032",
         "dependency:ENG-113",
         "dependency:ENG-116"
       ]
@@ -1795,10 +1791,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-032"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 93,
@@ -1813,10 +1807,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-032"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 94,
@@ -1831,10 +1823,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-032"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 95,
@@ -3266,7 +3256,6 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-095",
-        "dependency:ENG-032",
         "dependency:ENG-033"
       ]
     },
