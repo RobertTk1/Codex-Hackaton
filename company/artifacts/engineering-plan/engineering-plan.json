@@ -2846,13 +2846,14 @@
         "supabase/migrations/20260721000500_create_live_bag_and_operations_contract.sql",
         "supabase/tests/handoff-data.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-23T14:37:11.542Z] [2026-07-23T14:36:58Z] Claimed by root turn 52 on branch codex/eng-034-retailer-handoff-events at /Users/talishawhite/.codex/worktrees/eng-034-retailer-handoff-events; scope is private privacy-bounded retailer handoff event persistence and focused database tests only.",
       "id": "ENG-034",
       "dependsOn": [
         "ENG-015"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-23T14:37:11.542Z"
     },
     {
       "title": "Create the immediate account-deletion access block",

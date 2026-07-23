@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T14:25:05.788Z",
+  "generated_at": "2026-07-23T14:37:11.547Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "760db0fdc9f4181a6ee224056302a59ad30fec73b68bfa165b96556f7f718387",
+  "source_plan_sha256": "981a5557643e68226592187a2c6674cb6a59838928139eb9ef687ea43ef3bb98",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 41,
   "status_counts": {
     "completed": 41,
-    "not-started": 122
+    "in-progress": 1,
+    "not-started": 121
   },
   "next_ticket_id": "ENG-034",
   "tickets": [
@@ -714,7 +715,7 @@
       "id": "ENG-034",
       "title": "Create privacy-bounded retailer handoff events",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-015"

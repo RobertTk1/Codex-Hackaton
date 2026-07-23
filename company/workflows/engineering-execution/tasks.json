@@ -3,8 +3,8 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-23T14:25:05Z",
-  "current_turn": 51,
+  "updated_at": "2026-07-23T14:36:58Z",
+  "current_turn": 52,
   "execution_queue": {
     "stage": "developer",
     "status": "in_progress",
@@ -21,6 +21,12 @@
       "dev_deployment": "a0fd7666-0121-4ca9-a237-c73a42e2fa78"
     },
     "next_ticket_id": "ENG-034",
+    "active_ticket": {
+      "id": "ENG-034",
+      "claimed_at": "2026-07-23T14:36:58Z",
+      "branch": "codex/eng-034-retailer-handoff-events",
+      "worktree": "/Users/talishawhite/.codex/worktrees/eng-034-retailer-handoff-events"
+    },
     "passing_ticket_count": 41,
     "preflight": {
       "status": "passed",
