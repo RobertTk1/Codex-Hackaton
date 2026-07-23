@@ -2762,13 +2762,14 @@
         "supabase/migrations/20260721000500_create_live_bag_and_operations_contract.sql",
         "supabase/tests/bag-data.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-23T13:59:40.345Z] [2026-07-23T13:59:40Z] Turn 51 owner: root; branch codex/eng-033-stable-bag-records; worktree /Users/talishawhite/.codex/worktrees/eng-033-stable-bag-records; claimed 2026-07-23T13:59:40Z.",
       "id": "ENG-033",
       "dependsOn": [
         "ENG-015"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-23T13:59:40.345Z"
     },
     {
       "title": "Create privacy-bounded retailer handoff events",

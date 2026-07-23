@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T13:51:14.324Z",
+  "generated_at": "2026-07-23T13:59:40.359Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "f69040fd52d7c0c0c14bc2d165554aaa60e00d693e9a1cd2e71241d5c13a35a9",
+  "source_plan_sha256": "ee3ad7b9a0e12f6a9f6e4b8cd2364d590ef86bc51f02d585a8aaa3ec4bb0089a",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 40,
   "status_counts": {
     "completed": 40,
-    "not-started": 123
+    "in-progress": 1,
+    "not-started": 122
   },
   "next_ticket_id": "ENG-033",
   "tickets": [
@@ -694,7 +695,7 @@
       "id": "ENG-033",
       "title": "Create stable-reference bag records",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-015"
