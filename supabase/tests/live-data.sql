@@ -97,6 +97,16 @@ select results_eq(
   'live sessions expose one owner-and-permanent-account select policy'
 );
 
+select ok(
+  (
+    select pg_get_expr(polqual, polrelid)
+    from pg_policy
+    where polrelid = 'public.live_sessions'::regclass
+      and polname = 'live_sessions_select_own_permanent'
+  ) like '%SELECT auth.jwt() AS jwt%',
+  'the permanent-account JWT check is cached once per statement'
+);
+
 select has_index(
   'public',
   'live_sessions',
