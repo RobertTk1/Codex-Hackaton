@@ -16,10 +16,10 @@ cd "${repository_root}"
 supabase test db --local \
   2>&1 | tee "${positive_output}"
 
-if ! grep -Eq 'Files=22([ ,]|$)' "${positive_output}" \
-  || ! grep -Eq 'Tests=813([ ,]|$)' "${positive_output}" \
+if ! grep -Eq 'Files=23([ ,]|$)' "${positive_output}" \
+  || ! grep -Eq 'Tests=842([ ,]|$)' "${positive_output}" \
   || ! grep -q 'Result: PASS' "${positive_output}"; then
-  echo "Positive policy harness did not execute all 22 files and 813 assertions." >&2
+  echo "Positive policy harness did not execute all 23 files and 842 assertions." >&2
   exit 1
 fi
 
