@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(25);
+select plan(26);
 
 select has_table(
   'private',
@@ -115,6 +115,19 @@ select ok(
       and constraint_record.confrelid = 'public.style_reports'::regclass
   ),
   'delivery ownership is constrained by the referenced report'
+);
+
+select ok(
+  exists (
+    select 1
+    from pg_indexes
+    where schemaname = 'private'
+      and tablename = 'notification_deliveries'
+      and indexname = 'notification_deliveries_owner_profile_report_idx'
+      and indexdef like
+        '%(owner_id, profile_id, report_id)%'
+  ),
+  'the composite report foreign key has a covering index'
 );
 
 select ok(
