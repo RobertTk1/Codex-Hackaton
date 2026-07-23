@@ -2340,15 +2340,15 @@
         "supabase/migrations/20260721000400_create_report_and_asset_contract.sql",
         "supabase/tests/asset-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-23T00:08:21.564Z] Turn 45 claimed by root in codex/eng-028-generated-asset-records at /Users/talishawhite/.codex/worktrees/eng-028-generated-asset-records; implementing only generated_assets and generated_asset_sources with distinct derived classes, consent lineage, expiry, ownership, and focused database tests after correcting ENG-027's missing dependency.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-23T00:08:21.564Z] Turn 45 claimed by root in codex/eng-028-generated-asset-records at /Users/talishawhite/.codex/worktrees/eng-028-generated-asset-records; implementing only generated_assets and generated_asset_sources with distinct derived classes, consent lineage, expiry, ownership, and focused database tests after correcting ENG-027's missing dependency.\n[2026-07-23T00:34:26.084Z] [2026-07-23T00:32:00Z] Completed in ticket commit b07dcef38b20bfc3a0ba9ba835e439cccb3912ca and integrated revision d4a6f9109ef95173ef7efb07220e74406b1fadc9. Added CLI-generated migration 20260723001004_create_generated_asset_lineage_contract.sql, focused supabase/tests/asset-data.sql, and advanced the fail-closed database suite guard. generated_assets and generated_asset_sources now enforce distinct garment_cutout/wardrobe_preview/tryon_still classes, exact current granted generated-likeness consent for new likeness work, processing-to-terminal lifecycle, complete accepted metadata, pathless rejected/failed state, direct customer-photo lineage, exact source families, stable catalog refs only, source-bounded expiry, 30-day likeness limits, immutable source evidence, owner-only unexpired reads, and narrow service DML. Verification: local reset; focused pgTAP 55/55; aggregate 16 files/652 assertions plus signed-upload and intentional cross-owner leak rejection; local schema lint and security/performance advisors with no issues; generated local types include both tables; bun check 105/105; web/API/worker builds; clean archive /tmp/magic-mirror-eng028.NRqYKX; ticket CI 29968876800 success; integration CI 29969028787 success. Development Supabase applied create_generated_asset_lineage_contract; rollback-only hosted proof passed seven consent/retention/RLS checks and left zero fixture users/profiles/assets; no ticket-specific unindexed-FK finding. Development app 39f71f56-5cb8-4164-9c45-6b8f620c76a6 deployed healthy as ce77dd5c-8f3d-4dc4-8286-b249cf037265, rolled application-only to prior 67275631-fc6f-4768-96a5-6b35b30ceb8e via healthy deployment 10f84af6-bd76-4b15-b6c2-f99a25a1f71e, and restored current spec as healthy 20efb377-6cc9-41c4-abf5-bd8d2223b141. Root, web health, API health/readiness, and worker startup pass; production untouched.",
       "id": "ENG-028",
       "dependsOn": [
         "ENG-017",
         "ENG-020"
       ],
-      "stateUpdatedAt": "2026-07-23T00:08:21.564Z"
+      "stateUpdatedAt": "2026-07-23T00:34:26.084Z"
     },
     {
       "title": "Create the atomic report publication function",

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T00:08:21.568Z",
+  "generated_at": "2026-07-23T00:34:26.090Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "33d0608d7a8e4bea5b93e0bb7d1c988313ec8bd4afafb5e2b88408e11adb05f4",
+  "source_plan_sha256": "8efe0bfb39fdbd178f1c456bfc843e75368d7838566e227dc5bac90806c0394a",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 33,
-  "passing_count": 34,
+  "eligible_count": 34,
+  "passing_count": 35,
   "status_counts": {
-    "completed": 34,
-    "in-progress": 1,
+    "completed": 35,
     "not-started": 128
   },
-  "next_ticket_id": "ENG-028",
+  "next_ticket_id": "ENG-027",
   "tickets": [
     {
       "order": 1,
@@ -578,10 +577,8 @@
       "readinessPrerequisites": [
         "IR-021"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-028"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 28,
@@ -589,8 +586,8 @@
       "id": "ENG-028",
       "title": "Create generated-asset lineage and expiry records",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-017",
         "ENG-020"
@@ -600,8 +597,11 @@
         "IR-016",
         "IR-023"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 29,
@@ -620,8 +620,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-027",
-        "dependency:ENG-028"
+        "dependency:ENG-027"
       ]
     },
     {
@@ -2195,7 +2194,6 @@
       "eligible": false,
       "blockers": [
         "dependency:ENG-110",
-        "dependency:ENG-028",
         "dependency:ENG-027"
       ]
     },
@@ -3080,10 +3078,8 @@
         "IR-015",
         "IR-016"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-028"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 152,
