@@ -2254,15 +2254,15 @@
         "supabase/migrations/20260721000400_create_report_and_asset_contract.sql",
         "supabase/tests/recommendation-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-23T00:45:38.388Z] Turn 46 owner: root; branch codex/eng-027-report-recommendations; worktree /Users/talishawhite/.codex/worktrees/eng-027-report-recommendations; claimed 2026-07-23T00:45:28Z.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-23T00:45:38.388Z] Turn 46 owner: root; branch codex/eng-027-report-recommendations; worktree /Users/talishawhite/.codex/worktrees/eng-027-report-recommendations; claimed 2026-07-23T00:45:28Z.\n[2026-07-23T01:27:18.931Z] Integrated f62e4ebb3cf125eef238944310b5b08786bf9240. Added exact recommendation schema plus append-only preview-attachment tombstones; 37/37 focused and 689/689 aggregate pgTAP, 105/105 application tests, strict check and three builds pass. GitHub Actions 29970679910, 29970854914, 29971282792, and 29971436111 pass. Development Supabase migrations create_report_recommendation_contract and optimize_recommendation_owner_policy applied; hosted transactional proof rolled back to zero fixtures; recommendation advisor findings clear. DigitalOcean deployment 8cdde52f-2f53-448c-94f5-e30ba0465094 passed, prior deployment rollback produced healthy 84a0c8aa-c69b-4f73-977e-f572cd88f8b0, restored ticket deployment is 34ca53be-2b38-4f7e-92c5-5a793684e0fd with root/health/readiness and worker/API evidence green. Production untouched.",
       "id": "ENG-027",
       "dependsOn": [
         "ENG-026",
         "ENG-028"
       ],
-      "stateUpdatedAt": "2026-07-23T00:45:38.388Z"
+      "stateUpdatedAt": "2026-07-23T01:27:18.931Z"
     },
     {
       "title": "Create generated-asset lineage and expiry records",

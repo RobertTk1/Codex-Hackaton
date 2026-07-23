@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T00:45:38.402Z",
+  "generated_at": "2026-07-23T01:27:18.940Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "fa9e7497307ffec7b82b9dae8cd633481ea3c5584f9591b3b65ddda62afe61a2",
+  "source_plan_sha256": "c7ffef7282370ebf277870f537b3b5c9d4097364794f0c72e3c6539d50c4c207",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 163,
   "eligible_count": 34,
-  "passing_count": 35,
+  "passing_count": 36,
   "status_counts": {
-    "completed": 35,
-    "in-progress": 1,
+    "completed": 36,
     "not-started": 127
   },
-  "next_ticket_id": "ENG-027",
+  "next_ticket_id": "ENG-029",
   "tickets": [
     {
       "order": 1,
@@ -569,8 +568,8 @@
       "id": "ENG-027",
       "title": "Create report recommendation records",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-026",
         "ENG-028"
@@ -578,8 +577,11 @@
       "readinessPrerequisites": [
         "IR-021"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 28,
@@ -619,10 +621,8 @@
       "readinessPrerequisites": [
         "IR-017"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-027"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 30,
@@ -2194,8 +2194,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-110",
-        "dependency:ENG-027"
+        "dependency:ENG-110"
       ]
     },
     {
