@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T13:59:40.359Z",
+  "generated_at": "2026-07-23T14:25:05.788Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "ee3ad7b9a0e12f6a9f6e4b8cd2364d590ef86bc51f02d585a8aaa3ec4bb0089a",
+  "source_plan_sha256": "760db0fdc9f4181a6ee224056302a59ad30fec73b68bfa165b96556f7f718387",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 163,
   "eligible_count": 38,
-  "passing_count": 40,
+  "passing_count": 41,
   "status_counts": {
-    "completed": 40,
-    "in-progress": 1,
+    "completed": 41,
     "not-started": 122
   },
-  "next_ticket_id": "ENG-033",
+  "next_ticket_id": "ENG-034",
   "tickets": [
     {
       "order": 1,
@@ -695,16 +694,19 @@
       "id": "ENG-033",
       "title": "Create stable-reference bag records",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-015"
       ],
       "readinessPrerequisites": [
         "IR-021"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 34,
@@ -786,7 +788,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-033",
         "dependency:ENG-034",
         "dependency:ENG-035",
         "dependency:ENG-036"
@@ -820,7 +821,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-033",
         "dependency:ENG-034",
         "dependency:ENG-035",
         "dependency:ENG-036"
@@ -1045,7 +1045,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-033",
         "dependency:ENG-108"
       ]
     },
@@ -1644,7 +1643,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-033",
         "dependency:ENG-108"
       ]
     },
@@ -1664,8 +1662,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-041",
-        "dependency:ENG-033"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -1681,10 +1678,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-033"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 87,
@@ -3256,8 +3251,7 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-095",
-        "dependency:ENG-033"
+        "dependency:ENG-095"
       ]
     },
     {

@@ -3,7 +3,7 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-23T13:59:40Z",
+  "updated_at": "2026-07-23T14:25:05Z",
   "current_turn": 51,
   "execution_queue": {
     "stage": "developer",
@@ -15,19 +15,13 @@
     "ticket_command": "bun company/workflows/engineering-execution/scripts/ticket-index.mjs get <ticket-id>",
     "preflight_command": "bun company/workflows/engineering-execution/scripts/validate-loop.mjs",
     "last_completed_ticket": {
-      "id": "ENG-032",
-      "completed_at": "2026-07-23T13:51:14Z",
-      "integrated_commit": "635cb988e1f58a558e060a7d6f26d69e86796bd9",
-      "dev_deployment": "fb751bab-6e0a-4cac-8a9a-2e1d6c854327"
-    },
-    "active_ticket": {
       "id": "ENG-033",
-      "branch": "codex/eng-033-stable-bag-records",
-      "worktree": "/Users/talishawhite/.codex/worktrees/eng-033-stable-bag-records",
-      "claimed_at": "2026-07-23T13:59:40Z"
+      "completed_at": "2026-07-23T14:25:05Z",
+      "integrated_commit": "696193b627215d8766698fd1fc3ff6a642395b65",
+      "dev_deployment": "a0fd7666-0121-4ca9-a237-c73a42e2fa78"
     },
-    "next_ticket_id": "ENG-033",
-    "passing_ticket_count": 40,
+    "next_ticket_id": "ENG-034",
+    "passing_ticket_count": 41,
     "preflight": {
       "status": "passed",
       "completed_at": "2026-07-21T17:33:39Z",

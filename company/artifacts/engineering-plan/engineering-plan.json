@@ -2762,14 +2762,14 @@
         "supabase/migrations/20260721000500_create_live_bag_and_operations_contract.sql",
         "supabase/tests/bag-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-23T13:59:40.345Z] [2026-07-23T13:59:40Z] Turn 51 owner: root; branch codex/eng-033-stable-bag-records; worktree /Users/talishawhite/.codex/worktrees/eng-033-stable-bag-records; claimed 2026-07-23T13:59:40Z.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-23T13:59:40.345Z] [2026-07-23T13:59:40Z] Turn 51 owner: root; branch codex/eng-033-stable-bag-records; worktree /Users/talishawhite/.codex/worktrees/eng-033-stable-bag-records; claimed 2026-07-23T13:59:40Z.\n[2026-07-23T14:25:05.779Z] [2026-07-23T14:25:05Z] Turn 51 complete. Added immutable owner-scoped bag records with stable Shopify tuples, active-profile and permanent-account enforcement, validated recommendation/live-session provenance, conflict-ignore idempotency, retention-safe lineage nulling, explicit bounded grants, and no volatile price, inventory, URL, title, or image columns. Ticket commits af46f7d and 3d4f24b; integrated commits 58ef8f3 and 696193b. Focused pgTAP 37/37; aggregate 22 files/813 assertions plus signed-storage, report-concurrency, and intentional-leak proof; app 22 files/105 tests; local reset/lint/builds and final clean-checkout replay pass. GitHub Actions 30015311584 passes. Dev Supabase migrations create_stable_reference_bag_records and add_bag_owner_profile_index applied; transactional hosted idempotency/owner/anonymous proof rolled back completely; security advisor has no bag_items finding and the ticket-specific composite-FK performance finding is cleared. DigitalOcean deployment 6319ed82-70fc-4a82-a496-0605cc21a0cd; rollback rehearsal 40ab7972-f492-4f76-84e4-6ea1c21b1e1d; final restored ACTIVE deployment a0fd7666-0121-4ca9-a237-c73a42e2fa78. Web/API health, API readiness, and worker startup pass; production untouched.",
       "id": "ENG-033",
       "dependsOn": [
         "ENG-015"
       ],
-      "stateUpdatedAt": "2026-07-23T13:59:40.345Z"
+      "stateUpdatedAt": "2026-07-23T14:25:05.779Z"
     },
     {
       "title": "Create privacy-bounded retailer handoff events",
