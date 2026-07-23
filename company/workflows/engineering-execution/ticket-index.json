@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T02:17:17.450Z",
+  "generated_at": "2026-07-23T02:47:34.897Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "1da1661bd7a43c58fd6b4c1a16903926c68840f66963ff54a57f83017b671c0b",
+  "source_plan_sha256": "09eab954a723a0d74cd6d0587e08da364ab2be62f586567ad467734350c445e2",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,14 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 34,
-  "passing_count": 37,
+  "eligible_count": 35,
+  "passing_count": 38,
   "status_counts": {
-    "completed": 37,
-    "in-progress": 1,
+    "completed": 38,
     "not-started": 125
   },
-  "next_ticket_id": "ENG-030",
+  "next_ticket_id": "ENG-031",
   "tickets": [
     {
       "order": 1,
@@ -634,8 +633,8 @@
       "id": "ENG-030",
       "title": "Enforce report and generated-asset ownership policies",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-029"
       ],
@@ -643,8 +642,11 @@
         "IR-006",
         "IR-015"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 31,
@@ -777,7 +779,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-030",
         "dependency:ENG-031",
         "dependency:ENG-032",
         "dependency:ENG-033",
@@ -814,7 +815,6 @@
       ],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-030",
         "dependency:ENG-031",
         "dependency:ENG-032",
         "dependency:ENG-033",
@@ -1042,7 +1042,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-030",
         "dependency:ENG-033",
         "dependency:ENG-108"
       ]
@@ -1499,10 +1498,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-030"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 77,
@@ -1517,10 +1514,8 @@
         "ENG-043"
       ],
       "readinessPrerequisites": [],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-030"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 78,
@@ -1538,7 +1533,6 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-030",
         "dependency:ENG-108"
       ]
     },
@@ -1558,8 +1552,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-041",
-        "dependency:ENG-030"
+        "dependency:ENG-041"
       ]
     },
     {
@@ -3275,8 +3268,7 @@
       "blockers": [
         "dependency:ENG-095",
         "dependency:ENG-032",
-        "dependency:ENG-033",
-        "dependency:ENG-030"
+        "dependency:ENG-033"
       ]
     },
     {

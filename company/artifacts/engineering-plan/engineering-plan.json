@@ -2513,14 +2513,14 @@
         "supabase/migrations/20260721000400_create_report_and_asset_contract.sql",
         "supabase/tests/report-rls.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-23T02:17:17.443Z] [2026-07-23T02:17:06Z] Turn 48 owner: root; branch codex/eng-030-report-asset-rls; worktree /Users/talishawhite/.codex/worktrees/eng-030-report-asset-rls; claimed 2026-07-23T02:17:06Z.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-23T02:17:17.443Z] [2026-07-23T02:17:06Z] Turn 48 owner: root; branch codex/eng-030-report-asset-rls; worktree /Users/talishawhite/.codex/worktrees/eng-030-report-asset-rls; claimed 2026-07-23T02:17:06Z.\n[2026-07-23T02:46:53Z] Completed by root. Enforced permanent-account owner reads across report runs, reports, sections, and recommendations plus owner-and-expiry reads across generated assets and exact source lineage. Anonymous onboarding can still read its current unexpired generated assets but no permanent report graph; cross-owner and expired metadata fail closed. ENG-035 remains the approved owner of the later account-deletion deny helper and policy-wide access predicate. Evidence: ticket ccbbd28; integrated c91e978; CI 29974671609 + 29974828266; focused pgTAP 13/13; aggregate 19 files/718 assertions plus signed-storage, report-concurrency, and intentional-leak proof; 22 files/105 application tests; strict lint/typecheck/schema lint/three builds; clean integrated checkout; isolated development Supabase migration enforce_report_asset_ownership_policies with fail-hard owner/anonymous/cross-owner/expiry proof and zero retained fixtures; security/performance advisors reviewed with no ticket-specific regression; DigitalOcean apply eab89d9b-d747-47a0-b058-827c1382fcb4, rollback 00954de1-b53c-42c9-b705-fde322ba7823, restored ACTIVE deployment 3cffcab1-d3ea-4c80-8069-1618365fffaa on unchanged approved image digests. Production untouched.",
       "id": "ENG-030",
       "dependsOn": [
         "ENG-029"
       ],
-      "stateUpdatedAt": "2026-07-23T02:17:17.443Z"
+      "stateUpdatedAt": "2026-07-23T02:46:53Z"
     },
     {
       "title": "Create bounded report notification delivery records",
