@@ -2596,14 +2596,14 @@
         "supabase/migrations/20260721000500_create_live_bag_and_operations_contract.sql",
         "supabase/tests/notification-data.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-23T12:31:07.163Z] [2026-07-23T12:30:46Z] Turn 49 owner: root; branch codex/eng-031-report-notifications; worktree /Users/talishawhite/.codex/worktrees/eng-031-report-notifications; claimed 2026-07-23T12:30:46Z.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-23T12:31:07.163Z] [2026-07-23T12:30:46Z] Turn 49 owner: root; branch codex/eng-031-report-notifications; worktree /Users/talishawhite/.codex/worktrees/eng-031-report-notifications; claimed 2026-07-23T12:30:46Z.\n[2026-07-23T13:12:10.014Z] [2026-07-23T13:11:54Z] Completed by root. Added private report-ready notification delivery records with exact report ownership, one report/kind request, unique idempotency, zero-to-three attempts, safe failure codes, terminal success, retry-before-success transitions, no persisted recipient/body/content/payload, and service-role-only DML. Supabase advisor identified and the follow-up migration fixed the composite report-FK index before closure. Evidence: ticket e893f7b + 49c3388; integrated a2a809c; CI 30009762893 + 30009776125; focused pgTAP 26/26; aggregate 20 files/744 assertions plus signed-storage, report-concurrency, and intentional-leak proof; 22 files/105 application tests; lint/typecheck/schema lint/three builds; clean integrated checkout; isolated development Supabase migrations create_bounded_report_notification_deliveries + add_notification_delivery_report_fk_index with exact-column/grant/index verification and transactional rollback rehearsal; ticket-specific advisor regression cleared; DigitalOcean apply ed47bc9d-2280-4c16-85ba-8aad1cc8e5a0, rollback 226c2996-fcc4-49c9-a23a-8e9afafa2578, restored ACTIVE deployment 80180985-27f2-4839-84f8-43dec1dfd323 on unchanged approved image digests. Production untouched.",
       "id": "ENG-031",
       "dependsOn": [
         "ENG-025"
       ],
-      "stateUpdatedAt": "2026-07-23T12:31:07.163Z"
+      "stateUpdatedAt": "2026-07-23T13:12:10.014Z"
     },
     {
       "title": "Create bounded live-session state records",
