@@ -2427,15 +2427,15 @@
         "supabase/migrations/20260721000400_create_report_and_asset_contract.sql",
         "supabase/tests/report-publish.sql"
       ],
-      "status": "in-progress",
-      "passes": false,
-      "notes": "[2026-07-23T01:36:29.579Z] Turn 47 owner: root; branch codex/eng-029-atomic-report-publication; worktree /Users/talishawhite/.codex/worktrees/eng-029-atomic-report-publication; claimed 2026-07-23T01:36:16Z.",
+      "status": "completed",
+      "passes": true,
+      "notes": "[2026-07-23T01:36:29.579Z] Turn 47 owner: root; branch codex/eng-029-atomic-report-publication; worktree /Users/talishawhite/.codex/worktrees/eng-029-atomic-report-publication; claimed 2026-07-23T01:36:16Z.\n[2026-07-23T02:07:34.259Z] [2026-07-23T02:07:00Z] Completed by root. Implemented security-invoker private.publish_style_report with exact normalized payload validation, transactional report/section/recommendation publication, idempotent replay, profile activation/archive, run completion, and one notification enqueue. Verified missing-section rollback and real concurrent calls. Evidence: ticket 5cdfb09; integrated 1d840fd; CI 29972783790 + 29972940241; focused pgTAP 16/16; aggregate 18 files/705 tests; concurrency PASS; app 22 files/105 tests; local lint/advisors clean; isolated Supabase dev migration create_atomic_report_publication_function and rollback-only hosted proof PASS with zero fixtures; service_role-only execute; DigitalOcean apply ef407953-bc6f-4f86-ad20-9eb4d873791c, rollback b120da84-7398-476c-b0bb-4caf6fb7669d, restored ACTIVE 34bd6f91-c012-4a1e-8a4d-37aedf12e3d8. Production untouched.",
       "id": "ENG-029",
       "dependsOn": [
         "ENG-027",
         "ENG-028"
       ],
-      "stateUpdatedAt": "2026-07-23T01:36:29.579Z"
+      "stateUpdatedAt": "2026-07-23T02:07:34.259Z"
     },
     {
       "title": "Enforce report and generated-asset ownership policies",

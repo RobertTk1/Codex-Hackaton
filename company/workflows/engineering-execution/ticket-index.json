@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T01:36:29.586Z",
+  "generated_at": "2026-07-23T02:07:34.268Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "201fbb1609ffc74788c38119d1676204c71e66e9095ed0c813453b95d7ce927f",
+  "source_plan_sha256": "6e5d4d79dd86409684a67f13d588991c654655822a72a4cbdc9d982c0d9a1419",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -31,13 +31,12 @@
   },
   "ticket_count": 163,
   "eligible_count": 34,
-  "passing_count": 36,
+  "passing_count": 37,
   "status_counts": {
-    "completed": 36,
-    "in-progress": 1,
+    "completed": 37,
     "not-started": 126
   },
-  "next_ticket_id": "ENG-029",
+  "next_ticket_id": "ENG-030",
   "tickets": [
     {
       "order": 1,
@@ -613,8 +612,8 @@
       "id": "ENG-029",
       "title": "Create the atomic report publication function",
       "priority": "must",
-      "status": "in-progress",
-      "passes": false,
+      "status": "completed",
+      "passes": true,
       "dependsOn": [
         "ENG-027",
         "ENG-028"
@@ -622,8 +621,11 @@
       "readinessPrerequisites": [
         "IR-017"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "already-passing",
+        "status:completed"
+      ]
     },
     {
       "order": 30,
@@ -640,10 +642,8 @@
         "IR-006",
         "IR-015"
       ],
-      "eligible": false,
-      "blockers": [
-        "dependency:ENG-029"
-      ]
+      "eligible": true,
+      "blockers": []
     },
     {
       "order": 31,
@@ -2025,8 +2025,7 @@
       "readinessPrerequisites": [],
       "eligible": false,
       "blockers": [
-        "dependency:ENG-102",
-        "dependency:ENG-029"
+        "dependency:ENG-102"
       ]
     },
     {
