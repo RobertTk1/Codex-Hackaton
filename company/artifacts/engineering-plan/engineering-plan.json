@@ -2596,13 +2596,14 @@
         "supabase/migrations/20260721000500_create_live_bag_and_operations_contract.sql",
         "supabase/tests/notification-data.sql"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
-      "notes": "",
+      "notes": "[2026-07-23T12:31:07.163Z] [2026-07-23T12:30:46Z] Turn 49 owner: root; branch codex/eng-031-report-notifications; worktree /Users/talishawhite/.codex/worktrees/eng-031-report-notifications; claimed 2026-07-23T12:30:46Z.",
       "id": "ENG-031",
       "dependsOn": [
         "ENG-025"
-      ]
+      ],
+      "stateUpdatedAt": "2026-07-23T12:31:07.163Z"
     },
     {
       "title": "Create bounded live-session state records",

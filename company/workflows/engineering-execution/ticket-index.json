@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-23T02:47:34.897Z",
+  "generated_at": "2026-07-23T12:31:07.186Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "09eab954a723a0d74cd6d0587e08da364ab2be62f586567ad467734350c445e2",
+  "source_plan_sha256": "796f018fc0fd95e029b16c798bec11d3d8df7314811206d3b24929e5f87661d7",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -34,7 +34,8 @@
   "passing_count": 38,
   "status_counts": {
     "completed": 38,
-    "not-started": 125
+    "in-progress": 1,
+    "not-started": 124
   },
   "next_ticket_id": "ENG-031",
   "tickets": [
@@ -654,7 +655,7 @@
       "id": "ENG-031",
       "title": "Create bounded report notification delivery records",
       "priority": "must",
-      "status": "not-started",
+      "status": "in-progress",
       "passes": false,
       "dependsOn": [
         "ENG-025"

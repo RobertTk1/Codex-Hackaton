@@ -3,8 +3,8 @@
   "loop_status": "active",
   "current_stage": "developer",
   "created_at": "2026-07-21T16:33:43Z",
-  "updated_at": "2026-07-23T02:46:53Z",
-  "current_turn": 48,
+  "updated_at": "2026-07-23T12:30:46Z",
+  "current_turn": 49,
   "execution_queue": {
     "stage": "developer",
     "status": "in_progress",
@@ -19,6 +19,12 @@
       "completed_at": "2026-07-23T02:46:53Z",
       "integrated_commit": "c91e97823c7e00f3f17d15f3d41795356eba763a",
       "dev_deployment": "3cffcab1-d3ea-4c80-8069-1618365fffaa"
+    },
+    "active_ticket": {
+      "id": "ENG-031",
+      "branch": "codex/eng-031-report-notifications",
+      "worktree": "/Users/talishawhite/.codex/worktrees/eng-031-report-notifications",
+      "claimed_at": "2026-07-23T12:30:46Z"
     },
     "next_ticket_id": "ENG-031",
     "passing_ticket_count": 38,
