@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-22T23:56:59.989Z",
+  "generated_at": "2026-07-23T00:07:12.561Z",
   "source_plan": "company/artifacts/engineering-plan/engineering-plan.json",
-  "source_plan_sha256": "5820780bc5c98137b4908fdc8f55bd1085533fe72c5341387f6cf5e2dc071e56",
+  "source_plan_sha256": "05cbeff4dbf42df132d089daac998d2fcdc08e0f33f9769300a69bbdfd27688d",
   "source_readiness": "company/artifacts/engineering-plan/implementation-readiness.json",
   "source_readiness_sha256": "ccc3f7f4fa6c7b25bff431b47af13237d567fc25f2b79984d00560dcaa1737ea",
   "plan_status": "approved",
@@ -30,13 +30,13 @@
     ]
   },
   "ticket_count": 163,
-  "eligible_count": 34,
+  "eligible_count": 33,
   "passing_count": 34,
   "status_counts": {
     "completed": 34,
     "not-started": 129
   },
-  "next_ticket_id": "ENG-027",
+  "next_ticket_id": "ENG-028",
   "tickets": [
     {
       "order": 1,
@@ -571,13 +571,16 @@
       "status": "not-started",
       "passes": false,
       "dependsOn": [
-        "ENG-026"
+        "ENG-026",
+        "ENG-028"
       ],
       "readinessPrerequisites": [
         "IR-021"
       ],
-      "eligible": true,
-      "blockers": []
+      "eligible": false,
+      "blockers": [
+        "dependency:ENG-028"
+      ]
     },
     {
       "order": 28,
