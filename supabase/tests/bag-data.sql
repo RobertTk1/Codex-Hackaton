@@ -127,6 +127,13 @@ select has_index(
 select has_index(
   'public',
   'bag_items',
+  'bag_items_owner_profile_idx',
+  'same-owner profile foreign-key maintenance is covered'
+);
+
+select has_index(
+  'public',
+  'bag_items',
   'bag_items_stable_unique_idx',
   'one stable product tuple is enforced per profile'
 );
